@@ -269,8 +269,11 @@ def cmd_ahora(args):
     tarjetas, verificar = _cuenta_drill()
     lagunas, estructurales = _cuenta_lagunas()
     print("\n  PENDIENTE")
-    print(f"    drill      {tarjetas} tarjetas"
-          + (f", {verificar} esperan que pegues el paper" if verificar else ""))
+    if tarjetas:
+        print(f"    drill      {tarjetas} sin exportar a Anki"
+              + (f", {verificar} esperan que pegues el paper" if verificar else ""))
+    else:
+        print("    drill      nada sin exportar. El repaso lo lleva Anki, no esto.")
     print(f"    lagunas    {lagunas}"
           + (f", {estructurales} ESTRUCTURALES: esas piden libro, no chat" if estructurales else ""))
     if not _reuniones():
