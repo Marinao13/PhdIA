@@ -17,6 +17,7 @@ Unico punto de entrada del sistema. Toda llamada a la IA pasa por aqui.
   python doc.py metricas               los numeros, sin autodeclaracion
   python doc.py anki                   exporta tarjetas nuevas
   python doc.py estado                 en que fase estas
+  python doc.py ahora                  que te toca ahora, y el comando exacto
 """
 import sys, argparse
 
@@ -43,6 +44,10 @@ def main():
 
     sub.add_parser("ataque", help="empieza la fase 3").set_defaults(fn=K.cmd_ataque)
     sub.add_parser("estado", help="fase actual").set_defaults(fn=K.cmd_estado)
+
+    s = sub.add_parser("ahora", help="que te toca ahora mismo")
+    s.add_argument("--breve", action="store_true", help="sin la chuleta de comandos")
+    s.set_defaults(fn=K.cmd_ahora)
 
     s = sub.add_parser("preguntar", help="REPL de fase 2")
     s.add_argument("--forzar", action="store_true", help="saltar la puerta (queda registrado)")
