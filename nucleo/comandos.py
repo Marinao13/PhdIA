@@ -176,7 +176,46 @@ def _mapa(fase, en_sesion):
     return [arriba.rstrip(), abajo.rstrip()]
 
 
-def _siguiente(fase, en_sesion, hay_diagnostico):
+def _parrafo(cuerpo, etiqueta):
+    """El parrafo que empieza por `etiqueta`, en una sola linea. None si no esta."""
+    m = re.search(rf"^{re.escape(etiqueta)}\s*(.*?)(?=\n\s*\n|\Z)", cuerpo, re.M | re.S)
+    return " ".join(m.group(1).split()) if m else None
+
+
+def _semana_base():
+    """
+    Si contexto/estado.md dice 'BASE ... semana N de T', devuelve la seccion
+    de corpus/base.md que cubre esa semana: dict(n, total, titulo, texto, meta).
+    Fuera de la fase base, None.
+    """
+    m = re.search(r"BASE.*?semana (\d+) de (\d+)", _linea_estado("Fase") or "")
+    if not m:
+        return None
+    n, total = int(m.group(1)), int(m.group(2))
+    sem = dict(n=n, total=total, titulo=None, texto=None, meta=None)
+    patron = r"^## Semanas? (\d+)(?:-(\d+))?\.\s*(.+?)\s*$(.*?)(?=^## |\Z)"
+    for sec in re.finditer(patron, C.leer(C.F_BASE), re.M | re.S):
+        a, b = int(sec.group(1)), int(sec.group(2) or sec.group(1))
+        if a <= n <= b:
+            cuerpo = sec.group(4)
+            sem.update(titulo=sec.group(3), texto=_parrafo(cuerpo, "Texto:"),
+                       meta=_parrafo(cuerpo, "Meta al acabar:"))
+            break
+    return sem
+
+
+def _sugerir_sesion(base, porque):
+    """Como abrir la sesion de hoy: con libro durante la base, con paper despues."""
+    if base:
+        return ("python doc.py sesion base-ETIQUETA",
+                porque,
+                "ETIQUETA = libro y capitulo, p. ej. base-conway-iv. Fase 1 con el libro cerrado.")
+    return ("python doc.py sesion ETIQUETA",
+            porque + " ETIQUETA es el paper: p. ej. thilliez2003.",
+            "detras: 10 min de carga en frio y 25 de intento a ciegas, motor OFF")
+
+
+def _siguiente(fase, en_sesion, hay_diagnostico, base):
     """(comando, por que, lo que viene detras) desde donde estas ahora."""
     if fase == "f1" and not en_sesion:
         return ("(sigue en la ventana del diagnostico)",
@@ -188,31 +227,33 @@ def _siguiente(fase, en_sesion, hay_diagnostico):
                 "detras: python doc.py preguntar")
     if fase == "f3":
         return ("python doc.py sellar 3",
-                "45 min de ataque: extension, contraejemplo, caso Beurling. Motor APAGADO.",
+                "45 min de ataque" + (": ejercicios del capitulo" if base else
+                                      ": extension, contraejemplo, caso Beurling") + ". Motor APAGADO.",
                 "detras: python doc.py cierre")
     if fase == "f4":
         return ("python doc.py cierre",
-                "fase 4: diff contra el paper, errores, tarjetas y lagunas.",
+                "fase 4: diff contra el texto, errores, tarjetas y lagunas.",
                 "cierra el dia. Manana, sesion nueva.")
     if fase == "f2" and en_sesion:
         return ("python doc.py preguntar",
                 "fase 2, 60 min. El motor esta encendido.",
                 "detras: python doc.py ataque")
+    if fase == "libre" and E.sesion_hoy():
+        return ("(nada: la sesion de hoy esta cerrada)",
+                "ya hiciste el ciclo completo hoy. Manana, otra.",
+                "si te sobra hora: python doc.py anki, o una laguna del registro")
     if not hay_diagnostico:
         return ("python doc.py diagnostico",
                 "la primera toma de contacto, 3 horas, una sola vez. Reserva el hueco.",
                 "ensena antes corpus/diagnostico.md a tus directores.")
     if fase == "f2" and not en_sesion:
-        return ("python doc.py sesion thilliez2003",
-                "el diagnostico ya esta sellado y calibrado. No estas dentro de una sesion.",
-                "detras: 10 min de carga en frio y 25 de intento a ciegas, motor OFF")
+        return _sugerir_sesion(base, "el diagnostico ya esta sellado y calibrado. "
+                                     "No estas dentro de una sesion.")
     if datetime.date.today().weekday() == 4:
         return ("python doc.py lagunas",
                 "es viernes: toca el lote de lagunas, 45 min.",
                 "detras: python doc.py metricas, para ver como va el trimestre")
-    return ("python doc.py sesion ETIQUETA",
-            "abre la sesion de hoy. ETIQUETA es el paper: p. ej. thilliez2003.",
-            "detras: 10 min de carga en frio y 25 de intento a ciegas, motor OFF")
+    return _sugerir_sesion(base, "abre la sesion de hoy.")
 
 
 AYUDA_CICLO = """
@@ -239,6 +280,7 @@ def cmd_ahora(args):
     en_sesion = fase != "libre" and E.sesion_hoy() is not None
     hay_diagnostico = any(m.startswith("sellado :: diagnostico")
                           for _, m in E.commits_todos())
+    base = _semana_base()
 
     cabecera = _linea_estado("Fase") or "sin fase declarada en contexto/estado.md"
     if cabecera.startswith("Fase: "):
@@ -249,22 +291,32 @@ def cmd_ahora(args):
     for l in _mapa(fase, en_sesion):
         print(l)
 
-    comando, porque, detras = _siguiente(fase, en_sesion, hay_diagnostico)
+    comando, porque, detras = _siguiente(fase, en_sesion, hay_diagnostico, base)
     print("\n  TE TOCA AHORA\n")
     print("    " + comando)
     print("    " + porque)
     if detras:
         print("    " + detras)
 
-    texto = _linea_estado("Texto de la semana")
-    siguiente, hechos, total = _corpus_siguiente()
     print("\n  MATERIAL")
-    if texto:
-        print("    " + texto.split(":", 1)[1].strip() if ":" in texto else "    " + texto)
-    if siguiente:
-        print(f"    corpus {hechos}/{total}, siguiente sin leer: {siguiente}")
-    elif total:
-        print(f"    corpus {hechos}/{total}: nucleo terminado")
+    if base:
+        print(f"    semana {base['n']} de {base['total']} de base"
+              + (f": {base['titulo']}" if base["titulo"] else ""))
+        texto = base["texto"] or _linea_estado("Texto de la semana")
+        if texto:
+            print("    " + (texto.split(":", 1)[1].strip() if texto.startswith("Texto") else texto))
+        if base["meta"]:
+            print("    meta: " + base["meta"])
+        print("    el corpus de papers espera a que acabe la base (corpus/base.md)")
+    else:
+        texto = _linea_estado("Texto de la semana")
+        siguiente, hechos, total = _corpus_siguiente()
+        if texto:
+            print("    " + (texto.split(":", 1)[1].strip() if ":" in texto else texto))
+        if siguiente:
+            print(f"    corpus {hechos}/{total}, siguiente sin leer: {siguiente}")
+        elif total:
+            print(f"    corpus {hechos}/{total}: nucleo terminado")
 
     tarjetas, verificar = _cuenta_drill()
     lagunas, estructurales = _cuenta_lagunas()
@@ -860,11 +912,15 @@ def cmd_metricas(args):
 
 def cmd_anki(args):
     import csv
-    lineas = [l.strip() for l in C.leer(C.F_PENDIENTES).splitlines()
-              if "::" in l and not l.startswith("#") and not l.startswith("<!--")
-              and "`" not in l]
+    todas = [l.strip() for l in C.leer(C.F_PENDIENTES).splitlines()
+             if "::" in l and not l.startswith("#") and not l.startswith("<!--")
+             and "`" not in l]
+    # Una tarjeta cuya respuesta es "pendiente de pegar la definicion" no se
+    # repasa: se queda aqui hasta que exista la definicion.
+    retenidas = [l for l in todas if "VERIFICAR CON PAPER" in l]
+    lineas = [l for l in todas if "VERIFICAR CON PAPER" not in l]
     if not lineas:
-        print("nada pendiente")
+        print("nada exportable" + (f": las {len(retenidas)} que hay esperan el paper" if retenidas else ""))
         return
     salida = os.path.join(C.DIR_DRILL, f"anki-{HOY}.csv")
     with open(salida, "w", newline="", encoding="utf-8") as f:
@@ -874,8 +930,13 @@ def cmd_anki(args):
             w.writerow([p.strip().lstrip("- "), r.strip()])
     C.anadir(os.path.join(C.DIR_DRILL, "exportadas.md"),
              f"\n## exportadas {HOY}\n" + "\n".join(lineas) + "\n")
-    C.escribir(C.F_PENDIENTES, "# Pendientes\n\nUna tarjeta por linea con el separador de dos "
-               "puntos dobles.\nLas generan cierre, lagunas y diagnostico. No fabriques tarjetas "
-               "a mano.\n")
+    cabecera = ("# Pendientes\n\nUna tarjeta por linea con el separador de dos puntos dobles.\n"
+                "Las generan cierre, lagunas y diagnostico. No fabriques tarjetas a mano.\n")
+    if retenidas:
+        cabecera += "\n<!-- esperan el paper: completa la respuesta y vuelve a exportar -->\n" \
+                    + "\n".join(retenidas) + "\n"
+    C.escribir(C.F_PENDIENTES, cabecera)
     print(f"{len(lineas)} tarjetas -> {os.path.relpath(salida, C.RAIZ)}")
+    if retenidas:
+        print(f"{len(retenidas)} se quedan en drill/pendientes.md: su respuesta es 'pendiente de pegar'.")
     print("Anki: Archivo > Importar, separador punto y coma, mazo 'doctorado'.")

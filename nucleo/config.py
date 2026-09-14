@@ -54,6 +54,7 @@ F_LLAMADAS = os.path.join(DIR_REGISTRO, "llamadas.jsonl")
 F_PENDIENTES = os.path.join(DIR_DRILL, "pendientes.md")
 F_DIAGNOSTICO = os.path.join(DIR_CORPUS, "diagnostico.md")
 F_ORDEN = os.path.join(DIR_CORPUS, "orden.md")
+F_BASE = os.path.join(DIR_CORPUS, "base.md")
 F_PESOS = os.path.join(DIR_LAB, "pesos.py")
 
 DIR_CONTEXTO = os.path.join(RAIZ, "contexto")
