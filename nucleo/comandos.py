@@ -125,6 +125,168 @@ def cmd_estado(args):
     print(f"  proveedor: {C.PROVEEDOR}   modelo: {C.MODELO}" + ("  [SIMULACION]" if C.SIMULAR else ""))
 
 
+def _linea_estado(clave):
+    """La linea '- clave: ...' de contexto/estado.md, sin el guion."""
+    for l in C.leer(C.F_ESTADO).splitlines():
+        if l.startswith(f"- {clave}:"):
+            return l[2:].strip()
+    return None
+
+
+def _corpus_siguiente():
+    """(primer titulo sin leer, leidos, total) del nucleo de corpus/orden.md."""
+    m = re.search(r"^## Nucleo.*?$(.*?)(?=^## |\Z)", C.leer(C.F_ORDEN), re.M | re.S)
+    if not m:
+        return None, 0, 0
+    items = re.findall(r"^- \[(.)\]\s*(.+)$", m.group(1), re.M)
+    sin = [t for e, t in items if e == " "]
+    return (sin[0] if sin else None), len(items) - len(sin), len(items)
+
+
+def _cuenta_drill():
+    """(tarjetas, cuantas esperan el paper delante)."""
+    lineas = [l for l in C.leer(C.F_PENDIENTES).splitlines()
+              if "::" in l and not l.startswith("#") and not l.startswith("<!--")
+              and "`" not in l]
+    return len(lineas), sum(1 for l in lineas if "VERIFICAR CON PAPER" in l)
+
+
+def _cuenta_lagunas():
+    """(pendientes, estructurales). Fuera los ejemplos de los bloques de codigo."""
+    lag = re.sub(r"```.*?```", "", C.leer(C.F_LAGUNAS), flags=re.S)
+    return (len(re.findall(r"^- \[ \]", lag, re.M)),
+            len(re.findall(r"^- \[.*ESTRUCTURAL", lag, re.M)))
+
+
+# Las cuatro fases de una sesion, con el motor de cada una.
+CICLO = (("1 ciego", "OFF"), ("2 IA", "ON"), ("3 ataque", "OFF"), ("4 cierre", "ON"))
+_COLUMNA = {"f1": 0, "f2": 1, "f3": 2, "f4": 3}
+
+
+def _mapa(fase, en_sesion):
+    """El ciclo dibujado, con corchetes donde estas."""
+    if not en_sesion:
+        return ["    sin sesion abierta hoy. El motor esta ENCENDIDO: puedes preguntar,",
+                "    resolver lagunas o usar el laboratorio."]
+    aqui = _COLUMNA[fase]
+    arriba, abajo = "   ", "   "
+    for i, (nombre, motor) in enumerate(CICLO):
+        arriba += (f"[ {nombre} ]" if i == aqui else f"  {nombre}  ").center(16)
+        abajo += (motor if i != aqui else f"AQUI, {motor}").center(16)
+    return [arriba.rstrip(), abajo.rstrip()]
+
+
+def _siguiente(fase, en_sesion, hay_diagnostico):
+    """(comando, por que, lo que viene detras) desde donde estas ahora."""
+    if fase == "f1" and not en_sesion:
+        return ("(sigue en la ventana del diagnostico)",
+                "el diagnostico esta a medias: se sella solo al terminar los items.",
+                "si lo cortaste: python doc.py diagnostico --repetir")
+    if fase == "f1":
+        return ("python doc.py sellar 1",
+                "estas en el intento a ciegas, por escrito y sin ayuda. Motor APAGADO.",
+                "detras: python doc.py preguntar")
+    if fase == "f3":
+        return ("python doc.py sellar 3",
+                "45 min de ataque: extension, contraejemplo, caso Beurling. Motor APAGADO.",
+                "detras: python doc.py cierre")
+    if fase == "f4":
+        return ("python doc.py cierre",
+                "fase 4: diff contra el paper, errores, tarjetas y lagunas.",
+                "cierra el dia. Manana, sesion nueva.")
+    if fase == "f2" and en_sesion:
+        return ("python doc.py preguntar",
+                "fase 2, 60 min. El motor esta encendido.",
+                "detras: python doc.py ataque")
+    if not hay_diagnostico:
+        return ("python doc.py diagnostico",
+                "la primera toma de contacto, 3 horas, una sola vez. Reserva el hueco.",
+                "ensena antes corpus/diagnostico.md a tus directores.")
+    if fase == "f2" and not en_sesion:
+        return ("python doc.py sesion thilliez2003",
+                "el diagnostico ya esta sellado y calibrado. No estas dentro de una sesion.",
+                "detras: 10 min de carga en frio y 25 de intento a ciegas, motor OFF")
+    if datetime.date.today().weekday() == 4:
+        return ("python doc.py lagunas",
+                "es viernes: toca el lote de lagunas, 45 min.",
+                "detras: python doc.py metricas, para ver como va el trimestre")
+    return ("python doc.py sesion ETIQUETA",
+            "abre la sesion de hoy. ETIQUETA es el paper: p. ej. thilliez2003.",
+            "detras: 10 min de carga en frio y 25 de intento a ciegas, motor OFF")
+
+
+AYUDA_CICLO = """
+  UNA SESION ENTERA, DE PRINCIPIO A FIN
+    python doc.py sesion ETIQUETA   fase 0 y 1, 35 min.  motor OFF
+    python doc.py sellar 1          cierra el intento a ciegas -> motor ON
+    python doc.py preguntar         fase 2, 60 min.  /notacion /lema /paso /pegar
+    python doc.py ataque            fase 3, 45 min.  motor OFF
+    python doc.py sellar 3          cierra el ataque -> motor ON
+    python doc.py cierre            fase 4: diff, errores, tarjetas, lagunas
+
+  FUERA DE SESION
+    python doc.py lagunas           viernes, 45 min, el lote de huecos
+    python doc.py lab "..."         la IA escribe el script, mpmath juzga
+    python doc.py reunion           notas de la reunion de hoy
+    python doc.py anki              exporta las tarjetas nuevas
+    python doc.py metricas          los numeros, sin autodeclaracion
+
+  (esta chuleta se calla con:  python doc.py ahora --breve)"""
+
+
+def cmd_ahora(args):
+    fase, marcas = E.fase_actual()
+    en_sesion = fase != "libre" and E.sesion_hoy() is not None
+    hay_diagnostico = any(m.startswith("sellado :: diagnostico")
+                          for _, m in E.commits_todos())
+
+    cabecera = _linea_estado("Fase") or "sin fase declarada en contexto/estado.md"
+    if cabecera.startswith("Fase: "):
+        cabecera = cabecera[len("Fase: "):]
+    print()
+    print("  " + cabecera)
+    print()
+    for l in _mapa(fase, en_sesion):
+        print(l)
+
+    comando, porque, detras = _siguiente(fase, en_sesion, hay_diagnostico)
+    print("\n  TE TOCA AHORA\n")
+    print("    " + comando)
+    print("    " + porque)
+    if detras:
+        print("    " + detras)
+
+    texto = _linea_estado("Texto de la semana")
+    siguiente, hechos, total = _corpus_siguiente()
+    print("\n  MATERIAL")
+    if texto:
+        print("    " + texto.split(":", 1)[1].strip() if ":" in texto else "    " + texto)
+    if siguiente:
+        print(f"    corpus {hechos}/{total}, siguiente sin leer: {siguiente}")
+    elif total:
+        print(f"    corpus {hechos}/{total}: nucleo terminado")
+
+    tarjetas, verificar = _cuenta_drill()
+    lagunas, estructurales = _cuenta_lagunas()
+    print("\n  PENDIENTE")
+    print(f"    drill      {tarjetas} tarjetas"
+          + (f", {verificar} esperan que pegues el paper" if verificar else ""))
+    print(f"    lagunas    {lagunas}"
+          + (f", {estructurales} ESTRUCTURALES: esas piden libro, no chat" if estructurales else ""))
+    if not _reuniones():
+        reunion = _linea_estado("Primera reunion con directores")
+        if reunion and ":" in reunion:
+            reunion = reunion.split(":", 1)[1].strip()
+        print("    reunion    " + (reunion or "sin ninguna registrada todavia"))
+    problema = _linea_estado("Problema de arranque")
+    if problema and "sin delimitar" in problema:
+        print("    problema   " + problema.split(":", 1)[1].strip())
+
+    if not getattr(args, "breve", False):
+        print(AYUDA_CICLO)
+    print()
+
+
 def _abrir(ruta):
     import shutil, subprocess
     try:
