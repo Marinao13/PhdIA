@@ -31,6 +31,14 @@ con respuestas correctas y sin el mapa. Si te falta el capitulo, lee el capitulo
 
 ## Pendientes
 
+- [ ] 2026-09-14 | diagnostico | - | Estimaciones de Cauchy: no recuerdas el enunciado, las hipótesis ni qué magnitudes permiten controlar.
+- [ ] 2026-09-14 | diagnostico | - | Phragmén-Lindelöf en un sector: no reconoces el resultado; faltan sus hipótesis de frontera y crecimiento y su conclusión.
+- [ ] 2026-09-14 | diagnostico | - | Teorema de Borel: no recuerdas el enunciado ni si lo estudiaste; falta identificar qué versión exige el diagnóstico.
+- [ ] 2026-09-14 | diagnostico | - | Clases de Carleman-Roumieu y Carleman-Beurling: recuerdas una idea de control del crecimiento, pero no las definiciones, los cuantificadores ni la normalización de la sucesión.
+- [ ] 2026-09-14 | diagnostico | - | Sucesiones fuertemente regulares: recuerdas vagamente la log-convexidad, pero no puedes enunciarla ni enumerar y formular las demás condiciones.
+- [ ] 2026-09-14 | diagnostico | - | Sumabilidad: no conoces la transformada de Borel formal ni la definición de k-sumabilidad direccional; tampoco recuerdas la fórmula de Laplace ni los resultados que se pedían.
+- [ ] 2026-09-14 | diagnostico | - | Thilliez 2010: recuerdas el enunciado, pero no la prueba, la técnica ni el paso difícil; además, faltaba comprender parte del vocabulario del texto.
+
 - [ ] 2026-09-15 | ejemplo | f2 | Phragmen-Lindelof en sectores : no recuerdo que hipotesis de crecimiento hace falta ni por que el angulo importa
 
 ## Resueltas

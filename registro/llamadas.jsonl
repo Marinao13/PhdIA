@@ -1,1 +1,2 @@
 {"ts": "2026-09-14T19:09:22", "comando": "preguntar", "fase": "f2", "proveedor": "openai", "modelo": "gpt-6-astra", "tokens_in": 665, "tokens_out": 24, "forzado": false, "simulado": false}
+{"ts": "2026-09-14T22:00:46", "comando": "diagnostico", "fase": "f2", "proveedor": "openai", "modelo": "gpt-6-astra", "tokens_in": 1872, "tokens_out": 3398, "forzado": false, "simulado": false}

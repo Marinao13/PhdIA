@@ -1,0 +1,13 @@
+Javier, Alberto:
+
+He realizado el diagnóstico inicial para orientar la preparación y delimitar el trabajo de los próximos meses. En la tabla he puntuado con 0 las estimaciones de Cauchy, Phragmén-Lindelöf en un sector, el teorema de Borel, las sucesiones fuertemente regulares, la sumabilidad y la reconstrucción de Thilliez 2010. He puntuado con 1 las clases de Carleman, porque conservo la idea general de control del crecimiento, pero no sus definiciones. En Thilliez 2010 recuerdo el enunciado, aunque no la prueba, la técnica ni el paso difícil, y parte del vocabulario me impedía entender la lectura.
+
+La media de esta tabla es 0,14 sobre 3. Mi archivo de estado recoge 0,29 y asigna un 1 al enunciado de Thilliez; necesito distinguir ese recuerdo de la capacidad de reconstrucción y unificar el registro. Los tiempos anotados son casi nulos y no documentan intentos prolongados. Por tanto, tomo el diagnóstico como un inventario de contenidos que ahora no puedo recuperar, no como una medida de mi velocidad de trabajo ni como una evaluación completa de mi formación.
+
+Trabajo a jornada completa y dispongo de 15 horas semanales para la tesis. He comenzado una fase de base de ocho semanas; el texto de esta semana es el apartado de estimaciones de Cauchy del capítulo IV de Conway I consignado en mi plan. Organizaré las sesiones con un intento a ciegas y un sellado previo a consultar la fuente: conservaré lo escrito, el tiempo empleado y las dudas. Después contrastaré con el texto y registraré las correcciones por separado. Quiero comprobar la recuperación de los contenidos, no solo completar lecturas.
+
+También prepararé un laboratorio numérico de sucesiones peso para explorar ejemplos y detectar posibles errores de cálculo. Lo usaré como apoyo: las comprobaciones finitas no sustituirán la verificación de las condiciones de una definición. Para el material especializado fijaré las convenciones directamente desde los artículos, evitando mezclar normalizaciones entre fuentes.
+
+Os pido que concretemos un problema de arranque acotado a seis meses, con un objetivo escrito, las hipótesis de partida, las lecturas imprescindibles y un criterio de cierre. Mi proyecto señala el caso Beurling y la transferencia de Thilliez a clases de matriz peso como primeros pasos. Me gustaría que valorásemos cuál permite formular una tarea inicial abordable con mi disponibilidad y mi punto de partida, sin asumir todavía que ninguna de esas líneas sea inmediata.
+
+Os pido también que reviséis la lista del diagnóstico por si falta algún prerrequisito.

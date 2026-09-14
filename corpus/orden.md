@@ -32,3 +32,10 @@ La tabla mas util que vas a construir. Cada autor escribe (mg), (dc) y
 | (mg)      | | | |
 | (dc)      | | | |
 
+
+## Ajuste tras el diagnostico (2026-09-14)
+
+Mantendría primero la recuperación clásica prevista: esta semana, las estimaciones de Cauchy en el texto consignado, Conway I, capítulo IV.
+Adelantaría una lectura introductoria y seleccionada de Balser respecto del orden original, porque Borel formal y sumabilidad están a cero; antes recuperaría Laplace.
+Orden provisional del corpus: Balser seleccionado → Thilliez 2003 → Thilliez 2010 → Lastra-Malek-Sanz 2015 → Jiménez-Garrido-Sanz-Schindl 2019 → Rainer-Schindl 2014 → Carrillo-Mozo 2018.
+No daría ese orden por una cadena de prerrequisitos verificada: faltan títulos completos, índices y fragmentos, y el problema que delimiten los directores puede modificarlo.
