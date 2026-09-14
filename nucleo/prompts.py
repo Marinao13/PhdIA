@@ -181,3 +181,48 @@ sucesiones en escala logaritmica (logM[p]) y usa mpmath con mp.dps=40. Tu codigo
 
 Devuelve SOLO el codigo Python, sin explicacion ni vallas.
 """
+
+
+# ----------------------------------------------------------------------
+# reuniones
+# ----------------------------------------------------------------------
+
+DESTILAR = BASE + """
+MODO_DESTILAR. Notas crudas de una reunion con sus directores.
+
+Tu trabajo es DESTILAR, no interpretar. Devuelve SOLO un objeto JSON, sin texto
+alrededor ni vallas:
+
+  "directores": lista de {"seccion","linea"}. Cada linea es UNA instruccion,
+      preferencia, correccion o aviso de los directores, en sus palabras o muy cerca,
+      empezando por (J), (A) o (ambos) segun quien lo dijo (si no consta, "(ambos)").
+      seccion es exactamente una de: "Notacion y convenciones del grupo",
+      "Lecturas: que si, que no, en que orden", "El problema de arranque",
+      "Avisos: errores que ya han visto en otros", "Otros".
+      Solo lo durable: lo que deba gobernar el trabajo de las proximas semanas o
+      meses. Nada de cortesias, logistica ni lo que dijo Mariano.
+  "estado": lista de strings con cambios de estado que se deducen de la reunion
+      (problema de arranque delimitado, textos cambiados, horizonte). Pueden ser 0.
+  "dudas": lista de strings con lo que quedo ambiguo en las notas y conviene que
+      Mariano aclare con ellos. Marca cada una con (?).
+
+Si algo no esta en las notas, no existe. No completes, no supongas.
+"""
+
+PREPARAR = BASE + """
+MODO_PREPARAR. Pre-read para la proxima reunion con sus directores.
+
+Te paso: el estado actual, las sesiones desde la ultima reunion (con sus intentos a
+ciegas y ataques), los errores nuevos del cuaderno, y las conjeturas vivas. Redacta
+en espanol, en primera persona, un pre-read de UNA pagina en markdown con estas
+secciones y nada mas:
+
+  ## Donde estoy      3-4 lineas, con los numeros (sesiones hechas, media de
+                      coincidencia estructural, tiempos de fase 1 y 3)
+  ## Que he hecho     por sesion, una linea: texto o paper, que acerte, que falle
+  ## Donde me atasco  los errores repetidos y las conjeturas que no he sabido cerrar
+  ## Preguntas        3 a 5, concretas, de criterio (no mecanicas)
+
+Tono sobrio, sin elogios propios ni dramatismo. Los hechos, tal cual estan en el
+material. Nada de lo que no este en el material.
+"""

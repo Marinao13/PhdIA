@@ -112,6 +112,9 @@ def cmd_estado(args):
     nombres = dict(libre="libre (sin sesion hoy)", f1="fase 1, motor OFF",
                    f2="fase 2, motor ON", f3="fase 3, motor OFF", f4="fase 4, motor ON")
     print(nombres[fase])
+    for l in C.leer(C.F_ESTADO).splitlines():
+        if l.startswith("- Fase:"):
+            print(" ", l[2:])
     for k in ("inicio", "sello1", "ataque", "sello3"):
         if m[k]:
             print(f"  {k:<8} {m[k].strftime('%H:%M')}")
@@ -119,7 +122,7 @@ def cmd_estado(args):
         print(f"  fase 1: {E.minutos(m['inicio'], m['sello1'])} min")
     if m["ataque"] and m["sello3"]:
         print(f"  fase 3: {E.minutos(m['ataque'], m['sello3'])} min")
-    print(f"  modelo: {C.MODELO}" + ("  [SIMULACION]" if C.SIMULAR else ""))
+    print(f"  proveedor: {C.PROVEEDOR}   modelo: {C.MODELO}" + ("  [SIMULACION]" if C.SIMULAR else ""))
 
 
 def _abrir(ruta):
@@ -383,6 +386,23 @@ def _items_diagnostico():
 
 
 def cmd_diagnostico(args):
+    if getattr(args, "calibrar", False):
+        ya = sorted(glob.glob(os.path.join(C.DIR_SESIONES, "*-diagnostico.md")))
+        if not ya:
+            print("no hay ningun diagnostico sellado")
+            return
+        ruta = ya[-1]
+        texto = C.leer(ruta)
+        m = re.search(r"(\| # \| Item.*?)(?=\n## |\Z)", texto, re.S)
+        if not m:
+            print("no encuentro la tabla en", os.path.relpath(ruta, C.RAIZ))
+            return
+        if "## Calibracion" in texto and not args.repetir:
+            print("ese diagnostico ya esta calibrado (usa --repetir para rehacerla)")
+            return
+        _calibrar(ruta, m.group(1).strip())
+        return
+
     items = _items_diagnostico()
     if not items:
         print("no hay items en corpus/diagnostico.md")
@@ -431,13 +451,24 @@ def cmd_diagnostico(args):
     E.sellar("sellado :: diagnostico ::")
     print(f"\nsellado. media {media:.2f}/3. Ahora, y solo ahora, entra la IA a calibrar.\n")
 
-    # calibracion
+    _calibrar(ruta, tabla)
+
+
+def _calibrar(ruta, tabla):
+    """Solo la parte con IA. Se puede relanzar con --calibrar si la API fallo."""
     try:
         r = M.parse_json(M.llamar("diagnostico", P.DIAGNOSTICO,
                                   [{"role": "user", "content": tabla}],
                                   max_tokens=C.MAX_TOKENS_DIAGNOSTICO))
     except (M.MotorApagado, ValueError) as e:
         print(e)
+        print("\nEl diagnostico esta sellado y a salvo. Cuando la API funcione:\n"
+              "    python doc.py diagnostico --calibrar")
+        return
+    except Exception as e:
+        print(f"fallo la llamada a la API: {e}")
+        print("\nEl diagnostico esta sellado y a salvo. Revisa la clave en .env y luego:\n"
+              "    python doc.py diagnostico --calibrar")
         return
 
     M.imprimir("**Donde estas**\n\n" + r.get("resumen", ""))
@@ -455,6 +486,131 @@ def cmd_diagnostico(args):
     print(f"pre-read para directores -> {os.path.relpath(preread, C.RAIZ)}")
     M.aviso("\nEl pre-read es un borrador en primera persona. Reescribelo con tu voz antes "
             "de mandarlo, y pideles que revisen la lista del diagnostico.")
+
+
+
+
+# ======================================================================
+# reuniones con directores
+# ======================================================================
+
+def _reuniones():
+    """Ficheros de reunion (no pre-reads ni plantilla), ordenados por fecha."""
+    return sorted(f for f in glob.glob(os.path.join(C.DIR_REUNIONES, "2*.md"))
+                  if "preread" not in os.path.basename(f))
+
+
+def cmd_reunion(args):
+    if args.destilar:
+        return _reunion_destilar(args)
+    if args.preparar:
+        return _reunion_preparar(args)
+
+    destino = os.path.join(C.DIR_REUNIONES, f"{HOY}.md")
+    if os.path.exists(destino):
+        print("ya existe", os.path.relpath(destino, C.RAIZ))
+    else:
+        C.escribir(destino, C.leer(C.F_PLANTILLA_REUNION).replace("AAAA-MM-DD", HOY))
+        print("creada", os.path.relpath(destino, C.RAIZ))
+    print("Escribe las notas crudas. Despues:  python doc.py reunion --destilar")
+    _abrir(destino)
+
+
+def _reunion_destilar(args):
+    reuniones = _reuniones()
+    if not reuniones:
+        print("no hay notas de reunion. Primero:  python doc.py reunion")
+        return
+    ruta = reuniones[-1]
+    notas = C.leer(ruta)
+    if "## Notas crudas\n" in notas and len(notas.split("## Notas crudas", 1)[1].strip()) < 40:
+        print("las notas crudas estan vacias en", os.path.relpath(ruta, C.RAIZ))
+        return
+
+    print("destilando", os.path.relpath(ruta, C.RAIZ), "...")
+    try:
+        r = M.parse_json(M.llamar("reunion", P.DESTILAR,
+                                  [{"role": "user", "content": notas}],
+                                  max_tokens=C.MAX_TOKENS_JSON))
+    except (M.MotorApagado, ValueError) as e:
+        print(e)
+        return
+
+    fecha = os.path.basename(ruta)[:10]
+    texto = C.leer(C.F_DIRECTORES)
+    aceptadas = 0
+    print("\nPropuestas para contexto/directores.md. Enter acepta, n rechaza, e edita.\n")
+    for it in r.get("directores", []) or []:
+        sec, linea = it.get("seccion", "Otros"), it.get("linea", "").strip()
+        if not linea:
+            continue
+        print(f"[{sec}]\n  - {fecha} {linea}")
+        try:
+            resp = input("  > ").strip().lower()
+        except EOFError:
+            resp = ""
+        if resp == "n":
+            continue
+        if resp == "e":
+            linea = input("  linea corregida: ").strip() or linea
+        cabecera = f"## {sec}\n"
+        entrada = f"- {fecha} {linea}\n"
+        if cabecera in texto:
+            texto = texto.replace(cabecera, cabecera + entrada, 1)
+        else:
+            texto += f"\n{cabecera}{entrada}"
+        aceptadas += 1
+    C.escribir(C.F_DIRECTORES, texto)
+
+    if r.get("estado"):
+        print("\nCambios de estado que se deducen. Pegalos tu en contexto/estado.md:")
+        for e in r["estado"]:
+            print("  -", e)
+    if r.get("dudas"):
+        print("\nQuedo ambiguo, aclaralo con ellos:")
+        for d in r["dudas"]:
+            print("  -", d)
+
+    E.sellar("reunion destilada ::")
+    print(f"\n{aceptadas} lineas anadidas a contexto/directores.md")
+    if len(C.leer(C.F_DIRECTORES)) + len(C.leer(C.F_ESTADO)) > C.LIMITE_CONTEXTO:
+        M.aviso("El contexto vivo se esta haciendo largo. Condensa: fusiona lineas, quita lo caducado.")
+
+
+def _reunion_preparar(args):
+    reuniones = _reuniones()
+    desde = os.path.basename(reuniones[-1])[:10] if reuniones else \
+        (datetime.date.today() - datetime.timedelta(days=14)).isoformat()
+
+    sesiones = [f for f in sorted(glob.glob(os.path.join(C.DIR_SESIONES, "2*.md")))
+                if os.path.basename(f)[:10] > desde and "EJEMPLO" not in f]
+    if not sesiones:
+        print(f"no hay sesiones desde {desde}")
+        return
+
+    material = f"ESTADO:\n{C.leer(C.F_ESTADO)}\n\n"
+    for f in sesiones:
+        material += f"=== SESION {os.path.basename(f)} ===\n{C.leer(f)}\n\n"
+    errores = C.leer(C.F_ERRORES)
+    nuevos = [b for b in errores.split("\n### ")[1:] if b[:10] > desde]
+    if nuevos:
+        material += "ERRORES NUEVOS:\n### " + "\n### ".join(nuevos) + "\n\n"
+    conj = C.leer(C.F_CONJETURAS)
+    vivas = [b for b in conj.split("\n### ")[1:] if "Estado: viva" in b]
+    if vivas:
+        material += "CONJETURAS VIVAS:\n### " + "\n### ".join(vivas) + "\n"
+
+    print(f"preparando el pre-read con {len(sesiones)} sesiones desde {desde}...")
+    try:
+        texto = M.llamar("reunion", P.PREPARAR, [{"role": "user", "content": material}],
+                         max_tokens=C.MAX_TOKENS_JSON)
+    except M.MotorApagado as e:
+        print(e)
+        return
+    destino = os.path.join(C.DIR_REUNIONES, f"{HOY}-preread.md")
+    C.escribir(destino, texto)
+    print("escrito", os.path.relpath(destino, C.RAIZ))
+    M.aviso("Borrador. Reescribelo con tu voz antes de mandarlo.")
 
 
 # ======================================================================

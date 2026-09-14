@@ -19,7 +19,20 @@ def _cargar_env():
 
 _cargar_env()
 
-MODELO = os.environ.get("DOC_MODELO", "claude-sonnet-5")
+# proveedor: DOC_PROVEEDOR=anthropic|openai. Si no se indica, se deduce de que
+# clave hay en el entorno. Si hay las dos, anthropic.
+_p = os.environ.get("DOC_PROVEEDOR", "").strip().lower()
+if _p not in ("anthropic", "openai"):
+    _p = "openai" if (os.environ.get("OPENAI_API_KEY") and
+                      not os.environ.get("ANTHROPIC_API_KEY")) else "anthropic"
+PROVEEDOR = _p
+
+# modelo por defecto de cada proveedor. Cambialo en .env con DOC_MODELO.
+# El de OpenAI es el que usa su quickstart hoy; comprueba precios y nombres en
+# https://platform.openai.com/docs/models antes de fiarte del valor por defecto.
+_MODELOS = {"anthropic": "claude-sonnet-5", "openai": "gpt-6-astra"}
+MODELO = os.environ.get("DOC_MODELO") or _MODELOS[PROVEEDOR]
+
 SIMULAR = os.environ.get("DOC_SIMULAR", "") not in ("", "0", "false")
 
 MAX_TOKENS_CHAT = 1500
@@ -42,6 +55,13 @@ F_PENDIENTES = os.path.join(DIR_DRILL, "pendientes.md")
 F_DIAGNOSTICO = os.path.join(DIR_CORPUS, "diagnostico.md")
 F_ORDEN = os.path.join(DIR_CORPUS, "orden.md")
 F_PESOS = os.path.join(DIR_LAB, "pesos.py")
+
+DIR_CONTEXTO = os.path.join(RAIZ, "contexto")
+DIR_REUNIONES = os.path.join(RAIZ, "reuniones")
+F_ESTADO = os.path.join(DIR_CONTEXTO, "estado.md")
+F_DIRECTORES = os.path.join(DIR_CONTEXTO, "directores.md")
+F_PLANTILLA_REUNION = os.path.join(DIR_REUNIONES, "PLANTILLA.md")
+LIMITE_CONTEXTO = 7000   # caracteres; por encima, condensar
 
 
 def leer(ruta, defecto=""):

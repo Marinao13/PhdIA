@@ -10,9 +10,10 @@ que estar apagado, y registra cada llamada. Nada se autodeclara.
 python instalar.py
 ```
 
-Te crea `.env`. Abrelo y pega tu clave de la API (se crea en
-https://platform.claude.com, apartado API Keys). Es un fichero ignorado por git;
-no lo compartas.
+Te crea `.env`. Abrelo y pega UNA clave de API: `ANTHROPIC_API_KEY` o
+`OPENAI_API_KEY` (se crean en platform.claude.com o platform.openai.com,
+apartado API Keys). El proveedor se deduce de la clave que haya; con las dos,
+manda `DOC_PROVEEDOR`. Es un fichero ignorado por git; no lo compartas.
 
 Luego instala Anki, crea un mazo "doctorado" y activa FSRS en sus opciones. No
 construyas tu propio repetidor espaciado.
@@ -83,6 +84,41 @@ python doc.py anki                   exporta las tarjetas nuevas.
 python doc.py estado                 en que fase estas.
 ```
 
+## Contexto vivo: lo que la IA sabe de ti
+
+`nucleo/prompts.py` le dice a la IA tu tema y las reglas, pero eso es fijo. Lo
+que cambia vive en dos ficheros que TU mantienes y que se pegan al final del
+system prompt en TODAS las llamadas:
+
+```
+contexto/estado.md       donde estas: fase, semana, texto, problema de arranque.
+                         Diez lineas maximo. Se actualiza al cambiar de semana.
+contexto/directores.md   lo que dicen Javier y Alberto, una linea por instruccion,
+                         fechada y con quien la dijo. MANDA sobre el criterio del
+                         modelo y sobre los libros: si le pides algo que lo
+                         contradiga, te avisa antes de responder.
+```
+
+Curado, no transcrito. Las notas crudas de cada reunion son el archivo y van a
+`reuniones/`; a `directores.md` pasa solo lo que deba gobernar el trabajo.
+
+```
+python doc.py reunion              crea reuniones/HOY.md y lo abre. Escribe TODO,
+                                   durante o justo despues, textual entre comillas
+python doc.py reunion --destilar   lee esas notas y te propone, una a una, las
+                                   lineas para directores.md. Enter acepta, n
+                                   rechaza, e edita. Te lista aparte los cambios
+                                   de estado (los pegas tu en estado.md) y lo
+                                   que quedo ambiguo para que lo aclares
+python doc.py reunion --preparar   redacta el pre-read de la proxima reunion con
+                                   tus sesiones, errores y conjeturas desde la
+                                   anterior. Borrador: reescribelo con tu voz
+```
+
+Si el contexto vivo pasa de unos 7000 caracteres, el sistema te avisa. Entonces
+se condensa: fusionar lineas, quitar lo caducado. Un system prompt que crece
+sin limite acaba siendo ruido.
+
 ## Reparto semanal
 
 | Bloque | Horas | Comandos |
@@ -103,13 +139,26 @@ python doc.py estado                 en que fase estas.
 3. Las matematicas las escribes tu. La IA no toca produccion/ hasta que exista
    el borrador.
 
-## Coste
+## Proveedor y coste
 
-Cada llamada queda en `registro/llamadas.jsonl` con sus tokens, asi que el
-coste exacto lo calculas tu contra la tabla de precios del modelo
-(https://platform.claude.com). Con este volumen, del orden de una veintena de
-llamadas cortas por semana, es marginal. `DOC_MODELO` en `.env` cambia el modelo.
-`DOC_SIMULAR=1` prueba el flujo sin gastar nada.
+El proveedor solo se toca en `_completar` dentro de `nucleo/motor.py`; todo lo
+demas es independiente del modelo. Se elige en `.env`:
+
+```
+DOC_PROVEEDOR=anthropic | openai     (si falta, se deduce de la clave presente)
+DOC_MODELO=...                       (por defecto claude-sonnet-5 / gpt-6-astra)
+DOC_SIMULAR=1                        (prueba el flujo sin gastar nada)
+```
+
+Comprueba nombres y precios en la pagina de modelos del proveedor antes de
+fiarte del modelo por defecto: cambian cada pocos meses. Cada llamada queda en
+`registro/llamadas.jsonl` con proveedor, modelo y tokens, asi que el coste
+exacto lo calculas tu. Con este volumen, del orden de una veintena de llamadas
+cortas por semana, es marginal.
+
+Si con OpenAI las respuestas llegan cortadas (los modelos con razonamiento
+consumen parte del limite de salida en pensar), sube `MAX_TOKENS_*` en
+`nucleo/config.py`.
 
 ## Estructura
 
@@ -118,6 +167,9 @@ doc.py                 unico punto de entrada
 instalar.py            una vez
 nucleo/                config, estado (git), motor (API + puerta + log), prompts, comandos
 sesiones/              una por sesion, metricas en la cabecera (las rellena cierre)
+contexto/              estado.md y directores.md: se inyectan en toda llamada
+reuniones/             notas crudas de cada reunion y pre-reads
+corpus/base.md         plan de la fase base (semanas 1-8)
 corpus/diagnostico.md  items de la primera toma de contacto. Editable
 corpus/orden.md        los 8 papers nucleo + tabla de normalizaciones
 registro/errores.md    cuaderno de errores con taxonomia

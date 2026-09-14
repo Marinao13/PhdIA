@@ -11,6 +11,9 @@ Unico punto de entrada del sistema. Toda llamada a la IA pasa por aqui.
   python doc.py cierre                 fase 4: diff, errores, tarjetas, lagunas
   python doc.py lagunas                viernes: lote de huecos de grado/master
   python doc.py lab "especificacion"   la IA escribe el script, mpmath juzga
+  python doc.py reunion                notas de la reunion de hoy con directores
+  python doc.py reunion --destilar     de las notas crudas a contexto/directores.md
+  python doc.py reunion --preparar     pre-read para la proxima reunion
   python doc.py metricas               los numeros, sin autodeclaracion
   python doc.py anki                   exporta tarjetas nuevas
   python doc.py estado                 en que fase estas
@@ -58,7 +61,14 @@ def main():
 
     s = sub.add_parser("diagnostico", help="primera toma de contacto")
     s.add_argument("--repetir", action="store_true")
+    s.add_argument("--calibrar", action="store_true",
+                   help="solo la calibracion con IA, sobre el diagnostico ya sellado")
     s.set_defaults(fn=K.cmd_diagnostico)
+
+    s = sub.add_parser("reunion", help="notas de reunion con directores")
+    s.add_argument("--destilar", action="store_true", help="propone lineas para contexto/directores.md")
+    s.add_argument("--preparar", action="store_true", help="redacta el pre-read de la proxima reunion")
+    s.set_defaults(fn=K.cmd_reunion)
 
     sub.add_parser("metricas", help="los numeros").set_defaults(fn=K.cmd_metricas)
     sub.add_parser("anki", help="exporta tarjetas").set_defaults(fn=K.cmd_anki)
