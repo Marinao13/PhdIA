@@ -47,6 +47,7 @@ DIR_CORPUS = os.path.join(RAIZ, "corpus")
 DIR_NOTAS = os.path.join(RAIZ, "produccion", "notas")
 
 F_PLANTILLA = os.path.join(DIR_SESIONES, "PLANTILLA.md")
+F_PLANTILLA_BASE = os.path.join(DIR_SESIONES, "PLANTILLA-base.md")
 F_ERRORES = os.path.join(DIR_REGISTRO, "errores.md")
 F_LAGUNAS = os.path.join(DIR_REGISTRO, "lagunas.md")
 F_CONJETURAS = os.path.join(DIR_REGISTRO, "conjeturas.md")

@@ -53,6 +53,50 @@ def _anadir_lagunas(lagunas, origen, fase="-"):
     return len(lagunas)
 
 
+def _es_base(etiqueta=None):
+    """True si la sesion (o la etiqueta dada) es de fase base: 'base-...'."""
+    if etiqueta is None:
+        ruta = E.sesion_hoy()
+        etiqueta = os.path.basename(ruta)[11:-3] if ruta else ""
+    return etiqueta.startswith("base-")
+
+
+def _sistema(prompt):
+    """El system de una llamada: con la nota de base si la sesion es de base."""
+    return prompt + P.NOTA_BASE if _es_base() else prompt
+
+
+def _plantilla_para(etiqueta):
+    """Plantilla de sesion segun la etiqueta: la de base para 'base-*'."""
+    if _es_base(etiqueta) and os.path.exists(C.F_PLANTILLA_BASE):
+        return C.F_PLANTILLA_BASE
+    return C.F_PLANTILLA
+
+
+def _hay_entrada_pendiente():
+    """True si quedan lineas ya tecleadas (o pegadas) sin leer en stdin."""
+    try:
+        import msvcrt
+        return bool(msvcrt.kbhit())
+    except ImportError:
+        import select
+        return bool(select.select([sys.stdin], [], [], 0)[0])
+
+
+def _leer_lineas(prompt, pendiente=_hay_entrada_pendiente):
+    """
+    Lee una linea. Si inmediatamente hay mas esperando -- un pegado de varias
+    lineas -- las lee todas. Devuelve la lista, sin recortar.
+    """
+    lineas = [input(prompt)]
+    try:
+        while pendiente():
+            lineas.append(input())
+    except (EOFError, OSError):
+        pass
+    return lineas
+
+
 # ======================================================================
 # sesion / sellar / ataque / estado
 # ======================================================================
@@ -63,7 +107,7 @@ def cmd_sesion(args):
         print("ya hay sesion hoy:", os.path.relpath(E.sesion_hoy(), C.RAIZ))
         return
     destino = os.path.join(C.DIR_SESIONES, f"{HOY}-{etiqueta}.md")
-    texto = C.leer(C.F_PLANTILLA).replace("AAAA-MM-DD", HOY).replace("ETIQUETA", etiqueta)
+    texto = C.leer(_plantilla_para(etiqueta)).replace("AAAA-MM-DD", HOY).replace("ETIQUETA", etiqueta)
     C.escribir(destino, texto)
     ok, msg = E.sellar(f"inicio sesion {etiqueta} ::")
     print("creada", os.path.relpath(destino, C.RAIZ))
@@ -103,7 +147,9 @@ def cmd_ataque(args):
         E.git("commit", "-q", "--allow-empty", "-m",
               f"ataque :: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}")
         ok = True
-    M.aviso("MOTOR APAGADO. Fase 3, 45 min: extension, contraejemplo, caso Beurling.\n"
+    que = ("EJERCICIOS del capitulo, libro abierto" if _es_base()
+           else "extension, contraejemplo, caso Beurling")
+    M.aviso(f"MOTOR APAGADO. Fase 3, 45 min: {que}.\n"
             "Al terminar:  python doc.py sellar 3")
 
 
@@ -361,7 +407,9 @@ AYUDA_REPL = """Fase 2. Tres usos y nada mas.
   /notacion   la siguiente pregunta va con la plantilla de notacion
   /lema       ... con la de lema estandar
   /paso       ... con la de paso comprimido
-  /pegar      pegar un fragmento del paper (varias lineas, termina con una linea con solo .)
+  Pega varias lineas de golpe y quedan guardadas como fragmento; luego escribe la
+  pregunta, o Enter para que lo desarrolle paso a paso.
+  /pegar      lo mismo a mano: pega y termina con una linea que sea solo un punto
   /nuevo      olvida la conversacion (nuevo fragmento, nuevo hilo)
   /salir
 Sin plantilla la pregunta va tal cual, con las reglas de fase 2 igualmente."""
@@ -380,12 +428,21 @@ def cmd_preguntar(args):
     historia, plantilla, fragmento = [], "", ""
     while True:
         try:
-            linea = input("\n> ").strip()
+            lineas = _leer_lineas("\n> ")
         except (EOFError, KeyboardInterrupt):
             print()
             break
-        if not linea:
+        if len(lineas) > 1:
+            # varias lineas de golpe: es un pegado, no varias preguntas
+            fragmento = "\n".join(lineas).strip()
+            print(f"fragmento de {len(lineas)} lineas guardado. Ahora la pregunta "
+                  "(Enter = que lo desarrolle paso a paso)")
             continue
+        linea = lineas[0].strip()
+        if not linea:
+            if not fragmento:
+                continue
+            linea = "Desarrolla este fragmento paso a paso, marcando con [!] lo que uses y no este en el."
         if linea == "/salir":
             break
         if linea == "/ayuda":
@@ -411,10 +468,10 @@ def cmd_preguntar(args):
             print(f"fragmento guardado ({len(fragmento)} caracteres)")
             continue
 
-        contenido = plantilla + (f"FRAGMENTO DEL PAPER:\n{fragmento}\n\n" if fragmento else "") + linea
+        contenido = plantilla + (f"FRAGMENTO DEL TEXTO:\n{fragmento}\n\n" if fragmento else "") + linea
         historia.append({"role": "user", "content": contenido})
         try:
-            respuesta = M.llamar("preguntar", P.FASE2, historia, forzar=args.forzar)
+            respuesta = M.llamar("preguntar", _sistema(P.FASE2), historia, forzar=args.forzar)
         except M.MotorApagado as e:
             M.aviso("MOTOR APAGADO: " + str(e))
             historia.pop()
@@ -441,8 +498,8 @@ def cmd_cierre(args):
 
     texto = C.leer(ruta)
     etiqueta = os.path.basename(ruta)[11:-3]
-    print("comparando tu fase 1 con el paper...")
-    bruto = M.llamar("cierre", P.CIERRE,
+    print("comparando tu fase 1 con el texto...")
+    bruto = M.llamar("cierre", _sistema(P.CIERRE),
                      [{"role": "user", "content": texto}], max_tokens=C.MAX_TOKENS_JSON)
     try:
         r = M.parse_json(bruto)

@@ -36,6 +36,19 @@ REGLAS FIJAS
    preambulos. Notacion en texto plano o LaTeX ligero.
 """
 
+# Se anade al system de fase 2 y cierre cuando la sesion es de base (etiqueta
+# base-*): un texto clasico, no un paper del campo.
+NOTA_BASE = """
+SESION DE BASE. Esta leyendo un TEXTO CLASICO de grado o master (Conway, Rudin,
+Hormander, Balser...), no un paper del campo. Aqui rige la regla 2, no la 1: este
+material lo conoces bien. No le exijas que pegue el fragmento. Si te nombra el libro y
+el teorema o la seccion, reconstruye tu el enunciado y la demostracion estandar citando
+la referencia, y marca con [!] solo lo que no estes seguro de que este en ese libro. La
+demostracion completa y detallada de un teorema DEL TEXTO si puedes darsela: es material
+clasico y no es su argumento. Lo que sigue prohibido (regla 3) es resolverle los
+ejercicios que esta intentando o completar un intento suyo.
+"""
+
 # ----------------------------------------------------------------------
 # fase 2: lectura asistida
 # ----------------------------------------------------------------------

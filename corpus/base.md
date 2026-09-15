@@ -44,6 +44,16 @@ Complex Analysis, capitulo 12.
 Meta al acabar: enunciar Phragmen-Lindelof en un sector sin mirar y explicar
 en una linea el papel de la apertura.
 
+Corte en sesiones (dos por semana, un teorema del dia cada una):
+
+    1. estimaciones de Cauchy, con Liouville como corolario     Conway IV
+    2. principio del modulo maximo                               Conway VI
+    3. lema de Schwarz                                           Conway VI
+    4. Phragmen-Lindelof en un sector                            Conway VI
+
+La cuarta es la que cuenta; las tres primeras la sostienen. La sesion corta de
+la semana va de ejercicios del capitulo que toque.
+
 ## Semana 3. C-infinito frente a holomorfo
 
 - Teorema de Borel: toda serie formal es la de Taylor de una funcion
