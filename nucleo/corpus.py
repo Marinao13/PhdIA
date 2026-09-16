@@ -541,8 +541,14 @@ def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True
     if escaneado:
         avisos.append(f"escaneado: {media:.0f} caracteres/pagina; solo OCR (Marker --force_ocr)")
 
-    if fuente == "proyecto":
+    previo = bib.get(id_, {})
+    if fuente == "proyecto" or previo.get("fuente") == "proyecto":
         ent, arxiv_ok = dict(estado="documento_propio", titulo="Proyecto de tesis"), None
+        fuente = "proyecto"
+    elif previo.get("estado") == "verificado" and (previo.get("doi") or previo.get("handle"))             and _detectar_ids(paginas) == (None, None):
+        # identificador asignado a mano: se conserva tal cual (se reverifica con --identificar)
+        ent, arxiv_ok = {k: v for k, v in previo.items()
+                         if k not in ("capa", "paginas", "unidades", "ingerido", "avisos", "reextraer")}, None
     else:
         ent, arxiv_ok = _metadatos(paginas, sin_red, avisos)
 
@@ -600,6 +606,7 @@ def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True
     ent.setdefault("etiquetas", [])
     if avisos:
         ent["avisos"] = avisos
+    bib = leer_bib()            # releer: una ingesta larga no debe pisar cambios ajenos
     bib[id_] = ent
     escribir_bib(bib)
 
