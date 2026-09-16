@@ -56,6 +56,17 @@ F_PENDIENTES = os.path.join(DIR_DRILL, "pendientes.md")
 F_DIAGNOSTICO = os.path.join(DIR_CORPUS, "diagnostico.md")
 F_ORDEN = os.path.join(DIR_CORPUS, "orden.md")
 F_BASE = os.path.join(DIR_CORPUS, "base.md")
+
+# corpus del BRIEF: PDFs, metadatos verificables y texto extraido por capas
+DIR_RAW = os.path.join(DIR_CORPUS, "raw")
+DIR_META = os.path.join(DIR_CORPUS, "meta")
+DIR_TEXT = os.path.join(DIR_CORPUS, "text")
+F_BIB = os.path.join(DIR_META, "bib.yaml")
+F_PROYECTO = os.path.join(DIR_CORPUS, "PROYECTO.md")
+DIR_INDICE = os.path.join(RAIZ, "indice")
+DIR_LECTURAS = os.path.join(RAIZ, "lecturas")
+DIR_CONSULTAS = os.path.join(DIR_REGISTRO, "consultas")
+F_VERIFICACIONES = os.path.join(DIR_REGISTRO, "verificaciones.md")
 F_PESOS = os.path.join(DIR_LAB, "pesos.py")
 
 DIR_CONTEXTO = os.path.join(RAIZ, "contexto")

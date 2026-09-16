@@ -964,6 +964,23 @@ def cmd_metricas(args):
 
 
 # ======================================================================
+# corpus: ingesta (BRIEF 4.1)
+# ======================================================================
+
+def cmd_ingest(args):
+    from . import corpus as Q
+    kw = dict(capa=args.capa, sin_red=args.sin_red, rehacer=args.rehacer)
+    if not args.pdf:
+        Q.ingerir_todo(**kw)
+        return
+    if args.id and len(args.pdf) > 1:
+        print("--id solo vale con un unico PDF")
+        return
+    for pdf in args.pdf:
+        Q.ingerir(pdf, id_=args.id, **kw)
+
+
+# ======================================================================
 # anki
 # ======================================================================
 

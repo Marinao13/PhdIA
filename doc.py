@@ -17,6 +17,7 @@ Unico punto de entrada del sistema. Toda llamada a la IA pasa por aqui.
   python doc.py metricas               los numeros, sin autodeclaracion
   python doc.py anki                   exporta tarjetas nuevas
   python doc.py estado                 en que fase estas
+  python doc.py ingest [pdf...]        ingiere PDFs al corpus (tex de arXiv / Marker / PyMuPDF)
   python doc.py ahora                  que te toca ahora, y el comando exacto
 """
 import sys, argparse
@@ -74,6 +75,14 @@ def main():
     s.add_argument("--destilar", action="store_true", help="propone lineas para contexto/directores.md")
     s.add_argument("--preparar", action="store_true", help="redacta el pre-read de la proxima reunion")
     s.set_defaults(fn=K.cmd_reunion)
+
+    s = sub.add_parser("ingest", help="ingiere PDFs al corpus: tex de arXiv, Marker o PyMuPDF")
+    s.add_argument("pdf", nargs="*", help="rutas; vacio = todos los de corpus/raw aun no ingeridos")
+    s.add_argument("--id", help="id del paper (por defecto, el nombre del fichero)")
+    s.add_argument("--capa", choices=["tex", "marker", "pymupdf"], help="forzar una capa")
+    s.add_argument("--rehacer", action="store_true")
+    s.add_argument("--sin-red", dest="sin_red", action="store_true", help="sin arXiv ni Crossref")
+    s.set_defaults(fn=K.cmd_ingest)
 
     sub.add_parser("metricas", help="los numeros").set_defaults(fn=K.cmd_metricas)
     sub.add_parser("anki", help="exporta tarjetas").set_defaults(fn=K.cmd_anki)
