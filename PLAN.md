@@ -140,3 +140,4 @@ que ya devuelve horas; el BRIEF se construye alrededor, no encima.
 | Fecha | Fase | Hecho | Queda |
 |---|---|---|---|
 | 2026-09-16 | 0 | Auditoria y plan; 8 respuestas; decisiones cerradas; BRIEF a `docs/`; 19 PDFs versionados; tag `pre-brief` | Fase 1: 1a ingest |
+| 2026-09-16 | 1a, 1b, 4a | `ingest` en tres capas (12 por tex de arXiv, 7 por PyMuPDF a la espera de Marker/Docker); `bib.yaml` con 19 entradas, 16 verificadas; `indexar` (2.312 fragmentos) y `buscar` con glosario ES->EN; 33 tests en verde | 1c `ask`; 1d registro y coste; reextraer con Marker; `PROYECTO.md`; ids de los 3 pendientes |
