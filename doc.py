@@ -90,6 +90,9 @@ def main():
     s.add_argument("--capa", choices=["tex", "marker", "pymupdf"], help="forzar una capa")
     s.add_argument("--rehacer", action="store_true")
     s.add_argument("--sin-red", dest="sin_red", action="store_true", help="sin arXiv ni Crossref")
+    s.add_argument("--fuente", choices=["paper", "proyecto"], default="paper", help="proyecto = documento propio, sin metadatos de red")
+    s.add_argument("--solo-meta", dest="solo_meta", action="store_true", help="solo refrescar metadatos (arXiv/Crossref) de ids ya ingeridos")
+    s.add_argument("--remapear", action="store_true", help="rehacer unidades y paginas desde el tex/marker guardado, sin red")
     s.set_defaults(fn=K.cmd_ingest)
 
     s = sub.add_parser("indexar", help="fragmenta y embebe el corpus (incremental)")
@@ -111,6 +114,7 @@ def main():
     s.add_argument("--fuente", choices=["paper", "proyecto", "nota"])
     s.add_argument("--doc", help="limitar a un id de bib.yaml")
     s.add_argument("--por-doc", dest="por_doc", type=int, default=2)
+    s.add_argument("--con-propios", dest="con_propios", action="store_true", help="incluir proyecto y notas propias como evidencia")
     s.add_argument("--forzar", action="store_true", help="saltar la puerta (queda registrado)")
     s.set_defaults(fn=K.cmd_ask)
 

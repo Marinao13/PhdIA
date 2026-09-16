@@ -904,11 +904,16 @@ def _reunion_preparar(args):
 # ======================================================================
 
 def _coste_eur(l):
-    """Coste de una llamada segun config.PRECIOS, o None si falta el precio."""
+    """EUR de una llamada segun config.PRECIOS (USD) y EUR_POR_USD, o None sin precio.
+    La entrada cacheada se cobra a su tarifa; el resto de la entrada, a la normal."""
     p = C.PRECIOS.get(l.get("modelo") or "", {})
     if p.get("entrada") is None or p.get("salida") is None:
         return None
-    return (l.get("tokens_in", 0) * p["entrada"] + l.get("tokens_out", 0) * p["salida"]) / 1e6
+    cache = min(l.get("tokens_cache", 0) or 0, l.get("tokens_in", 0))
+    usd = ((l.get("tokens_in", 0) - cache) * p["entrada"]
+           + cache * (p.get("cacheada") if p.get("cacheada") is not None else p["entrada"])
+           + l.get("tokens_out", 0) * p["salida"]) / 1e6
+    return usd * C.EUR_POR_USD
 
 
 def _coste_del_mes(ll):
@@ -928,7 +933,8 @@ def _coste_del_mes(ll):
             d["sin_precio"] = True
         else:
             d["eur"] += c
-    print(f"\n  coste de {mes} por comando          llamadas    tokens in / out       EUR")
+    print(f"\n  coste de {mes} por comando          llamadas    tokens in / out       EUR"
+          f"   (1 USD = {C.EUR_POR_USD} EUR, fijo en config)")
     total, incompleto = 0.0, False
     for cmd, d in sorted(por.items(), key=lambda kv: -kv[1]["tin"]):
         eur = f"{d['eur']:8.3f}" + ("+?" if d["sin_precio"] else "  ")
@@ -1024,7 +1030,25 @@ def cmd_metricas(args):
 
 def cmd_ingest(args):
     from . import corpus as Q
-    kw = dict(capa=args.capa, sin_red=args.sin_red, rehacer=args.rehacer)
+    kw = dict(capa=args.capa, sin_red=args.sin_red, rehacer=args.rehacer, fuente=args.fuente)
+    if args.remapear:
+        ids = args.pdf or [k for k, e in Q.leer_bib().items() if e.get("capa") == "tex"]
+        for id_ in ids:
+            id_ = Q.id_desde_fichero(id_) if id_.lower().endswith(".pdf") else id_
+            try:
+                Q.remapear(id_)
+            except Exception as e:
+                print(f"{id_}: {type(e).__name__}: {e}")
+        return
+    if args.solo_meta:
+        ids = args.pdf or sorted(Q.leer_bib())
+        for id_ in ids:
+            id_ = Q.id_desde_fichero(id_) if id_.lower().endswith(".pdf") else id_
+            try:
+                Q.refrescar_metadatos(id_)
+            except Exception as e:
+                print(f"{id_}: {type(e).__name__}: {e}")
+        return
     if not args.pdf:
         Q.ingerir_todo(**kw)
         return
@@ -1033,6 +1057,42 @@ def cmd_ingest(args):
         return
     for pdf in args.pdf:
         Q.ingerir(pdf, id_=args.id, **kw)
+
+
+def _docs_mencionados(pregunta):
+    """Ids de bib.yaml cuyo primer apellido y ano (revista, arXiv o el del id) aparecen en la pregunta."""
+    from . import corpus as Q
+    import unicodedata as ud
+    q = ud.normalize("NFKD", pregunta.lower()).encode("ascii", "ignore").decode()
+    anos = set(re.findall(r"\b(19\d\d|20\d\d)\b", q))
+    out = []
+    for id_, e in Q.leer_bib().items():
+        if e.get("fuente") == "proyecto":
+            continue
+        apellidos = [ud.normalize("NFKD", a.split(",")[0].lower()).encode("ascii", "ignore").decode()
+                     for a in e.get("autores", [])] or [id_.split("-")[0]]
+        anos_doc = {str(e.get("ano") or ""), str(e.get("ano_arxiv") or ""), id_.rsplit("-", 1)[-1]}
+        if apellidos and apellidos[0] and apellidos[0] in q and (anos & anos_doc):
+            out.append(id_)
+    return out
+
+
+def _cabeceras_bib(frags):
+    """Una linea por documento citado: id, titulo, autores, revista y ano verificados."""
+    from . import corpus as Q
+    bib = Q.leer_bib()
+    lineas = []
+    for doc in sorted({f["doc"] for f in frags}):
+        e = bib.get(doc, {})
+        if e.get("estado") == "verificado":
+            partes = [e.get("titulo"), "; ".join(e.get("autores", [])[:3]), e.get("venue"),
+                      str(e.get("ano") or e.get("ano_arxiv") or "")]
+            lineas.append(f"  {doc}: " + " | ".join(p for p in partes if p))
+        elif e:
+            lineas.append(f"  {doc}: metadatos {e.get('estado', 'sin verificar')}")
+        else:
+            lineas.append(f"  {doc}: nota propia")
+    return "\n".join(lineas)
 
 
 def cmd_ask(args):
@@ -1047,12 +1107,23 @@ def cmd_ask(args):
         M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
         print("(el corpus sigue disponible sin modelo:  python doc.py buscar \"...\")")
         return
-    frags = I.buscar(pregunta, k=args.k, fuente=args.fuente, doc=args.doc, por_doc=args.por_doc)
+    # evidencia: papers. El proyecto y las notas propias solo con --con-propios, y marcados.
+    fuente = args.fuente or (None if args.con_propios else "paper")
+    frags = I.buscar(pregunta, k=args.k, fuente=fuente, doc=args.doc, por_doc=args.por_doc)
+    nombrados = [] if args.doc else _docs_mencionados(pregunta)
+    if len(nombrados) == 1:
+        # la pregunta va sobre ese paper: la mitad del cupo, solo de el, sin tope por documento
+        propios = I.buscar(pregunta, k=max(4, args.k // 2), doc=nombrados[0], por_doc=0)
+        vistos = {f["id"] for f in frags}
+        frags = [f for f in propios if f["id"] not in vistos] + frags
+        frags = frags[:args.k + 2]
     if not frags:
         print("nada en el indice para esa pregunta (o indice vacio: python doc.py indexar)")
         return
-    bloque = "\n\n".join(f"{I.cita(f)}\n{f['texto']}" for f in frags)
-    contenido = f"PREGUNTA: {pregunta}\n\nFRAGMENTOS:\n\n{bloque}"
+    frags += I.seguir_refs(frags)          # las \ref{} del .tex traen su definicion o lema
+    bloque = "\n\n".join(f"{I.cita(f)}" + (" (traido por referencia)" if f.get("via_ref") else "")
+                          + f"\n{f['texto']}" for f in frags)
+    contenido = f"PREGUNTA: {pregunta}\n\nDOCUMENTOS:\n{_cabeceras_bib(frags)}\n\nFRAGMENTOS:\n\n{bloque}"
     try:
         respuesta = M.llamar("ask", P.ASK, [{"role": "user", "content": contenido}],
                              max_tokens=C.MAX_TOKENS_ASK, forzar=args.forzar)
@@ -1074,7 +1145,7 @@ def cmd_ask(args):
         ts=marca, fase=fase, pregunta=pregunta, k=args.k, fuente=args.fuente, doc=args.doc,
         respuesta=respuesta, modelo=C.MODELO,
         fragmentos=[{k_: f.get(k_) for k_ in ("id", "doc", "pagina", "seccion", "tipo", "label",
-                                              "bm25", "coseno", "rrf", "usado", "texto")} for f in frags],
+                                              "bm25", "coseno", "rrf", "usado", "via_ref", "texto")} for f in frags],
     ), ensure_ascii=False, indent=1))
     print(f"\n[{sum(f['usado'] for f in frags)}/{len(frags)} fragmentos usados; "
           f"consulta guardada en {os.path.relpath(ruta, C.RAIZ)}]")

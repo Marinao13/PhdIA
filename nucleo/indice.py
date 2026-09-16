@@ -123,12 +123,14 @@ def _unidades_markdown(texto):
 def fuentes():
     """[(fuente, doc, unidades)] de todo lo indexable que existe ahora."""
     out = []
+    from . import corpus as Q
+    bib = Q.leer_bib()
     for ruta in sorted(glob.glob(os.path.join(C.DIR_TEXT, "*", "unidades.jsonl"))):
         doc = os.path.basename(os.path.dirname(ruta))
         with open(ruta, encoding="utf-8") as f:
             unidades = [json.loads(l) for l in f if l.strip()]
         if unidades:
-            out.append(("paper", doc, unidades))
+            out.append((bib.get(doc, {}).get("fuente", "paper"), doc, unidades))
     if os.path.exists(C.F_PROYECTO):
         out.append(("proyecto", "proyecto", _unidades_markdown(C.leer(C.F_PROYECTO))))
     notas = glob.glob(os.path.join(C.DIR_LECTURAS, "*.md")) + \
@@ -215,6 +217,8 @@ def indexar(rehacer=False, verbose=True):
             if os.path.exists(f):
                 os.remove(f)
     existentes = {r[0]: r[1] for r in con.execute("SELECT id, hash FROM fragmentos")}
+    meta_existente = {r[0]: r[1:] for r in con.execute("SELECT id, pagina, seccion, tipo, label FROM fragmentos")}
+    actualizados = 0
     vec, ids = _leer_vectores()
     tiene_vec = set(ids)
 
@@ -229,6 +233,11 @@ def indexar(rehacer=False, verbose=True):
             fid = f"{doc}#{k:04d}"
             vistos.add(fid)
             if existentes.get(fid) == h and fid in tiene_vec:
+                nuevo_meta = (fr.get("pagina"), fr.get("seccion"), fr.get("tipo"), fr.get("label"))
+                if meta_existente.get(fid) != nuevo_meta:      # mismo texto, otra pagina: sin re-embeber
+                    con.execute("UPDATE fragmentos SET pagina=?, seccion=?, tipo=?, label=? WHERE id=?",
+                                (*nuevo_meta, fid))
+                    actualizados += 1
                 continue
             con.execute("INSERT OR REPLACE INTO fragmentos VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                         (fid, fuente, doc, fr.get("pagina"), fr.get("seccion"), fr.get("tipo"),
@@ -259,7 +268,7 @@ def indexar(rehacer=False, verbose=True):
         for doc, n in resumen.items():
             print(f"  {doc:<44} {n:>5} fragmentos")
         print(f"\n{total} fragmentos en el indice; {len(nuevos)} embebidos ahora; "
-              f"{len(sobrantes)} retirados")
+              f"{actualizados} con pagina/seccion actualizada; {len(sobrantes)} retirados")
     return total, len(nuevos)
 
 
@@ -290,6 +299,7 @@ def _cargar(fuente=None, doc=None):
 
 
 F_GLOSARIO = os.path.join(C.DIR_META, "glosario.yaml")
+PESO_COSENO = 1.5   # los embeddings cruzan idiomas; BM25 no
 BOOST_TIPO = {"teorema": 1.5, "definicion": 1.5, "lema": 1.3, "proposicion": 1.3,
               "corolario": 1.2, "notacion": 1.2}
 
@@ -331,7 +341,7 @@ def buscar(pregunta, k=8, fuente=None, doc=None, solo_bm25=False, por_doc=2):
             filas_con_vec = [i for i, f in enumerate(frags) if f["id"] in pos]
             for r, j in enumerate(orden[:50]):
                 i = filas_con_vec[j]
-                rrf[i] = rrf.get(i, 0) + 1 / (60 + r)
+                rrf[i] = rrf.get(i, 0) + PESO_COSENO / (60 + r)
                 frags[i]["coseno"] = float(sims[j])
     for i in rrf:
         rrf[i] *= BOOST_TIPO.get(frags[i].get("tipo"), 1.0)
@@ -351,6 +361,29 @@ def buscar(pregunta, k=8, fuente=None, doc=None, solo_bm25=False, por_doc=2):
         f["bm25"] = round(float(s_bm[i]), 2)
         out.append(f)
     return out
+
+
+RE_REF = re.compile(r"\\(?:ref|eqref|autoref|cref)\{([^}]+)\}")
+
+
+def seguir_refs(resultados, maximo=4):
+    """Anade los fragmentos etiquetados a los que los resultados remiten con \ref, mismo doc."""
+    con = _db()
+    extra, vistos = [], {f["id"] for f in resultados}
+    for f in resultados:
+        for lab in RE_REF.findall(f["texto"]):
+            fila = con.execute("SELECT id, fuente, doc, pagina, seccion, tipo, label, texto FROM fragmentos "
+                               "WHERE doc = ? AND label = ? LIMIT 1", (f["doc"], lab)).fetchone()
+            if fila and fila[0] not in vistos:
+                vistos.add(fila[0])
+                g = dict(zip(("id", "fuente", "doc", "pagina", "seccion", "tipo", "label", "texto"), fila))
+                g["via_ref"] = f["id"]
+                extra.append(g)
+                if len(extra) >= maximo:
+                    con.close()
+                    return extra
+    con.close()
+    return extra
 
 
 def cita(f):

@@ -40,15 +40,32 @@ MAX_TOKENS_JSON = 4000
 MAX_TOKENS_DIAGNOSTICO = 6000
 MAX_TOKENS_ASK = 1800
 
-# Precios en EUR por millon de tokens (entrada, salida) y fecha en que se
-# verificaron en la cuenta. None = sin precio: metricas muestra tokens, no euros.
-# Actualiza los valores con los de platform.openai.com > Billing / Pricing.
+# Precios en USD por millon de tokens: entrada, entrada cacheada, salida. Los tokens de
+# razonamiento cuentan como salida. Fuente: cuenta de OpenAI de Mariano, tarifa estandar
+# (< 272K tokens), 2026-09-16. None = sin precio: metricas muestra tokens, no dinero.
 PRECIOS = {
-    "gpt-6-astra":            dict(entrada=None, salida=None, verificado=None),
-    "claude-sonnet-5":        dict(entrada=None, salida=None, verificado=None),
-    "text-embedding-3-small": dict(entrada=None, salida=0.0,  verificado=None),
+    "gpt-6-astra":            dict(entrada=10.0, cacheada=1.0,  salida=50.0, verificado="2026-09-16"),
+    "text-embedding-3-small": dict(entrada=0.02, cacheada=0.01, salida=0.0,  verificado="2026-09-16"),
+    "claude-sonnet-5":        dict(entrada=None, cacheada=None, salida=None, verificado=None),
 }
+EUR_POR_USD = float(os.environ.get("DOC_EUR_POR_USD", "0.92"))   # SIN VERIFICAR: fijalo tu
 PRESUPUESTO_MES = 20.0   # EUR; decision de Mariano, 2026-09-16
+
+# Modelo por comando. Astra solo donde hace falta (referee, preguntar); el resto con el
+# modelo barato cuando Mariano lo nombre (hoy es el mismo). Esfuerzo de razonamiento de
+# la API de OpenAI: los tokens de razonamiento se pagan como salida.
+MODELO_BARATO = os.environ.get("DOC_MODELO_BARATO") or MODELO
+MODELO_POR_COMANDO = {"referee": MODELO, "preguntar": MODELO}
+ESFUERZO_POR_COMANDO = {"ask": "low", "nota-quiz": "low", "buscar": None, "indexar": None}
+ESFUERZO_DEFECTO = "medium"
+
+
+def modelo_para(comando):
+    return MODELO_POR_COMANDO.get(comando, MODELO_BARATO)
+
+
+def esfuerzo_para(comando):
+    return ESFUERZO_POR_COMANDO.get(comando, ESFUERZO_DEFECTO)
 
 DIR_SESIONES = os.path.join(RAIZ, "sesiones")
 DIR_REGISTRO = os.path.join(RAIZ, "registro")

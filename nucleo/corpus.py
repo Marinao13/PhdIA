@@ -97,6 +97,21 @@ def meta_arxiv(aid):
                 fecha=d.get("citation_date"), doi=d.get("citation_doi") or None, arxiv=aid)
 
 
+def buscar_crossref_por_titulo(titulo, autores=()):
+    """DOI cuyo titulo en Crossref coincide casi exactamente con el dado; None si no."""
+    q = {"query.bibliographic": titulo, "rows": 5}
+    if autores:
+        q["query.author"] = " ".join(a.split(",")[0] for a in autores[:2])
+    items = _get("https://api.crossref.org/works", params=q).json()["message"].get("items", [])
+    objetivo = set(w for w in _norm(titulo).split() if len(w) > 2)
+    for it in items:
+        cand = " ".join((it.get("title") or [""])[0].split())
+        palabras = set(w for w in _norm(cand).split() if len(w) > 2)
+        if objetivo and palabras and len(objetivo & palabras) / len(objetivo | palabras) >= 0.85:
+            return it.get("DOI")
+    return None
+
+
 def meta_crossref(doi):
     m = _get(f"https://api.crossref.org/works/{doi}").json()["message"]
     autores = [", ".join(x for x in (a.get("family", ""), a.get("given", "")) if x)
@@ -136,18 +151,23 @@ def _texto_plano(latex):
     return re.sub(r"[{}~\[\]]", " ", s)
 
 
-def mapear_pagina(texto, paginas_norm):
-    """Pagina (1-based) donde aparece un trozo del texto de la unidad, o None."""
+def mapear_pagina(texto, paginas_norm, desde=1):
+    """
+    Pagina (1-based) donde aparece un trozo del texto de la unidad, o None.
+    Busca primero desde `desde` (las unidades van en orden de documento, y un
+    enunciado suele repetirse en la introduccion); si no, desde el principio.
+    """
     palabras = _norm(_texto_plano(texto)).split()
     if len(palabras) < 4:
         return None
+    orden = list(range(max(desde, 1) - 1, len(paginas_norm))) + list(range(0, max(desde, 1) - 1))
     for ini in (0, len(palabras) // 3, (2 * len(palabras)) // 3):
         for n in (8, 6, 4):
             frag = " ".join(palabras[ini:ini + n])
             if len(frag) < 18:
                 continue
-            for i, p in enumerate(paginas_norm):
-                if frag in p:
+            for i in orden:
+                if frag in paginas_norm[i]:
                     return i + 1
     return None
 
@@ -296,7 +316,7 @@ def unidades_tex(tex, paginas):
 
     ultima = None
     for u in unidades:
-        pag = mapear_pagina(u["texto"], paginas_norm)
+        pag = mapear_pagina(u["texto"], paginas_norm, desde=ultima or 1)
         if pag is None and u["tipo"] == "titulo":
             pag = ultima
         u["pagina"] = pag if pag is not None else ultima
@@ -309,11 +329,30 @@ def unidades_tex(tex, paginas):
 # capa 2: Marker
 # ======================================================================
 
+def _raiz_principal():
+    """La raiz del repo principal: desde un worktree (.claude/worktrees/x) sube tres niveles."""
+    partes = C.RAIZ.replace("\\", "/").split("/")
+    if len(partes) >= 3 and partes[-3:-1] == [".claude", "worktrees"]:
+        return "/".join(partes[:-3])
+    return C.RAIZ
+
+
+MARKER_VENV = os.path.join(_raiz_principal(), ".venv-marker1", "Scripts", "marker_single.exe")
+
+
+def _marker_exe():
+    """Prefiere el venv con marker-pdf 1.x (surya sobre torch, sin Docker)."""
+    if os.path.exists(MARKER_VENV):
+        return MARKER_VENV
+    return shutil.which("marker_single")
+
+
 def marker_disponible():
-    """marker_single en el PATH y, si su OCR va por Docker, Docker respondiendo."""
-    if shutil.which("marker_single") is None:
-        return False, "marker_single no esta en el PATH"
-    if os.environ.get("SURYA_INFERENCE_BACKEND", "") == "llamacpp":
+    """marker_single disponible y, si su OCR va por Docker (2.x), Docker respondiendo."""
+    exe = _marker_exe()
+    if exe is None:
+        return False, "marker_single no esta en el PATH ni en .venv-marker1"
+    if exe == MARKER_VENV or os.environ.get("SURYA_INFERENCE_BACKEND", "") == "llamacpp":
         return True, ""
     try:
         r = subprocess.run(["docker", "info"], capture_output=True, timeout=8)
@@ -328,7 +367,7 @@ def extraer_marker(pdf, destino_md, escaneado, timeout=3600):
     """Ejecuta marker_single y deja el markdown paginado en destino_md."""
     tmp = os.path.join(os.path.dirname(destino_md), "_marker_tmp")
     shutil.rmtree(tmp, ignore_errors=True)
-    cmd = [shutil.which("marker_single"), pdf, "--output_dir", tmp,
+    cmd = [_marker_exe(), pdf, "--output_dir", tmp,
            "--output_format", "markdown", "--paginate_output"]
     if escaneado:
         cmd.append("--force_ocr")
@@ -412,6 +451,13 @@ def _metadatos(paginas, sin_red, avisos):
                 avisos.append(f"arXiv {arxiv} leido en el PDF no es este paper (titulo distinto); ignorado")
         except Exception as e:
             avisos.append(f"arXiv {arxiv}: {type(e).__name__}: {str(e)[:80]}")
+    if ent.get("titulo") and not doi and not sin_red:
+        try:
+            doi = buscar_crossref_por_titulo(ent["titulo"], ent.get("autores", ()))
+            if doi:
+                avisos.append(f"DOI {doi} encontrado en Crossref por titulo")
+        except Exception as e:
+            avisos.append(f"Crossref por titulo: {type(e).__name__}: {str(e)[:60]}")
     if doi and not sin_red:
         try:
             m = meta_crossref(doi)
@@ -425,6 +471,39 @@ def _metadatos(paginas, sin_red, avisos):
                 avisos.append(f"DOI {doi} leido en el PDF no es este paper (titulo distinto); ignorado")
         except Exception as e:
             avisos.append(f"Crossref {doi}: {type(e).__name__}: {str(e)[:80]}")
+            if ent.get("titulo") and "404" in str(e):
+                try:
+                    doi2 = buscar_crossref_por_titulo(ent["titulo"], ent.get("autores", ()))
+                    if doi2 and doi2.lower() != doi.lower():
+                        m = meta_crossref(doi2)
+                        for k in ("venue", "ano", "doi", "volumen", "paginas_revista"):
+                            if m.get(k) is not None:
+                                ent[k] = m[k]
+                        avisos.append(f"DOI {doi} muerto; sustituido por {doi2} (Crossref por titulo)")
+                except Exception as e2:
+                    avisos.append(f"Crossref por titulo: {type(e2).__name__}: {str(e2)[:60]}")
+    # sin arXiv ni DOI: la portada como titulo candidato, aceptado solo con coincidencia estricta
+    if not ent.get("titulo") and not sin_red:
+        lineas = [l.strip() for l in paginas[0].splitlines() if len(l.strip()) > 8]
+        for cand in (" ".join(lineas[:2]), lineas[0] if lineas else "", " ".join(lineas[1:3])):
+            if len(cand) < 15:
+                continue
+            try:
+                doi2 = buscar_crossref_por_titulo(cand)
+            except Exception:
+                doi2 = None
+            if doi2:
+                try:
+                    m = meta_crossref(doi2)
+                except Exception:
+                    continue
+                if titulo_en_texto(m["titulo"], cabeza):
+                    ent.update(titulo=m["titulo"], autores=m["autores"])
+                    for k in ("venue", "ano", "doi", "volumen", "paginas_revista"):
+                        if m.get(k) is not None:
+                            ent[k] = m[k]
+                    avisos.append(f"identificado por titulo de portada en Crossref: {doi2}")
+                    break
     if ent.get("titulo"):
         ent["estado"] = "verificado"
     else:
@@ -434,7 +513,7 @@ def _metadatos(paginas, sin_red, avisos):
     return ent, verificado_arxiv
 
 
-def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True):
+def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True, fuente="paper"):
     """Ingiere un PDF. Devuelve la entrada de bib.yaml."""
     pdf = os.path.abspath(pdf)
     if not os.path.exists(pdf):
@@ -460,7 +539,10 @@ def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True
     if escaneado:
         avisos.append(f"escaneado: {media:.0f} caracteres/pagina; solo OCR (Marker --force_ocr)")
 
-    ent, arxiv_ok = _metadatos(paginas, sin_red, avisos)
+    if fuente == "proyecto":
+        ent, arxiv_ok = dict(estado="documento_propio", titulo="Proyecto de tesis"), None
+    else:
+        ent, arxiv_ok = _metadatos(paginas, sin_red, avisos)
 
     # eleccion de capa
     unidades, capa_usada = [], None
@@ -512,7 +594,7 @@ def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True
     C.escribir(os.path.join(dir_id, "meta.json"), json.dumps(meta, ensure_ascii=False, indent=1))
 
     ent.update(fichero=os.path.relpath(pdf, C.DIR_CORPUS).replace("\\", "/"), capa=capa_usada,
-               paginas=len(paginas), unidades=len(unidades), ingerido=hoy())
+               paginas=len(paginas), unidades=len(unidades), ingerido=hoy(), fuente=fuente)
     ent.setdefault("etiquetas", [])
     if avisos:
         ent["avisos"] = avisos
@@ -523,6 +605,70 @@ def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True
         est = ent["estado"]
         print(f"{id_:<42} {capa_usada:<11} {len(paginas):>4} pag  {len(unidades):>4} unidades "
               f"({con_pagina} con pagina)  {est}")
+        for a in avisos:
+            print(f"    - {a}")
+    return ent
+
+
+def remapear(id_, verbose=True):
+    """Rehace unidades.jsonl desde el tex o marker.md guardados y las paginas de PyMuPDF.
+    No descarga nada ni toca los metadatos de bib.yaml."""
+    bib = leer_bib()
+    if id_ not in bib:
+        raise KeyError(f"{id_} no esta en bib.yaml")
+    dir_id = os.path.join(C.DIR_TEXT, id_)
+    paginas = [C.leer(p) for p in sorted(glob.glob(os.path.join(dir_id, "paginas", "p*.txt")))]
+    if not paginas:
+        raise FileNotFoundError(f"sin paginas extraidas para {id_}")
+    capa = bib[id_].get("capa")
+    if capa == "tex":
+        principal = tex_principal(sorted(glob.glob(os.path.join(dir_id, "tex", "**", "*.tex"), recursive=True)))
+        unidades = unidades_tex(principal, paginas) if principal else []
+    elif capa and capa.startswith("marker") and os.path.exists(os.path.join(dir_id, "marker.md")):
+        unidades = unidades_marker(C.leer(os.path.join(dir_id, "marker.md")), paginas)
+    else:
+        unidades = unidades_pymupdf(paginas)
+    for n, u in enumerate(unidades, 1):
+        u["n"] = n
+    with open(os.path.join(dir_id, "unidades.jsonl"), "w", encoding="utf-8", newline="\n") as f:
+        for u in unidades:
+            f.write(json.dumps(u, ensure_ascii=False) + "\n")
+    bib[id_]["unidades"] = len(unidades)
+    escribir_bib(bib)
+    if verbose:
+        est = sum(1 for u in unidades if u.get("pagina_estimada"))
+        print(f"{id_:<42} {capa:<8} {len(unidades):>4} unidades, {est} con pagina estimada")
+    return unidades
+
+
+def refrescar_metadatos(id_, verbose=True):
+    """Vuelve a resolver los metadatos de un id ya ingerido, sin reextraer nada."""
+    bib = leer_bib()
+    if id_ not in bib:
+        raise KeyError(f"{id_} no esta en bib.yaml")
+    if bib[id_].get("fuente") == "proyecto":
+        bib[id_]["estado"] = "documento_propio"
+        escribir_bib(bib)
+        if verbose:
+            print(f"{id_:<42} documento_propio (sin metadatos de red)")
+        return bib[id_]
+    dir_pag = os.path.join(C.DIR_TEXT, id_, "paginas")
+    paginas = [C.leer(p) for p in sorted(glob.glob(os.path.join(dir_pag, "p*.txt")))]
+    if not paginas:
+        raise FileNotFoundError(f"sin paginas extraidas para {id_}")
+    avisos = []
+    ent, _ = _metadatos(paginas, False, avisos)
+    viejo = bib[id_]
+    for k in ("fichero", "capa", "paginas", "unidades", "ingerido", "fuente", "etiquetas", "reextraer"):
+        if k in viejo:
+            ent[k] = viejo[k]
+    if avisos:
+        ent["avisos"] = avisos
+    bib[id_] = ent
+    escribir_bib(bib)
+    if verbose:
+        print(f"{id_:<42} {ent.get('estado'):<20} {ent.get('venue') or '-'} {ent.get('ano') or ''}"
+              f"  doi={ent.get('doi') or '-'}")
         for a in avisos:
             print(f"    - {a}")
     return ent

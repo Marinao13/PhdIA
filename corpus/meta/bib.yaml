@@ -3,8 +3,6 @@
 # `pendiente_verificar`. No completar nada de memoria. `etiquetas` las pone Mariano.
 
 balser-2000:
-  avisos:
-  - 'Docker Desktop apagado: el OCR de Marker (surya) corre en Docker. Arrancalo o usa SURYA_INFERENCE_BACKEND=llamacpp'
   capa: pymupdf
   estado: pendiente_verificar
   etiquetas: []
@@ -15,8 +13,6 @@ balser-2000:
   titulo_pdf_sin_verificar: Formal Power Series and / Linear Systems of / Meromorphic Ordinary
   unidades: 309
 braun-meise-taylor-1990:
-  avisos:
-  - 'Docker Desktop apagado: el OCR de Marker (surya) corre en Docker. Arrancalo o usa SURYA_INFERENCE_BACKEND=llamacpp'
   capa: pymupdf
   estado: pendiente_verificar
   etiquetas: []
@@ -31,8 +27,6 @@ carrillo-mozo-2018:
   autores:
   - Carrillo, Sergio A.
   - Mozo-Fernández, Jorge
-  avisos:
-  - 'Docker Desktop apagado: el OCR de Marker (surya) corre en Docker. Arrancalo o usa SURYA_INFERENCE_BACKEND=llamacpp'
   capa: pymupdf
   doi: 10.1016/j.jmaa.2017.08.028
   estado: verificado
@@ -55,8 +49,6 @@ jimenez-garrido-cantero-sanz-schindl-2022:
   - Miguel-Cantero, Ignacio
   - Sanz, Javier
   - Schindl, Gerhard
-  avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
   capa: tex
   doi: 10.1007/s00025-023-01859-w
   estado: verificado
@@ -69,6 +61,7 @@ jimenez-garrido-cantero-sanz-schindl-2022:
   venue: Results in Mathematics
   volumen: '78'
 jimenez-garrido-cantero-sanz-schindl-2023:
+  ano: 2024
   ano_arxiv: 2023
   arxiv: '2307.14762'
   autores:
@@ -77,8 +70,9 @@ jimenez-garrido-cantero-sanz-schindl-2023:
   - Sanz, Javier
   - Schindl, Gerhard
   avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
+  - DOI 10.1007/s13398-024-01581-4 encontrado en Crossref por titulo
   capa: tex
+  doi: 10.1007/s13398-024-01581-4
   estado: verificado
   etiquetas: []
   fichero: raw/jimenez-garrido-cantero-sanz-schindl-2023.pdf
@@ -86,6 +80,8 @@ jimenez-garrido-cantero-sanz-schindl-2023:
   paginas: 36
   titulo: Stability properties of ultraholomorphic classes of Roumieu-type defined by weight matrices
   unidades: 219
+  venue: Revista de la Real Academia de Ciencias Exactas, Físicas y Naturales. Serie A. Matemáticas
+  volumen: '118'
 jimenez-garrido-cantero-sanz-schindl-2025:
   ano: 2026
   ano_arxiv: 2025
@@ -95,8 +91,6 @@ jimenez-garrido-cantero-sanz-schindl-2025:
   - Miguel-Cantero, Ignacio
   - Sanz, Javier
   - Schindl, Gerhard
-  avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
   capa: tex
   doi: 10.1007/s00025-026-02700-w
   estado: verificado
@@ -118,8 +112,6 @@ jimenez-garrido-cantero-sanz-schindl-2025-2:
   - Miguel-Cantero, Ignacio
   - Sanz, Javier
   - Schindl, Gerhard
-  avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
   capa: tex
   doi: 10.1186/s13660-026-03485-w
   estado: verificado
@@ -140,8 +132,6 @@ jimenez-garrido-cantero-sanz-schindl-2026:
   - Miguel-Cantero, Ignacio
   - Sanz, Javier
   - Schindl, Gerhard
-  avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
   capa: tex
   estado: verificado
   etiquetas: []
@@ -151,6 +141,7 @@ jimenez-garrido-cantero-sanz-schindl-2026:
   titulo: Stability under product and composition for uniform Carleman asymptotic expansions
   unidades: 107
 jimenez-garrido-lastra-sanz-2022:
+  ano: 2023
   ano_arxiv: 2022
   arxiv: '2204.01316'
   autores:
@@ -158,31 +149,40 @@ jimenez-garrido-lastra-sanz-2022:
   - Lastra, Alberto
   - Sanz, Javier
   avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
+  - DOI 10.1007/s00365-023-09663-z encontrado en Crossref por titulo
   capa: tex
+  doi: 10.1007/s00365-023-09663-z
   estado: verificado
   etiquetas: []
   fichero: raw/jimenez-garrido-lastra-sanz-2022.pdf
   ingerido: '2026-09-16'
   paginas: 21
+  paginas_revista: 285-307
   titulo: Extension operators for some ultraholomorphic classes defined by sequences of rapid growth
   unidades: 106
+  venue: Constructive Approximation
+  volumen: '60'
 jimenez-garrido-sanz-2021:
+  ano: 2016
   ano_arxiv: 2015
   arxiv: '1510.05844'
   autores:
   - Jiménez-Garrido, Javier
   - Sanz, Javier
   avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
+  - DOI 10.1016/j.jmaa.2016.02.010 encontrado en Crossref por titulo
   capa: tex
+  doi: 10.1016/j.jmaa.2016.02.010
   estado: verificado
   etiquetas: []
   fichero: raw/jimenez-garrido-sanz-2021.pdf
   ingerido: '2026-09-16'
   paginas: 24
+  paginas_revista: 920-945
   titulo: Strongly regular sequences and proximate orders
   unidades: 190
+  venue: Journal of Mathematical Analysis and Applications
+  volumen: '438'
 jimenez-garrido-sanz-schindl-2018:
   ano: 2017
   ano_arxiv: 2016
@@ -191,8 +191,6 @@ jimenez-garrido-sanz-schindl-2018:
   - Jiménez-Garrido, Javier
   - Sanz, Javier
   - Schindl, Gerhard
-  avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
   capa: tex
   doi: 10.1016/j.jmaa.2016.11.069
   estado: verificado
@@ -213,8 +211,6 @@ jimenez-garrido-sanz-schindl-2021:
   - Jiménez-Garrido, Javier
   - Sanz, Javier
   - Schindl, Gerhard
-  avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
   capa: tex
   doi: 10.1007/s00025-021-01566-4
   estado: verificado
@@ -227,8 +223,6 @@ jimenez-garrido-sanz-schindl-2021:
   venue: Results in Mathematics
   volumen: '77'
 jimenez-garrido-tesis-2018:
-  avisos:
-  - 'Docker Desktop apagado: el OCR de Marker (surya) corre en Docker. Arrancalo o usa SURYA_INFERENCE_BACKEND=llamacpp'
   capa: pymupdf
   estado: pendiente_verificar
   etiquetas: []
@@ -240,6 +234,7 @@ jimenez-garrido-tesis-2018:
     regular variation and proximate'
   unidades: 209
 lastra-malek-sanz-2018:
+  ano: 2012
   ano_arxiv: 2012
   arxiv: '1205.3971'
   autores:
@@ -247,17 +242,22 @@ lastra-malek-sanz-2018:
   - Malek, Stéphane
   - Sanz, Javier
   avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
+  - DOI 10.1016/j.jmaa.2012.07.013 encontrado en Crossref por titulo
   capa: tex
+  doi: 10.1016/j.jmaa.2012.07.013
   estado: verificado
   etiquetas: []
   fichero: raw/lastra-malek-sanz-2018.pdf
   ingerido: '2026-09-16'
   paginas: 23
+  paginas_revista: 724-740
   titulo: Continuous right inverses for the asymptotic Borel map in ultraholomorphic classes via a Laplace-type
     transform
   unidades: 130
+  venue: Journal of Mathematical Analysis and Applications
+  volumen: '396'
 lastra-malek-sanz-2022:
+  ano: 2015
   ano_arxiv: 2014
   arxiv: '1402.1669'
   autores:
@@ -265,23 +265,35 @@ lastra-malek-sanz-2022:
   - Malek, Stephane
   - Sanz, Javier
   avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
+  - DOI 10.1016/j.jmaa.2015.05.046 encontrado en Crossref por titulo
   capa: tex
+  doi: 10.1016/j.jmaa.2015.05.046
   estado: verificado
   etiquetas: []
   fichero: raw/lastra-malek-sanz-2022.pdf
   ingerido: '2026-09-16'
   paginas: 32
+  paginas_revista: 1175-1206
   titulo: Summability in general Carleman ultraholomorphic classes
   unidades: 188
+  venue: Journal of Mathematical Analysis and Applications
+  volumen: '430'
+proyecto:
+  capa: pymupdf
+  estado: documento_propio
+  etiquetas: []
+  fichero: raw/proyecto.pdf
+  fuente: proyecto
+  ingerido: '2026-09-16'
+  paginas: 1
+  titulo_pdf_sin_verificar: 'Proyecto de investigaci´on / Solicitud dentro de la Convocatoria de Referencia
+    CP26/86 / T´ıtulo: Regularidad y sumabilidad de soluciones de ecuaciones algebraicas en clases'
+  unidades: 1
 rainer-schindl-2014:
   ano: 2014
   autores:
   - Rainer, Armin
   - Schindl, Gerhard
-  avisos:
-  - 'marker: marker fallo:     raise SpawnError(f"docker run failed: {result.stderr or result.stdout}")
-    | surya.inference.backends.spawn.SpawnError: docker run failed: docke'
   capa: pymupdf
   doi: 10.4064/sm224-2-1
   estado: verificado
@@ -300,45 +312,46 @@ rainer-schindl-2016:
   autores:
   - Rainer, Armin
   - Schindl, Gerhard
-  avisos:
-  - 'Docker Desktop apagado: el OCR de Marker (surya) corre en Docker. Arrancalo o usa SURYA_INFERENCE_BACKEND=llamacpp'
-  capa: pymupdf
+  capa: marker
   doi: 10.1007/s13398-014-0216-0
   estado: verificado
   etiquetas: []
   fichero: raw/rainer-schindl-2016.pdf
+  fuente: paper
   ingerido: '2026-09-16'
   paginas: 16
   paginas_revista: 17-32
-  reextraer: marker
   titulo: Equivalence of stability properties for ultradifferentiable function classes
-  unidades: 16
+  unidades: 250
   venue: Revista de la Real Academia de Ciencias Exactas, Físicas y Naturales. Serie A. Matemáticas
   volumen: '110'
 thilliez-2003:
+  ano: 2003
   ano_arxiv: 2006
   arxiv: math/0602366
   autores:
   - Thilliez, Vincent
   avisos:
   - 'Crossref 10.1007/s00025-003-0081-1: HTTPError: 404 Client Error: Not Found for url: https://api.crossref.org/works/10.1007/s000'
-  - 'tex de arXiv: puede diferir de la version publicada'
+  - DOI 10.1007/s00025-003-0081-1 muerto; sustituido por 10.1007/bf03322923 (Crossref por titulo)
   capa: tex
+  doi: 10.1007/bf03322923
   estado: verificado
   etiquetas: []
   fichero: raw/thilliez-2003.pdf
   ingerido: '2026-09-16'
   paginas: 18
+  paginas_revista: 169-188
   titulo: Division by Flat Ultradifferentiable Functions and Sectorial Extensions
   unidades: 121
+  venue: Results in Mathematics
+  volumen: '44'
 thilliez-2010:
   ano: 2009
   ano_arxiv: 2008
   arxiv: '0809.2057'
   autores:
   - Thilliez, Vincent
-  avisos:
-  - 'tex de arXiv: puede diferir de la version publicada'
   capa: tex
   doi: 10.1007/s00605-009-0108-0
   estado: verificado

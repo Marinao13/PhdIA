@@ -48,16 +48,17 @@ def aviso(texto):
 _cliente = None
 
 
-def _completar(system, messages, max_tokens):
+def _completar(system, messages, max_tokens, modelo=None, esfuerzo=None):
     """Llamada cruda. Devuelve (texto, tokens_in, tokens_out)."""
     if C.SIMULAR:
-        return _simulado(system, messages), 0, 0
+        return _simulado(system, messages), 0, 0, 0
+    modelo = modelo or C.MODELO
     if C.PROVEEDOR == "openai":
-        return _completar_openai(system, messages, max_tokens)
-    return _completar_anthropic(system, messages, max_tokens)
+        return _completar_openai(system, messages, max_tokens, modelo, esfuerzo)
+    return _completar_anthropic(system, messages, max_tokens, modelo)
 
 
-def _completar_anthropic(system, messages, max_tokens):
+def _completar_anthropic(system, messages, max_tokens, modelo):
     global _cliente
     if _cliente is None:
         try:
@@ -65,13 +66,14 @@ def _completar_anthropic(system, messages, max_tokens):
         except ImportError:
             sys.exit("falta el paquete anthropic:  python -m pip install anthropic")
         _cliente = Anthropic()          # lee ANTHROPIC_API_KEY del entorno o del .env
-    r = _cliente.messages.create(model=C.MODELO, max_tokens=max_tokens,
+    r = _cliente.messages.create(model=modelo, max_tokens=max_tokens,
                                  system=system, messages=messages)
     texto = "".join(b.text for b in r.content if getattr(b, "type", "") == "text")
-    return texto, r.usage.input_tokens, r.usage.output_tokens
+    cache = getattr(r.usage, "cache_read_input_tokens", 0) or 0
+    return texto, r.usage.input_tokens, r.usage.output_tokens, cache
 
 
-def _completar_openai(system, messages, max_tokens):
+def _completar_openai(system, messages, max_tokens, modelo, esfuerzo):
     global _cliente
     if _cliente is None:
         try:
@@ -80,12 +82,24 @@ def _completar_openai(system, messages, max_tokens):
             sys.exit("falta el paquete openai:  python -m pip install openai")
         _cliente = OpenAI()             # lee OPENAI_API_KEY del entorno o del .env
     # Responses API: el system prompt va en instructions, el historial en input.
-    r = _cliente.responses.create(model=C.MODELO, instructions=system,
-                                  input=messages, max_output_tokens=max_tokens)
+    kw = dict(model=modelo, instructions=system, input=messages, max_output_tokens=max_tokens)
+    if esfuerzo:
+        kw["reasoning"] = {"effort": esfuerzo}
+    try:
+        r = _cliente.responses.create(**kw)
+    except Exception as e:                       # modelo sin razonamiento: reintenta sin el
+        if "reasoning" in kw and "reasoning" in str(e).lower():
+            kw.pop("reasoning")
+            r = _cliente.responses.create(**kw)
+        else:
+            raise
     u = getattr(r, "usage", None)
+    det = getattr(u, "input_tokens_details", None)
+    cache = getattr(det, "cached_tokens", 0) or 0
     return (r.output_text,
             getattr(u, "input_tokens", 0) or 0,
-            getattr(u, "output_tokens", 0) or 0)
+            getattr(u, "output_tokens", 0) or 0,
+            cache)
 
 
 def contexto_vivo():
@@ -114,12 +128,14 @@ def llamar(comando, system, messages, max_tokens=C.MAX_TOKENS_CHAT, forzar=False
     if fase not in E.MOTOR_PERMITIDO and not forzar:
         raise MotorApagado(E.EXPLICACION.get(fase, "motor apagado"))
 
-    texto, tin, tout = _completar(system + contexto_vivo(), messages, max_tokens)
+    modelo, esfuerzo = C.modelo_para(comando), C.esfuerzo_para(comando)
+    texto, tin, tout, cache = _completar(system + contexto_vivo(), messages, max_tokens,
+                                         modelo, esfuerzo)
 
     C.anadir(C.F_LLAMADAS, json.dumps({
         "ts": datetime.datetime.now().isoformat(timespec="seconds"),
-        "comando": comando, "fase": fase, "proveedor": C.PROVEEDOR, "modelo": C.MODELO,
-        "tokens_in": tin, "tokens_out": tout,
+        "comando": comando, "fase": fase, "proveedor": C.PROVEEDOR, "modelo": modelo,
+        "tokens_in": tin, "tokens_out": tout, "tokens_cache": cache, "esfuerzo": esfuerzo,
         "forzado": bool(forzar and fase not in E.MOTOR_PERMITIDO),
         "simulado": C.SIMULAR,
     }, ensure_ascii=False) + "\n")
