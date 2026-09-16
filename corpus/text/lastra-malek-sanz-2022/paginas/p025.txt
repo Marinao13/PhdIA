@@ -1,0 +1,71 @@
+25
+In order to go further in our study, by an argument entirely analogous to that in Lemma 4
+in [32] one can prove that, under the assumptions of Corollary 5.5, the actual solution of (37)
+can be written in a neighborhood of (0, 0) in the form
+(39)
+u(t, z) =
+tβ−1
+(β −1)!∂β−1
+t
+1
+2πi
+I
+|w|=ε
+φ(w)
+Z ∞(θ)
+ξ0
+E1(tλ(ξ))E2(ξz)e2(ξw)
+ξw
+dξdw,
+with θ ∈(−arg(w) −π
+2w(m2), −arg(w) + π
+2 w(m2)), and where E1 and E2 are the kernels
+corresponding to e1 and e2, respectively.
+We are ready to relate the properties of analytic continuation and growth of the initial
+data with those of the solution. In these last results we assume the kernels e1, E1 have been
+constructed following the procedure in Section 4.
+Lemma 5.9. Let q = µ/ν ∈Q, with gcd(µ, ν) = 1 and β ≥1. We assume the moment functions
+m1(λ) and m2(λ) are such that
+(40)
+m2(qj) ≤C0Aj
+0m1(j),
+j ∈N0,
+and
+(41)
+m1(j/q) ≤C1Aj
+1m2(j),
+j ∈N0,
+for suitable C0, C1, A0, A1 > 0. Let u(t, z) be a solution of
+(42)
+ (∂m1,t −λ(∂m2,z))βu = 0
+∂j
+m1,tˆu(0, z) = φj(z) ∈O(D(0, r)),
+j = 0, . . . , β −1,
+for some r > 0. If there exists a strongly regular sequence of moments m = (m(j))j∈N0 such
+that:
+(i) there exist C, A > 0 with
+(43)
+m(j) ≤CAjm1(j),
+j ∈N0,
+(ii) φj ∈Om(1/q)( ˆS((d + arg(λ))/q + 2kπ/µ)) for every k = 0, . . . , µ −1 and j = 0, . . . , β −1,
+and some d ∈R,
+then u(t, z) ∈Om( ˆS(d + 2nπ/ν) × D(0, r)) for n = 0, . . . , ν −1.
+Remark 5.10. According to Remark 3.19(ii), (m2(qj))j∈N0 (respectively, (m1(j/q))j∈N0) is
+equivalent to m(q)
+2
+(resp.
+to m(1/q)
+1
+).
+Together with this fact, the inequalities (40) and (41)
+amount to the equivalence of m(q)
+2
+and m1, and so, we deduce by (25) that
+(44)
+qω(m2) = ω(m1).
+Proof. With the help of Lemma 3 in [32], which may be reproduced in our setting without
+modiﬁcation, one can show that the general situation may always be taken into the case ω(m1) <
+2, which will be the only one we consider. The principle of superposition of solutions allows
+us to reduce the study of (42) to that of some problems of the form (37), where λβ−1(∂m2,z)φ
+in (37) turns out to be a function belonging to Om(1/q)( ˆS((d + arg(λ))/q + 2kπ/µ)) for every
+k = 0, . . . , µ −1 and j = 0, . . . , β −1. Moreover, Corollary 5.5 and (40) guarantee the existence

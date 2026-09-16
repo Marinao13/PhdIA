@@ -1,0 +1,54 @@
+20
+(a.2) If r ≤1, consider α such that α + r > 1, and take r′ with r < r′ < γ(M). The weight
+sequence M · Γα satisfies (dc) and γ(M · Γα) = γ(M) + α > r′ + α > 1. By item (a.1),
+there exists an extension operator
+U : C[[z]](M·Γα) →e
+Au
+(M·Γα)(Sr′+α).
+Now, Theorem 4.5.(ii) implies that
+UM,r := Bα ◦U ◦bLα : C[[z]](M) →e
+Au
+(M)(Sr)
+is the desired extension operator.
+(ii)⇒(iii) The existence of UM,r implies that the corresponding Borel map eB : e
+Au
+(M)(Sr) →
+C[[z]](M) is surjective in Sr.
+(iii)⇒(iv) Let us see that r ≤γ(M). We again have different cases:
+(b.1) If 0 < r < 1, consider positive real numbers α, r′ with 1 −α < r′ < r. By applying the
+Laplace transform Lα : e
+Au
+(M)(Sr) →e
+Au
+(M·Γα)(Sr′+α), Theorem 4.5.(i) shows that the map
+e
+Au
+(M·Γα)(Sr′+α) →C[[z]](M·Γα),
+is surjective. Observe that r′ + α > 1, so we deduce by restriction to the half-plane S1
+that, according to Proposition 2.8.(ii), also the map
+A(c
+M·Γα)(S1) →C[[z]](M·Γα),
+is surjective. Theorem 4.4 implies then that γ(M · Γα) > 1 or, equivalently by (2.5),
+γ(M) > 1 −α. Since α can be chosen arbitrarily while keeping 1 −α < r, we deduce
+γ(M) ≥r.
+(b.2) If r ∈N, we know that γ(M) > r by Theorem 4.2.
+(b.3) If r ∈(1, ∞) \ N, again by Theorem 4.2 we deduce that γ(M) > ⌊r⌋, so that the sequence
+P 1 := c
+M/Γ⌊r⌋is such that γ(P 1) > 1 by using the properties of gamma index. Hence, by
+Lemma 2.7 there exists a weight sequence P such that P ≈M/Γ⌊r⌋, γ(P ) = γ(M) −⌊r⌋
+and P will also satisfy (dc). Consider a value r′ with ⌊r⌋< r′ < r. By applying the Borel
+transform B⌊r⌋: e
+Au
+(M)(Sr) →e
+Au
+(M/Γ⌊r⌋)(Sr′−⌊r⌋), Theorem 4.5.(ii) shows that the map
+e
+Au
+(M/Γ⌊r⌋)(Sr′−⌊r⌋) →C[[z]](M/Γ⌊r⌋),
+is surjective, or equivalently, thanks to the equivalence P ≈M/Γ⌊r⌋, the map
+e
+Au
+(P )(Sr′−⌊r⌋) →C[[z]](P ),
+is also surjective.
+Since r′ −⌊r⌋∈(0, 1), we may invoke item (b.1) and deduce that
+γ(P ) ≥r′ −⌊r⌋, what amounts to γ(M) ≥r′. We conclude by making r′ tend to r.

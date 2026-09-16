@@ -1,0 +1,117 @@
+162
+CHAPTER 4.
+MULTISUMMABILITY VIA PROXIMATE ORDERS
+for every z ∈U0. We x α < min(α1, 1) and
+s0 = min(1, k2/(k3A1,2), ε1(|z0| −ρ0)),
+where A1,2 is the constant appearing in (1.8) for M1 · M2 and s = 2. For all s < s0, we observe
+that
+I(s) :=
+Z ∞
+0
+e2
+ r
+seiφ
+ |f(reiθ)|dr
+r =
+Z ε2s
+0
++
+Z ε2sα
+ε2s
++
+Z ∞
+ε2sα
+ e2
+ r
+seiφ
+ |f(reiθ)|dr
+r .
+We split the integral into three parts Ij(s) for j = 1, 2, 3 dened below. Since r/(seiφ) ∈Sτ2 and
+|r/(seiφ)| ≤ε2 for all r ∈(0, ε2s), by (4.19) and (4.22), we have that
+I1(s) :=
+Z ε2s
+0
+e2
+ r
+seiφ
+ |f(reiθ)|dr
+r ≤C2d3
+sα2
+Z ε2s
+0
+rα2eωM1·M2(k3r) dr
+r .
+Using that ωM1M2(k3r) is nondecreasing we see that
+I1(s) ≤C2d3εα2
+2
+α2
+exp(ωM1·M2(k3ε2s)).
+(4.23)
+By (4.21) and (4.22), we see that
+I2(s) :=
+Z ε2sα
+ε2s
+e2
+ r
+seiφ
+ |f(reiθ)|dr
+r ≤d2d3
+Z ε2sα
+ε2s
+e−ωM2(k2r/s)eωM1·M2(k3r) dr
+r .
+Using again that ωM1·M2(k3r) is nondecreasing and that
+exp(−ωM2(k2r/s)) = hM2(s/(k2r)) = inf
+p∈N0 M2,p
+sp
+(k2r)p ≤M2,1
+s
+k2r,
+(4.24)
+we get that
+I2(s) ≤d2d3M2,1
+k2
+s exp(ωM1·M2(k3ε2sα))
+Z ε2sα
+ε2s
+dr
+r2 ≤d2d3M2,1
+k2ε2
+exp(ωM1·M2(k3ε2sα)).
+(4.25)
+By (4.21) and (4.22) again, we can see that
+I3(s) :=
+Z ∞
+ε2sα
+e2
+ r
+seiφ
+ |f(reiθ)|dr
+r ≤d2d3
+Z ∞
+ε2sα e−ωM2(k2r/s)eωM1·M2(k3r) dr
+r .
+Using (4.15) and Lemma 1.1.24 for ωM1·M2, we see that
+I3(s) ≤d2d3
+Z ∞
+ε2sα e−ωM1·M2(k2r/s)eωM1·M2(k3r) dr
+r ≤d2d3
+Z ∞
+ε2sα e−2ωM1·M2((k2r)/(sA1,2))+ωM1·M2(k3r) dr
+r .
+Since ωM1·M2(t) is nondecreasing and s < s0 ≤k2/(k3A1,2), we have that
+I3(s) ≤d2d3
+Z ∞
+ε2sα e−ωM1·M2(k3r) dr
+r .
+Finally, by the denition of ωM1·M2(t) we obtain
+I3(s) ≤d2d3
+Z ∞
+ε2sα
+M1,1M2,1
+k3r2
+dr = d2d3M1,1M2,1
+k3ε2sα
+.
+(4.26)
+JAVIER JIMÉNEZ GARRIDO

@@ -1,0 +1,49 @@
+21
+4.2
+Surjectivity for Beurling classes under condition (sm)
+We end by proving a surjectivity result for Beurling classes when their defining weight sequence
+satisfies the new condition (sm). The technique used by V. Thilliez in [26, Th. 3.4.1] will be
+followed, and we first need to recall two auxiliary results from the work of J. Chaumat and A.-M.
+Chollet [2].
+Lemma 4.7 ([2], Lemme 14). Let L = (Lp)p be a sequence of nonnegative real numbers and
+M = (Mp)p be a sequence of positive real numbers. The following conditions are equivalent:
+(i) For all h > 0, there exists a constant C(h) > 0 such that Lp ≤C(h)hpMp for every p ∈N0.
+(ii) lim
+p→∞
+ Lp
+Mp
+1/p
+= 0.
+(iii) There exists a sequence ε = (εp)p∈N0 of positive real numbers tending to zero such that
+Lp ≤ε0ε1 · · · εp−1Mp, p ∈N.
+Moreover, if (i) or (ii) are satisfied, then (iii) holds true for a nonincreasing sequence ε.
+Lemma 4.8 ([2], Lemme 16). Let A = (Ap)p be a sequence of nonnegative real numbers such
+that P∞
+p=0 Ap is convergent, and let B = (Bp)p and D = (Dp)p be sequences of positive real
+numbers such that limp→∞Bp = 0, and D is nonincreasing and limp→∞Dp = 0. Then, there
+exists a nondecreasing sequence E = (Ep)p of positive real numbers such that:
+(i) limp→∞Ep = ∞.
+(ii) P∞
+p=q EpAp ≤8Eq
+P∞
+p=q Ap, q ∈N0.
+(iii) The sequence E · D = (EpDp)p is nonincreasing.
+(iv) limp→∞EpBp = 0.
+The next result is an adaptation of a similar result, [2, Prop. 17], in which the condition
+(mg) has now been substituted by (sm).
+Theorem 4.9. Let L = (Lp)p be a weight sequence satisfying (snq) and (sm). If A = (Ap)p is
+a sequence of nonnegative real numbers such that for all h > 0 there exists C(h) > 0 such that
+Ap ≤C(h)hpLp for every p ∈N0, then there exists a weight sequence K = (Kp)p which satisfies
+(snq), (sm) and such that:
+i) There exists a constant D > 0 such that Ap ≤DKp, for all p ∈N0.
+ii) For all h > 0, there exists C′(h) > 0 such that Kp ≤C′(h)hpLp, p ∈N0.
+Proof. By Lemma 4.7, there exists a nonincreasing sequence ε = (εp)p∈N0 which tends to zero,
+and such that
+Ap ≤ε0ε1 · · · εp−1Lp,
+p ∈N.
+(4.8)
+Consider the sequence (up)p∈N0 defined as
+up =
+1
+(p + 1)ℓp
+,

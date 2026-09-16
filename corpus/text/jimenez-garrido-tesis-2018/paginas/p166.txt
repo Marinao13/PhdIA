@@ -1,0 +1,81 @@
+166
+CHAPTER 4.
+MULTISUMMABILITY VIA PROXIMATE ORDERS
+By condition (iii) for e2, for every ε > 0, there exist c, k > 0 such that
+|e2(1/u)| ≤c e−ωM2(k/|u|),
+u ∈Sω2−ε.
+Then, by Proposition 3.1.9, we have that e2(1/u) ∼M2 ˆ0 in Sω2. By Remark 4.3.6, we see
+that e1 ∗e2(1/z) = Te1(e2(1/u))(z) ∼M1M2 ˆ0 in Sω1+ω2 which implies, again by Proposi-
+tion 3.1.9, that for every ε > 0 there exist c, k, r > 0 such that
+|e1 ∗e2(z)| ≤c e−ωM1·M2(|z|/k),
+z ∈Sω1+ω2−ε,
+|z| > r.
+(4.35)
+By condition (ii.b) for e1 ∗e2, we know that |e1 ∗e2(z)| ≤C for z ∈Sω1+ω2−ε with |z| ≤δ.
+Since e1 ∗e2(z) is continuous, (4.35) holds for every z ∈Sω1+ω2−ε and we conclude that
+condition (iii) is satised.
+Condition (iv) holds immediately because for x > 0 we have that
+e1 ∗e2(x) =
+Z ∞
+0
+e1(xy)e2(1/y)dy
+y .
+Since e1 and e2 are positive real over the positive real axis, we deduce e1 ∗e2(x) also is.
+Let us show that
+me1∗e2(λ) = me1(λ)me2(λ).
+(4.36)
+We have that
+me1∗e2(λ) =
+Z ∞
+0
+xλ−1(e1 ∗e2)(x)dx =
+Z ∞
+0
+Z ∞
+0
+xλ−1e1(xy)e2(1/y)dy
+y dx.
+We make the change of variables t = xy and s = 1/y and we get
+me1∗e2(λ) =
+Z ∞
+0
+Z ∞
+0
+(st)λ−1e1(t)e2(s)dtds = me1(λ)me2(λ).
+Consequently, using property (v) of e1 and e2, we deduce that me1∗e2(λ) is continuous in
+{Re(λ) ≥0}, holomorphic in {Re(λ) > 0} and me(x) > 0 for every x ≥0.
+We dene the function E by
+E(z) :=
+∞
+X
+n=0
+zn
+me1∗e2(n),
+z ∈C.
+If we compute the radius of convergence of this series, using (4.36), we see that
+r = lim inf
+n→∞
+np
+me1∗e2(n) = lim inf
+n→∞
+np
+me1(n)me2(n) = ∞
+hence E is entire.
+We see that (me1∗e2(p))p∈N0, again by (4.36), is equivalent to the
+sequence M1 · M2, then, by Proposition 4.1.7, we see that there exist C, K > 0 such that
+|E(z)| ≤CeωM1·M2(K|z|), z ∈C, then (v) holds.
+Finally, regarding condition (vi.b), we need rst to show that
+E(u) = (T −
+e2E1)(u),
+u ∈C∗.
+(4.37)
+We x u ∈C∗, write τ = arg(u) and consider a path δω2(τ) (see Denition 4.1.13). Since
+E1 is entire and δω2(τ) compact, we have that
+|
+N
+X
+n=0
+zn/me1(n)| ≤E1(|z|) ≤Cτ,
+z ∈δω2(τ),
+N ∈N0,
+JAVIER JIMÉNEZ GARRIDO

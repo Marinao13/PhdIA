@@ -1,0 +1,39 @@
+216
+BIBLIOGRAPHY
+[90] G. Schindl, Characterization of ultradierentiable test functions dened by weight matrices
+in terms of their Fourier transform, Note Mat. 36 (2016), no. 2, 135.
+[91] J. Schmets, M. Valdivia, Extension maps in ultradierentiable and ultraholomorphic func-
+tion spaces, Studia Math. 143 (3) (2000), 221250.
+[92] E. Seneta, Regularly varying functions, Lecture Notes in Math., Vol. 508. Springer-Verlag,
+Berlin-New York, 1976.
+[93] V. Thilliez, Extension Gevrey et rigidité dans un secteur, Studia Math. 117 (1995), no. 1,
+2941.
+[94] V. Thilliez, Quelques propriétés de quasi-analyticité, Gazette Math. 70 (1996), 4968.
+[95] V. Thilliez, Division by at ultradierentiable functions and sectorial extensions, Results
+Math. 44 (2003), 169188.
+[96] V. Thilliez, On quasianalytic local rings, Expo. Math. 26 (2008), no. 1, 123.
+[97] V. Thilliez, Smooth solutions of quasianalytic or ultraholomorphic equations, Monatsh.
+Math. 160 (2010), 443453.
+[98] V. Thilliez, Estimates for Weierstrass division in ultradierentiable classes, J. Math. Anal.
+Appl. 440 (2016), 421436.
+[99] S. Tikhonov, On generalized Lipschitz classes and Fourier series, Z. Anal. Anwendungen 23
+(2004), no. 4, 745764.
+[100] E. C. Titchmarsh, The theory of functions, Reprint of the second (1939) edition. Oxford
+University Press, Oxford, 1958.
+[101] K. V. Trunov, R. S. Yulmukhametov, Quasianalytic Carleman classes on bounded domains,
+St. Petersburg Math. J. 20 (2009), no. 2, 289317.
+[102] G. Valiron, Sur les fonctions entières d'ordre nul et d'ordre ni et en particulier les fonctions
+à correspondance régulière, Ann. Fac. Sci. Toulouse Sci. Math. Sci. Phys. (3) 5 (1913), 117
+257.
+[103] G. Valiron, Théorie des Fonctions, Masson et Cie., Paris, 1942.
+[104] W. Wasow, Asymptotic Expansions for Ordinary Dierential Equations, Dover, New York,
+1987.
+[105] G. N. Watson, A Theory of Asymptotic Series, Philos. Trans. Roy. Soc. A, (1912), 211,
+279313.
+[106] H. Whitney, Analytic extensions of dierentiable functions dened in closed sets, Trans.
+Amer. Math. Soc. 36 (1934), 6389.
+[107] H. Whitney, Dierentiable functions dened in closed sets I, Trans. Amer. Math. Soc. 36
+(1934), 369387.
+[108] R. S. Yulmukhametov, Quasianalytical classes of functions in convex domains, Math.
+USSR-Sb. 58 (1987), no. 2, 505523.
+JAVIER JIMÉNEZ GARRIDO

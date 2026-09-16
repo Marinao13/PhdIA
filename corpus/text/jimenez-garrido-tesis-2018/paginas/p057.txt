@@ -1,0 +1,128 @@
+2.1. LOG-CONVEX SEQUENCES AND O-REGULAR VARIATION
+57
+Consequently, if bp := 1/tp for every p ∈N0, we have that b ≃m. It follows that b also satises
+(i) for a constant C ≥B. We will verify that ((p + 1)−γbp)p∈N0 is nonincreasing or, equivalently,
+that ((p + 1)γtp)p∈N0 is nondecreasing. Since bm is nondecreasing, for all p ∈N0
+(p + 1)γtp =
+p
+X
+ℓ=0
+(ℓ+ 1)γ
+(ℓ+ 1)mℓ
+−(p + 1)γ
+Dmp
+≤
+p+1
+X
+ℓ=0
+(ℓ+ 1)γ
+(ℓ+ 1)mℓ
+−
+(p + 2)γ
+(p + 2)mp+1
+−(p + 1)γ(p + 1)
+D(p + 2)mp+1
+.
+For all p ∈N0, by the denition of D, D ≥αp which leads to (p+2)γD +(p+1)γ+1 ≥(p+2)γ+1
+and we deduce that
+(p + 1)γtp ≤
+p+1
+X
+ℓ=0
+(ℓ+ 1)γ
+(ℓ+ 1)mℓ
+−(p + 2)γD + (p + 1)γ+1
+D(p + 2)mp+1
+≤(p + 2)γtp+1,
+as desired. From the sequence b, for every p ∈N0 we construct
+sp :=
+1
+(p + 1)γ
+p
+X
+ℓ=0
+(ℓ+ 1)γ
+(ℓ+ 1)bℓ
++ 1
+bp
+.
+Since b also satises (i), for every p ∈N0 we observe that
+1 ≤bpsp = 1 +
+bp
+(p + 1)γ
+p
+X
+ℓ=0
+(ℓ+ 1)γ
+(ℓ+ 1)bℓ
+≤1 + C,
+then if hp := 1/sp for every p ∈N0, we have that h ≃b ≃m. Using that ((p + 1)−γbp)p∈N0 is
+nonincreasing, we notice that
+(p + 1)γsp =
+p+1
+X
+ℓ=0
+(ℓ+ 1)γ
+(ℓ+ 1)bℓ
+−
+(p + 2)γ
+(p + 2)bp+1
++ (p + 1)γ
+bp
+≤
+p+1
+X
+ℓ=0
+(ℓ+ 1)γ
+(ℓ+ 1)bℓ
++ (p + 2)γ
+bp+1
+(p + 1)
+p + 2 ≤(p + 2)γsp+1,
+p ∈N0
+Hence ((p + 1)−γhp)p∈N0 is nonincreasing. Finally, we verify that h satises (2.5). Applying
+again that ((p + 1)−γbp)p∈N0 is nonincreasing, we see that
+h2p
+hp
+=1/s2p
+1/sp
+=
+(p + 1)−γ Pp
+ℓ=0(ℓ+ 1)γ−1(bℓ)−1 + (bp)−1
+(2p + 1)−γ P2p
+ℓ=0(ℓ+ 1)γ−1(bℓ)−1 + (b2p)−1
+≤(2p + 1)γ
+(p + 1)γ
+ 
+1 −
+P2p
+ℓ=p+1(ℓ+ 1)γ−1(bℓ)−1
+P2p
+ℓ=0(ℓ+ 1)γ−1(bℓ)−1 + (2p + 1)γ(b2p)−1
+!
+.
+Once more, since ((p + 1)−γbp)p∈N0 is nonincreasing, for every p ∈N we have that
+2p
+X
+ℓ=p+1
+(ℓ+ 1)−1
+(ℓ+ 1)−γ(bℓ) ≥(2p + 1)−1p
+(p + 1)−γ(bp),
+and, by the denition of s2p, we deduce that
+h2p
+hp
+≤(2p + 1)γ
+(p + 1)γ
+
+1 −
+(p + 1)γp
+bps2p(2p + 1)γ+1
+
+≤E
+
+1 −
+1
+(bp/b2p)b2ps2p3E
+
+.
+Universidad de Valladolid

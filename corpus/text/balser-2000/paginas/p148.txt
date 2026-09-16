@@ -1,0 +1,45 @@
+8.4 Factorization of Formal Fundamental Solutions
+131
+or not (in other words: the corresponding formal systems have
+Poincar´e ranks at most r), and both A0 and B0 are in Jordan
+form, say,
+A0
+=
+diag [λ1Is1 + N1, . . . , λµIsµ + Nµ],
+B0
+=
+diag [˜λ1I˜s1 + ˜N1, . . . , ˜λ˜µI˜s˜
+µ + ˜N˜µ],
+with distinct λ1, . . . , λµ, resp. ˜λ1, . . . , ˜λ˜µ and nilpotent matrices
+Nj, resp. ˜Nj.
+(b) The matrices ˆA(z) and ˆB(z) are diagonally blocked in the block
+structures of their leading terms A0, resp. B0.
+Show that then ˜µ = µ, and the pairs (λj, sj) and (˜λj, ˜sj) agree up
+to a renumeration. In case the pairs are identical, show that ˆT(z) is
+diagonally blocked, and converges if both ˆA(z) and ˆB(z) converge.
+3. Under the assumptions of the previous exercise, assume that the pairs
+(λj, sj) and (˜λj, ˜sj) are not identical. Show that then one can permute
+the columns, resp. the rows, of ˆT(z) so that the resulting matrix is
+diagonally blocked in the block structure of ˆA(z), resp. of ˆB(z).
+8.4
+Factorization of Formal Fundamental Solutions
+We now are going to discuss brieﬂy the classical notion of formal funda-
+mental solutions (FFS for short) of a system (3.1) (p. 37). Such a FFS of
+a convergent system will, in general, not be k-summable for any k > 0.
+However, we are going to show that it can always be factored into ﬁnitely
+many terms that individually are k-summable, but for values k depending
+on the factor.
+In principle, one can compute a formal fundamental solution even for for-
+mal systems (3.3) (p. 40). To do so is equivalent to ﬁnding a q-meromorphic
+formal transformation ˆF(z) producing an elementary formal transformed
+system, say, with coeﬃcient matrix ˆB(z) = w˜r ∞
+0 Bn w−n, w = z1/q,
+where all Bn commute with one another. It follows from the exercises be-
+low that then another q-meromorphic transformation takes (3.3) into
+z y′ = B(z) y,
+B(z) = diag [b1(w)Is1 + N1, . . . , bµ(w)Isµ + Nµ],
+(8.5)
+with w = z1/q and B(z) in normalized Jordan canonical form, meaning
+that
+• the bm(w) are distinct polynomials of degree at most ˜r, with constant
+terms having a real part in the half-open interval [0, 1/q), and

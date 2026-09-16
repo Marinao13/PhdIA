@@ -1,0 +1,12 @@
+{
+ "id": "rainer-schindl-2014",
+ "capa": "pymupdf",
+ "paginas": 36,
+ "unidades": 35,
+ "unidades_con_pagina": 35,
+ "escaneado": false,
+ "avisos": [
+  "marker: marker fallo:     raise SpawnError(f\"docker run failed: {result.stderr or result.stdout}\") | surya.inference.backends.spawn.SpawnError: docker run failed: docke"
+ ],
+ "fecha": "2026-09-16"
+}

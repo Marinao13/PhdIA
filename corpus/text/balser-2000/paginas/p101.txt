@@ -1,0 +1,46 @@
+84
+5. Integral Operators
+Lemma 6 (Asymptotic of Mittag-Leffler’s function)
+Let 0 < s < 2. Then for S−= S(π, (2 −s)π) we have
+z Es(z) −→−1/Γ(1 −s),
+S−∋z →∞,
+(5.6)
+while for S+ = S(0, sπ) we have
+Es(z) = s−1 exp[z1/s] + ˜Es(z),
+(5.7)
+with z ˜Es(z) bounded in S+.
+Proof: In the integral representation (B.19) (p. 233) one can deform the
+path of integration γ (owing to Cauchy’s integral theorem) such that the
+two radial parts follow the two rays arg w = ±(π+ε)/2, for arbitrarily small
+ε > 0. Doing so, we ﬁnd that for z with |π −arg z| ≤(1 −s/2)π −sε the
+denominator ws −z never vanishes, so that we may interchange integration
+and limit, by which we obtain (5.6), owing to (B.10) (p. 228). On the other
+hand, for z ∈S+ we can use the Residue Theorem to show
+Es(z) = s−1 exp[z1/s] + ˜Es(z),
+|z| > 1,
+where ˜Es(z) has exactly the same integral representation (B.19), but for
+|z| > 1. From this representation, it is easy to see that z ˜Es(z) remains
+bounded as z →∞in S+.
+2
+Remark 6: Since exp[z1/s] is bounded in the sectors sπ/2 ≤± arg z ≤
+3sπ/2, we observe that (5.7) remains valid in the sector S(0, 3sπ). This
+will be used in the proof of the next theorem.
+3
+For s as above, consider any sectorial region G = G(d, α) of opening
+α > sπ, and let f ∈H(G, E ) be continuous at the origin. With k = 1/s
+and γk(τ) as in Section 5.2, let
+g(u) = −1
+2πi
+
+γk(τ)
+Es(u/z) f(z)dz
+z .
+(5.8)
+According to Lemma 6, the integral is absolutely convergent for u with
+|d −arg u| < (α −sπ)/2 and τ ≈arg u, and convergence is locally uniform
+there, so that g(u) is analytic. We now show
+Theorem 26 For 0 < s < 2 and any sectorial region G = G(d, α) of
+opening α > sπ, let f ∈H(G, E ) be continuous at the origin and deﬁne g
+by (5.8). Then we have
+g = Bkf,
+k = 1/s.

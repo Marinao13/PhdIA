@@ -1,0 +1,17 @@
+Composition in ultradiﬀerentiable classes
+131
+[39]
+J. A. Siddiqi, Inverse-closed Carleman algebras of inﬁnitely diﬀerentiable functions,
+Proc. Amer. Math. Soc. 109 (1990), 357–367.
+[40]
+V. Thilliez, On quasianalytic local rings, Expo. Math. 26 (2008), 1–23.
+Armin Rainer, Gerhard Schindl
+Fakult¨at f¨ur Mathematik
+Universit¨at Wien
+Oskar-Morgenstern-Platz 1
+A-1090 Wien, Austria
+E-mail: armin.rainer@univie.ac.at
+a0304518@unet.univie.ac.at
+Received October 18, 2012
+Revised version November 24, 2013
+(7660)

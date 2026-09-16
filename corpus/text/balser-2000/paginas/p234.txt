@@ -1,0 +1,29 @@
+218
+Appendix A. Matrices and Vector Spaces
+From this we can see that the mapping
+x 	−→Tx,
+(Tx)(u) = A−1(u)
+
+f(u) +
+ u
+0
+K((ur −tr)1/r) x(t) dtr
+
+is contractive on V µ
+κ . Thus, Banach’s ﬁxed point theorem completes the
+proof.
+2
+Besides the linear integral equation studied above, we will investigate
+some nonlinear systems in the proofs of Theorem 11 (p. 52) and Lemma 11
+(p. 124). The estimates needed in the proof of the lemma are more subtle,
+however; so we cannot directly apply the arguments used here.
+Exercises:
+1. Let f(z) be holomorphic in a region G ⊂C, and for z0 ∈G assume
+f(z0) = 0, f ′(z0) ̸= 0. For suﬃciently small δ > 0, show that φ(z) =
+z −f(z)/f ′(z) maps the disc about z0 of radius δ into itself and is a
+contraction there.
+2. Investigate φ (as above) for the case of f(z0) = . . . = f (n−1)(z0) = 0,
+f (n)(z0) ̸= 0, n ≥2.
+3. Under the assumptions of Proposition 26, show that if the vector f
+remains bounded at the origin (in S), or even is continuous there,
+then so is the solution vector x.

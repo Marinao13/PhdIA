@@ -1,0 +1,30 @@
+4.3. MULTISUMMABILITY
+181
+is M2−summable in direction d2.
+Consequently, we can write ˆf = ˆTe1ˆg = ˆf1 + ˆf2, so ˆf ∈
+C{z}(M1,M2),(d1,d2).
+In case any of the previous equivalent conditions holds, we have seen that by Theorem 4.3.29,
+f2 = Te2 ˆT −
+e2 ˆf2 = Te1Ae1,e2 ˆT −
+e2 ˆf2,
+and, thanks to the convergence of ˆT −
+e1 ˆf1, we have shown that
+f1 = Te1 ˆT −
+e1 ˆf1 = Te1Ae1,e2 ˆA−
+e1,e2 ˆT −
+e1 ˆf1 = Te1Ae1,e2 ˆT −
+e2 ˆf1.
+Hence, we conclude that S(M1,M2),(d1,d2) ˆf = S(e1,e2),(d1,d2) ˆf.
+□
+Remark 4.3.32. Classical multisummability theory can be also stated in a cohomological form.
+In this general context, this approach is also possible and one can provide a version of the relative
+Watson's Lemma (see [64, Th. 7.2.1] for the Gevrey case), which is the cohomological equivalent
+of the Tauberian Theorem. Apart from the Watson's Lemma and the Borel-Ritt Theorem, a
+Ramis-Sibuya-like result given by A. Lastra, S. Malek and J. Sanz in [61, Lemma 3] is necessary
+for the proof (for a reference on the classical version of RamisSibuya theorem, the reader may
+consult to [39, Theorem XI-2-3]).
+The main reason why the analytical point of view have been chosen is that an explicit
+construction of the acceleration kernels and operators can be given with the corresponding explicit
+expression for the multisums. This cohomological version and the results of this chapter are
+included in our work [42].
+Universidad de Valladolid

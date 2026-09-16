@@ -1,0 +1,95 @@
+8
+From Lemma 3.3 we have that the function m is well deﬁned in {Re(λ) ≥0} and deﬁnes a
+continuous function in this set, and holomorphic in {Re(λ) > 0}. Moreover, m(x) is positive
+real for every x ≥0, so we can state the next
+Deﬁnition 3.5. Let M be a strongly regular sequence and let the function eM be constructed
+as in (8). The sequence of positive real numbers m = (m(p))p∈N0, is known as the sequence of
+moments associated to M (or to eM).
+Proposition 3.6. Let M = (Mp)p∈N0 be a strongly regular sequence and m = (m(p))p∈N0 the
+sequence of moments associated to M. Then M and m are equivalent.
+Proof We recall that (mp)p∈N0 is the sequence of quotients of M. Firstly, we prove the existence
+of positive constants C1, C2 such that
+(10)
+m(p) ≤C1Cp
+2Mp,
+p ∈N0.
+Let p ∈N0. From Proposition 2.7.(i), there exists k3 > 0 with
+m(p) ≤
+Z ∞
+0
+tphM(k3/t)dt =
+Z mp+1
+0
+tphM(k3/t)dt +
+Z ∞
+mp+1
+tphM(k3/t)dt.
+In the ﬁrst integral we take into account that hM is bounded by 1, while in the second one we
+use the deﬁnition of hM. This yields
+m(p) ≤
+Z mp+1
+0
+tpdt +
+Z ∞
+mp+1
+tpkp+2
+3
+tp+2 Mp+2dt =
+1
+p + 1mp+1
+p+1 + kp+2
+3
+Mp+2
+mp+1
+.
+We have Mp+2 = mp+1Mp+1, and we may apply the property (µ) of M and (4) to obtain that
+m(p) ≤A2Mp+1 + kp+2
+3
+Mp+1 ≤(A3M1Ap + AM1k2
+3Apkp
+3)Mp,
+as desired. This concludes the ﬁrst part of the proof.
+We will now show the existence of constants C3, C4 > 0 such that m(p) ≥C3Cp
+4Mp for every
+p ∈N0. Let p ∈N0. From Proposition 2.7.(i), there exist k1, k2 > 0 such that
+m(p) ≥k1
+Z ∞
+0
+tphM(k2/t)dt ≥k1
+Z k2mp
+0
+tphM(k2/t)dt.
+Since the map t 7→hM(k2/t) decreases in (0, ∞), we have that for every t ∈(0, k2mp],
+hM(k2/t) ≥hM(1/mp) = Mp
+mp
+p
+,
+hence
+m(p) ≥k1
+Z k2mp
+0
+tp Mp
+mp
+p
+dt = k1
+kp+1
+2
+mp+1
+p
+p + 1
+Mp
+mp
+p
+= k1
+kp+1
+2
+p + 1mpMp.
+Now, mpMp = Mp+1 and p + 1 ≤2p for every p ∈N0. By applying (3) we ﬁnally conclude that
+m(p) ≥k1k2M1(k2/2)pMp.
+✷
+Remark 3.7. In the Gevrey case of order α > 0, M α = (p!α)p∈N0, we may choose
+eM α(z) = 1
+αz1/α exp(−z1/α),
+z ∈Sα.
+Then we obtain that mα(λ) = Γ(1 + αλ) for ℜ(λ) ≥0. Of course, the sequences M α and
+mα = (mα(p))p∈N0 are equivalent.

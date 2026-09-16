@@ -18,12 +18,14 @@ Unico punto de entrada del sistema. Toda llamada a la IA pasa por aqui.
   python doc.py anki                   exporta tarjetas nuevas
   python doc.py estado                 en que fase estas
   python doc.py ingest [pdf...]        ingiere PDFs al corpus (tex de arXiv / Marker / PyMuPDF)
+  python doc.py indexar                fragmenta y embebe lo ingerido (incremental)
+  python doc.py buscar "..."           fragmentos con [id:pagina], sin modelo, en cualquier fase
   python doc.py ahora                  que te toca ahora, y el comando exacto
 """
 import sys, argparse
 
 try:
-    sys.stdout.reconfigure(errors="replace")
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 except Exception:
     pass
 
@@ -83,6 +85,19 @@ def main():
     s.add_argument("--rehacer", action="store_true")
     s.add_argument("--sin-red", dest="sin_red", action="store_true", help="sin arXiv ni Crossref")
     s.set_defaults(fn=K.cmd_ingest)
+
+    s = sub.add_parser("indexar", help="fragmenta y embebe el corpus (incremental)")
+    s.add_argument("--rehacer", action="store_true")
+    s.set_defaults(fn=K.cmd_indexar)
+
+    s = sub.add_parser("buscar", help="recuperacion pura, sin modelo, en todas las fases")
+    s.add_argument("pregunta", nargs="*")
+    s.add_argument("-k", type=int, default=8)
+    s.add_argument("--fuente", choices=["paper", "proyecto", "nota"])
+    s.add_argument("--doc", help="limitar a un id de bib.yaml")
+    s.add_argument("--bm25", action="store_true", help="sin embeddings")
+    s.add_argument("--por-doc", dest="por_doc", type=int, default=2, help="maximo por documento (0 = sin tope)")
+    s.set_defaults(fn=K.cmd_buscar)
 
     sub.add_parser("metricas", help="los numeros").set_defaults(fn=K.cmd_metricas)
     sub.add_parser("anki", help="exporta tarjetas").set_defaults(fn=K.cmd_anki)

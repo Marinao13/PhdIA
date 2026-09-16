@@ -1,0 +1,43 @@
+132
+8. Solutions of Highest Level
+• the Nm are nilpotent Jordan matrices whose blocks are ordered so
+that they increase in size.
+Therefore, we shall always assume that for a formal fundamental solution
+ˆF(z) the transformed system already is of the form (8.5). The system (8.5)
+then has a unique fundamental solution of the form
+Y (z) = diag [eq1(z)zJ1, . . . , eqµ(z)zJµ],
+with z q′
+m(z) = bm(w) −bm(0), and Jm = bm(0)Ism + Nm. So each qm
+is a polynomial in the qth root of z without constant term, and Jm a
+constant matrix in Jordan form, with a single eigenvalue whose real part
+is in [0, 1/q). In analogy to the phrase used for HLFFS, we call the pairs
+(qj(z), Jj), 1 ≤j ≤µ, the data pairs of the FFS. Recall that the bm(w)
+were all distinct to see the same for the data pairs. Moreover, note that
+the enumeration of the data pairs is always chosen to correspond to the
+enumeration of the bm(w) in (8.5). In particular, a renumeration of the
+data pairs reﬂects in a suitable permutation of the columns of the FFS. As
+for HLFFS, the data pairs of a FFS will be shown to be closed with respect
+to continuation, meaning that to every pair (qm(z), Jm) there exists a pair
+(qκ(z), Jκ) with qκ(z) = qm(ze2πi) and Jm = Jκ. This κ even is uniquely
+determined by m, because the data pairs are all distinct!
+We now show existence of FFS. For simplicity, we restrict ourselves to
+convergent systems (3.1); however, one can check that the same statements
+remain correct for formal systems (3.3).
+Proposition 20 Every system (3.1) (p. 37) has a FFS of the form de-
+scribed above. Moreover, the following always holds:
+(a) For any two FFS of (3.1), the data pairs coincide up to renumeration.
+(b) The data pairs of any FFS are closed with respect to continuation.
+(c) For any two FFS ˆF1(z), ˆF2(z), assume that their data pairs coincide,
+which can always be brought about by suitably permuting the columns
+of any one of the FFS. Then ˆF −1
+1
+(z) ˆF2(z) is diagonally blocked of
+type (s1, . . . , sµ) and constant.
+Proof: To show existence of FFS, ﬁrst assume that inﬁnity is an al-
+most regular-singular point. Then by deﬁnition, a terminating meromor-
+phic transformation T(z) and a polynomial q(z) of degree at most r exist,
+so that the combined transformation x = eq(z) T(z) ˜x leads to a system
+with a regular-singular point at inﬁnity. According to the results of Sec-
+tion 2, in particular Theorem 6 (p. 32),2 there exists another meromorphic
+transformation ˜T(z), transforming this new system into one with constant
+2Use a change of variable z = 1/w to transfer the singularity to the origin.

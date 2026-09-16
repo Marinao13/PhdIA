@@ -1,0 +1,12 @@
+{
+ "id": "balser-2000",
+ "capa": "pymupdf",
+ "paginas": 314,
+ "unidades": 309,
+ "unidades_con_pagina": 309,
+ "escaneado": false,
+ "avisos": [
+  "Docker Desktop apagado: el OCR de Marker (surya) corre en Docker. Arrancalo o usa SURYA_INFERENCE_BACKEND=llamacpp"
+ ],
+ "fecha": "2026-09-16"
+}

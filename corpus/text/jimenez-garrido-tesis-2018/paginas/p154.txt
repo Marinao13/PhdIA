@@ -1,0 +1,56 @@
+154
+CHAPTER 4.
+MULTISUMMABILITY VIA PROXIMATE ORDERS
+4.3
+Multisummability
+Whenever the Tauberian Theorem 4.2.14 is available it makes sense to give a denition of mul-
+tisummability in this context.
+In the recent book of M. Loday-Richaud [64, Ch. 7], several
+equivalent denitions of multisummability are provided together with a careful study of their
+peculiarities.
+In this dissertation, since the M−summability tools are dened using moment
+summability methods, the approach of W. Balser [7, Ch. 10] has been chosen, that is, the de-
+composition into sums.
+Due to a ramication inconvenience, this splitting denition is only
+compatible with the others if the corresponding indices ω(Mj) are all smaller than 2.
+Denition 4.3.1. Let M1 and M2 be weight sequences, i.e., (lc) with quotients tending to
+innity, admitting a nonzero proximate order (see Denition 2.2.1) such that ω(M1) < ω(M2) < 2
+and d1, d2 ∈R such that |d1 −d2| < π(ω(M2) −ω(M1))/2.
+A formal power series ˆf(z) =
+P
+p≥0 apzp ∈C[[z]] is said to be (M1, M2)−summable in the multidirection (d1, d2), if there exist
+a formal series ˆf1(z) which is M1−summable in d1 with M1−sum f1 and a formal series ˆf2(z)
+which is M2−summable in d2 with M2−sum f2 such that
+ˆf = ˆf1 + ˆf2.
+Furthermore, the holomorphic function f(z) = f1(z) + f2(z) dened on G(d1, α1) for some
+α1 > ω(M1) is called the (M1, M2)−sum of ˆf in the multidirection (d1, d2) and we write f(z) =
+(S(M1,M2),(d1,d2) ˆf)(z) and ˆf ∈C{z}(M1,M2),(d1,d2).
+Remark 4.3.2. In the conditions of the previous denition, there always exists a sectorial region
+G = G(d1, α1) with α1 > ω(M1) such that
+f ∼M2 ˆf
+on
+G.
+(4.10)
+However, since the region is not wide enough, f is not the sole function in between the ones
+satisfying (4.10). Hence, this condition is weaker than the multisummability notion, because the
+next proposition shows that the multisum is unique and the splittings are essentially unique.
+Proposition 4.3.3. In the conditions of Denition 4.3.1, assume that there exist two pairs of
+formal power series ˆf1, ˆf2 and ˆg1, ˆg2 such that
+ˆf = ˆf1 + ˆf2 = ˆg1 + ˆg2.
+Then there exist α2 > ω(M2) and ˆu1 ∈C[[z]] such that u1 is M1−summable on a sectorial region
+G(d2, α2) and
+ˆg1 = ˆf1 −ˆu1,
+and
+ˆg2 = ˆu1 + ˆf2.
+Moreover, we have that the (M1, M2)−sum of ˆf is unique, that is,
+f1(z) + f2(z) = f(z) = g1(z) + g2(z),
+in a sectorial region G(d1, α1) with α1 > ω(M1).
+Proof. We dene ˆu1 := ˆf1 −ˆg1, so ˆu1 ∈C{z}M1,d1, in particular ˆu1 ∈C[[z]]M1 . We observe that
+ˆg2 −ˆf2 = ˆu1, then ˆu1 ∈C{z}M2,d2. By Proposition 4.2.13.(ii), there exists α2 > ω(M2) such that
+ˆu1 is M1−summable in G(d2, α2).
+Furthermore, by Lemma 4.1.22.(ii), (SM1,d1 ˆu1)(z) = (SM1,d2 ˆu1)(z) on a sectorial region G =
+G(d1, α1) with α1 > ω(M1) and, using Proposition 4.2.13.(iii), for all z ∈G we conclude that
+f1(z) −g1(z) = (SM1,d1( ˆf1 −ˆg1))(z) = (SM1,d2 ˆu1)(z)
+= (SM2,d2 ˆu1)(z) = (SM2,d2(ˆg2 −ˆf2))(z) = g2(z) −f2(z).
+□
+JAVIER JIMÉNEZ GARRIDO

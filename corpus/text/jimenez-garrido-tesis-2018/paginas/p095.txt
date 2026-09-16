@@ -1,0 +1,74 @@
+2.2. LOG-CONVEX SEQUENCES, REGULAR VARIATION AND PROXIMATE ORDERS
+95
+valid, but extremely pathological examples (see Examples 2.2.23, 2.2.24 and 2.2.26) of strongly
+regular sequences not satisfying (f) will be constructed below.
+Adding the information in Remark 2.2.7, (a) ⇒(f) ⇒(j) ⇒(k) ⇒(ℓ), and the arrows can
+not be reversed.
+The next representation result, analogous to Theorems 1.2.38 and 1.2.46, provides a char-
+acterization of the weight sequences that satisfy (f), only in terms of their structure, i.e., not
+depending on the existence of another weight sequence L or a nonzero proximate order ρ(t),
+closing an open question set in [44, Remark 4.15].
+Theorem 2.2.19. Let M be a weight sequence, then the following conditions are equivalent:
+(f) There exists a weight sequence L such that L ≈M and dL(t) is a nonzero proximate order,
+(g) M admits a nonzero proximate order,
+(h) There exist ω ∈(0, ∞) and bounded sequences of real numbers (bp)p∈N, (ηp)p∈N such that
+(ηp)p∈N converges to ω and we can write
+mp = exp
+
+bp+1 +
+p+1
+X
+j=1
+ηj
+j
+
+,
+p ∈N0.
+In case the previous holds, limt→∞dL(t) = 1/ω = 1/ω(M).
+Proof. (f) ⇔(g) Theorem 2.2.17.
+(f) ⇒(h) Applying Theorem 2.2.6, we know that ℓ= (ℓp−1)p∈N is regularly varying of index
+ω = ω(L) = ω(M). Then by the Representation Theorem 1.2.38, there exist sequences of real
+numbers (cp)p∈N and (ηp)p∈N, converging to c ∈R and ω, respectively, such that
+ℓp = exp
+
+cp+1 +
+p+1
+X
+j=1
+ηj
+j
+
+,
+p ∈N0.
+By Remark 2.2.7, L satises (j), then it has (mg) and, by Proposition 1.1.20, we deduce that
+m ≃ℓ. This means that there exists a bounded sequence (hp)p∈N such that
+mp = exp(hp+1)ℓp = exp
+
+hp+1 + cp+1 +
+p+1
+X
+j=1
+ηj
+j
+
+,
+p ∈N0.
+Writing bp := hp + cp for p ∈N, we conclude that (h) holds.
+(h) ⇒(f) We dene the sequence
+tp := exp
+
+
+p+1
+X
+j=1
+ηj
+j
+
+,
+p ∈N0.
+Since limp→∞ηp = ω ∈(0, ∞), we x ε ∈(0, ω) and we get p0 ∈N such that ηp > ω −ε > 0 for
+p ≥p0, this implies that
+tp+1
+tp
+= exp(ηp+2/(p + 2)) ≥1.
+Universidad de Valladolid

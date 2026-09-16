@@ -1,0 +1,60 @@
+The following deﬁnition is natural.
+Deﬁnition 2.20. For a strongly regular sequence M, we deﬁne the order of quasianalyticity
+ω(M) := inf{γ > 0 : ˜
+AM(Gγ) is quasianalytic}.
+From Theorem 2.19 we immediately deduce the following result (except for the last
+statement, which was proved in [50]).
+Corollary 2.21. For a strongly regular sequence M, we have
+ω(M) = lim inf
+p→∞
+log(mp)
+log(p)
+=
+1
+λ(mp)
+.
+Moreover, ω(M) ∈(0, ∞).
+Remark 2.22. Consider a pair of equivalent sequences M and M′. For any sectorial re-
+gion G, ˜
+AM(G) and ˜
+AM′(G) coincide, so it is clear that ω(M) = ω(M′).
+In order to study quasianalyticity in case the opening of the sectorial region equals
+the limiting value πω(M), we need to introduce the notion of proximate order, appearing
+in the theory of growth of entire functions and developed, among others, by E. Lindel¨of,
+G. Valiron [58], B. Ja.
+Levin [30], A. A. Goldberg and I. V. Ostrosvkii [14] and L. S.
+Maergoiz [31].
+Deﬁnition 2.23. We say a real function ρ(r), deﬁned on (c, ∞) for some c ≥0, is a
+proximate order, if the following hold::
+(A) ρ is continuous and piecewise continuously diﬀerentiable in (c, ∞) (meaning that it
+is diﬀerentiable except possibly at a sequence of points, tending to inﬁnity, at any of
+which it is continuous and has distinct ﬁnite lateral derivatives),
+(B) ρ(r) ≥0 for every r > c,
+(C) limr→∞ρ(r) = ρ < ∞,
+(D) limr→∞rρ′(r) ln r = 0.
+Under the assumption that the auxiliary function dM(t) = log(M(t))/ log t, where M(t)
+was deﬁned in (6), is a proximate order, the second author [50] provided ﬂat functions in the
+optimal sectors Sω(M) by applying results of L. S. Maergoiz [31]. So, we have the following
+ﬁnal statement in this respect.
+Theorem 2.24 (Watson’s Lemma, [50]). Suppose M is strongly regular and such that
+dM(t) is a proximate order, and let γ > 0 and a sectorial region Gγ be given. The following
+statements are equivalent:
+(i)
+˜
+AM(Gγ) is quasianalytic.
+(ii) γ > ω(M).
+3
+Strongly Regular Sequences and proximate orders
+In this section we will present diﬀerent characterizations of dM being a proximate order for
+a strongly regular sequence M.
+We start by recalling the following deﬁnitions and facts, mainly taken from the book of A.
+A. Goldberg and I. V. Ostrovskii [14].
+Deﬁnition 3.1 ([14], p. 43). Let α(t) be a nonnegative and nondecreasing function in (c, ∞)
+for some c ≥0 (we write α ∈Λ). The order of α is deﬁned as
+ρ = ρ[α] := lim sup
+t→∞
+log+ α(t)
+log t
+∈[0, ∞],
+where log+ = max(log, 0). α(t) is said to have ﬁnite order if ρ < ∞.
+9

@@ -1,0 +1,61 @@
+11
+Proposition 2.10. Let M be a weight sequence satisfying (sm), and A be either an
+almost increasing sequence, or a sequence such that lim infp→∞A1/p
+p
+> 0 and bA satisfies
+(alg). If ψ ∈S{M+1}
+{ bA}
+(R) and there is Ψ : H →C satisfying the following conditions:
+(i) Ψ|R = ψ.
+(ii) Ψ is continuous on H and analytic on H.
+(iii) limζ∈H,ζ→∞Ψ(ζ) = 0,
+then ψ ∈F(S{ bA}
+{M}(0, ∞)).
+2.3
+The Laplace transform
+Let M be a sequence. We define CM,h(0, ∞) as the space consisting of all φ ∈C((0, ∞))
+such that
+s0
+M,h(φ) = sup
+p∈N0
+sup
+x∈(0,∞)
+xp|φ(x)|
+hpMp
+< ∞.
+(CM,h(0, ∞), s0
+M,h) is a Banach space. If M is a weight sequence and φ ∈CM,h(0, ∞),
+similarly as in (2.5) we have
+|φ(x)| ≤s0
+M,h(φ)e−ωM(|x|/h) = s0
+M,h(φ)hM(h/|x|),
+x > 0.
+(2.13)
+We set C{M}(0, ∞) = S
+h>0 CM,h(0, ∞), and endow it with its natural (LB) space
+structure. Note that no condition is imposed on the support of the elements of C{M}(0, ∞).
+The Laplace transform of φ ∈C{M}(0, ∞) is defined as
+L(φ)(ζ) =
+Z ∞
+0
+φ(x)eixζdx,
+ζ ∈H.
+Remark 2.11. Let M and A be sequences.
+We have S{A}
+{M}(0, ∞) ⊂S{M}(0, ∞) ⊂
+C{M}(0, ∞) with continuous inclusions, since SA,h
+M,h(0, ∞) ⊂SM,h(0, ∞) ⊂CM,h(0, ∞)
+for every h > 0, the norm in CM,h(0, ∞) enters the family of seminorms defining the
+topology of SM,h(0, ∞), and
+sq
+M,h(φ) ≤hqAqsA,h
+M,h(φ),
+φ ∈SA,h
+M,h(0, ∞), q ∈N0.
+Note that L(φ)|R = bφ for all φ ∈S{A}
+{M}(0, ∞).
+Lemma 2.12. Let M be a weight sequence satisfying (sm).
+Then, for every h > 0
+one has L(CM,h(0, ∞)) ⊂AM+1,Hh(H), where H > 1 is the constant appearing in (sm),
+and L: CM,h(0, ∞) →AM+1,Hh(H) is continuous. So, the mapping L : C{M}(0, ∞) →
+A{M+1}(H) is well-defined and continuous, and it is moreover injective.

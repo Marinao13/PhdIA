@@ -1,0 +1,50 @@
+17
+En el caso de que cualquiera de los anteriores sea válido, limt→∞dL(t) = 1/ω = 1/ω(M).
+Además se obtendrá una nueva caracterización de las sucesiones de variación regular en la
+Proposición 2.2.3 y se mostrará cómo se pueden construir sucesiones con buen comportamiento
+a partir de los órdenes aproximados en el Teorema 2.2.14. Finalmente, en la Subsección 2.2.5
+y gracias a una mejor comprensión de las propiedades involucradas, se presentarán varios ejem-
+plos que exhiben diferentes comportamientos patológicos, incluyendo el Ejemplo 2.2.26 antes
+mencionado.
+Si, en lugar de la admisibilidad de un orden aproximado, se piden condiciones más débiles
+para la sucesión M, por ejemplo y con la notación de la fórmula de representación de arriba, si
+(ηp)p∈N es solamente acotada, lo que equivale a decir que m es de O-variación regular, no se sabe
+cómo puede ser reproducido el método de M−sumabilidad. No obstante, y este es el problema
+que se plantea en (d) y (e), es natural preguntarse sobre la inyectividad y la sobreyectividad de
+la aplicación de Borel. El tercer capítulo está dedicado al estudio de estas cuestiones para las tres
+clases ultraholomorfas que comentamos anteriormente. Tras introducir la notación básica en la
+primera sección, se examinará la inyectividad para la cual, como se ha expuesto antes, casi toda
+la información era conocida. Resulta que los órdenes aproximados nos proporcionan una solución
+denitiva al problema de inyectividad: incluso si M no admite un orden aproximado, siempre
+podemos controlar la función dM por arriba por un orden aproximado, y un uso adecuado de la
+variación regular de las funciones de Maergoiz asociadas a este orden permite construir funciones
+planas en sectores de amplitud óptima. Por tanto, la cuestión en (d) queda respondida, ver
+Teorema 3.2.15.
+Aquí el índice ω(M) muestra su carácter divisorio.
+Esta sección termina,
+ayudados por los resultados de casianaliticidad, con la prueba en el Teorema 3.2.16 de que la
+aplicación de Borel no es nunca biyectiva.
+La última sección se centra en el problema de la sobreyectividad. Se obtendrán resultados
+parciales para sucesiones peso, por ejemplo se mostrará que si hay sobreyectividad para cualquier
+amplitud entonces γ(M) > 0 o, en otras palabras, M debe ser fuertemente no casianalítica. Sin
+embargo, los principales avances se han producido para sucesiones fuertemente regulares. En el
+Corolario 3.3.18, si Sγ es el sector no acotado de amplitud πγ y bisecado por la dirección d = 0
+de la supercie de Riemann del logaritmo, se probará lo siguiente:
+Corolario. Sea M fuertemente regular y t ∈R, t > 0. Cada una de estas armaciones implica
+la siguiente:
+(i) t < γ(M),
+(ii) la aplicación de Borel ˜B : AM(St) →C[[z]]M es sobreyectiva,
+(iii) la aplicación de Borel ˜B : ˜
+Au
+M(St) →C[[z]]M es sobreyectiva,
+(iv) la aplicación de Borel ˜B : ˜
+AM(St) →C[[z]]M es sobreyectiva,
+(v) para todo ξ ∈I con ξ < t, la aplicación de Borel ˜B : ˜
+AM(Sξ) →C[[z]]M es sobreyectiva,
+(vi) t ≤γ(M).
+Por consiguiente, γ(M) se muestra como el valor límite adecuado para la sobreyectividad, lo
+que responde a la pregunta (e). Por último, se dan ciertas informaciones en el caso de que M
+sea todavía más regular.
+En el Capítulo 4 volvemos a nuestro último problema (f) de la lista. Obsérvese que ahora
+ya conocemos para qué sucesiones el método de M−sumabilidad está disponible. En la primera
+Universidad de Valladolid

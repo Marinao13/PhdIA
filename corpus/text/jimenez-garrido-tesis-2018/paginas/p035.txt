@@ -1,0 +1,54 @@
+1.1. LOGARITHMICALLY CONVEX SEQUENCES
+35
+Proposition 1.1.16. Let M and L be (lc) sequences, m and ℓthe corresponding sequences of
+quotients. We suppose that M has moderate growth. If M ≾L, then m ⪯ℓ.
+Proof. By Lemma 1.1.7.(v), we see that (Lp)1/p ≤ℓp and, by Lemma 1.1.9.(ii), mp ≤A2(Mp)1/p
+for some A > 0 and for every p ∈N. If one has M ≾L, then there exists C > 0 such that
+Mp ≤CpLp for every p ∈N0 and we conclude that
+mp ≤A2(Mp)1/p ≤A2C(Lp)1/p ≤A2Cℓp,
+for every p ∈N, then m ⪯ℓ.
+□
+We study the stability under equivalence of the properties in Denition 1.1.1.
+Proposition 1.1.17. Let M and L be sequences. If M ≈L and M has (mg), then L also has
+(mg).
+Proof. Since L ≈M, there exists C > 1 such that C−pLp ≤Mp ≤CpLp for every p ∈N0. Using
+the moderate growth of M, we see that
+Lp+q ≤Cq+pMq+p ≤(AC)q+pMpMq ≤(AC)q+pCpCqLqLp = (AC2)p+qLqLp,
+for every p, q ∈N0, then L satises (mg) condition.
+□
+Proposition 1.1.18. Let M and L be sequences. If m ≃ℓand M is (snq), then L also is (snq).
+Proof. Since ℓ≃m, there exists c > 1 such that c−1 ℓp ≤mp ≤c ℓp for every p ∈N0. Using the
+strong nonquasianalyticity of M, we have
+∞
+X
+k=p
+Lk
+(k + 1)Lk+1
+≤c
+∞
+X
+k=p
+Mk
+(k + 1)Mk+1
+≤cB Mp
+Mp+1
+≤c2B Lp
+Lp+1
+,
+for every p ∈N0, then L also satises (snq) condition.
+□
+Remark 1.1.19. If M is a sequence such that (mp)p≥p0 is nondecreasing for some p0 ∈N,
+i.e., m is eventually nondecreasing, we dene ℓp = mp0 for p < p0 and ℓp = mp for p ≥p0,
+then ℓis nondecreasing (L is (lc)) and ℓ≃m. Moreover, whenever M is (mg) or (snq), by
+Propositions 1.1.15, 1.1.17 and 1.1.18 we have that L is also (mg) or (snq).
+Using the Propositions 1.1.16, 1.1.17 and 1.1.18, above we easily deduce that:
+Proposition 1.1.20. Let M and L be sequences, m and ℓthe corresponding sequences of
+quotients. We suppose that M and L are (lc) and one of them has (mg). If M ≈L, then m ≃ℓ.
+In particular, if M is strongly regular and L is (lc), then m ⪯ℓif and only if M ≾L, and
+m ≃ℓif and only if M ≈L. Consequently, if M ≈L, then L is also strongly regular.
+Remark 1.1.21. Logarithmic convexity is not stable for either ≈or ≃. Regarding (snq), apart
+from Proposition 1.1.18, one may deduce that, for weight sequences, (snq) is stable for ≈by
+using [77, Th. 3.4], restated with our notation in Theorem 3.3.4. In this result of H.-J. Petszche,
+the stability of the condition (γ1) for ≈(see Remark 2.1.23 for the connection between (γ1) and
+(snq)) is indirectly deduced, to the best of our knowledge there is no direct proof of this fact.
+Universidad de Valladolid

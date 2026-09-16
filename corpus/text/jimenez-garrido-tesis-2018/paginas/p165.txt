@@ -1,0 +1,89 @@
+4.3. MULTISUMMABILITY
+165
+2. The function e1 ∗e2 is the unique moment summability kernel with moment sequence
+(m(p) = me1(p)me2(p))p∈N0.
+3. Let Te1 ∗Te2 denote the Laplace-like integral operator associated with e1 ∗e2. If S is an
+unbounded sector and f ∈OM1·M2(S), then
+(Te1 ∗Te2)f = Te1 ◦Te2(f).
+4. We consider f(u) = (1 −u)−1. We dene g(z) := ((Te1 ◦Te2)f)(z) and
+e(1/z) := g(z) −g(ze2πi)
+2πi
+.
+Then, e is well dened in Sω(M1)+ω(M2) and e(z) = e1 ∗e2(z).
+Proof. For simplicity we write ω1 = ω(M1) and ω2 = ω(M2). We observe that ω(M1 · M2) =
+ω1 + ω2 (see Remark 4.2.10).
+1. Let us show that the function e1 ∗e2(z) = Te1(e2(1/u))(1/z) has the necessary properties
+for a strong kernel function of M1·M2−summability, as listed in Denition 4.3.10. Since the
+function e2(1/u) is holomorphic in Sω2 and bounded on every sector Sβ with 0 < β < ω2,
+by Lemma 4.3.5, we have that Te1(e2(1/u))(z) is holomorphic in Sω1+ω2 which proves (i).
+Regarding the integrability condition (ii.b), we x τ ∈(0, ω1 +ω2) and we take τ1 ∈(0, ω1)
+and τ2 ∈(0, ω2) such that τ < τ1 + τ2.
+By Denition 4.3.10 (ii.b) for e1 and e2 we
+know that there exist α1, α2 > 0 (not depending on τ1 and τ2), and constants C1, C2 > 0,
+ε1, ε2 ∈(0, 1) such that
+|e1(z)| ≤C1|z|α1,
+z ∈Sτ1,
+|z| ≤ε1,
+(4.33)
+|e2(z)| ≤C2|z|α2,
+z ∈Sτ2,
+|z| ≤ε2.
+(4.34)
+We x z ∈Sτ with |z| ≤(ε1ε2)2 and we choose |θ| < πτ2/2, such that zeiθ ∈Sτ1. We have
+that
+|e1 ∗e2(z)| =
+
+Z ∞(θ)
+0
+e1(uz)e2
+1
+u
+ du
+u
+
+≤
+Z ε1/|z|1/2
+0
+e1(reiθz)e2
+ 1
+reiθ
+
+dr
+r +
+Z ∞
+ε1/|z|1/2
+e1(reiθz)e2
+ 1
+reiθ
+
+dr
+r .
+If r ≤ε1/|z|1/2, we have that |reiθz| ≤ε1|z|1/2 ≤ε2
+1ε2 ≤ε1, and if r ≥ε1/|z|1/2, we see
+that |1/(reiθ)| ≤|z|1/2/ε1 ≤ε2. Applying (4.33) and (4.34), we obtain
+|e1 ∗e2(z)| ≤C1|z|α1
+Z ε1/|z|1/2
+0
+e2
+ 1
+reiθ
+
+dr
+r1−α1 + C2
+Z ∞
+ε1/|z|1/2
+e1(reiθz)
+
+dr
+r1+α2 .
+By condition (iii) for e1 and e2, we know that there exist constants D1, D2 such that
+|e1(w)| ≤D1 for every w ∈Sτ1 and |e2(w)| ≤D2 for every w ∈Sτ2. We deduce that
+|e1 ∗e2(z)| ≤C1D2εα1
+1
+α1
+|z|α1/2 + C2D1
+εα2
+1 α2
+|z|α2/2.
+Consequently, condition (ii.b) is satised with α = min(α1/2, α2/2).
+Universidad de Valladolid

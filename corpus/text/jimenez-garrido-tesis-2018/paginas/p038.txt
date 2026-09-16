@@ -1,0 +1,52 @@
+38
+CHAPTER 1.
+PRELIMINARIES
+1.1.4
+Growth indices γ(M) and ω(M)
+The growth index γ(M) was dened and considered by V. Thilliez [95, Sect. 1.3] in the study
+of ultraholomorphic classes of functions. The original denition was given for strongly regular
+sequences and γ > 0, but one can consider it for any sequence M and γ ∈R.
+Denition 1.1.25. Let M be a sequence and γ ∈R. We say M satises property (Pγ) if there
+exists a sequence of real numbers ℓ= (ℓp)p∈N0 such that:
+(i) m ≃ℓ, that is, there is a constant a ≥1 such that a−1mp ≤ℓp ≤amp, for all p ∈N0,
+(ii) ((p + 1)−γℓp)p∈N0 is nondecreasing.
+If (Pγ) is satised, then (Pγ′) is satised for γ′ ≤γ. It is natural to consider its growth index
+γ(M) dened by
+γ(M) := sup{γ ∈R : (Pγ) is fullled}.
+Remark 1.1.26. Thanks to the property described above, we are allowed to use the classical
+conventions inf ∅= sup R = ∞and inf R = sup ∅= −∞.
+For the study of the injectivity of the asymptotic Borel map (see Section 3.2 for further
+details), J. Sanz [88] dened the growth index ω(M).
+Denition 1.1.27. Let M be a sequence. We dene its index ω(M) by
+ω(M) := lim inf
+p→∞
+log mp
+log p .
+By denition, the value of γ(M) and of ω(M) is stable for ≃. For weight sequences with
+(mg), in particular for strongly regular sequences, these values are also stable for ≈, thanks to
+the equivalence between ≈and ≃(see Proposition 1.1.20). In Section 2.1, we will eventually
+show the stability under ≈for arbitrary weight sequences.
+Regarding the relation between ω(M) and γ(M), J. Sanz [88, Prop. 3.7], using the properties
+of γ(M) described in [95, Sect. 1.3], stated the following result for strongly regular sequences,
+which also holds for any sequence.
+Proposition 1.1.28. For every sequence M one has γ(M) ≤ω(M).
+Proof. If γ < γ(M), then M satises (Pγ). By (Pγ), for every p ∈N0, we observe that
+m0 ≤aℓ0 ≤a
+ℓp
+(p + 1)γ ≤a2
+mp
+(p + 1)γ .
+Consequently, a−2m0(p + 1)γ ≤mp for every p ∈N0 and we deduce that
+ω(M) = lim inf
+p→∞
+log mp
+log p ≥lim inf
+p→∞
+log(a−2m0(p + 1)γ)
+log p
+= γ,
+and we conclude that γ(M) ≤ω(M).
+□
+The regularity of the sequence entails properties for the corresponding indices.
+Lemma 1.1.29. If M is (lc), then γ(M), ω(M) ∈[0, ∞].
+JAVIER JIMÉNEZ GARRIDO

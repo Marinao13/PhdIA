@@ -1,0 +1,50 @@
+29
+(a) The sequence M has the property (rai).
+(b) The class A{M}(Sα) is holomorphically closed.
+(c) The class A{M}(Sα) is inverse-closed.
+If lim infj→∞(
+c
+Mj)1/j > 0 and M is (dc), then the list of equivalences can be extended by
+(d) The class A{M}(Sα) is closed under composition.
+(e) The sequence M has the property (FdB).
+6
+The weight function case
+We start proving, for the reader’s convenience, how the condition (M{rai}) for a weight
+matrix associated to a weight function ω translates into a condition on ω. Note that
+this matrix has (Mlc) and therefore (Mω)α ≡Mω for all α ∈(0, 1].
+Lemma 6.1. Let ω ∈W0 be given with associated weight matrix Mω := {W(ℓ) : ℓ> 0}.
+Then the following are equivalent:
+(a) The matrix Mω has (M{rai}), i.e. (recall
+c
+W
+(ℓ)
+j
+= W (ℓ)
+j /j!)
+∀ℓ> 0 ∃ℓ′ > 0 ∃H ≥1 ∀1 ≤j ≤k :
+(
+c
+W
+(ℓ)
+j )1/j ≤H(
+c
+W
+(ℓ′)
+k
+)1/k.
+(b) ω satisﬁes the condition (α0) (see (5)), i.e.
+∃C ≥1 ∃t0 ≥0 ∀λ ≥1 ∀t ≥t0 :
+ω(λt) ≤Cλω(t).
+Proof.
+(a) ⇒(b) The property (M{rai}) is preserved under equivalence of matrices, then
+MωW(ℓ) has (M{rai}) for some/any l > 0. By [22, Thm. 4.5 (iv) ⇔(i)] ωW(ℓ) satisﬁes
+the condition (α0), and therefore ω satisﬁes it too, because ω ∼ωW(ℓ) (see (10)) and the
+condition (α0) is preserved under equivalence of weight functions.
+(b) ⇒(a) If ω satisﬁes the condition (α0), then ωW(ℓ) satisﬁes it too (arguing as
+before). By [22, Thm. 4.5 (i) ⇔(iv)], the matrix MωW(ℓ) has (M{rai}) for some/any
+l > 0. Finally, by [20, Lemma 5.3.1] the matrices MωW(ℓ) and Mω are equivalent, and
+(M{rai}) is preserved under equivalence of matrices.
+We can provide now a statement about stability properties for classes associated to
+a weight function in small sectors.
+Theorem 6.2. Let ω ∈W be given with associated weight matrix Mω := {W(ℓ) : ℓ> 0}
+and let 0 < α ≤1. Then the following are equivalent:

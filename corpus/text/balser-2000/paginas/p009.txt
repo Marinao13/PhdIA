@@ -1,0 +1,47 @@
+Preface       ix
+After some elementary calculations, one can show that this diﬀerence
+equation has a unique solution of the form ˆf(z) = 1 + ∞
+1 fn z−n,
+which is a power series in 1/z. The coeﬃcients can be uniquely com-
+puted from the recursion obtained from the diﬀerence equation, and
+they grow, roughly speaking, like n! so that, as in the previous case,
+the radius of convergence of the power series is equal to zero. Again,
+this example is so simple that one can explicitly compute its solutions
+in terms of Gamma functions. But only slightly more complicated
+diﬀerence equations cannot be solved in closed form, while they still
+have solutions in terms of formal power series.
+3. Consider the following problem for the heat equation:
+ut = uxx,
+u(0, x) = ϕ(x),
+with a function ϕ that we assume holomorphic in some region G.
+This problem has a unique solution u(t, x) = ∞
+0 un(x) tn, with co-
+eﬃcients given by
+un(x) = ϕ(2n)(x)
+n!
+,
+n ≥0.
+This is a power series in the variable t, whose coeﬃcients are functions
+of x that are holomorphic in G. As can be seen from Cauchy’s Integral
+Formula, the coeﬃcients un(x), for ﬁxed x ∈G, in general grow like
+n! so that the power series has radius of convergence equal to zero.
+So formal power series do occur naturally, but what are they good for? Well,
+this is exactly what this book is about. In fact, it presents two diﬀerent
+but intimately related aspects of formal power series:
+For one thing, the very general theory of asymptotic power series expan-
+sions studies certain functions f that are holomorphic in a sector S but
+singular at its vertex, and have a certain asymptotic behavior as the variable
+approaches this vertex. One way of describing this behavior is by saying
+that the nth derivative of the function approaches a limit fn as the variable
+z, inside of S, tends toward the vertex z0 of the sector. As we shall see, this
+is equivalent to saying that the function, in some sense, is inﬁnitely often
+diﬀerentiable at z0, without being holomorphic there, because the limit of
+the quotient of diﬀerences will only exist once we stay inside of the sector.
+The values fn may be regarded as the coeﬃcients of Taylor’s series of f,
+but this series may not converge, and even when it does, it may not con-
+verge toward the function f. Perhaps the simplest example of this kind is
+the function f(z) = e−1/z, whose derivatives all tend to fn = 0 whenever z
+tends toward the origin in the right half-plane. This also shows that, unlike
+for functions that are holomorphic at z0, this Taylor series alone does not
+determine the function f. In fact, given any sector S, every formal power
+series ˆf arises as an asymptotic expansion of some f that is holomorphic

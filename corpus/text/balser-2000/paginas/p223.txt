@@ -1,0 +1,27 @@
+14
+Some Historical Remarks
+Since the middle of the last century, mathematicians and physicists alike
+have observed that simple ODE may have solutions in terms of power
+series whose coeﬃcients grow at such a rate that the series has a radius of
+convergence equal to zero. In fact, it became clear later that every linear
+meromorphic system, in the vicinity of a so-called irregular singularity,
+has a formal fundamental solution of a certain form. This “solution” can
+be relatively easily computed, in particular nowadays, where one can use
+computer algebra packages, but it will, in general, involve power series
+diverging everywhere. It was quite an achievement when it became clear
+that formal, i.e., everywhere divergent, power series solving even nonlinear
+meromorphic systems of ODE can be interpreted as asymptotic expansions
+of certain solutions of the same system. This by now classical theory has
+been presented in many books on diﬀerential equations in the complex
+plane or related topics. The presentations I am most familiar with are the
+monographs of Wasow [281] and Sibuya [251]. The most important result
+in this context is, in Wasow’s terminology, the Main Asymptotic Existence
+Theorem: It states that to every formal solution of a system of meromorphic
+diﬀerential equations, and every sector in the complex plane of suﬃciently
+small opening, one can ﬁnd a solution of the system having the formal
+one as its asymptotic expansion. This solution, in general, is not uniquely
+determined, and the proofs given for this theorem, in various degrees of
+generality, do not provide a truly eﬃcient way to compute such a solution,
+say, in terms of the formal solution. In view of these deﬁciencies of the
+Main Asymptotic Existence Theorem, the following two questions have
+been investigated in recent years:

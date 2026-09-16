@@ -1,0 +1,53 @@
+220
+Appendix B. Functions with Values in Banach Spaces
+For an arbitrary function f, one can deﬁne the integral over f along a
+path, i.e., a rectiﬁable curve, γ in G to be the “limit” of the Riemann sums,
+in case it exists. As for the scalar case, one can prove its existence for every
+continuous f. Since holomorphy implies continuity, we can form integrals
+of holomorphic functions over closed paths in G and raise the question
+whether they always vanish. This we shall do in the next section.
+B.1
+Cauchy’s Theorem and its Consequences
+In what follows we will assume Cauchy’s theorem for holomorphic functions
+with values in C
+as known, and from it derive the same for E -valued
+functions. Moreover, we shall derive other results for E -valued functions as
+well, which the reader may or may not know for C-valued ones.
+The following theorem is the key to all the results we shall obtain later:
+Theorem 65 (Cauchy’s Integral Theorem and Formula)
+Assume that G is simply connected and f : G →E is continuous. Then
+the following statements are equivalent:
+(a) The function f is weakly holomorphic in G.
+(b) The function f is holomorphic in G.
+(c) The integral of f over any closed path in G vanishes.
+(d) For every positively oriented Jordan path γ and every z in the interior
+region of γ we have
+f(z) =
+1
+2πi
+
+γ
+f(w)
+w −z dw.
+(B.1)
+Proof: Suppose (a) holds. For every path γ in G and every φ ∈E ∗, one can
+conclude from the deﬁnition of the integral via Riemann sums and linearity
+of φ that
+
+γ
+φ(f(z)) dz = φ(x),
+x =
+
+γ
+f(z) dz.
+(B.2)
+The integral on the left vanishes for a closed path γ. Hence we conclude
+that x =
+
+γ f(z) dz satisﬁes φ(x) = 0 for every φ ∈E ∗. This implies
+x = 0, according to Hahn-Banach’s theorem. Thus we see that (c) follows.
+Conversely, it follows from (B.2) that (c) implies (a). Denoting the right-
+hand side of (B.1) by g(z), we conclude similarly that weak holomorphy
+implies φ(f(z) −g(z)) = 0 for every z in the interior region and every
+φ ∈E ∗, implying (B.1). This formula then can be seen to imply holomorphy
+of f, because diﬀerentiation under the integral sign is justiﬁed. Thus, the

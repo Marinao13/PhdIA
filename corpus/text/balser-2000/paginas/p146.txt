@@ -1,0 +1,49 @@
+8.3 Summability of Highest-Level Formal Solutions
+129
+8.3
+Summability of Highest-Level Formal Solutions
+On p. 55 we have given the deﬁnition of HLFFS and its data pairs. Using the
+results of the previous sections, we are now ready to investigate summability
+of HLFFS. As will become clear later, the following theorem, in a way, is
+the main one in our theory of HLFFS:
+Theorem 42 (Main Theorem) Assume that we are given a system (3.1)
+(p. 37) having an essentially irregular singularity at inﬁnity. Then the fol-
+lowing holds true:
+(a) For any two HLFFS of (3.1), the data p, q agree. In particular, both
+HLFFS are of the same Gevrey order s = 1/k, k = r −p/q.
+(b) For any two HLFFS of (3.1), the data pairs (q1(z), s1), . . . , (qµ(z), sµ)
+agree modulo renumeration, so in particular the number µ of such
+pairs is the same.
+(c) For any two HLFFS ˆF1(z), ˆF2(z), assume that their data pairs co-
+incide, which can always be brought about by suitably permuting the
+columns of any one of the HLFFS. Then the transformation T(z) =
+ˆF −1
+1
+(z) ˆF2(z) is diagonally blocked of type (s1, . . . , sµ) and converges.
+(d) Every HLFFS is k-summable in all directions d, except for
+−kd = arg(λ(p)
+j
+−λ(p)
+m ) mod 2π,
+j ̸= m, 1 ≤j, m ≤µ.
+(8.3)
+Proof: Let ˆFj(z), 1 ≤j ≤2, be any two HLFFS of (3.1), and let Bj(z)
+be the coeﬃcient matrices of the corresponding transformed systems, as
+deﬁned on p. 55. Setting ˆT(z) = ˆF −1
+1
+(z) ˆF2(z), one can show formally
+z ˆT ′(z) = B1(z) ˆT(z) −ˆT(z) B2(z).
+(8.4)
+Let q = m1 q1 = m2 q2 be the least common multiple of q1, q2. Origi-
+nally, the matrix Bj(z) has been expanded with respect to the variable
+wj = z1/qj, and the ﬁrst pj coeﬃcients are scalar multiples of the unit
+matrix. Re-expanding Bj(z) in the new variable w = z1/q, the ﬁrst mjpj
+coeﬃcients now are scalar, and some may even be zero. Assume for the
+moment that both pj are positive, so that scalar coeﬃcients occur. Make
+the change of variable z = wq in (8.4), and then apply Exercise 2, with
+µ = ˜µ = 1, i.e., ˆA(z) = B1(zq), ˆB(z) = B2(zq) blocked trivially. This
+implies that the highest terms of both Bj(z) are the same scalar multiple
+of the identity matrix. Since these terms commute with ˆT(z), they can be
+cancelled from (8.4). Then, the same argument can be used over again,
+until one of the highest terms, after cancellation of the ones shown to be
+identical, is no longer scalar. In this situation, an application of Exercise 2

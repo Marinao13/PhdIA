@@ -1,0 +1,72 @@
+Solutions
+265
+Section B.4:
+1. Under the assumptions made, there is exactly one w on the path γ
+for which wα = z.
+2. The path γ may be replaced by one, for which the two radial parts,
+instead of the negative real axis, are along the rays arg w = ±(ε +
+π/2), for arbitrarily small ε > 0. Doing so, the denominator in the
+integral never vanishes.
+3. Use Theorem 69 (p. 233), together with Stirling’s formula in Theo-
+rem 68 (p. 229).
+Section B.5:
+1. Study the function f(z) = exp[a zk], a ∈C.
+2. Either f is constant or of order larger than π/(β −α).
+Section C.1:
+1. Use Lemma 24 (p. 212) to show the existence of T so that
+A =
+
+I
+0
+T
+I
+ 
+A11
+0
+0
+A22
+ 
+I
+0
+−T
+I
+
+,
+and then use the rules for the exponential of a matrix.
+2. If N is a ν × ν Jordan block, then
+zN =
+
+
+1
+0
+. . .
+0
+0
+log z
+1
+. . .
+0
+0
+...
+...
+...
+...
+...
+logν−1 z
+logν−2 z
+. . .
+log z
+1
+
+.
+3. Verify that it suﬃces to consider A in Jordan canonical form, and then
+use the rules for computing exponentials of diagonal, resp. nilpotent,
+matrices.
+4. Comparing the quadratic terms in the power series expansions of both
+sides, one ﬁnds as a necessary condition that (A+B)2 = A2+2 A B+
+B2, which holds if and only if A and B commute.
+5. By induction, show
+d
+dz [A(z)]n = n [A(z)]n−1 A′(z) = n A′(z) [A(z)]n−1,
+n ≥1,
+and then justify termwise diﬀerentiation of [A(z)]n/n!

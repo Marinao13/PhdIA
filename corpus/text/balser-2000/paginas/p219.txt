@@ -1,0 +1,56 @@
+202
+13. Applications in Other Areas, and Computer Algebra
+to the fact that here we can only treat one variable at a time, while the
+remaining ones are treated as parameters.
+13.4
+Partial Diﬀerential Equations
+There is a classical theory discussing convergence of power series solutions
+for Cauchy problems for certain classes of partial diﬀerential equations
+(PDE). Recently, eﬀorts have been made to show that formal power series
+arising as solutions of such problems have a certain Gevrey order; for such
+results, see [108, 190–194, 213] and the literature cited there. There are
+also results, e.g., by Ouchy [214], showing that such formal solutions are
+asymptotic representations of proper solutions of the underlying equation.
+Not much is known so far about summability of formal solutions of such
+problems: Lutz, Miyake, and Sch¨afke [176] obtained a ﬁrst result for the
+complex heat equation, which has been generalized in [27]. Very recent work
+by Balser and Miyake [42] treats an even more general case, showing that
+the results obtained are not so much dependent on having a formal solution
+of a partial diﬀerential equation, but carry over to series whose coeﬃcients
+are given by certain diﬀerential recursions.
+Here, we brieﬂy investigate the following situation: Given a function ϕ(z),
+analytic in some G containing the origin, try to ﬁnd another function u(t, z)
+of two complex variables, in some subset of C 2 near the origin, such that
+∂
+∂tu = ∂2
+∂z2 u,
+u(0, z) = ϕ(z).
+(13.2)
+Obviously, (13.2) has the formal solution ˆu(t, z) = ∞
+n=0 tn ϕ(2n)(z)/n! In
+an arbitrary compact subset K ⊂G, one can show, using Cauchy’s formula
+for derivatives, that ∥ϕ(2n)∥K = supz∈K |ϕ(2n)(z)| ≤cn Γ(1 + 2n), for suﬃ-
+ciently large c. Hence ˆu can be regarded as a formal power series in t with
+coeﬃcients in the Banach space E K of functions that are bounded on K
+and analytic in its interior. The above estimate implies ˆu ∈E K[[t]]1. Thus,
+it is natural to ask for 1-summability of ˆu. If ϕ happens to be entire, how-
+ever, the above estimate upon its derivatives may be improved, and then ˆu
+may be summable of another type. Indeed, one can show that for arbitrary
+k1 > . . . > kq > 1/2, under certain explicit conditions, best expressed in
+the coeﬃcients of the power series expansion ϕ(z) =  ϕn zn, one even has
+(k1, . . . , kq)-summability of ˆx. In detail, the following holds [27]:
+Theorem 63 Let ϕ(z) = ∞
+0 ϕn zn for |z| < ρ, and deﬁne ˆu as above,
+resp. for 0 ≤j ≤2:
+ˆψj(t) =
+∞
+
+0
+ϕ2n+j
+(2n + j)!
+n!
+tn, ˆψ±(t) =
+∞
+
+0
+ϕn Γ(1 + n/2) (±t)n.

@@ -1,0 +1,54 @@
+3.3 Nilpotent Leading Term
+49
+case can occur only ﬁnitely many times. Hence after a ﬁnite number of
+steps we arrive at a system where, when normalizing it up to some power
+z−n0, it automatically satisﬁes (3.11). Also recall from Remark 4 (p. 47)
+that increasing n0 can be done without changing the leading terms of the
+system.
+3
+To proceed, let (3.3) be reduced up to z−n0, and consider the ﬁnite set of
+rational numbers of the form p/q, 1 ≤p ≤q ≤s1 (recall that by assumption
+s1, the size of N1, is at least as large as the sizes sj of the other blocks Nj
+of A0). For each such p/q, assume from now on that we have chosen p and
+q to be co-prime, i.e., having no nontrivial common divisor. The shearing
+transformation
+T(z)
+=
+diag [T1(z), . . . , Tµ(z)],
+Tj(z)
+=
+diag [1, zp/q, z2p/q, . . . , z(sj−1)p/q]
+(3.12)
+then produces a ramiﬁed system (except for p = q = 1), whose coeﬃcient
+matrix may be denoted by ˆBp/q(z). The elements of this matrix in those
+positions corresponding to 1’s in the matrix A0 then are formal Laurent
+series in z−1/q beginning with the term zr−p/q. Elements of ˆBp/q(z) in
+other positions may or may not involve higher rational powers of z – if
+they do, then we discard the corresponding rational p/q as inadmissible.
+This may eliminate many values of p/q, but we observe that at least the
+smallest possible value p/q = 1/s1 remains admissible. If several admissible
+values remain, we take the largest one. For this admissible p/q, the matrix
+ˆBp/q(z) may be written in the form
+ˆBp/q(z) = ˆB(z) = zr
+∞
+
+n=p
+Bnz−n/q,
+(3.13)
+If p/q = 1 (hence p = q = 1), then the transformed equation is unramiﬁed
+and of Poincar´e rank r −1, so we consider this an improvement, and then
+apply to the resulting system the same arguments as above (depending
+upon its new leading term having several distinct eigenvalues or not). If
+this is not so, we show that the leading term Bp either is nilpotent or has
+several distinct eigenvalues:
+Lemma 5 Let a system (3.3) with coeﬃcients as in (3.11) be given, let p/q
+be determined as above, and let the transformed equation be written as in
+(3.13). Then we have
+e−2nπi/qBn = D−1 Bn D,
+n ≥p,
+(3.14)
+with D = T(e2πi) – note that this is not the identity matrix except for
+q = 1. In particular, the spectrum of the leading term Bp is closed with
+respect to multiplication with e2πi/q, i.e. λ is an eigenvalue of Bp if and
+only if λe2πi/q is one, too. Hence, if p/q < 1, then Bp either is nilpotent or
+has more than one eigenvalue.

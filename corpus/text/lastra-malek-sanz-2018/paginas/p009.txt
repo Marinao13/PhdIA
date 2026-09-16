@@ -1,0 +1,155 @@
+9
+4
+Right inverses for the asymptotic Borel map in ultraholomor-
+phic classes in sectors
+The proof of the incoming result follows the same lines as the original one in the Gevrey case
+(see [30], [4], [26, Thm. 4.1]). The only diﬃculty stems from the use of the kernel eM, linked
+to a general sequence M and, to a certain extent, unknown, whereas the exponential function
+linked to the Gevrey case is very well-known.
+Theorem 4.1. Let M = (Mp)p∈N0 be a strongly regular sequence and let S = S(d, δ) be a sector
+with vertex at the origin and opening 0 < δ < γ(M). For every (ap)p∈N0 ∈ΛM(N0) there exists
+a function f ∈AM(S) such that f admits ˆf = P
+p∈N0
+ap
+p! zp as its uniform asymptotic expansion
+in Sδ.
+Proof We may assume that d = 0 without loss of generality, for the case d ̸= 0 only involves an
+adequate rotation.
+Let (ap)p∈N0 ∈ΛM(N0), and let m = (m(p))p∈N0 be the sequence of moments associated
+to M. There exist positive constants C1, A1 such that
+(11)
+|ap| ≤C1Dp
+1p!Mp,
+p ∈N0.
+From Proposition 3.6, the series
+ˆg =
+X
+p∈N0
+ap
+p!m(p)zp
+is convergent in a disc D(0, R) for some R > 0, and it deﬁnes a holomorphic function g there.
+Let 0 < R0 < R. We deﬁne
+(12)
+f(z) :=
+Z R0
+0
+eM
+u
+z
+
+g(u)du
+u ,
+z ∈Sδ,
+where the kernel eM is constructed as in (8). By virtue of Leibnitz’s theorem on analyticity of
+parametric integrals and the deﬁnition of eM, f turns out to be a holomorphic function in Sδ.
+Let us prove that f ∼M ˆf uniformly in Sδ.
+Let N ∈N and z ∈Sδ. We have
+f(z) −
+N−1
+X
+p=0
+ap
+zp
+p! = f(z) −
+N−1
+X
+p=0
+ap
+m(p)m(p)zp
+p!
+=
+Z R0
+0
+eM
+u
+z
+ ∞
+X
+k=0
+ak
+m(k)
+uk
+k!
+du
+u −
+N−1
+X
+p=0
+ap
+m(p)
+Z ∞
+0
+up−1eM(u)duzp
+p! .
+After a change of variable v = zu in the second integral, by virtue of the estimate (3.3) one may
+use Cauchy’s residue theorem in order to check that
+zp
+Z ∞
+0
+up−1eM(u)du =
+Z ∞
+0
+vpeM
+v
+z
+ dv
+v ,
+which allows us to write the preceding diﬀerence as
+Z R0
+0
+eM
+u
+z
+ ∞
+X
+k=0
+ak
+m(k)
+uk
+k!
+du
+u −
+N−1
+X
+p=0
+ap
+m(p)
+Z ∞
+0
+upeM
+u
+z
+ du
+u
+1
+p!
+=
+Z R0
+0
+eM
+u
+z
+
+∞
+X
+k=N
+ak
+m(k)
+uk
+k!
+du
+u −
+Z ∞
+R0
+eM
+u
+z
+ N−1
+X
+p=0
+ap
+m(p)
+up
+p!
+du
+u .

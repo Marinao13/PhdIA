@@ -1,0 +1,70 @@
+Braun, Meise and Taylor 
+211 
+It is a consequence of (4) and (5) that 1/; is ct. Since it consists only of linear parts 
+and of dilated and shifted parts of <p, it is convex. We define a by 
+a(t) = 1/;(max(logt,O)). 
+This is again a Ct-function. The argument that shows the convexity of 1/; also yields that 
+a is concave provided w is concave. 
+We claim 
+1 
+1/;(x) :::::: -<p(x) 
+for x E [x,,, xn+t], n :::::: 2. 
+n 
+(7) 
+This is obvious for x E [Yn, X"+lJ. For x E [x n , YnJ we get from (4) and the convexity of <p 
+( ) 
+1 
+() x - x" '( 
+) 
+1 ( 
+) 
+x - x" '( 
+) 
+1 
+1/; x :::::: --<p Xn + --1 
+<p Xn 
+:::::: -<p Xn + --<p Yn 
+:::::: -<p(x). 
+n-1 
+n-
+n 
+n 
+n 
+Because of (2), the estimate (7) proves (i). 
+For the proof of (ii), we first consider the case y" ::; x ::; X,,+t. We apply (3) and (6): 
+Now let Xn ::; x ::; Yn' Again we use the convexity of <p: 
+1/;(x) = _l_<p(x n ) + ~ _l_<p(zi+l) + X - Xn <p'(Xn) 
+<p(x) 
+n - 1 <p(x) 
+;=1 i(i + 1) <p(x) 
+n -1 <p(x) 
+< _l_<p(xn) + _l_(x _ x)<p'(xn) +.!. < _l_<p(x) +.!.. 
+-
+n - 1 <p(x) 
+n -1 
+" <p(x) 
+n - n - 1 <p(x) 
+n 
+To prove (iii), fix A > 1, set a = log A, and estimate 1/;( x + a) -1/;( x) in terms of 1/;( x). 
+Choose B > limsupw(At)/w(t), and choose n > a so large that for all x :::::: x" we have 
+<p(x + a) ::; B<p(x). Now we have to look at several cases, depending into which intervals 
+x and x + a fall. Because of (1) and n > a there are only finitely many cases-five to be 
+precise. We only discuss two of them, the others are similar. 
+CASE x" ::; x ::; y" ::; x + a ::; X,,+l: We apply (5) in the first step, then we use the estimate 
+<p'(x) ::; (<P(Yn) - <p(X))/(Yn - x), and we refer to (7) at the end. 
+1/;(x + a) -1/;(x) = .!.<p(x + a) _ .!.<p(y,,) + Yn - X <p'(x,,) 
+n 
+n 
+n-1 
+111 
+::; -<p(x + a) - -<p(y,,) + --1 (<p(Y,,) - <p(x)) 
+n 
+n 
+n-
+1 
+B-1 
+n 
+::; --(<p(x + a) - <p(x)) ::; --<p(x) ::; (B -l)--1/;(x). 
+n-1 
+n-1 
+n-1 

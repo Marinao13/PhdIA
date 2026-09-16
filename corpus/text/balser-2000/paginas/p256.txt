@@ -1,0 +1,32 @@
+C.2 Logarithms of a Matrix
+241
+provided that the logarithms on the right are computed according to
+the rules stated above; observe that then the matrices on the right
+commute!
+• For A = T −1J T, with J in Jordan form, we have
+log A = T −1 log(J) T.
+It can be shown that the following identities for logarithms of matrices hold;
+observe, however, what was said above about formulas containing several
+logarithms.
+1. For every invertible A we have
+exp[log A] = A.
+However, for certain A there are X with exp[X] = A so that no
+branch of log A equals X.
+2. For B = T −1A T we have
+log B = T −1(log A) T.
+3. For A, B commuting and invertible, the rule
+log(A B) = log A + log B
+holds modulo the following restriction: If branches for any two out of
+the three logarithms are selected, then the formula is correct provided
+that we select the branch for the third accordingly.
+4. For triangularly blocked invertible matrices A with diagonal blocks
+Ak, all branches of log A are likewise blocked and have diagonal blocks
+log Ak in the same order.
+For our purposes it is important to be able to solve equations of the form
+exp[2πiX] = C, for given invertible C. From what we have said above
+about logarithms of matrices, one can show that the following is correct:
+Theorem 71 Given any invertible matrix C, there exist matrices M such
+that exp[2πiM] = C; namely, M = (2πi)−1 log C. If C is triangularly
+blocked of some type, then so are the matrices M. The eigenvalues of any
+two such M can only diﬀer by integers, and there is a unique matrix M
+whose eigenvalues have real parts in the half-open interval [0, 1).

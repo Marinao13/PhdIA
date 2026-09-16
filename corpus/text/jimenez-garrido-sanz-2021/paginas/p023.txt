@@ -1,0 +1,50 @@
+[33] S. Mandelbrojt, S´eries adh´erentes, r´egularisation des suites, applications, Collection de
+monographies sur la th´eorie des fonctions, Gauthier-Villars, Paris, 1952.
+[34] S. Malek, On the summability of formal solutions of nonlinear partial diﬀerential equa-
+tions with schrinkings, J. Dyn. Control. Syst. 13 (2007), no. 1, 1–13.
+[35] S. Malek, On Gevrey functional solutions of partial diﬀerential equations with Fuchsian
+and irregular singularities, J. Dyn. Control Syst. 15 (2009), no. 2, 277–305.
+[36] S. Malek, On the summability of formal solutions for doubly nonlinear partial diﬀeren-
+tial equations, J. Dyn. Control Syst. 18 (2012), no. 1, 45–82.
+[37] S. Malek, On singularly perturbed small step size diﬀerence-diﬀerential nonlinear PDEs,
+J. Diﬀerence Equ. Appl. 20 (2014), no. 1, 118–168.
+[38] J. Martinet, J.-P. Ramis, Elementary acceleration and multisummability, Ann. Inst.
+Henri Poincar´e, Physique Theorique 54 (1991), 331–401.
+[39] S. Michalik, Summability and fractional linear partial diﬀerential equations, J. Dyn.
+Control Syst. 16 (2010), no. 4, 557–584.
+[40] S. Michalik, On the multisummability of divergent solutions of linear partial diﬀerential
+equations with constant coeﬃcients, J. Diﬀerential Equations 249 (2010), no. 3, 551–
+570.
+[41] S. Michalik, Analytic solutions of moment partial diﬀerential equations with constant
+coeﬃcients, Funkcialaj Ekvac. 56 (2013), 19–50.
+[42] S. Michalik, Summability of formal solutions of linear partial differential equations with
+divergent initial data, J. Math. Anal. Appl. 406 (2013), 243–260.
+[43] F. Moricz, Necessary and suﬃcient Tauberian conditions for the logarithmic summa-
+bility of functions and sequences, Studia Math. 219 (2013), no. 2, 109–121.
+[44] S. Ouchi, Multisummability of formal solutions of some linear partial diﬀerential equa-
+tions, J. Diﬀerential Equations 185 (2002), 513–549.
+[45] H.-J. Petzsche, On E. Borel’s theorem, Math. Ann. 282 (1988), no. 2, 299–313.
+[46] H.-J. Petzsche, D.Vogt, Almost analytic extension of ultradiﬀerentiable functions and
+the boundary values of holomorphic functions, Math. Ann. 267 (1984), 17–35.
+[47] J. P. Ramis, D´evissage Gevrey, Asterisque 59–60 (1978), 173–204.
+[48] J. P. Ramis, Les s´eries k-sommables et leurs applications, Lecture Notes in Phys. 126,
+Springer-Verlag, Berlin, 1980.
+[49] J.-P. Ramis, Y. Sibuya, A new proof of multisummability of formal solutions of non
+linear meromorphic diﬀerential equations, Ann. Inst. Fourier (Grenoble) 44 (1994),
+811–848.
+[50] J. Sanz, Flat functions in Carleman ultraholomorphic classes via proximate orders, J.
+Math. Anal. Appl. 415 (2014), no. 2, 623–643.
+[51] G. Schindl, Characterization of ultradiﬀerentiable test functions deﬁned by weight ma-
+trices in terms of their Fourier transform, available at http://arxiv.org/abs/1502.07387.
+[52] E. Seneta, Regularly varying functions, Lecture Notes in Mathematics, Vol. 508.
+Springer-Verlag, Berlin-New York, 1976.
+[53] R.S. Slack, Further notes on branching processes with mean 1, Z. Wahrscheinlichkeits-
+theorie und Verw. Gebiete 25 (1972/73), 31–38.
+[54] H. Tahara, H. Yamazawa, Multisummability of formal solutions to the Cauchy problem
+for some linear partial diﬀerential equations, J. Diﬀerential equations 255 (2013), no.
+10, 3592–3637.
+[55] V. Thilliez, Division by ﬂat ultradiﬀerentiable functions and sectorial extensions, Re-
+sults Math. 44 (2003), 169–188.
+[56] V. Thilliez, Smooth solutions of quasianalytic or ultraholomorphic equations, Monatsh.
+Math. 160, no. 4 (2010), 443–453.
+23

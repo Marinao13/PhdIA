@@ -1,0 +1,41 @@
+106
+6. Summable Power Series
+u0 with arg u0 = d0, so that holomorphic continuation along arg u = d0
+breaks down at this point; or otherwise, since directions d close to d0 are
+not singular, g(u) is holomorphic in a sector S(d0, ε), for some ε > 0, but
+is not of exponential growth at most k along arg u = d0. This can occur,
+according to Exercise 5 on p. 102, but only if g(u) is of inﬁnite exponential
+order along arg u = d0; this can be seen from the following application of
+Phragmen-Lindel¨of’s principle:
+Proposition 14 For k > 0 and α < d0 < β, assume that ˆf is k-summable
+in direction d for every d ̸= d0, d ∈(α, β). Moreover, for some ˜k > k
+assume that g = S ( ˆBk ˆf) can be holomorphically continued along arg u = d0
+and is of exponential growth at most ˜k along arg u = d0. Then ˆf is k-
+summable in direction d0.
+Proof:
+In S = S((α + β)/2, β −α) we have that g = S ( ˆBk ˆf), along
+every ray arg u = d but for d = d0, is of exponential growth at most k. An
+application of Phragmen-Lindel¨of’s principle (p. 235) then shows that the
+same holds for d = d0.
+2
+From Exercise 6 on p. 102 we learn that for ﬁxed d a divergent series
+ˆf may very well be k1- and k2-summable in direction d. This changes
+drastically, if we require the same for all but ﬁnitely many directions at the
+same time, because then it converges:
+Theorem 37 For k1 > k2 > 0 we have
+E {z}k2 ∩E {z}k1 = E {z}k2 ∩E [[z]]1/k1 = E {z}.
+Proof: Trivially E {z} ⊂E {z}k2 ∩E {z}k1 ⊂E {z}k2 ∩E [[z]]1/k1. If ˆf ∈
+E {z}k2 ∩E [[z]]1/k1, then ˆg = ˆBk2( ˆf) is entire and of exponential growth
+at most k everywhere, with 1/k = 1/k2 −1/k1. Therefore, Proposition 14
+implies that ˆf, with respect to k2-summability, cannot have any singular
+directions, hence converges because of Proposition 13 (p. 105).
+2
+The previous theorem can be rephrased as saying that k-summable series
+of Gevrey order strictly smaller than 1/k necessarily converge. Thus, we
+found another Tauberian condition for k-summability! In fact, the proof
+shows that being of Gevrey order strictly smaller than 1/k is a suﬃcient
+condition for absence of singular directions with respect to k-summability.
+So Proposition 14 is the stronger result!
+Exercises:
+1. Investigate k-summability of the formal power series ˆf in the Exer-
+cises in Section 6.2.

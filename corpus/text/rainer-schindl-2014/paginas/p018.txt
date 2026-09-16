@@ -1,0 +1,119 @@
+114
+A. Rainer and G. Schindl
+By Fa`a di Bruno’s formula and using (2.11), for k ≥1,
+f(k)(0)
+k!
+=
+X
+j≥1
+X
+α1+···+αj=k
+aℓ>0
+1
+(H −g(0))j+1
+jY
+ℓ=1
+g(αℓ)(0)
+αℓ!
+= ik X
+j≥1
+X
+α1+···+αj=k
+aℓ>0
+1
+(H −g(0))j+1
+jY
+ℓ=1
+hαℓ
+αℓ! .
+By (4.10),
+CρkMµ
+k ≥|f(k)(0)|
+k!
+=
+X
+j≥1
+X
+α1+···+αj=k
+aℓ>0
+1
+(H −g(0))j+1
+jY
+ℓ=1
+hαℓ
+αℓ!
+≥
+X
+j≥1
+X
+α1+···+αj=k
+aℓ>0
+1
+(H −g(0))j+1
+jY
+ℓ=1
+Mλ
+αℓ
+≥
+1
+(H −g(0))k+1
+jY
+ℓ=1
+Mλ
+αℓ.
+In particular, for α1 = · · · = αj = p, p ∈N>0, we have
+C1ρpj
+1 Mµ
+pj ≥(Mλ
+p )j
+and hence, for all j and p,
+C2(Mµ
+pj)1/pj ≥(Mλ
+p )1/p.
+For arbitrary p ≤k choose j so that jp ≤k < (j + 1)p. Then
+(Mµ
+k )1/k ≥(Mµ
+jp)1/(jp) (jp)!1/(jp)
+k!1/k
+≥C−1
+2 (Mλ
+p )1/p (jp)!1/(jp)
+k!1/k
+≥C−1
+2 (Mλ
+p )1/p,
+since (k!Mµ
+k )1/k is non-decreasing.
+(3)⇒(4). By (M{dc}), for λ ∈Λ there exist µ ∈Λ and D > 0 such that
+Mλ
+k+1 ≤DkMµ
+k for all k ≥1. The assumption implies that there is ν ∈Λ
+such that Mµ
+β1 · · · Mµ
+βj ≤CkMν
+k for all βi ∈N>0 with β1 + · · · + βj = k. Let
+I := {i : αi ≥2} and set α′
+i := αi −1. Then, as µ ≥λ,
+Mλ
+j Mλ
+α1 · · · Mλ
+αj = Mλ
+j (Mλ
+1 )j−|I| Y
+i∈I
+Mλ
+αi ≤Dk−jMλ
+j (Mλ
+1 )j−|I| Y
+i∈I
+Mµ
+α′
+i
+≤Dk−j(Mλ
+1 )j−|I|CkMν
+k ≤˜CkMν
+k ,
+which shows (4).
+(4)⇒(1). Let g ∈E{M}(U, V ) and f ∈E{M}(V, W), for open subsets
+U ⊆Rp, V
+⊆Rq, W ⊆Rr, and let K ⊆U be compact. By deﬁni-

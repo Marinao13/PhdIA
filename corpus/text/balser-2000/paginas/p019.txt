@@ -1,0 +1,44 @@
+2
+1. Basic Properties of Solutions
+tuitive understanding of this concept, but we shall also discuss this surface
+on p. 226 in the Appendix.
+Most of the time we shall restrict ourselves to systems of ﬁrst-order
+linear equations. Since every νth order equation can be rewritten as a
+system (see Exercise 5 on p. 4), our results carry over to such equations as
+well. However, in some circumstances scalar equations are easier to handle
+than systems. So for practical purposes, such as computing power series
+solutions, we do not recommend to turn a given scalar equation into a
+system, but instead one should work with the scalar equation directly.
+Many books on ordinary diﬀerential equations contain at least a chapter
+or two dealing with ODE in the complex plane. Aside from the books of
+Sibuya and Wasow, already mentioned in the introduction, we list the fol-
+lowing more recent books in chronological order: Ince [138], Bieberbach [52],
+Sch¨afke and Schmidt [236], and Hille [120].
+1.1
+Simply Connected Regions
+Throughout this chapter, we consider a system of the form
+x′ = A(z) x,
+z ∈G,
+(1.1)
+where A(z) = [akj(z)] denotes a ν×ν matrix whose entries are holomorphic
+functions in some ﬁxed region G ⊂C, which we here assume to be simply
+connected. It is notationally convenient to think of such a matrix A(z) as
+a holomorphic matrix-valued function in G.
+Since we know from the theory of functions of a complex variable that
+such functions, if (once) diﬀerentiable in an open set, are automatically
+holomorphic there, it is obvious that solutions x(z) of (1.1) are always
+vector-valued holomorphic functions. However, it is not clear oﬀ-hand that
+a solution always is holomorphic in all of the region G, but we shall prove
+this here. To begin, we show the following weaker result, which holds for
+arbitrary regions G.
+Lemma 1 Let a system (1.1), with A(z) holomorphic in a region G ⊂C,
+be given. Then for every z0 ∈G and every x0 ∈C ν, there exists a unique
+vector-valued function x(z), holomorphic in the largest disc D = D(z0, ρ) =
+{z : |z −z0| < ρ } contained in G, such that
+x′(z) = A(z) x(z),
+z ∈D,
+x(z0) = x0.
+Hence we may say for short that every initial value problem has a unique
+solution that is holomorphic near z0.
+Proof: Assume for the moment that we were given a solution x(z), holo-
+morphic in D. Then the coordinates of the vector function x(z) all can be

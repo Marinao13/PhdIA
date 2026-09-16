@@ -1,0 +1,72 @@
+As 0 ≤j ≤2k −k −1, we see that
+1 ≤log(mp)
+log(p)
+≤1 + k(2k −k −2) + 2k
+22k −k2
+.
+(28)
+By (27) and (28) we see that limp→∞log(mp)/ log(p) = 1. Using Remark 3.9 one can show
+that γ(M) = 1 = ω(M), then M satisﬁes (g). As it happens in Example 3.12, by (26), the
+limit limp→∞m2p/mp does not exist, then condition (d) in Theorem 3.6 is violated.
+Let us see that condition (e) is also violated. On the contrary, suppose there exists
+some other (lc) sequence L with limp→∞ℓp = +∞such that M ≈L and dL is a nonzero
+proximate order. By Proposition 2.16, as L is (mg), we deduce that m ≃ℓ. Then there
+exists a constant A ≥1 such that for all q ∈N, q ≥2, and all p ∈N we get
+1
+A2 · mqp
+mp
+≤ℓqp
+ℓp
+,
+and, by Theorem 3.6, the quotient on the right tends to qω for some ω = ω(L) > 0 as
+p →∞. In particular, for every i ∈N and q = 2i we deduce that
+1
+A2 · lim sup
+p→∞
+m2ip
+mp
+≤2iω.
+(29)
+Note that, since m ≃ℓ, we have ω = ω(L) = ω(M) = 1. Moreover, for our sequence M,
+given i ∈N we have for every k ≥i that
+m22k+i
+m22k
+= 22k+2i
+22k
+= 4i,
+and this makes (29) impossible.
+Remark 4.17. We summarize our previous examples. According to the previous remark,
+the sequences Mq and M0,β do not admit a nonzero proximate order, since they are not
+strongly regular. Regarding strongly regular sequences M, for those appearing in applica-
+tions dM is a nonzero proximate order. This does not hold for the sequence in Example 3.12,
+which however does admit a nonzero proximate order. The previous example shows that
+there exist strongly regular sequences satisfying (g) and not admitting a nonzero proximate
+order. Finally, the next example will provide a extremely pathological situation in which
+the limit in (16) does not even exist.
+In particular, strong regularity and (16) are independent conditions, and both are nec-
+essary if we want M to admit a nonzero proximate order.
+Also, note that for a strongly regular sequence not admitting a nonzero proximate order
+(like those in Examples 4.16 and 4.18), the technique of construction of nontrivial ﬂat
+functions in sectors of optimal opening πω(M), developed in [19], is not available. It is
+worth mentioning that, although V.Thilliez [22] is able to construct such ﬂat functions for
+any strongly regular sequence, the sectors in which they are deﬁned have their opening
+strictly smaller than πγ(M). Since one always has γ(M) ≤ω(M) (see [19, Prop. 3.7]), the
+opening is not optimal in his case.
+Example 4.18. It was an open question whether strong regularity was enough to have
+condition (16). We answer this question in the negative.
+We deﬁne M by the sequence of its quotients,
+m0 := 1,
+mp := eδp/pmp−1 = exp
+ p
+X
+k=1
+δk
+k
+!
+,
+p ∈N.
+We consider the sequences
+kn := 23n < qn := k2
+n = 23n2 < kn+1 = 23n+1,
+n ∈N0,
+23

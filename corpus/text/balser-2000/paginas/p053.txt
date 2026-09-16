@@ -1,0 +1,61 @@
+36
+2. Singularities of First Kind
+2. Assume (1.6) to have a singularity of the ﬁrst kind at the origin, i.e.,
+bk(z) = zkak(z) =
+
+n≥0
+b(k)
+n zn,
+|z| < ρ, 1 ≤k ≤ν.
+Let y(z) = 
+n yn zn+µ, y0 ̸= 0, µ ∈C , be a solution of (1.6). Show
+that then the Floquet exponent µ satisﬁes the indicial equation
+[µ]ν =
+ν
+
+k=1
+b(k)
+0
+[µ]ν−k,
+with [µ]0 = 1, [µ]k = µ(µ −1) · . . . · (µ −k + 1), for k ∈N.
+3. For bk(z) and y(z) as above, ﬁnd the equations that the coeﬃcients
+yn have to satisfy so that y(z) is a solution of (1.6). Show that for
+at least one solution µ of the indicial equation one can recursively
+compute the coeﬃcients from these equations. In this way, we obtain
+a constructive proof for existence of at least one Floquet solution.
+4. For bk(z) as above, let w be a complex variable.
+(a) With p0(w) = [w]ν −ν
+k=1 b(k)
+0 [w]k, show that the inhomoge-
+neous equation
+zνy(ν) −
+ν
+
+k=1
+zν−kbk(z) y(ν−k) = p0(w) zw
+has a unique solution y(z; w) = ∞
+0 yn(w) zn+w, with y0(w) ≡1
+and coeﬃcients yn(w), n ≥1, which are rational functions of w.
+Find the possible poles of pn(w) in terms of the roots of p0(w).
+(b) Let µ be a root of p0(w), but so that p0(µ + j) ̸= 0 for j ∈N.
+Conclude that then y(z; µ) is a Floquet solution of (1.6). Show
+that for at least one root of p0(w) this assumption holds.
+(c) Let µ, as above, be a root of multiplicity at least k ≥2. Show
+that then (1.6) has a solution of the form
+k−1
+
+j=0
+k −1
+j
+
+[log z]k−1−j
+∞
+
+n=0
+y(j)
+n (µ) zn+µ,
+|z| < ρ.
+Show that all solutions so obtained are linearly independent.
+5. For the hypergeometric, resp. Bessel’s, equation, ﬁnd the cases where
+the indicial equation has a double root. Use the previous exercise to
+compute a fundamental solution for these cases.

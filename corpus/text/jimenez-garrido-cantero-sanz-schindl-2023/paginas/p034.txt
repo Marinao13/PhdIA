@@ -1,0 +1,41 @@
+34
+So, we have that
+W (ℓ)
+j
+= exp(1
+ℓϕ∗
+ω(ℓj)) = qℓj2,
+j ≥0, and therefore
+W(ℓ) = (qℓj2)j≥0,
+ℓ> 0.
+Note that each sequence W(ℓ) is (lc), (dc) and has the property (rai) for all ℓ> 0, in this
+situation Theorem 6.2 ensures that the class A{ω}(Sα) (resp. A{ωMq}(Sα)) is stable for
+α ∈(0, 1]. On the other hand, note that γ(ω) = ∞, since γ(ω) ≥γ(W(ℓ)) for all ℓ> 0
+(see Subsection 2.7) and γ(W(ℓ)) is also inﬁnity. In this case, Remark 6.6 ensures that we
+can apply Theorem 6.5 in order to deduce that the class A{ω}(Sα) (resp. A{ωMq }(Sα))
+is stable for α > 1.
+Acknowledgements: The ﬁrst three authors are partially supported by the Spanish
+Ministry of Science and Innovation under the project PID2019-105621GB-I00.
+The
+fourth author is supported by FWF-Project P33417-N.
+References
+[1] W. Balser, Formal power series and linear systems of meromorphic ordinary diﬀer-
+ential equations, Springer, Berlin, 2000.
+[2] R. W. Braun, R. Meise and B. A. Taylor, Ultradiﬀerentiable functions and Fourier
+analysis, Results Math. 17 (1990), no. 3-4, 206–237.
+[3] J. Bruna, On inverse closed algebras of inﬁnitely diﬀerentiable functions, Studia
+Math. 69 (1980), no. 1, 59–68.
+[4] C. Fern´andez and A. Galbis, Superposition in classes of ultradiﬀerentiable functions,
+Publ. Res. Inst. Math. Sci. 42 (2006), no. 2, 399–419.
+[5] S. F¨urd¨os, D. N. Nenning, A. Rainer and G. Schindl, Almost analytic extensions
+of ultradiﬀerentiable functions with applications to microlocal analysis, J. Math.
+Anal. Appl. 481 (2020), no. 1, 123451.
+[6] J. Jim´enez-Garrido, J. Sanz and G. Schindl, Indices of O-regular variation for weight
+functions and weight sequences, Rev. R. Acad. Cienc. Exactas F´ıs. Nat. Ser. A Mat.
+RACSAM 113 (2019), no. 4, 3659–3697.
+[7] J. Jim´enez-Garrido, J. Sanz and G. Schindl, Sectorial extensions, via Laplace trans-
+forms, in ultraholomorphic classes deﬁned by weight functions, Results Math. 74
+(2019), no. 1, 27.
+[8] J. Jim´enez-Garrido, J. Sanz and G. Schindl, Sectorial extensions for ultraholomor-
+phic classes deﬁned by weight functions, Math. Nachr. 293 (2020), no. 11, 2140–
+2174.

@@ -1,0 +1,67 @@
+3
+growth of the sequence M, in terms of which quasianalyticity may be properly characterized due
+to a classical result of B. I. Korenbljum [19]. This constant is easily computed (see (7) and (4)),
+and indeed it is the inverse of the order of growth of the classical function M(t) associated with
+M, namely M(t) = supn∈N0 log(tn/Mn), t > 0. So, a deﬁnition of M−summability in a direction
+d may be easily put forward, see Deﬁnition 3.3. Regarding the construction of ﬂat functions, V.
+Thilliez [41] had characterized ﬂatness in ˜
+AM(Sγ) in terms of non-uniform estimates governed by
+the function e−M(1/|z|), much in the same way as the function e−|z|−1/α expresses ﬂatness in the
+Gevrey case. The theory of proximate orders, which reﬁnes the notion of constant exponential
+order, allows one to specify the rate of growth of an entire function in terms of the function
+M(t), and results by V. Bernstein, M. M. Dzhrbashyan, M. A. Evgrafov, A. A. Gol’dberg, I. V.
+Ostrovskii (see [23, 14]) and, in our regards, mainly L. S. Maergoiz [24], have been the key for
+the construction of ﬂat functions in Sω(M), whenever M induces a proximate order (which is the
+case in all the instances of strongly regular sequences appearing in the literature). Section 4 is
+devoted to these results. We mention that proximate orders had already been used in the study
+of some questions regarding multisummability, see [5].
+Now that we have assured its existence under fairly mild assumptions, we devote Section 3 to
+the introduction of kernels of M−summability (see Deﬁnition 3.4), and the associated formal and
+analytic transforms, in terms of which to reconstruct the sums of M−summable formal power
+series in a direction, as stated in Theorem 3.18. Once our tool has been designed, it is necessary to
+test its applicability to the study of formal solutions of diﬀerent types of algebraic and diﬀerential
+equations in the complex domain. Our ﬁrst attempt is contained in the last section of the paper.
+The notion of formal moment-diﬀerential operator was ﬁrstly introduced by W. Balser and M.
+Yoshino in [8].
+Generally speaking, given the sequence of moments me = (me(p))p∈N0 of a
+kernel function e of order k > 0 (in other words and according to Remark 3.19(i), a kernel for
+M1/k−summability), one can deﬁne ∂me,z as an operator from C[[z]] into itself given by
+∂me,z
+
+X
+p≥0
+fp
+me(p)zp
+
+=
+X
+p≥0
+fp+1
+me(p)zp,
+in much the same way as, for the usual derivative ∂, one has ∂
+P
+p≥0
+fp
+p! zp
+= P
+p≥0
+fp+1
+p! zp. For
+two sequences of moments m1 = (m1(p))p∈N0 and m2 = (m2(p))p∈N0 of orders k1 and k2, respec-
+tively, they study the Gevrey order of the formal power series solutions of an inhomogeneous
+moment-partial diﬀerential equation with constant coeﬃcients in two variables,
+p(∂m1,t, ∂m2,z)ˆu(t, z) = ˆf(t, z),
+where p(λ, ξ) is a given polynomial. Subsequently, S. Michalik [32] considers the corresponding
+initial value problem
+P(∂m1,t, ∂m2,z)u(t, z) = 0,
+∂j
+m1,tu(0, z) = ϕj(z)
+for j = 0, . . . , n −1,
+where P(λ, ξ) is a polynomial of degree n with respect to λ and the Cauchy data are analytic in
+a neighborhood of 0 ∈C. A formal solution ˆu is constructed, and a detailed study is made of the
+relationship between the summability properties of ˆu and the analytic continuation properties
+and growth estimates for the Cauchy data. We will generalize his results for strongly regular
+moment sequences of a general kernel of summability. A signiﬁcant part of the statements are
+given without proof, since the arguments do not greatly diﬀer from those in [32]. On the other
+hand, complete details are provided when the diﬀerences between both situations are worth
+stressing.

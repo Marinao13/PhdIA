@@ -1,0 +1,41 @@
+222 
+Braun, Meise and Taylor 
+4.4 Proposition. £.(n) is a locally convex algebra with continuous multiplication. 
+PROOF. For given A > 0 and fhh E £.(n), set 
+01 = sup sup!f/")(x)!exp (-Ac,o· (!Aa!)), 1 = 1,2. 
+"ElN(i" .tEl, 
+For a,{3 E lN~ with (3 ~ a the convexity of c,o' implies c,o'(AX) ~ Ac,o'(X) for 0 ~ A ~ 1 and 
+hence 
+• (~) + • (~) < • (~) 
+c,o 
+A 
+c,o 
+A 
+-c,o 
+A 
+. 
+By Leibniz' rule this implies as in the proof of, e.g., Komatsu [14J, 2.7: 
+Let now L be as in 1.4 and set B = AIL. Then it follows from 1.4 that for large !a! 
+Sometimes a different description of £.(0) is useful. It follows directly from 3.3 and the 
+proof of the previous proposition: 
+rv 
+0 
+4.5 Lemma. 
+Let n c IRi be open, let Kl C K 2 C K2 C ... c n be an exhaustion oj 
+n by compact sets, choose Xi E D.(Kj) with 0 ~ Xj ~ 1 and Xj!Kj- 1 == 1, and define a 
+projective spectrum by c,oj: D.(Kj+l) -; D.(K)), f 1-+ xJf. Then 
+£.(n) = proj D.(Kj ). 
+J~OO 
+4.6 Lemma. 
+Let K be a compact subset of an open set n c IRN. Then D.(K) carries 
+the topology which is induced by £.(n). 
+PROOF. Let Len be a compact set with K c i, and choose X E D(L) with 0 ~ X ~ 1 
+and X == 1 on K. Let p be a semi norm on D.(K). The inclusion D.(K) '-+ D.(L) is a 
+topological homomorphism by the open mapping theorem, since D.(K) is closed in D.(L). 
+Thus there is a semi norm q on D.(L) with q!D.(K) = p. Now 4.5 implies that f 1-+ q(xf) 
+is a seminorm on £.(0). Its restriction to D.(K) is p. 
+The next proposition follows in the usual way from 3.3, 3.8, and the definitions of D. 
+and £ •. 
+4.7 Proposition. 
+(1) The inclusion D.(n) '-+ £.(n) is continuous and has dense range. 
+(2) If C1 = o(w), then the inclusion £(w}(O) '-+ £(iT)(O) is continuous and has dense range. 

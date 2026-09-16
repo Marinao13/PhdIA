@@ -1,0 +1,91 @@
+10
+JAVIER JIM´ENEZ-GARRIDO, ALBERTO LASTRA, AND JAVIER SANZ
+Since the function eτ,σ(z)/z never vanishes, we deduce that it will remain bounded, and
+bounded away from 0, in bounded proper sectors of C \ (−∞, 0] with vertex at 0.
+Lemma 4.5. The restriction of the function g in (4.2) to (1, ∞), given by
+(4.3)
+g(x) = W −
+1
+σ−1(bτ,σ ln(x)) ln
+σ
+σ−1(x),
+is positive and strictly increasing. Moreover, limx→∞g′(x) = 0.
+Proof We clearly have bτ,σ ln(x) > 0 for every x > 1, and W is positive for positive values
+of its argument (see (b) in Proposition 3.1), hence g(x) > 0 for every x > 1. Property (c)
+of Proposition 3.1 yields
+(4.4)
+W ′(x) =
+1
+x + eW(x) =
+W(x)
+x(W(x) + 1).
+So, applying (4.4) we can write
+g′(x) = −
+1
+σ −1W −
+σ
+σ−1(bτ,σ ln(x))W ′(bτ,σ ln(x))bτ,σ
+1
+x ln
+σ
+σ−1(x)
++ W −
+1
+σ−1(bτ,σ ln(x))
+σ
+σ −1 ln
+1
+σ−1(x)1
+x
+= −
+1
+σ −1W −
+1
+σ−1(bτ,σ ln(x))
+1
+W(bτ,σ ln(x)) + 1
+1
+x ln
+1
+σ−1(x)
++ W −
+1
+σ−1(bτ,σ ln(x))
+σ
+σ −1 ln
+1
+σ−1(x)1
+x
+=
+1
+σ −1W −
+1
+σ−1(bτ,σ ln(x)) ln
+1
+σ−1(x)1
+x
+
+σ −
+1
+W(bτ,σ ln(x)) + 1
+
+> 0,
+since x > 1 and σ > 1. So, g is strictly increasing in (1, ∞). If we observe now that
+limx→∞bτ,σ ln(x) = +∞and (b) in Proposition 3.1, it is clear from the last expression
+that limx→∞g′(x) = 0.
+□
+The next technical result provides information on the function eτ,σ with respect to the
+standard properties satisﬁed by kernel functions for summability, as described in [15], and
+which were inspired by the work of W. Balser [1, Section 5.5] in the context of Gevrey
+classes.
+Lemma 4.6. The function eτ,σ(·) enjoys the following properties:
+1. z−1eτ,σ(z) is integrable at the origin, it is to say, for every t0 > 0 and θ ∈(−π, π),
+the integral
+Z t0
+0
+t−1|eτ,σ(teiθ)|dt < ∞.
+2. For every x > 0 the value of eτ,σ(x) is positive real.
+3. For every T ≺S2 there exist C1, K1, C2, K2 > 0 (depending on τ, σ) such that
+(4.5)
+C1eτ,σ(K1|z|) ≤|eτ,σ(z)| ≤C2eτ,σ(K2|z|),
+z ∈T.

@@ -1,0 +1,40 @@
+References
+283
+[212] F. W. J. Olver, Introduction to Asymptotics and Special Functions,
+Academic Press, 1974.
+[213] S. Ouchi, Formal solutions with Gevrey type estimates of nonlinear
+partial diﬀerential equations, J. Math. Sc. Univ. Tokyo, 1 (1994),
+pp. 205–237.
+[214]
+, Singular solutions with asymptotic expansion of linear partial
+diﬀerential equations in the complex domain, Publ. RIMS Kyoto Uni-
+versity, 34 (1998), pp. 291–311.
+[215] R. B. Paris, On the asymptotic expansions of solutions of an nth
+order linear diﬀerential equation, Proc. Roy. Soc. Edinburgh, 85 A
+(1980), pp. 15–57.
+[216] R. B. Paris and A. D. Wood, The asymptotic expansion of solu-
+tions of the diﬀerential equation uiv + λ2[(z2 + c)u′′ + azu′ + bu] = 0
+for large |z|, Phil. Trans. Roy. Soc. London, 293 (1979), pp. 511–533.
+[217]
+, On the asymptotic expansion of solutions of an nth order linear
+diﬀerential equation with power coeﬃcients, Proc. Roy. Irish Acad.,
+85 A (1985), pp. 201–220.
+[218]
+, Asymptotics of High Order Diﬀerential Equations, vol. 129 of
+Pitman Research Notes in Math. Series, Longman, Harlow, U.K.,
+1986.
+[219] F. Pittnauer, Vorlesungen ¨uber asymptotische Reihen, vol. 301 of
+Lecture Notes in Math., Springer, 1972.
+[220] J. Plemelj, Riemannsche Funktionenscharen mit gegebener Mo-
+nodromiegruppe, Monatsh. f. Math. u. Phys., 19 (1908), pp. 211–246.
+[221]
+, Problems in the Sense of Riemann and Klein, Interscience
+Publications, New York, 1964.
+[222] H. Poincar´e, Sur les int´egrales irreguli`eres des ´equations lin´eaires,
+Acta Math., 8 (1886), pp. 295–344.
+[223] C. Praagman, The formal classiﬁcation of linear diﬀerence opera-
+tors, Proc. Kon. Ned. Ac. Wet., 86 (1983), pp. 249–261.
+[224] M. v. d. Put and M. F. Singer, Galois Theory of Diﬀerence
+Equations, vol. 1666 of Lecture Notes in Math., Springer, 1997.
+[225] J.-P. Ramis, D´evissage Gevrey, Ast´erisque, 59-60 (1978), pp. 173–
+204.

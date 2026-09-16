@@ -1,0 +1,40 @@
+172
+10. Multisummable Power Series
+Proof: The ﬁrst statement follows from Theorem 52, since every element of
+E can be regarded as a linear operator on E . For the second one, let kq >
+1/2; otherwise, make a change of variable z = wp with suﬃciently large
+p ∈N. Then, let f(z; φ) be as in Proposition 24. Making ρ and ε smaller if
+needed, we may arrange that g(z; φ) = f(z; φ)−1 exists for every z ∈Sφ. It
+then follows by means of Proposition 25 that g(z; d1) = (Sk,d ˆg)(z) in Sd1,
+for some ˆg. Since g(z; φ) f(z; φ) ≡1, this shows ˆg = ˆf −1.
+2
+As we have shown above and in Section 10.5, multisummability in a
+direction satisﬁes the same rules as k-summability. It is obvious that The-
+orems 51 and 53 also hold with E {z}k instead of E {z}k,d. However, note
+that the Main Decomposition Theorem on p. 164 does not generalize to
+E {z}k, as is shown in one of the exercises below. Whether it admits gener-
+alization when we consider decompositions into sums of products of series
+in E {z}kj seems to be unknown – such decompositions hold, however, for
+formal solutions of systems (3.1) (p. 37), as was shown in Theorem 43
+(p. 134).
+Note that the properties of multisummability shown in this chapter, to-
+gether with Theorem 43 (p. 134), enable us to conclude that every formal
+fundamental solution of every system (3.1) (p. 37) is multisummable. The
+same is true even for formal solutions of nonlinear systems, but we shall
+not prove this here.
+Exercises:
+1. For ψ(z) = (1 −z)−1 exp[−z−1], show that ˆf(z) = ∞
+0 fn zn, with
+fn = Γ(1 + n/2)
+ 1/2
+0
+ψ(w)w−n−1dw,
+is in E {z}k, k = (2, 1), and determine all singular multidirections.
+2. Let ˆf = ˆf1 + ˆf2, ˆfj ∈E {z}kj, j = 1, 2, with k1 > k2 > 0, and let
+g = S ( ˆBκ2 ◦ˆBκ1 ˆf). Let d = (d1, d2) be singular of level 2, and deﬁne
+h± by application of Lκ2 to g, with integration along arg z = d2 ± ε,
+with small ε > 0. Show that ψ = h+−h−is holomorphic in the sector
+S = S(φ, π/κ2).
+3. Show that ˆf ∈E {z}k, k = (2, 1), exists, which is not the sum of ˆf1 ∈
+E {z}2 and ˆf2 ∈E {z}1. Why does this not contradict Theorem 50?
+4. Show that Exercise 5 on p. 104 generalizes to multisummability.

@@ -1,0 +1,81 @@
+4
+J. JIMÉNEZ-GARRIDO, J. SANZ, AND G. SCHINDL
+M has the condition moderate growth, denoted by (mg), if
+∃C ≥1 ∀j, k ∈N : Mj+k ≤Cj+kMjMk.
+In [8] it is denoted by (M.2) and called stability under ultradiﬀerential operators.
+Let M, N ∈RN
+>0 be given, we write M ⪯N if supj∈N>0
+
+Mj
+Nj
+1/j
+< +∞.
+We call M and N
+equivalent, denoted by M ≈N, if M⪯N and N⪯M. Finally, write M ≤N if Mj ≤Nj for all
+j ∈N. Note: If M, N ∈RN
+>0 both are normalized, then M⪯N does precisely mean Mj ≤CjNj for
+some C ≥1 and all j ∈N.
+2.3. Associated weight function. Let M ∈RN
+>0 (with M0 = 1), then the associated function
+ωM : R≥0 →R ∪{+∞} is deﬁned by
+ωM(t) := sup
+j∈N
+log
+ tj
+Mj
+
+for t > 0,
+ωM(0) := 0.
+For an abstract introduction of the associated function we refer to [9, Chapitre I], see also [8,
+Deﬁnition 3.1]. If lim infj→+∞(Mj)1/j > 0, then ωM(t) = 0 for suﬃciently small t, since log
+
+tj
+Mj
+
+<
+0 ⇔t < (Mj)1/j holds for all j ∈N>0. Moreover under this assumption t 7→ωM(t) is a continuous
+nondecreasing function, which is convex in the variable log(t) and tends faster to inﬁnity than any
+log(tj), j ≥1, as t →+∞. limj→+∞(Mj)1/j = +∞implies that ωM(t) < +∞for each ﬁnite t
+which shall be considered as a basic assumption for deﬁning ωM.
+If M ≤N, then clearly ωN ≤ωM follows. If M ∈LC, then we can compute M by involving ωM as
+follows, see [9, Chapitre I, 1.4, 1.8] (and also [8, Prop. 3.2]):
+(2.1)
+Mj = sup
+t≥0
+tj
+exp(ωM(t)),
+j ∈N.
+2.4. Weight functions. A function ω : [0, +∞) →[0, +∞) is called a weight function (in the
+terminology of [4, Section 2.1] and [5, Section 2.2]), if it is continuous, nondecreasing, ω(0) = 0 and
+limt→+∞ω(t) = +∞. If ω satisﬁes in addition ω(t) = 0 for all t ∈[0, 1], then we call ω a normalized
+weight function. For convenience we will write that ω has (ω0) if it is a normalized weight.
+Moreover we consider the following conditions, this list of properties has already been used in [14].
+(ω1) ω(2t) = O(ω(t)) as t →+∞, i.e. ∃L ≥1 ∀t ≥0 :
+ω(2t) ≤L(ω(t) + 1).
+(ω3) log(t) = o(ω(t)) as t →+∞(⇔limt→+∞
+t
+ϕω(t) = 0, ϕω being the function deﬁned next).
+(ω4) ϕω : t 7→ω(et) is a convex function on R.
+(ω6) ∃H ≥1 ∀t ≥0 : 2ω(t) ≤ω(Ht) + H.
+For convenience we deﬁne the sets
+W0 := {ω : [0, ∞) →[0, ∞) : ω has (ω0), (ω3), (ω4)},
+W := {ω ∈W0 : ω has (ω1)}.
+For any ω ∈W0 we deﬁne the Legendre-Fenchel-Young-conjugate of ϕω by
+(2.2)
+ϕ∗
+ω(x) := sup{xy −ϕω(y) : y ≥0},
+x ≥0,
+with the following properties, e.g. see [2, Remark 1.3, Lemma 1.5]: It is convex and nondecreasing,
+ϕ∗
+ω(0) = 0, ϕ∗∗
+ω = ϕω, limx→+∞
+x
+ϕ∗ω(x) = 0 and ﬁnally x 7→ϕω(x)
+x
+and x 7→ϕ∗
+ω(x)
+x
+are nondecreasing
+on [0, +∞). Note that by normalization we can extend the supremum in (2.2) from y ≥0 to y ∈R
+without changing the value of ϕ∗
+ω(x) for given x ≥0.

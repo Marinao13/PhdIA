@@ -1,0 +1,29 @@
+1
+Basic Properties of Solutions
+In this ﬁrst chapter, we discuss some basic properties of linear systems of
+ordinary diﬀerential equations having a coeﬃcient matrix whose entries are
+holomorphic functions in some region G. A reader who is familiar with the
+theory of systems whose coeﬃcient matrix is constant, or consists of con-
+tinuous functions on a real interval, will see that all of what we say here
+for the case of a simply connected region G, i.e., a region “without holes,”
+is quite analogous to the real-variable situation, but we shall discover a
+new phenomenon in case of multiply connected G. While for simply con-
+nected regions solutions always are holomorphic in the whole region G, this
+will no longer be true for multiply connected ones: Solutions will be lo-
+cally holomorphic, i.e., holomorphic on every disc contained in G. Globally,
+however, they will in general be multivalued functions that should best be
+considered on some Riemann surface over G. As an example, observe that
+x(z) =
+
+z(1 −z) is a solution of the equation
+x′ =
+1 −2z
+2z (1 −z) x,
+z ∈G = C \ {0, 1};
+this solution has branch-points at z = 1 and the origin. Luckily, we shall
+have no need to study this monodromy behavior of solutions for a general
+multiply connected region. Instead, it will be suﬃcient to consider the sim-
+plest type of such regions, namely punctured discs. Assuming for simplicity
+that we have a punctured disc about the origin, the corresponding Riemann
+surface – or to be exact, the universal covering surface – is the Riemann
+surface of the (natural) logarithm. We require the reader to have some in-

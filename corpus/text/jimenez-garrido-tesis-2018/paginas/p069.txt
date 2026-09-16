@@ -1,0 +1,93 @@
+2.1. LOG-CONVEX SEQUENCES AND O-REGULAR VARIATION
+69
+Proof. The expressions in (i) and (ii) are immediately deduced from Lemma 2.1.13 since β(m) =
+β(sm) and α(m) = α(sm) where sm = (mp)p∈N is the shifted sequence.
+We observe that γ ≤β(m) ≤α(m) < α, then α−γ > 0. By Proposition 2.1.11, we have that
+α(m) < α if and only if α(g−γm) < α−γ where g−γ = (p−γ)p∈N and g−γ·m = ((p+1)−γmp)p∈N0
+and, by Lemma 2.1.12, this happens if and only if α(ℓ) < α −γ or, equivalently, if there exists
+ε ∈(0, α −γ) such that α(ℓ) < α −γ −ε. Summarizing and using (i), α(m) < α if and only if
+(pγ−α+εℓp)p∈N is almost decreasing. We observe that the sequence
+tp := (p + 1)−1ℓp,
+p ∈N0,
+satises that ((p + 1)tp)p∈N0 = ℓis nondecreasing and (pγ−α+ε+1tp)p∈N is almost decreasing.
+Since α −γ −1 > −1, applying Proposition 2.1.4 for t, the following are equivalent
+(1) α(m) < α,
+(2) There exists A > 0 such that
+p
+X
+k=0
+(k + 1)α−γ
+(k + 1)ℓk
+=
+p
+X
+k=0
+(k + 1)α−γ−1
+(k + 1)tk
+≤A(p + 1)α−γ−1
+tp
+= A(p + 1)α−γ
+ℓp
+p ∈N0,
+(3) lim
+k→∞lim sup
+p→∞
+ℓkp
+kα−γℓp
+= lim
+k→∞lim sup
+p→∞
+tkp
+kα−γ−1tp
+= 0,
+(4) There exists k ∈N, k ≥2, such that
+lim sup
+p→∞
+ℓkp
+kℓp
+= lim sup
+p→∞
+tkp
+tp
+< kα−γ−1.
+Since ℓ≃g−γm, it follows that (iii) holds and, by suitably enlarging A and k, (iv) and (v) are
+also valid.
+As before, α(m) < α if and only if there exists ε ∈(0, α −γ) such that (pγ−α+εℓp)p∈N is
+almost decreasing. Equivalently, we observe that the sequence
+up := (p + 1)−1(ℓp)1/(α−γ),
+p ∈N0,
+satises that ((p + 1)up)p∈N0 is nondecreasing and there exists δ ∈(0, 1) such that (pδup)p∈N is
+almost decreasing. By Proposition 2.1.4 applied to u, α(m) < α if and only if there exists A > 0
+such that
+p
+X
+k=0
+1
+(ℓk)1/(α−γ) =
+p
+X
+k=0
+1
+(k + 1)uk
+≤A
+up
+=
+A(p + 1)
+(ℓp)1/(α−γ)
+Then, since ℓ≃g−γm, enlarging A, (vi) holds.
+For any β > γ, with the same reasoning, we see that β < β(m) if and only if there exists
+ε > 0 such that (pγ−β−εℓp)p∈N is almost increasing. Since β −γ > 0, applying Lemma 2.1.21 to
+the nondecreasing sequence ℓand then using that ℓ≃g−γm, the following are equivalent:
+(1) lim
+k→∞lim inf
+p→∞
+mkp
+kβmp
+= ∞,
+(2) There exists k ∈N, k ≥2 such that
+lim inf
+p→∞
+mkp
+mp
+> kβ,
+Universidad de Valladolid

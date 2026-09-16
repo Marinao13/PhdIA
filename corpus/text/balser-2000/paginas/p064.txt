@@ -1,0 +1,138 @@
+3.3 Nilpotent Leading Term
+47
+Remark 4: We say that (3.3) (with A0 as above and µ ≥1) is normalized
+up to z−n0, if all coeﬃcients A(jk)
+n
+, for 1 ≤n ≤n0, have nonzero entries
+only in ﬁrst row resp. last column (in case j ≤k resp. j > k). If this is so for
+some n0, we brieﬂy call (3.3) normalized. If (3.3) is normalized up to z−n0,
+and in addition all A(jk)
+n
+with j ̸= k vanish completely, for 1 ≤n ≤n0,
+then we say that (3.3) is reduced up to z−n0.
+For later use, observe that if (3.3) is already normalized up to z−˜n0, then
+normalization up to z−n0, for n0 > ˜n0, can be done by a transformation
+T(z) with coeﬃcients Tn = 0 for 1 ≤n ≤˜n0; hence the corresponding
+coeﬃcients An remain unchanged.
+3
+For normalized systems (3.3) with µ > 1 we apply shearing transforma-
+tions to produce another system with superior leading term:
+Proposition 6 For some n0 ∈N, let (3.3) be a formal system with lead-
+ing term as in (3.9), normalized up to z−n0, and assume µ ≥2. Assume
+the existence of n1, 1 ≤n1 ≤n0, so that ˆAkµ(z) = zr 
+n≥n1 A(kµ)
+n
+z−n,
+1 ≤k ≤µ −1, and not all A(kµ)
+n1
+vanish. Then the unramiﬁed shearing
+transformation T(z) = diag [Is1, . . . , Isµ−1, zn1Isµ] produces a system with
+a superior leading term.
+Proof:
+Abbreviate Ck = A(kµ)
+n1 , 1 ≤k ≤µ −1. Then, check that the
+shearing transformation produces a transformed system with leading term
+B0 =
+
+
+N1
+0
+. . .
+0
+C1
+0
+N2
+. . .
+0
+C2
+...
+...
+...
+...
+...
+0
+0
+. . .
+Nµ−1
+Cµ−1
+0
+0
+. . .
+0
+Nµ
+
+
+, Ck =
+
+
+ck,1
+. . .
+ck,sµ
+0
+. . .
+0
+...
+...
+0
+. . .
+0
+
+.
+By assumption, Ck ̸= 0 for at least one k. For ℓ≥1, we ﬁnd
+Bℓ
+0 =
+
+
+N ℓ
+1
+0
+. . .
+0
+C(ℓ)
+1
+0
+N ℓ
+2
+. . .
+0
+C(ℓ)
+2
+...
+...
+...
+...
+...
+0
+0
+. . .
+N ℓ
+µ−1
+C(ℓ)
+µ−1
+0
+0
+. . .
+0
+N ℓ
+µ
+
+
+,
+with C(ℓ)
+k
+= N ℓ−1
+k
+Ck + C(ℓ−1)
+k
+Nµ, ℓ≥2. This shows that the ℓth row of
+C(ℓ)
+k
+equals the ﬁrst one of Ck, while the following ones vanish. From this
+we learn that those rows of Bℓ
+0 with a one in a subdiagonal coincide with
+the corresponding rows of Aℓ
+0. Therefore, we have rank Aℓ
+0 ≤rank Bℓ
+0, and
+equality holds if and only if the rows of C(ℓ)
+k , for every k = 1, . . . , µ −1,

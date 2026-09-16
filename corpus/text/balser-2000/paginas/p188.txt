@@ -1,0 +1,52 @@
+10.7 Applications of Cauchy-Heine Transforms
+171
+S( ˜dj, ˜αj, ˜ρ), with ˜dj = π + (φj + φj−1)/2, ˜αj = 2π + ε −(φj −φj−1),
+ˆgj = 
+CHaj (f(·; φj) −f(·; φj−1)). For φj ≤dν −π/(2kν), S( ˜dj, ˜αj, ˜ρ) con-
+tains a sector with bisecting direction dν and opening more than π/kν, so
+ˆgj ∈E {z}kν,dν, and (Skν,dν ˆgj)(z) = gj(z). In case φj−1 ≥dν + π/(2kν), a
+sector of the same opening, but with bisecting direction dν−2π, is contained
+in S( ˜dj, ˜αj, ˜ρ); hence again ˆgj ∈E {z}kν,dν, but this time (Skν,dν ˆgj)(z) =
+gj(ze2πi). Consequently, ˆg = m
+j=1 ˆgj ∈E {z}k,d. Deﬁne
+fj(z) =
+j
+
+µ=1
+gµ(z) +
+m
+
+µ=j+1
+gµ(ze2πi),
+0 ≤j ≤m, z ∈Sφj ∩Sφj−1.
+Then (Sk,d ˆg)(z) = fj(z), for every j with φj ∈I1. Moreover, h(z) =
+f(z; φj) −fj(z) can be seen to be independent of j, holomorphic and
+single-valued for 0 < |z| < ˜ρ, and bounded at the origin. So ˆh = J(h)
+is convergent; hence ˆf = ˆh + ˆg ∈E {z}k;d, and Sk,d ˆf = f(·; φj), for every j
+with φj ∈I1.
+2
+With help of the above two propositions, it is now easy to deal with
+products of multisummable series:
+Theorem 52 Let E , F both be Banach spaces, and let ˆf ∈E {z}k,d, ˆT ∈
+L(E , F){z}k,d, ˆα ∈C{z}k,d. Then
+ˆT ˆf ∈F{z}k,d,
+Sk,d ( ˆT ˆf) = (Sk,d ˆT) (Sk,d ˆf),
+ˆα ˆf ∈F{z}k,d,
+Sk,d (ˆα ˆf) = (Sk,d ˆα) (Sk,d ˆf).
+Proof: Without loss in generality, let kq > 1/2. Let T(z; φ), resp. α(z; φ),
+resp. f(z; φ) be the functions corresponding to ˆT(z), resp. ˆα(z), resp. ˆf(z)
+by means of Proposition 24. The products T(z; φ)f(z; φ) and α(z; φ)f(z; φ)
+then can be checked to have the same properties, and therefore Proposi-
+tion 25 can be used to complete the proof.
+2
+As for the case of q = 1, this shows that E {z}k,d is an algebra, in the case
+of E being a Banach algebra, and we can also characterize the invertible
+elements:
+Theorem 53 Let ˆf, ˆg1, ˆg2 ∈E {z}k,d be given. If E is a Banach algebra,
+then
+ˆg1 ˆg2 ∈E {z}k,d,
+Sk,d (ˆg1 ˆg2) = (Sk,d ˆg1) (Sk,d ˆg2).
+Moreover, if E has a unit element and ˆf has invertible constant term, then
+ˆf −1 ∈E {z}k,d,
+Sk,d ( ˆf −1) = (Sk,d ˆf)−1,
+wherever the right-hand side is deﬁned.

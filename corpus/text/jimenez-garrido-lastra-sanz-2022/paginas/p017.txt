@@ -1,0 +1,86 @@
+EXTENSION OPERATORS FOR SOME ULTRAHOLOMORPHIC CLASSES OF RAPID GROWTH 17
+5. Right inverses for the asymptotic Borel map in ultraholomorphic
+classes in sectors
+In this section we construct right inverses for the asymptotic Borel map in ultraholo-
+morphic classes associated with the sequence Mτ,σ in sectors of arbitrary opening of the
+complex plane.
+Theorem 5.1. Let τ > 0 and 1 < σ < 2 be given. For every ˆf = P∞
+p=0 cpzp ∈C[[z]]{Mτ,σ}
+there exists a function f, holomorphic in C \ (−∞, 0], such that for every unbounded
+proper subsector S of C \ (−∞, 0], one has that f admits ˆf as its uniform asymptotic
+expansion in S.
+Proof Let (mτ,σ(p))p∈N0 be the sequence of moments associated with the function eτ,σ(z).
+Since ˆf ∈C[[z]]{Mτ,σ}, there exist positive constants C1, D1 such that
+|cp| ≤C1Dp
+1M τ,σ
+p ,
+p ∈N0.
+From (4.21), we deduce that the series
+ˆg =
+∞
+X
+p=0
+cp
+mτ,σ(p)zp
+is convergent in a disc D(0, R) for some R > 0, and it deﬁnes a holomorphic function g
+there. Let 0 < R0 < R. We deﬁne
+(5.1)
+f(z) :=
+Z R0
+0
+eτ,σ
+u
+z
+
+g(u)du
+u ,
+z ∈C \ (−∞, 0],
+which may be called a truncated Laplace-like transform of the function g with kernel eτ,σ.
+By virtue of Leibniz’s theorem on analyticity of parametric integrals and the deﬁnition
+of eτ,σ, f turns out to be a holomorphic function in C \ (−∞, 0]. In order to obtain our
+result, it suﬃces to prove that f ∼{Mτ,σ} ˆf uniformly in Sδ, for every 0 < δ < 2.
+Let N ∈N and z ∈Sδ. We have
+f(z) −
+N−1
+X
+p=0
+cpzp = f(z) −
+N−1
+X
+p=0
+cp
+mτ,σ(p)mτ,σ(p)zp
+=
+Z R0
+0
+eτ,σ
+u
+z
+
+∞
+X
+k=0
+ck
+mτ,σ(k)uk du
+u −
+N−1
+X
+p=0
+cp
+mτ,σ(p)
+Z ∞
+0
+up−1eτ,σ(u)duzp.
+After a change of variable v = zu in the second integral, by virtue of the estimate (4.5)
+one may use Cauchy’s residue theorem in order to check that
+zp
+Z ∞
+0
+up−1eτ,σ(u)du =
+Z ∞
+0
+vpeτ,σ
+v
+z
+ dv
+v ,

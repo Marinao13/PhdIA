@@ -1,0 +1,49 @@
+5.1 Laplace Operators
+79
+The reason for the factor z−k in front of the integral representation of
+g(z) is that we want the Laplace transform of a power uλ to be equal
+to Γ(1 + λ/k) zλ, as is to be shown in Exercise 1. Accordingly, termwise
+application of Lk to a formal power series ˆf(u) = ∞
+0 fn un produces the
+formal power series ˆg(z) = ∞
+0 fn Γ(1 + n/k) zn, which we denote by ˆLk ˆf.
+The operator ˆLk will frequently be called the formal Laplace operator of
+order k.
+The following theorem shows that Laplace operators link very naturally
+with the notion of Gevrey asymptotics, making them the perfect tool for
+what will follow.
+Theorem 22 Let f ∈A(k)(S, E ), for k > 0 and a sector S = S(d, α), and
+let g = Lkf be its Laplace transform of order k, deﬁned in a corresponding
+sectorial region G = G(d, α + π/k). For s1 ≥0, assume f(z) ∼=s1 ˆf(z) in
+S, take s2 = 1/k + s1, and let ˆg = ˆLk ˆf. Then
+g(z) ∼=s2 ˆg(z)
+in G.
+Proof: For arbitrarily ﬁxed a = ρeiτ ∈S, we may split the path of integra-
+tion in (5.1) into the line segment from 0 to a and the ray from a to inﬁnity,
+thus deﬁning two functions g1(z), g2(z). From the exercises on p. 74, to-
+gether with the ones below, we conclude g1(z) ∼=s2 ˆg(z), g2(z) ∼=1/k ˆ0 in
+G(τ, π/k). This implies g(z) ∼=s2 ˆg(z) in G(τ, π/k), owing to Theorem 18
+(p. 71). Since G is the union of these regions as τ varies in the interval
+(d −α/2, d + α/2), the proof is completed.
+2
+Let A(k)
+s1 (S, E ) = A(k)(S, E ) ∩As1(S, E ), i.e., the set of all holomorphic
+E -valued functions on S that are of exponential growth not more than k and
+have a Gevrey asymptotic of order s1 at the origin. The previous theorem
+then says that Lk maps A(k)
+s1 (S, E ) into As2(G, E ), and J ◦Lk = ˆLk ◦J.
+In the following sections we show that Lk is in fact bijective and its inverse
+equals Borel’s operator.
+Exercises:
+1. Prove that the Laplace transform of uλ, with complex λ, Re λ > 0,
+equals Γ(1 + λ/k) zλ. Discuss for which other λ this statement holds
+as well.
+2. For f ∈A(k)(S, E ), k > 0, show that g = Lkf is bounded at the
+origin.
+3. For f ∈A(k)(S, E ), k > 0, take a = ρeiτ ∈S and deﬁne
+g(z) = z−k
+ ∞(τ)
+a
+f(u) exp[−(u/z)k] duk,
+z ∈G(τ, π/k).
+Show g(z) ∼=s ˆ0 in G(τ, π/k) for s = 1/k.

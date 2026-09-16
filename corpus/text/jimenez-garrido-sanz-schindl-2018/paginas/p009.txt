@@ -1,0 +1,94 @@
+Using that p!ω/p ∼pωe−ω(√2πp)ω/p and that limp→∞
+Qp−1
+k=0 Ck
+1/p
+= C, we see that
+lim
+p→∞
+mp
+M 1/p
+p
+= lim
+p→∞eω(
+p
+2πp)−ω/p exp
+
+1
+p
+p
+X
+j=1
+δj
+
+= eω
+or, equivalently, limp→∞βp = ω.
+We will also need the following theorem of L. de Haan [7], that shows that if we have
+monotonicity, we only need to prove (5) for two suitable integer values of λ. Then, if the
+sequence M is (lc), we can give a nicer expression for the regular variation of m.
+Theorem 3.4 ([7], Th. 1.1.2). A positive monotone sequence (sp)p∈N0 varies regularly if
+there exist positive integers ℓ1, ℓ2 with log(ℓ1)/ log(ℓ2) ﬁnite and irrational such that for
+some real number ω,
+lim
+p→∞
+sℓjp
+sp
+= ℓω
+j ,
+j = 1, 2.
+3.2
+Characterizations for dM being a nonzero proximate order
+If M = (Mp)p∈N0 is (lc) with limp→∞mp = ∞, S. Mandelbrojt considers in [13] its associated
+function M(t) given in (1),
+which may be computed as
+M(t) =
+
+
+
+p log t −log(Mp)
+if t ∈[mp−1, mp), p = 1, 2, . . . ,
+0
+if t ∈[0, m0).
+For later use, we note that
+M(mp) = log
+ mp
+p
+Mp
+
+,
+p ∈N0.
+(9)
+We can also consider the counting function ν : (0, ∞) →N0 for the sequence of quotients
+m, given by
+ν(t) = #{j : mj ≤t},
+which allows one to write
+M(t) = ν(t) log(t) −log(Mν(t)),
+t > 0; M ′(t) = ν(t)
+t ,
+t > 0, t ̸= mp, p ∈N0.
+(10)
+The link between proximate orders and sequences is given by the function
+dM(t) = log(M(t))
+log(t)
+,
+t large enough.
+(11)
+Based on a theorem of S. Mandelbrojt, we have the following theorem relating the function
+dM, the sequence (mp)p∈N0 and the index ω(M) given by
+ω(M) = lim inf
+p→∞
+log(mp)
+log(p) ,
+which for a (lc) sequence M = (Mp)p∈N0 with limp→∞mp = ∞can be 0, a positive real
+number or ∞. This index plays a prominent role in the study of quasianalyticity in Carleman
+ultraholomorphic classes, see [8] and [20].
+Theorem 3.5 ([8], Th. 3.2; [20], Th. 2.24 and Th. 4.6 ). Let M be (lc) with limp→∞mp = ∞,
+then
+lim sup
+t→∞dM(t) = lim sup
+p→∞
+log(p)
+log(mp) =
+1
+ω(M)
+(where the last quotient is understood as 0 if ω(M) = ∞, and as ∞if ω(M) = 0).
+9

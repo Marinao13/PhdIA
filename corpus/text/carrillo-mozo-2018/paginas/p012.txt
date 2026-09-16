@@ -1,0 +1,97 @@
+JID:YJMAA
+AID:21635 /FLA
+Doctopic: Partial Diﬀerential Equations
+[m3L; v1.221; Prn:28/08/2017; 14:57] P.12 (1-17)
+12
+S.A. Carrillo, J. Mozo-Fernández / J. Math. Anal. Appl. ••• (••••) •••–•••
+In conclusion, ˆf is k-summable in xp
+1xq
+2 in direction d and the k-sum can be found through the k-Laplace 
+transform w.r.t. xp
+1xq
+2 and weight (s, 1 −s) of ϕs. These considerations prove the following theorem, we 
+consider one of the main results of this work.
+Theorem 4.1. Let ˆf be a 1/k-Gevrey series in the monomial xp
+1xq
+2. Then it is equivalent:
+(1) ˆf ∈E{x1, x2}(p,q)
+1/k,d.
+(2) There is 0 < s < 1 such that ˆf is k −(s, 1 −s)-Borel summable in the monomial xp
+1xq
+2 in direction d.
+(3) For all 0 < s < 1, ˆf is k −(s, 1 −s)-Borel summable in the monomial xp
+1xq
+2 in direction d.
+In all cases the corresponding sums coincide.
+We remark that some properties of monomial summability can be obtained easily from this theorem. 
+For instance E{x1.x2}(p,q)
+1/k,d = E{x1.x2}(Np,Nq)
+N/k,Nd for all p, q, N ∈N∗and all directions d. Indeed, for any 
+0 < s < 1, Bα and Lα are independent of N, since α =
+
+s
+pk, 1−s
+qk
+
+=
+
+s
+(Np) k
+N ,
+1−s
+(Nq) k
+N
+
+. It can also be shown 
+directly that if ˆf ∈E{x1, x2}(p,q)
+1/k
+has no singular directions then it is convergent.
+5. Application to a family of partial diﬀerential equations
+As mentioned in the introduction, monomial summability is a useful tool to understand summability 
+properties of solutions of doubly singular equations, i.e. diﬀerential equations of type
+εqxp+1 ∂y
+∂x = F(x, ε, y),
+F(0, 0, 0) = 0,
+(19)
+where p, q ∈N>0 and F is a Cl-valued holomorphic map in some neighborhood of (0, 0, 0). In fact, in [4] it is 
+proved that if ∂F
+∂y (0, 0, 0) is invertible then the unique formal solution of this equation is 1-summable in xpεq. 
+These equations were also studied in [3] under the same assumptions when q = 1 and F depends linearly of 
+y considering summability in x, in ε and what the authors refer to (s1, s2)-summability, ps1 +s2 = 1. Using 
+Theorem 4.1 the relation between monomial summability and this (s1, s2)-summability is clariﬁed and thus 
+the results in [3] are valid for general q and F.
+Taking into account the Borel–Laplace methods introduced in the previous section and in view of formula 
+(7) we can study under the light of monomial summability formal solutions of the family of partial diﬀerential 
+equations
+xp
+1xq
+2
+s
+px1
+∂y
+∂x1
++ 1 −s
+q
+x2
+∂y
+∂x2
+
+= C(x1, x2)y + γ(x1, x2),
+(20)
+where p, q ∈N>0, 0 < s < 1 and C (resp. γ) is a square matrix of size l (resp. vector of size l) with entries 
+holomorphic functions in some polydisc D2
+r at the origin in C2. Note that this equation reduces to (19)
+when s = 0 or s = 1 and F(x1, x2, y) = C(x1, x2)y + γ(x1, x2). This will be the only case considered here.
+The existence, uniqueness and Gevrey growth of formal solutions of (20) in contained in the next propo-
+sition.
+Proposition 5.1. If C(0, 0) is invertible then equation (20) has a unique solution ˆy =  yn,mxn
+1xm
+2 . Moreover 
+ˆy ∈
+
+C[[x1, x2]](p,q)
+1
+l
+.
+Proof. The existence and uniqueness of ˆy follows by expanding C and γ in power series at the origin, writing 
+down the corresponding equations in each power and solving recursively the coeﬃcients.

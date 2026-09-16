@@ -1,0 +1,67 @@
+27
+According to Subsection 5.2, an optimal ﬂat function in the class associated with Lq,σ in, say,
+the sector S2 is the function
+G(z) := Gq,s
+2 (z)Gq,s
+2 (z) = exp
+
+−2bq,s logs
+
+1 + 1
+z
+
+,
+z ∈S2.
+It is not a surprise that, from the deﬁnition (36) of bq,s and the relation between σ and s, one
+obtains bq21−σ ,s = 2bq,s, and so G is precisely Gq21−σ ,s
+2
+, what agrees with the aforementioned
+equivalence of sequences.
+If we consider instead 1 < σ < 2 and J := Mq,σ ⋆Mq,2, J = (Jp)p∈N0, the computation of
+the terms Jp is no longer possible in closed form, since their values depend for general p on
+the position of σ within the interval (1, 2). However, the previous subsection shows that, for s
+associated with σ as usual, the function
+G(z) := Gq,s
+2 (z)Gq,2
+2 (z) = exp
+
+−bq,s logs
+
+1 + 1
+z
+
+−bq,2 log2
+
+1 + 1
+z
+
+,
+z ∈S2,
+is an optimal ﬂat function in the class associated with J in S2. Note that s is not equal to 2,
+hence the very aspect of the exponent in this function, and the fact that the restriction G|(0,∞)
+is closely related to the function hJ (see Deﬁnition 3.3), shows that J is not equivalent to any of
+the sequences Mq,σ. Since the sequence J does satisfy (dc), the extension procedure described in
+this paper is available for the classes associated with J.
+Observe that these examples of optimal ﬂat functions can also be provided in general sectors
+Sγ, γ > 2, by using the functions Gq,s
+γ
+introduced in (47).
+Acknowledgements: The ﬁrst three authors are partially supported by the Spanish Ministry
+of Science and Innovation under the project PID2019-105621GB-I00. The fourth author is sup-
+ported by FWF-Project P33417-N.
+References
+[1] W. Balser, Formal power series and linear systems of meromorphic ordinary diﬀerential
+equations, Springer, Berlin, 2000.
+[2] T. Bang, The theory of metric spaces applied to inﬁnitely diﬀerentiable functions, Math.
+Scand. 1 (1953), 137–152.
+[3] J. Bonet, R. Meise, B. A. Taylor, On the range of the Borel map for classes of nonquasian-
+alytic functions, North-Holland Mathematics Studies - Progress in Functional Analysis 170
+(1992), 97–111.
+[4] J. Bruna, An extension theorem of Whitney type for non quasi-analytic classes of functions,
+J. London Math. Soc. 22(2) (1980), 495–505.
+[5] A. Debrouwere, Solution to the Stieltjes moment problem in Gelfand-Shilov spaces, Studia
+Math. 254 (2020), 295–323.
+[6] E. M. Dyn’kin, Pseudoanalytic extension of smooth functions. The uniform scale, Amer.
+Math. Soc. Transl. (2) 115 (1980), 33–58.
+[7] L. Hörmander, The analysis of linear partial diﬀerential operators I, Distribution theory and
+Fourier analysis, Springer-Verlag, 2003.

@@ -1,0 +1,33 @@
+51
+Chapter 2
+Logarithmically convex sequences,
+O-regular variation and nonzero
+proximate orders
+The main objective of this chapter is to describe the connection between weight sequences and
+the notions of proximate orders, regular and O-regular variation. In the rst section, it will be
+shown that the growth properties and indices of Section 1.1 can be represented in terms of upper
+and lower orders and the Matuszewska indices. In the second section, we will restrict to the
+study of those weight sequences which it is possible to associate a nonzero proximate order with,
+characterizing this crucial point for the success in putting forward a satisfactory summability
+theory in the general context.
+2.1
+Logarithmically convex sequences and O-regular variation
+The results presented below revolve around the notion of O-regular variation. First, basic prop-
+erties of weight sequences are described in dierent ways, for instance, in terms of almost mono-
+tonicity properties from which the connection with O-regular variation is inferred. Simultane-
+ously in the second subsection, Matuszewska indices, upper and lower orders for sequences are
+formalized together with the proof of some distinctive features. In third place, the ingredients
+of the previous subsections will be combined, stating this way qualitative growth properties in
+terms of quantitative values, orders and indices, which are related to the (independently dened)
+indices γ(M) and ω(M) (see Subsection 1.1.4), measuring the opening of the regions for which the
+Borel map is surjective or injective, respectively (see Chapter 3). In subsection four, the interac-
+tion of the preceding concepts with the associated function ωM, considered in Subsection 1.1.3,
+is illustrated. Finally, dual and bidual sequences are constructed giving a possible explanation
+for some open questions regarding the essence of indices and orders.
+2.1.1
+Strongly nonquasianalyticity and moderate growth characterizations
+This subsection is primarily devoted to the study of (snq) and (mg) conditions. Characterizations
+of these properties will be obtained merging slightly improved versions of some classical results
+leading, in the forthcoming subsections, to the notion of O-regular variation. For this purpose,
+we need to introduce almost increasing and almost decreasing concepts for sequences, analogous
+to the ones for functions (see Denition 1.2.27).

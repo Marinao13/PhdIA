@@ -1,0 +1,39 @@
+31
+[15] M. Hibino, Summability of formal solutions for singular ﬁrst-order linear PDEs with holo-
+morphic coeﬃcients, in Diﬀerential equations and exact WKB analysis, 47–62, RIMS Kky-
+roku Bessatsu, B10, Res. Inst. Math. Sci. (RIMS), Kyoto, 2008
+[16] G. K. Immink, Exact asymptotics of nonlinear diﬀerence equations with levels 1 and 1+,
+Ann. Fac. Sci. Toulouse T. XVII, no. 2 (2008), 309–356.
+[17] G. K. Immink, Accelero-summation of the formal solutions of nonlinear diﬀerence equations,
+Ann. Inst. Fourier (Grenoble) 61 (2011), no. 1, 1–51.
+[18] H. Komatsu, Ultradistributions, I: Structure theorems and a characterization, J. Fac. Sci.
+Univ. Tokyo Sect. IA Math. 20 (1973), 25–105.
+[19] B. I. Korenbljum, Conditions of nontriviality of certain classes of functions analytic in a
+sector, and problems of quasianalyticity, Soviet Math. Dokl. 7 (1966), 232–236.
+[20] A. Lastra, S. Malek, J. Sanz, Continuous right inverses for the asymptotic Borel map in
+ultraholomorphic classes via a Laplace-type transform, J. Math. Anal. Appl. 396 (2012),
+724–740.
+[21] A. Lastra, S. Malek, J. Sanz, On Gevrey solutions of threefold singular nonlinear partial
+diﬀerential equations, J. Diﬀerential Equations 255 (2013), 3205–3232.
+[22] A. Lastra, J. Sanz, Quasi-analyticity in Carleman ultraholomorphic classes, Annales Inst.
+Fourier 60 (2010), 1629–1648.
+[23] B. Ja. Levin, Distribution of zeros of entire functions, Transl. Math. Monogr. 5, Amer.
+Math. Soc., Providence, RI, 1980.
+[24] L. S. Maergoiz, Indicator diagram and generalized Borel-Laplace transforms for entire func-
+tions of a given proximate order, St. Petersburg Math. J. 12 (2001), no. 2, 191–232.
+[25] S. Malek, On the summability of formal solutions of linear partial diﬀerential equations, J.
+Dyn. Control Syst. 11 (2005), no. 3, 389–403.
+[26] S. Malek, On the summability of formal solutions of nonlinear partial diﬀerential equations
+with schrinkings, J. Dyn. Control. Syst. 13 (2007), no. 1, 1–13.
+[27] S. Malek, On Gevrey functional solutions of partial diﬀerential equations with Fuchsian
+and irregular singularities, J. Dyn. Control Syst. 15 (2009), no. 2, 277–305.
+[28] S. Malek, On singularly perturbed small step size diﬀerence-diﬀerential nonlinear PDEs, J.
+Diﬀerence Equ. Appl. 20 (2014), no. 1, 118–168.
+[29] J. Martinet, J.-P. Ramis, Elementary acceleration and multisummability, Ann. Inst. Henri
+Poincar´e, Physique Theorique 54 (1991), 331-401.
+[30] S. Michalik, Summability and fractional linear partial diﬀerential equations, J. Dyn. Control
+Syst. 16 (2010), no. 4, 557–584.
+[31] S. Michalik, On the multisummability of divergent solutions of linear partial diﬀerential
+equations with constant coeﬃcients, J. Diﬀerential Equations 249 (2010), no. 3, 551–570.
+[32] S. Michalik, Analytic solutions of moment partial diﬀerential equations with constant co-
+eﬃcients, Funkcialaj Ekvac. 56 (2013), 19–50.

@@ -1,0 +1,72 @@
+2.2. LOG-CONVEX SEQUENCES, REGULAR VARIATION AND PROXIMATE ORDERS
+83
+Example 2.1.45. Thanks to the connection with the associated function given in the previous
+remark and the computations in Example 1.1.22 or also by a direct calculation, we can show that
+the dual sequence of the Gevrey sequence Mα,0 = (p!α)p∈N0 is equivalent to M1/α,0 = (p!1/α)p∈N0.
+However, since the Gevrey sequences and the sequences Mα,β = (n!αΠn
+m=0 logβ(e+m))n∈N0 with
+α > 0 and β ∈R are regularly varying, all the indices are equal (see Example 2.1.20), the duality
+is hidden.
+For the q−Gevrey sequences M = (qp2)p∈N0, with q > 1, we can consider the sequences D
+and T dened from νm(t) and ωM(t), respectively. By Example 2.1.20, we know that α(m) =
+β(m) = ∞and since M satises (2.11), we obtain that α(d) = β(d) = 0, so the duality is also
+concealed. By a simple computation, we can notice the following
+d ≃(log(p + e))p∈N,
+t ≃((log(p + e))2)p∈N,
+in this case, d ̸≃t as expected by the characterization of strong regularity in Remark 2.1.39.
+Remark 2.1.46. It is worthy to mention that the duality is not preserved for ≈or ≃, this
+means that in general some information is lost when passing to the dual sequence. For example
+we consider the sequences M and L dened for all k ∈N in terms of their sequences of quotients:
+m0 = m1 = m2 = m3 := 1,
+mp := k
+for every
+2(2k)k ≤p < 2(2(k+1))k+1,
+ℓ0 = ℓ1 = ℓ2 = ℓ3 := 1,
+ℓp := k + 1
+for every
+2(2k)k ≤p < 2(2(k+1))k+1.
+Evidently, M and L are weight sequences of moderate growth with m ≃ℓ. We can compute
+their duals, for k ≥2 we have that
+dM
+k = νm(k) = max{j ∈N; mj−1 ≤k} = 2(2(k+1))k+1,
+dL
+k = max{j ∈N; ℓj−1 ≤k} = 2(2k)k.
+For all k ≥2, we observe that
+DM
+k
+DL
+k
+1/k
+≥(dM
+k−1)1/k
+dL
+k−1
+=
+22kkk−1
+22k−1(k−1)k−1 = exp
+ 
+log(2)2k−1(k −1)k−1
+ 
+2
+
+k
+k −1
+k−1
+−1
+!!
+.
+Hence DM ̸≈DL, because the left hand side is unbounded as k tends to ∞.
+However, if we add some regularity the equivalence is kept. For instance, if M and L are
+weight sequences with m ≃ℓand β(m) > 0, so β(ℓ) > 0, there exists Q ∈N such that for t
+large enough we have that
+νm(t) ≤νℓ(Qt),
+νℓ(t) ≤νm(Qt).
+By Proposition 2.1.38, α(νm) < ∞and α(νℓ) < ∞, so we conclude that dM ≃dL. In particular,
+this stability holds for strongly regular sequences.
+2.2
+Log-convex sequences, regular variation and nonzero proxi-
+mate orders
+The construction of nontrivial `ne' at functions belonging to ultraholomorphic classes and
+dened in sectors of optimal opening, on which is based the M−summability theory developed
+in [60, 88] by A. Lastra, J. Sanz and S. Malek, depends on the possibility of associating with the
+Universidad de Valladolid

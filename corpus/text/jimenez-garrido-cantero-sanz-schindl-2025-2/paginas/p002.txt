@@ -1,0 +1,54 @@
+2
+of A. Lastra, S. Malek and the third author [15] for strongly regular sequences, the construction
+of optimal flat functions in sectors Sγ with 0 < γ < γ(M) and for general weight sequences
+allowed the authors [13] to provide a constructive proof by means of formal Borel- and truncated
+Laplace-like transforms, defined from suitable kernel functions obtained from those optimal flat
+functions. Moreover, surjectivity comes with local extension operators, linear and continuous
+right inverses for the Borel map when acting on suitable Banach spaces within our classes.
+The main aim of this paper is to put forward a new condition for weight sequences, much
+weaker than the condition of derivation closedness included in the definition of regular weight
+sequences, and still allowing for the obtention of Borel-Ritt theorems in our setting in a con-
+structive way. We say M = (Mp)p has shifted moments, (sm) for short, if there exist C0 > 0
+and H > 1 such that
+log
+mp+1
+mp
+
+≤C0Hp+1,
+p ∈{0, 1, 2, . . . },
+where mp = Mp+1/Mp. It turns out that, whenever γ(M) > 0, (sm) amounts to the equivalence
+of M +1 := (Mp+1)p and the sequence of Stieltjes moments for a kernel e(z) = G(1/z) defined
+from an optimal flat function G in the class defined by M. As we will prove, under this weak
+condition it is possible to adapt the Borel- and truncated Laplace-transforms in order to make
+our technique work and obtain local extension operators, and so the surjectivity, of the Borel
+map for Roumieu classes.
+Regarding the Beurling case, A. Debrouwere [3, Th. 7.4] first characterized the surjectivity of
+the asymptotic Borel map in the right half-plane for regular sequences, and later on he completely
+solved the problem for non-uniform asymptotics, and provided global extension operators for
+γ < γ(M) in the case with uniform estimates, see [4]. We will present a different technique
+in order to treat the problem for classes with uniform estimates, following the same ideas as in
+the Roumieu case [12], which rest on the use of ramified Borel and Laplace integral transforms.
+In order to do this, we need to prove Theorem 4.2, which slightly improves both a result of J.
+Schmets and M. Valdivia [24], Theorem 4.1 in this paper, and the implication (i) ⇒(iii) of the
+aforementioned result of A. Debrouwere (Theorem 4.4 in this paper). Finally, the new condition
+(sm) is also valid in order to prove surjectivity for Beurling classes as long as 0 < γ < γ(M),
+thanks to a technique of J. Chaumat and A. M. Chollet [2] already applied by V. Thilliez [26,
+Th. 3.4.1] for strongly regular sequences.
+The paper is organized as follows. Section 2 contains the preliminaries, namely: the main
+information concerning weight sequences, indices or auxiliary functions associated with them, dif-
+ferent ultraholomorphic classes and the asymptotic Borel map, and the known result for Roumieu
+classes by the use of optimal flat functions. In Section 3 we obtain the new surjectivity results
+for Roumieu classes defined by weight sequences satisfying (sm), while Section 4 contains the
+improvements for Beurling classes, according to whether (dc) or (sm) is assumed.
+The results included in this paper are part of the Ph.D. dissertation of the second author [16,
+Ch. 3], defended at the University of Valladolid (Spain) under the advice of the third author.
+2
+Preliminaries
+2.1
+Weight sequences and their properties
+We set N := {1, 2, ...}, N0 := N ∪{0}.
+In what follows, M = (Mp)p∈N0 will always stand
+for a sequence of positive real numbers with M0 = 1.
+We define its sequence of quotients
+m = (mp)p∈N0 by mp := Mp+1/Mp, p ∈N0. The knowledge of M amounts to that of m, since
+Mp = m0 · · · mp−1, p ∈N. We will denote by small letters the quotients of a sequence given by

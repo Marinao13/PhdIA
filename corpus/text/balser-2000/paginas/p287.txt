@@ -1,0 +1,45 @@
+272
+References
+[63]
+, The Riemann-Hilbert problem and Fuchsian diﬀerential equa-
+tions on the Riemann sphere, in Proc. of the ICM Z¨urich 1994, Basel,
+1995, Birkh¨auser Verlag, pp. 1159–1168.
+[64]
+, On the Birkhoﬀstandard form of linear systems of ODE,
+Amer. Math. Soc. Translations, 174 (1996), pp. 169–179.
+[65] B. L. J. Braaksma, Inversion theorems for some generalized
+Fourier transforms, I, Indag. Math., 28 (1966), pp. 275–299.
+[66]
+, Asymptotic analysis of a diﬀerential equation of Turrittin,
+SIAM J. of Math. Analysis, 2 (1971), pp. 1–16.
+[67]
+, Erratum: Asymptotic analysis of a diﬀerential equation of Tur-
+rittin, SIAM J. of Math. Analysis, 3 (1972), p. 175.
+[68]
+, Recessive solutions of linear diﬀerential equations with poly-
+nomial coeﬃcients, in Conference on the Theory of Ordinary and
+Partial Diﬀerential Equations, W. N. Everitt and B. D. Sleeman,
+eds., vol. 280 of Lecture Notes in Math., Springer, 1972, pp. 1–15.
+[69]
+, Multisummability and Stokes multipliers of linear meromorphic
+diﬀerential equations, J. of Diﬀerential Equ., 92 (1991), pp. 45–75.
+[70]
+, Multisummability of formal power series solutions of nonlinear
+meromorphic diﬀerential equations, Ann. Inst. Fourier Grenoble, 42
+(1992), pp. 517–540.
+[71] B. L. J. Braaksma and B. F. Faber, Multisummability for some
+classes of diﬀerence equations, Ann. Inst. Fourier Grenoble, 46 (1996),
+pp. 183–217.
+[72] B. L. J. Braaksma and W. A. Harris, Jr., Laplace integrals and
+factorial series in singular functional diﬀerential systems, Applicable
+Analysis, 8 (1978), pp. 23–45.
+[73] B. L. J. Braaksma and A. Schuitman, Some classes of Watson
+transforms and related integral equations for generalized functions,
+SIAM J. of Math. Analysis, 7 (1976), pp. 771–798.
+[74] A. D. Brjuno, Analytic form of diﬀerential equations, Trans.
+Moscow Math. Soc., 25 (1971), pp. 131–288.
+[75] N. G. d. Bruijn, Asymptotic Methods in Analysis, North-Holland
+Publ. Co., Amsterdam, 1958.
+[76] M. Canalis-Durand, Solution formelle Gevrey d’une ´equation dif-
+f´erentielle singuli`erement perturb´ee, Asymptotic Analysis, 8 (1994),
+pp. 185–216.

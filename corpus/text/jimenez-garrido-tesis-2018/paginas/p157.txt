@@ -1,0 +1,97 @@
+4.3. MULTISUMMABILITY
+157
+Using Denition 4.1.2.(ii), we see that the integral in the right hand side is convergent. Subse-
+quently, it tends to 0, uniformly as |z| goes to innity in S(τ, γ).
+On the other hand, since the function e is uniformly bounded in Sγ for every |τ −θ| < πγ/2,
+there exists c > 0 such that
+
+Z ∞
+1/|z|1/2 e(sei(τ−θ))
+ds
+s(1 −s|z|eiτ)
+ ≤c
+Z ∞
+1/|z|1/2
+ds
+s|1 −s|z|eiτ|.
+We have that |1 −s|z|eiτ| ≥|s|z| −1| = |s|z|1/2|z|1/2 −1|. Since always s|z|1/2 ≥1, if |z|1/2 ≥1
+we see that |1 −s|z|eiτ| ≥s|z| −1. We observe that if |z| > 4, we have that 1/|z|1/2 > 2/|z|,
+then s > 2/|z|, and consequently, s|z| −1 ≥s|z|/2. Hence, for every z ∈S(τ, γ) with |z| > 4 we
+see that
+
+Z ∞
+1/|z|1/2 e(sei(τ−θ))
+ds
+s(1 −s|z|eiτ)
+ ≤2c
+|z|
+Z ∞
+1/|z|1/2
+ds
+s2 =
+2c
+|z|1/2 .
+(4.13)
+The right hand side of this inequality tends to 0 as |z| goes to innity. By (4.12) and (4.13), we
+see that g(z) →0 as |z| →∞uniformly for z ∈S(τ, γ). By a compactness argument, we see
+that g(z) →0 as |z| →∞whenever z ∈S(π, 2 + ω(M)) uniformly for z ∈S(π, 2 + γ).
+Let θ ∈R be a direction such that |θ| < πω(M)/2 and z ∈R with arg(z) = θ. There exists
+ε ∈(0, πω(M)/2) such that:
+1. For every u ∈R with arg(u) = ε we have that u/z ∈Sω(M).
+2. For every u ∈R with arg(u) = 2π −ε we have that u/ze2πi ∈Sω(M).
+Then, since f is single-valued, we have that
+g(z) −g(ze2πi) =
+Z ∞(ε)
+0
+e(u/z)du
+(1 −u)u −
+Z ∞(2π−ε)
+0
+e(u/(ze2πi))du
+(1 −u)u
+=
+Z ∞(ε)
+0
+e(u/z)du
+(1 −u)u −
+Z ∞(−ε)
+0
+e(w/z)dw
+(1 −w)w .
+We denote by γr the arc of radius r > 1 from reiε to re−iε clockwise. We observe that
+
+Z
+γr
+e(u/z)du
+(1 −u)u
+ =
+
+Z ε
+−ε
+e(reiθ/z)idθ
+(1 −reiθ)
+ ≤
+Z ε
+−ε
+|e(reiθ/z)|dθ
+|r −1|
+≤2εchM(k|z|/r)
+r −1
+≤2εc
+r −1.
+Hence, we deduce that
+lim
+r→∞|
+Z
+γr
+e(u/z)du
+(1 −u)u | = 0.
+If we compute the residue of hz(u) = e(u/z)/(u(1 −u)) at u = 1, we see that
+lim
+u→1
+e(u/z)
+(1 −u)u(u −1) = −e(1/z).
+According to the Residue theorem, we conclude that
+g(z) −g(ze2πi) = 2πie(1/z).
+□
+Universidad de Valladolid

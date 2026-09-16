@@ -1,0 +1,106 @@
+3.3. SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+129
+3.3.2
+Weight sequences satisfying derivation closedness condition
+As it has been pointed out in Remark 3.3.12, Corollary 3.3.11 provides also information about
+˜Su
+M.
+In order to slightly improve it, one needs to impose (dc), which is a natural condition
+on the sequence M, in the sense that it guarantees that the ultraholomorphic classes under
+consideration, consisting of holomorphic functions, are closed with respect to taking derivatives
+(see Remarks 3.1.4 and 3.1.7). We will also need the next result.
+Proposition 3.3.13 ([91], Prop. 5.2). Let r ∈N and M be a sequence such that bM = (p!Mp)p∈N0
+is a weight sequence. If the map Br : Nr,M([0, ∞)) −→C[[z]]M sending f to the formal power
+series P∞
+p=0(f(pr)(0)/p!)zp is surjective, then the sequence bm = ((p + 1)mp)p∈N0 satises the
+condition (γr).
+Following the ideas in the proof of Proposition 4.6 in [91], we will be able to deal also with
+the case α ∈N whenever ˜B : ˜
+Au
+M(Sα) →C[[z]]M is surjective.
+Theorem 3.3.14. Let M be a weight sequence satisfying (dc).
+(i) Let α > 0 be such that ˜B : ˜
+Au
+M(Sα) →C[[z]]M is surjective. Then, γ(M) > ⌊α⌋.
+(ii) If we have that ˜Su
+M = (0, ∞), then SM = ˜Su
+M = ˜SM = (0, ∞) and γ(M) = ∞.
+Proof. (i) Consider rst the case α ∈(0, 1), then α ∈˜Su
+M ⊆˜SM and α /∈N, so by Theorem 3.3.10
+we conclude that γ(M) > 0. Note that in this case no use has been made of (dc).
+Suppose now that α ≥1 and put r = ⌊α⌋, a positive natural number (note that, by Theo-
+rem 3.3.10, we only would need to consider the case α = r ∈N but the proof works anyway).
+Our aim is to show that Br : Nr,
+b
+M([0, ∞)) −→C[[z]]
+b
+M is surjective.
+Given ˆg = P∞
+p=0 apzp ∈C[[z]]
+b
+M, we write bp := app! for all p ∈N0 and we see that there exist
+C0, A0 > 0 such that
+|bp| ≤C0Ap
+0p!
+c
+Mp = C0Ap
+0Mp,
+p ∈N0.
+(3.28)
+Consider the formal power series bf = P∞
+p=0(−1)prbpzp ∈C[[z]]M. By hypothesis, there exists
+ψ ∈˜
+Au
+M(Sα) such that ˜B(ψ) = bf, and so there exist C, A > 0 such that for every p ∈N0 one has
+ψ(z) −
+p−1
+X
+k=0
+(−1)krbkzk ≤CApMp|z|p,
+z ∈Sα.
+(3.29)
+The function ϕ : Sα/r →C given by ϕ(w) = ψ(w−r) −b0, is well dened and holomorphic in
+Sα/r ⊇S1. Moreover, according to (3.29) for p = 1, for every w ∈S1 one has
+
+ϕ(w)
+w
+ = 1
+|w||ψ(w−r) −b0| ≤CAM1
+|w|r+1 .
+(3.30)
+So, the function f : R →C given by
+f(t) =
+1
+2πi
+Z 1+∞i
+1−∞i
+etu ϕ(u)
+u
+du
+is well dened and continuous on R. By the classical Hankel formula for the reciprocal Gamma
+function 3.19, for every natural number p ≥2 and every t ∈R we may write
+f(t) −
+p−1
+X
+k=1
+(−1)krbk
+tkr
+(kr)! =
+1
+2πi
+Z 1+∞i
+1−∞i
+etu
+ 
+ϕ(u)
+u
+−
+p−1
+X
+k=1
+(−1)krbk
+ukr+1
+!
+du.
+(3.31)
+Universidad de Valladolid

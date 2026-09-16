@@ -1,0 +1,41 @@
+8
+1. Basic Properties of Solutions
+for ˜A(z) = T −1(z) [A(z) T(z) −T ′(z)]. Show that the ﬁrst µ columns
+of ˜A(z) vanish identically. Compare this to Exercise 4 on p. 14.
+1.3
+Systems in General Regions
+We now consider a system (1.1) in a general region G. Given a fundamen-
+tal solution X(z), deﬁned near some point z0 ∈G, we can holomorphically
+continue X(z) along any path γ in G beginning at z0 and ending, say, at
+z1. Clearly, this process of holomorphic continuation produces a solution
+of (1.1) near the point z1. Since the path can be split into ﬁnitely many
+pieces, such that each of them is contained in a simply connected subregion
+of G to which the results of the previous section apply, det X(z) cannot
+vanish. Thus, X(z) remains fundamental during holomorphic continuation.
+According to the monodromy theorem, for a diﬀerent path from z0 to z1
+the resulting fundamental solution near z1 will be the same provided the
+two paths are homotopic. In particular, if γ is a Jordan curve whose inte-
+rior region belongs to G, so that γ does not wind around exterior points
+of G, then holomorphic continuation of X(z) along γ reproduces the same
+fundamental solution that we started with. However, if the interior of γ
+contains points from the complement of G, then simple examples in the
+exercises below show that in general we shall obtain a diﬀerent one. Hence
+Theorem 1 (p. 4) fails for multiply connected G, since holomorphic con-
+tinuation may not lead to a fundamental solution that is holomorphic in
+G, but rather on a Riemann surface associated with G. We shall not go
+into details about this, but will be content with the following result for a
+punctured disc R(z0, ρ) = {z : 0 < |z −z0| < ρ}, or slightly more general,
+an arbitrary ring R = {z : ρ1 < |z −z0| < ρ}, 0 ≤ρ1 < ρ:
+Proposition 2 Let a system (1.1), with G = R as above, be given. Let
+X(z) denote an arbitrary fundamental solution of (1.1) in a disc D =
+D(z1, ˜ρ) ⊂R, ˜ρ > 0. Then there exists a matrix M ∈C ν×ν such that, for
+a ﬁxed but arbitrary choice of the branch of (z −z0)M = exp[M log(z −z0)]
+in D, the matrix
+S(z) = X(z) (z −z0)−M
+is single-valued in R.
+Proof: Continuation of X(z) along the circle |z −z0| = |z1 −z0| in the
+positive sense will produce a fundamental solution, say, ˜X(z), of (1.1) in D.
+According to Exercise 1 on p. 7, there exists an invertible matrix C ∈C ν×ν
+so that ˜X(z) = X(z) C for z ∈D. Choose M so that C = exp[2πi M], e.g.,
+2πi M = log M. Then, continuation of (z−z0)M along the same circle leads
+to exp[M(log(z −z0) + 2πi)] = (z −z0)MC, which completes the proof. 2

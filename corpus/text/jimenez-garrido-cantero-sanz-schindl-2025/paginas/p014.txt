@@ -1,0 +1,80 @@
+14
+that µp(e) ≤ChpMp for every p ∈N0. On the other hand, by the left-hand inequalities
+in (3.4) and the monotonicity of hM, for every p ∈N0 and s > 0 we may estimate
+µp(e) ≥
+Z s
+0
+tpe(t) dt ≥K1
+Z s
+0
+tphM
+K2
+t
+
+dt ≥K1hM
+K2
+s
+ sp+1
+p + 1.
+Then, by (2.3) we deduce that
+µp(e) ≥
+K1
+p + 1 sup
+s>0 hM
+K2
+s
+
+sp+1 =
+K1
+p + 1Kp+1
+2
+Mp+1 ≥K1K2
+K2
+2
+p
+Mp+1.
+From the estimates for µp(e) from above and below we deduce that (dc) is satisfied.
+Similarly, we have the following characterization, again partially included in [13].
+Proposition 3.4. Let M be a weight sequence with γ(M) > 0. Then, M(C{M}(0, ∞)) ⊂
+Λ{M+1} if, and only if, M satisfies (sm).
+Proof. As previously said, Lemma 2.12 implies that the condition is sufficient. Suppose
+now that M(C{M}(0, ∞)) ⊂Λ{M+1}, and consider e ∈C{M}(0, ∞) as before, so that
+there exist C, h > 0 such that µp(e) ≤ChpMp+1 for every p ∈N0. On the other hand, by
+the left-hand inequalities in (3.4), for every p ∈N0 we have that
+µp(e) ≥
+Z K2mp+1
+K2mp
+tpe(t) dt ≥K1
+Z K2mp+1
+K2mp
+tphM
+K2
+t
+
+dt = K1Kp+1
+2
+Mp+1 log
+mp+1
+mp
+
+,
+where the last equality is a consequence of (2.4). Analogously as before, the estimates for
+µp(e) from above and below imply that (sm) is satisfied.
+Remark 3.5. Let M be a weight sequence with γ(M) > 0. From the previous two
+results one easily concludes that M satisfies (dc) (respectively, (sm)) if, and only if, for
+every kernel function e associated with an optimal {M}-flat function G in some Sγ one
+has (µp(e))p ≈M (resp. (µp(e))p ≈M +1).
+We will reduce, via the Laplace transform, the study of the injectivity and surjectivity
+of the Stieltjes moment mapping in this new setting to their counterparts for the asymp-
+totic Borel mapping (Theorems 2.7 and 2.6), as it was already done by A. L. Durán and
+R. Estrada in [5], and later on by several authors [1, 15, 16, 4].
+The next lemma provides an auxiliary function, already appearing in the work [5] and
+later adapted to our needs, see [4]. We set H−1 = {z ∈C | ℑm z > −1}.
+Lemma 3.6. ([4, Lemma 3.1]) Let A be a sequence satisfying (nq), and such that bA is
+a weight sequence. Then, there is G0 ∈O(H−1) satisfying the following conditions:
+(i) G0 does not vanish on H−1.
+(ii)
+sup
+z∈H−1
+|G0(z)|eω b
+A(|z|) < ∞.

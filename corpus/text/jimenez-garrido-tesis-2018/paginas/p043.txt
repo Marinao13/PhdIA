@@ -1,0 +1,49 @@
+1.2. REGULAR VARIATION, O-REGULAR VARIATION AND PROXIMATE ORDERS
+43
+If condition (B) is removed from the denition of proximate order the previous result is valid
+for ρ ∈R. Then, as it was mentioned in [13, p. 311], it is a matter of indierence whether one
+uses the language of regular variation or of proximate orders. Incidentally, from an historical
+point of view it seems that Valiron may well be credited with initiating the subject of regular
+variation.
+Moreover, condition (A) is imposed for essentially traditional reasons, because Lemma 1.2.12
+and Theorem 1.2.14 show, up to asymptotic equivalence, that smoothness for ρ(x) can be as-
+sumed. In the same direction, one may study if stronger regularity conditions for ρ(x) could be
+guaranteed. In particular, G. Valiron [102] showed that, always up to asymptotic equivalence,
+the function xρ(x) has an analytic continuation to a sector in the complex plane containing the
+positive real axis (see [13, Th.
+7.4.3]). For our purposes, we will use the extension constructed
+by L.S. Maergoiz in Theorem 1.2.16 below. For an arbitrary sector bisected by the positive real
+axis, it provides holomorphic functions whose restriction to (0, ∞) is real, has a growth at innity
+specied by a prescribed proximate and satises several regularity properties.
+In order to state this result, we need to consider unbounded sectors of the Riemann surface
+of the logarithm R
+S(d, γ) := {z ∈R : |arg(z) −d| < γ π
+2 },
+with bisecting direction d ∈R and opening γ π (γ > 0). If d = 0, we write Sγ := S(0, γ).
+Theorem 1.2.16 ([65], Th. 2.4). Let ρ(t) be a nonzero proximate order and ρ = limt→∞ρ(t).
+For every γ > 0 there exists an analytic function V (z) in Sγ such that:
+(I) For every z ∈Sγ,
+lim
+t→∞
+V (zt)
+V (t) = zρ,
+uniformly in the compact sets of Sγ.
+(II) V (z) = V (z) for every z ∈Sγ (where, for z = (|z|, arg(z)), we put z = (|z|, −arg(z))).
+(III) V (t) is positive in (0, ∞), strictly increasing and limt→0 V (t) = 0.
+(IV) The function r ∈R 7→V (er) is strictly convex (i.e. V is strictly convex relative to log(r)).
+(V) The function log(V (t)) is strictly concave in (0, ∞).
+(VI) The function ρV (t) := log(V (t))/ log(t), t > 0, is a proximate order equivalent to ρ(t),
+that is,
+lim
+t→∞V (t)/tρ(t) = lim
+t→∞tρV (t)/tρ(t) = 1.
+This result motivates the following denition.
+Denition 1.2.17. Given γ > 0 and ρ(t) a nonzero proximate order, MF(γ, ρ(t)) denotes the set
+of Maergoiz functions V dened in Sγ and satisfying the conditions (I)-(VI) of Theorem 1.2.16.
+Remark 1.2.18. Suppose ρ(t) (t ≥c ≥0) is a nonzero proximate order. Then the function
+V (t) = tρ(t) is strictly increasing for t > R, where R is large enough. The inverse function t =
+U(s), dened for every s > V (R), has the property that the function ρ∗(s) := log(U(s))/ log(s)
+is a proximate order and ρ∗(s) tends to 1/ρ as s tends to ∞(see [65, Property 1.8]). This ρ∗(s)
+is called the proximate order conjugate to ρ(t). Note that, by Lemma 1.2.12, the function U is
+regularly varying.
+Universidad de Valladolid

@@ -1,0 +1,53 @@
+4.4 Asymptotic Expansions
+67
+zero uniformly in ¯S; hence (c) follows. Conversely, let (c) hold. Then for
+z, z0 ∈G and N ≥0 we have
+f(z) −
+N−1
+
+0
+f (n)(z0)
+n!
+(z −z0)n =
+1
+(N −1)!
+ z
+z0
+(z −w)N−1f (N)(w) dw.
+Letting z0 →0 and estimating the right-hand side of the resulting formula
+then implies (a).
+2
+Let A(G, E ) be the set of all functions f ∈H(G, E ), having an asymp-
+totic expansion ˆf(z). In view of the above proposition, part (a), to every
+f(z) ∈A(G, E ) there is precisely one ˆf ∈E [[z]] such that f(z) ∼= ˆf(z) in
+G. Therefore, we have a mapping
+J : A(G, E ) −→E [[z]],
+f 	−→ˆf = J f,
+(4.5)
+mapping each f(z) to its asymptotic expansion. The results to follow show
+that A(G, E ), under the natural operations and assuming E a Banach alge-
+bra, is a diﬀerential algebra, and J is a surjective homomorphism between
+A(G, E ) and E [[z]]. However, examples given in the exercises below show
+that J is not injective – even if we consider regions of large opening. In the
+next section we are going to study another type of asymptotic expansions
+better suited to our purposes, since it will turn out that the corresponding
+map J, for regions of suﬃciently large opening, is injective, however, not
+surjective.
+Theorem 13 Given a sectorial region G, suppose that f1, f2 ∈A(G, E ).
+Then f1 + f2 ∈A(G, E ) and J(f1 + f2) = J f1 + J f2. In other words,
+fj(z) ∼= ˆfj(z) in G,
+1 ≤j ≤2,
+implies
+f1(z) + f2(z) ∼= ˆf1(z) + ˆf2(z) in G.
+Proof: Follows directly from the deﬁnition.
+2
+If E is a Banach algebra, then a product of any two elements of A(G, E )
+again belongs to A(G, E ). This will be a corollary of the following more
+general result:
+Theorem 14 Suppose that E , F are both Banach spaces and G is a sec-
+torial region. Let f ∈A(G, E ), α ∈A(G, C ), and T ∈A(G, L(E , F)).
+Then
+T f ∈A(G, F),
+J(T f) = (J T)(J f),
+α f ∈A(G, E ),
+J(α f) = (J α)(J f).

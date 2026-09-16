@@ -1,0 +1,41 @@
+6.2 Summability in a Direction
+101
+(c) Let ˆf be k-summable in direction d, and let ε > 0 be suﬃciently
+small. Then ˆf is (k−ε)-summable in direction d, and (Sk−ε,d ˆf)(z) =
+(Sk,d ˆf)(z) for every z where both sides are deﬁned.
+Proof:
+For the ﬁrst statement, use f(z) = (S ˆf)(z) ∼=1/k ˆf(z) in S, for
+every k > 0 and every sector S of suﬃciently small radius. To prove the
+second, use the deﬁnition and observe that for a sectorial region G(d, α)
+of opening α > π/k and ε < α −π/k, there exists G( ˜d, αε) ⊂G(d, α)
+with ˜d as above and αε > π/k. Finally, for (c) use that α > π/k implies
+α > π/(k −ε) for small ε > 0, and Γ(1 + N/k)/Γ(1 + N/(k −ε)) →0 as
+N →∞.
+2
+The following lemma shall prove useful in later chapters where we will
+study multisummablility.
+Lemma 9 Let ˆf be k1-summable in direction d, let k > k1, and deﬁne k2
+by 1/k2 = 1/k1 −1/k. Then ˆg = ˆBk ˆf is k2-summable in direction d, and
+Sk2,d ˆg = Bk(Sk1,d ˆf).
+Proof: Follows immediately from Theorem 23 (p. 80) and the deﬁnition
+of k1- resp. k2-summability in direction d.
+2
+On one hand, for k < 1/2 the k-sum of formal series is analytic in sectorial
+regions of opening more than 2π, which forces us to consider such regions
+on the Riemann surface of the logarithm. On the other hand, statement (c)
+of the next lemma shows that k-summability does not distinguish between
+directions diﬀering by multiples of 2π.
+Lemma 10
+(a) Let ˆf be k-summable in direction d, for every d ∈(α, β), α < β, and
+ﬁxed k > 0. Then (Sk,d1 ˆf)(z) = (Sk,d2 ˆf)(z) for every d1, d2 ∈(α, β)
+and every z where both sides are deﬁned.
+(b) Let ˆf be kj-summable in direction d, 1 ≤j ≤2, with k1 > k2 > 0
+and some ﬁxed d, then ˆf is k1-summable in all directions ˜d with
+2 |d −˜d| ≤π (1/k2 −1/k1), and (Sk1, ˜d ˆf)(z) = (Sk2,d ˆf)(z) for every
+z where both sides are deﬁned.
+(c) For ˜d = d + 2π, k-summability of ˆf in direction d is equivalent to
+k-summability of ˆf in direction ˜d, and (Sk, ˜d ˆf)(z) = (Sk,d ˆf)(ze−2πi)
+for every z where both sides are deﬁned.
+Proof:
+(a) The function g = S ( ˆBk ˆf) is holomorphic and of exponential growth
+not more than k in S((α + β)/2, β −α). Hence f = Lkg ∼=1/k ˆf in a

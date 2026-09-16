@@ -1,0 +1,33 @@
+Braun, Meise and Taylor 
+221 
+3.9 Proposition. Let wand u be weight functions, and let u = o(w). Then the inclusions 
+are continuous and sequentially dense for each open 0 C IRN. 
+4 
+Ultradifferentiable functions with arbitrary support 
+In this section we introduce algebras of w-ultradifferentiable functions of Beurling and of 
+Roumieu type. 
+4.1 Definition. For a weight function wand an open set 0 C lR:'V we define 
+and 
+[{w}(11) = {f E C'X(O) I for all compact K C 11 there is m E IN 
+with 
+,,:~v~~flf«')(x)lexp (- ~<p'(mlol)) < oo} 
+[(w)(11) = {J E C'x'(11) I for all compact K c 0 and all m E IN 
+P/"m(f) := sup su~ If(')( x)1 exp (-m<p' (~)) < 00 }. 
+"EJNe;' ,'E/\ 
+m 
+The topology of [{w}(O) is given by first taking the inductive limit over all m E IN for each 
+compact K C 0 and then taking the projective limit of these, while [(w)(O) carries the 
+metric locally convex topology given by the semi norms Pi'.m where K is a compact subset 
+of 11 and m E IN. 
+The elements of [(w)(IRiV ) (resp. of [[w}(IRiV )) are called w-ultradifferentiable functions 
+of Beurling type (resp. of Roumieu type). 
+4.2 Notation. 
+We will write [. (resp, D.) if a statement holds for both [[w} and [(wI 
+(resp, D{w} and D(w))' 
+4.3 Examples. 
+The following functions w: [0, oo[ -> [O,oo[ are equivalent to weight 
+functions (see 3.2): 
+(1) w(t) = t", 0<0 < 1, 
+(2) w(t) = (log(1 + t))I\ {J > 1, 
+(3) w(t) = t(log(e + t))-;3, {J > 1. 
+For was in (1) the space [{w}(O) is the classical Gevrey class of exponent I/o. 

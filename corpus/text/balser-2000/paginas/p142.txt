@@ -1,0 +1,91 @@
+8.1 The Improved Splitting Lemma
+125
+tire functions of exponential growth at most r, owing to the convergence
+of (3.1). Moreover, (3.6) and (3.7) (p. 42) are formally equivalent to the
+integral equation
+T(u) A(22)
+0
+−(A(11)
+0
++ rurI) T(u)
+=
+A12(u) +
+ u
+0
+
+A11([ur −tr]1/r) T(t) −T(t) B([ur −tr]1/r)
+
+dtr,
+(8.1)
+with
+B(u) = A22(u) +
+ u
+0
+A21([ur −tr]1/r) T(t) dtr.
+(8.2)
+The Splitting Lemma ensures existence of T(u) and B(u), holomorphic and
+single-valued near the origin and satisfying (8.1). We aim at proving that
+both can be holomorphically continued into the largest star-shaped1 region
+G that does not contain any point u for which A(22)
+0
+and A(11)
+0
++ rurI have
+an eigenvalue in common. Observe Exercise 3 on p. 214 to see that this
+is the largest star-shaped set not containing any solution of the equation
+rur = µ2 −µ1. Moreover, we shall show that in this region both matrices
+have exponential growth at most r. This then implies r-summability of
+ˆT12(z) and ˆB22(z), with singular directions as stated, and one can argue
+analogously for the other two blocks.
+To do all this, we employ an iteration: Beginning with B(u; 0) ≡0,
+T(u; 0) ≡0, we plug B(u; m) and T(u; m) into the right-hand sides of
+(8.1), (8.2) and determine T(u; m + 1) from the left-hand side of (8.1),
+resp. let B(u; m + 1) be equal to B(u) in (8.2). Both sequences so obtained
+are holomorphic in G, except for a pole of order at most r −1 at the
+origin. For the following estimates, we choose d so that the ray u = xe−id,
+x ≥0, is in G, hence d is a non-singular direction. Then ∥Ajk(u)∥≤
+∞
+1 an xn−r/Γ(n/r), with a ≥0 independent of d. Inductively we show
+estimates of the form ∥T(u; m)∥≤∞
+1 t(m)
+n
+xn−r/Γ(n/r), ∥B(u; m)∥≤
+∞
+1 b(m)
+n
+xn−r/Γ(n/r): For m = 0 this is certainly correct with t(0)
+n
+= b(0)
+n
+=
+0. Given this estimate for some m ≥0, we use the recursion formulas and
+the Beta Integral (p. 229) to show the same type of estimate for m + 1. In
+particular, we may set
+b(m+1)
+n
+=
+an + n−1
+1
+an−kt(m)
+k
+t(m+1)
+n
+=
+c
+
+an + n−1
+1
+(an−k + b(m)
+n−k)t(m)
+k
+
+
+
+
+
+
+n ≥1,
+where c is a constant which arises when solving the left-hand side of (8.1)
+for T(u) and then estimating the solution – hence c is independent of n
+and m, as well as independent of d provided we alter d only slightly so that
+1With respect to the origin.

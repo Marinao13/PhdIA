@@ -1,0 +1,54 @@
+B.3 Holomorphic Continuation
+231
+(c) For 0 < t < 1, check that u = t −1 −log t is strictly decreasing
+and make a corresponding change of variable to show
+ 1
+0
+e−x(t−log t) dt
+t
+= e−x
+ ∞
+0
+e−xu f2(u) du,
+with a positive continuous function f2(u) satisfying √u f2(u) →
+1/
+√
+2 as u →0+.
+(d) Use the identities derived above to show
+Γ(x) ex √x
+xx
+→
+√
+2π,
+for (positive real) x →∞, and from this complete the proof of
+Stirling’s formula.
+5. For arbitrary a ∈C , use (B.12) to show for |z| →∞in sectors
+| arg z| ≤π −ε, for every ε > 0,
+Γ(z) za
+Γ(a + z) →1.
+(B.13)
+6. Show
+nz n!
+(z + 1) · . . . · (z + n) →Γ(1 + z),
+n →∞.
+7. In this and the following exercises we aim at proving (B.10). For this
+purpose, let the integral on the right of (B.10) be denoted by M(z).
+Show that M(z) is an entire function, having real values for z ∈R.
+8. For λ ∈C and arbitrary real τ, show
+−1
+2πi
+
+γ(τ)
+eu/zzλ dz
+z
+= M(λ) uλ,
+with a path of integration γ(τ) as follows: From the origin along
+arg z = τ + (ε + π)/2 to some z1 of modulus r, then along the circle
+|z| = r to the ray arg z = τ −(ε + π)/2, and back to the origin along
+this ray, with arbitrary r > 0 and 0 < ε < π/2.
+9. For Re λ > 0 and arbitrary real τ, show
+z−1
+ ∞(τ)
+0
+uλe−u/zdu = Γ(1 + λ) zλ,
+with integration along the ray arg u = τ.

@@ -1,0 +1,83 @@
+20
+We recall that, for logarithmically convex sequences (Mp)p∈N0, the condition (dc) is equivalent
+to the condition log(Mp) = O(p2), p →∞(see [17, Ch. 6]). On the other hand, the condition
+(mg) implies that the sequence is below some Gevrey order (there exists α > 0 such that Mp =
+O(p!α) as p →∞; see e.g. [18, 31]).
+We will work, for q > 1 and 1 < σ ≤2, with the sequences Mq,σ := (qpσ)p∈N0. They are
+clearly weight sequences and, by (1), it is immediate that γ(Mq,σ) = ∞, so they satisfy (snq)
+(see (3)). According to the previous comments, they satisfy (dc) but not (mg). So, bMq,σ is
+regular, but Mq,σ is not strongly regular.
+The case σ = 2 is well-known, as it corresponds to the so-called q-Gevrey sequences, appearing
+in the study of formal solutions for q-diﬀerence equations.
+First, we will construct a holomorphic function on C \(−∞, 0] which will provide, by restric-
+tion, an optimal {Mq,σ}-ﬂat function in any unbounded sector Sγ with 0 < γ < 2. Subsequently,
+we will obtain such functions on general sectors of the Riemann surface R of the logarithm by
+ramiﬁcation. This, according to Theorems 3.2 and 3.12, agrees with the fact that γ(Mq,σ) = ∞.
+4.1
+Flatness in the class given by Mq,σ
+It will be convenient to note that for a ﬁxed σ ∈(1, 2], there exists a unique s ≥2 such that
+σ = s/(s −1).
+We start by suitably estimating the function
+ωMq,σ(t) = sup
+p∈N0
+ln
+ tp
+qpσ
+
+= sup
+p∈N0
+(p ln(t) −ps/(s−1) ln(q)),
+t > 0.
+Due to the fact that ωMq,σ(t) = 0 for t ≤1 (since m0 = M1/M0 = M1 = q > 1 and by (7)), we will
+restrict our attention to the case t > 1. Obviously, ωMq,σ(t) is bounded above by the supremum
+of x ln(t)−xs/(s−1) ln(q) when x runs over (0, ∞), which is easily obtained by elementary calculus
+and occurs at the point
+x0 =
+(s −1) ln(t)
+s ln(q)
+s−1
+.
+If we put
+bq,s := 1
+s
+ s −1
+s ln(q)
+s−1
+,
+(36)
+then
+ωMq,σ(t) ≤
+(s −1) ln(t)
+s ln(q)
+s−1
+ln(t) −
+(s −1) ln(t)
+s ln(q)
+s
+ln(q) = bq,s lns(t),
+t > 1.
+(37)
+On the other hand, for t > qs/(s−1) (what amounts to x0 > 1) we also have that ωMq,σ(t) is at
+least the value of x ln(t) −xs/(s−1) ln(q) at x = ⌊x0⌋, that is,
+ωMq,σ(t) ≥
+$(s −1) ln(t)
+s ln(q)
+s−1%
+ln(t) −
+$(s −1) ln(t)
+s ln(q)
+s−1%s/(s−1)
+ln(q)
+≥
+ (s −1) ln(t)
+s ln(q)
+s−1
+−1
+!
+ln(t) −
+(s −1) ln(t)
+s ln(q)
+s
+ln(q)
+= bq,s lns(t) −ln(t).
+(38)

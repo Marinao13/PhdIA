@@ -1,0 +1,54 @@
+110
+6. Summable Power Series
+6.6
+Factorial Series
+In this section, we brieﬂy investigate inﬁnite series of the form
+∞
+
+n=1
+bn
+(z + 1) · . . . · (z + n),
+bn ∈E .
+(6.1)
+The form of the terms requires the variable z to be diﬀerent from negative
+integers; for convenience, we shall always restrict z to the right half-plane.
+Series of this or a very similar form have frequently been studied in con-
+nection with Laplace or Mellin transform, and are usually called (inverse)
+factorial series. A number of authors have used them to represent solutions
+of ODE, or of diﬀerence equations. For an application to even more general
+equations, see Braaksma and Harris Jr. [72], or G´erard and Lutz [107].
+Unlike power series, factorial series converge in half-planes: From the
+functional equation of the Gamma function (B.9) and (B.13) (p. 231), it is
+easy to conclude that
+n!
+(z + 1) · . . . · (z + n) = Γ(1 + n) Γ(1 + z)
+Γ(1 + z + n)
+∼Γ(1 + z)
+nz
+,
+in the sense that the quotient of the two sides tends to one as n →∞.
+Hence, if (6.1) converges for some z = z0 in the right half-plane, then
+the terms necessarily tend to 0. So we obtain that |bn| ≤nRe z0 n! for
+large n. Consequently, we have absolute and locally uniform convergence
+of (6.1) for all z with Re z > c = 1 + Re z0. We also observe that the rate
+of convergence of factorial series, in general, is rather slow, limiting their
+usefulness for numerical purposes.
+It is well understood (see [204], or Wasow [281]) how factorial series are
+related to Laplace integrals, and we here are going to show corresponding
+relations with k-summability. To do so, we shall make use of the following
+numbers:
+Stirling Numbers
+The numbers Γn
+m, deﬁned by
+ω (ω + 1) · . . . · (ω + n −1) =
+n
+
+m=1
+Γn
+n−m ωm,
+n ≥1, ω ∈C,
+are called Stirling numbers, or factorial coeﬃcients. For a re-
+cursive deﬁnition of these numbers and other details, see the
+exercises below.
+To establish the said connection between k-summability and factorial
+series, we ﬁrst treat the case of k = 1:

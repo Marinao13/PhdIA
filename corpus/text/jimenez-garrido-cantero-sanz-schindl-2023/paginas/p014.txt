@@ -1,0 +1,80 @@
+14
+This expression should be compared with the characteristic functions obtained in the
+ultradiﬀerentiable setting in [27, Thm. 1] and [13, Lemma 2.9]. For every j ∈N0 let us
+set
+Rj :=
+∞
+X
+n=0
+1
+2n
+Mn
+mnn
+mj
+n.
+The following result provides estimates for this sequence in terms of the general sequence
+M we depart from.
+Lemma 4.6. Let M ∈RN0
+>0, then
+∀j ∈N0 :
+Rj ≥1
+2j Mj.
+If M is (lc), then also
+∀j ∈N0 :
+Rj ≤2Mj,
+and so (Rj)j∈N0 is equivalent to M.
+Proof. For any j ∈N0 we choose n = j in the sum and get Rj ≥1
+2j
+Mj
+mj
+j mj
+j = 1
+2j Mj.
+For the converse we recall that since M is (lc) we have m0 ≤m1 ≤. . . and so
+∀j, n ∈N0 :
+(mn)j−n ≤Mj
+Mn
+,
+see [27, Thm. 1] and the detailed proof in [19, (3.1.2)]. Thus
+Rj =
+∞
+X
+n=0
+1
+2n Mnmj−n
+n
+≤
+∞
+X
+n=0
+1
+2n Mn
+Mj
+Mn
+= 2Mj
+for all j ∈N0.
+Theorem 4.7. Let M be a (lc) sequence, L ∈RN0
+>0 and for a given sector S take f ∈
+A{L}(S).Then, TM(f) ∈A{LM}(S) with
+TM(f)(j)(0) = Rjf (j)(0),
+j ∈N0.
+(15)
+Moreover, for any A > 0, TM : AL,A(S) →ALM,A(S) is a continuous linear operator.
+Proof. By deﬁnition of A{L}(S) we have that f is bounded in S by some constant
+C > 0. Since M is log-convex, we have that Mj ≤mj
+j for all j ∈N0 and then
+∞
+X
+j=0
+1
+2j
+Mj
+mj
+j
+|f(mjz)| ≤C
+∞
+X
+j=0
+1
+2j = 2C,
+z ∈S.

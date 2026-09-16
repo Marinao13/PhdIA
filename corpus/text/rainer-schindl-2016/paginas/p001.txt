@@ -1,0 +1,34 @@
+RACSAM
+DOI 10.1007/s13398-014-0216-0
+ORIGINAL PAPER
+Equivalence of stability properties for ultradifferentiable
+function classes
+Armin Rainer · Gerhard Schindl
+Received: 30 July 2014 / Accepted: 29 December 2014
+© Springer-Verlag Italia 2015
+Abstract We characterize stability under composition, inversion, and solution of ordinary
+differential equations for ultradifferentiable classes, and prove that all these stability proper-
+ties are equivalent.
+Keywords
+Ultradifferentibale functions · Stability properties · Composition · Inversion ·
+ODEs
+Mathematics Subject Classiﬁcation
+26E10 · 30D60 · 46E10
+1 Introduction
+Let F denote some class of smooth mappings between non-empty open subsets of Euclidean
+spaces (of possibly different dimension). We say that
+– F is stable under composition if the composite of any two F-mappings g : U →V and
+f : V →W is an F-mapping f ◦g : U →W.
+– F is stable under solving ordinary differential equations (ODEs) if for any F-mapping
+f : R × Rn →Rn the solution of the initial value problem x′ = f (t, x), x(0) = x0 ∈Rn
+is of class F wherever it exists.
+– F is stable under inversion if for any F-mapping f : Rm ⊇U →V ⊆Rn so that
+f ′(x0) ∈L(Rm, Rn) is invertible at x0 ∈U there exist neighborhoods x0 ∈U0 ⊆U and
+f (x0) ∈V0 ⊆V and an F-mapping g : V0 →U0 such that f ◦g = idV0.
+– F is inverse closed if 1/f ∈F(U) for each non-vanishing f ∈F(U).
+In this paper we shall prove that all these stability properties are equivalent for classes of
+ultradifferentiable mappings F satisfying some mild regularity conditions. We will treat
+Supported by FWF-Projects P 26735-N25 and P 23028-N13.
+A. Rainer (B) · G. Schindl
+Fakultät für Mathematik, Universität Wien, Oskar-Morgenstern-Platz 1, 1090 Wien, Austria
+e-mail: armin.rainer@univie.ac.at

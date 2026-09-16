@@ -1,0 +1,56 @@
+19
+(vi) The function ρ0(r) := log(V (r))/ log(r), r > 0, is a proximate order equivalent to ρ(r).
+Remark 4.7. We denote by B(γ, ρ(r)) the class of such functions V . Given a strongly reg-
+ular sequence M and its associated function M(r) (see (3)), suppose the function d(r) =
+log(M(r))/ log(r) is a proximate order. The main results in [39] rested on the fact that, for
+every V ∈B(2ω(M), d(r)), the function G given by G(z) = exp(−V (1/z)) is a ﬂat function in
+the class ˜
+AM(Sω(M)). We will make use of some of its properties in the next result.
+Theorem 4.8. Suppose M is a strongly regular sequence with ω(M) < 2 and such that the
+function d(r) = log(M(r))/ log(r) is a proximate order. Then, for every V ∈B(2ω(M), d(r)),
+the function eV deﬁned in Sω(M) by
+eV (z) =
+1
+ω(M)z exp(−V (z))
+is a kernel of M-summability.
+Proof. Since V is holomorphic in S2ω(M) and real in (0, ∞), the same is true for eV , so that (i)
+and (iv) in Deﬁnition 3.4 hold. Properties (ii) and (iii) in that Deﬁnition have been obtained,
+with a slight modiﬁcation in the ﬁrst case, in Lemma 5.3 of [39], as a consequence of the following
+result.
+Proposition 4.9 ([24], Property 2.9). Let ρ > 0, ρ(r) a proximate order with ρ(r) →ρ, γ ≥2/ρ
+and V ∈B(γ, ρ(r)). Then, for every α ∈(0, 1/ρ) there exist constants b > 0 and R0 > 0 such
+that
+ℜ(V (z)) ≥bV (|z|),
+z ∈Sα, |z| ≥R0.
+Note that, since d(r) is a proximate order and, by (4) and (7), we have that
+lim
+r→∞d(r) = ρ[M] =
+1
+ω(M),
+we may apply Proposition 4.9 with ρ = 1/ω(M), ρ(r) = d(r) and γ = 2ω(M).
+Then, the moment function associated with eV ,
+mV (λ) :=
+Z ∞
+0
+tλ−1eV (t)dt =
+Z ∞
+0
+tλe−V (t)dt,
+is well deﬁned in {ℜ(λ) ≥0}, continuous in its domain and holomorphic in {ℜ(λ) > 0}; clearly,
+mV (x) > 0 for every x ≥0. Moreover, we have the following result.
+Proposition 4.10 ([24], Thm. 3.3). The function
+EV (z) =
+∞
+X
+n=0
+zn
+mV (n),
+z ∈C,
+is entire and of proximate order d0(r) = log(V (r))/ log(r).
+According to Remark 4.5, from this fact we deduce that there exists a constant K1 > 0 such
+that for every z ∈C one has
+|EV (z)| ≤exp(K1V (|z|)).
+Since d0(r) is a proximate order equivalent to d(r) = log(M(r))/ log(r), by Remark 4.3 we have
+|EV (z)| ≤˜C exp( ˜KM(|z|))
+for every z ∈C and suitably large constants ˜C, ˜K > 0, and so condition (v) in Deﬁnition 3.4 is
+satisﬁed. Finally, we take into account the following.

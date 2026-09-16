@@ -1,0 +1,54 @@
+EQUALITY OF ULTRADIFFERENTIABLE CLASSES BY MEANS OF INDICES
+21
+Proof. We prove only the statement in the Roumieu case.
+The equivalence of (i) and condition (M{mg}) is shown in [15, Theorem 3.7, Proposition 3.9].
+Theorem 4.4 implies the equivalence of the three statements.
+□
+The second part has been treated in [15, Section 3.10] by studying consequences of the assumption
+(M[L]) on M.
+However, in order to have equality between the classes E[M(2)] and E[ωM] it is
+suﬃcient to have one of the equivalent but weaker conditions from Theorem 3.2 above.
+Theorem 5.3. Let M := {M x : x ∈I} be a (Msc) weight matrix, let ωM be the corresponding
+matrix of associated weight functions and ﬁnally M(2) := {M x;l : x ∈I, l > 0}.
+The following assertions are equivalent:
+(i) One has
+E{M(2)} = E{ωM}
+as top. vector spaces,
+(ii) we have that
+∀x ∈I ∃y ∈I :
+α(ωMx, ωMy) < ∞,
+(iii) we have that
+∀x ∈I ∃y ∈I :
+β(M x, ΩMy) > 0.
+Analogously, the following are equivalent:
+(i) One has
+E(M(2)) = E(ωM)
+as top. vector spaces,
+(ii) we have that
+∀x ∈I ∃y ∈I :
+α(ωMy, ωMx) < ∞,
+(iii) we have that
+∀x ∈I ∃y ∈I :
+β(M y, ΩMx) > 0.
+Proof. In the Roumieu case, (ii) and (iii) are equivalent, by Theorem 3.7, to the fact that one/each
+of the conditions from (I) in Theorem 3.2 holds true. These conditions are shown to imply (i) in
+[15, Section 3.10]. The same arguments apply for these implications in the Beurling case. So, it
+is only pending the proof that (i) in the particular Roumieu or Beurling case implies one of the
+equivalent conditions from (I), resp. (II), in Theorem 3.2.
+The Roumieu case. By assumption the nontrivial inclusion E{M(2)} ⊆E{ωM} is valid.
+Then recall that for any given N ∈LC we can deﬁne (recall νk :=
+Nk
+Nk−1 , ν0 := 1):
+θN(x) :=
++∞
+X
+k=0
+Nk
+(2νk)k exp(2iνkx),
+x ∈R.
+We get that θN ∈E{N}(R, C) (in fact θN does admit global estimates on whole R) and
+θ(j)
+N (0) = ijsj with sj ≥Nj ,
+∀j ∈N.
+We refer to [17, Theorem 1], for a detailed proof see also [13, Prop. 3.1.2] and [11, Lemma 2.9].
+However, it is not diﬃcult to see that θN does not belong to the Beurling type class E(N)(R, C).

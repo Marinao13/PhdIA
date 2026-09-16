@@ -1,0 +1,42 @@
+Stability under product and composition for uniform
+Carleman asymptotic expansions
+Javier Jim´enez-Garrido
+Ignacio Miguel-Cantero
+Javier Sanz
+Gerhard Schindl
+April 23, 2026
+Abstract
+We study the stability under point-wise product and under composition in Car-
+leman classes of holomorphic functions, defined on sectors of the Riemann surface
+of the logarithm, and admitting a uniform asymptotic expansion with remainders
+controlled by a given sequence of positive real numbers M. On the one hand, the
+well-known conditions of algebrability and Fa`a di Bruno, imposed on the sequence
+M, ensure the desired stability with respect to each operation in both the Roumieu
+and the Beurling settings. On the other hand, these conditions turn out to be nec-
+essary for the corresponding stability in the Roumieu case as long as the existence
+of suitable characteristic functions, in a precise sense, is guaranteed within the class.
+The construction of such functions rests on classical results of B. Rodr´ıguez-Salinas,
+and is given in detail. Our results are inspired by, and thoroughly generalize, several
+partial statements by G. Auberson and G. Mennessier for Gevrey classes of order 1.
+Key words: Uniform asymptotic expansion; algebras of functions; stability properties.
+2020 Mathematics Subject Classification Codes:
+Primary 30E15, 30H50; secondary
+46J15.
+1
+Introduction
+We denote by e
+Au
+{M}(S) the ultraholomorphic Roumieu-type classes of functions with
+uniform asymptotic expansion, in a sector S of the Riemann surface of the logarithm,
+whose remainders are bounded in terms of a weight sequence M = (Mj)j∈N0 ∈RN0
+>0. This
+paper focuses on characterizing the stability of these classes under two fundamental
+operations: point-wise multiplication and composition.
+Our primary objective is to
+demonstrate that the stability properties of these classes can be characterized in terms
+of growth conditions on the defining sequence M. For the problem of stability under
+point-wise multiplication, we show that the condition (alg), namely
+∃C ≥1 ∀j, k ∈N0 :
+MjMk ≤Cj+kMj+k,
+1
+arXiv:2604.20758v1  [math.CV]  22 Apr 2026

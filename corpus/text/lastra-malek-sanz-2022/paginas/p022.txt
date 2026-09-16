@@ -1,0 +1,84 @@
+22
+where φαβ(z) := Pn−1
+j=0 dαβj(∂m2,z)φj(z) ∈O(D(0, r)), and dαβj(ξ) are holomorphic functions of
+polynomial growth at inﬁnity for every α and β. One may easily check that the formal solution
+of (33) is given by
+(34)
+ˆuαβ(t, z) =
+∞
+X
+j=β−1
+
+j
+β −1
+ λj
+α(∂m2,z)φαβ(z)
+m1(j)
+tj.
+We do not enter into details about this point, for the proof of this result is entirely analogous in
+our situation. We will focus our attention on the convergence of the formal solution, and also
+on the growth rate of its coeﬃcients when it has null radius of convergence, but ﬁrstly we recall
+the meaning of the pseudodiﬀerential operators λ(∂me,z) (like the ones appearing in (31), (33)
+and (34)), where λ(ξ) is an element in the set {λj : j = 1, . . . , ℓ} and me = (me(p))p∈N0 is the
+strongly regular sequence of moments of a kernel e with moment function me(λ). Given r > 0,
+one can check (see Proposition 3 in [32]) that the diﬀerential operator ∂me,z is well-deﬁned for
+any φ ∈O(D(0, r)), and for 0 < ε < r and every z ∈D(0, ε) one has
+∂n
+me,zφ(z) =
+1
+2πi
+I
+|w|=ε
+φ(w)
+Z ∞(θ)
+0
+ξnE(zξ)e(wξ)
+wξ dξdw,
+for every n ∈N0, where θ ∈(−arg(w) −w(me)π
+2
+, −arg(w) + w(me)π
+2
+) and E is the second kernel
+in Deﬁnition 3.4.
+This expression inspires the deﬁnition of the pseudodiﬀerential operator λ(∂me,z) as
+λ(∂me,z)φ(z) :=
+1
+2πi
+I
+|w|=ε
+φ(w)
+Z ∞(θ)
+ξ0
+λ(ξ)E(ξz)e(ξw)
+ξw dξdw,
+for every φ ∈O(D(0, r)), where ξ0 = R0eiθ with suitably large R0 > 0 and θ as before (see
+Deﬁnition 8 in [32]).
+Next we study the growth rate of the formal solution of (33), given in (34). To this end, we
+need the following deﬁnition and lemmas.
+Deﬁnition 5.1. Let U ⊆C be a neighborhood of ∞, and Ψ ∈O(U). The pole order q ∈Q
+and the leading term ψ ∈C \ {0} associated with Ψ are the elements satisfying
+lim
+z→∞
+Ψ(z)
+zq
+= ψ,
+if they exist.
+Lemma 5.2. Let e, me and me be as before, λ(ξ) have pole order q and leading term λ0, and
+let φ ∈O(D(0, r)). There exist r0, A, B > 0 such that
+sup
+|z|<r0
+|λ(∂me,z)φ(z)| ≤|λ0|ABqme(q).
+Proof. One may choose R0 > 0 such that |λ(ξ)| ≤2|λ0||ξ|q for every ξ with |ξ| ≥R0. Let w ∈C
+with 0 < |w| = ε < r, and put θ = −arg(w) and ξ0 = R0eiθ. One has
+(35)
+
+Z ∞(θ)
+ξ0
+λ(ξ)E(ξz)e(ξw)
+ξw dξ
+ ≤2|λ0|
+Z ∞
+R0
+sq|E(seiθz)||e(seiθw)|
+sε
+ds.

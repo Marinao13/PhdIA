@@ -1,0 +1,66 @@
+192
+CHAPTER 5.
+A PHRAGMÉN-LINDELÖF THEOREM VIA PROXIMATE ORDERS AND THE
+PROPAGATION OF ASYMPTOTICS
+a point a with the specied argument and modulus (r2/η)ω.
+Take a positive d2 such that
+d2 > 2|a|1/ω/A, and then c2 > 0 such that c2 < d−ω
+2 . By denition of Beurling M−atness in
+direction γπ/2, there exists c1 > 0 such that (5.11) holds for arg(z) = γπ/2. Then, the desired
+estimates hold for the same k1 > 0 obtained in the proof of that lemma.
+Note that also Lemma 5.1.8, Lemma 5.1.9 and Proposition 5.1.11 will be valid in this Beurling
+setting.
+5.2
+Watson's Lemmas
+Given a weight sequence M admitting a nonzero proximate order, we will now obtain several
+quasianalyticity results by combining those in Subsections 3.2.1 and 3.2.2 with the results on the
+propagation of null asymptotics in Section 5.1.
+Remark 5.2.1. In a similar way as in the proof of Proposition 3.1.9 (see [97]), it is easy to
+deduce that, given a bounded holomorphic function f in a sector Sγ that admits a continuous
+extension to the boundary ∂Sγ, the fact that f ∈
+˜
+Au
+M(Sγ) and f is M−at amounts to the
+existence of constants k1, k2 > 0 such that (5.8) holds.
+In the rst version, an immediate consequence of previous information, we assume the func-
+tion is at at both boundary directions.
+Lemma 5.2.2. Let γ > 0 be given, such that either γ > ω(M), or γ = ω(M) and the series
+P∞
+p=0(mp)−1/ω(M) diverges. Suppose f is a bounded holomorphic function in Sγ that admits a
+continuous extension to the boundary ∂Sγ, and that is M−at in directions d = πγ/2 and −d.
+Then f ≡0.
+Proof. By Lemma 5.1.9, we know that (5.8) holds for suitable k1, k2 > 0. The previous remark
+implies that f ∈˜
+Au
+M(Sγ) and f ∼M ˆ0, and by Theorem 3.2.2 we deduce that f ≡0.
+□
+In the second, improved version we assume only that the function is at in one of the boundary
+directions.
+Lemma 5.2.3. Assume the same hypotheses as in Lemma 5.2.2, except that now f is M−at
+only in direction d = πγ/2. Then f ≡0.
+Proof. For simplicity we write ω = ω(M). The argument is simple if γ > ω: We x ω < µ < γ
+and δ = (γ −µ)π > 0. By Lemma 5.1.8 we know that there exist constants k1(δ), k2(δ) > 0 with
+|f(z)| ≤k1e−ωM(1/(k2|z|)),
+if arg(z) ∈[πγ/2 −µπ, πγ/2].
+Then, Remark 5.2.1 implies that f ∈˜
+Au
+M(S), with S = {z ∈R : arg(z) ∈(πγ/2 −µπ, πγ/2)}
+and f ∼M ˆ0. Since µ > ω, we can apply Theorem 3.2.2 to the function f in S, using a suitable
+rotation, and we deduce that f ≡0.
+If γ = ω we x δ = πω/8 > 0. Lemma 5.1.8 ensures there exist k1(δ), k2(δ) > 0 with
+|f(z)| ≤k1e−ωM(1/(k2|z|)),
+if arg(z) ∈[−3πω/8, πω/2].
+(5.12)
+As in the proof of Lemma 5.1.6, since M admits a nonzero proximate order ρ(t), there exist
+V ∈MF(2ω, ρ(t)) and positive constants A, B, t0 such that we have (5.3). Choose q2 > 0 such
+that k−1/ω
+2
+> q2, and take a ∈R such that
+arg(a) = ωπ
+4 ,
+0 < |a| <
+Aq2
+2
+ω
+.
+JAVIER JIMÉNEZ GARRIDO

@@ -1,0 +1,26 @@
+8
+Solutions of Highest Level
+In this chapter we are going to prove that the formal transformations oc-
+curring in the Splitting Lemma (p. 42) and in Theorem 11 (p. 52) are, in
+fact, r-summable in the sense of Chapter 6. Based upon this, we shall then
+show that highest-level formal fundamental solutions are k-summable for
+1/k = s equal to their Gevrey order. As an application of this result we
+then prove the factorization of formal fundamental solutions according to
+Ramis and the author, as described in Chapter 14. For every highest-level
+formal fundamental solution (HLFFS for short), we then deﬁne normal so-
+lutions of highest level that were ﬁrst introduced by the author in [8], and
+we shall investigate their properties in more detail, deﬁning corresponding
+Stokes’ directions, Stokes’ multipliers, etc.
+Since in Chapter 3 all power series have been in the variable 1/z, we
+have to make some more or less obvious adjustments in the deﬁnition of
+r-summability. In particular, we deﬁne sectorial regions at inﬁnity to be
+such regions G that by the inversion z 	→1/z are mapped onto sectorial
+regions in the previous sense, and from now on, we shall denote by ˆf(z) a
+formal power series in the variable z−1. It is then natural to say that
+• a power series ˆf(z) ∈E [[z−1]] is k-summable in direction d if and
+only if ˆf(z−1) = ∞
+0 fn zn is k-summable in direction −d.
+The formal Borel transform ˆBk ˆf is deﬁned by applying ˆBk to ˆf(z−1), and
+its sum then is holomorphic in a small sector of bisecting direction −d, and
+is of exponential growth at most k there. The k-sum of ˆf(z) then is obtained
+by summing ˆf(z−1) followed by the change of variable z 	→1/z. Hence, if

@@ -1,0 +1,81 @@
+2.1. LOG-CONVEX SEQUENCES AND O-REGULAR VARIATION
+77
+and (iv) follows from (iii).
+(iv) ⇒(iii) Immediate.
+Furthermore, assuming (i) or, equivalently, (ii), since f is nondecreasing for x ≥N we have
+that
+fa(x) = a⌊x⌋= f(⌊x⌋) ≤f(x) ≤f(⌊x⌋+ 1) = a⌊x⌋+1 ≤Ca⌊x⌋= Cfa(x).
+Similarly, for x ≥N we observe that
+1 ≤
+f(x)
+f(⌊x⌋) ≤f(⌊x⌋+ 1)
+f(⌊x⌋)
+,
+so, assuming (iii) or (iv), fa ∼f.
+In addition, if f is continuous and satises (2.13), for p ≥N, by the continuity in x = p+1, we
+have that for ε = f(N) > 0 there exists δp,ε ∈(0, 1) such that 0 ≤f(p+1)−f(p+1−δ) < f(N).
+Consequently,
+ap+1 = f(p + 1) ≤2f(p + 1 −δ) ≤2Cfa(p + 1 −δ) = 2Cap,
+p ≥N,
+and (i) is satised. Analogously, for f continuous we see that fa ∼f implies (iii) and (iv).
+□
+From the last result, we can establish an inverse version of the embedding theorems, Theo-
+rems 1.2.37 and 1.2.44, for nondecreasing functions.
+Corollary 2.1.35. Let f : [N, +∞) →(0, +∞), with N ∈N, be a nondecreasing function.
+Then
+f
+is regularly varying
+if and only if
+a
+also is.
+f
+is O-regularly varying
+if and only if
+a
+also is.
+Proof. If f is regularly varying, then limx→∞f(⌊x⌋)/f(x) = 1 and we have that
+lim
+p→∞
+a⌊λp⌋
+ap
+= lim
+p→∞
+f(⌊λp⌋)
+f(λp)
+f(λp)
+f(p) = λρ,
+λ ∈(0, ∞),
+i.e., a also is. Conversely, if a is regularly varying, by Lemma 1.2.40 lim ap+1/ap = 1, using the
+previous lemma we deduce that f ∼fa. Applying Theorem 1.2.37, we know that fa is regularly
+varying and by Remark 1.2.6 we conclude that f also is.
+Assuming that f is O-regularly varying, we see that
+lim sup
+p→∞
+a⌊λp⌋
+ap
+= lim sup
+p→∞
+f(⌊λp⌋)
+f(p)
+≤lim sup
+p→∞
+f(λp)
+f(p) < ∞,
+λ ∈(0, ∞),
+then a also is. Reciprocally, if a is O-regularly varying, then
+lim sup
+p→∞
+ap+1
+ap
+≤lim sup
+p→∞
+a2p
+ap
+< ∞,
+so (2.11) holds. Consequently, there exists a constant C ≥1 such that
+C−1fa(x) ≤f(x) ≤Cfa(x)
+x ≥N,
+and, applying Remark 1.2.31, we deduce that f is O-regularly varying because, by Theo-
+rem 1.2.44, fa ∈ORV .
+□
+Universidad de Valladolid

@@ -1,0 +1,44 @@
+197
+Conclusiones y trabajo futuro
+El objetivo de esta tesis era explorar ciertas propiedades de las clases ultraholomorfas de funciones
+y su aplicación a los desarrollos asintóticos y la teoría de multisumabilidad, analizando qué
+resultados del caso Gevrey pueden ser extendidos a este marco general.
+Una primera meta
+alcanzada con éxito en el Capítulo 2 es la descripción de las relaciones entre diversas propiedades
+de las sucesiones peso y las nociones de orden aproximado, variación regular y O-variación regular.
+De ese capítulo, el Teorema 2.2.19 merece mención especial porque caracteriza la forma de las
+sucesiones para las que la teoría de sumabilidad desarrollada en [60, 88, 89] esté disponible.
+El tercer capítulo está dedicado al estudio de la inyectividad y sobreyectividad de la aplicación
+de Borel asintótica.
+El resultado principal de este estudio, completado para la inyectividad
+y sucesiones peso generales y casi nalizado para la sobreyectividad y sucesiones fuertemente
+regulares, es la existencia de dos índices ω(M) y γ(M), uno para cada problema y en general
+distintos (ver el Ejemplo 2.2.26), que miden la apertura límite de los sectores para los que la
+aplicación de Borel es inyectiva o, respectivamente, sobreyectiva.
+Puesto que para todos los
+ejemplos en las aplicaciones el valor de estos índices coincide, esta división ha resultado difícil
+de detectar. Finalmente, en los Capítulos 4 y 5 se acentúa el signicado de estos resultados
+relativos a los desarrollos asintóticos. En esta dirección, el Teorema Tauberiano 4.2.14 clarica
+cuándo tiene sentido la herramienta de multisumabilidad en este contexto. En ese caso, se ha
+proporcionado una construcción explícita y detallada de los núcleos de aceleración, lo que nos
+permite recuperar la multisuma de una serie de potencias formal. Por último, se ha probado que,
+como sucede en el caso Gevrey, se puede extender un M−desarrollo asintótico de una función
+holomorfa en el origen en una dirección a la región donde dicha función está acotada.
+Esta tesis representa un primer paso hacia una mejor comprensión de las condiciones que se
+asumen frecuentemente para las funciones y sucesiones peso mediante la noción de O-variación
+regular, expresando propiedades cualitativas en términos de ciertos valores cuantitativos. Estos
+hallazgos y técnicas presentes podrían ayudar a resolver otros asuntos en el contexto ultra-
+holomorfo y ultradiferenciable. Ambos están estrechamente relacionados, como se ha resaltado
+mediante el estudio de la aplicación de Borel, lo que ha potenciado nuestro entendimiento sobre
+su conexión.
+Una consecuencia adicional que emerge de este trabajo es la aplicación poten-
+cial al estudio de ciertas ecuaciones, particularmente ecuaciones en diferencias, del método de
+multisumabilidad, que proporcione un tratamiento unicado del problema.
+Este análisis de clases ultraholomorfas de funciones se ha ocupado principalmente de aque-
+llas denidas por medio de una sucesión peso, de tipo Roumieu, y en el caso de una variable.
+Sin embargo, algunos de los resultados podrían ser válidos también para clases ultraholomorfas
+denidas mediante una función peso, o incluso una matriz peso, como ha sido recientemente
+considerado por A. Rainer y G. Schindl. Además, las clases de tipo Beurling son adecuadas
+para el estudio de problemas similares, o se podrían considerar clases de funciones de varias vari-
+ables complejas denidas en polisectores (productos cartesianos de sectores) o en regiones más
+generales. Al mismo tiempo, el estudio presente ha utilizado solo parcialmente la información

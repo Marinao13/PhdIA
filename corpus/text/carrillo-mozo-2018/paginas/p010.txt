@@ -1,0 +1,174 @@
+JID:YJMAA
+AID:21635 /FLA
+Doctopic: Partial Diﬀerential Equations
+[m3L; v1.221; Prn:28/08/2017; 14:57] P.10 (1-17)
+10
+S.A. Carrillo, J. Mozo-Fernández / J. Math. Anal. Appl. ••• (••••) •••–•••
+Proof. We note that hypothesis (2) for N = 0 is interpreted as f being of exponential growth of order at most 
+
+pk
+s ,
+qk
+1−s
+
+on Πp,q. Let us write R = M
+
+|x1|
+pk
+s + |x2|
+qk
+1−s
+
+, xpk
+1 xqk
+2 h = Lα(f) and ˆTp,q
+
+1
+xpk
+1 xqk
+2
+ˆLα( ˆf)
+
+=
+ hntn. Then using (1) and Remark 3.3 we see that (xp
+1xq
+2)n+khn = Lα((ξp
+1ξq
+2)nfn).
+Fixing |θ| < π/2 it is enough to prove the result for subsectors contained in Dk,θ(a, b, M). If Π′′
+p,q is one 
+of them we can ﬁnd δ > 0 small enough such that R < cos θ −δ, on Π′′
+p,q. Now let Π′
+p,q be a subsector of 
+Πp,q such that (x1u
+s
+pk , x2u
+1−s
+qk ) ∈Π′
+p,q if (x1, x2) ∈Π′′
+p,q and u is on the half line from 0 to ∞in direction θ. 
+Using statement (2) for Π′
+p,q we see that
+h(x1, x2) −
+N−1
+
+n=0
+hn(x1, x2)(xp
+1xq
+2)n
+ ≤C
+δ
+AN
+δN/k Γ(1 + Ns1)Γ
+
+1 + N
+k
+
+|xp
+1xq
+2|N, on Π′′
+p,q.
+An application of inequality (10) leads us to the result.
+2
+Finally we introduce a natural convolution product that in our context shares similar properties with the 
+classical one. Indeed, the convolution between f and g w.r.t. xp
+1xq
+2 and weight (s, 1 −s), where α =
+
+s
+pk, 1−s
+qk
+
+and 0 < s < 1 is deﬁned by
+(f ∗α g)(x1, x2) = xpk
+1 xqk
+2
+1
+
+0
+f(x1τ
+s
+pk , x2τ
+1−s
+qk )g(x1(1 −τ)
+s
+pk , x2(1 −τ)
+1−s
+qk )dτ.
+We remark that this formula is already included implicitly in [3], [2]. Some calculations show that this 
+operation is bilinear, commutative and associative. With the aid of the Beta function we obtain the following 
+formula valid for λ1, λ2, μ1, μ2 ∈C with positive real part
+xλ1
+1 xμ1
+2
+Γ
+
+s
+pkλ1 + 1−s
+qk μ1 + 1
+ ∗α
+xλ2
+1 xμ2
+2
+Γ
+
+s
+pkλ2 + 1−s
+qk μ2 + 1
+ =
+xλ1+λ2+pk
+1
+xμ1+μ2+qk
+2
+Γ
+
+s
+pk(λ1 + λ2) + 1−s
+qk (μ1 + μ2) + 2
+.
+If f, g are of exponential growth of order at most 
+
+pk
+s ,
+qk
+1−s
+
+(resp. belong to Ob(Sp,q, E)) then the same 
+is valid for f ∗α g and
+Lα(f ∗α g) = Lα(f)Lα(g),
+(resp. Bα(fg) = Bα(f) ∗α Bα(g)),
+(17)
+as in the classical case.
+4. Monomial Borel–Laplace summation methods
+We can deﬁne a summation method based in the above Borel and Laplace transforms and we will see 
+that it turns out to be equivalent to monomial summability.
+Deﬁnition 4.1. Assume ˆf ∈E[[x1, x2]](p,q)
+1/k
+and set ˆϕs = ˆBα(xpk
+1 xqk
+2 ˆf), where α =
+
+s
+pk, 1−s
+qk
+
+and 0 < s < 1. 
+We will say that ˆf is k −(s, 1 −s)-Borel summable in the monomial xp
+1xq
+2 in direction d if ˆϕs can be 
+analytically continued, say as ϕs, to a monomial sector of the form Sp,q(d, 2ϵ) and being of exponential 
+growth of order at most 
+
+pk
+s ,
+qk
+1−s
+
+there. In this case the k −(s, 1 −s)-Borel sum of ˆf in direction d is 
+deﬁned as
+f(x1, x2) =
+1
+xpk
+1 xqk
+2
+Lα(ϕs)(x1, x2).

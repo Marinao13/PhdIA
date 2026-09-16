@@ -1,0 +1,45 @@
+224
+Appendix B. Functions with Values in Banach Spaces
+|z −z0| > ρ1, resp. for |z −z0| < ρ2, and show
+f(z) = f −(z) −f +(z),
+z ∈R.
+(b) Show that f can be expanded into a Laurent series
+f(z) =
+∞
+
+n=−∞
+fn (z −z0)n,
+z ∈R,
+with coeﬃcients fn ∈E given by
+fn =
+1
+2πi
+
+|w−z0|=ρ
+f(w) (w −z0)−n−1 dw.
+(c) In case of ρ1 = 0, deﬁne the notions of essential singularity,
+resp. pole, resp. removable singularity as saying that, with fn as
+deﬁned above, we have fn ̸= 0 for inﬁnitely many negative n,
+resp. fn0 ̸= 0 for some negative n0 and fn = 0 for n < n0, resp.
+fn = 0 for every negative n. Show that f(z) being bounded for
+0 < |z −z0| ≤ρ < ρ2 implies that z0 is a removable singularity
+of f.
+3. Let G be a simply connected region, and let f be E -valued and holo-
+morphic in G, except for singularities at points zn ∈G, n ≥0, which
+do not accumulate in G. Deﬁne the residue of f at a point zn as
+the coeﬃcient f−1 in the Laurent expansion of f about zn. Show the
+Residue Theorem:
+The integral of f over any positively oriented Jordan curve in G which
+avoids the points zn, n ≥0, equals 2πi times the sum of the residues
+of f at those points zn which are in the interior region of the curve.
+4. If G = G1∪G2, for arbitrary regions Gk, and if fk ∈H(Gk, E ) satisfy
+f1(z) = f2(z) for every z ∈G1 ∩G2, then show that there is precisely
+one f ∈H(G, E ) with f(z) = fk(z) for z ∈Gk.
+5. For f ∈H(C, E ), i.e., an entire E -valued function, show that if f is
+bounded, then f is necessarily constant.
+B.3
+Holomorphic Continuation
+Let f ∈H(G, E ) and an arbitrary path γ with parameterization z(t), 0 ≤
+t ≤1, beginning at some point z0 ∈G but terminating at a point z1 /∈G,
+be given. Then we say that f can be holomorphically continued along γ,
+provided that we can ﬁnd a partitioning 0 = t0 < t1 < . . . < tm = 1 and

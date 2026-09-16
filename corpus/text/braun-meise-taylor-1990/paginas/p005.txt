@@ -1,0 +1,61 @@
+210 
+Braun. Meise and Taylor 
+PROOF. We show first that if w is concave on [R, 00[, then w E CI(]R, oo[). For concave w 
+we have, for every t > R, left and right derivatives w~(t) and w~(t) with w~(t) ::; w~(t). On 
+the other hand, <p(x) = w(e X ) is convex, hence w~(t) = <p'-(logt)/t ::; <p~(logt)/t = w~(t). 
+Thus wand <p are differentiable on ]R, oo[ and, by monotony of the derivative, even CI. 
+If in the general case w is not C1 , we choose a CI-function X ~ 0 with Supp X C ]0, log 2[ 
+and J X = 1 and define 
+'ljJ(X) = k<P(s+x)x(s)ds and p(t)='ljJ(logt), t~1. 
+For the constant K from 1.1(0:) we have <p ::; 'ljJ ::; K <p, which implies that p satisfies 
+1.1(.8) and (-y). It is not difficult to see that 'ljJ is convex and that, therefore, 1.1(8) holds 
+for p. Let A, B > 1 with w( At) ::; Bw( t) for large t be given. Set a = log A. Then 
+'ljJ(x + a) = J <p(s + x + a)x(s)ds ::; J B<p(x + s)X(s) ds = B<p(x). Thus p satisfies 1.1(0:) 
+and lim SUPt_,x, p(At)/ p(t) ::; lim sup/_,x, w(At)/w(t). 
+So far we have shown that we may assume that wIJR, oo[ is Cl for some R. We may 
+also assume that 10g(1 + t) = o(g(t)). Remember that <p(O) = O. We put Xl = Yl = ZJ = 0 
+and define inductively X n , y", z" with X2 > Rand 
+We claim 
+x" > Yn-I + n, 
+g(e") :$ 'P(~) 
+for all X ~ x," 
+n 
+n-l 
+;=1 
+<p'(Yn) = ~l<P'(Xn)' 
+n-
+<p(zn) = n<p(Xn) - (n - l)<p(YII) + n(Yn - xlI)<p'(xn). 
+X" ::; Zll ::; y". 
+From (5) and (4) we get 
+<p(z,,) - <p(xn) _ 
+( 
+l)<P(YlI) - <p(xll ) + 
+'( ) 
+-
+- n -
+n<p x" 
+Yll -
+Xll 
+y" -
+Xli 
+= (n - 1) (<p'(Yll) _ <P(Yn) - <P(Xn)) , 
+Yn -
+X" 
+which is nonnegative because <p' is nondecreasing. On the other hand, (5) also implies 
+<p(y,,) - <P(ZIl) _ 
+<P(Yll) - <p(xll ) 
+'() > 0 
+- n 
+- n<p Xn _ . 
+y" -
+Xn 
+Yn -
+Xn 
+X" ::; X < Yn, 
+y" ::; X < Xn+I' 
+(1) 
+(2) 
+(3) 
+(4) 
+(5) 
+(6) 

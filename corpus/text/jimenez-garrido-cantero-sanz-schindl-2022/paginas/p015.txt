@@ -1,0 +1,188 @@
+15
+After a change of variable u = zv in the last integral, one may use Cauchy’s residue theorem and
+the right-hand estimates in (27) in order to rotate the path of integration and obtain
+zn
+Z ∞
+0
+vne(v)dv = 1
+z
+Z ∞
+0
+une
+u
+z
+
+du.
+So, we can write the preceding diﬀerence as
+1
+z
+ Z R0
+0
+e
+u
+z
+ ∞
+X
+n=p
+an
+m(n)un du −
+Z ∞
+R0
+e
+u
+z
+ p−1
+X
+n=0
+an
+m(n)un du
+!
+.
+Then, we have
+f(z) −
+p−1
+X
+n=0
+anzn
+ ≤1
+|z|(f1(z) + f2(z)),
+(30)
+where
+f1(z) =
+
+Z R0
+0
+e
+u
+z
+ ∞
+X
+n=p
+an
+m(n)un du
+ ,
+f2(z) =
+
+Z ∞
+R0
+e
+u
+z
+ p−1
+X
+n=0
+an
+m(n)un du
+ .
+We now estimate f1(z) and f2(z). Observe that for every u ∈(0, R0] we have 0 < Au/B1 ≤1/2.
+So, from (29) we get
+∞
+X
+n=p
+|an|
+m(n)un ≤| bf|M,A
+m(0)
+∞
+X
+n=p
+Au
+B1
+n
+≤2| bf|M,A
+m(0)
+ A
+B1
+p
+up.
+Hence,
+f1(z) ≤2| bf|M,A
+m(0)
+ A
+B1
+p Z R0
+0
+e
+u
+z
+ up du.
+(31)
+Regarding f2(z), for u ≥R0 and 0 ≤n ≤p −1 we have (u/R0)n ≤(u/R0)p, so un ≤Rn
+0up/Rp
+0.
+Again by (29), and taking into account the value of R0, we may write
+p−1
+X
+n=0
+|an|
+m(n)un ≤| bf|M,A
+m(0)
+up
+Rp
+0
+p−1
+X
+n=0
+AR0
+B1
+n
+≤| bf|M,A
+m(0)
+2A
+B1
+p
+up.
+Then, we get
+f2(z) ≤| bf|M,A
+m(0)
+2A
+B1
+p Z ∞
+R0
+e
+u
+z
+ up du.
+(32)
+In order to conclude, note that the second inequality in (27), followed by the ﬁrst one, and the
+fact that e(x) > 0 for x > 0, together imply that for every z ∈Sγ and every u > 0 we have
+|e(u/z)| ≤K3hM
+
+K4
+|z|
+u
+
+≤K3
+K1
+e
+ K2u
+K4|z|
+
+.
+We use this fact, a simple change of variable and the right-hand estimates in (28), and obtain
+that
+Z ∞
+0
+e
+u
+z
+ up du ≤
+Z ∞
+0
+K3
+K1
+e
+ K2u
+K4|z|
+
+up du
+= K3
+K1
+K4|z|
+K2
+p+1
+m(p) ≤m(0)K3K4
+K1K2
+K4B2
+K2
+p
+Mp|z|p+1.

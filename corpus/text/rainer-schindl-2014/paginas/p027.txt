@@ -1,0 +1,53 @@
+Composition in ultradiﬀerentiable classes
+123
+Proof. (1) Let ρ > 0 be ﬁxed. If f ∈E{Ωρ}(U) then for each compact
+K ⊆U there exists σ > 0 such that ∥f∥Ωρ
+K,σ < ∞. By (5.10), there exist
+constants H, C ≥1 such that
+∞> C∥f∥Ωρ
+K,σ ≥∥f∥ΩHρ
+K,1 = ∥f∥ω
+K,Hρ,
+whence f ∈E{ω}(U).
+Assume that f ∈E(ω)(U). Let ρ, σ > 0 be ﬁxed. By (5.10), there exist
+constants H, C ≥1 such that Ωρ
+k ≤CσkΩHρ
+k
+for all k. Since f ∈E(ω)(U),
+for each compact K ⊆U we have ∥f∥ω
+K,ρ/H < ∞, and thus
+∞> C∥f∥ω
+K,ρ/H = C∥f∥Ωρ/H
+K,1
+≥∥f∥Ωρ
+K,σ.
+Since σ > 0 was arbitrary, we conclude that f ∈E(Ωρ)(U).
+(2) follows from (1), since the inclusions E(ω)(U) ⊇lim
+←−ρ>0 E(Ωρ)(U) and
+E{ω}(K) ⊆lim
+−→ρ>0 E{Ωρ}(K) are clear and continuous by deﬁnition.
+(3) follows from (2), (5.11), and Proposition 2.12(1).
+(4) is a direct consequence of (2), (5.12), and Proposition 2.12(1).
+5.15. Corollary. Let ω ∈W and let U ⊆Rn be open. Then E[ω](U) =
+E[W](U) as locally convex spaces, where the weight matrix W := {Ωρ : ρ > 0}
+satisﬁes
+• (M(mg)) and (M{mg}),
+• (M(alg)) and (M{alg}),
+• (M(L)) and (M{L}).
+If ω satisﬁes (ω4), respectively (ω5), then W satisﬁes (MH), respectively
+(M(Cω)). If ω satisﬁes (ω8), then W satisﬁes (M(BR)) and (M{BR}).
+Proof. This is an immediate consequence of Theorem 5.14, (5.6), and
+(5.10).
+For ω(t) = max{0, t −1} ≈t we ﬁnd ϕ∗(t) = t log t −t + 1, for t ≥1,
+ϕ∗|[0,1] = 0, and it is easy to see that (ω4) implies (MH) and (ω5) implies
+(M(Cω)), by Lemma 5.16. Finally, from (5.12) it follows that (ω8) implies
+(M(BR)) and (M{BR}).
+5.16. Lemma. For ω, σ ∈W we have:
+(1) If ω ⪯σ then ∃H ≥1 ∀ρ > 0 ∃C > 0 : Ωρ ≤CΣHρ.
+(2) If ω  σ then ∀H > 0 ∀ρ > 0 ∃C > 0 : Ωρ ≤CΣHρ.
+Here Σρ are the sequences associated with σ.
+Proof. (1) If ω ⪯σ then there exists H ≥1 such that σ(t) ≤Hω(t) + H
+for all t ≥0, and thus also ϕσ(t) ≤Hϕω(t) + H and ﬁnally Hϕ∗
+ω(t) ≤
+ϕ∗
+σ(Ht) + H. Setting t = ρk gives the assertion.

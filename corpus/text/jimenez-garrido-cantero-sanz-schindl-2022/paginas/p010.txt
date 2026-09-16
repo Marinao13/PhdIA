@@ -1,0 +1,79 @@
+10
+and
+Z ∞
+1
+σ(ys)
+s2 + 1ds = κσ(y) −
+Z ∞
+1
+ 1
+s2 −
+1
+s2 + 1
+
+σ(ys)ds ≤κσ(y) −σ(y)
+
+1 −π
+4
+
+.
+(22)
+From (20), (21), (22) and (10) we deduce that
+Pσ(iy) ≤2
+π
+π
+2 σ(y) + κσ(y) −σ(y)
+
+≤κσ(y).
+The key condition for weight sequences that will allow us to construct optimal ﬂat functions
+appeared in a work of M. Langenbruch [15].
+Deﬁnition 3.5. Let M be a weight sequence such that
+b
+M satisﬁes (nq), so that PωM is well-
+deﬁned. We say that the sequence satisﬁes the Langenbruch’s condition if there exists a constant
+C > 0 such that for all y ≥0 we have
+PωM(iy) ≤ωM(Cy) + C.
+(23)
+We can characterize the previous condition in terms of the index γ(M). This connection has
+very recently appeared for the ﬁrst time in a work of D. N. Nenning, A. Rainer and the fourth
+author [20]. Although the additional hypothesis of (dc) appears in their (indirect) arguments,
+it can be removed as long as the sequence satisﬁes (snq), as we now show. Observe that, by
+Lemma 3.1, the condition (snq) (equivalently, γ(M) > 0) is necessary for surjectivity, so it is not
+a restriction for our aim.
+Proposition 3.6. Let M be a weight sequence. The following are equivalent:
+(i) γ(M) > 0,
+b
+M satisﬁes (nq) and M satisﬁes Langenbruch’s condition.
+(ii) γ(M) > 1.
+Proof. First, from (7) we deduce that for all r ≥0 and B ≥0,
+ωM(eBr) =
+Z eBr
+0
+νm(u)
+u
+du = ωM(r) +
+Z eBr
+r
+νm(u)
+u
+du ≥ωM(r) + Bνm(r).
+(24)
+The last inequality is a consequence of the monotonicity of νm.
+(i)⇒(ii) By taking into account (9) and (19), we deduce
+ωM(y) + κνm(y) ≤PωM(iy) + πPνm(iy) = PωM+πνm(iy),
+y ≥0.
+Thanks to (24) and the monotonicity of the harmonic extension with respect to the argument
+function we get from above
+ωM(y) + κνm(y) ≤PωM(eπ·) = PωM(ieπy) ≤ωM(Ceπy) + C,
+y ≥0.
+Next, by using the integral expression (7) and the monotonicity of νm we have that
+κνm(y) ≤ωM(Ceπy) −ωM(y) + C =
+Z Ceπy
+y
+νm(u)
+u
+du + C ≤ln(Ceπ)νm(Ceπy) + C,
+y ≥0.
+Finally, by Lemma 2.2, we deduce that
+κνm(y) ≤Dνm(y) + D,
+y ≥0,

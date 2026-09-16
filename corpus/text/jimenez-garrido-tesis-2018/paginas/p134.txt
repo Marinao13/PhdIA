@@ -1,0 +1,60 @@
+134
+CHAPTER 3.
+INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+γ(M) ∈Q
+γ(M) ∈I
+SM
+(0, γ(M))
+(0, γ(M)) or (0, γ(M)]
+˜Su
+M
+(0, γ(M))
+(0, γ(M)) or (0, γ(M)]
+˜SM
+(0, γ(M)) or (0, γ(M)]
+Table 3.4: Surjectivity intervals for strongly regular sequences
+Remark 3.3.20. A question which was open for some time is: Are γ(M) and ω(M) always equal
+for strongly regular sequences? After some trial and error, a strongly regular sequence has been
+constructed with γ(M) = 2 < ω(M) = 5/2 (see Example 2.2.26). In fact, given any pair of values
+0 < γ < ω < ∞we are able to provide a strongly regular sequence M such that γ(M) = γ and
+ω(M) = ω (see Remark 2.2.27). This means that for opening απ with α in the interval (γ, ω), the
+Borel map is neither injective nor surjective and the corresponding injectivity and surjectivity
+intervals for this sequence are either [ω, ∞) or (ω, ∞) and (0, γ) or (0, γ], respectively.
+3.3.4
+Sequences admitting a nonzero proximate order
+In this nal subsection, taking into account that the Borel map is never bijective, Theorem 3.2.16,
+we will deduce more information regarding the surjectivity intervals. In order to be able to infer
+from that result whether or not γ(M) belongs to SM and ˜Su
+M, strongly regularity is not enough
+and we need to assume γ(M) = ω(M). Then,
+(i) If P∞
+p=0 (mp)−1/ω(M) = ∞, we know that ˜Iu
+M = IM = [ω(M), ∞) = [γ(M), ∞), and then
+SM = ˜Su
+M = (0, γ(M)),
+(0, γ(M)) ⊆˜SM ⊆(0, γ(M)].
+(ii) If P∞
+p=0 (mp)−1/ω(M) < ∞and P∞
+p=0 ((p + 1)mp)−1/(ω(M)+1) = ∞, we know that IM =
+[γ(M), ∞) and ˜Iu
+M = (γ(M), ∞), and so
+SM = (0, γ(M)),
+(0, γ(M)) ⊆˜Su
+M ⊆˜SM ⊆(0, γ(M)].
+Hence, the information we have for strongly regular sequences with γ(M) = ω(M) is summarized
+in the rst two rows of Table 3.5. Note that for nonuniform asymptotics this assumption does
+not produce any improvements and we will need to go one step further.
+Our nal result was given by J. Sanz, Theorem 6.1 in [88] for strongly regular sequences M
+such that dM is a proximate order. For nonuniform asymptotics, he proved that ˜SM = (0, γ(M)]
+employing the truncated Laplace transform technique where the classical exponential kernel was
+replaced by a function eV (see Remark 4.1.4) which is constructed using proximate orders and
+Maerogiz's functions.
+As it is deduced from [88, Remark 4.11.(iii)] and Remark 2.2.18, this
+construction is also available whenever M is a weight sequence admitting a nonzero proximate
+order. We recall that if M admits a nonzero proximate order then it is strongly regular and
+γ(M) = ω(M) ∈(0, ∞) but, as explained in the previous chapter, the converse does not hold, so
+this is the most regular situation we will consider.
+Theorem 3.3.21 (Generalized BorelRittGevrey theorem). Let M be a weight sequence ad-
+mitting a nonzero proximate order and γ > 0 be given. The following statements are equivalent:
+(i) γ ≤ω(M) = γ(M),
+JAVIER JIMÉNEZ GARRIDO

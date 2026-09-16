@@ -1,0 +1,57 @@
+22
+2. Singularities of First Kind
+for β = µ1 −µ2, and the initial conditions f0 = 1, g0 = 0. Note n + β ̸=
+0, n ≥1, according to E. This implies
+(n + 1)(n + β)fn+1
+=
+(n + β)(afn + bgn)
+=
+a(n + β)fn + b(cfn−1 + dgn−1).
+Using the original relations, we can eliminate gn−1 to obtain the following
+second order recursion for the sequence (fn):
+(n + 1)(n + β)fn+1 = [n(a + d) + aβ]fn −(ad −bc)fn−1,
+n ≥1,
+together with the initial conditions f0 = 1, f1 = a. Unfortunately, such a
+recursion in general is still very diﬃcult to solve – however, if ad−bc = det A
+would vanish, this would reduce to a ﬁrst-order relation. Luckily, there is
+a little trick to achieve this: Substitute 1 x = eλz˜x into the system (2.1) to
+obtain the equivalent system z˜x′ = (A(z) −zλ) ˜x. In case of a conﬂuent
+hypergeometric system and λ equal to an eigenvalue of A, we arrive at
+another such system with det A = 0. Note that if we computed a Floquet
+solution of the new system, we then can reverse the transformation to
+obtain such a solution for the original one.
+To proceed, let us now assume ad −bc = 0; hence one eigenvalue of
+A vanishes. Then λ = a + d is equal to the second, possibly nonzero,
+eigenvalue, and the above recursion becomes
+(n + 1)(n + β)fn+1 = (nλ + aβ)fn,
+n ≥1,
+with f1 = a. Leaving the case of λ = 0 as an exercise and writing α = aβ/λ
+for λ ̸= 0, we ﬁnd 2
+fn
+=
+λn(α)n
+n! (β)n
+gn
+=
+c λn−1(α+1)n−1
+(n−1)! (β+1)n
+
+
+,
+n ≥1.
+Thus, one can explicitly express the Floquet solution of the conﬂuent hy-
+pergeometric system in terms of the following well-known higher transcen-
+dental function:
+Confluent Hypergeometric Function
+For α ∈C, β ∈C \ {0, −1, −2, . . .}, the function
+F(α; β; z) =
+∞
+
+n=0
+(α)n
+n! (β)n
+zn,
+z ∈C,
+1Note that what is done here is a trivial case of what will be introduced as analytic
+transformations in the following section.
+2Here we use the Pochhammer symbol (α)0 = 1, (α)n = α · . . . · (α + n −1), n ≥1.

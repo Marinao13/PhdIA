@@ -1,0 +1,66 @@
+98
+A. Rainer and G. Schindl
+property. We prove that the (FdB)-property (for the weakly log-convex
+minorant M♭(c)) is also a necessary condition for stability under compo-
+sition if E[M] is stable under derivation (see Theorem 3.2). More precisely,
+if E[M] is stable under derivation, then stability under composition is in turn
+equivalent to being holomorphically closed, being inverse closed, (M♭(c)
+k
+)1/k
+being almost increasing, and M♭(c) having the (FdB)-property. For further
+equivalent stability properties we refer to [33]. Inverse closedness has been
+studied intensively, e.g. in [35], [10], [39]. In this context we prove that,
+as in the Roumieu case [11], one has E(M) = E(M♭(c)) if Cω ⊆E(M) (see
+Theorem 2.15). Finally, we demonstrate that log-convexity is not necessary
+for stability under composition. We construct classes E[M] which are stable
+under composition and such that there is no log-convex N = (Nk) with
+E[M] = E[N] (see Example 3.6).
+Another common way to deﬁne ultradiﬀerentiable classes is by means of
+a weight function ω which controls the decay of the Fourier transform (see
+[5] and [6]). We shall use the following equivalent description due to [9]: for
+compact K the sets
+
+f(k)(x) exp
+
+−1
+ρϕ∗(ρk)
+
+: x ∈K, k ∈N
+
+,
+where ϕ∗is the Young conjugate of ϕ(t) = ω(et), are required to be bounded
+either for all ρ > 0 in the Beurling case E(ω) or for some ρ > 0 in the Roumieu
+case E{ω}. Again E[ω] stands for either E(ω) or E{ω}. For these classes stability
+under composition was characterized in [16] under the additional assumption
+of non-quasianalyticity. Note that the sets {E[M] : M a weight sequence}
+and {E[ω] : ω a weight function} have a large intersection but neither of
+them contains the other (see [8]). We stress that the usual requirements on
+the weight function ω ensure that the spaces E[ω] come with incorporated sta-
+bility properties, for instance stability under derivation (see Corollary 5.15).
+We prove that E(ω) and E{ω} can be represented (as locally convex
+spaces with their natural topologies) as intersections and unions of ultra-
+diﬀerentiable classes deﬁned by means of associated weight sequences (see
+Theorem 5.14). For each open subset U ⊆Rn, compact K ⊆U, and for
+Ωρ = (Ωρ
+k) deﬁned by
+Ωρ
+k := 1
+k! exp
+1
+ρϕ∗(ρk)
+
+we have
+(1.1)
+E(ω)(U) =
+\
+ρ>0
+E(Ωρ)(U)
+and
+E{ω}(U) =
+\
+K⊆U
+[
+ρ>0
+E{Ωρ}(K).
+We use this representation to characterize stability under composition, and
+believe that it is also of independent interest.

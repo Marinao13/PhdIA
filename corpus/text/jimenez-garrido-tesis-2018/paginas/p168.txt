@@ -1,0 +1,144 @@
+168
+CHAPTER 4.
+MULTISUMMABILITY VIA PROXIMATE ORDERS
+and we deduce that arg(u/reiθ3) = (π/2)(ω2 + ε) ∈((π/2)(2 −τ2), π) and arg(u/reiθ1) ∈
+(−π, −(π/2)(2 −τ2)). Then for j = 1, 3 we see that u/reiθj ∈S(π, τ2) and, by (4.39), we
+show that
+Z |u|/M2
+0
+E2
+
+u
+reiθj
+
+E1
+
+reiθj
+ dr
+r ≤K2
+|u|β2
+Z |u|/M2
+0
+rβ2
+E1
+
+reiθj
+ dr
+r .
+Since |u| ≥M1M2, we can write (0, |u|/M2) as the disjoint union of the intervals (0, M1)
+and [M1, |u|/M2). By condition (v) for E1, we know that there exists a constant H1 such
+that |E1(z)| ≤H1 for every z ∈D(0, M1 + 1), then
+K2
+|u|β2
+Z |u|/M2
+0
+rβ2
+E1
+
+reiθj
+ dr
+r ≤K2H1Mβ2
+1
+|u|β2β2
++ K2
+|u|β2
+Z |u|/M2
+M1
+rβ2
+E1
+
+reiθj
+ dr
+r .
+If r ≥M1, by (4.41), we can use (4.38) and we obtain
+K2H1Mβ2
+1
+|u|β2β2
++ K2
+|u|β2
+Z |u|/M2
+M1
+rβ2
+E1
+
+reiθj
+ dr
+r ≤K2H1Mβ2
+1
+|u|β2β2
++ K1K2
+|u|β2
+Z |u|/M2
+M1
+rβ2−β1 dr
+r .
+According to Remark 4.3.15, we may assume that β1 < β2, and we conclude that
+K2H1Mβ2
+1
+|u|β2β2
++ K1K2
+|u|β2
+Z |u|/M2
+M1
+rβ2−β1 dr
+r ≤K2H1Mβ2
+1
+|u|β2β2
++
+K1K2
+|u|β1(β2 −β1)Mβ2−β1
+2
+.
+Then for j = 1, 3 and for every u ∈S(π, τ) with |u| ≥M1M2 we have that
+Z |u|/M2
+0
+E2
+
+u
+reiθj
+
+E1
+
+reiθj
+ dr
+r ≤K2H1Mβ2
+1
+|u|β2β2
++
+K1K2
+|u|β1(β2 −β1)Mβ2−β1
+2
+.
+(4.43)
+Consequently, by (4.42) and (4.43), condition (vi.b) is satised with β = min(β1, β2), for
+every u ∈S(π, τ) with |u| ≥M1M2.
+2. Uniqueness follows from Remark 4.3.8.
+3. We take f ∈OM1·M2(S(d, α)). Since e1 ∗e2 is a kernel of M1 ˙M2−summability, by Proposi-
+tion 4.1.12 we know that Te1 ∗Te2(f) is holomorphic in a sectorial region G(d, α+ω1 +ω2).
+We x z ∈G(d, α + ω1 + ω2), there exists θ with |θ −d| < πα/2 such that if arg(u) = θ,
+then u/z ∈Sω1+ω2 and there exists φ with |φ| < πω2/2 such that if arg(w) = φ, then
+wu/z ∈Sω1. We have that
+Te1 ∗Te2(f)(z) =
+Z ∞(θ)
+0
+e1 ∗e2(u/z)f(u)du
+u
+=
+Z ∞(θ)
+0
+f(u)
+ Z ∞(φ)
+0
+e1(wu/z)e2(1/w)dw
+w
+!
+du
+u .
+We conclude, using Proposition 4.3.19, that this last expression is equal to Te1 ◦Te2(f)(z).
+4. We consider f(u) = (1−u)−1 and we dene g(z) := ((Te1 ◦Te2)f)(z). By Lemma 4.3.7, we
+know that Te2f is holomorphic in S(π, 2 + ω2) and Te2f(z) →0 as z →∞uniformly on
+every sector S(π, 2 + γ) with γ < ω2. Moreover, Te2f ∼M2
+P∞
+n=0 m2(n)zn on S(π, 2 + ω2).
+Then we deduce that Te2f is bounded on every sector S(π, 2+γ) with γ < ω2. We can apply
+JAVIER JIMÉNEZ GARRIDO

@@ -1,0 +1,24 @@
+23
+[29] V. Thilliez, Smooth solutions of quasianalytic or ultraholomorphic equations, Monatsh.
+Math. 160, no. 4 (2010), 443–453.
+[30] J. Cl. Tougeron, An introduction to the theory of Gevrey expansions and to the Borel-
+Laplace transform with some applications, Toronto University (1990).
+Authors’ Aﬃliation:
+Alberto Lastra
+Departamento de Matem´aticas
+Ediﬁcio de Ciencias. Campus universitario
+Universidad de Alcal´a
+28871 Alcal´a de Henares, Madrid, Spain
+E-mail: alberto.lastra@uah.es
+St´ephane Malek
+UFR de Math´ematiques Pures et Appliqu´ees
+Cit´e Scientiﬁque - Bˆat. M2
+59655 Villeneuve d’Ascq Cedex, France
+E-mail: malek@math.univ-lille1.fr
+Javier Sanz
+Departamento de An´alisis Matem´atico
+Instituto de Investigaci´on en Matem´aticas de la Universidad de Valladolid, IMUVA
+Facultad de Ciencias
+Universidad de Valladolid
+47005 Valladolid, Spain
+E-mail: jsanzg@am.uva.es

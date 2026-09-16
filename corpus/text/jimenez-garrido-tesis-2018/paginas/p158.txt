@@ -1,0 +1,59 @@
+158
+CHAPTER 4.
+MULTISUMMABILITY VIA PROXIMATE ORDERS
+Remark 4.3.8. Let e and e be two M−summability kernels whose moment sequence m =
+(m(n))n∈N0 is the same. By the above lemma, for f(z) = 1/(1 −z), we have that Tef ∼M
+P∞
+n=0 m(n)zn and Tef ∼M
+P∞
+n=0 m(n)zn on S(π, 2+ω(M)). Observe that, according to Watson's
+Lemma, Theorem 3.2.15, Tef = Tef. By (4.11), we deduce that e(z) = e(z).
+Remark 4.3.9. Since g(z) →0 as |z| →∞uniformly for z ∈S(π, 2 + γ) for every γ < ω(M),
+by (4.11) we also deduce that e(z) →0, |z| →0, uniformly for z ∈Sγ for every γ < ω(M), which
+does not follow immediately from Denition 4.1.2.
+4.3.2
+Strong kernels of M−summability
+In order to recover the multisum of a formal power series, we need to combine a kernel e1 of
+M1−summability with a kernel e2 of M2−summability. The idea is to dene new kernels e1 ∗e2
+and e1◁e2 whose sequences of moments are me1·me2 and me2/me1, respectively. This construction
+is based on the one given in the Gevrey case by W. Balser [7, Sect. 5.8]. Nevertheless, in this
+general situation, a stronger notion of summability kernel should be considered which will not
+suppose a signicant restriction (see Remark 4.3.13).
+Denition 4.3.10.
+Let M be a strongly regular sequence with ω(M) < 2. A pair of complex
+functions e, E are said to be strong kernel functions for M−summability if:
+(i) e is holomorphic in Sω(M).
+(ii.b) It exists α > 0 such that for every τ ∈(0, ω(M)), there exist Cτ, ετ > 0 such that
+|e(z)| ≤Cτ|z|α,
+for all z ∈Sτ,
+with |z| ≤ετ.
+(iii) For every ε > 0 there exist c, k > 0 such that
+|e(z)| ≤chM
+ k
+|z|
+
+= c e−ωM(|z|/k),
+for all z ∈Sω(M)−ε,
+where hM and ωM are the functions associated with M dened by (1.4).
+(iv) For x ∈R, x > 0, the values of e(x) are positive real.
+(v) If we dene the moment function associated with e,
+me(λ) :=
+Z ∞
+0
+tλ−1e(t)dt,
+Re(λ) ≥0,
+from (I) −(IV ) we see that me(λ) is continuous in {Re(λ) ≥0}, holomorphic in {Re(λ) >
+0}, and me(x) > 0 for every x ≥0. Then, the function E given by
+E(z) =
+∞
+X
+n=0
+zn
+me(n),
+z ∈C,
+is entire, and there exist C, K > 0 such that
+|E(z)| ≤
+C
+hM(K/|z|) = CeM(|z|/K),
+for all z ∈C.
+JAVIER JIMÉNEZ GARRIDO

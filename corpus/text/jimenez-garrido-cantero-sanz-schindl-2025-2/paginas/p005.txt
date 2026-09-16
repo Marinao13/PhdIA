@@ -1,0 +1,71 @@
+5
+So, taking into account that p + 1 ≤2p for every p, we have
+log
+lp+1
+lp
+
+≤log
+
+C4p+8 mp+1
+mp
+
+≤(4p + 8) log(C) + C0Hp+1
+≤4 log(C) + 2 log(C)2p+1 + C0Hp+1 ≤C1Hp+1
+1
+for the choices C1 = 4 log(C) + C0 > 0 and H1 = max{2, H} > 1, so that L also satisfies
+(sm).
+Given a sequence M = (Mp)p and r > 0, we write M r := (Mr
+p)p. It is clear that M satisfies
+(sm) if, and only if, M r does for some/every r > 0.
+2.2
+Associated function with a sequence
+It is very helpful to consider the associated function to a sequence M given by
+hM(t) := inf
+p∈N0 Mptp,
+t > 0; hM(0) := 0.
+It is well known that hM(t) > 0 for every t > 0 if, and only if, limp→∞M1/p
+p
+= ∞, which will
+be a standard assumption when hM enters our considerations. In particular, this condition is
+satisfied for weight sequences. From [14, Prop. 3.2] we find that, for a weight sequence M,
+Mp = sup
+t>0
+tphM(1/t),
+p ∈N0,
+(2.1)
+and it is plain to check that
+hM(t) = Mp+1tp+1
+for
+1
+mp+1
+≤t < 1
+mp
+, p ∈N0;
+hM(t) = 1
+for t ≥1
+m0
+.
+(2.2)
+Moreover, hM is nondecreasing and continuous.
+2.3
+Index γ(M) for weight sequences
+The index γ(M), introduced by V. Thilliez [26, Sect. 1.3] for strongly regular sequences M, can
+be defined for (lc) sequences, and it may be equivalently expressed by different conditions:
+(i) A sequence (cp)p∈N0 is almost increasing if there exists a > 0 such that for every p ∈N0 we
+have that cp ≤acq for every q ≥p. It was proved in [9, 10] that for any weight sequence
+M one has
+γ(M) = sup{γ > 0 : (mp/(p + 1)γ)p∈N0 is almost increasing} ∈[0, ∞].
+(2.3)
+(ii) Given β > 0, we say that m satisfies the condition (γβ) if there exists A > 0 such that
+∞
+X
+ℓ=p
+1
+(mℓ)1/β ≤A(p + 1)
+(mp)1/β ,
+p ∈N0.
+(γβ)
+In [6, 10] it is proved that for a weight sequence M,
+γ(M) = sup{β > 0: m satisfies (γβ) };
+γ(M) > β ⇐⇒m satisfies (γβ).
+(2.4)

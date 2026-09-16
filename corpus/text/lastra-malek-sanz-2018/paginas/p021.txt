@@ -1,0 +1,43 @@
+21
+Since m and M are equivalent, from (27) we deduce that
+Z ∞(τ)
+R0eiτ eM
+u
+z
+
+g(u)du
+u ∼M ˆ0
+uniformly in Aτ = {z ∈R : |z| < k5/(k3ρ(2)), |arg(z) −τ| < δ π
+2 } (where ˆ0 is the null formal
+power series). Since any T ≪G(d, δ+ε) of small radius may be covered by ﬁnitely many sets Aτ,
+the conclusion that f ∼M ˆf in G(d, δ + ε) is reached.
+✷
+Remark 6.11. In the situation of the previous result, by Theorem 6.7 we deduce that f is unique
+with the property that f ∼M ˆf in G(d, β), and it is called the M−sum of ˆf in direction d.
+The properties of this concept are currently under study, as well as its application to the
+study of solutions of diﬀerent types of algebraic and diﬀerential equations in the complex domain
+with coeﬃcients in general ultraholomorphic classes.
+Acknowledgements: The ﬁrst and third authors are partially supported by the Spanish Min-
+istry of Science and Innovation under project MTM2009-12561. The second author is partially
+supported by the French ANR-10-JCJC 0105 project.
+References
+[1] W. Balser, From divergent power series to analytic functions. Theory and application of
+multisummable power series, Lecture Notes in Math. 1582, Springer-Verlag, Berlin, 1994.
+[2] W. Balser, Formal power series and linear systems of meromorphic ordinary diﬀerential
+equations, Springer, Berlin, 2000.
+[3] W. Balser, M. Yoshino, Gevrey order of formal power series solutions of inhomogeneous
+partial diﬀerential equations with constant coeﬃcients, Funkcialaj Ekvac. 53 (2010), 411–
+434.
+[4] J. C. Canille, Desenvolvimento assint´otico e introdu¸c˜ao ao c´alculo diferencial resurgente,
+17 Col´oquio Brasileiro de Matem´atica, IMPA (1989).
+[5] J. Chaumat, A. M. Chollet, Th´eor`eme de Whitney dans des classes ultradiﬀ´erentiables, C.
+R. Acad. Sci. Paris 315 (1992), 901–906.
+[6] J. Chaumat, A. M. Chollet, Surjectivit´e de l’application restriction `a un compact dans des
+classes de fonctions ultradiﬀ´erentiables, Math. Ann. 298 (1994), no. 1, 7–40.
+[7] F. Galindo, J. Sanz, On strongly asymptotically developable functions and the Borel-Ritt
+theorem, Studia Math. 133 (3) (1999), 231–248.
+[8] Y. Haraoka, Theorems of Sibuya-Malgrange type for Gevrey functions of several variables,
+Funkcial. Ekvac. 32 (1989), 365–388.
+[9] J. A. Hern´andez, Desarrollos asint´oticos en polisectores. Problemas de existencia y uni-
+cidad (Asymptotic expansions in polysectors. Existence and uniqueness problems), Ph.D.
+Dissertation, Universidad de Valladolid, Spain, 1994.

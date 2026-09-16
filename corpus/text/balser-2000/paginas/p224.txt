@@ -1,0 +1,46 @@
+208
+14. Some Historical Remarks
+1. Among all solutions of the linear system of ODE that are asymptotic
+to a given formal solution in some sector, can we characterize one
+uniquely by requiring certain additional properties?
+2. If so, can we ﬁnd a representation for this unique solution, in terms of
+the formal one, using an integral operator, or applying a summability
+method to the formal power series?
+Parallel to these developments in the theory of ODE, scientists also founded
+a general theory of asymptotic expansions. Here, the analogue to the Main
+Asymptotic Existence Theorem is usually called Ritt’s theorem, and is much
+easier to prove: Given any formal power series and any sector of arbitrary,
+but ﬁnite, opening, there exists a function that is holomorphic in this sec-
+tor and has the formal power series as its asymptotic expansion. This
+function is never uniquely determined – not even when the power series
+converges, because it may not converge toward this function! To overcome
+this nonuniqueness, Watson [282, 283] and Nevanlinna [201] introduced a
+special kind of asymptotic expansions, now commonly called of Gevrey or-
+der s > 0. These have the property that the analogue to Ritt’s theorem
+holds for sectors of opening up to sπ, in which cases the function again
+is not uniquely determined. If the opening is larger than sπ, however, a
+function that has a given formal power series as expansion of Gevrey or-
+der s > 0 may not exist, but if it does, then it is uniquely determined. In
+case of existence, the function can be represented as Laplace transform of
+another function that is holomorphic at the origin, and whose power series
+expansion is explicitly given in terms of the formal power series.
+This achievement in the general theory of asymptotic expansions obvi-
+ously escaped the attention of specialists for diﬀerential equations in the
+complex domain for quite some time: In a series of papers, Horn [125–128]
+showed the following result for linear systems of ODE: Let the leading
+term of the coeﬃcient matrix, at a singularity of second kind, have all
+distinct eigenvalues. Then for sectors with suﬃciently large opening one
+has uniqueness in the Main Asymptotic Existence Theorem, and the so-
+lution can be represented as a Laplace integral, or equivalently, in terms
+of (inverse) factorial series. However, he did not relate his observations to
+the general results of Watson and Nevanlinna. Later, Trjitzinsky [266] and
+Turrittin [268] treated somewhat more general situations, and they also
+pointed out the limitation of this approach to special cases.
+In 1978/80, Ramis [225, 226] introduced his notion of k-summability of
+formal power series, which may best be interpreted as a formalization of the
+ideas of Watson and Nevanlinna. In this terminology, we may interpret the
+results of Horn, Trjitzinsky, and Turrittin as saying that, under additional
+assumptions, formal solutions of linear meromorphic systems of ODE are
+k-summable, for a suitable value of k > 0. In the general case, Ramis proved
+that every formal fundamental solution of every such system can be factored
+into a ﬁnite product of matrix power series (times some explicit functions),

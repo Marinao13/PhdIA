@@ -1,0 +1,43 @@
+14
+1. Basic Properties of Solutions
+4. Under the assumptions of Exercise 8 on p. 7, show that a computation
+of a fundamental solution of (1.1) is equivalent to ﬁnding a funda-
+mental solution of a system of dimension ν −µ and an additional
+integration.
+1.6
+Some Additional Notation
+It will be convenient for later use to say that a system (1.1) is elementary
+if a matrix-valued holomorphic function B(z), for z ∈G, exists such that
+B′(z) = A(z) and A(z) B(z) = B(z) A(z) hold for every z ∈G. As was
+shown in Exercise 3 on p. 7 and the following one, an elementary system
+has the fundamental solution X(z) = exp[B(z)]; however, such a B(z)
+does not always exist, so not every system is elementary. Simple examples
+of elementary systems are those with constant coeﬃcients, or systems with
+diagonal coeﬃcient matrix, or the ones studied in Exercise 2 on p. 7.
+In the last century or so, one of the main themes of research has been on
+the behavior of solutions of (1.1) near an isolated boundary point z0 of the
+region G – assuming that such points exist, which implies that G will be
+multiply connected. In particular, many classical as well as recent results
+concern the situation where the coeﬃcient matrix A(z) has a pole of order
+r+1 at z0, and the non-negative integer r then is named the Poincar´e rank
+of the system. Relatively little work has been done in case of an essential
+singularity of A(z) at z0, and we shall not consider such cases here at all.
+It is standard to call a system (1.1) a meromorphic system on G if the
+coeﬃcient matrix A(z) is a meromorphic function on G; i.e., every point of
+G is either a point of holomorphy or a pole of A(z).
+In the following chapters we shall study the local behavior of solutions
+of (1.1) near a pole of A(z), and to do so it suﬃces to take G equal to
+a punctured disc R(z0, ρ), for some ρ > 0. We shall see that the cases of
+Poincar´e rank r = 0, i.e., a simple pole of A(z) at z0, are essentially diﬀerent
+from r ≥1, and we follow the standard terminology in referring to the ﬁrst
+resp. second case by saying that (1.1) has a singularity of ﬁrst resp. of second
+kind at z0. If A(z) is holomorphic in R(∞, ρ) = {z : |z| > ρ}, we say, in
+view of 3 Exercise 2 that (1.1) has rank r at inﬁnity if B(z) = −z−2A(1/z)
+has rank r at the origin. Accordingly, inﬁnity is a singularity of ﬁrst, resp.
+second, kind of (1.1), if zA(z) is holomorphic, resp. has a pole, at inﬁnity.
+Observe that the same holds when classifying the nature of singularity at
+the origin! This fact is one of the reasons that, instead of systems (1.1), we
+shall from now on consider systems obtained by multiplying both sides of
+(1.1) by z.
+3Observe that references to exercises within the same section are made by just giving
+their number.

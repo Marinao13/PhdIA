@@ -1,0 +1,139 @@
+20
+(e) The matrix Mα satisﬁes the property (M{FdB}).
+Proof. (a) ⇒(b) First recall that by the so-called Fa`a-di-Bruno formula for the com-
+position we get
+(g◦f)(n)(z) =
+X
+Pn
+i=1 ki=k,Pn
+i=1 iki=n
+n!
+k1! · · · kn!g(k)(f(z))
+n
+Y
+i=1
+ 
+f (i)(z)
+i!
+!ki
+,
+z ∈Sα, n ∈N0.
+Let now f ∈A{M}(Sα) be given. By Theorem 5.7 we know that the classes A{Mα}(Sα)
+and A{M}(Sα) are equal, therefore f ∈A{Mα}(Sα). In particular, f is bounded and
+thus any function g which is analytic in a domain containing the (compact) closure of
+the range of f satisﬁes
+∃C1, h1 ≥1 ∀k ∈N0 ∀z ∈Sα :
+|g(k)(f(z))| ≤C1hk
+1k!.
+(17)
+By applying this and the fact that f ∈A{Mα}, we estimate as follows for all n ∈N0 and
+z ∈Sα:
+|(g ◦f)(n)(z)| ≤
+X
+Pn
+i=1 ki=k,Pn
+i=1 iki=n
+n!
+k1! · · · kn!|g(k)(f(z))|
+n
+Y
+i=1
+
+f (i)(z)
+i!
+
+ki
+≤
+X
+Pn
+i=1 ki=k,Pn
+i=1 iki=n
+n!
+k1! · · · kn!C1hk
+1k!
+n
+Y
+i=1
+
+C2hi
+2
+c
+M
+(p,α)
+i
+ki
+≤C1
+X
+Pn
+i=1 ki=k,Pn
+i=1 iki=n
+n!
+k1! · · · kn!hk
+1k!Ck1+···+kn
+2
+hk1+···+nkn
+2
+n
+Y
+i=1
+(
+c
+M
+(p,α)
+i
+)ki
+≤
+|{z}
+(6)
+C1(C2h1h2)n
+X
+Pn
+i=1 ki=k,Pn
+i=1 iki=n
+n!
+k1! · · · kn!k!
+n
+Y
+i=1
+Hiki
+1
+c
+M
+(p′,α)
+iki
+≤
+|{z}
+(6)
+C1(H1C2h1h2)n
+X
+Pn
+i=1 ki=k,Pn
+i=1 iki=n
+n!
+k1! · · · kn!k!Hk1+···+nkn
+2
+c
+M
+(p′′,α)
+k1+···+nkn
+= C1(H1H2C2h1h2)nM(p′′,α)
+n
+X
+Pn
+i=1 ki=k,Pn
+i=1 iki=n
+k!
+k1! · · · kn!
+≤C1C3(H1H2C2C4h1h2)nM(p′′,α)
+n
+.
+For the estimates also note that k ≤n and w.l.o.g. C2, h1, h2, H1 ≥1. Moreover, we
+have that
+X
+Pn
+i=1 ki=k,Pn
+i=1 iki=n
+k!
+k1! · · · kn! = 2n−1,
+see [10, Lemma 1.4.1] or [4, Prop. 2.1]. Finally, by taking into account that the classes
+A{Mα}(Sα) and A{M}(Sα) are equal, then g ◦f ∈A{M}(Sα) is veriﬁed.

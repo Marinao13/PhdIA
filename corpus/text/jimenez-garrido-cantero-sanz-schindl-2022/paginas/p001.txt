@@ -1,0 +1,43 @@
+arXiv:2205.07605v2  [math.CV]  31 Oct 2022
+Optimal ﬂat functions in Carleman-Roumieu ultraholomorphic
+classes in sectors
+Javier Jiménez-Garrido
+Ignacio Miguel-Cantero
+Javier Sanz
+Gerhard Schindl
+November 2, 2022
+Abstract
+We construct optimal ﬂat functions in Carleman-Roumieu ultraholomorphic classes as-
+sociated to general strongly nonquasianalytic weight sequences, and deﬁned on sectors of
+suitably restricted opening. A general procedure is presented in order to obtain linear con-
+tinuous extension operators, right inverses of the Borel map, for the case of regular weight
+sequences in the sense of Dyn’kin. Finally, we discuss some examples (including the well-
+known q-Gevrey case) where such optimal ﬂat functions can be obtained in a more explicit
+way.
+Key words: Carleman-Roumieu ultraholomorphic classes, asymptotic expansions, linear ex-
+tension operators.
+2020 MSC: Primary 47A57; secondary 44A10, 46E10.
+1
+Introduction
+The asymptotic Borel map sends a function, admitting an asymptotic expansion in a sectorial
+region, into the formal power series providing such expansion. In many instances it is important
+to decide about the injectivity and surjectivity of this map when considered between so-called
+Carleman-Roumieu ultraholomorphic classes and the corresponding class of formal series, deﬁned
+by restricting the growth of some of the characteristic data of their elements (the derivatives of
+the functions, the remainders in the expansion, or the coeﬃcients of the series) in terms of
+a given weight sequence M = (Mp)p∈N0 of positive real numbers (see Subsection 2.3 for the
+deﬁnition of such classes). While the injectivity has been fully characterized for sectorial re-
+gions and general weight sequences [17, 27, 12], the surjectivity problem is still under study.
+The classical Borel-Ritt-Gevrey theorem of B. Malgrange and J.-P. Ramis [26], solving the case
+of Gevrey asymptotics (for which M = (p!α)p∈N0, α > 0), was partially extended to diﬀerent
+more general situations by J. Schmets and M. Valdivia [29], V. Thilliez [30, 31] and the au-
+thors [28, 12, 13]. Summing up, it is known now that the strong nonquasianalyticity condition
+(snq) for M, equivalent to the fact that the index γ(M) introduced by V. Thilliez is positive (see
+Subsection 2.2), is indeed necessary for surjectivity. Moreover, for an unbounded sector Sγ of
+opening πγ (γ > 0) in the Riemann surface of the logarithm and for regular weight sequences in
+the sense of E. M. Dyn’kin [6] (see Subsection 2.1 for the deﬁnitions), the Borel map is surjective
+whenever γ < γ(M), while it is not for γ > γ(M) (the situation for γ = γ(M) is still unclear
+in general). It is important to note that the current proof of surjectivity in this situation is
+not constructive, but rests on the characterization, by abstract functional-analytic techniques,
+of the surjectivity of the Stieltjes moment mapping in Gelfand-Shilov spaces deﬁned by regular
+1

@@ -1,0 +1,46 @@
+4.4 Asymptotic Expansions
+69
+in case fn ̸= 0, resp. cn = 0 otherwise, let wn(z) = 1 −exp[−cn/(ze−id)β].
+Using Exercise 1, we ﬁnd ∥fn∥|z|n|wn(z)| ≤|z|n−β/n! for every n ≥0
+and every z ∈G. This proves absolute and locally uniform convergence of
+f(z) = ∞
+n=0 fn zn wn(z) in G, so that f ∈H(G, E ). Moreover,
+rf(z, N) = fN(z) −
+N−1
+
+n=0
+fn zn−N exp[−cn/(ze−id)β],
+where fN(z) = ∞
+n=N fn zn−N wn(z) is bounded in G, and the other terms
+tend to zero as z →0 in every closed subsector ¯S of G, and hence are
+bounded at the origin.
+2
+The following result characterizes the invertible elements in A(G, E ) in
+case E is a Banach algebra with unit element:
+Theorem 17 Let E be a Banach algebra with unit element e. Given a
+sectorial region G, suppose that f(z) ∼= ˆf(z) in G. Moreover, assume that
+the constant term f0 of ˆf(z) and all values f(z), z ∈G, are invertible
+elements of E . Then
+f −1(z) ∼= ˆf −1(z)
+in G,
+if ˆf −1(z) denotes the unique formal power series ˆg(z) with ˆf(z) ˆg(z) = ˆe,
+the unit element of E [[z]].
+Proof: Compare Exercise 5 on p. 65 for existence of ˆf −1(z) =  ˜fn zn.
+Given a closed subsector ¯S of G, there exist cN > 0 such that ∥rf(z, N)∥≤
+cN for N ≥0 and z ∈¯S and, using (4.4), ∥˜fN∥≤cN for every N ≥0. The
+identity rf −1(z, N) f(z) = −N−1
+m=0 ˜fm rf(z, N −m), and the fact that for
+z ∈¯S we have ∥f(z)∥≥δ > 0, then imply
+∥rf −1(z, N)∥≤δ−1
+N−1
+
+m=0
+cmcN−m,
+completing the proof.
+2
+Exercises:
+1. Show |1 −e−z| < |z| for z in the right half-plane.
+2. Suppose f(z) is holomorphic in a sectorial region G, and f(z) ∼= ˆf(z)
+in G for some ˆf ∈E [[z]]. If p is a natural number and ˜G is such that
+z ∈˜G ⇐⇒zp ∈G, show that ˜f(z) = f(zp) is holomorphic in ˜G, and
+˜f(z) ∼= ˆf(zp) in ˜G.

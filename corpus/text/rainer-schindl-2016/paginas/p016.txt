@@ -1,0 +1,47 @@
+A. Rainer, G. Schindl
+and
+ϕ(k)
+k log k ≤ϕ(k)
+log k! ≤2 ϕ(k)
+k log k . So the ﬁrst inequality in (5) follows thanks to the fact that k!s
+is log-convex for each s ≥0. For the second inequality we observe that in view of (A.1) the
+slope ai is dominated by the increment log((k + 1)!1+t) −log(k!1+t) = (1 + t) log(k + 1)
+for all ki−1 ≤k < ki provided that t > 3 and that i is sufﬁciently large depending on t.
+References
+1. Bierstone, E., Milman, P.D.: Resolution of singularities in Denjoy–Carleman classes. Sel. Math. (N.S.)
+10(1), 1–28 (2004)
+2. Bonet, J., Meise, R., Melikhov, S.N.: A comparison of two different ways to deﬁne classes of ultradiffer-
+entiable functions. Bull. Belg. Math. Soc. Simon Stevin 14, 424–444 (2007)
+3. Braun, R.W., Meise, R., Taylor, B.A.: Ultradifferentiable functions and Fourier analysis. Results Math.
+17(3–4), 206–237 (1990)
+4. Bruna, J.: On inverse-closed algebras of inﬁnitely differentiable functions. Studia Math. 69(1), 59–68
+(1980/81)
+5. Dyn’kin, E.M.: Pseudoanalytic extension of smooth functions. The uniform scale. Transl. Am. Math. Soc
+115(2), 33–58 (1980). (English)
+6. Fernández, C., Galbis, A.: Superposition in classes of ultradifferentiable functions. Publ. Res. Inst. Math.
+Sci. 42(2), 399–419 (2006)
+7. Koike, M.: Inverse mapping theorem in the ultradifferentiable class. Proc. Jpn. Acad. Ser. A Math. Sci.
+72(8), 171–172 (1996)
+8. Komatsu, H.: Ultradistributions. I. Structure theorems and a characterization. J. Fac. Sci. Univ. Tokyo
+Sect. IA Math. 20, 25–105 (1973)
+9. Komatsu, H.: An analogue of the Cauchy–Kowalevsky theorem for ultradifferentiable functions and a
+division theorem for ultradistributions as its dual. J. Fac. Sci. Univ. Tokyo Sect. IA Math. 26(2), 239–254
+(1979)
+10. Komatsu, H.: The implicit function theorem for ultradifferentiable mappings. Proc. Jpn. Acad. Ser. A
+Math. Sci. 55(3), 69–72 (1979)
+11. Komatsu, H.: Ultradifferentiability of solutions of ordinary differential equations. Proc. Jpn. Acad. Ser.
+A Math. Sci. 56(4), 137–142 (1980)
+12. Kriegl, A., Michor, P.W., Rainer, A.: The convenient setting for Denjoy–Carleman differentiable mappings
+of Beurling and Roumieu type. Rev. Mat. Complut. (accepted for publication) arXiv:1111.1819 (2011)
+13. Rainer, A., Schindl, G.: Composition in ultradifferentiable classes. Stud. Math. 224(2), 97–131 (2014)
+14. Roumieu, C.: Ultra-distributions déﬁnies sur Rn et sur certaines classes de variétés différentiables. J.
+Anal. Math. 10, 153–192 (1962/1963)
+15. Rudin, W.: Division in algebras of inﬁnitely differentiable functions. J. Math. Mech. 11, 797–809 (1962)
+16. Schindl, G.: The convenient setting for ultradifferentiable mappings of Beurling- and Roumieu-type
+deﬁned by a weight matrix. arXiv:1412.6165 (2014)
+17. Siddiqi, J.A.: Inverse-closed Carleman algebras of inﬁnitely differentiable functions. Proc. Am. Math.
+Soc. 109(2), 357–367 (1990)
+18. Yamanaka, T.: Inverse map theorem in the ultra-F-differentiable class. Proc. Jpn. Acad. Ser. A Math. Sci.
+65(7), 199–202 (1989)
+19. Yamanaka, T.: On ODEs in the ultradifferentiable class. Nonlinear Anal. 17(7), 599–611 (1991)
+20. ˙Zelazko, W.: Metric generalizations of Banach algebras. Rozprawy Mat. 47 (1965)

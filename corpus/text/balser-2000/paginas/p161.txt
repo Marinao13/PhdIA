@@ -1,0 +1,42 @@
+144
+9. Stokes’ Phenomenon
+Exercises: In the following exercises, make the same assumptions as in
+the above proposition. In particular, let matrices always be blocked of type
+(s1, . . . , sµ).
+1. Prove that if a matrix C can be factored as C = D C+ C−, with
+D diagonally blocked, and C+ upper, resp. C−lower triangularly
+blocked, both factors having identity matrices along the diagonal,
+then the factors are uniquely determined.
+2. Enumerate the pairs (n, m), 1 ≤m < n ≤µ in any order, and let
+all blocks of C on and above the diagonal vanish. Prove I + C =
+(I + C1) · . . . · (I + Cµ(µ−1)/2), with unique matrices Cj whose blocks
+all vanish except for that one in position (nj, mj).
+3. Show the following for k = 1: If exp[2πiL] and any one of the matri-
+ces exp[2πiMj] are known, then all the Stokes multipliers Vj can be
+computed from the identities established above.
+9.3
+The Associated Functions
+Only in a few cases in dimension ν = 2 shall we succeed in expressing
+the Stokes multipliers in terms of known higher transcendental functions
+of the parameters of the system; in general their nature seems to be of the
+same degree of transcendence as that of the solutions itself. Nonetheless,
+it is of importance to learn as much as possible about how to, at least
+theroretically, compute them in terms of the data in the system. Here,
+we shall study in which sense the Stokes multipliers can be obtained via
+an analysis of the singularities of certain associated functions, related to
+the HLNS by Borel transform. This is a case of what Ecalle has named
+resurgent analysis. While Braaksma [69] and Immink [137] have obtained
+equivalent results working with the classical type of FFS, we shall here
+follow a presentation in [39], which was based on HLFFS, restricted to
+k = 1. For similar results in case of k = r > 1, but a leading term with
+distinct eigenvalues, see Reuter [231, 232].
+Consider a ﬁxed system (3.1) having an essentially irregular singularity at
+inﬁnity, and a likewise ﬁxed HLFFS ( ˆF(z), Y (z)). To simplify notation, we
+shall without loss of generality make the following additional assumptions:
+• Assume that k is an integer. This can be brought about by a change
+of variable z = wq and has the eﬀect that ˆF(z) does not contain
+any roots. By such a change of variable, the Stokes directions τj are
+replaced by τj/q, but the Stokes multipliers Vj remain the same. For
+integer k, the block permutation matrix R introduced above equals
+I; hence the formal monodromy matrix L is diagonally blocked, say,
+L = diag [L1, . . . , Lµ].

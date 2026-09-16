@@ -1,0 +1,45 @@
+C.1 Exponential of a Matrix
+239
+To make this deﬁnition unambiguous, we have to select a branch of the mul-
+tivalued function log z, e.g., by specifying a value for arg z. Whether or not
+zA is indeed a multivalued function, and how many branches this function
+has, depends on the eigenvalues of A as well as its nilpotent part; e.g., if A
+is diagonalizable and all eigenvalues are integers, then zA is single-valued,
+while for A being a nilpotent nonzero matrix the function has inﬁnitely
+many branches. By termwise diﬀerentiation of the deﬁning series one can
+show that
+d
+dz zA = A zA−I = zA−I A,
+independent of the selected branch of the function.
+Exercises: If nothing else is said, let
+A =
+
+A11
+O
+A21
+A22
+
+be a constant matrix, lower triangularly blocked as indicated, with square
+diagonal blocks.
+1. Assume that A11 and A22 have disjoint spectra, i.e., do not have
+a common eigenvalue. Show existence and uniqueness of a constant
+matrix T so that
+zA =
+
+zA11
+O
+T zA11 −zA22 T
+zA22
+
+.
+2. For a nilpotent Jordan block N, compute zN.
+3. Show: det exp[A] = exp[ trace A ].
+4. For arbitrary ν × ν matrices A, B, show that
+exp[(A + B)z] = exp[Az] exp[Bz]
+holds for every z ∈C if and only if A and B commute.
+5. Let A(z) be a square matrix whose entries all are holomorphic in
+some region G ⊂C, so that A′(z) A(z) = A(z) A′(z) for every z ∈G.
+Show
+d
+dz eA(z) = A′(z) eA(z) = eA(z) A′(z),
+z ∈G.

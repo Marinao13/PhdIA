@@ -1,0 +1,44 @@
+3.3 Nilpotent Leading Term
+45
+4. In case the leading term A0 has all distinct eigenvalues, show that
+(3.3) has a formal fundamental solution of the form
+ˆX(z) = ˆT(z) zΛ eQ(z),
+with a formal analytic transformation ˆT(z), being of Gevrey order
+˜s = max{s, 1/r} in case (3.3) is formal of Gevrey order s, a constant
+diagonal matrix Λ, and a diagonal matrix Q(z) with polynomials
+along the diagonal satisfying Q(0) = 0. Explicitly describe an algo-
+rithm for computing the matrices Λ and Q(z) and any ﬁnite number
+of coeﬃcients of ˆT(z).
+3.3
+Nilpotent Leading Term
+In this section, we are concerned with formal systems (3.3) whose leading
+term only has one eigenvalue, so that the Splitting Lemma does not apply.
+A scalar exponential shift then reduces such a system to one with nilpotent
+leading term, and such a transformation commutes with every other one we
+are using here. Hence it is without loss of generality when, for notational
+convenience, we restrict our discussion to systems (3.3) having a nilpotent
+leading term A0 ̸= 0. We may also assume A0 in Jordan canonical form
+A0 = diag [N1, . . . , Nµ],
+(3.9)
+with nilpotent Jordan blocks of weakly decreasing sizes s1 ≥. . . ≥sµ – if
+this were not so, we could apply a constant transformation. In what follows,
+we shall block ˆA(z) = [ ˆAjk(z)] according to the block structure of the ma-
+trix A0, and similarly for transformations resp. corresponding transformed
+equations. Our goal is to simplify the given system, in a sense to be made
+clear later, using ﬁnitely many transformations that are either terminating
+analytic ones, or shearing transformations, or scalar exponential shifts. Ow-
+ing to the nature of the transformations we see that in case the system we
+begin with is convergent, then the one we obtain in the end converges, too.
+Hence, divergent transformations or systems will only occur when applying
+the Splitting Lemma!
+As a ﬁrst step we shall try to ﬁnd terminating analytic transformations,
+resp. unramiﬁed shearings, that leave the Poincar´e rank r of (3.3) un-
+changed, but possibly increase the matrix rank of A0 or, in general, leave
+the ranks of Ak
+0 ﬁxed, for 1 ≤k ≤j −1, and increase the rank of Aj
+0. To
+have a way of expressing this, we shall use the following terminology:
+Order Relation for Nilpotent Matrices
+Given any two nilpotent matrices N, ˜N ∈C ν×ν, we say that ˜N
+is superior to N, if for some j ≥1 we have rank N k = rank ˜N k
+for 1 ≤k ≤j −1, and rank N j < rank ˜N j.

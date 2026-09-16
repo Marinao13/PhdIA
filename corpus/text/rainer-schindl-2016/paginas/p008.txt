@@ -1,0 +1,94 @@
+A. Rainer, G. Schindl
+Remark 4 A more general statement involving parameters u in a further Banach space Z is
+true: the solution of the initial value problem
+x′(t) = f (x(t), t, u),
+x(0) = x0,
+satisﬁes an estimate of the kind (3.4) in t, u, and x0, given that f satisﬁes an estimate of the
+kind (3.2) in x, t, and u. For simplicity we prove only the result stated in the proposition;
+the general result is obtained by making obvious modiﬁcations in the proof of [19] the main
+ideas of which we follow here. Different arguments were given in [11] and [5].
+In the proof of the proposition we will use Faà di Bruno’s formula for Fréchet derivatives
+of mappings between Banach spaces. So let us recall this formula. For k ≥1,
+( f ◦g)(k)(x)
+k!
+= sym
+⎛
+⎜⎜⎜⎜⎜⎝
+
+j≥1
+
+α∈N j
+>0
+ j
+i=1 αi=k
+f ( j)(g(x))
+j!
+◦
+
+g(α1)(x)
+α1!
+× · · · × g(α j)(x)
+α j!
+
+⎞
+⎟⎟⎟⎟⎟⎠
+, (3.5)
+where sym denotes symmetrization of multilinear mappings.
+Proof We may reduce the initial value problem (3.3) to the problem
+y′ = g(y),
+y(0) = y0,
+(3.6)
+by setting y = (x, t), y0 = (x0, 0), and g(y) = ( f (y), 1). So we assume that Y is a Banach
+space, U is a neighborhood of 0 in Y, and g ∈C∞(U, Y) satisﬁes
+∃λ ∈ ∃C, ρ ≥1 ∀k ∈N ∀y ∈U : ∥g(k)(y)∥Lk(Y,Y) ≤Cρk(k −1)!Mλ
+k−1.
+(3.7)
+Without loss of generality we assume Mλ
+1 ≥2. By the classical existence and uniqueness
+result, there exists a unique C∞solution y = y(t) of (3.6) for t in a neighborhood I of 0.
+We assume that supt∈I ∥y(t)∥< ∞.
+By (M{rai}) there exists μ ∈ and H ≥1 such that for 2 ≤j ≤k,
+ Mλ
+j−1
+j
+
+1
+j−1 ≤H
+ Mμ
+k−1
+k
+
+1
+k−1 =: pμ
+k .
+Then, since 1 ≤Mλ
+1 /2 ≤pμ
+k ,
+Mλ
+j−1
+j
+≤(pμ
+k ) j,
+for 2 ≤j ≤k.
+(3.8)
+Let us choose constants A and η such that
+A ≥max
+
+sup
+t∈I
+∥y(t)∥, C
+
+and
+η ≥ρ,
+(3.9)
+where C and ρ are the constants from (3.7). We deﬁne
+Gμ
+k (s) :=
+A
+1 −ηpμ
+k s ,
+for small s ∈R, and consider the initial value problem
+Y ′(t) = Gμ
+k (Y(t) −A),
+Y(0) = A.
+(3.10)

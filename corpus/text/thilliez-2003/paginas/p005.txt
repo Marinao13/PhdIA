@@ -1,0 +1,68 @@
+DIVISION BY FLAT FUNCTIONS AND SECTORIAL EXTENSIONS
+5
+Since the strong regularity of M implies in particular the well-known Denjoy-
+Carleman condition of non-quasianalyticity
+(15)
+X
+j≥0
+Mj
+(j + 1)Mj+1
+< ∞,
+we know that CM,σ(Rn) contains non-zero functions f which are ﬂat at the origin,
+which means that Bf = 0. Such a function f satisﬁes, for any multi-index K ∈Nn
+and any x ∈Rn,
+(16)
+|DKf(x)| ≤∥f∥Rn,σ(2Aσ)kk!MkhM(2Aσ|x|).
+Indeed, DKf can be majorized by applying the Taylor formula at any order j,
+together with (3) and the elementary estimate (j + k)! ≤2j+kj!k!. It suﬃces then
+to take the inﬁmum with respect to j to get (16). We see in particular that any ﬂat
+function f in CM,σ(Rn) satisﬁes |f(x)| ≤∥f∥Rn,σhM(2Aσ|x|). Using the optimal
+cut-oﬀfunctions of Bruna [3], it is not very diﬃcult to construct such an f for which
+this estimate is sharp, in the sense that |f(x)| ≥A′hM(A′|x|) for some A′ > 0. We
+shall not describe this construction, nor the corresponding upper bounds on the
+successive derivatives of 1/f, since they are too crude for the practical purposes
+of sections 3 and 4. From section 2, we shall, in appropriate circumstances, get
+additional holomorphy properties, hence a much better handling of 1/f.
+1.3. On growth properties of strongly regular sequences. We study here
+a property of strongly regular sequences which can be viewed as a relationship
+between the growth and regularity of such a sequence, and that of suitable Gevrey
+sequences.
+Deﬁnition 1.3.1. Let M be a strongly regular sequence, m its sequence of quo-
+tients, and let γ be a positive real number. We say that M satisﬁes property (Pγ)
+if there exist a sequence m′ = (m′
+j)j≥0 and a constant a ≥1 such that (j + 1)−γm′
+j
+increases and a−1mj ≤m′
+j ≤amj for any j ∈N.
+Notice that property (Pγ) implies easily the estimate
+(17)
+aj
+1j!γ ≤Mj for any j ∈N
+with a1 = m′
+0/a, since Mj = m0 · · · mj−1. The introduction of (Pγ) is justiﬁed by
+lemma 1.3.2 below. The most important part of the lemma is a rewriting of a result
+of Petzsche ([13], corollary 1.3), for which we remind the reader about notational
+diﬀerences: what is denoted by Mj (resp. mj, m′
+j) in the present paper corresponds
+to M ∗
+j (resp. m∗
+j+1, n∗
+j+1) in [13].
+Lemma 1.3.2. Let M be a strongly regular sequence.
+(i) There always exists a real γ > 0 such that property (Pγ) holds,
+(ii) There exist constants δ > 0 and a2 > 0 such that
+(18)
+Mj ≤aj
+2j!δ for any j ∈N.
+Proof. Part (i) is the aforementioned result of [13]. Part (ii) is obtained easily from
+(9): choose δ > 0 such that A2e−δ ≤1. Then a trivial induction using (9) and the
+elementary estimate (
+j
+j+1)j+1 ≤e−1 yields Mj ≤M j
+1jδj. Finally we get (18) by
+Stirling’s formula.
+□
+Remark 1.3.3. In terms of Gevrey classes, (17) and (18) amount to the inclusions
+G1+γ(Ω) ⊂CM(Ω) ⊂G1+δ(Ω).
+As a ﬁrst application of lemma 1.3.2, we gain some information on the powers
+of M.

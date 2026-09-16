@@ -1,0 +1,73 @@
+EQUALITY OF ULTRADIFFERENTIABLE CLASSES BY MEANS OF INDICES
+9
+(iv) The matrix ωM does satisfy
+∀C > 0 ∀x ∈I ∃y ∈I ∃D > 0 ∀t ≥0 :
+ωMx(Ct) ≤ωMy(t) + D.
+Proof. We will only treat the Roumieu case, the Beurling case is analogous.
+(i) ⇒(ii) It suﬃces to take C = 2 in condition (M{L}).
+(ii) ⇒(iii) For all x ∈I we can ﬁnd D > 0 and y ∈I such that (2t)j
+My
+j
+≤D tj
+My
+j for all j ∈N and
+t ≥0. This yields the conclusion by deﬁnition of associated weight functions.
+(iii) ⇒(iv) This is clear for C ≤2 (since each associated weight function is nondecreasing).
+If C > 2, then we take n ∈N chosen minimal such that C ≤2n is valid and apply iteration:
+Given x ∈I, there exists y1 ∈I and D1 > 0 such that for all t ≥0, ωMy1 (2t) ≤ωMx(t) + D1.
+Recursively, for j = 2, . . . , n we ﬁnd there exist yj ∈I and Dj > 0 such that for all t ≥0,
+ωMyj (2t) ≤ωMyj−1 (t) + Dj. Then, we easily get
+ωMyn (Ct) ≤ωMyn (2nt) ≤ωMx(t) +
+n
+X
+j=1
+Dj,
+as desired.
+(iv) ⇒(i) We apply (2.1) and get for all j ∈N:
+M x
+j = sup
+t≥0
+tj
+exp(ωMx(t)) ≤eD sup
+t≥0
+tj
+exp(ωMy(Ct)) = eD 1
+Cj sup
+s≥0
+sj
+exp(ωMy(s)) = eD 1
+Cj M y
+j ,
+and so we are done.
+□
+For abstractly given weight matrices M, a connection to mixed ”(ω1)-conditions” has been estab-
+lished in [15, Prop. 3.12, Cor. 3.15]. The diﬀerent equivalent conditions in the following result
+make intervene both the associated weight functions ωMx and the matrices associated with the
+latter. In particular, we generalize the main characterizing result [12, Thm. 3.1] from the weight
+sequence to the weight matrix setting.
+Theorem 3.2. Let M = {M x : x ∈I} be (Msc) and let ωM := {ωMx : x ∈I} be the according
+matrix of associated weight functions and M(2) := {M x;l : x ∈I, l > 0}. Then we get:
+(I) The following conditions are equivalent:
+(i) The matrix ωM satisﬁes
+(3.3)
+∀h > 1 ∀x ∈I ∃y ∈I : lim sup
+t→+∞
+ωMy(ht)
+ωMx(t) < +∞.
+(ii) The matrix ωM satisﬁes
+(3.4)
+∀x ∈I ∃y ∈I :
+lim sup
+t→+∞
+ωMy(2t)
+ωMx(t) < +∞.
+(iii) The matrix M does satisfy
+(3.5)
+∃r > 1 ∀x ∈I ∃y ∈I ∃L ∈N>0 :
+lim inf
+j→+∞
+(M y
+Lj)1/(Lj)
+(M x
+j )1/j
+> r.

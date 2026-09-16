@@ -1,0 +1,95 @@
+4
+We say M has the root almost increasing property, denoted by (rai), if the sequence
+of roots (
+c
+M
+1/j
+j
+)j∈N is almost increasing, that is,
+∃C > 0 ∀1 ≤j ≤k :
+c
+M
+1/j
+j
+≤C
+c
+M
+1/k
+k
+.
+M has the Fa`a-di-Bruno property, denoted by (FdB), if
+∃C ≥1 ∃h ≥1 ∀j ∈N0 :
+c
+M
+◦
+j ≤Chj
+c
+Mj,
+where
+b
+M
+◦:= (
+c
+M
+◦
+j)j∈N0 is the sequence deﬁned by
+c
+M
+◦
+k := max
+(c
+Mℓ·
+c
+Mj1 · · ·
+c
+M jℓ: ji ∈N,
+ℓ
+X
+i=1
+ji = k
+)
+, k ∈N;
+c
+M
+◦
+0 := 1.
+(1)
+Let M, L ∈RN0
+>0 be given with arbitrary M0, L0 > 0, we write M ⪯L if supj∈N (Mj/Lj)1/j <
++∞or, equivalently, if there exist A, B > 0 such that Mj ≤ABjLj for every j ∈N0.
+We say M and L are equivalent, denoted by M ≈L, if M⪯L and L⪯M. Note that, in
+case M0 = L0 = 1, equivalence amounts to BjMj ≤Lj ≤CjMj for every j ∈N0 and
+suitable B, C > 0. Properties (mg) and (dc) are clearly preserved under ≈.
+Let us write M ≤L if Mj ≤Lj for all j ∈N0.
+Finally, we recall some useful elementary estimates,
+∀j ∈N :
+jj
+ej ≤j! ≤jj,
+(2)
+which immediately imply that Ga≈G
+a for any a ∈R.
+2.2
+Associated weight function
+Let M ∈RN0
+>0, then the associated function ωM : R≥0 →R ∪{+∞} is deﬁned by
+ωM(t) := sup
+j∈N0
+ln
+ tj
+Mj
+
+for t > 0,
+ωM(0) := 0.
+For an abstract introduction of the associated function we refer to [12, Chapitre I], see
+also [9, Deﬁnition 3.1].
+If lim infj→+∞(Mj)1/j > 0, then ωM(t) = 0 for suﬃciently small t > 0, since t0/M0 =
+1 and ln
+
+tj
+Mj
+
+< 0 precisely if t < (Mj)1/j, j ∈N (in particular, if Mj ≥1 for all j ∈N0,
+then ωM vanishes on [0, 1]). Moreover, under this assumption t 7→ωM(t) is a continuous
+nondecreasing function, which is convex in the variable ln(t) and tends faster to inﬁnity
+than any ln(tj), j ≥1, as t →+∞. If limj→+∞(Mj)1/j = +∞, then ωM(t) < +∞for
+each ﬁnite t, so this will be a basic assumption for deﬁning ωM.

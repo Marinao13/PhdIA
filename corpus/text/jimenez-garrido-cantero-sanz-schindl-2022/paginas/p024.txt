@@ -1,0 +1,107 @@
+24
+4.3
+Optimal {Mq,σ}-ﬂat function in arbitrary sectors
+Let us consider a sector Sγ ⊂R with γ > 2, and deﬁne the function
+Gq,s
+γ (z) := exp
+
+−bq,s
+γ
+2
+s
+logs 
+1 + z−2/γ
+=
+
+Gq,s
+2 (z2/γ)
+(γ/2)s
+,
+z ∈Sγ.
+(47)
+The map z 7→z2/γ is holomorphic from Sγ into S2, and so Gq,s
+γ
+is holomorphic in Sγ. We will
+prove that this function is an optimal {Mq,σ}-ﬂat function in this sector.
+As before, we consider the kernel
+eγ(z) := Gq,s
+γ (1/z) = exp
+
+−bq,s
+γ
+2
+s
+logs 
+1 + z2/γ
+=
+
+e2(z2/γ)
+(γ/2)s
+,
+z ∈Sγ.
+Lemma 4.4. There exist constants B1, B2 > 0 such that
+|eγ(z)| ≤B1e2(B2|z|),
+z ∈Sγ.
+(48)
+Proof. According to the deﬁnition of eγ and by applying Lemma 4.2, there exist constants
+C1, C2 > 0 such that for every z ∈Sγ one has
+|eγ(z)| =
+e2(z2/γ)
+
+(γ/2)s
+≤
+
+C1e2(C2|z|2/γ)
+(γ/2)s
+.
+We recall that the function |e2(z)| stays bounded for bounded |z|; from the previous estimates,
+the same can be said about |eγ(z)|, and so we can prove (48) by restricting our considerations
+to large enough values of |z| and well chosen B2 > 0, and then suitably enlarging the constant
+B1 > 0 involved. Let us observe that
+
+e2(C2|z|2/γ)
+(γ/2)s
+= exp
+
+−bq,s lns h
+(1 + C2|z|2/γ)γ/2i
+,
+e2(B2|z|) = exp (−bq,s lns(1 + B2|z|)) .
+So, we will be done if we see that
+lns(1 + B2|z|) −lns[(1 + C2|z|2/γ)γ/2]
+admits an upper bound for large enough |z| and suitably chosen B2 > 0. But this follows from
+the clear fact that
+lns(1 + B2|z|) −lns
+
+1 + C2|z|2/γγ/2
+∼−s ln
+ 
+Cγ/2
+2
+B2
+!
+lns−1(1 + B2|z|),
+|z| →∞,
+where ∼means that the quotient of both expressions tends to 1. Indeed, in view of this equiv-
+alence it suﬃces to choose any B2 < Cγ/2
+2
+in order to have the desired estimation for suitably
+large B1 and |z|.
+✷
+Corollary 4.5. The function Gq,s
+γ
+deﬁned in (47) is an optimal {Mq,σ}-ﬂat function in Sγ.
+Proof. By the previous lemma, there exist B1, B2 > 0 such that
+|Gq,s
+γ (z)| ≤B1 exp
+
+−bq,s lns
+
+1 + B2
+|z|
+
+,
+z ∈Sγ.
+Note that this estimate is essentially that in (46), and so the conclusion follows in exactly the
+same way as in the proof of Theorem 4.3.
+✷

@@ -1,0 +1,63 @@
+4
+Strongly regular sequences and regular variation
+In this section we will recall the notion of regular variation introduced in 1930 by J. Kara-
+mata ([20, 21]), although previous, partial treatments may be found in the works of E.
+Landau[25] and G. Valiron[57]. The proof of most of the forthcoming results can be found
+in the books of E. Seneta[52] and N. H. Bingham, C. M. Goldie, and J. L. Teugels [7]. We will
+use the theory of regular variation to give a characterization of strongly regular sequences,
+and we will also show that the growth index γ(M) deﬁned and studied by V. Thilliez [55]
+and the order of quasianalyticity ω(M) are the same whenever dM is a proximate order.
+Deﬁnition 4.1. A measurable function F : (a, ∞) →(0, ∞) (with a > 0) is regularly
+varying if
+lim
+x→∞
+F(λx)
+F(x) = f(λ) ∈(0, ∞)
+(32)
+for every λ > 0.
+Remark 4.2. The Uniform Convergence Theorem [7, Chap. 1.2], given by J. Karamata [20]
+in the continuous version and by J. Korevaar and others [24] in the measurable case, ensures
+that the limit in (32) is uniform in every compact set of (0, ∞). Moreover, the Character-
+ization Theorem [7, Chap. 1.4] shows that if F is regularly varying, then f(λ) in (32) is
+necessarily of the form λρ for some −∞< ρ < ∞and for each λ > 0. The number ρ is
+called the index (of regular variation) of F.
+There is an immediate relation between regular variation and proximate orders in our
+context: dM is a proximate order if, and only if, the function M(t) is regularly varying
+(see [7, Subsection 7.4.1]).
+Deﬁnition 4.3 ([8]). A sequence (sp)p∈N0 of positive numbers is regularly varying if
+lim
+p→∞
+s⌊λp⌋
+sp
+= ψ(λ) ∈(0, ∞)
+(33)
+for every λ > 0.
+Remark 4.4. As it can be found in [8, Th. 2], a sequence (sp)p∈N0 is regularly varying if,
+and only if, the function F(x) = s⌊x⌋, x > 0, is regularly varying.
+The following theorem of L. de Haan [15] shows that if we have monotonicity we can
+restrict the limit in (33) to the integers values of λ. In fact, we only need to prove (33) for
+two suitable integer values of λ.
+Theorem 4.5 ([15], Th. 1.1.2). A positive monotone sequence (sp)p∈N0 varies regularly if
+there exist positive integers ℓ1, ℓ2 with log(ℓ1)/ log(ℓ2) ﬁnite and irrational such that for
+some real number ρ,
+lim
+p→∞
+sℓjp
+sp
+= ℓρ
+j,
+j = 1, 2.
+Proposition 4.6. Let (Mp)p∈N0 a strongly regular sequence such that
+lim
+p→∞
+log(mp)
+log(p)
+= ω(M).
+Then m is regularly varying, and
+lim
+p→∞
+mℓp
+mp
+= ℓω(M),
+ℓ≥2.
+17

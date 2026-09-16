@@ -1,0 +1,63 @@
+18
+Remark 5.5. Note that if there exist some p > 0 such that limj→+∞(j(1−α)jM(p)
+j
+)1/j =
+∞, then the same is valid for all p′ > p, thanks to the fact that the M(p) ≤M(p′). In
+this situation, since we also have A{M(p)}(Sα) ⊆A{M(p′)}(Sα) and the class associated
+to the weight matrix M is the increasing union of such classes, in order to study sta-
+bility properties in it we can restrict our attention to the case described in the previous
+deﬁnition.
+In case limj→+∞(j(1−α)jM(p)
+j
+)1/j is not inﬁnity for any p > 0, then there are some
+possibilities:
+(i) If α > 1 and lim infj→+∞(j(1−α)jM(p)
+j
+)1/j < ∞for all p > 0, the class A{M(p)}(Sα)
+only contains constant functions, see [16, Thm. 21, and p. 8], and the same holds
+for the class A{M}(Sα). So, the stability results turn out to be trivial.
+(ii) If 0 < α ≤1 and lim infj→+∞(j(1−α)jM(p)
+j
+)1/j = 0 for all p > 0, the class
+A{M(p)}(Sα) only contains constant functions, see [16, Thm. 20], and again we
+are done.
+(iii) If 0 < α ≤1 and lim infj→+∞(j(1−α)jM(p)
+j
+)1/j ∈(0, ∞) for all p > 0 (or from some
+p0 > 0 on), taking into account [16, Cor. 8] we have that the class A{M(p)}(Sα)
+coincides with A{G
+α−1}(Sα) for all p > 0 (or for p ≥p0), and so A{M}(Sα) =
+A{Gα−1}(Sα), where G
+α−1 is the matrix with all the rows equal to the sequence
+G
+α−1. We will study the stability properties for this class in Section 7.
+In order to prove the aforementioned equality of the classes associated with M and
+Mα, it is convenient to recall the following result, which provides Gorny-Cartan like
+inequalities for holomorphic functions in sectors.
+Theorem 5.6. ([16, Thm. 23]) Let 0 < α ≤1 and f ∈H(Sα). If Cn(f) = supz∈Sα |f (n)(z)|,
+n ∈N0, then the sequence Bn = n(1−α)nCn(f) veriﬁes
+Bn ≤Aq(1−α)nB
+n2−n
+n2−n1
+n1
+B
+n−n1
+n2−n1
+n2
+,
+n1 < n < n2,
+where A = 4 and q = 1 if α = 1, or A = 8π and q = 2e(2−α)/(1−α) for the remaining
+cases.
+Theorem 5.7. Let M = {M(p) : p > 0} be a weight matrix and 0 < α ≤1 be given
+such that limj→+∞(j(1−α)jM(p)
+j
+)1/j = ∞for all p > 0. Let Mα = {M(p,α) : p > 0} be
+the matrix given in (16). Then, we have that
+A{M}(Sα) = A{Mα}(Sα).
+Proof. Given f ∈A{Mα}(Sα), there exists some p > 0 such that f ∈A{M(p,α)}(Sα).
+Since G
+1−αM(p,α) is the log convex minorant of G
+1−αM(p), we have that G
+1−αM(p,α) ≤
+G
+1−αM(p), and therefore M(p,α) ≤M(p). We conclude that f ∈A{M}(Sα).

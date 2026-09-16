@@ -1,0 +1,64 @@
+148
+9. Stokes’ Phenomenon
+obtains that
+Φ∗
+m(u; s; k + r) = Φ∗
+m(u; s; k) e−2πi(sI+Lm),
+u ∈C d.
+(9.10)
+The Φ∗
+m(u; s; k) are linked to the auxiliary functions as follows:
+Lemma 15 For every k ∈Z and every m with 1 ≤m ≤µ, the associated
+function Φm(u; s; k) is holomorphic in C d. Moreover, we have
+Φm(u; s; k) = Φ∗
+m(u; s; k) −Φ∗
+m(u; s; k + 1) + hol(u −um).
+Proof: Let τ and j(k) be as in (9.9). The sectors Gk,m all have paral-
+lel bisecting rays, so their intersection Gk is not empty. For u ∈Gk, let
+Φ(u; s; k) = [Φ1(u; s; k), . . . , Φµ(u; s; k)], and deﬁne Φ∗(u; s; k) analogously.
+From (9.9) we then conclude
+Φ(u; s; k) =
+r
+2πi
+ ∞(α+)
+z0
+−
+ ∞(α−)
+z0
+ 
+zs−1 Xj(k)(z) ezru dz,
+with α± = −τ ± (π + ε)/(2r), and Xj(k)(z) as in Section 9.1. While the
+two paths of integration have the same form as in the deﬁnition of the
+auxiliary functions, the index j(k) is not correct: There we may only use
+values j, diﬀering from j(k) by odd multiples of n1, and so that the path of
+integration ﬁts into Sj. For α+, this is correct for j∗(k) = j(k) + n1, while
+for α−this is so with j∗(k+1) = j(k)−n1. According to the deﬁnition of the
+Stokes multipliers, Xj(k)(z) = Xj∗(k)(z) (I + C+
+k ) = Xj∗(k+1)(z) (I + C−
+k ),
+with I + C+
+k = (I + Vj(k)+n1) · . . . · (I + Vj(k)+1), (I + C−
+k )−1 = (I + Vj(k)) ·
+. . . · (I + Vj(k)−n1+1). Consequently we have
+Φ(u; s; k) = Φ∗(u; s; k) (I + C+
+k ) −Φ∗(u; s; k + 1) (I + C−
+k ).
+(9.11)
+This implies holomorphy of Φ(u; s; k) in C d. From Exercise 4 on p. 142
+we obtain that both matrices C+
+k and C−
+k have vanishing diagonal blocks.
+Since Φ∗
+n(u; s; k) and Φ∗
+n(u; s; k + 1) both are holomorphic at um whenever
+n ̸= m, the proof is completed.
+2
+Formula (9.11) contains more than the information we have used to prove
+the lemma: Let us write m ≺n, whenever the nth cut is located to the
+right of the mth one.4 Consider any (n, m) ∈Suppj(k),n1, i.e., in view of
+Exercise 4 on p. 142, any (n, m) ∈Suppℓwith j(k) + 1 ≤ℓ≤j(k) + n1.
+From the deﬁnition on p. 141, we conclude that this holds if and only if
+arg(un −um) = −r dℓ−1. By deﬁnition of j(k), one ﬁnds that the point un,
+when pictured in C d, is located in the sector −r d−π < arg(u−um) < −r d.
+4As explained earlier, this is to be understood after a rotation of C d, which makes
+the cuts point upward.

@@ -1,0 +1,92 @@
+19
+Theorem 4.5. Suppose M is an arbitrary sequence, and α, γ > 0. Let f ∈
+e
+Au
+[M](Sγ) and
+f ∼u
+[M] bf. Then, the following hold:
+(i) For every β with 0 < β < γ one has
+Lαf ∈e
+Au
+[M·Γα](Sβ+α)
+and
+Lαf ∼u
+[M·Γα] bLα bf.
+Moreover, there exist C, c > 0, depending only on α, β and γ, such that for every h >
+0 and every f ∈
+e
+Au
+M,h(Sγ) one has ∥Lαf∥M·Γα,ch,
+∼u ≤C∥f∥M,h,
+∼u, and so the maps
+Lα : e
+Au
+M,h(Sγ) →e
+Au
+M·Γα,ch(Sβ+α) and Lα : e
+Au
+[M](Sγ) →e
+Au
+[M·Γα](Sβ+α) are continuous.
+(ii) Suppose γ > α. For every β with α < β < γ one has
+Bαf ∈e
+Au
+[M/Γα](Sβ−α)
+and
+Bαf ∼u
+[M/Γα] bBα bf.
+Moreover, there exist C, c > 0, depending only on α, β and γ, such that for every h >
+0 and every f ∈
+e
+Au
+M,h(Sγ) one has ∥Bαf∥M/Γα,ch,
+∼u ≤C∥f∥M,h,
+∼u, and so the maps
+Bα : e
+Au
+M,h(Sγ) →e
+Au
+M/Γα,ch(Sβ−α) and Bα : e
+Au
+[M](Sγ) →e
+Au
+[M/Γα](Sβ−α) are continuous.
+The use of Laplace and Borel transforms of arbitrary positive order allows us to generalize
+Theorem 4.4 for arbitrary sectors. The idea of the proof for the Roumieu case [12, Th. 4.2]
+applies to the Beurling case, we include it for the sake of completeness. We note that this result
+may also be deduced from the results in [4] about classes with non-uniform asymptotics, but we
+think it is interesting to provide an argument contained in our framework. This procedure makes
+Theorem 4.2 necessary.
+Theorem 4.6. Suppose c
+M is a regular sequence, and let r > 0. Each of the following statements
+implies the next one:
+(i) r < γ(M).
+(ii) There exists a global extension operator UM,r : C[[z]](M) →e
+Au
+(M)(Sr).
+(iii) The Borel map eB : e
+Au
+(M)(Sr) →C[[z]](M) is surjective.
+(iv) r ≤γ(M).
+Proof. (i)⇒(ii) We consider two cases:
+(a.1) Suppose r > 1, and take a real number r′ with r < r′ < γ(M). The sequence P 1 := c
+M/Γr′
+satisfies (dc) and thanks to (2.6), γ(P 1) = γ(M) −r′ + 1 > 1. By Lemma 2.7, there exists
+a weight sequence P such that p ≃m/gr′−1, satisfies (dc) and γ(P ) = γ(M)+1−r′ > 1.
+Since the classes associated with P and M/Γr′−1 agree, Theorem 4.4 provides an extension
+operator
+U : C[[z]](M/Γr′−1) →A(c
+M/Γr′−1)(S1).
+By Proposition 2.8.(i), we have that A(c
+M/Γr′−1)(S1) ,→e
+Au
+(M/Γr′−1)(S1), and therefore this
+induces an extension operator
+eU : C[[z]](M/Γr′−1) →e
+Au
+(M/Γr′−1)(S1).
+Since r < r′ = 1 + (r′ −1), Theorem 4.5.(i) implies that the composition
+UM,r := Lr′−1 ◦eU ◦bBr′−1 : C[[z]](M) →e
+Au
+(M)(Sr)
+is the extension operator we were looking for.

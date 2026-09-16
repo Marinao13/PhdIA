@@ -1,0 +1,56 @@
+10
+INTRODUCCIÓN
+en cuyo caso escribimos f ∈˜
+A(S). En este contexto, es natural considerar la aplicación de Borel
+asintótica ˜B : ˜
+A(S) →C[[z]] que envía cada función f en su desarrollo asintótico ˆf.
+En 1916 J. F. Ritt mostró que esta aplicación es sobreyectiva para todo sector S, mientras que
+no es nunca inyectiva (dado un sector bisecado por la dirección 0 la exponencial exp(−z−α), para
+una elección adecuada de α > 0, es una función plana, i.e., asintóticamente nula, y no trivial).
+Por tanto, dada una serie de potencias formal ˆf y un sector S es en general inútil intentar
+asignarle una suma de una forma correcta, en el sentido de que no hay una única función en S
+asintótica a ˆf.
+Durante los años 1970 se produjeron determinantes y originales avances, en este sentido, con
+los trabajos de J. P. Ramis, en los cuales se observa que, aunque las series de potencias formales
+son a menudo divergentes, bajo condiciones bastante generales el ritmo de crecimiento de sus
+coecientes no es arbitrario. De hecho, un resultado notorio de E. Maillet [66] de 1903 establece
+que para toda solución ˆf = P
+p≥0 apzp de una ecuación diferencial analítica existen C, A, k > 0
+tales que |ap| ≤CAp(p!)1/k para todo p ∈N0. Inspirado por esto, J. P. Ramis introdujo la noción
+y los rudimentos de la k−sumabilidad, que se apoya en resultados clásicos de G. N. Watson y
+R. Nevannlina y generaliza el método de sumabilidad de Borel.
+Sus desarrollos se basan en
+una modicación de los desarrollos de Poincaré donde el crecimiento de la constante Cp en (1)
+se expresa de forma explícita como Cp = CAp(p!)1/k para ciertas constantes A, C > 0, lo que
+conlleva estimaciones del mismo tipo para los coecientes ap de ˆf. La sucesión M1/k = (p!1/k)p∈N0
+es la sucesión Gevrey de orden 1/k, decimos que f es asintótica 1/k−Gevrey a ˆf (denotado
+f ∈˜
+AM1/k(S)) y , debido a las estimaciones que satisfacen sus coecientes, se dice que ˆf es una
+serie 1/k−Gevrey ( ˆf ∈C[[z]]M1/k). La aplicación de Borel, denida en este caso de ˜
+AM1/k(S) a
+C[[z]]M1/k, es sobreyectiva si y sólo si la apertura del sector S es menor o igual que π/k (Teorema
+de Borel-Ritt-Gevrey), y es inyectiva si y sólo si la apertura es mayor que π/k (Lema de Watson),
+ver Sección 3.2.
+Este último hecho permite dar la denición de una serie de potencias formal k−sumable en
+una dirección d como aquella en la imagen de la aplicación de Borel para un sector S suciente-
+mente amplio y bisecado por la dirección d, a la cual se le puede asignar una k−suma (la única
+función holomorfa en S asintótica a ella). J. P. Ramis probó, de forma puramente teórica (no
+explícita), que toda solución formal en un punto singular irregular de un sistema lineal de ecua-
+ciones diferenciales ordinarias meromorfo en el dominio complejo puede escribirse como ciertas
+funciones conocidas multiplicadas por un producto de series formales, cada una de las cuales
+es k−sumable (i.e., k−sumable en toda dirección excepto un número nito de ellas) para algún
+nivel k que depende de la serie. El carácter no constructivo de la prueba fue solventado me-
+diante el uso de una herramienta más potente, la acelerosumabilidad, introducida por J. Ecalle
+[27] y que, en el caso de involucrar solamente a un número nito de niveles Gevrey, se denomina
+multisumabilidad (en el sentido de iteración de procesos elementales de k−sumabilidad). De
+hecho, en 1991 W. Balser, B. L. J. Braaksma, J. P. Ramis and Y. Sibuya [9] (ver también [7, 73])
+probaron la multisumabilidad de las soluciones formales en un punto singular de las ecuaciones
+diferenciales lineales meromorfas y B. L. J. Braaksma [19] (diversas pruebas se pueden consultar
+en [6, 85]) extendió este resultado para ecuaciones no lineales en 1992, lo que permite en cada
+caso calcular soluciones concretas a partir de las formales. Se ha mostrado que esta técnica
+se aplica con éxito a multitud de situaciones relacionadas con el estudio de series de potencias
+formales que son solución en un punto singular de ecuaciones en derivadas parciales, así como
+problemas de perturbación singular (ver la introducción del Capítulo 4 para más detalles).
+No obstante, pueden aparecer series de potencias formales que no son Gevrey en diferen-
+tes tipos de ecuaciones que no pueden ser diferenciales ordinarias (a tenor del resultado de
+JAVIER JIMÉNEZ GARRIDO

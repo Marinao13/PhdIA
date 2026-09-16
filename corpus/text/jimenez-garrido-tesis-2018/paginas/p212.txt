@@ -1,0 +1,40 @@
+212
+BIBLIOGRAPHY
+[15] O. Blasco, Operators on Fock-type and weighted spaces of entire functions, preprint, in
+preparation.
+[16] R. Bojani¢, E. Seneta, A unied theory of regularly varying sequences, Math. Z. 134 (1973),
+91106.
+[17] J. Bonet, R. Meise, S. N. Melikhov, A comparison of two dierent ways to dene classes of
+ultradierentiable functions, Bull. Belg. Math. Soc. Simon Stevin 14, (2007), no. 3, 425444.
+[18] J. Boos, Classical and modern methods in summability, Oxford University Press, Oxford,
+2000.
+[19] B. L. J. Braaksma, Multisummability of formal power series solutions of nonlinear mero-
+morphic dierential equations, Ann. Inst. Fourier (Grenoble) 42 (1992), 517540.
+[20] B. L. J. Braaksma, B. Faber, G. Immink, Summation of formal solutions of a class of linear
+dierence equations, Pacic J. Math. 195 (2000), no. 1, 3565.
+[21] M. Cadena, M. Kratz, E. Omey, On the order of functions at innity. J. Math. Anal. Appl.
+452 (2017), no. 1, 109125.
+[22] M. Canalis-Durand, Asymptotique Gevrey, available at (last accessed in December 15th,
+2017): http://www.dance-net.org/les/events/rtns2010/materiales/Canalis.pdf.
+[23] M. Canalis-Durand, J. Mozo-Fernández, R. Schäfke, Monomial summability and doubly
+singular dierential equations, J. Dierential Equations 233 (2007), 485511.
+[24] O. Costin, X. Xia, From Taylor series of analytic functions to their global analysis, Nonlinear
+Anal. 119 (2015), 106114.
+[25] D. Djur£i¢, V. Boºin, A proof of an Aljan£i¢ hypothesis on O-regularly varying sequences,
+Publ. Inst. Math. (Beograd) (N.S.) 62(76) (1997), 4652.
+[26] D. Djur£i¢, R. Nikoli¢, A. Torga²ev, The weak asymptotic equivalence and the generalized
+inverse, Lith. Math. J. 50 (2010), no. 1, 3442.
+[27] J. Écalle, Les fonctions résurgentes III, Publ. Math. d'Orsay, Université Paris Sud, 1981.
+[28] W. Feller, One-sided analogues of Karamata's regular variation, Enseignement Math. (2)
+15 (1969), 107121.
+[29] A. Fruchard, C. Zhang, Remarques sur les développements asymptotiques, Ann. Fac. Sci.
+Toulouse Math. (6) 8 (1999), no. 1, p. 91115.
+[30] J. Galambos, E. Seneta, Regularly varying sequences, Proc. Amer. Math. Soc. 41 (1973),
+110116.
+[31] F. Galindo, J. Sanz, On strongly asymptotically developable functions and the Borel-Ritt
+theorem, Studia Math. 133 (3) (1999), 231248.
+[32] A. A. Goldberg, I. V. Ostrovskii, Value Distribution of Meromorphic Functions, Amer.
+Math. Soc., Providence, R.I., 1991.
+[33] L. de Haan, On regular variation and its application to the weak convergence of sample
+extremes, Mathematical Centre Tracts, 32 Mathematisch Centrum, Amsterdam, 1970.
+JAVIER JIMÉNEZ GARRIDO

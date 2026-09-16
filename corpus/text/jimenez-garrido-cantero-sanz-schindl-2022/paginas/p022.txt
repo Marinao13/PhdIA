@@ -1,0 +1,77 @@
+22
+Lemma 4.2. There exist positive constants C1, C2 such that
+|e2(z)| ≤C1e2(C2|z|),
+z ∈S2.
+Proof. In the ﬁrst place, we observe that for every z ∈S2,
+ℜ(logs(z + 1)) = | logs(z + 1)| cos(arg(logs(z + 1))) = | log(z + 1)|s cos(s arg(log(z + 1))). (42)
+Now,
+s| arg(log(z + 1))| = s
+arctan
+arg(z + 1)
+ln |z + 1|
+ ≤s
+arctan
+
+π
+ln |z + 1|
+ .
+(43)
+Hence, setting
+R0 := 1 + exp
+
+π
+tan (π/(2s))
+
+≥2,
+we get that |z| > R0 implies that |z + 1| > R0 −1 ≥1, and therefore ln |z + 1| > 0 and
+π
+ln |z + 1| < tan
+ π
+2s
+
+.
+From this and (43) we deduce that cos(s arg(log(z + 1))) > 0. Then, continuing with (42),
+ℜ(logs(z + 1)) ≥|ℜ(log(z + 1))|s cos(s arg(log(z + 1)))
+= lns |z + 1| −lns |z + 1|
+sin2(s arg(log(z + 1)))
+1 + cos(s arg(log(z + 1))).
+(44)
+Now, from the equality in (43) we see that s arg(log(z + 1)) →0 as z →∞in S2, and moreover
+lim
+z→∞
+z∈S2
+
+sin2(s arg(log(z + 1)))
+1 + cos(s arg(log(z + 1)))
+ . s2 arg2(z + 1)
+2 ln2 |z + 1|
+
+= 1.
+Therefore, there exist R1 ≥R0 and C > 0 such that
+sin2(s arg(log(z + 1)))
+1 + cos(s arg(log(z + 1))) ≤C
+1
+ln2 |z + 1|,
+|z| > R1.
+We deduce from (44) that for z ∈S2 with |z| > R1,
+ℜ(logs(z + 1)) ≥lns |z + 1| −C lns−2 |z + 1| ≥lns(|z| −1) −C lns−2(|z| + 1).
+(45)
+We would be almost done if we obtain, for the right-hand side in (45), a lower bound in terms
+of, say, lns(1 + |z|/2) for |z| suﬃciently large.
+This is easy in case s = 2, for it suﬃces to take |z| > 4 in order to have 3 < 1+|z|/2 < |z|−1,
+and so if |z| ≥R2 := max{R1, 4} we have
+ℜ(logs(z + 1)) ≥lns(|z| −1) −C ≥lns
+
+1 + |z|
+2
+
+−C.
+In case s > 2, it is not diﬃcult to check that
+lim
+x→+∞
+
+lns(x −1) −C lns−2(x + 1) −lns 
+1 + x
+2
+
+= +∞,

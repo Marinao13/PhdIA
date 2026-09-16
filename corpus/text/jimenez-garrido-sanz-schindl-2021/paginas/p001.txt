@@ -1,0 +1,40 @@
+arXiv:2105.11842v2  [math.FA]  7 Dec 2021
+EQUALITY OF ULTRADIFFERENTIABLE CLASSES BY MEANS OF
+INDICES OF MIXED O-REGULAR VARIATION
+JAVIER JIMÉNEZ-GARRIDO, JAVIER SANZ, AND GERHARD SCHINDL
+Abstract. We characterize the equality between ultradiﬀerentiable function classes deﬁned in
+terms of abstractly given weight matrices and in terms of the corresponding matrix of associated
+weight functions by using new growth indices. These indices, deﬁned by means of weight sequences
+and (associated) weight functions, are extending the notion of O-regular variation to a mixed
+setting.
+Hence we are extending the known comparison results concerning classes deﬁned in
+terms of a single weight sequence and of a single weight function and give also these statements
+an interpretation expressed in O-regular variation.
+1. Introduction
+In the theory of ultradiﬀerentiable function spaces there exist two classical approaches in order to
+control the growth of the derivatives of the functions belonging to such classes: Either one uses a
+weight sequence M = (Mj)j or a weight function ω : [0, +∞) →[0, +∞). In both settings one
+requires several basic growth and regularity assumptions on M and ω and one distinguishes between
+two types, the Roumieu type spaces E{M} and E{ω}, and the Beurling type spaces E(M) and E(ω). In
+the following we write E[⋆] for all arising classes of ultradiﬀerentiable functions if we mean either
+E{⋆} or E(⋆), but not mixing the cases. Similarly this is done for all arising conditions.
+In [1] both methods have been compared: A characterization has been given when E[M] = E[ω] is
+valid (as locally convex vector spaces) and it has been shown that in general both approaches are
+mutually distinct.
+Motivated by the results from [1], in [14] and [11] ultradiﬀerentiable classes deﬁned in terms of
+weight matrices M have been introduced and it has been shown that, by using the weight matrix
+Ωassociated with a given weight function ω, in this general framework one is able to treat both
+classical settings in a uniform and convenient way but also more classes.
+Since to each weight function ω we can associate a weight matrix Ωand since it is known that to each
+sequence M one can associate a weight function ωM (see [9, Chapitre I]), in [14, Sect. 9.3] and in
+[15] the following iterated process has been studied: When I = R>0 is denoting the index set, then
+by starting with an abstractly given matrix M := {M x : x ∈I} with some regularity properties
+we immediately get the weight function matrix ωM := {ωMx : x ∈I}. For each associated weight
+function ωMx one considers the associated weight matrix ΩMx and then proceed by iteration. This
+construction leads to multi-index weight matrices (and corresponding classes of ultradiﬀerentiable
+functions) and the main questions in [14, Sect. 9.3] and [15] have been the following:
+Date: December 8, 2021.
+2020 Mathematics Subject Classiﬁcation. primary 46E10; secondary 26A12, 26A48, 46A13.
+Key words and phrases. Classes of ultradiﬀerentiable functions; weight sequences, functions and matrices; growth
+indices; O-regular variation; mixed setting.
+1

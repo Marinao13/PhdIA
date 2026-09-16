@@ -1,0 +1,94 @@
+19
+For the converse inclusion, let us consider f ∈A{M}(Sα). There exist some C, D ∈R>0
+and p > 0 such that Cn(f) = supz∈Sα |f (n)(z)| ≤CDnM(p)
+n , for all n ∈N0.
+Let us ﬁx n ∈N0 and distinguish two cases:
+i) If M(p,α)
+n
+= M(p)
+n
+then supz∈Sα |f (n)(z)| ≤CDnM(p,α)
+n
+.
+ii) If not, by the construction of the log convex minorant, there exist so-called principal
+indices n1, n2 ∈N0, with n1 < n < n2, such that M(p,α)
+ni
+= M(p)
+ni
+for i = 1, 2
+(see [12, Chapitre I] and, for a detailed discussion of the regularization process and
+its intricacies, [23]). So, we have
+ln(n(1−α)nM(p,α)
+n
+) = n2 −n
+n2 −n1
+ln(n(1−α)n1
+1
+M(p,α)
+n1
+) + n −n1
+n2 −n1
+ln(n(1−α)n2
+2
+M(p,α)
+n2
+)
+≥n2 −n
+n2 −n1
+ln(
+1
+CDn1 n(1−α)n1
+1
+Cn1(f))
++ n −n1
+n2 −n1
+ln(
+1
+CDn2 n(1−α)n2
+2
+Cn2(f)).
+Therefore, with the notation of the previous theorem, we deduce from above:
+B
+n2−n
+n2−n1
+n1
+B
+n−n1
+n2−n1
+n2
+≤(CDn1)
+n2−n
+n2−n1 (CDn2)
+n−n1
+n2−n1 n(1−α)nM(p,α)
+n
+= CDnn(1−α)nM(p,α)
+n
+.
+Now, from the previous estimate and by applying Theorem 5.6, there exist some
+A, q > 0 such that
+Cn(f) ≤n(α−1)nAq(1−α)nB
+n2−n
+n2−n1
+n1
+B
+n−n1
+n2−n1
+n2
+≤AC(q(1−α)D)nM(p,α)
+n
+.
+We conclude that f ∈A{Mα}(Sα).
+We are ready to state our ﬁrst main result.
+Theorem 5.8. Let M = {M(p) : p > 0} be a weight matrix (not necessarily (Msc))
+and 0 < α ≤1 be given such that limj→+∞(j(1−α)jM(p)
+j
+)1/j = ∞for all p > 0. Let
+Mα = {M(p,α) : p > 0} be the matrix according to (16). Then the following assertions
+are equivalent:
+(a) The matrix Mα satisﬁes the property (M{rai}).
+(b) The class A{M}(Sα) is holomorphically closed.
+(c) The class A{M}(Sα) is inverse-closed.
+If M has in addition (M{Cω}) and Mα has (M{dc}), then the list of equivalences can
+be extended by
+(d) The class A{M}(Sα) is closed under composition.

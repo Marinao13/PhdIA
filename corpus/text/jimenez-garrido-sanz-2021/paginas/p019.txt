@@ -1,0 +1,94 @@
+Theorem 4.10. (Characterization Theorem) Let (Mp)p∈N0 be a sequence of positive num-
+bers with M0 = 1. The following are equivalent:
+(i) M is strongly regular and limp→∞log(mp)/ log(p) = ω(M),
+(ii) M is (lc) and m is regularly varying of index ω(M), i.e.,
+lim
+p→∞
+mℓp
+mp
+= ℓω(M),
+ℓ≥2.
+Proof. Proposition 4.6 shows that (i) implies (ii).
+For the converse, since
+lim
+p→∞
+m2p
+mp
+= 2ω(M) > 1,
+it is clear that all the conditions in Proposition 4.8(ii) are satisﬁed, and so M is strongly
+regular. Finally, using Theorem 4.9 we know that
+mp = pω(M)Cp exp
+ p
+X
+k=1
+δk/k
+!
+,
+p ∈N,
+where Cp →C and δp →0 as p →∞. Consequently,
+lim
+p→∞
+log(mp)
+log(p)
+= lim
+p→∞
+
+ω(M) + log(Cp)
+log(p) +
+1
+log(p)
+p
+X
+k=1
+δk
+k
+
+= ω(M),
+since limp→∞(log(p))−1 Pp
+k=1 δk/k = 0.
+We now turn to the last aim in this paper, concerning the equality of ω(M) and the
+growth index γ(M) introduced by V. Thilliez [55]. It is necessary to recall the connection
+between regular variation and the notion of almost increasing functions or sequences.
+Deﬁnition 4.11. A function f positive and ﬁnite in [b, ∞) is said to be almost increasing
+in [c, ∞) (c ≥b) if there exists a constant M ≥1 such that
+f(x) ≤Mf(y),
+for every
+y ≥x ≥c,
+or, equivalently, if
+f(x) ≤M inf
+y≥x f(y),
+for each
+x ≥c.
+A sequence (sp)p∈N0 is almost increasing if
+sp ≤M inf
+ℓ≥p sℓ,
+for every
+p ∈N0.
+The next proposition is due to J. Karamata [20, 21] for continuous functions, but it also
+holds for measurable ones.
+Proposition 4.12 ([52], Section 1.5). Let F be a regularly varying function F : (a, ∞) →
+(0, ∞) (where a > 0) with index ρ. Then, for every σ < ρ one has
+lim
+x→∞
+infy≥x(y−σF(y))
+x−σF(x)
+= 1,
+lim
+x→∞
+supa≤y≤x(y−σF(y))
+x−σF(x)
+= 1,
+and for every ρ < τ one has
+lim
+x→∞
+supy≥x(y−τF(y))
+x−τF(x)
+= 1,
+lim
+x→∞
+infa≤y≤x(y−τF(y))
+x−τF(x)
+= 1.
+The following proposition shows the aforementioned connection. We include the proof
+for the sake of completeness.
+19

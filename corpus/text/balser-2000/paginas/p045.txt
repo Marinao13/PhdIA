@@ -1,0 +1,53 @@
+28
+2. Singularities of First Kind
+with B(z) given by
+zT ′(z) = A(z) T(z) −T(z) B(z).
+(2.13)
+Given T(z) and (2.1), we refer to (2.12) as the transformed system. The
+matrix B(z) is again holomorphic near the origin, but possibly on a smaller
+circle. In particular, the transformed system has a singularity of ﬁrst kind
+there. For later use, we mention that in case of A(z) having a pole of order
+r at the origin, then so does B(z). Therefore, analytic transformations
+preserve the Poincar´e rank of systems at the origin. Note that we shall use
+the term “analytic transformation” both for the matrix T(z) and for the
+change of variable x = T(z) ˜x, but we think this will not lead to confusion.
+The special form of T(z) implies that solutions of both systems (2.1) and
+(2.12) behave the same near the origin, e.g., show the same monodromy
+behavior. This is why we call two systems (2.1) and (2.12) analytically
+equivalent, if we can ﬁnd an analytic transformation T(z) satisfying (2.13).
+Note that (2.13), for given A(z) and B(z), is nothing but a linear system
+of ODE of Poincar´e rank r = 1 for the entries of T(z). To check analytic
+equivalence requires ﬁnding a solution T(z) that is holomorphic at the
+origin, with T(0) invertible.
+Given (2.1), we shall see that we can construct an analytic transfor-
+mation so that the task of ﬁnding solutions of the transformed system
+is easier than for the original one. We have already seen this happen on
+p. 21, where a transformation x = eλz˜x helped to ﬁnd solutions of the
+two-dimensional conﬂuent hypergeometric system. Theorem 5 (p. 19) may
+be restated as saying that systems with good spectrum are analytically
+equivalent to (2.12) with B(z) ≡A0, which is an elementary system with
+fundamental solution zA0. For general spectrum we shall prove that (2.1)
+is analytically equivalent to a reduced system in the sense of Section 1.5,
+with diagonal blocks which all have good spectrum. To do so, we show the
+following lemma, concerning a nonlinear system of ODE of a very special
+form:
+Lemma 2 Given a system (2.1), assume that A(z) can be blocked as
+A(z) =
+
+A11(z)
+A12(z)
+A21(z)
+A22(z)
+
+,
+so that A12(0) = 0, and that the square matrices A11(0) and A22(0)+nI, for
+every n ∈N, have disjoint spectra. Then for suﬃciently small ˜ρ > 0 there
+exists a unique matrix-valued holomorphic function T12(z), with T12(0) = 0
+and
+zT ′
+12(z)
+=
+A11(z) T12(z) −T12(z) A22(z)
+−T12(z) A21(z) T12(z) + A12(z),
+|z| < ˜ρ.
+(2.14)

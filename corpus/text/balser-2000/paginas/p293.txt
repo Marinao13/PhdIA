@@ -1,0 +1,45 @@
+278
+References
+[147]
+, Birkhoﬀinvariants and eﬀective calculations for meromorphic
+linear diﬀerential equations; Part I, J. of Math. Analysis and Appl.,
+53 (1976), pp. 438–470.
+[148]
+, Birkhoﬀinvariants and eﬀective calculations for meromorphic
+linear diﬀerential equations; Part II, Houston J. Math., 2 (1976),
+pp. 207–238.
+[149]
+, Invariants and canonical forms for meromorphic second order
+diﬀerential equations, in Proc. 2nd Scheveningen Conference on Dif-
+ferential Equations, North-Holland Press, Amsterdam, 1976, pp. 181–
+187.
+[150] N. Kazarinoff and R. McKelvey, Asymptotic solutions of dif-
+ferential equations in a domain containing a regular singular point,
+Canadian J. Math., 8 (1956), pp. 97–104.
+[151] T. Kimura, Analytic theory of ordinary diﬀerential equations IV, in
+Global Theory of Nonlinear Diﬀerential Equations, Recent Progress
+of Natural Sciences in Japan, vol. 1, Science Council of Japan, Tokyo,
+1976, pp. 47–55.
+[152] H. W. Knobloch, Zusammenh¨ange zwischen konvergenten und
+asymptotischen Entwicklungen bei L¨osungen linearer Diﬀerentialglei-
+chungs-Systeme vom Range 1, Math. Annalen, 134 (1958), pp. 260–
+288.
+[153] H. v. Koch, Sur une application des d´eterminants inﬁnis `a la th´eorie
+des ´equations diﬀ´erentielles lin´eaires, Acta Math., 15 (1891/92).
+[154] M. Kohno, The convergence condition of a series appearing in con-
+nection problems and the determination of Stokes’ multipliers, Publ.
+RIMS Kyoto Univ., 3 (1968), pp. 337–350.
+[155]
+, On the calculation of the approximate values of Stokes’ multi-
+pliers, Publ. RIMS Kyoto Univ., 4 (1968), pp. 277–298.
+[156]
+, A two point connection problem for n–th order single linear
+ordinary diﬀerential equations with an irregular singular point of rank
+two, Japanese J. Math., 39 (1970), pp. 11–62.
+[157]
+, A two point connection problem for general linear ordinary
+diﬀerential equations, Hiroshima Math. J., 4 (1974), pp. 293–338.
+[158]
+, A two point connection problem for n–th order single linear
+ordinary diﬀerential equations with an irregular singular point of rank
+two, Japanese J. Math., 42 (1974), pp. 39–42.

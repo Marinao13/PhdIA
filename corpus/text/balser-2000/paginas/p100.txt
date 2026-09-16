@@ -1,0 +1,46 @@
+5.4 A Diﬀerent Representation for Borel Operators
+83
+for Lkg, both with τ = d. Interchanging the order of integration and then
+evaluating the inner integral gives
+(Lk ◦Bkf)(z) = −k
+2πi
+
+γk(d)
+wk−1f(w)
+wk −zk dw.
+The function Fz(w) = wk−1f(w)(wk −zk)−1 can be seen to have, in the
+interior of γk(d), exactly one singularity, namely, at w = z, this being a
+pole of ﬁrst order with residue f(z)/k. Since γk(d) has negative orientation,
+the Residue Theorem in Exercise 3 on p. 224 completes the proof.
+2
+Theorem 25 For a sector S = S(d, α) of inﬁnite radius and k > 0, let
+f ∈A(k)(S, E ) and deﬁne g(z) = (Lkf)(z), z ∈G = G(d, α + π/k). Then
+f(u) = (Bkg)(u),
+u ∈S.
+Proof: Using (5.4) for the representation of the Borel operator, ﬁx y and
+insert (5.1), interchange the integrals and then evaluate the inner integral.
+Use the exercises below to complete the proof.
+2
+Exercises:
+1. Check that in Theorems 24 and 25 it suﬃces to prove the case k = 1
+and d = 0; the general case then follows through suitable changes of
+variables.
+2. For a sector S = S(0, α) of inﬁnite radius, let f ∈A(1)(S, E ). For
+suﬃciently large x0 > 0 and t > 0, show
+lim
+y→∞
+ ∞
+0
+f(u)e(t−u)(x0+iy) −e(t−u)(x0−iy)
+2πi (t −u)
+du = f(t),
+(5.5)
+integrating along the positive real axis; observe that u = t is a re-
+movable singularity of the integrand.
+5.4
+A Diﬀerent Representation for Borel Operators
+Here we give a diﬀerent integral representation for Borel operators of order
+k > 1/2, using Mittag-Leﬄer’s function as a kernel. To do so, we ﬁrst
+prove the following well-known result upon the behavior of Mittag-Leﬄer’s
+function as the variable z →∞; for a more complete asymptotic analysis
+of Es(z), compare the exercises below.

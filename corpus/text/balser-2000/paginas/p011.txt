@@ -1,0 +1,42 @@
+Preface       xi
+summation methods suitable for diﬀerence equations, but we shall not be
+concerned with these here.
+Content of this Book
+This book attempts to present the theory of linear ordinary diﬀerential
+equations in the complex domain from the new perspective of multisumma-
+bility. It also brieﬂy describes recent eﬀorts on developing an analogous
+theory for nonlinear systems, systems of diﬀerence equations, partial dif-
+ferential equations, and singular perturbation problems. While the case of
+linear systems may be said to be very well understood by now, much more
+needs to be done in the other cases.
+The material of the book is organized as follows: The ﬁrst two chapters
+contain entirely classical results on the structure of solutions near regular,
+resp.2 regular-singular, points. They are included here mainly for the sake
+of completeness, since none of the problems that the theory of multisumma-
+bility is concerned with arise in these cases. A reader with some background
+on ODE in the complex domain may very well skip these and immediately
+advance to Chapter 3, where we begin discussing the local theory of systems
+near an irregular singularity. Classically, this theory starts with showing ex-
+istence of formal fundamental solutions, which in our terminology will turn
+out to be multisummable, but not k-summable, for any k > 0. So in a way,
+these classical formal fundamental solutions are relatively complicated ob-
+jects. Therefore, we will in Chapter 3 introduce a diﬀerent kind of what we
+shall call highest level formal fundamental solutions, which have much bet-
+ter theoretical properties, although they are somewhat harder to compute.
+In the following chapters we then present the theory of asymptotic power
+series with special emphasis on Gevrey asymptotics and k-summability.
+In contrast to the presentation in [21], we here treat power series with
+coeﬃcients in a Banach space. The motivation for this general approach
+lies in applications to PDE and singular perturbation problems that shall
+be discussed brieﬂy later. A reader who is not interested in this general
+setting may concentrate on series with coeﬃcients in the complex number
+ﬁeld, but the general case really is not much more diﬃcult.
+In Chapters 8 and 9 we then return to the theory of ODE and discuss the
+Stokes phenomenon of highest level. Here it is best seen that the approach
+we take here, relying on highest level formal fundamental solutions, gives a
+far better insight into the structure of the Stokes phenomenon, because it
+avoids mixing the phenomena occurring on diﬀerent levels. Nonetheless, we
+then present the theory of multisummability in the following chapters and
+indicate that the classical formal fundamental solutions are indeed multi-
+summable. The remaining chapters of the book are devoted to related but
+2Short for “respectively.”

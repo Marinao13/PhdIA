@@ -1,0 +1,49 @@
+7.3 Decomposition Theorems
+119
+2. Given a normal covering, try to deﬁne what one might call a ﬁner
+normal covering, and check that for any two normal coverings one
+can always consider a common reﬁnement.
+7.3
+Decomposition Theorems
+For ψ ∈As,0(G, E ), the coeﬃcients of ˆf = 
+CHa ψ, for arbitrary a ∈S,
+have the form of a moment sequence, so that ˆf appears, at ﬁrst glance,
+to be rather special. The following theorem shows, however, that arbitrary
+ˆf ∈C [[z]]s admit a decomposition into a convergent series plus ﬁnitely
+many formal Cauchy-Heine transforms:
+Theorem 40 For s > 0 and ˆf ∈E [[z]], we have ˆf ∈E [[z]]s if and only if
+for every normal covering Sj = S(dj, αj, ρ) with 0 < αj ≤sπ, 0 ≤j ≤m,
+there exist ψj ∈As,0(Sj−1 ∩Sj, E ), 1 ≤j ≤m, so that for arbitrarily
+chosen aj ∈Sj−1 ∩Sj we have
+ˆf = ˆf0 +
+m
+
+j=1
+
+CHaj ψj,
+with ˆf0 ∈E {z}.
+(7.3)
+Proof:
+Let ˆf ∈C [[z]]s, and let Sj be as stated, 0 ≤j ≤m. Then
+Proposition 10 (p. 73) implies existence of ˜fj ∈As(Sj, E ) with J( ˜fj) = ˆf,
+for j = 0, . . . , m −1. Deﬁning ˜fm(z) = ˜f0(ze−2πi), z ∈Sm, the same
+holds for j = m. Let ψj(z) =
+˜fj(z) −˜fj−1(z), z ∈Sj−1 ∩Sj; then
+ψj ∈As,0(Sj−1 ∩Sj, E ), 1 ≤j ≤m. With fj as in Theorem 39, we then
+see that f(z) = ˜fj(z) −fj(z) is independent of j, and holomorphic and
+single-valued in a punctured neighborhood of the origin. Moreover, f has
+an asymptotic expansion there; hence Proposition 7 (p. 65) implies holo-
+morphy of f at the origin. Applying J to ˜fj(z) = f(z)+fj(z), we conclude
+(7.3) with convergent ˆf0 = J(f). The converse statement follows directly
+from Proposition 17.
+2
+The above theorem and its proof remain correct if we allow normal
+coverings of possibly larger openings provided that fj ∈As(Sj, E ) with
+J(fj) = ˆf, 0 ≤j ≤m −1, still exist. This will be used in the proof of the
+following characterisation of k-summable power series:
+Corollary to Theorem 40 Let s > 0, d ∈R and ˆf ∈E [[z]] be given.
+Then the following holds:
+(a) For k = 1/s ≥1/2, k-summability of ˆf in direction d is equivalent to
+the existence of a decomposition of ˆf as in Theorem 40, with
+|d + π −arg aj| ≤π(1 −s/2),
+1 ≤j ≤m.

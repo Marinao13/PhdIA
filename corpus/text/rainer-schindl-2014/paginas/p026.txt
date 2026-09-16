@@ -1,0 +1,85 @@
+122
+A. Rainer and G. Schindl
+By (5.2), we conclude that
+∀ρ > 0 ∀τ > 0 ∃D > 0 ∀t ≥0 :
+1
+ρϕ∗(ρt) ≤Dt + D + 1
+2τ ϕ∗(2τt).
+Thus
+1
+2τ ϕ(t) = sup
+s≥0
+
+ts −1
+2τ ϕ∗(2τs)
+
+≤sup
+s≥0
+
+ts + Ds −1
+ρϕ∗(ρs)
+
++ D = 1
+ρϕ(t + D) + D,
+and hence
+1
+2τ ω(t) ≤1
+ρω(eDt) + D.
+Setting ρ = 4 and τ = 1 implies (ω6).
+Let us prove (5.12). By (ω8) there exist constants C, H > 0 such that
+Cϕ∗
+2t
+C
+
+= sup
+u≥0
+(2t log u −Cω(u)) = sup
+u≥0
+(2t log u −Cω(Hu)) + 2t log H
+≤sup
+u≥0
+(2t log u −ω(u2)) + 2t log H + C = ϕ∗(t) + 2t log H + C.
+By setting t := ρk, we ﬁnd that for all ρ > 0 and all k ∈N,
+(2k)!Ωρ/C
+2k
+≤eC/ρH2kk!Ωρ
+k.
+Thus, the sequence L = (Lk) deﬁned by k!Lk := (2k)!Ωρ/C
+2k
+≥(k!Ωρ/C
+k
+)2
+satisﬁes Ωρ/C  L ⪯Ωρ, which implies (5.12).
+5.14. Theorem. Let ω ∈W , let U ⊆Rn be open, and let K ⊆U be
+compact. Then:
+(1) For each ρ>0 we have E{Ωρ}(U) ⊆E{ω}(U) and E(ω)(U) ⊆E(Ωρ)(U)
+with continuous inclusion.
+(2) We have, as locally convex spaces,
+E(ω)(U) = lim
+←−
+ρ>0
+E(Ωρ)(U)
+and
+E{ω}(K) = lim
+−→
+ρ>0
+E{Ωρ}(K).
+(3) ω satisﬁes (ω6) if and only if E[Ωρ](U) = E[ω](U), for each ρ > 0, as
+locally convex spaces.
+(4) If ω satisﬁes (ω8), then also
+E(ω)(U) = lim
+←−
+ρ>0
+E(Ωρ)(U) = lim
+←−
+ρ>0
+E{Ωρ}(U)
+and
+E{ω}(K) = lim
+−→
+ρ>0
+E{Ωρ}(K) = lim
+−→
+ρ>0
+E(Ωρ)(K)
+as locally convex spaces.

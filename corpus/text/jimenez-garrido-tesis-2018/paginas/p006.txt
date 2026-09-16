@@ -1,0 +1,48 @@
+6
+ACKNOWLEDGMENTS/AGRADECIMIENTOS
+predoctorales co-nanciados por el Banco de Santander, las ayudas para asistencias a cursos,
+congresos y jornadas relevantes para el desarrollo de tesis doctorales (convocatoria 2015) y para
+estancias breves en el desarrollo de tesis doctorales (convocatoria 2017). Vorrei anche ringraziare
+il Centro di Ricerca Matematica Ennio De Giorgi (Scuola Normale Superiore di Pisa, Italia) dove
+sono stato ottenuti alcuni risultati di questa tesi per il grandissimo supporto che ho ricevuto
+durante il mio soggiorno.
+No querría olvidarme de los doctorandos y los postdoctorandos de la A132, Oziel, Jesús,
+Yolanda, Lucivanio, Azucena, Rodrigo, MaÁngeles y Miguel con los que he compartido tantos
+tuppers, cafés y desahogos, esenciales en la rutina investigadora. Una mención especial se merece
+mi correligionario de series divergentes, AMC y HBO, Sergio, por estar siempre dispuesto a echar
+una cuentica y por dejarse spoilear acerca del contenido de esta memoria mediante los sucesivos
+borradores, cuyas correciones han sido de una inestimable valía. I have also enjoyed the company
+of Li Yong trying to understand Ecalle's works from monday to friday and discovering Tuscany
+on weekends. Finalmente, mi agradecimiento a las dos matemáticas de la pedanía murciana de
+Alicante más castellanas que conozco: a Marina, por hacer lo que no está escrito por conexionar
+al grupo, y a Beatriz, por darnos temas de conversación tan ingeniosos acerca de sus pósteres.
+A pesar de no haberles podido dedicar todo el tiempo que me hubiera gustado en estos
+cuatro años, son la base anímica que sustenta esta tesis y que me recuerda, cuando el tiempo
+y la distancia lo permiten, lo que verdaderamente importa. Incluyo aquí a aquellas personas
+que, aunque no lo sepan, en algún que otro momento de debilidad me han alentado con sus
+palabras a seguir adelante. Gracias a los parquesoleños (con alguna adopción) que siempre he
+podido encontrar un viernes en el Delbar's: Lorena, Juan Carlos, Fran, Jimmy, Pelu, Alfredo,
+Sansi, Mercre, Andrea, Ine, Ana, Escu, Navarro, José, Mosi y Martín; a la `muchachauda'
+disponible para la contienda y la jarana: Ana, Miguel, Angélica, Blanca, José Antonio, Gaspar,
+Andrés, Laura, Marina, Eduardo, Inmaculada, Nadia, Beni, Gonzalo, Minerva y Álvaro; a los
+matemáticos: Edu, Lucas y Ana. San Bourbaki deriva pro eis.
+Me siento afortunado de tener tres familias Jiménez, Garrido y Sancho no por el hecho de
+ser tres sino por mis tías, tíos, primos y primas que siempre me han arropado en todo lo que he
+emprendido. Este viaje no habría sido posible sin su apoyo.
+He querido dejar para el nal los agradecimientos a las personas con las que he compartido el
+día a día. A Pedro por transmitirme su pasión por la ciencia y por Salamanca. A mi hermano del
+norte de Canadá, Gonzalo, y a mi hermana del sur de la India, Teresa, que hasta en la peor de
+las etapas me han sacado una sonrisa con sus locuras producto de una imaginación desbordante
+que espero sigan ejercitando. A mi madre, Nieves, por ser durante muchos años madre, amiga
+y hermana, por permitirme cometer la herejía de no seguir sus pasos en la física, por dejar que
+me equivoque y por su guía, vitalidad y cariño. Por último, gracias a la persona que no me
+ha dejado bajar los brazos, vigilante desde la Atalaya de pequeñas piezas, heroína en las aulas,
+guardiana de las cuencas mineras del norte, compañera de ruta y responsable de gran parte de
+mis alegrías, Lidia.
+Muchos, y seguramente insucientes, agradecimientos y una dedicatoria a Gonzala del Pozo,
+Isabel López, Jesús Jiménez y Marcelino Garrido; aunque no me hayan podido acompañar en
+esta aventura, soy de los pequeños de cerca de una treintena de nietos, su afecto, ejemplo y
+cuidado son las raíces del árbol cuyo fruto aquí se muestra.
+Cerro de la Gallinera, a 15 de diciembre de 2017 a las 8:15,
+Javier Jiménez Garrido
+JAVIER JIMÉNEZ GARRIDO

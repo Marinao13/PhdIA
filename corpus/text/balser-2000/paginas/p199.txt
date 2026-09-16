@@ -1,0 +1,42 @@
+182
+11. Ecalle’s Acceleration Operators
+formally hold when we replace aj by its power series, fj by ˆfj, and xj by
+ˆBkj ˆx. Without going into detail, we state the following:
+For j with kj ≤r, this identity is nothing but a Volterra-type integral
+equation for the function xj. The usual iteration technique shows that every
+such equation has a unique solution that has the same features as fj: It is
+holomorphic in the region G(dj+1, αj) (in case j ≤q −1), resp. in a disc
+about the origin (in case j = q). Moreover, for j ≥1, the function xj ad-
+mits holomorphic continuation into the sector S(dj, ε) and is of exponential
+growth at most κj there. It then follows from uniqueness of the solutions
+that, for every such j, we have xj = Akj,kj+1 xj+1, in case j < q.
+For j with kj > r, identity (11.4) is of a diﬀerent nature: It can be inter-
+preted as a singular integral equation for xj, hence the standard iteration
+method fails. However, once a solution xj is known, say, for z in a sector of
+ﬁnite radius, then (11.4), for j ≥1, can still serve to show continuation of
+xj into S(dj, ε), and get a growth estimate allowing application of Akj−1,kj.
+This operator then deﬁnes the next function xj−1, and in this fashion all
+x0, . . . , xq are obtained.
+While in the general theory of multisummability the choice of operators
+was of no real importance, here it is essential to choose the acceleration
+operators: For others, there is no notion comparing to the convolution of
+functions, making it impossible to study the equations that correspond to
+(11.3) by formal application of the inverse operators T −1
+j
+.
+Exercises: Use the notation introduced above.
+1. For ˜k > k > 0, show δ(Lkf) = Lk(δf), δ(A˜k,kf) = A˜k,k(δf), when-
+ever f is holomorphic and of appropriate growth in a sector of inﬁnite
+radius.
+2. Formally, show (aj ∗kj ˆxj)(z) = ˆxj(z) −
+ z
+0 bj(z, t) ˆxj(t) dt, with
+bj(z, t) =
+∞
+
+1
+an (zkj −tkj)n/kj−1/Γ(n/kj).
+3. Show (δ −r) (fr,r ∗r ˆx)(u) = r [ur ˆx(u)−
+ u
+0 ˆx(t) dtr], and write (11.4),
+for kj = r, as a Volterra integral equation.

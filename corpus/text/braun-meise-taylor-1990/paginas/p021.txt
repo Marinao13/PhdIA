@@ -1,0 +1,51 @@
+226 
+Braun, Meise and Taylor 
+6.3 Proposition. 
+The maps 
+and 
+S 
+-n (lRN)' 
+'D (lRN)' 
+1/: 1./. 
+b --t 
+* 
+l) 
+are continuous, 
+PROOF, First we consider Tit" To do so, we define for A > 0 and an open convex bounded 
+set K C lRN the Banach space 
+If we let K j = {x E lRNllxl < j}, then 
+£{w}(lRN) = proj ind £,\(Kj) and £(w)(lRN) = proj proj f\(Kj ), 
+. 
+.i-.x. ,\-u 
+j-.x. ,\_.x. 
+If f.L E £{w}(lRN)' then there is k E IN such that for all A > 0 we have f.L E f\(Kk)'. If 
+N 
+f.L E £(w)(lR )', then there are k E IN and Ao > 0 such that f.L E £,\(Kd' for all A 2: Ao, In 
+both cases we show the continuity of 
+Til: £2,\ (KiH ) ---+ f\( K J ) 
+for all j and all A > 0 in case f.L E £{wf(lRN)' and all j and all A 2: Au in case f.L E £(w)(lRN)" 
+First note that for et,f3 E lN~ and A > 0 we have 
+• (let +(31) = 
+• (~12:1 + ~l£ti) < ~ • (12:1) + ~ • (l£ti), 
+t.p 
+2A 
+t.p 
+2 A 
+2 A 
+- 2 t.p 
+A 
+2 t.p 
+A 
+(1) 
+Using this and (1) out of the proof of 4.4 it is easy to see that for I E £.(lRN) and 
+e = (1,0,.",0) the functions Hie + he) - I) converge to allaXt in £.(lRN). This implies 
+1(f.L * l)(a)(x)1 = 1(f.Ly,l(a)(x - Y))1 
+~ sup. sup II(o+!3l(x - y)lexp (-At.p* (I~I)). 
+/lEINo' Iyl<·' 
+Because of (1), this implies 
+1(f.L * 1)1")( x)1 ~ sup sup I 
+I(c'+/i) ( x - y)1 exp (-2At.p. (let + (31) + At.p· (12:1)) . 
+iiEINf/ IYI<k 
+2A 
+A 
+Hence we have 

@@ -1,0 +1,27 @@
+12
+Other Related Questions
+In this chapter, we mention some additional results related to the theory
+of either multisummability or ODE in the complex plane:
+In the ﬁrst section we shall give necessary and suﬃcient conditions for so-
+called matrix summability methods to be stronger than multisummability.
+These conditions are very much analogous to the classical characterization
+of regular summability methods. They may also be viewed as analogues
+of conditions characterizing what is called power series regularity, meaning
+that a summation method sums convergent power series, inside their disc of
+convergence, to the correct sum. So far, only one matrix method is known
+to be stronger than multisummability. On the other hand, for the subclass
+of power series methods it has been shown in [32] that none of them can
+have this property.
+In the second section, we show in which sense a system of ODE of
+Poincar´e rank r ≥2 is equivalent to one of rank 1, but higher dimen-
+sion. This sometimes can be useful in generalizing results for systems of
+rank r = 1 to the general case.
+Sections 12.3 and 12.4 deal with two diﬀerent but, as far as the methods
+used are concerned, intimately related problems that both can roughly be
+characterized as follows: Given a certain class of systems of ODE, together
+with a number of parameters that, at least theoretically, can be computed
+from every such system, then are these parameters free in the sense that
+they can independently take on every value? For the Riemann-Hilbert prob-
+lem, the class of systems under consideration are the Fuchsian systems, and
+the parameters are their monodromy data. For the problem of Birkhoﬀre-
+duction the systems are those with polynomial coeﬃcient matrix, and the

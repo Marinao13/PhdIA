@@ -1,0 +1,56 @@
+In case the value ρ in (C) is positive (respectively, is 0), we say ρ(r) is a nonzero (resp. zero)
+proximate order.
+Deﬁnition 2.2. Two proximate orders ρ1(r) and ρ2(r) are said to be equivalent if
+lim
+r→∞(ρ1(r) −ρ2(r)) log(r) = 0.
+Remark 2.3. The equivalence means precisely that the functions V1(r) = rρ1(r) and V2(r) =
+rρ2(r) are equivalent in the classical sense, i.e.,
+lim
+r→∞
+V1(r)
+V2(r) = lim
+r→∞
+rρ1(r)
+rρ2(r) = 1.
+Moreover, it implies that limr→∞ρ1(r) = limr→∞ρ2(r), and so they are simultaneously
+nonzero or not.
+Example 2.4. The following are examples of proximate orders, when deﬁned in suitable
+intervals (c, ∞):
+(i) ρα,β(t) = 1
+α −β
+α
+log(log(t))
+log(t)
+, α > 0, β ∈R.
+(ii) ρ(t) = ρ + 1
+tγ , ρ ≥0, γ > 0.
+(iii) ρ(t) = ρ +
+1
+logγ(t), ρ ≥0, γ > 0.
+An example of a function verifying all the conditions except (D) is ρ(t) = ρ + sin(t)/t.
+The following statement establishes an important connection, as it will be seen in the
+forthcoming results.
+Proposition 2.5 ([2], Prop. 7.4.1). Let ρ(r) be a proximate order. Then, the function
+V (r) = rρ(r) is regularly varying, that is,
+lim
+r→∞
+V (tr)
+V (r) = tρ,
+uniformly in the compact sets of (0, ∞).
+Remark 2.6. Suppose ρ(r) (r ≥c ≥0) is a proximate order tending to ρ > 0 at inﬁnity.
+Then the function V (r) := rρ(r) is strictly increasing for r > R, where R is large enough.
+The inverse function r = U(s), s > V (R), has the property that the function ρ∗(s) =
+log(U(s))/ log(s) is a proximate order and ρ∗(s) →1/ρ as s →∞(see Property 1.8 in [12]).
+This ρ∗(s) is called the proximate order conjugate to ρ(r). Note that, by Proposition 2.5,
+the function U is regularly varying.
+Let γ be a positive real number. We consider the regions in the Riemann surface of the
+logarithm R given by
+L(γ) = {(r, θ) ∈R : |θ| < γ, r > 0}.
+The following result of L.S. Maergoiz will be important later on. For an arbitrary sector
+bisected by the positive real axis, it provides holomorphic functions whose restriction to
+(0, ∞) is real and has a growth at inﬁnity speciﬁed by a prescribed nonzero proximate order.
+These functions were used to construct nontrivial ﬂat functions and kernels of summability
+in Carleman ultraholomorphic classes by the second author (see [19]).
+Theorem 2.7 ([12], Th. 2.4). Let ρ(r) be a proximate order with ρ(r) →ρ > 0 as r →∞.
+For every γ > 0 there exists an analytic function V (z) in L(γ) such that:
+4

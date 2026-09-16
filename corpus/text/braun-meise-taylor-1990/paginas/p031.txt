@@ -1,0 +1,36 @@
+236 
+Braun, Meise and Taylor 
+[11] U. Franken, R. Meise: Generalized Fourier expansions for ultradistributional solutions 
+of homogeneous convolution equations. Manuscript. 
+[12] A. Grothendieck: Produits tensoriels topologiques et espaces nucleaires. Mem. Amer. 
+Math. Soc. 16, Providence 1955 (reprint 1966). 
+[13] L. Hormander: The Analysis of Linear Partial Differential Operators 1. Grundlehren 
+256, Springer, Berlin-Heidelberg-New York-Tokyo 1983. 
+[14] H. Komatsu: Ultradistributions 1. Structure theorems and a characterization. J. Fac. 
+Sci. Tokyo Sec. IA 20 (1973),25-105. 
+[15J H. Komatsu: Ultradistributions II. The kernel theorem and ultradistributions with 
+support in a submanifold. J. Fac. Sci. Tokyo Sec. IA 24 (1977), 607-628. 
+[16] G. Kothe: 
+Topological Vector Spaces 11. Grundlehren 237, Springer, New York-
+Heidelberg-Berlin 1979. 
+[17] J. L. Lions, E. Magenes: Probtemes aux limites non homogenes et applications, Vol. 3. 
+Dunod, Paris 1970. 
+[18J R. Meise: Sequence space representations for (DFN)-algebras of entire functions mod-
+ulo closed ideals. J. reine angew. Math. 363 (1985), 59-95. 
+[19J R. Meise: Sequence space representations for zero-solutions of convolution equations 
+on ultradifferentiable functions of Roumieu type. Studia math. 92 (1989), 211-230. 
+[20J R. Meise, K. Schwerdtfeger, B. A. Taylor: On kernels of slowly decreasing convolution 
+operators. Doga Tr. J. Math. 10 (1986),176-197. 
+[21] R. Meise, B. A. Taylor: Whitney's extension theorem for ultradifferentiable functions 
+of Beurling type. Ark. Mat. 26 (1988), 265-287. 
+[22J R. Meise, B. A. Taylor: Linear extension operators for ultradifferentiable functions oj 
+Beurling type on compact sets. Amer. J. Math. 111 (1989),309-337. 
+[23] T. Meyer: Die Fourier-Laplace- Transformation quasi-analytischer Funktionale und 
+ihre Anwendung auf Faltungsoperatoren. Diplomarbeit, Dusseldorf 1989. 
+[24] H. J. Petzsche, D. Vogt: Almost analytic extension of ultradifferentiable functions and 
+the boundary values of holomorphic functions. Math. Ann. 267 (1984),17-35. 
+[25] C. Roumieu: Sur quelques extensions de la notion de distributions. Ann. Sci. Ecole 
+Norm. Sup. Paris, 3 Ser. 77 (1960),41-121. 
+[26] L. Schwartz: 
+Theorie des distributions Ii valeurs vectorielles. Ann. Inst. Fourier 
+(Grenoble) 7 (1957),1-142. 

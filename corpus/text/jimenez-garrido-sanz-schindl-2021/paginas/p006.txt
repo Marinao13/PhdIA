@@ -1,0 +1,87 @@
+6
+J. JIMÉNEZ-GARRIDO, J. SANZ, AND G. SCHINDL
+(iii) In case ω has in addition (ω1), then Ωhas also both (M{L}) and (M(L)), more precisely
+(2.4)
+∀h ≥1 ∃A ≥1 ∀l > 0 ∃D ≥1 ∀j ∈N :
+hjW l
+j ≤DW Al
+j .
+(iv) Equivalent weight functions yield equivalent associated weight matrices.
+(v) (ω6) holds if and only if some/each W l satisﬁes (mg) if and only if W l≈W n for each l, n > 0.
+Consequently (ω6) is characterizing the situation when Ωis constant.
+(vi) ω∼ωW l for each l > 0.
+In particular, given M ∈LC we denote by ΩM the weight matrix associated with ωM.
+In [15, Section 2.7] the new weight function matrix ωM := {ωMx : x ∈I} has been considered and
+ultradiﬀerentiable classes E{ωM} and E(ωM) have been introduced.
+Let us recall now this approach. First let M := {M x : x ∈I} be (Msc). By Lemma 2.1 we get
+ωMx ∈W0 for each x ∈I.
+Based on this information, in [15, Section 3.1] the following multi-index weight matrix construction
+has been introduced:
+M x 7→ωMx 7→M x;l1 7→ωMx;l1 7→M x;l1,l2 7→. . . ,
+where for x ∈I, lj ∈R>0, j ∈N>0, and i ∈N we put
+M x;l1,...,lj+1
+i
+:= exp
+ 1
+lj+1
+ϕ∗
+ω
+Mx;l1,...,lj (lj+1i)
+
+,
+M x;l1
+i
+:= exp
+ 1
+l1
+ϕ∗
+ωMx(l1i)
+
+,
+respectively
+ωMx;l1,...,lj (t) := sup
+p∈N
+log
+ 
+tp
+M x;l1,...,lj
+p
+!
+for t > 0,
+ωMx;l1,...,lj (0) := 0.
+In this notation, for any x ∈I we get
+(2.5)
+M x;1
+j
+= M x
+j ,
+j ∈N,
+which follows by applying (2.1) (see also the proof of [15, Thm. 6.4]):
+M x;1
+j
+:= exp(ϕ∗
+ωM (j)) = exp(sup
+y≥0
+{jy −ωM(ey)}) = sup
+y≥0
+exp(jy −ωM(ey))
+= sup
+y≥0
+exp(jy)
+exp(ωM(ey)) = sup
+t≥1
+tj
+exp(ωM(t)) = sup
+t≥0
+tj
+exp(ωM(t)) = Mj.
+Note that by normalization of M we have ωM(t) = 0 for 0 ≤t ≤1, e.g. see the known integral
+representation formula for ωM, [9, 1.8. III] and also [8, (3.11)]. The similar statement is valid for
+the higher multi-index sequences.
+For a given (Msc) matrix M := {M x : x ∈I} we put M(2) := {M x;l : x ∈I, l > 0}. An abstractly
+given matrix of weight functions denotes a family of weight functions {ωx : x ∈I}, such that
+ωy ≤ωx for any x, y ∈I with x ≤y.
+2.7. Ultradiﬀerentiable classes. Let U ⊆Rd be non-empty open. We write K ⊂⊂U if K is
+compact and K ⊆U. We introduce now the following spaces of ultradiﬀerentiable functions classes.
+First, for weight sequences we deﬁne the (local) classes of Roumieu type by
+E{M}(U) := {f ∈E(U) : ∀K ⊂⊂U ∃h > 0 : ∥f∥M,K,h < +∞},

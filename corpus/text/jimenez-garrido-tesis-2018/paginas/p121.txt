@@ -1,0 +1,56 @@
+3.3. SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+121
+3.3
+Surjectivity of the asymptotic Borel map
+In 1895, É. Borel showed that ˜B : C∞(R) −→C[[z]] sending a smooth function f in R into the
+formal power series ˆf = P∞
+p=0(fp(0)/p!)zp is surjective and in 1916, J. F. Ritt extended this
+result for ˜
+Au(S), the class of analytic functions in a sector S with uniform asymptotic expansion
+at the origin, i.e., ˜B : ˜
+Au(S) −→C[[z]] is also surjective. Several proofs of these results are known,
+in [71, Th. 1.1.4.1, Coro. 1.1.4.2] the reader can nd a simple one given by B. Malgrange. In
+between their generalizations, it is worthy to mention that for an arbitrary closed set F ⊆RN
+H. Whitney showed that we can construct a function f ∈C∞(RN), real analytic in RN \ F, such
+that its value at F is determined by a given jet (see [106, 107]).
+As it was pointed out before, if f ∼M ˆf, then ˆf ∈C[[z]]M and it is quite natural to restrict
+ourselves to study the surjectivity for the case the coecients of the series have a prescribed
+growth in terms of M. Compared to injectivity, very little is known about this situation for the
+classes AM(S), ˜
+Au
+M(S) and ˜
+AM(S). The rst result in this direction is the Borel-Ritt-Gevrey
+theorem where J. P. Ramis, using the technique of the truncated Laplace transform for the
+Gevrey sequence Mα = (p!α)p∈N0, proved the following:
+Theorem 3.3.1 ([81, 82]). Let α > 0. Then ˜B : ˜
+AMα(Sγ) −→C[[z]]Mα is surjective if and only
+if γ ≤α.
+In 1995, V. Thilliez [93, (1.3)] gave a linear and continuous extension from C[[z]]Mα,A to
+AMα,dA(Sγ) for γ < α for every A > 0, where d > 0 depends only on α and γ, employing results
+of continuous extension from the ultradierentiable setting. The rst results for arbitrary weight
+sequences satisfying (dc) (see Denition 1.1.5) were given by J. Schmets and M. Valdivia in [91],
+their approach is based on the consideration of some nonclassical ultradierentiable classes, Er,M,
+Nr,M and Lr,M dened below for r ∈N, in which the interpolation is done only for a subsequence
+(f(pr)(0))p∈N0 of their derivatives at 0. They obtain results for the Roumieu and the Beurling
+case, this last one will be not be considered below.
+In that paper, although surjectivity is
+studied, the main focus is on the existence of linear and continuous global extension between
+the corresponding (LB)-spaces, which is much more demanding, and their main theorem, in the
+Roumieu case, is only for sequences with γ(M) = ∞. In 2003, V. Thilliez proved the following:
+Theorem 3.3.2 ([95], Theorem 3.2.1). Let M be a strongly regular sequence and 0 < γ < γ(M).
+Then there exists d ≥1 such that for every A > 0 there is a linear continuous operator
+TM,A,γ : C[[z]]M,A →AM,dA(Sγ)
+such that ˜B ◦TM,A,γ = IdC[[z]]M,A, the identity map in C[[z]]M,A. Hence, ˜B : AM(Sγ) −→C[[z]]M
+is surjective.
+This theorem was reproved by A. Lastra, S. Malek, J. Sanz [58] using the technique of
+the truncated Laplace transform for a suitable kernel. Finally, in [88, Theorem 6.1] J. Sanz
+generalized the BorelRittGevrey theorem for strongly regular sequences such that the function
+dM (see (2.15)) is a proximate order (see also Theorem 3.3.21). As it has been shown in the
+preceding chapter, although this condition is satised for most of the sequences appearing in the
+applications, it might be too restrictive (see Remark 2.2.18). These works are the departing point
+of this subsection whose main objective, partially but satisfactorily accomplished in the strongly
+regular case (see Table 3.4), is providing necessary and sucient conditions for the surjectivity
+of the Borel map.
+In the previous section, it has been shown that the appropriate value for characterizing the
+injectivity of the Borel map is the index ω(M) which equals the lower order of the sequence of
+Universidad de Valladolid

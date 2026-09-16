@@ -1,0 +1,76 @@
+86
+CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+In case any of these statements holds, the value of the limit in (i) and the index of regular
+variation of m are the same.
+Proof. (i) ⇒(ii) We call ω the value of the limit in (i). If we consider the sequences (αp)p∈N0
+and (βp)p∈N0 dened in (2.16), we will show that
+lim
+p→∞(α⌊λp⌋−αp) = ω log(λ),
+λ > 0,
+which, by denition, shows that the shifted sequence sm = (mp)p∈N is regularly varying and, by
+Lemma 1.2.40, this is equivalent to condition (ii). For λ = 1 the result is immediate. Assume
+λ > 1, using (2.18), for all p ∈N0, p ≥(λ −1)−1 we see that ⌊λp⌋> p and we have that
+α⌊λp⌋−αp =
+⌊λp⌋−1
+X
+k=p
+βk
+k + 1 + β⌊λp⌋−βp.
+Condition (i) can be written as limp→∞βp = ω, so it is sucient to prove that
+lim
+p→∞
+⌊λp⌋−1
+X
+k=p
+βk
+k + 1 = ω log(λ).
+If we take ε > 0, we x δ > 0 such that δ log(λ) < ε/6. There exists pδ ∈N such that |βp−ω| < δ
+for p ≥pδ. We remember that the p−th partial sum Hp = Pp
+k=1 1/k of the harmonic series may
+be given as
+Hp = log(p) + γ + εp,
+γ = Euler's constant, lim
+p→∞εp = 0.
+Consequently, for p ≥max(pδ, (λ −1)−1) we have
+⌊λp⌋−1
+X
+k=p
+βk
+k + 1 ≤(ω + δ)(H⌊λp⌋−Hp) = (ω + δ)
+
+log
+⌊λp⌋
+λp
+
++ log(λ) + ε⌊λp⌋−εp
+
+.
+Using that limp→∞⌊λp⌋/(λp) = 1 and that limp→∞εp = 0, we take p0 ≥max(pδ, (λ−1)−1) such
+that for every p ≥p0 one has
+ω log
+⌊λp⌋
+λp
+ < ε/12,
+δ log
+⌊λp⌋
+λp
+ < ε/12,
+|ωεp| < ε/6,
+|δεp| < ε/6.
+Then for p ≥p0 we see that
+⌊λp⌋−1
+X
+k=p
+βk
+k + 1 < ω log(λ) + ε.
+Analogously, for p ≥p0 we may also get that
+ω log(λ) −ε <
+⌊λp⌋−1
+X
+k=p
+βk
+k + 1,
+and we are done.
+For λ ∈(0, 1), the proof is similar and we omit it.
+JAVIER JIMÉNEZ GARRIDO

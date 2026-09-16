@@ -1,0 +1,42 @@
+29
+Chapter 1
+Preliminaries
+1.1
+Logarithmically convex sequences
+The classes of functions and formal power series considered in this dissertation are dened by
+growth restrictions of their derivatives or of their coecients, respectively. These restrictions
+will be expressed in terms of a sequence of positive real numbers that will be assumed to satisfy
+suitable conditions depending on the problem. In this rst section, these conditions and their
+immediate consequences will be presented. Most of the information is taken from the classical
+works of S. Mandelbrojt [72] and H. Komatsu [52], which we refer to for further details.
+1.1.1
+Denition and properties
+In what follows, M = (Mp)p∈N0 always stands for a sequence of positive real numbers, and we
+always impose that M0 = 1, where N0 = {0, 1, 2, . . . } = N ∪{0}. The names of the condi-
+tions given by V. Thilliez and, for the convenience of the reader, the corresponding descriptive
+acronyms employed by G. Schindl [90] have been used.
+Denition 1.1.1. We say that:
+(i) M is logarithmically convex (for short, (lc)) if
+M2
+p ≤Mp−1Mp+1,
+p ∈N.
+(ii) M is of or has moderate growth (briey, (mg)) whenever there exists A > 0 such that
+Mp+q ≤Ap+qMpMq,
+p, q ∈N0.
+(iii) M satises the strong nonquasianalyticity condition (for short, (snq)) if there exists B > 0
+such that
+∞
+X
+q=p
+Mq
+(q + 1)Mq+1
+≤B Mp
+Mp+1
+,
+p ∈N0.
+According to V. Thilliez [95], if M is (lc), has (mg) and satises (snq), we say that M is a strongly
+regular sequence.
+Denition 1.1.2. For a sequence M we dene the sequence of quotients m = (mp)p∈N0 by
+mp := Mp+1
+Mp
+p ∈N0.

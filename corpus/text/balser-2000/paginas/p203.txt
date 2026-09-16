@@ -1,0 +1,56 @@
+186
+12. Other Related Questions
+converge to (1−z)−1, and convergence is locally uniform, in S(π, (2−1/k)π).
+Hence, using that k can be taken arbitrarily large we see that (R) holds.
+So in shorthand notation, we have shown that (C) implies (O), (R), and
+(G). The converse also holds, as we now show:
+Theorem 59 Let a weakly p-regular inﬁnite matrix A be given. Then (C)
+holds if and only if (R), (O), and (G) are satisﬁed.
+Proof:
+One direction of the proof has already been given, so we now
+assume that (R), (O), and (G) are satisﬁed. For d ∈R and k > 1/2,
+consider a series ˆf ∈E {z}k,d. As shown in the proof of Theorem 41 (p. 120),
+we can decompose ˆf into a convergent series plus ﬁnitely many others
+which are moment series; so without loss of generality we can restrict ˆf
+to have coeﬃcients of the form (7.1) (p. 116), with ψ ∈A1/k,0(G, E ), and
+d + π/(2k) < arg a < d + (2 −1/(2k))π; compare Remark 9 (p. 117) to see
+that then ˆf ∈E {z}k,d. In this case, we have
+fm(z) =
+∞
+
+n=0
+amn fn zn =
+1
+2πi
+ a
+0
+ψ(u) km(z/u)du
+u ,
+the interchange of summation and integration being justiﬁed because of
+(O). For arg u suﬃciently close to d, we can then use (G) to justify inter-
+changing integration and limit as m →∞to obtain with help of (R):
+lim
+m→∞fm(z) =
+1
+2πi
+ a
+0
+ψ(u)
+u −z du,
+and the right-hand side is equal to Sk,d ˆf.
+2
+Let now any multisummability type k = (k1, . . . , kq) be given, assuming
+k1 > . . . > kq > 1/2. Then the parameters κj, given by κ1 = k1, 1/κj =
+1/kj −1/kj−1, 2 ≤j ≤q, automatically are larger than 1/2, so that the
+Main Decomposition Theorem (p. 164) applies. This shows that the above
+theorem immediately generalizes to multisummable series – however, we
+have to restrict to multidirections d = (d1, . . . , dq) with d1 = . . . = dq,
+because otherwise there may be no common sector on which the A-sum of
+a multisummable series can be deﬁned.
+Not very many matrix methods seem to satisfy the conditions (O), (R),
+(G): Jurkat [144] studied the matrices Jα = (jmn(α)) with jmn(α) =
+exp[−δm λ(αn)], where δm may be any positive sequence tending to 0 as
+m →∞, α is a positive real parameter, and
+λ(u) = u log(u + 3) log log(u + 3).
+This method had already been introduced by Hardy [113] for summation
+of special power series with rapidly growing coeﬃcients. It is a variant

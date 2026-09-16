@@ -1,0 +1,27 @@
+4
+Asymptotic Power Series
+In this chapter we deﬁne the notion of asymptotic expansions, in particular
+Gevrey asymptotics, and we show their main properties. To do so, it will
+be notationally convenient to restrict ourselves to power series in z, hence
+statements on asymptotic behavior of functions are always made for the
+variable z tending to the origin in some region. The main applications will
+be to formal analytic or meromorphic transformations, i.e., series in 1/z,
+but we trust that the reader will be able to make the necessary reformula-
+tion of the results.
+The fact that formal analytic transformations have matrix coeﬃcients
+does not cause any additional problems: If we develop a theory for scalar
+power series, it immediately carries over to series with matrix coeﬃcients,
+since these are the same as a matrix whose entries are scalar power series.
+However, eﬀorts have been made very recently to generalize the theory of
+multisummability to partial diﬀerential equations, or ordinary diﬀerential
+equations depending upon a parameter, and in this context one has to allow
+power series with coeﬃcients in some space of functions in one or more
+variables. Therefore, we shall consider a ﬁxed but arbitrary Banach space
+E over C, which we shall frequently assume to be a Banach algebra, and we
+will study functions, resp. power series, with values, resp. coeﬃcients, in
+E . Many of the results to follow are true even for E being a more general
+space: Sometimes no topology on E is needed, so E might be an arbitrary
+vector space, or an algebra, over C. Even when a topology is required, one
+may verify that instead of a norm one can make do with one or several
+seminorm(s) on E , hence E may be a Fr´echet space. We will, however,
+always assume that E , equipped with some ﬁxed norm ∥· ∥, is a Banach

@@ -1,0 +1,191 @@
+10
+Then, we have
+
+f(z) −
+N−1
+X
+p=0
+ap
+zp
+p!
+
+≤f1(z) + f2(z),
+where
+f1(z) =
+
+Z R0
+0
+eM
+u
+z
+
+∞
+X
+k=N
+ak
+m(k)
+uk
+k!
+du
+u
+ ,
+f2(z) =
+
+Z ∞
+R0
+eM
+u
+z
+ N−1
+X
+p=0
+ap
+m(p)
+up
+p!
+du
+u
+
+.
+We now give suitable estimates for f1(z) and f2(z). From Proposition 3.6 there exist C2, D2 > 0
+(not depending on z) such that
+(13)
+ak
+m(k)k! ≤C1Dk
+1k!Mk
+m(k)k!
+≤C2Dk
+2,
+for all k ∈N0. This yields
+f1(z) ≤C2
+Z R0
+0
+eM
+u
+z
+
+∞
+X
+k=N
+(D2u)k du
+u .
+Taking R0 ≤(1 −ǫ)/D2 for some ǫ > 0 if necessary, we get
+f1(z) ≤ǫC2Dn
+2
+Z R0
+0
+eM
+u
+z
+ uN−1du.
+By a double application of (i) in Proposition 2.7 we derive
+GM
+z
+u
+ ≤hM
+k3|z|
+|u|
+
+= hM
+
+k2
+k3|z|
+k2u
+
+≤1
+k1
+GM
+k3|z|
+k2u
+
+,
+for some positive constants k1, k2, k3. This yields
+(14)
+Z R0
+0
+eM
+u
+z
+ uN−1du ≤1
+k1
+Z ∞
+0
+u
+z
+ GM
+k3|z|
+k2u
+
+uN−1du
+= 1
+k1
+Z ∞
+0
+k3t
+k2
+GM
+1
+t
+ k3|z|t
+k2
+N−1 k3
+k2
+|z|dt
+=
+k3
+k2
+N+1 1
+k1
+|z|N
+Z ∞
+0
+tNGM
+1
+t
+
+dt = C3DN
+3 m(N)|z|N,
+for some C3, D3 > 0. The conclusion for f1 is achieved from Proposition 3.6. It only rests to
+estimate f2(z). We have up ≤Rp
+0uN/RN
+0 for u ≥R0 and 0 ≤p ≤N −1. So, according to (13),
+we may write
+N−1
+X
+p=0
+apup
+m(p)p! ≤
+N−1
+X
+p=0
+C1Dp
+1p!Mpup
+m(p)p!
+≤
+N−1
+X
+p=0
+C1Dp
+1C2Dp
+2up ≤uN
+RN
+0
+N−1
+X
+p=0
+C1Dp
+1C2Dp
+2Rp
+0 ≤C5DN
+5 uN,
+for some positive constants C5, D5. Then, we conclude
+f2(z) ≤C5DN
+5
+Z ∞
+R0
+eM
+u
+z
+ uN−1du.
+We come up to the end of the proof following similar estimates as in (14).
+✷

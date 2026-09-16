@@ -1,0 +1,34 @@
+25
+[24] J. Schmets, M. Valdivia, Extension maps in ultradifferentiable and ultraholomorphic func-
+tion spaces, Studia Math. 143 (3) (2000), 221–250.
+[25] N. Teofanov, F. Tomic, Extended Gevrey regularity via weight matrices, Axioms 11 (10)
+(2022), 576.
+[26] V. Thilliez, Division by flat ultradifferentiable functions and sectorial extensions, Results
+Math. 44 (2003), 169–188.
+Funding The first three authors are partially supported by the Spanish Ministry of Science and
+Innovation under the project PID2022-139631NB-I00. The research of the fourth author was
+funded in whole or in part by the Austrian Science Fund (FWF) 10.55776/PAT9445424.
+Affiliations:
+Javier Jiménez-Garrido:
+Departamento de Matemáticas, Estadística y Computación
+Universidad de Cantabria
+Avda. de los Castros, s/n, 39005 Santander, Spain
+Instituto de Investigación en Matemáticas IMUVA, Universidad de Valladolid
+ORCID: 0000-0003-3579-486X
+E-mail: jesusjavier.jimenez@unican.es
+Ignacio Miguel-Cantero:
+Instituto de Investigación en Matemáticas IMUVA
+Universidad de Valladolid
+ORCID: 0000-0001-5270-0971
+E-mail: ignacio.miguel@uva.es
+Javier Sanz:
+Departamento de Álgebra, Análisis Matemático, Geometría y Topología
+Universidad de Valladolid
+Facultad de Ciencias, Paseo de Belén 7, 47011 Valladolid, Spain.
+Instituto de Investigación en Matemáticas IMUVA
+ORCID: 0000-0001-7338-4971
+E-mail: javier.sanz.gil@uva.es
+Gerhard Schindl:
+Fakultät für Mathematik, Universität Wien, Oskar-Morgenstern-Platz 1, A-1090 Wien, Austria.
+ORCID: 0000-0003-2192-9110
+E-mail: gerhard.schindl@univie.ac.at

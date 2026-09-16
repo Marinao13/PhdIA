@@ -1,0 +1,53 @@
+5.3. ASYMPTOTIC EXPANSION EXTENSION
+195
+5.3
+Asymptotic expansion extension
+From the generalized version of the BorelRittGevrey, Theorem 3.3.21, for a weight sequence
+M admitting a nonzero proximate order we may generalize Theorem 1 in [29].
+Theorem 5.3.1. Given γ > 0, suppose f is holomorphic in a sectorial region Gγ, it is bounded
+in every T ≪Gγ, and it admits ˆf ∈C[[z]] as its M−asymptotic expansion in a direction
+θ ∈(−πγ/2, πγ/2). Then, f ∈˜
+AM(Gγ) and f ∼M ˆf in Gγ.
+Proof. We distinguish two cases:
+1. Sectorial regions of small opening: If γ < ω, we take γ < µ < ω. By the Borel-Ritt-Gevrey
+Theorem 3.3.21 we know that there exists a function f0 ∈˜
+AM(Sµ) such that f0 ∼M ˆf in
+Sµ. Then the function g := f −f0 is holomorphic in Gγ, bounded in every proper bounded
+subsector of Gγ and it is M−at in direction θ. Using Proposition 5.1.11, we see that g is
+M−at in Gγ.
+Then, for every proper bounded subsector T of Gγ, there exist positive constants A(T),
+B(T), C(T), D(T) > 0 such that
+|f(z) −
+p−1
+X
+n=0
+anzn| ≤|g(z)| + |f0(z) −
+p−1
+X
+n=0
+anzn|
+≤ACpMp|z|p + BDpMp|z|p ≤2 max(A, B) max(Cp, Dp)Mp|z|p,
+for every z ∈T and every p ∈N0. Consequently, f ∈˜
+AM(Gγ) and f ∼M ˆf in Gγ.
+2. Sectorial regions of large opening: If γ ≥ω, we may choose natural numbers ℓand m, and
+for all j = −ℓ, . . . , −1, 0, 1, . . . , m we may consider directions θj ∈(−πγ/2, πγ/2) such that
+θ0 := θ,
+θj :=θj−1 + πω/8,
+j = 1, . . . , m,
+πγ/2 −θm < πω/8;
+θj :=θj+1 −πω/8,
+j = −1, . . . , −l,
+−πγ/2 + θ−l > −πω/8.
+There exists ρ0 > 0 such that S0 = S(θ0, πω/4, ρ0) ⊆Gγ. We apply the rst part in the
+sector S0 and we see that f ∈˜
+AM(S0) and f ∼M ˆf in S0. In particular, f admits ˆf as its
+M−asymptotic expansion in directions θ1 and θ−1 for |z| < ρ0. Repeating the process we
+see that f ∈˜
+AM(Gγ) and f ∼M ˆf in Gγ.
+□
+The proof of our last statement is now straightforward.
+Corollary 5.3.2. Given γ > 0 and θ ∈(−πγ/2, πγ/2), we have that
+˜
+AM(Gγ) = {f ∈H(Gγ) : f is bounded in every proper bounded subsector T of Gγ
+and f admits M−asymptotic expansion in direction θ}.
+Universidad de Valladolid

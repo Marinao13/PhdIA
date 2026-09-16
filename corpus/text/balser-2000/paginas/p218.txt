@@ -1,0 +1,45 @@
+13.3 Singular Perturbations
+201
+found in Faber’s thesis [102]. Roughly speaking, this example shows that in
+presence of level 1+ one can no longer restrict to using Laplace transform
+integrating along straight lines, but has to allow other paths of integration.
+For a general presentation, see Chapter 3 of the said thesis, containing joint
+work of Braaksma, Faber, and Immink.
+13.3
+Singular Perturbations
+Let us consider a system of ODE of the form
+εσ x′ = g(z, x, ε),
+where g(z, x, ε) is as in Section 13.1, but additionally depends on a parame-
+ter ε, and σ is a natural number. Analysis of the dependence of solutions on
+ε is referred to as a singular perturbation problem. Under suitable assump-
+tions on the right-hand side, such a system will have a formal solution
+ˆx(z, ε) = ∞
+n=0 xn(z) εn, with coeﬃcients xn(z) given by diﬀerential re-
+cursion relations. In general, the series is divergent, and classically one has
+tried to show existence of solutions of the above system that are asymptotic
+to ˆx(z, ε) when ε →0 in some sectorial region. Very recently, one has begun
+to investigate Gevrey properties of ˆx, or discuss its (multi-)summability.
+Of the recent articles containing results in this direction, we mention Wal-
+let [278, 279], Canalis-Durant [76], and Canalis-Durant, Ramis, Sch¨afke,
+and Sibuya [77].
+Since here we meet power series whose coeﬃcients are functions of an-
+other variable, the situation is very much analogous to that of formal so-
+lutions of partial diﬀerential equations, which we are investigating in the
+following section. Here, we shall brieﬂy look at a very simple example,
+already discussed by Ecalle:
+The inhomogeneous equation ε x′ = x −f(z) has the formal solution
+ˆx(z, ε) = ∞
+0 εn f (n)(z), for arbitrary f(z) which we assume holomorphic
+near the origin, say, for |z| < ρ. According to Cauchy’s formula, the coeﬃ-
+cients f (n)(z) grow roughly like n!, so it is natural to study 1-summability
+of this series. The formal Borel transformation of order k = 1 of this series
+equals the power series expansion of f(z + ε) about the point z. Conse-
+quently, holomorphic continuation of ˆB1ˆx is equivalent to that of f. Hence,
+the series ˆx is 1-summable in a direction d if and only if the function f
+admits holomorphic continuation into a sector S(d, δ), for some δ > 0, and
+is of exponential growth at most 1 there. More generally, one can prove a
+result on the multisummability of ˆx that is completely analogous to Theo-
+rem 63 (below) for the heat equation. In any case, multisummability of ˆx
+is always linked to explicit conditions on the function f(z). This indicates
+that for power series of several variables, the notion of multisummability
+that has been developed in this book is not general enough. This is due

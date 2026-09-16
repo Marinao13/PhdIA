@@ -1,0 +1,57 @@
+5.2. WATSON'S LEMMAS
+193
+We observe that for every z with arg(z) ∈[−πω/2, πω/2] one has
+arg(a/z) ∈[−πω/4, 3πω/4] ⊆(−πω/2, πω).
+Using property (I) of the functions in MF(2ω, ρ(t)), we see that
+lim
+|z|→0 Re
+
+V (a/z)
+|a|1/ωV (1/|z|)
+
+= cos((arg(a) −arg(z))/ω)
+uniformly for arg(z) ∈[−πω/2, πω/2]. We x 0 < ε < 1 such that
+cos(3π/4) + ε ≤cos(5π/8) + ε ≤−1/3 < 0.
+We deduce that we have (5.6) and (5.7) for arg(z) ∈[−πω/2, πω/2] and |z| < s1, small enough
+and subject to the restriction s1 < 1/(t0k2). Consider the function
+F(z) := f(z)eV (a/z),
+for arg(z) ∈[−πω/2, πω/2].
+Then we see that F(z) is holomorphic in Sω and continuous in Sω.
+If arg(z) ∈[−πω/2, −3πω/8], we have that arg(a/z) ∈[5πω/8, 3πω/4]. Then, since f(z) is
+bounded by K > 0 in Sω and using (5.7) for |z| < s1, one has
+|F(z)| ≤KeRe(V (a/z)) ≤Ke(cos(5π/8)+ε)|a|1/ωV (1/|z|) ≤Ke−|a|1/ωV (1/|z|)/3.
+Using property (I) of the functions in MF(2ω, ρ(t)) we see that
+lim
+|z|→0
+V ((|a|/(3B)ω)(1/2|z|))
+(|a|1/ω/(3B))V (1/|z|) = (1/2)1/ω < 1.
+We dene b2 := (|a|/(3B)ω)/2. Then for |z| < s2 < min(s1, b2/t0), small enough, we have that
+|F(z)| ≤Ke−BV (b2/|z|),
+if |z| < s2,
+arg(z) ∈[−πω/2, −3πω/8].
+Using (5.3), we see that
+|F(z)| ≤Ke−ωM(b2/|z|),
+if |z| < s2,
+arg(z) ∈[−πω/2, −3πω/8].
+(5.13)
+We dene C = max{Re(V (a/z)) : |z| ≥s2, −πω/2 ≤arg(z) ≤−3πω/8} and we take
+c1 := K max{exp(C), 1} < ∞.
+Then, since ωM(t) ≥0 we have that
+|F(z)| ≤c1 ≤c1eωM(b2/|z|)
+if |z| ≥s2,
+arg(z) ∈[−πω/2, −3πω/8].
+(5.14)
+Since c1 ≥K, from (5.13) and (5.14) we deduce that F is M−at uniformly for arg(z) ∈
+[−πω/2, −3πω/8].
+If arg(z) ∈[−3πω/8, πω/2], we have that arg(a/z) ∈[−πω/4, 5πω/8]. Using (5.3), (5.7) and
+(5.12), for |z| < s1 we see that
+|F(z)| ≤k1e−ωM(1/(k2|z|))e(cos(arg(a/z)/ω)+ε)|a|1/ωV (1/|z|) ≤k1e−AV (1/k2|z|)+2|a|1/ωV (1/|z|).
+Now, property (I) of the functions in MF(2ω, ρ(t)) lets us write
+lim
+|z|→0
+V (1/k2|z|)
+V (1/|z|)
+= k−1/ω
+2
+,
+Universidad de Valladolid

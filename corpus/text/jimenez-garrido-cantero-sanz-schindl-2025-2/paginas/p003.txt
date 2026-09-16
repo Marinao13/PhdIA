@@ -1,0 +1,96 @@
+3
+the corresponding capital letters. Furthermore, we set c
+M := (p!Mp)p∈N0 and
+c
+M := (Mp/p!)p∈N0,
+and c
+m = ( bmp)p and
+c
+m = (
+b
+mp)p will denote the corresponding sequences of quotients: bmp =
+(p + 1)mp,
+b
+mp = mp/(p + 1) for p ∈N0.
+We shall use the following conditions on sequences M:
+(lc) M is log-convex if M 2
+p ≤Mp−1Mp+1, p ∈N. Equivalently, (mp)p∈N0 is nondecreasing.
+(sm) M has shifted moments if log(mp+1/mp) ≤C0Hp+1, p ∈N0, for some C0 > 0 and H > 1.
+(dc) M is derivation closed if Mp+1 ≤C0Hp+1Mp, p ∈N0, for some C0 > 0 and H > 1.
+(mg) M has moderate growth if Mp+q ≤C0Hp+qMpMq, p, q ∈N0, for some C0 > 0 and H > 1.
+(snq) M is strongly non-quasianalytic if
+∞
+X
+q=p
+1
+(q + 1)mq
+≤C
+mp
+, p ∈N0, for some C > 0.
+Remark 2.1. The form of the inequalities in (sm), (dc) and (mg) admits slight modifications.
+For example, the constant C0 could be omitted in all of them, or one could use C0Hp instead
+of C0Hp+1 in (sm) or (dc). The choice of one of these alternative expressions can provide some
+flexibility in our arguments, and we will use one or another without further comment.
+In the classical work of H. Komatsu [14], the properties (lc), (dc) and (mg) are denoted by
+(M.1), (M.2)′ and (M.2), respectively, while (snq) for M is the same as property (M.3) for c
+M.
+If M is (lc), not only (mp)p∈N0 but also (M 1/p
+p
+)p∈N is nondecreasing, and (Mp)1/p ≤mp−1
+for every p ∈N; moreover, limp→∞(Mp)1/p = ∞if and only if limp→∞mp = ∞. The sequence
+M is said to be a weight sequence if it satisfies (lc) and mp ↗∞as p →∞.
+According to E. M. Dyn’kin [5], if M is a weight sequence and satisfies (dc), we say c
+M is
+regular. Following V. Thilliez [26], if M satisfies (lc), (mg) and (snq), we say M is strongly
+regular; in this case M is a weight sequence, and the corresponding c
+M is regular (since (mg)
+clearly implies (dc)).
+Remark 2.2. All the previously listed properties are preserved when passing from M to c
+M.
+However, only (sm), (dc) and (mg) are generally kept when going from M to
+c
+M. While these
+statements are well-known for (dc) and (mg), the ones for the, up to our knowledge, new condition
+(sm) stem from the inequalities
+log
+mp+1
+mp
+
+≤log
+mp+1
+mp
+
++ log
+p + 2
+p + 1
+
+= log
+ bmp+1
+bmp
+
+≤log
+mp+1
+mp
+
++ log(2)
+(when applied to M or to
+c
+M). Similarly, (sm) (like (dc) and (mg)) is kept when going from M
+to (p!αMp)p for any real number α.
+Regarding (sm) and (dc) we have the following.
+Lemma 2.3. Let M be a sequence such that a0 := infp∈N0 mp > 0 (in particular, this holds if
+M is (lc)). Then, (dc) implies (sm).
+Proof. Since mp ≤C0Hp+1 and p + 1 ≤2p for every p ∈N0 and some C0 > 0 and H > 1, one
+has
+log
+mp+1
+mp
+
+≤log(mp+1) −log(a0) ≤log(C0/a0) + (p + 2) log(H) ≤C1Hp+1
+1
+for every p ∈N0, with the choices C1 = log(HC1/2
+0
+/a1/2
+0
+) > 0 (note that a0 ≤C0H < C0H2)
+and H1 = 2.

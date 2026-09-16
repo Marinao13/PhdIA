@@ -1,0 +1,73 @@
+24
+where β ∈N and φ ∈O(D(0, r)), has
+(38)
+ˆu(t, z) =
+∞
+X
+j=β−1
+
+j
+β −1
+ λj(∂m2,z)φ(z)
+m1(j)
+tj =:
+∞
+X
+j=0
+uj(z)tj
+as its formal solution, and Corollary 5.3 allows us to claim that
+sup
+|z|<r0
+|uj(z)| ≤CDj m2(qj)
+m1(j) ,
+for some r0, C, D > 0 and for every j ∈N0. Hence, convergence or divergence of ˆu in some
+neighborhood of the origin is a consequence of the growth rate of the sequence (m2(qj)
+m1(j) )j≥0.
+More precisely, one has
+Corollary 5.5. If
+limj→∞
+m2(qj)
+m1(j)
+1/j
+< ∞,
+then ˆu in (38) deﬁnes a holomorphic function u(t, z) on D1 × D(0, r0) for some neighborhood of
+the origin D1 ⊆C, and u solves (37).
+We now turn our attention to the determination of suﬃcient conditions for u(t, z) to admit
+analytic continuation in an unbounded sector with respect to the variable t and with adequate
+growth. We ﬁrst need some notation, starting with Ome(S) (see Deﬁnition 3.9), where S is an
+unbounded sector in R and me is a strongly regular sequence of moments for a kernel e.
+Deﬁnition 5.6. We write f ∈Ome( ˆS) if f ∈Ome(S) ∩O(S ∪D) for some disc D = D(0, r).
+Let D = D(0, r). We say f(t, z), holomorphic in S × D, belongs to Ome(S × D) if for every
+T ≺S and r1 ∈(0, r) there exist c, k > 0 such that
+sup
+z∈D(0,r1)
+|f(t, z)| ≤
+c
+hme (k/|t|),
+t ∈T.
+Analogously, we write f ∈Ome( ˆS × D) if f ∈O((S ∪D1) × D) ∩Ome(S × D) for some disc
+D1 around the origin. We also write Ome( ˆS(d)) and Ome( ˆS(d) × D) whenever the sector S is of
+the form S(d, ε) for some inessential ε > 0.
+¿From Proposition 3.13 we deduce the following result.
+Corollary 5.7. If there exists a strongly regular sequence of moments me = (me(j))j∈N0 and
+C, D > 0 such that
+m2(qj)me(j) ≤CDjm1(j)
+for every j ≥0, then ˆu in (38) deﬁnes a function u ∈O(C × D(0, r0)), and one has
+sup
+|z|<r0
+|u(t, z)| ≤
+c
+hme(k/|t|),
+for some c, k > 0 and for every t ∈C.
+Remark 5.8. In the particular case that m1 = M1/k1 and m2 = M1/k2 for some k1, k2 > 0 with
+1/k1 > q/k2, we would have that ˆu ∈O(C × D(0, r0)), with exponential growth in the variable
+t of order ( 1
+k1 −q 1
+k2)−1, namely
+sup
+|z|<r0
+|u(t, z)| ≤CeD|t|
+k1k2
+k2−qk1 ,
+t ∈C,
+for some C, D > 0, as stated in Proposition 5 of [32].

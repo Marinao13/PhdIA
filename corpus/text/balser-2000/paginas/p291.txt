@@ -1,0 +1,44 @@
+276
+References
+[119] D. Hilbert, Grundz¨uge einer allgemeinen Theorie der linearen In-
+tegralgleichungen (Dritte Mitt.), Nachr. Ges. der Wiss., G¨ottingen,
+(1905), pp. 307–338.
+[120] E. Hille, Ordinary Diﬀerential Equations in the Complex Domain,
+Wiley, New York, 1976.
+[121] F. L. Hinton, Stokes multipliers for a class of ordinary diﬀerential
+equations, J. Math. Phys. (10), 20 (1979), pp. 2036–2046.
+[122] M. v. Hoeij, Rational solutions of the mixed diﬀerential equation
+and its application to factorization of diﬀerential operators, in Pro-
+ceedings of ISSAC ’96, ACM Press, 1996.
+[123]
+, Factorization of diﬀerential operators with rational function
+coeﬃcients, J. Symbolic Comput., 24 (1997), pp. 537–561.
+[124]
+, Formal solutions and factorization of diﬀerential operators
+with power series coeﬃcients, J. Symbolic Comput., 24 (1997), pp. 1–
+30.
+[125] J. Horn, Fakult¨atenreihen in der Theorie der linearen Diﬀerential-
+gleichungen, Math. Annalen, 71 (1912), pp. 510–532.
+[126]
+, Integration linearer Diﬀerentialgleichungen durch Laplacesche
+Integrale und Fakult¨atenreihen, Jahresber. DMV, 25 (1916), pp. 74–
+83.
+[127]
+, Integration linearer Diﬀerentialgleichungen durch Laplacesche
+Integrale I, Math. Zeitschr., 49 (1944), pp. 339–350.
+[128]
+, Integration linearer Diﬀerentialgleichungen durch Laplacesche
+Integrale II, Math. Zeitschr., 49 (1944), pp. 684–701.
+[129] P. Hsieh, On the asymptotic integration of x2y
+′′ −p(x)y = 0, Arch.
+Math. Brno (2), 14 (1978), pp. 75–83.
+[130] P. Hsieh and Y. Sibuya, On the asymptotic integration of sec-
+ond order linear ordinary diﬀerential equations with polynomial coef-
+ﬁcients, J. Math. Anal. and Appl., 16 (1966), pp. 84–103.
+[131] M. Hukuhara, Fifty years of ordinary diﬀerential equations I,
+Sˆuugaku, 34 (1982), pp. 164–171.
+[132]
+, Fifty years of ordinary diﬀerential equations II, Sˆuugaku, 34
+(1982), pp. 262–269.
+[133] G. K. Immink, Asymptotic of analytic diﬀerence equations, Ph.D.
+thesis, Rijksuniversiteit Groningen, 1983.

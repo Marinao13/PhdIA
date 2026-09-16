@@ -1,0 +1,98 @@
+Proof. We write again (Mp)p≥0 for the sequence (M V
+p )p≥0. In Proposition 4.4 we have seen
+that (Mp)p≥0 is logarithmically convex and M0 = 1. By Proposition 2.13(ii.2), in order to
+prove (mg) it is enough to see that there exist p0 ∈N and A > 1 such that
+M2p ≤ApM 2
+p,
+p ≥p0.
+We observe that
+M2p = sup
+t>0
+t2p
+eV (t) ≤sup
+t>0
+tp
+eV (t)/2 sup
+t>0
+tp
+eV (t)/2 .
+We consider the functions ηp(t) = tpe−V (t)/2, and we see that the points that verify η′
+p(t) = 0
+are those satisfying
+p = V (t)
+2
+A(t).
+Proceeding as in Proposition 4.7, and with the notation used there, we see that ηp(t) reaches
+its maximum in the point t2p ∈(0, ∞), and given 0 < ε < ρ there exists pε ∈N such that
+for p > pε we have
+A(t2p) ∈(ρ −ε, ρ + ε),
+t2p = U
+
+2p
+A(t2p)
+
+,
+where U(r) is the inverse of V (s). So, for p > pε we have
+M2p ≤U (2p/A(t2p))p
+ep/A(t2p)
+U (2p/A(t2p))p
+ep/A(t2p)
+.
+Since U is increasing, we see that
+M2p ≤U (2p/(ρ −ε))2p
+e2p/(ρ+ε)
+,
+p > pε.
+Finally, using that
+lim
+s→∞
+U(2s/(ρ −ε))
+U(s)
+=
+
+2
+(ρ −ε)
+1/ρ
+,
+there exists p0 > pε such that for every p ≥p0 we have
+M2p ≤U(p)2p22p (2/(ρ −ε))2p/ρ
+e(2p)/(ρ+ε)
+,
+and by (18)
+M2p ≤
+
+41+1/ρB2
+e2/(ρ+ε)(ρ −ε)2/ρ
+p
+M 2
+p,
+p > p0.
+Consequently, M has moderate growth.
+Let us see that M also veriﬁes (snq). By Proposition 2.13, one has
+mp ≤A2M 1/p
+p
+≤A2mp,
+and we may apply (18) to deduce
+ 1
+B
+
+U(p) ≤mp ≤A2BU(p),
+p ∈N.
+Now we choose k ∈N large enough such that k1/ρ/(2AB)2 ≥1. By the regular variation of
+U, there exists p1 ∈N such that
+mkp
+mp
+≥
+U(kp)
+A2B2U(p) ≥
+k1/ρ
+2A2B2 ≥2 > 1,
+p > p1.
+Then M veriﬁes that
+lim inf
+p→∞
+mkp
+mp
+> 1,
+and by Proposition 2.13(iii) we conclude.
+17

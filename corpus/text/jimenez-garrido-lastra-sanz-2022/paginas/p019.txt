@@ -1,0 +1,80 @@
+EXTENSION OPERATORS FOR SOME ULTRAHOLOMORPHIC CLASSES OF RAPID GROWTH 19
+So, both f1 and f2 can be estimated above essentially by
+Z ∞
+0
+eτ,σ
+u
+z
+ uN−1du.
+The second inequality in (4.5), a simple change of variable and the estimates in (4.21)
+imply that, for suitable constants C6, K6, B > 0, one has
+Z ∞
+0
+eτ,σ
+u
+z
+ uN−1du ≤
+Z ∞
+0
+C6eτ,σ
+
+K6
+u
+|z|
+
+uN−1du = C6K−N
+6
+mτ,σ(N)|z|N
+≤C6(B/K6)NM τ,σ
+N |z|N,
+as desired.
+□
+As we have mentioned in Subsection 2.3, for each A > 0 we know that ( e
+Au
+{M},A(S), ∥∥M,A,
+∼u)
+and (C[[z]]{M},A, | |M,A) are Banach spaces. Then, there is a topological consequence of
+the previous result: for each A > 0 we have a linear and continuous right inverse for the
+asymptotic Borel map from C[[z]]{M},A to ˜
+Au
+{M},dA(S) for some d > 0. More precisely, we
+observe from the proof of Theorem 5.1 that D2 = d1D1 for some d1 ≥1, in (5.2). In
+addition to this, the choice of R0 guarantees that D5 in (5.3) is of the form d2D1 for some
+d2 ≥1. Therefore, one can choose d := 2B
+K6 max{d1, d2}. This entails that if ˆf ∈C[[z]]{M},A
+there exist constants c, d > 0, not depending neither on ˆf nor on A, such that for every
+N ∈N0 one has
+f(z) −
+N−1
+X
+p=0
+cpzp
+ ≤(cC1)(dA)NM τ,σ
+N
+= c| ˆf|M,A(dA)NM τ,σ
+N ,
+z ∈S.
+Then ∥f∥Mτ,σ,dA,
+∼u ≤c| ˆf|Mτ,σ,A, where the scaling factor d only depends on the unbounded
+subsector S of C\(−∞, 0], that is, d does not depend on A.
+Consequently, we have the following result which is analogous to a result by V. Thilliez
+[23, Thm. 3.2.1] for classes associated with strongly regular sequences.
+Theorem 5.2. Let τ > 0 and 1 < σ < 2 be given. For each δ ∈(0, 2) there exists a
+positive constant d ≥1 such that for any A > 0, the integral operator
+TM,A : C[[z]]{M},A −→e
+Au
+{M},dA(Sδ),
+deﬁned for ˆf = P∞
+p=0 cpzp in (5.1) by
+TM,A( ˆf) :=
+Z R0
+0
+eτ,σ(u/z)
+
+∞
+X
+p=0
+cp
+mτ,σ(p)updu
+u
+is a linear and continuous right inverse for the asymptotic Borel map B.

@@ -1,0 +1,37 @@
+Solutions
+259
+one where the coeﬃcient matrix has the desired form, except for the
+conditions upon Re bm(0). This can then be arranged using shearing
+transformations.
+6. First, show that for a scalar formal meromorphic series ˆt(z) the
+equation z ˆt′(z) = constant implies ˆt(z) = constant. Then compute
+N1 ˆT(z) −ˆT(z) N2.
+Section 8.5:
+1. Build a vector x by rearranging the elements of X.
+2. Holomorphicity follows from the results in Chapter 1. For the de-
+terminant, show that for an arbitrary fundamental solution X2(z) of
+z x′ = A2(z) x, the matrix X(z) X2(z) is a solution of z x′ = A1(z) x,
+and use Proposition 1 (p. 6).
+3. Use the previous exercise.
+Section 9.1:
+2. For a matrix C = Ejm with a 1 in position (j, m) and 0’s elsewhere,
+use the previous exercise to see that X1(z) Ejm X−1
+2 (z) is a solution.
+Check that all these solutions are linearly independent, and use The-
+orem 2 (p. 6).
+4. For (d), show (n, m) ∈Suppj,n1 if and only if (9.2) holds in S′
+j =
+Sj ∩. . . ∩Sj+n1. Use this to conclude that C has the required form if
+and only if Y (z) (I + C) Y −1(z) ∼=1/k I in S′
+j. Then, use results from
+Section 4.5. For (g), enumerate the data pairs in such a way that (9.2)
+holds for dj−1 + π/(2k) < arg z < dj + π/(2k) if and only if n < m,
+so that Gj,n1 consists of upper triangularly blocked matrices. Then,
+consider blocks directly above the diagonal ﬁrst, next, treat those in
+the next superdiagonal, etc.
+Section 9.2:
+1. Consider the identities obtained for the blocks of D, C+, and C−in
+a suitable order.
+2. For the product on the right, ﬁrst consider the blocks directly below
+the diagonal, then in the next subdiagonal, and so forth. Also compare
+this to Exercise 4 on p. 142.

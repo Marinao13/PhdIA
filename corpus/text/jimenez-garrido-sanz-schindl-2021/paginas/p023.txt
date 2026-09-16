@@ -1,0 +1,55 @@
+EQUALITY OF ULTRADIFFERENTIABLE CLASSES BY MEANS OF INDICES
+23
+(i) M does have (M(mg)) and one/each of the characterizing conditions from (II) in Theorem
+3.2 (e.g. the mixed (ω1)-conditions of Beurling type),
+(ii) we have as top. vector spaces the equalities
+E(M) = E(M(2)) = E(ωM),
+(iii) ∀x ∈I ∃y ∈I :
+β(M y, ΩMx) > 0, and
+∀x ∈I ∃y ∈I :
+α(M x, ΩMy) < ∞,
+(iv) ∀x ∈I ∃y ∈I :
+α(ωMy, ωMx) < ∞, and
+∀x ∈I ∃y ∈I :
+β(ωMx, ωMy) > 0.
+We give now some comments on ”classical situations” to which this main result applies.
+(a) Theorem 5.4 applies to M ≡Ω= {W x : x > 0}, when Ωis associated with a given weight
+function ω ∈W0 (see Section 2.6). In this situation this theorem is consistent with the
+known results from [1] and [11]: On the one hand Ωsatisﬁes all requirements from assertion
+(i) (for both types) provided that ω ∈W, see (2.3) and Corollary 3.3. On the other hand,
+we have in this situation
+E[Ω] = E[ω] = E[ωΩ],
+with the ﬁrst equality holding by [11, Theorem 5.14 (2)] and the second one by [11, Lemma
+5.7]. Note that ω∼ωW x for all x > 0 (i.e. (vi) in Sect. 2.6) , hence the matrix ωΩis
+constant.
+Alternatively, by our developed knowledge on mixed growth indices we can also directly
+verify assertions (iv): By (2.3) and Theorem 4.4 we get both requirements on the index
+β; whereas Corollary 3.3 and Lemma 3.5 yield that both requirements on the index α are
+valid, more precisely even with the value 0.
+(b) If M = {M}, then ωM = {ωM} and there is no diﬀerence between Roumieu- and Beurling-
+like conditions. In this case Theorem 5.4 yields the characterizations shown in [1]. More
+precisely, we remark that in (i) assumption (mg) on M implies that some/any assertions
+in Theorem 3.2 are valid if and only if
+(5.2)
+∃Q ∈N≥2 :
+lim inf
+j→+∞
+µQj
+µj
+> 1,
+which follows by [12, Prop.
+3.4].
+However, note also that in [1] the general assump-
+tions on M have been slightly stronger than in our result, i.e. apart from M ∈LC also
+lim infp→∞(Mp/p!)1/p > 0 (this is precisely (M0) in [1]) and (M2′) from [8] (derivation
+closedness) are required.
+Finally, let us see (i) ⇔(iv) directly and not using any information on the underlying
+ultradiﬀerentiable classes: In this situation assertion (iv) reads α(ωM) < ∞and β(ωM) > 0,
+which is by [4, Cor. 2.14, Cor. 2.17] equivalent to requiring both (ω1) and (ω6) for ωM. By
+combining [8, Prop. 3.6] and [12, Thm. 3.1] we obtain the equivalence to (i).
+We close with the following observation concerning the stability of the arising conditions w.r.t. the
+natural equivalence relations [≈] characterizing the permanence of the class E[M].
+Remark 5.5. If both M and N are (Msc), then in [11, Prop. 4.6] it has been shown that E[M] =
+E[N] if and only if M[≈]N.
+And this is consistent with Theorem 5.4: For this recall that (M[mg]) is clearly stable under relation
+[≈]. Similarly this holds true for the equivalent conditions from Theorem 3.2 of the particular,

@@ -1,0 +1,71 @@
+106 CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+Remark 2.2.27. In a more general framework, given ξ : [1, ∞) →(0, ∞) locally integrable we
+can consider the function
+ω(x) = exp
+Z x
+1
+ξ(u)du
+u
+
+,
+t > 1,
+that is a nondecreasing function.
+If ξ is bounded, then ω is automatically O-regularly varying, by Theorem 1.2.25. In particular,
+given four mutually distinct positive values 0 < β < µ < ρ < α < ∞, for all a > b > 1 we dene
+ξ(t) :=
+ α,
+for
+t ∈[2an, 2ban).
+β,
+for
+t ∈[2ban, 2an+1).
+With a technique similar to the one employed in the last example, in which α = a = 3 and
+β = b = 2, one can prove that
+µ(m) = (b −1)α + (a −b)β
+a −1
+,
+ρ(m) = a(b −1)α + (a −b)β
+b(a −1)
+,
+then taking
+b := α −µ
+α −ρ ,
+a := b ρ −β
+µ −β = α −µ
+α −ρ
+ρ −β
+µ −β
+we obtain
+β(ω) = β,
+µ(ω) = µ,
+ρ(ω) = ρ,
+α(ω) = α.
+Finally, for the corresponding nondecreasing sequence, that is, mp := ω(p) for p large enough,
+since ω ∈ORV , by Lemma 2.1.34, we know that
+β(m) = β,
+µ(m) = µ,
+ρ(m) = ρ,
+α(m) = α.
+In a similar way, one can construct sequences for which γ(M) = β(m), ω(M) = µ(m) ∈
+(0, ∞), but that α(m) = ∞. For instance, for all t ≥4 and n ≥2 we can dene
+ξ(t) :=
+(
+2,
+for
+t ∈[22((n−1)!)2, 2(n!)2).
+n,
+for
+t ∈[2(n!)2, 22(n!)2).
+The corresponding sequence M is a (dc) weight sequence with γ(M) = 2, ω(M) ∈(0, ∞) and
+α(m) = ∞.
+Such an example can also be constructed indirectly by considering the dual sequence of the
+sequence M in [57, Example 3.3] introduced before in Example 2.1.20. For this sequence, we
+have that β(m) = 0, µ(m) = 2, ρ(m) = 3 and α(m) = 4, so since m is O-regularly varying by
+Theorem 2.1.43 for the dual sequence DM we have that β(d) = 1/4, µ(d) = 1/3, ρ(d) = 1/2 and
+α(d) = ∞.
+These sequences are not strongly regular (see Remark 2.1.19), but nevertheless the values
+γ(M) and ω(M) are meaningful, as it will be explained in the next chapter. Unfortunately, as it
+will be mentioned in the following chapter, not much information is available for the surjectivity
+of the asymptotic Borel map in these kind of situations.
+JAVIER JIMÉNEZ GARRIDO

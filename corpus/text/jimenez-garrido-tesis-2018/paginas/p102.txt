@@ -1,0 +1,95 @@
+102 CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+Example 2.2.26. We dene M by the sequence of its quotients,
+m0 := 1,
+mp := eξp/pmp−1 = exp
+ p
+X
+k=1
+ξk
+k
+!
+,
+p ∈N.
+We consider the sequences of subindices
+kn := 23n < qn := k2
+n = 23n2 < kn+1 = 23n+1,
+n ∈N0,
+and we choose the sequence (ξk)∞
+k=1 as follows:
+ξ1 = ξ2 = 2,
+ξk = 3,
+if
+k ∈{kn + 1, . . . , qn}, n ∈N0,
+ξk = 2,
+if
+k ∈{qn + 1, . . . , kn+1}, n ∈N0.
+The following hold:
+(i) M is strongly regular, that is, (ℓ) is valid.
+(ii) M does not satisfy (k), i.e., the limit in (2.23),
+lim
+p→∞log(mp)/ log(p),
+does not exist. Consequently, neither (j), nor (f), nor (a) holds.
+(iii) β(m) = γ(M) = 2, µ(m) = ω(M) = 5/2, ρ(m) = 11/4 and α(m) = 3.
+Proof. (i) From the denition we deduce immediately that mp+1 > mp for p ∈N0, then M is
+(lc). For all p ∈N we have that
+exp
+
+2
+2p
+X
+k=p+1
+1
+k
+
+≤m2p
+mp
+= exp
+
+
+2p
+X
+k=p+1
+ξk
+k
+
+≤exp
+
+3
+2p
+X
+k=p+1
+1
+k
+
+.
+Using the asymptotic expression (2.24) for the partial sums of the harmonic series, for every
+p ∈N we have that
+exp (2 log(2) + 2ε2p −2εp) ≤m2p
+mp
+≤exp (3 log(2) + 3ε2p −3εp) .
+From these inequalities and using Corollary 2.1.6, we deduce that M satises (mg) and (snq),
+therefore M is strongly regular, which can be also alternatively shown from Theorem 1.2.46 and
+Remark 2.1.19.
+(ii) Observe that M veries (2.23) if and only if the sequence
+tp :=
+1
+log(p)
+p
+X
+k=1
+ξk
+k ,
+p ∈N,
+is convergent (in other words, precisely when the sequence (ξk)∞
+k=1 is Riesz summable, see De-
+nition 2.2.25). We will see that (ξk)∞
+k=1 is not Riesz summable, more precisely we will show that
+lim
+n→∞tkn = 5
+2,
+lim
+n→∞tqn = 11
+4 .
+(2.29)
+JAVIER JIMÉNEZ GARRIDO

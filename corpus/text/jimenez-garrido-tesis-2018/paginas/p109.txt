@@ -1,0 +1,66 @@
+3.1. ASYMPTOTIC EXPANSIONS AND ULTRAHOLOMORPHIC CLASSES
+109
+Denition 3.1.3. Given a constant A > 0 and a sectorial region G, we dene
+AM,A(G) =
+
+f ∈H(G) : ∥f∥M,A :=
+sup
+z∈G,p∈N0
+|f(p)(z)|
+App!Mp
+< ∞
+	
+.
+(AM,A(G), ∥∥M,A) is a Banach space, and AM(G) := ∪A>0AM,A(G) is called a Carleman ultra-
+holomorphic class of of Roumieu type in the sectorial region G.
+The functions considered in this chapter are complex-valued, but most of the following results
+are also valid if they take values in a complex Banach algebra. From the conditions introduced
+in Chapter 1 for the sequence M we obtain some elementary properties of the classes.
+Remark 3.1.4. For any sequence M, the classes AM(G), ˜
+Au
+M(G) and ˜
+AM(G) are complex vector
+spaces. If M is (lc), they are algebras and if M is (dc), they are stable under taking derivatives.
+Moreover, if M ≈L the corresponding classes coincide.
+In our results we will mainly consider sectors but some of them can be extended to sectorial
+regions, specially when dealing with the class ˜
+AM(G). For a sector S, bounded or not, since the
+derivatives of f ∈AM,A(S) are Lipschitzian, for every n ∈N0 one may dene
+f(p)(0) :=
+lim
+z∈S,z→0 f(p)(z) ∈C.
+(3.1)
+We recall now the relation between this Roumieu-Carleman ultraholomorphic class and the
+concept of asymptotic expansion. that is obtained as a consequence of Taylor's formula and
+Cauchy's integral formula for the derivatives (see [7, 31] for a proof in the Gevrey case, which
+may be easily adapted to this more general situation).
+Proposition 3.1.5. Let M be a sequence, S a sector and G a sectorial region. Then,
+(i) if f ∈AM,A(S) then f admits ˆf := P
+p∈N0
+1
+p!f(p)(0)zp as its uniform M−asymptotic ex-
+pansion in S of type 1/A where (f(p)(0))p∈N0 is given by (3.1). Consequently, we have
+that
+AM(S) ⊆˜
+Au
+M(S) ⊆˜
+AM(S).
+(ii) f ∈˜
+AM(G) if and only if for every T ≪G there exists AT > 0 such that f|T ∈AM,AT (T).
+In case any of the previous holds and f ∼M
+P∞
+p=0 apzp, it is plain to check that for every
+bounded proper subsector T of G and every p ∈N0 one has
+ap = lim
+z→0
+z∈T
+f(p)(z)
+p!
+,
+and we can set f(p)(0) := p!ap.
+(iii) if S is unbounded and T ≺≺S, then there exists a constant c = c(T, S) > 0 such that
+the restriction to T, fT , of functions f dened on S and admitting uniform M−asymptotic
+expansion in S of type 1/A > 0, belongs to AM,cA(T).
+(iv) if f ∈˜
+AM(G) its M−asymptotic expansion ˆf is unique.
+Universidad de Valladolid

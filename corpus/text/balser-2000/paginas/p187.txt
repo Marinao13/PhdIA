@@ -1,0 +1,42 @@
+170
+10. Multisummable Power Series
+(a) f(z; φ) ∼=1/kq ˆf(z) in Sφ, for every φ ∈R.
+(b) For every φ1, φ2 with |φ1 −φ2| < ε, i.e., Sφ1 ∩Sφ2 ̸= ∅, and every
+j = 1, . . . , q we have the following: If φ1, φ2 ∈Ij, then f(z; φ1) −
+f(z; φ2) ∼=1/kj−1 ˆ0 in Sφ1 ∩Sφ2.
+(c) f(z; φ) = f(ze2pπi; φ + 2pπ) in Sφ, for every φ ∈R.
+Proof: Using Theorem 51, we see that we may, without loss of generality,
+restrict ourselves to cases with kq > 1/2, so that we may take p = 1.
+In this situation, Theorem 50 implies ˆf = q
+j=1 ˆfj, with ˆfj ∈E {z}kj,dj.
+Hence f(z) = (Sk,d ˆf)(z) = q
+j=1 fj(z), with fj = Skj,dj ˆfj holomorphic
+and asymptotic to ˆfj of Gevrey order kj in ˜Sj = S(dj, αj, ρ), ρ > 0,
+αj > π/kj. Taking ε > 0 so small that φ ∈Ij implies Sφ ⊂˜Sj, we deﬁne
+f(z; φ) = q
+j=1 fj(z; φ), with fj(z; φ) = fj(z) if φ ∈Ij, while for φ ̸∈Ij
+we take any fj(z; φ) ∼=1/kj ˆfj(z) in Sφ. Since φ and φ + 2π cannot both
+be in Ij, we can in particular arrange fj(z; φ) = fj(ze2πi; φ + 2π). Using
+k1 > . . . > kq and I1 ⊂I2 ⊂. . . ⊂Iq, one can check that (a)–(c) hold.
+2
+The next result is, in a sense, the converse of the above one:
+Proposition 25 Let k = (k1, . . . , kq) and d = (d1, . . . , dq) be admissible,
+with kq > 1/2, and let I0 = [dq −π, dq +π]. For ε, ρ > 0 and φ ∈I0, assume
+existence of f(z; φ), holomorphic in Sφ = S(φ, ε, ρ), such that the following
+holds:
+(a) f(z; φ), in the variable z, is bounded at the origin, for every φ ∈I0.
+(b) For every φ1, φ2 ∈I0 with |φ1 −φ2| < ε we have the following: If
+φ1, φ2 ∈Ij for some j, 1 ≤j ≤q, then f(z; φ1) −f(z; φ2) ∼=1/kj−1 ˆ0
+in Sφ1 ∩Sφ2. If φ1 or φ2 is not in Iq, then f(z; φ1) −f(z; φ2) ∼=1/kq ˆ0
+in Sφ1 ∩Sφ2.
+(c) f(z; dq −π) = f(ze2πi; dq + π) in Sφ0.
+Then there exists a unique ˆf ∈E {z}k,d with f(z; d1) = (Sk,d ˆf)(z) in Sd1.
+Proof: Take any partitioning φ0 = dq −π < φ1 < . . . < φm−1 < φm =
+φ0 + 2π of the interval I0 with φj −φj−1 < ε, 1 ≤j ≤m, and such
+that all the boundary points of all intervals Iν occur in the set of φj. For
+aj = ˜ρ exp[i(φj + φj−1)/2], with 0 < ˜ρ < ρ, deﬁne
+gj = CHaj (f(·; φj) −f(·; φj−1)),
+1 ≤j ≤m.
+Then gj(z) ≡0 whenever φj, φj−1 ∈I1. Otherwise, let ν be taken maxi-
+mally so that φj or φj−1 is not in Iν, i.e., φj ≤dν −π/(2kν) or φj−1 ≥
+dν + π/(2kν). Then Proposition 17 (p. 116) implies gj(z) ∼=1/kν ˆgj(z) in

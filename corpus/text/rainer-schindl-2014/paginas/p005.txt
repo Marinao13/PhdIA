@@ -1,0 +1,108 @@
+Composition in ultradiﬀerentiable classes
+101
+2.2. Lemma. For M ∈RN
+>0 having the (FdB)-property, each of the fol-
+lowing conditions is suﬃcient:
+(1) M is log-convex.
+(2) M is derivation closed and (M1/k
+k
+)k is almost increasing.
+(3) MjMk ≤M1Mj+k−1 for all j, k ≥1.
+Proof. (1) We show (MFdB) with C := max{M1, 1} by induction on k.
+The assertion is trivial for k = j. Assume that j < k. Then α′
+i := αi −1 ≥1
+for some i, and we have
+MjMα1 · · · Mαj = MjMα1 · · · Mα′
+i · · · Mαj
+Mαi
+Mα′
+i
+≤Ck−1Mk−1
+Mk
+Mk−1
+≤CkMk,
+by induction hypothesis and by (Mlc).
+(2)
+This
+is
+proved
+in
+more
+general
+terms
+in
+4.9[(3)⇒(4)]
+and
+4.11[(3)⇒(4)].
+(3) This is readily seen by iteration.
+For M, N ∈RN
+>0 we deﬁne:
+M ⪯N :⇔∃C, ρ > 0 ∀k : Mk ≤CρkNk ⇔sup
+k
+Mk
+Nk
+1/k
+< ∞,
+M ≈N :⇔M ⪯N and N ⪯M,
+M  N :⇔∀ρ > 0 ∃C > 0 ∀k : Mk ≤CρkNk ⇔
+lim
+k→∞
+Mk
+Nk
+1/k
+= 0.
+The following lemma is a variant of [21, Lemma 6].
+2.3. Lemma. Let L, M ∈RN
+>0 satisfy L  M and M1/k
+k
+→∞. Then
+there exist sequences Ni ∈RN
+>0, i = 1, 2, satisfying (Ni
+k)1/k →∞such that
+L ≤N1  N2  M.
+Proof. It suﬃces to show that there exists N1 ∈RN
+>0 with L ≤N1  M
+and (N1
+k)1/k →∞; for N2 = (N2
+k) we may then choose N2
+k :=
+√
+N1
+kMk.
+The sequence N1 = (N1
+k) deﬁned by N1
+k := max{√Mk, Lk} is as re-
+quired. We have L ≤N1  M, since
+ N1
+k
+Mk
+1/k
+= max
+
+M−1/2k
+k
+,
+ Lk
+Mk
+1/k
+→0
+as M1/k
+k
+→∞and L  M. Moreover, N1
+k ≥√Mk implies (N1
+k)1/k →∞.
+2.4. Remark. The lemma remains true if we replace M1/k
+k
+→∞by
+(k!Mk)1/k →∞and (Ni
+k)1/k →∞by (k!Ni
+k)1/k →∞; set N1
+k
+:=
+max{
+p
+Mk/k!, Lk} in the above proof. But in this case it is unclear if
+lim M1/k
+k
+> 0 implies lim (Ni
+k)1/k > 0 which we need in Theorem 2.15.

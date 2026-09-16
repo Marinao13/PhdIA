@@ -1,0 +1,52 @@
+84
+CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+weight sequence, that denes the class, a nonzero proximate order. The link between proximate
+orders (see Denition 1.2.7) and a weight sequences M, is given by the function
+dM(t) := log(ωM(t))
+log(t)
+,
+for t large enough.
+(2.15)
+The characterization of the sequences for which dM is a nonzero proximate order was an open
+question, successfully answered in Theorem 2.2.6 below. As a byproduct of this result, a new
+characterization of regularly varying sequences has been obtained.
+Example 2.2.22 provides a strongly regular sequence M, equivalent for ≃to L = (p!)p∈N0,
+such that dM(t) is not a proximate order. However, it will be proved in Example 2.2.8 that dL is
+a nonzero proximate order (in particular, we deduce that the property of dM being a proximate
+order is not stable under equivalence of sequences, neither ≈nor ≃).
+So, we may obtain a
+satisfactory summability theory in the Carleman ultraholomorphic class associated with L, which
+coincides with that associated with M. This shows that asking for dM to be a nonzero proximate
+order is a too demanding restriction and one could ask instead for:
+(f) There exists a weight sequence L such that L ≈M and dL(t) is a nonzero proximate
+order.
+On the other hand, J. Sanz had already observed [88, Remark 4.11(iii)] that, for the con-
+struction of nontrivial at functions in sectors of optimal opening, dM need not be a nonzero
+proximate order, but it is enough that there exist nonzero proximate orders close enough to dM,
+in the following sense:
+Denition 2.2.1. Let M = (Mp)p∈N0 be a weight sequence. We say that M admits a proximate
+order if there exists a proximate order ρ(t) and constants A and B such that
+A ≤log(t)(ρ(t) −dM(t)) ≤B,
+for t large enough,
+or, equivalently, if
+eA ≤tρ(t)
+ωM(t) ≤eB,
+for t large enough.
+In Subsection 2.2.4, we will show that the requirement (f) and the admissibility of a nonzero
+proximate order are equivalent for a weight sequence M and we provide a Representation The-
+orem for such sequences. In order to prove this, we need to construct well-behaved sequences
+from proximate orders, employing the duality presented in Subsection 2.1.5. Finally, several
+pathological examples of strongly regular sequences, which will be mentioned along the chapter,
+are provided.
+The results contained in this section are the core of our work [44]. Nevertheless, here some
+new information is given, for instance the Representation Theorem 2.2.19, the relation between
+the conditions (f), (j), (k) and (ℓ) is claried through some counterexamples (see Remark 2.2.18)
+and Subsection 2.2.3, corresponding to Section 4.1 in the paper, has been completely rewritten
+with a dierent and more simple approach.
+2.2.1
+A new characterization of regular variation
+The main aim of this subsection is to provide a new characterization of the regular variation
+of the sequence of quotients m of any sequence M of positive real numbers with M0 = 1. This
+result, interesting in its own right, will be used in the next subsection, Theorem 2.2.6, to describe,
+JAVIER JIMÉNEZ GARRIDO

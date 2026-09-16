@@ -1,0 +1,89 @@
+34
+CHAPTER 1.
+PRELIMINARIES
+From (1.3) we observe that if M is a (lc) sequence satisfying (mg) condition, then M and
+(mp
+p)p∈N0 are equivalent.
+Remark 1.1.13. Since equivalent sequences will turn out to dene the same class of functions
+or series (see Remarks 3.1.4 and 3.1.7), we are particularly interested in comparable but not
+equivalent sequences. In particular, if M ≾L and M ̸≈L, we observe that
+inf
+p∈N
+Mp
+Lp
+1/p
+= 0
+and
+sup
+p∈N
+Mp
+Lp
+1/p
+< ∞,
+or, equivalently, if
+lim inf
+p→∞
+Mp
+Lp
+1/p
+= 0
+and
+lim sup
+p→∞
+Mp
+Lp
+1/p
+< ∞.
+Consequently, M and L are noncomparable if
+inf
+p∈N
+Mp
+Lp
+1/p
+= 0
+and
+sup
+p∈N
+Mp
+Lp
+1/p
+= ∞,
+or, equivalently, if
+lim inf
+p→∞
+Mp
+Lp
+1/p
+= 0
+and
+lim sup
+p→∞
+Mp
+Lp
+1/p
+= ∞.
+In the next denitions and results we take into account the conventions adopted in Re-
+mark 1.1.3.
+Denition 1.1.14. Let m and ℓbe sequences of positive real numbers, we say that m is bounded
+from above by ℓif it exists c > 0 such that
+mp ≤c ℓp,
+p ∈N0,
+or, equivalently, if
+sup
+p∈N0
+mp
+ℓp
+< ∞,
+and we write m ⪯ℓ. The sequence m is said to be similar to ℓif m ⪯ℓand ℓ⪯m and we
+write m ≃ℓ.
+Proposition 1.1.15. Let M and L be sequences, m and ℓthe sequences of quotients associated
+with M and L, respectively. If m ⪯ℓ, then M ≾L. Consequently, if m ≃ℓthen M ≈L.
+Proof. There exists c > 0 such that mp ≤c ℓp for every p ∈N0. Writing Mp = m0m1 . . . mp−1
+and Lp = ℓ0ℓ1 . . . ℓp−1, we see that
+Mp = m0m1 . . . mp−2mp−1 ≤cℓ0cℓ1 . . . cℓp−2cℓp−1 = cpLp,
+for every p ∈N0, then M ≾L.
+□
+The last proposition shows that the notion of comparability for the sequences of quotients
+is stronger than the former one. Under suitable assumptions, the converse implication can be
+obtained.
+JAVIER JIMÉNEZ GARRIDO

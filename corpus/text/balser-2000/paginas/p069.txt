@@ -1,0 +1,41 @@
+52
+3. Highest-Level Formal Solutions
+Exercises:
+1. For a nilpotent Jordan block N and a constant matrix C with nonzero
+entries in the ﬁrst row only, compute the characteristic polynomial of
+A = N +C and show that A is nilpotent if and only if C = 0. Matrices
+of this form will also be called companion matrices, although they are
+slightly diﬀerent from the ones named so before.
+2. For the simplest nontrivial situation of ν = 2, verify Theorem 10
+(p. 50) and give explicit conditions under which each case occurs.
+3. For a system (3.3) with a nilpotent leading term, give examples show-
+ing that the value for q in Theorem 10 (p. 50) can be any natural
+number strictly smaller than the order of nilpotency of A0.
+4. For a system (3.1) with nilpotent leading term, let X(z) be an arbi-
+trary fundamental solution of (3.1). For S as in Exercise 4 on p. 15,
+show existence of c, a, δ > 0 so that
+∥X(z)∥≤c ea|z|r−δ,
+z ∈S.
+3.4
+Transformation to Rational Form
+Given a system (3.1), then in case (b) of Theorem 10 (p. 50) we can ﬁnd a
+transformation which, after a change of variable, leads to a system of the
+same kind, but with a leading term having several eigenvalues. In this case,
+according to the Splitting Lemma, we can ﬁnd a formal analytic transfor-
+mation of Gevrey order s, with 1/s being the Poincar´e rank of the new
+system, which splits this system into several smaller blocks. To continue,
+we wish to show that these formal systems may always be transformed into
+convergent ones, using formal analytic transformations of Gevrey order s
+– in fact, we shall show that the transformed system can be such that only
+ﬁnitely many of its coeﬃcients are nonzero, hence is a rational function
+with poles (at most) at inﬁnity and the origin.
+Theorem 11 Let (3.3) be a formal system of Gevrey order s = 1/r. Then
+for every suﬃciently large N, M ∈N, a formal analytic transformation of
+Gevrey order s exists, which is of the form ˆT(z) = I + ∞
+n=N Tnz−n, so
+that the transformed system has a coeﬃcient matrix of the form
+B(z) = zr
+N+M
+
+n=0
+Bn z−n.

@@ -1,0 +1,40 @@
+Results in Mathematics 
+Vol. 
+17 (1990) 
+0378-6218/90/040206-32$1.50+0.20/0 
+(c) 1990 Birkhauser Verlag, Basel 
+Ultradifferentiable functions and Fourier analysis 
+R. W. Braun 
+R. Meise 
+B. A. Taylor 
+Classes of non-quasianalytic functions are classically defined by imposing growth conditions 
+on the derivatives of the functions. It was Beuding [1] (see Bjorck [2]) who pointed out 
+that decay properties of the Fourier transform of a compactly supported function can be 
+used for this purpose equally well. 
+In the present article we modify Beuding's approach. More precisely, we call w: [0,00[--+ 
+[0, oo[ a weight function if w is continuous and satisfies 
+(0) w(2t) = O(w(t)) 
+(f3) lX' Wt~) dt < 00 
+h) 
+logt = o(w(t)) 
+(5) 
+cp: t f-+ w( ei ) 
+IS convex. 
+We show that for each open subset !l -1= 0 of IRN the spaces 
+and 
+V(w)(!l) := {f E Cc(!l) I for all k > 0: ilR N l!(t)lekw(t)dt < oo} 
+are nontrivial even if w is only increasing and satisfies (0: )-( 'Y). The modification compared 
+to Beuding-Bjorck is that the subadditivity of w is replaced by the weaker condition (0:). 
+Condition (5) allows us to describe V{w}(!l) and V(w)(!l) in the following way 
+V{w}(!l) = {J E V(!l) I there is k E IN: "~~.f ~,~~ If(")(x)1 exp( -~cp'(lo:lk)) < oo}, 
+V(w)(!l) = {f E V(!l) I for all k E IN: sup suplfH(x)lexp(-kcp·(I~I)) < oo}, 
+oElNt .I'EO 
+where cpo denotes the Young conjugate of the convex function cp: t f-+ w( et ). Knowing 
+this, the corresponding local spaces C{w}(!l) and c(w)(!l) can be introduced. Then routine 
+arguments show that these classes-endowed with the usual locally convex topologies-
+establish a theory of ultradistributions in the sense of Cionlnescu and Zsid6 [9], section 7. 
+In fact, it is equivalent to the theory developed in [9] and strictly larger than the theory 
+of Beurling-Bjorck. This follows from results of [9] and the observation of U. Franken that 
+all the spaces of test functions used in [9] appear in the theory presented here. 
+Condition (5) allows us to use Hormander's L2-techniques when Fourier-Laplace trans-
+forms of ultradistributions with compact support are investigated. Therefore the theory 

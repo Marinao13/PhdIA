@@ -1,0 +1,49 @@
+24
+INTRODUCTION
+proximate order. However, the combination of summability methods corresponding to dierent
+(nonequivalent but comparable, as it will be explained later) sequences was left as a pending
+task.
+So, the problems we had in mind when this research was initiated were the following:
+(a) Characterize the sequences M such that dM is a nonzero proximate order.
+(b) Characterize the sequences M that admit a nonzero proximate order. For these sequences,
+the M−summability technique is available.
+(c) Determine whether the indices γ(M) and ω(M) are always equal for strongly regular se-
+quences, as it happened to be the case for the sequences appearing in the applications.
+(d) Decide about the injectivity of the Borel map in the only unsolved case, the space ˜
+AM(S)
+for a sector S of opening πω(M) in case M does not admit a nonzero proximate order.
+(e) Improve our knowledge about the surjectivity of the Borel map in general ultraholomorphic
+classes. In case γ(M) and ω(M) are not always equal, it is specially interesting to determine
+which of them puts apart the values of surjectivity from those of nonsurjectivity, since
+previously known results do not lead to a conclusion.
+(f) Proceed, as far as possible, in the study of multisummability in this general context. If
+reasonable, apply the technique to the formal solutions of some class of dierence equations,
+as those studied by G. K. Immink, or other types of equations.
+At this point we start describing the results obtained in this dissertation and how they are
+organized.
+Chapter 1, of a preparatory nature, contains in its rst section all the preliminary denitions
+needed and a brief overview of the most common properties for sequences that appear in the
+consideration of ultraholomorphic and ultradierentiable classes. The associated function ωM
+and the growth indices γ(M) and ω(M) will also be presented in detail.
+While preparing for addressing the rst three items in the previous list, we found that the
+concept of regular variation and its extensions appeared once and again related to our problems.
+As it will be inferred from the developments presented in the second and third chapter, it enters
+crucially in the solution of these problems.
+The subject of regular variation was initiated by J. Karamata in 1930, who made use of it
+in Tauberian Theorems, like the Hardy-Littlewood-Karamata Theorem. His ideas were devel-
+oped by his collaborators and pupils from the `Yugoslavian School' in the following decades. A
+measurable function f : [a, ∞) →(0, ∞), with a ≥0, is regularly varying if
+lim
+x→∞
+f(λx)
+f(x) = g(λ) ∈(0, ∞)
+(4)
+for every λ ∈(0, ∞). The theory of regular variation ensures that there exists ρ ∈R such that
+g(λ) = λρ and the convergence is uniform for λ in the compact sets of (0, ∞) (see Section 1.2).
+This subject was popularized in the 1970's by its applications to probability theory, stimulated
+by the contributions of W. Feller and L. de Haan. However, we will be specially interested in its
+application to complex analysis, where it appears tightly connected to the notion of proximate
+order whose denition was motivated by the study of the growth of entire functions.
+In some occasions this theory is too limited and several generalizations have been provided.
+In this dissertation, apart from regular variation, we will concentrate on the so-called O-regular
+JAVIER JIMÉNEZ GARRIDO

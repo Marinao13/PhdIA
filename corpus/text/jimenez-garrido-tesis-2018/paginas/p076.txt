@@ -1,0 +1,65 @@
+76
+CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+2.1.5
+Dual sequence
+In the next chapter, it will be shown that the value of the index ω(M) characterizes the injectivity
+of the Borel map for weight sequences and γ(M) characterizes the surjectivity for strongly regular
+sequences. As we have seen, Theorem 2.1.16, these growth indices coincide with the lower order
+µ(m) and the lower Matuszewska index β(m), respectively. One may naturally ask what the
+upper order ρ(m) or the upper Matuszewska index α(m) stand for. In this subsection, a possible
+interpretation of their meaning is given by constructing a dual sequence D of a weight sequence
+M such that ω(D) = 1/ρ(m) and γ(D) = 1/α(m). This dual construction will be employed in
+Subsection 2.2.3 in order to associate a regularly varying sequence to a proximate order.
+In the preceding subsections, it has been shown that the regular variation, the O-regular
+variation and the Matuszewska indices of a sequence a are characterized in terms of the step
+function fa (see Theorem 1.2.37, Theorem 1.2.44 and Proposition 2.1.10). One might think when
+the opposite is true, i.e., when a function f can be described by its values at the natural numbers.
+The answer to this question will be used in the construction of the dual sequence through the
+counting function and in the examples at the end of the chapter. Starting with a nondecreasing
+function f, one can prove the following:
+Lemma 2.1.34. Let f : [N, +∞) →(0, +∞), with N ∈N, be a nondecreasing function. For
+p ∈N0, we dene a sequence ap := f(p) for p ≥N and ap := f(N) for p < N. Then, the
+following are equivalent:
+(i) there exists C ≥1 such that
+ap+1 ≤Cap,
+p ∈N0,
+(2.11)
+(ii) the function f satises
+sup
+x≥N
+f(x + 1)
+f(x)
+< +∞.
+(2.12)
+Whenever any of the previous equivalent conditions holds, we have that there exists a constant
+C ≥1 such that
+C−1fa(x) ≤f(x) ≤Cfa(x)
+x ≥N,
+(2.13)
+where fa(x) = a⌊x⌋. Similarly, the following are equivalent:
+(iii) lim
+p→∞
+ap+1
+ap
+= 1,
+(iv)
+lim
+x→∞
+f(x + 1)
+f(x)
+= 1.
+If (iii) or (iv) holds, then fa ∼f, that is, limx→∞fa(x)/f(x) = 1. Moreover, if f is continuous
+then (2.13) implies (2.11) and (2.12) and fa ∼f implies (iii) and (iv).
+Proof. (i) ⇒(ii) For x ≥N, since f is nondecreasing, we have that
+f(x + 1) ≤f(⌊x⌋+ 2) = a⌊x⌋+2 ≤C2a⌊x⌋= C2f(⌊x⌋) ≤C2f(x).
+(ii) ⇒(i) For p < N (i) holds by the denition of a and for p ≥N it is immediate from (ii).
+(iii) ⇒(iv) For x ≥N, since f is nondecreasing, we see that
+1 ≤f(x + 1)
+f(x)
+≤f(⌊x⌋+ 2)
+f(⌊x⌋+ 1)
+f(⌊x⌋+ 1)
+f(⌊x⌋)
+,
+JAVIER JIMÉNEZ GARRIDO

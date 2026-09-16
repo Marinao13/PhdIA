@@ -1,0 +1,57 @@
+33
+1
+2
+3
+−2
+−1
+1
+2
+β = α −1
+Non stable
+Stable
+Trivial class
+α
+β
+stable, thanks to the fact that β −
+1
+p+1 > 1 for large p, and we can ensure that the
+corresponding matrix has (M{rai}).
+7.2
+q-Gevrey case
+In this subsection, we will work, for q > 1, with the q-Gevrey sequence, i.e Mq = (qj2)j≥0.
+First, thanks to the fact that the sequence Mq has (lc) and (dc), and moreover
+c
+Mq is also
+(lc), we can easily prove the stability properties for the class A{Mq}(Sα). For α ∈(0, 1],
+the Corollary 5.10 ensures that the class A{Mq}(Sα) is stable. On the other hand, for
+α > 1 and for any β > α the sequence G
+1−βMq is equivalent to an (lc) sequence, because
+the gamma index of Mq is inﬁnity. So, the Corollary 5.16 again ensures the stability.
+Now, we want to study the stability properties for the class A{ωMq }(Sα). For this
+purpose, let us observe that we can estimate the normalized weight function ωMq,
+ωMq(t) = sup
+j∈N0
+ln
+ tj
+qj2
+
+= sup
+j∈N0
+(j ln(t) −j2 ln(q)),
+t > 1.
+Obviously, ωMq(t) is bounded above by the supremum of x ln(t) −x2 ln(q) when x runs
+over (0, ∞), which is easily obtained by elementary calculus and occurs at the point
+ ln(t)
+2 ln(q), ln2(t)
+4 ln(q)
+
+.
+In particular, it is easy to check that ω(t) := ln2(t)/(4 ln(q)) veriﬁes (after normalization
+in the interval [0, 1]) that ω ∈W, ω has (ω5) (and therefore (ω2)) and ω∼ωMq, so the
+corresponding matrices Mω and MωMq are R-equivalent. In order to compute the matrix
+associated with ω, the Legendre-Fenchel-Young-conjugate of ϕω is
+ϕ∗
+ω(x) := sup
+y≥0
+{xy −ω(exp(y))} = x2 ln(q) = ln(qx2),
+x ≥0.

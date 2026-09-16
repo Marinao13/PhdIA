@@ -1,0 +1,23 @@
+Preface
+This book aims at two, essentially diﬀerent, types of readers: On one hand,
+there are those who have worked in, or are to some degree familiar with,
+the section of mathematics that is described here. They may want to have
+a source of reference to the recent results presented here, replacing my
+text [21], which is no longer available, but will need little motivation to
+start using this book. So they may as well skip reading this introduction,
+or immediately proceed to its second part (p. v) which in some detail
+describes the content of this book. On the other hand, I expect to attract
+some readers, perhaps students of colleagues of the ﬁrst type, who are not
+familiar with the topic of the book. For those I have written the ﬁrst part of
+the introduction, hoping to attract their attention and make them willing
+to read on.
+Some Introductory Examples
+What is this book about? If you want an answer in one sentence: It is con-
+cerned with formal power series – meaning power series whose radius of
+convergence is equal to zero, so that at ﬁrst glance they may appear as
+rather meaningless objects. I hope that, after reading this book, you may
+agree with me that these formal power series are fun to work with and
+really important for describing some, perhaps more theoretical, features
+of functions solving ordinary or partial diﬀerential equations, or diﬀerence
+equations, or perhaps even more general functional equations, which are,
+however, not discussed in this book.

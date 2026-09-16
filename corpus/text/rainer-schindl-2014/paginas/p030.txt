@@ -1,0 +1,64 @@
+126
+A. Rainer and G. Schindl
+and, for compact K ⊆R,
+E{M}(R) = E{M}(R) =
+\
+K
+E{M}(K) =
+\
+K
+[
+λ
+E{Mλ}(K)
+⊇
+[
+λ
+\
+K
+E{Mλ}(K) =
+[
+λ
+E{Mλ}(R) ⊋E{M}(R),
+which contradicts the assumption in both cases.
+As E(G)(R) contains Cω(R) it cannot coincide with E(M)(R) for any
+weight sequence M, by Theorem 2.15 and the ﬁrst paragraph; neither can
+E{G}(R) coincide with E{M}(R).
+If there exists ω ∈W such that E(G)(R) = E(ω)(R), then Proposition 4.6
+implies that for each ρ > 0 there exist s, ρ′ > 0 such that
+(5.23)
+Ωρ′ ⪯Gs ⪯Ωρ,
+and thus, by Proposition 2.12(1),
+E{Ωρ′} ⊆G1+s ⊆E{Ωρ}.
+Since G1+s = E{γ} with γ(t) = t1/(1+s), using the fact that there exist char-
+acteristic E{Ωρ}- and E{Γ τ}-functions (where Γ τ are the sequences associated
+with γ), and by (5.10), we conclude that, for all k,
+1
+ρ′ ϕ∗
+ω(ρ′k) ≤1
+τ ϕ∗
+γ(τk) + C
+and
+1
+τ ϕ∗
+γ(τk) ≤
+1
+Hρϕ∗
+ω(Hρk) + D,
+for suitable constants τ, C, D, H. As in the derivation of (5.18) this implies
+ω ≈γ and hence E(G)(R) = E(ω)(R) = E(γ)(R) = E(Gs)(R), a contradiction.
+Thus there is no ω ∈W with E(G)(R) = E(ω)(R).
+If there exists ω ∈W such that E{G}(R) = E{ω}(R), then Proposition 4.6
+implies that for each ρ′ > 0 there exist s, ρ > 0 such that (5.23) holds. Then
+the same arguments show ω ≈γ and hence E{G}(R) = E{ω}(R) = E{γ}(R) =
+G1+s(R), a contradiction. Thus there is no ω ∈W with E{G}(R) = E{ω}(R).
+For the remaining cases note that M(⪯}N{)M and M{)N(⪯}M is
+impossible for any two weight matrices M, N ∈M . This fact together with
+Proposition 4.6 (and Theorem 2.15) implies that there is no weight sequence
+M and no weight function ω so that E(G)(R) = E{M}(R), E(G)(R) = E{ω}(R),
+E{G}(R) = E(M)(R), or E{G}(R) = E(ω)(R).
+5.24. Corollary. Composition is continuous on the intersection of all
+non-quasianalytic Gevrey classes. More precisely, comp(G) is continuous,
+E{G}(Rp, f), for f ∈E{G}(Rq, Rr), is continuous, and comp{G} is sequen-
+tially continuous.
+Proof. This follows from Theorems 4.13 and 5.22.
+We expect that comp[G] is even E[G] (see Remark 4.23).

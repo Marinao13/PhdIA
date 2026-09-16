@@ -1,0 +1,122 @@
+126
+CHAPTER 3.
+INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+Given ˆg = P∞
+p=0 apzp ∈C[[z]]
+b
+M, we write bp := app! for all p ∈N0, and there exist C0, A0 > 0
+such that
+|bp| ≤C0Ap
+0p!
+c
+Mp = C0Ap
+0Mp,
+p ∈N0.
+Hence, the formal Laplace transform of ˆg, dened by ˆf := ˆLˆg = P∞
+p=0 bpzp belongs to C[[z]]M.
+By hypothesis, there exists ψ ∈˜
+AM(Sα) such that ˜B(ψ) = ˆf. Hence, given β2 and R > 1, there
+exist C, A > 0 such that for every p ∈N0 one has
+ψ(z) −
+p−1
+X
+k=0
+bkzk ≤CApMp|z|p,
+z ∈S(0, rβ2, Rr).
+(3.20)
+The function ϕ : Sα/r →C given by ϕ(u) = ψ(ur), is well dened and holomorphic in Sα/r,
+which contains Sβ2 as a proper unbounded subsector. Moreover, according to (3.20) for p = 0,
+for every w ∈S(0, β2, R) one has
+|ϕ(u)| = |ψ(ur)| ≤CM0.
+(3.21)
+We consider now a path δβ1 in S(0, β2, R) like the ones used in the classical Borel transform,
+made up of a segment δ1 from the origin to a point u0 with |u0| = R0 < R and arg(u0) = πβ1/2,
+then the circular arc δ2, traversed clockwise on the circumference |u| = R0 and going from u0 to
+the point u1 on the ray arg(u1) = −πβ1/2, and nally the segment δ3 from u1 to the origin.
+Dene the function f : S(β1−1)/2 →C given by
+f(t) = −1
+2πi
+Z
+δβ1
+et/uϕ(u)du
+u .
+Observe that ϕ(u) is holomorphic and bounded at 0 in S(0, β2, R), and for every t ∈S(β1−1)/2
+one may easily check that t/u runs over a half-line in the open left half-plane and tends to innity
+as u runs over any of the segments δ1 or δ3 and tends to 0. Hence, f is holomorphic in the sector
+S(β1−1)/2. We note that, by virtue of Cauchy's theorem, the value assigned to R0 in the denition
+of δβ1 is irrelevant for the value of f.
+Let us x in the following estimations some t ∈S(0, (β1 −1)/2, R) and some natural number
+p ∈N. Hankel's formula (3.19) for z = kr + 1 allows us to write
+f(t) −
+p−1
+X
+k=0
+bk
+tkr
+(kr)! = −1
+2πi
+Z
+δβ1
+et/u
+ 
+ϕ(u) −
+p−1
+X
+k=0
+bkukr
+!
+du
+u
+= −1
+2πi
+3
+X
+j=1
+Z
+δj
+et/u
+ 
+ϕ(u) −
+p−1
+X
+k=0
+bkukr
+!
+du
+u .
+(3.22)
+Taking into account (3.20), for every u ∈S(0, β2, R) we have
+ϕ(u) −
+p−1
+X
+k=0
+bkukr
+ =
+ψ(ur) −
+p−1
+X
+k=0
+bk(ur)k
+ ≤CApMp|u|pr.
+(3.23)
+So, if we choose R0 = |t|/p < R, we may apply (3.23) and see that
+
+Z
+δ2
+et/u
+ 
+ϕ(u) −
+p−1
+X
+k=0
+bkukr
+!
+du
+u
+ ≤πβ1epCApMp
+|t|
+p
+pr
+.
+(3.24)
+JAVIER JIMÉNEZ GARRIDO

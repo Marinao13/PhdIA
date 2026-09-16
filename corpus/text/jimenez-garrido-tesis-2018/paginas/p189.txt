@@ -1,0 +1,78 @@
+5.1.
+M−FLATNESS EXTENSION
+189
+Remark 5.1.7. Some comments are in order concerning the statement or proof of the previous
+result.
+By a simple rotation, one may easily check that the validity of Lemma 5.1.6 and of the
+subsequent results in this chapter does not depend on the bisecting direction of the sector where
+the function f is dened. Moreover, one could slightly weaken the hypotheses by considering a
+function f holomorphic in Sγ that admits a continuous extension to the direction d = πγ/2, in
+which it is M−at, and that is bounded in every (half-open) sector
+{z ∈R : arg(z) ∈(−πγ
+2 + δ, πγ
+2 ]},
+δ > 0.
+Indeed, we may give a more precise information about the type. Following the previous proof,
+one notes that
+k2 = k2(δ) >
+B
+r2
+ω
+=
+
+B
+η|a|1/ω
+ω
+≥
+
+2B
+Ad2 cos( π
+2 −
+δ
+2ω)
+ω
+≥
+2B
+A
+ω
+1
+sin( δ
+2ω)
+ω
+c2,
+and k2 may be made arbitrarily close to the last expression at the price of enlarging the constant
+k1 = k1(δ). So, the original type c2 is basically aected by a precise factor when moving to a
+direction θ = −πγ/2+δ with 0 < δ < πγ. It is obvious that k2(δ) explodes at least like 1/ sinω(δ)
+as δ →0. This means that the type of the null asymptotic expansion tends to 0 as the direction
+in the sector approaches the boundary d = −πγ/2, in the same way as in the Gevrey case (see
+Theorem A).
+Moreover, the constant 2 in δ/(2ω) could be any number greater than 1 and, by suitably
+choosing the value ε in the proof, the constant 2B/A appearing before can be made as close to
+B/A as desired, so the only indeterminacy in the previous factor is caused by the values A, B
+involved in (5.3). In the common situation that the function dM(t) is indeed a proximate order,
+the constants A and B can also be taken as near to 1 as wanted, what makes the expression even
+more explicit.
+Finally, note that, by using Theorem 2.2.17 one may change M by an equivalent sequence L
+such that dL is a proximate order. However, this fact does not improve the proof, since again
+Theorem 1.2.16 will be applied to obtain a function V ∈MF(2ω, dL(t)) and we will work with
+the same type of estimate that we have in (5.3).
+The following lemma shows that imposing γ < ω(M) is only a technical condition in order
+to apply Phragmén-Lindelöf theorem 5.1.5.
+Lemma 5.1.8. Let γ > 0 be given. Suppose f is a bounded holomorphic function in Sγ that
+admits a continuous extension to the boundary ∂Sγ, and that is M−at in direction d = πγ/2.
+Then for every 0 < δ < πγ, there exist constants k1(δ), k2(δ) > 0 with
+|f(z)| ≤k1e−ωM(1/(k2|z|)),
+if arg(z) ∈[−πγ/2 + δ, πγ/2].
+Proof. For simplicity we write ω = ω(M), and put θ0 := πγ/2. We can obviously choose a
+suitable natural number m and directions θj ∈(−πγ/2, πγ/2), j = 1, 2, . . . , m, such that
+θj := θj−1 −πω/2,
+θj ≥−πγ/2 + δ,
+j = 1, . . . , m −1,
+θm ∈(−πγ/2, −πγ/2 + δ),
+θm−1 −θm < πω/2.
+We x 0 < ε < πω/4. Since θ0 −θ1 + ε < 3πω/4 < πω, we can apply Lemma 5.1.6 to the
+function f restricted to the sector S1 = {z ∈R : arg(z) ∈[θ1 −ε, θ0]}. We deduce that there
+exist constants k1,1, k2,1 > 0 with
+|f(z)| ≤k1,1e−ωM(1/(k2,1|z|)),
+if arg(z) ∈[θ1, θ0].
+Universidad de Valladolid

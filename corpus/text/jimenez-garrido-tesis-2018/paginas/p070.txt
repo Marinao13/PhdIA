@@ -1,0 +1,69 @@
+70
+CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+(3) β < β(m),
+(4) There exist δ > 0 and A > 0 such that
+∞
+X
+k=p
+(k + 1)β+δ
+(k + 1)mk
+≤A(p + 1)β+δ
+mp
+,
+p ∈N0.
+Hence (vii), (viii) and (ix) are true.
+Analogous to (vi), we apply Proposition 2.1.2 to the sequence vp := (ℓp)1/(β−γ)(p + 1)−1 for
+p ∈N0, using that ℓ≃g−γm we obtain (x).
+□
+Remark 2.1.23. We are specially interested in the (lc) sequence case, particularly when bm =
+(pmp−1)p∈N or m = (mp−1)p∈N are nondecreasing, then γ = −1 or γ = 0, respectively (see
+Remark 3.1.11 for further information about both situations).
+In the rst case, (x) can be
+expressed as follows
+β(m) = sup{β > −1; ∃A > 0, s.t.
+∞
+X
+ℓ=p
+1
+( bmℓ)1/(β+1) ≤
+A(p + 1)
+( bmp)1/(β+1) ,
+p ∈N0},
+The reader may notice the connection with condition (γ1) of H.-J. Petzsche [77] for bm by taking
+β = 0, that is, if there exists A > 0 such that
+(γ1)
+∞
+X
+ℓ=p
+1
+bmℓ
+≤A(p + 1)
+bmp
+,
+p ∈N0,
+and condition (γβ+1) of J. Schmets, M. Valdivia [91] for bm by taking β ∈N0, that is, if there
+exists A > 0 such that
+(γβ+1)
+∞
+X
+ℓ=p
+1
+( bmℓ)1/(β+1) ≤
+A(p + 1)
+( bmp)1/(β+1) ,
+p ∈N0,
+that will be used in Section 3.3 when studying the surjectivity of the Borel map. For bm nonde-
+creasing, extending this condition for β ∈R, β > −1, one can, equivalently, write
+β(m) = sup{β > −1; bm satises (γβ+1)},
+and for m nondecreasing,
+β(m) = sup{β > 0; m satises (γβ)}.
+It is plain to check that bm satises (γ1) if and only if M satises (snq). Moreover, from Propo-
+sition 2.1.11 we know that β( bm) = 1 + β(m) and, using Proposition 2.1.18, for a nondecreasing
+sequence bm we see that
+β( bm) > 1
+if and only if
+bm satises (γ1).
+Assuming again that bm is nondecreasing, by Proposition 2.1.22.(viii), we obtain that
+β( bm) > 0 if and only if there exists k ∈N, k ≥2, such that lim infp→∞bmkp/ bmp > 1.
+JAVIER JIMÉNEZ GARRIDO

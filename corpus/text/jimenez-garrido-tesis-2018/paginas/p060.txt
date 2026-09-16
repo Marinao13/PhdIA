@@ -1,0 +1,67 @@
+60
+CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+Assume that (2.4) is satised for some k0 ∈N. Then it is straightforward to check (2.4) is
+also satised, suitably enlarging the value of γ, for all k ≥k0 applying the trivial estimation
+deduced for kn
+0 , with n ∈N such that kn
+0 ≥k. Consequently, since the previous results can also
+be applied to a (lc) sequence M, it is possible to characterize strong regularity of a sequence M
+in terms of the sequence of quotients using (2.1) and (2.4).
+Corollary 2.1.6. Let M be a sequence of positive numbers with M0 = 1. The following are
+equivalent:
+(i) M is strongly regular,
+(ii) m is nondecreasing and there exists k ∈N, k ≥2, such that
+1 < lim inf
+p→∞
+mkp
+mp
+≤lim sup
+p→∞
+mkp
+mp
+< ∞.
+This corollary points out the connection between these properties and the notion of O-regular
+variation (see Denition 1.2.20 and Denition 1.2.43). The study of this relation will be the main
+aim of the subsequent subsections.
+Remark 2.1.7. Moreover, this characterization allows us to easily verify if a sequence is or not
+strongly regular. For example:
+(i) We consider the sequences Mα,β = (p!αΠp
+m=0 logβ(e + m))p∈N0, where α > 0 and β ∈R.
+Since m = ((p + 1)α logβ(e + p + 1))p∈N0 for β ≥0 is nondecreasing Mα,β is (lc). For β < 0
+since mp = (p + 1)α logβ(e + p + 1) is eventually nondecreasing, we can modify the rst
+terms according to Remark 1.1.19 and change the sequence for a (lc) one. We observe that
+lim
+p→∞
+m2p
+mp
+= 2α.
+By Lemma 1.1.9, we deduce that Mα,β has (mg) and, by Proposition 2.1.2, we have that
+Mα,β is (snq).
+(ii) For the sequence M0,β = (Πp
+m=0 logβ(e + m))p∈N0 with β > 0, we also have that it is (lc)
+and we see that
+lim
+p→∞
+mkp
+mp
+= 1
+for all
+k ∈N,
+k ≥2.
+By Lemma 1.1.9 we deduce that M0,β has (mg) and, by Proposition 2.1.2, we have that
+M0,β does not satisfy (snq).
+(iii) Finally, M = (qp2)p∈N0 with q > 1 is (lc) because m = (q2p+1)p∈N0 is nondecreasing. We
+have that
+lim
+p→∞
+mkp
+mp
+= lim
+p→∞q2p(k−1) = ∞,
+for every
+k ∈N,
+k ≥2.
+By Lemma 1.1.9 we deduce that M has not (mg) and, by Proposition 2.1.2, we have that
+M is (snq).
+JAVIER JIMÉNEZ GARRIDO

@@ -1,0 +1,51 @@
+15
+Mientras se intentaba dar respuesta a los tres primeros elementos de la lista anterior, se ob-
+servó que el concepto de variación regular y sus extensiones aparecían una y otra vez relacionados
+con nuestros problemas. Como se deducirá de los desarrollos presentados en los capítulos segundo
+y tercero, resultan ser de hecho fundamentales en la solución de los mismos.
+En 1930 J. Karamata inició la disciplina de la variación regular y la aplicó a problemas
+tauberianos, como el Teorema de Hardy-Littlewood-Karamata. Sus ideas fueron desarrolladas
+por sus colaboradores y alumnos de la `Escuela Yugoslava' en las siguientes décadas. Una función
+medible f : [a, ∞) →(0, ∞), con a ≥0, es de variación regular si
+lim
+x→∞
+f(λx)
+f(x) = g(λ) ∈(0, ∞)
+(4)
+para todo λ ∈(0, ∞). La teoría de variación regular garantiza que existe ρ ∈R tal que g(λ) = λρ
+y la convergencia es uniforme para λ en los conjuntos compactos de (0, ∞) (véase la Sección 1.2).
+Esta disciplina se popularizó en los años 1970 gracias a su uso en teoría de la probabilidad, im-
+pulsado por los trabajos de W. Feller y L. de Haan. Sin embargo, nosotros estamos especialmente
+interesados en su aplicación al análisis complejo, donde aparece estrechamente relacionada con
+el concepto de orden aproximado, que proviene del estudio del crecimiento de funciones enteras.
+En algunas ocasiones esta teoría puede ser muy restrictiva y se han dado diversas generali-
+zaciones de la misma. En esta memoria, además de la variación regular, se considerará la llamada
+O-variación regular donde el lim en (4) se sustituye por dos condiciones con lim sup y lim inf en
+su lugar. Esta noción ya fue considerada por Karamata, pero fue difundida gracias a W. Ma-
+tuszewska que estableció su conexión con los espacios de Orlicz en 1964. Además, caracterizó esta
+noción en términos de dos índices, conocidos hoy en día como índices de Matuszewska. Debido
+a la naturaleza de este trabajo estamos particularmente interesados en las versiones discretas de
+estos conceptos. La extensión de la variación regular para sucesiones de números reales positivos
+fue llevada a cabo por R. Bojani¢ y E. Seneta en 1973, y la de la O-variación regular ha sido
+proporcionada por D. Djur£i¢ y V. Boºin en 1997. En la segunda sección de este primer capí-
+tulo se resumirán de forma concisa pero completa estos elementos característicos de la teoría de
+Karamata.
+El propósito principal del segundo capítulo es la descripción de las relaciones existentes entre
+las nociones presentadas en el primero. La primera sección se centra en la noción de O-variación
+regular. Ciertas condiciones, como son el crecimiento moderado o la no casianaliticidad fuerte,
+que se asumen a menudo para la sucesión M con el objetivo de que la clase correspondiente
+tenga ciertas propiedades, pueden reformularse en términos de la O-variación regular. Merece
+ser mencionado que el índice de Thilliez γ(M) y el índice de Sanz ω(M), introducidos de forma
+independiente, resultan tener una representación adecuada en estos términos. Para establecer la
+conexión con las sucesiones logarítmicamente convexas, será necesario expresar estas condiciones
+por medio de propiedades de casimonotonía y considerar los órdenes µ(m) y ρ(m) y los índices
+de Matuszewska β(m) y α(m) para su sucesión de cocientes m = (mp−1)p∈N. Esta relación
+queda reejada en los dos siguientes resultados (Teorema 2.1.16 y Proposición 2.1.18).
+Teorema. Sea M una sucesión de números reales positivos con sucesión de cocientes m. Entonces
+γ(M) = β(m),
+ω(M) = µ(m).
+Proposición. Sea M una sucesión de números reales positivos con sucesión de cocientes m.
+Supongamos que (p!Mp)p∈N0 is logarítmicamente convexa, entonces
+(i) M tiene crecimiento moderado si y sólo si α(m) < ∞si y sólo si m es de O-variación
+regular.
+Universidad de Valladolid

@@ -1,0 +1,40 @@
+238
+Appendix C. Functions of a Matrix
+requiring its eigenvalues to have imaginary parts in a ﬁxed half-open inter-
+val of length 2π. This corresponds to selecting a ﬁxed branch of log z by
+restricting the argument of z accordingly.
+C.1
+Exponential of a Matrix
+Given a square matrix A, we deﬁne
+eA = exp[A] =
+∞
+
+n=0
+An
+n! ,
+where A0 = I and An = A · . . . · A, n times repeated, for n ≥1. From
+∥µ
+m An/(n!)∥≤µ
+m ∥A∥n/(n!) one can easily conclude convergence of
+the series, thus the exponential of a matrix is always deﬁned. Manipulating
+with the inﬁnite matrix power series, one can show the following rules:
+1. For A, T ∈C ν×ν, T invertible, we have
+exp[T −1A T] = T −1 exp[A] T.
+2. For Λ = diag [λ1, . . . , λν] we have
+exp[Λ] = diag [eλ1, . . . , eλν].
+3. For a triangularly blocked matrix A with diagonal blocks Ak, the
+matrix exp[A] is likewise blocked and has diagonal blocks exp[Ak], in
+the same order.
+4. For matrices A, B ∈C ν×ν with AB = BA, we have
+exp[A + B] = exp[A] exp[B] ( = exp[B] exp[A] ),
+but this rule does not hold in general, as is shown in one of the
+exercises below.
+5. For every square matrix A, the inverse of exp[A] exists and equals
+exp[−A].
+We conclude from the above set of rules that exp[A] can theoretically be
+computed by ﬁrst transforming A into Jordan form J = Λ + N with com-
+muting terms Λ (diagonal) and N (nilpotent), and then computing exp[Λ]
+and exp[N]; for the second note that the deﬁning series terminates.
+Closely related to the exponential of the matrix are powers zA, z ∈
+C \ {0}, A ∈C ν×ν, since we set
+zA = exp[A log z].

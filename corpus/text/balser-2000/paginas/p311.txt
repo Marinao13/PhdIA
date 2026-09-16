@@ -1,0 +1,74 @@
+Symbols
+297
+E ∗
+The set of continuous linear maps from E into C (p. 219)
+E [[z]]
+The space of formal power series whose coeﬃcients are
+in E
+(p. 64)
+E [[z]]s
+The space of formal power series with coeﬃcients in E and
+Gevrey order s
+(p. 64)
+E {z}
+The space of convergent power series whose coeﬃcients are
+in E
+(p. 64)
+E {z}k,d
+The space of power series with coeﬃcients in E that are
+k-summable in direction d
+(p. 102)
+E {z}k
+The space of power series with coeﬃcients in E that are
+k-summable in all but ﬁnitely many directions
+(p. 105)
+E {z}T,d
+The space of power series with coeﬃcients in E that are
+T-summable in direction d
+(p. 108)
+E {z}T ,d
+The space of power series with coeﬃcients in E that are
+T -summable in the multidirection d
+(p. 161)
+e
+Euler’s constant (= exp[1])
+ˆe, ˆ0
+The formal power series whose constant term is e, resp. 0,
+while the other coeﬃcients are equal to 0
+(pp. 64, 70)
+e1 ∗e2
+The convolution of kernel functions
+(p. 160)
+Eα(z)
+Mittag-Leﬄer’s function
+(p. 233)
+F(α; β; z)
+Conﬂuent hypergeometric function
+(p. 22)
+F(α, β; γ; z)
+Hypergeometric function
+(p. 26)
+Similar notation is used for the generalized conﬂuent hy-
+pergeometric function
+(p. 23)
+resp. generalized hypergeometric function
+(p. 26)
+resp. generalized hypergeometric series
+(p. 107)
+FFS
+Short for formal fundamental solution
+(p. 131)
+f ∗k g
+Convolution of functions f and g
+(p. 178)
+ˆf ∗k ˆg
+Convolution of formal power series ˆf and ˆg
+(p. 178)
+G
+A region in the complex domain, resp, on the Riemann
+surface of the logarithm
+(p. 2)
+G(d, α)
+A sectorial region with bisecting direction d and opening
+α
+(p. 61)

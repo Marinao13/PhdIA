@@ -1,0 +1,174 @@
+A. Rainer, G. Schindl
+P = {p} such that p( f g) ≤p( f )p(g) for all f, g ∈B. So for each λ ∈, compact K ⊆R,
+and ρ > 0 there exist p ∈P, q ∈Q, and constants C, D > 0 such that
+∥f m∥Mλ
+K,ρ ≤Cp( f m) ≤Cp( f )m ≤C Dmq( f )m,
+f ∈B, m ∈N.
+We shall use this inequality for the functions ft(x) = eitx, and, since ∥ft∥∞= 1 ≤
+∥ft∥Mμ
+[−a,a],σ for each μ ∈ and a, σ > 0, we can replace q in the very same inequality by
+some seminorm ∥∥Mμ
+[−a,a],σ . Then the proof of [13, 4.11(2) ⇒(3)] yields (M(rai)).
+⊓⊔
+The remaining implication (1) ⇒(4) (as well as (1) ⇒(5) below) we shall deduce from
+the corresponding result in the Roumieu case by means of the following lemma, which is a
+variation of [9, Lemma 6].
+Lemma 4 Let L ∈RN
+≥0 and M1, M2, M3 ∈RN
+>0 be sequences satisfying L ◁M1 ≤M2 ≤
+M3 and (Mi
+k)1/k →∞for i = 1, 2, 3, and assume that there exist 1 ≤H1 ≤H2 so that
+
+M1
+j
+1/j ≤H1
+
+M2
+k
+1/k ≤H2
+
+M3
+ℓ
+1/ℓ
+for j ≤k ≤ℓ.
+(4.1)
+Then there exist sequences N 1, N 2 ∈RN
+>0 with L ≤N 1 ≤N 2◁M3 satisfying (Ni
+k)1/k →
+∞for i = 1, 2 and so that
+
+N 1
+j
+1/j ≤
+
+H1(N 2
+k )1/k
+for j ≤k.
+(4.2)
+Proof Without loss of generality we may assume that Lk > 0 for all k; otherwise replace
+L by ¯L where ¯Lk = Lk if Lk > 0 and ¯Lk = 1 if Lk = 0 (we still have ¯L ◁M1 since
+(M1
+k )1/k →∞). The sequences, for i = 1, 2, 3,
+ci
+k :=
+
+Mi
+k
+Lk
+ 1
+k
+satisfy ci
+k →∞, since L ◁Mi. We deﬁne, for i = 1, 2,
+(Ni
+k)
+1
+k := max
+⎧
+⎨
+⎩
+
+(Mi
+k)
+1
+k , max
+j≤k
+(Mi
+j)
+1
+j
+ci
+j
+⎫
+⎬
+⎭= max
+
+(Mi
+k)
+1
+k , max
+j≤k L
+1
+j
+j
+
+.
+(4.3)
+Then clearly (Ni
+k)1/k →∞and L ≤N 1 ≤N 2. For each ϵ > 0 there exists jϵ,i so that
+1/ci
+j ≤ϵ for j > jϵ,i. Thus, by (4.1),
+ Ni
+k
+Mi+1
+k
+! 1
+k
+≤max
+
+(Mi+1
+k
+)−1
+2k , (Mi+1
+k
+)−1
+k max
+j≤k
+(Mi
+j)
+1
+j
+ci
+j
+
+≤max
+
+(Mi+1
+k
+)−1
+2k , (Mi+1
+k
+)−1
+k max
+j≤jϵ,i
+(Mi
+j)
+1
+j
+ci
+j
+, Hiϵ
+
+≤Hiϵ,
+for k sufﬁciently large, i.e., N 1 ◁M2 and N 2 ◁M3. It remains to show (4.2). But this is
+immediate from (4.1) and (4.3), indeed for j ≤k,
+(N 1
+j )
+1
+j = max
+"
+(M1
+j )
+1
+j , max
+h≤j L
+1
+h
+h
+
+≤max
+
+H1(M2
+k )
+1
+k , max
+h≤k L
+1
+h
+h
+
+≤
+
+H1(N 2
+k )
+1
+k

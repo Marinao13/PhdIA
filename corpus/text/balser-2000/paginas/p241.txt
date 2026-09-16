@@ -1,0 +1,42 @@
+B.3 Holomorphic Continuation
+225
+some ε > 0, such that |z(t)−z(tk)| < ε for tk−1 ≤t ≤tk, 1 ≤k ≤m, and so
+that f, by successive re-expansion of its power series about the points z(tk),
+can be deﬁned in the discs D(z(tk), ε). Then, f obviously is holomorphic
+in every one of these discs, but perhaps not in their union, since when the
+path γ intersects with itself, f can in general not be unambiguously deﬁned
+at intersection points.
+Continuity of z(t) implies existence of a number δ, 0 < δ < ε, so that
+|z(t) −z(tk)| ≤δ for tk−1 ≤t ≤tk, 1 ≤k ≤m. This may be used
+to show that f can also be analytically continued along every curve ˜γ
+with parameterization ˜z(t), 0 ≤t ≤1, having the same endpoints as γ,
+provided that |z(t)−˜z(t)| ≤(ε−δ)/2 for every t. In particular, continuation
+along both curves leads to the same holomorphic function near z1. This is
+important in the proof of the following theorem:
+Theorem 67 (Monodromy Theorem) Let G be an arbitrary region, let
+D = D(z0, ρ) ⊂G, and let f ∈H(D, E ). Moreover, assume that f can be
+holomorphically continued along every path γ, beginning at z0 and staying
+inside G. Then the following holds true:
+(a) If γ0, γ1 are any two homotopic paths in G, both beginning at z0 and
+ending, say, at z1, then holomorphic continuation of f along either
+path produces the same value f(z1).
+(b) If G is simply connected, then f ∈H(G, E ).
+Proof: Clearly, (b) follows from (a), since in a simply connected region any
+two paths with common endpoints are homotopic; hence by holomorphic
+continuation we may deﬁne f(z) unambiguously at every point z ∈G, and
+then f is holomorphic in G. To show (a), choose any two paths γ0, γ1 in
+G, beginning at z0 and ending at a common point z1. If the two paths
+are homotopic, then by deﬁnition there exists a continuous map z(s, t) of
+the unit square R = [0, 1] × [0, 1] into G such that z(0, ·), resp. z(1, ·),
+is a parameterization of γ0, resp. γ1, while for arbitrary s ∈[0, 1] the
+function z(s, ·) parameterizes some other path γs in G, connecting z0 and
+z1. By assumption f can be holomorphically continued along every one of
+these paths, and we denote by fs(z1) the value of f at z1, obtained by
+holomorphic continuation along γs. For every ﬁxed s, we conclude from the
+deﬁnition of holomorphic continuation existence of εs > 0 such that
+1. the path γs is covered by ﬁnitely many discs of radius εs,
+2. each disc contains the center of the following one (when moving along
+the path),
+3. f is holomorphic in each one of these discs.
+Continuity of the function z(s, t) on R implies existence of δs > 0 so that
+for ˜s ∈[0, 1] with |˜s−s| < δs the path γ˜s remains within the union of these

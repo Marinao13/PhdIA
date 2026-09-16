@@ -1,0 +1,57 @@
+B.4 Order and Type of Holomorphic Functions
+233
+as the type of f and say that f is of ﬁnite type if τ < ∞. As for the order,
+one can also deﬁne τ as the inﬁmum of all c > 0 for which K exists such
+that
+∥f(z)∥≤K exp[c|z|k],
+z ∈¯S.
+(B.18)
+If S = {z :
+|z| > ρ0, α < arg z < β} and f ∈H(S, E ), we deﬁne its
+order as the supremum of all orders of f in closed subsectors of S, and
+analogously for the type. In particular, f is either of order smaller than k,
+or of order k and ﬁnite type, if an estimate (B.18) holds in every closed
+subsector of S, with constants c, K that may go oﬀto inﬁnity when we
+approach the boundary of S.
+As is standard for C -valued functions, we say that a function f ∈
+H(C, E ) is an entire function. For such an entire f we take M(ρ, f) as
+the maximum modulus of f(z) on the circle of radius ρ (about the origin)
+and deﬁne order and type as above. As an example, we consider
+Mittag-Leffler’s Function
+The (C-valued) function
+Eα(z) =
+∞
+
+n=0
+zn/Γ(1 + αn) ,
+α > 0,
+is called Mittag-Leﬄer’s function of index α.
+Using (B.10), one can show
+Eα(z) =
+1
+2πi
+
+γ
+ew wα−1
+wα −z dw,
+(B.19)
+ﬁrst for |z| < 1 and then, using Cauchy’s theorem to change the path
+of integration, one can show a corresponding representation for arbitrary
+values of z. It is shown in the exercises below that Eα is an entire function
+of exponential order k = 1/α and type τ = 1.
+As for the classical case of E = C, order and type of entire functions can
+be expressed in terms of their power series coeﬃcients:
+Theorem 69 Let f ∈H(C, E ) have the power series expansion f(z) =
+ fn zn, z ∈C . Then the order k and, in case of 0 < k < ∞, the type τ
+of f are given by
+k = lim sup
+n→∞
+n log n
+log(1/∥fn∥),
+(B.20)
+τ = 1
+ek lim sup
+n→∞n∥fn∥k/n.
+(B.21)
+Proof: Assume ∥f(z)∥≤C exp[c|z|κ], for some C, c, κ ≥0. Then we con-
+clude from Proposition 27 (p. 222), with z0 = 0 and arbitrary ρ > 0, that

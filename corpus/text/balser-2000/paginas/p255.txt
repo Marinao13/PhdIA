@@ -1,0 +1,46 @@
+240
+Appendix C. Functions of a Matrix
+C.2
+Logarithms of a Matrix
+Every reasonable interpretation for log A should be a matrix X solving
+the equation eX = A. This is not a very suitable deﬁnition, but it shows
+that we cannot expect a matrix A to have a logarithm whenever det A =
+0. Thus, in the following we restrict to invertible matrices A. The most
+elegant deﬁnition of logarithms of matrices is by means of Cauchy’s integral
+formula: Let an invertible matrix A be given, whose eigenvalues λk, 1 ≤
+k ≤µ, necessarily are all nonzero. We deﬁne
+log A = (2πi)−1
+
+γ
+log z (zI −A)−1dz,
+(C.1)
+where γ is not a single curve, but rather a collection of small circles, posi-
+tively oriented, one about each eigenvalue λk, and none of them encircling
+the origin. Hence in fact, we do not have one integral but a sum of ﬁnitely
+many, one for each such circle. The radii of these circles should be taken
+so small that the corresponding closed discs do not intersect, and we may
+make arbitrary choices for a branch of log z along each one of the circles.
+Every matrix log A computed according to this formula will be called a
+branch of the logarithm of A. Note that we cannot hope for a single-valued
+function, since the logarithm already is multivalued in the scalar case.
+From the above deﬁnition one can deduce a list of rules that enable us, in
+principle, to compute the branches for log A. Note, however, that formulas
+containing more than one matrix logarithm hold only if, after choosing
+branches for all but one logarithm, we choose the correct branch for the
+remaining one.
+• For a diagonal invertible matrix Λ = diag [λ1, . . . , λν], we have
+log Λ = diag [log λ1, . . . , log λν],
+where on the right we choose branches of the logarithms such that
+λj = λk implies log λj = log λk.
+• For a nilpotent matrix N, one (the main) branch of the logarithm is
+log(I + N) =
+
+n≥1
+(−1)n+1
+n
+N n.
+Observe that the series terminates. Every other branch is obtained
+from the main one by adding 2kπiI, k ∈Z.
+• For a Jordan matrix J = Λ + N = Λ(I + Λ−1N), with invertible
+diagonal Λ and nilpotent N, commuting with Λ, we have
+log J = log Λ + log(I + Λ−1N),

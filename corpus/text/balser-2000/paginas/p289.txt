@@ -1,0 +1,42 @@
+274
+References
+[90] T. M. Dunster and D. A. Lutz, Convergent factorial series expan-
+sions for Bessel functions, Proc. R. Soc. London Ser. A, 422 (1989),
+pp. 7–21.
+[91] T. M. Dunster, D. A. Lutz, and R. Sch¨afke, Convergent
+Liouville-Green expansions for second order linear diﬀerential equa-
+tions, with an application to Bessel functions, Proc. R. Soc. London
+Ser. A, 440 (1993), pp. 37–54.
+[92] A. Duval, Lemmes d’Hensel et factorisation formelle pour les
+op´erateurs aux diﬀ´erences, Funkcialaj Ekvacioj, 26 (1983), pp. 349–
+368.
+[93] A. Duval and C. Mitschi, Matrices de Stokes et groupe de Ga-
+lois des ´equations hyperg´eometriques conﬂuents generalis´ees, Pac. J.
+Math., 138 (1989), pp. 25–56.
+[94] J. Ecalle, Les fonctions r´esurgentes I–II, Publ. Math. d’Orsay, Uni-
+versit´e Paris Sud, 1981.
+[95]
+, Les fonctions r´esurgentes III, Publ. Math. d’Orsay, Universit´e
+Paris Sud, 1985.
+[96]
+, Introduction `a l’Acc´el´eration et `a ses Applications, Travaux en
+Cours, Hermann, Paris, 1993.
+[97] A. M. Emamzadeh, Numerical investigations into the Stokes phe-
+nomenon I, J. Inst. Math. Appl., 19 (1977), pp. 77–86.
+[98]
+, Numerical investigations into the Stokes phenomenon II, J.
+Inst. Math. Appl., 19 (1977), pp. 149–157.
+[99]
+, A numerical method for the calculation of the Stokes constants,
+Appl. Sci. Res., 34 (1978), pp. 161–178.
+[100] A. Erd´elyi, Higher Transcendental Functions, McGraw–Hill, 1953.
+[101]
+, Asymptotic Expansions, Dover Publications, New York, 1956.
+[102] B. F. Faber, Summability theory for analytic diﬀerence and differen-
+tial–diﬀerence equations, Ph.D. thesis, Rijksuniversiteit Groningen,
+1998.
+[103] W. B. Ford, Studies on Divergent Series and Summability & The
+Asymptotic Developments of Functions deﬁned by MacLaurin Series,
+Chelsea, 1960.
+[104] A. Fruchard and R. Sch¨afke, On the Borel transform, C. R.
+Acad. Sci., 323 (1996), pp. 999–1004.

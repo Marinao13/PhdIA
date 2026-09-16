@@ -1,0 +1,50 @@
+2.1. LOG-CONVEX SEQUENCES AND O-REGULAR VARIATION
+81
+These conditions can be read in terms of growth properties (see Proposition 2.1.18 and Propo-
+sition 2.1.28). The fact that the implication in (2) can not be reversed (see our example in [47]
+where β(m) = 0 and α(ωM) = 0) might clarify why the weight function approach (see Re-
+mark 2.1.33) is more general than the weight sequence case, meaning that, even if α(m) = ∞, so
+β(ωM) = 0, and β(m) = 0 we may have α(ωM) < ∞. In other words ωM might be of O-regular
+variation even though m is quite pathological. Whereas if α(ωM) = ∞and β(ωM) = 0, then
+automatically α(m) = ∞and β(m) = 0.
+Accordingly, the following notion of the dual sequence is proposed.
+Denition 2.1.40. Let M be a weight sequence. For p ∈N0, we dene its dual sequence D
+using the sequence of quotients by
+dp := νm(p),
+p ≥m0;
+dp := 1,
+p < m0.
+Correspondingly, D0 := 1 and Dp := d0d1 · · · dp−1 for p ∈N.
+It is plain to check that D is also a weight sequence and we can consider the bidual sequence.
+Denition 2.1.41. Let M be a weight sequence and D its dual sequence. For p ∈N0, we dene
+its bidual sequence E, as the dual sequence of D, that is,
+ep := νd(p),
+p ≥1 = d0;
+e0 := 1,
+and E0 := 1 and Ep := e0e1 · · · ep−1 for p ∈N.
+Since νm, νd : [0, ∞) →N0, d, e are sequences of natural numbers and we can establish the
+expected connection between M and E.
+Theorem 2.1.42. Let M be a weight sequence and E its bidual. Then, m ≃e , i.e., there exists
+c > 1 such that
+c−1ep ≤mp ≤c ep,
+for all
+p ∈N0.
+In fact, m ∼e, that is, limp→∞ep/mp = 1.
+Proof. For p > max(1, νm(⌊m0⌋+ 1)), we can ensure that
+ep = νd(p) = max{j ∈N; dj−1 ≤p} = max{j ∈N; νm(j −1) ≤p}
+= max{j ∈N; max{k ∈N; mk−1 ≤j −1} ≤p}.
+If j −1 ≥mp, then max{k ∈N; mk−1 ≤j −1} ≥p + 1 and j > ep. Conversely, if j −1 < mp,
+then max{k ∈N; mk−1 ≤j −1} < p + 1, then j ≤ep. For all p > max(1, νm(⌊m0⌋+ 1)) we
+deduce that
+ep = max{j ∈N; j −1 < mp}.
+Consequently, for every p > max(1, νm(⌊m0⌋+ 1)) we have shown that
+ep −1 < mp ≤ep.
+and we conclude that
+mp ≤ep < mp + 1 ≤(1 + m−1
+0 )mp.
+By suitably choosing a constant c ≥(1 + m−1
+0 ), we can extend these inequalities for p ≤
+max(1, νm(⌊m0⌋+ 1)) and we see that m ≃e. Moreover, since limp→∞mp = ∞, we conclude
+that m ∼e.
+□
+Universidad de Valladolid

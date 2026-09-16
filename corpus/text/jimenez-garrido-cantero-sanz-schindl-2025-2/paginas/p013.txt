@@ -1,0 +1,163 @@
+13
+which is a truncated Laplace-like transform of g with kernel e. By Leibniz’s theorem for para-
+metric integrals and the properties of e, this function is holomorphic in Sγ. We will prove that
+IM,h( bf ) ∼u
+{M} ˆf −a0 uniformly in Sγ.
+Let p ∈N and z ∈Sγ. We have
+IM,h( bf )(z) −
+p−1
+X
+n=1
+anzn = IM,h( bf )(z) −
+p−1
+X
+n=1
+an
+µ(n −1)µ(n −1)zn
+=
+Z R0
+0
+e
+u
+z
+ ∞
+X
+n=1
+an
+µ(n −1)un−1 du −
+p−1
+X
+n=1
+an
+µ(n −1)
+Z ∞
+0
+vn−1e(v) dv zn.
+A change of variable u = zv in the last integral, Cauchy’s residue theorem and the right-hand
+estimates in (2.14) allow us to rotate the path of integration and obtain
+zn
+Z ∞
+0
+vn−1e(v)dv =
+Z ∞
+0
+un−1e
+u
+z
+
+du.
+So, the preceding difference can be written as
+Z R0
+0
+e
+u
+z
+ ∞
+X
+n=p
+an
+µ(n −1)un−1 du −
+Z ∞
+R0
+e
+u
+z
+ p−1
+X
+n=1
+an
+µ(n −1)un−1 du.
+Then, we have
+IM,h( bf )(z) −
+p−1
+X
+n=1
+anzn
+ ≤I1,p(z) + I2,p(z),
+(3.3)
+where
+I1,p(z) =
+
+Z R0
+0
+e
+u
+z
+ ∞
+X
+n=p
+an
+µ(n −1)un−1 du
+ ,
+I2,p(z) =
+
+Z ∞
+R0
+e
+u
+z
+ p−1
+X
+n=1
+an
+µ(n −1)un−1 du
+ .
+We first estimate I1,p(z). Since for every u ∈(0, R0] we have 0 < hu/h1 ≤1/2, from (3.2) we get
+∞
+X
+n=p
+|an|
+µ(n −1)un−1 ≤| bf|M,h
+h
+h1
+∞
+X
+n=p
+hu
+h1
+n−1
+≤2| bf|M,h
+ h
+h1
+p
+up−1.
+Hence,
+I1,p(z) ≤2| bf|M,h
+ h
+h1
+p Z R0
+0
+e
+u
+z
+ up−1 du.
+(3.4)
+Regarding I2,p(z), for u ≥R0 and 1 ≤n ≤p −1 we have (u/R0)n−1 ≤(u/R0)p−1, so un−1 ≤
+Rn−1
+0
+up−1/Rp−1
+0
+. Again by (3.2), and taking into account that R0 = h1/(2h), we may write
+p−1
+X
+n=1
+|an|
+µ(n −1)un−1 ≤| bf|M,h
+hup−1
+h1Rp−1
+0
+p−1
+X
+n=1
+hR0
+h1
+n−1
+≤2| bf|M,h
+h
+h1Rp−1
+0
+up−1 = | bf|M,h
+2h
+h1
+p
+up−1.

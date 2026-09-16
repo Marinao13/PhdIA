@@ -1,0 +1,66 @@
+28
+Proof. Let p > 0 be arbitrary but ﬁxed. First, note that
+G
+1−βM(p) = G
+αp−β(G
+1−αpM(p))≈G
+αp−βL(p) =: eL(p),
+where the sequence eL(p) is log-convex (as the product of two such sequences).
+On the one hand, the condition L(p)≈G
+1−αpM(p) guarantees that there exists some
+A > 0 such that AjL(p)
+j
+≤j(1−αp)jM(p)
+j
+, for all j ∈N0.
+Moreover, let us observe
+that for all j > 0, we can estimate (j(1−β)jM(p)
+j
+)1/j = j(αp−β)(j(1−αp)jM(p)
+j
+)1/j ≥
+j(αp−β)(AjL(p)
+j )1/j, and thanks to the fact that L(p) is (lc) and αp > β, we deduce
+that limj→+∞(j(1−β)jM(p)
+j
+)1/j = ∞.
+Moreover, there exists some eA > 0 such that
+the (lc) sequence B(p) := ( eAj eL(p)
+j )j satisﬁes B(p) ≤G
+1−βM(p).
+Then, we have that
+B(p) = (B(p))lc ≤(G
+1−βM(p))lc, which implies that eL(p)⪯(G
+1−βM(p))lc.
+On the other hand, we observe that G
+1−βM(p)⪯eL(p), and therefore, (G
+1−βM(p))lc⪯eL(p).
+Finally, we conclude that eL(p)≈(G
+1−βM(p))lc.
+The previous equivalence ensures that M(p,β) is equivalent to G
+β−1eL(p), and therefore
+M(p)≈M(p,β). Finally, the two matrices M and Mβ are R-equivalent, and the property
+(M{rai}) (resp.(M{FdB})) is stable under R-equivalence, see [20, Remark 8.2.2].
+Under the assumptions of the previous proposition, we can prove a weaker variant
+of Theorem 5.12 using a similar technique to the one used in the proof of Theorem 5.8.
+Corollary 5.15. Let M = {M(p) : p > 0} be a weight matrix and consider α > 1. For
+each p > 0, we suppose that there exist some αp > α such that G
+1−αpM(p) is equivalent
+to a (lc) sequence L(p) depending on αp, and that there exists β > α such that β < αp
+for all p > 0. Then the following assertions are equivalent:
+(a) The matrix M, or equivalently Mβ, satisﬁes property (M{rai}).
+(b) The class A{M}(Sα) is holomorphically closed.
+(c) The class A{M}(Sα) is inverse-closed.
+If M has in addition (M{Cω}) and (M{dc}), then the list of equivalences can be extended
+by
+(d) The class A{M}(Sα) is closed under composition.
+(e) The matrix M, or equivalently Mβ, satisﬁes property (M{FdB}).
+We end this section by providing the version of Corollary 5.10 for wide sectors, which
+can be again deduced as a straightforward consequence of the corresponding result for
+weight matrices, Theorem 5.12.
+Corollary 5.16. Let M ∈RN0
+>0 and α > 1. Suppose there exists α′ > α such that G
+1−α′
+M
+is equivalent to an (lc) sequence L (depending on α′). Then the following assertions are
+equivalent:

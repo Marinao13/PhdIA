@@ -1,0 +1,74 @@
+104
+A. Rainer and G. Schindl
+implications hold; more precisely, E[M](R) ⊆E[N](R) ⇒M ⪯N and
+E{M}(R) ⊆E(N)(R) ⇒M  N.
+(2) We have
+E{M}(U, Rm) =
+\
+MN
+E(N)(U, Rm) =
+\
+MN
+E{N}(U, Rm).
+If M is (weakly) log-convex, then the intersections may be taken over
+all (weakly) log-convex M  N.
+(3) If M1/k
+k
+→∞then
+E(M)(K, Rm) =
+[
+LM
+L1/k
+k
+→∞
+E{L}(K, Rm) =
+[
+LM
+L1/k
+k
+→∞
+E(L)(K, Rm).
+If (k!Mk)1/k →∞then the unions may be taken over all LM with
+(k!Lk)1/k →∞. If M is log-convex and Mk+1/Mk →∞then the
+unions may be taken over all log-convex L  M with Lk+1/Lk →∞.
+Proof. (1) The directions “⇒” are clear by deﬁnition (see also [24, 2.3]).
+If M is weakly log-convex, then the implications E{M} ⊆E{N} ⇒M ⪯N
+and E{M} ⊆E(N) ⇒M  N follow from the existence of a characteristic
+E{M}-function (see Lemma 2.9). That E(M) ⊆E(N) implies M ⪯N is shown
+in [10, Thm. 2.2] and in more general terms in Proposition 4.6.
+(2) See [24, 2.4 and 8.2].
+(3) follows from (1), Lemma 2.3, Remark 2.4, and [21, Lemma 6].
+As the elements of E{1}(U) are exactly the real analytic functions Cω(U)
+and the elements of E(1)(U) are exactly the restrictions of entire functions
+H(Cn), we may conclude:
+(4) Cω ⊆E{M} ⇔H(Cn) ⊆E(M)(U) ∀U ⊆Rn ⇔lim M1/k
+k
+> 0.
+(5) Cω ⊆E(M) if and only if lim M1/k
+k
+= ∞.
+(6) E[M] is derivation closed if M satisﬁes (Mdc). If M is weakly log-
+convex, then (Mdc) is also necessary for E[M] being derivation closed;
+indeed, for M+1 = (M+1
+k ) := (Mk+1) we ﬁnd that E[M+1](R) = {f′ :
+f ∈E[M](R)}.
+In particular, if L  M with lim L1/k
+k
+> 0 then necessarily lim M1/k
+k
+= ∞,
+by (1), (4), and (5).
+Note that lim Mk+1/Mk = ∞implies lim M1/k
+k
+= ∞and thus Cω ⊆E(M).
+Indeed, there exists k0 with Mk0 ≥1, and for every C > 0 there exists k1 ≥k0
+such that Mk ≥CMk−1 for all k > k1, whence M1/k
+k
+≥M1/k
+k0 C1−k0/k ≥C1/2
+as k > 2k1. If M1/k
+k
+is increasing, we also have the converse: lim M1/k
+k
+= ∞
+implies lim Mk+1/Mk = ∞.

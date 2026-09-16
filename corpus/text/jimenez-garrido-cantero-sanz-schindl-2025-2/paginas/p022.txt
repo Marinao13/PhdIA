@@ -1,0 +1,87 @@
+22
+where (ℓp)∈N0 is the sequence of quotients of L. (up)p∈N0 is nonincreasing and tends to zero, and
+since L satisfies (snq), there exists some constant A > 0 with
+∞
+X
+p=q
+up ≤A(q + 1)uq,
+q ∈N0.
+(4.9)
+As ((p + 1)up)p∈N0 is nonincreasing and tends zero, we can apply Lemma 4.8 with
+Ap = up,
+Bp = max{εp, (p + 1)up},
+Dp = (p + 1)up,
+p ∈N0.
+So, there exists a nondecreasing sequence E which tends to ∞, and such that:
+∞
+X
+p=q
+upEp ≤8Eq
+∞
+X
+p=q
+up,
+q ∈N0.
+(4.10)
+The sequence ((p + 1)upEp)p∈N0 is nonincreasing.
+(4.11)
+lim
+p→∞εpEp = 0,
+lim
+p→∞(p + 1)upEp = 0.
+(4.12)
+Let us consider the sequence (kp)p∈N0 defined as
+kp = ℓp
+Ep
+=
+1
+(p + 1)upEp
+,
+p ∈N0.
+Then, from (4.9) and (4.10) we deduce that
+∞
+X
+p=q
+1
+(p + 1)kp
+=
+∞
+X
+p=q
+upEp ≤8Eq
+∞
+X
+p=q
+up ≤8A(q + 1)uqEq = 8A 1
+kq
+,
+q ∈N0.
+Therefore, the sequence K defined as
+K0 = 1,
+Kp = k0k1 · · · kp−1,
+p ∈N,
+satisfies (snq). Moreover, the sequence K is a weight sequence due to (4.11) and (4.12). Now,
+since E is nondecreasing we deduce that
+kp+1
+kp
+= ℓp+1Ep
+ℓpEp+1
+≤ℓp+1
+ℓp
+,
+p ∈N0,
+and so K satisfies (sm) too (with the same constants as L). Taking into account that
+Kp =
+1
+E0 . . . Ep−1
+Lp,
+p ∈N,
+(4.13)
+we deduce from (4.8) that
+Ap ≤ε0ε1 · · · εp−1Lp = ε0E0ε1E1 · · · εp−1Ep−1Kp,
+p ∈N.
+We observe in (4.12) that the sequence (εpEp)p∈N0 tends to zero and, therefore, Lemma 4.7
+provides for all t > 0 a constant D(t) > 0 such that Ap ≤D(t)tpKp for every p ∈N0 and,
+in particular, for t = 1 we obtain that Ap ≤D(1)Kp. Finally, from (4.13) and the fact that
+(1/Ep)p∈N0 tends to zero, we can apply again Lemma 4.7 and we deduce that for all h > 0 there
+exists some constant C′(h) > 0 such that Kp ≤C′(h)hpLp for every p ∈N0.

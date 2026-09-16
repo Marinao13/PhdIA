@@ -1,0 +1,46 @@
+94
+CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+from the denition of admissibility limt→∞dM(t) = limt→∞ρ(t) exists and, by Theorem 2.1.30,
+equals 1/ω(M). Moreover, from the relation between regular variation, O-regular variation and
+proximate orders (see Lemma 1.2.12 and Remark 1.2.31), we deduce that if M admits a proximate
+order, then ωM(t) ∈ORV .
+Remark 2.2.16. The admissibility condition is interesting even if dM is a proximate order. For
+instance, if we consider the sequences Mα,β in Example 1.1.4, with α > 0, for large t we have
+c2t1/α log−β/α(t) ≤ωMα,β(t) ≤c1t1/α log−β/α(t)
+for suitable constants c1, c2 > 0 (see [98, Example 1.2.2]), then
+log(c2) ≤log(t)(dMα,β(t) −ρα,β(t)) ≤log(c1)
+for t large enough
+(see Example 1.2.11 for the denition of ρα,β). This shows that the proximate order ρα,β(t) is
+admissible for Mα,β, and therefore, for our purposes, it may substitute dMα,β(t) whenever it is
+convenient. In particular, when working with Gevrey ultraholomorphic classes one may consider
+the constant order ρα,0(t) ≡1/α, as expected.
+As a consequence of the results in the previous subsection, we can show that the weaker
+conditions are equivalent.
+Theorem 2.2.17. Let M be a weight sequence, then the following conditions are equivalent:
+(f) There exists a weight sequence L such that L ≈M and dL(t) is a nonzero proximate order,
+(g) M admits a nonzero proximate order.
+Proof. (f) ⇒(g) Since L ≈M, there exist positive constants A and B such that for every
+t ∈(0, ∞) one has
+ωL(At) ≤ωM(t) ≤ωL(Bt).
+Since dL(t) is a nonzero proximate order, ωL(t) = tdL(t) is regularly varying by Lemma 1.2.12,
+and we deduce that there exist positive constants C and D such that
+C ≤ωM(t)
+ωL(t) ≤D
+for t large enough.
+Finally, taking logarithms, we conclude that M admits dL as a nonzero proximate order.
+(g) ⇒(f) Let ρ(t) be the nonzero proximate order that M admits. By Theorem 2.2.14, for any
+γ > 0 and every V ∈MF(γ, ρ(t)), we have that m ≃u where u is the regularly varying (of
+positive index) nondecreasing sequence dened in terms of the inverse function U(s) of V (t) (see
+Denition 2.2.11).
+Applying Theorem 2.2.6, we know that dU is a nonzero proximate order and, by Proposi-
+tion 1.1.15, we deduce that U ≈M.
+□
+Remark 2.2.18. The implication (a) ⇒(f) (see Theorems 2.2.6 and 2.2.17) is obvious, while
+Example 2.2.22 shows that the converse fails.
+It is also immediate that (f) ⇒(j) in Remark 2.2.7 because, with the notation of (f), if
+dL is a proximate order, then L satises (j) and so M also satises (j) since it is stable for ≈.
+Again, the converse implication (j) ⇒(f) fails, as Example 2.2.23 illustrates. Consequently,
+the sequences Mq and M0,β do not admit a nonzero proximate order, since they are not strongly
+regular. Among the strongly regular ones, for those appearing in applications (f) and even (a) are
+JAVIER JIMÉNEZ GARRIDO

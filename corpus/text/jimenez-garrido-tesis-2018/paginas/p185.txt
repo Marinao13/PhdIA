@@ -1,0 +1,64 @@
+5.1.
+M−FLATNESS EXTENSION
+185
+We are going to consider two denitions useful for our purposes regarding the asymptotic
+expansions. First, we recall the notion of type for the functions in ˜
+Au
+M(S) previously considered.
+Denition 5.1.1. Given a sector S, we say f ∈H(S) admits ˆf = P∞
+n=0 anzn ∈C[[z]] as its
+uniform M−asymptotic expansion in S (of type 1/A for some A > 0) if there exists C > 0 such
+that for every p ∈N0 one has
+f(z) −
+p−1
+X
+n=0
+anzn ≤CApMp|z|p,
+z ∈S.
+We will write f ∼u
+M ˆf in S, and ˜
+Au
+M(S) stands for the space of functions admitting uniform
+M−asymptotic expansion in S (of some type).
+Secondly, we need to settle on the concept of asymptotic expansion in a direction.
+Denition 5.1.2. Let f be a function dened in a sectorial region G = G(d, γ), and θ be a
+direction in G, i.e. |θ −d| < πγ/2. We say f has M−asymptotic expansion ˆf = P∞
+n=0 anzn in
+direction θ if there exist rθ, Cθ, Aθ > 0 such that the segment (0, rθeiθ] is contained in G, and for
+every z ∈(0, rθeiθ] and every p ∈N0 one has
+f(z) −
+p−1
+X
+n=0
+anzn ≤CθAp
+θMp|z|p.
+In this case, we say the type is 1/Aθ. Of course, the denition makes sense as long as the function
+is dened only in direction θ near the origin, i.e. in a segment (0, reiθ] for suitable r > 0.
+Remark 5.1.3. In the conditions of Denition 5.1.2, if ˆf is the null series we say that f is
+M−at in direction θ. As in Proposition 3.1.9, this can be characterized in terms of ωM and it
+amounts to the existence of rθ, Cθ, Aθ > 0 such that the segment (0, rθeiθ] is contained in G, and
+for every z ∈(0, rθeiθ] one has
+|f(z)| ≤Cθe−ωM(1/(Aθ|z|)).
+Suppose moreover that f is bounded throughout the (bounded or not) sectorial region G. Since
+the function e−ωM(t) is nonincreasing in [0, ∞), it is obvious that f is M−at in direction θ if
+and only if there exist ˜Cθ > 0 and the same constant Aθ > 0 as before, such that for every z ∈G
+with arg(z) = θ one has
+|f(z)| ≤˜Cθe−ωM(1/(Aθ|z|)).
+(5.2)
+This fact will be used later on.
+In getting the Phragmén-Lindelöf-like results contained in this section, similarly to the
+M−summability theory presented in Section 4.1, a fundamental role is played by the functions
+V ∈MF(γ, ρ(t)) for a given γ > 0 and a given nonzero proximate order ρ(t). Using the char-
+acterizations established in Section 2.2, we know that the possibility of associating a function V
+with a weight sequence M in a suitable way (see Remark 5.1.4) depends on the regularity of the
+function dM(t) = log(ωM(t))/ log(t) dened for large t, where ωM(t) is the associated function
+introduced in Section 1.1.3. If dM(t) is a nonzero proximate order or, less restrictive, if it can
+be approximated by one in the sense of Denition 2.2.1, that is, M admits a nonzero proximate
+order, this possibility is available.
+Remark 5.1.4. If M admits a nonzero proximate order ρ(t), for every γ > 0, thanks to (VI) in
+Theorem 1.2.16, we know that there exist V ∈MF(γ, ρ(t)) and positive constants A, B, t0 such
+that
+AV (t) ≤tdM(t) = ωM(t) ≤BV (t),
+t > t0.
+(5.3)
+Universidad de Valladolid

@@ -1,0 +1,70 @@
+EQUALITY OF ULTRADIFFERENTIABLE CLASSES BY MEANS OF INDICES
+13
+for all t > 0 and j ∈N, and we obtain ωMy;b(ht) ≤ωMx(t) + log(A) for all t ≥0. We conclude by
+using (3.15) again.
+□
+We gather now the information for weight matrices associated with given Braun-Meise-Taylor weight
+functions ω and get the following characterization.
+Corollary 3.3. Let ω ∈W0 be given and let Ω= {W x : x > 0} be the associated weight matrix.
+Moreover let ωΩ:= {ωW x : x > 0} be the matrix of the associated weight functions. Then the
+following are equivalent:
+(i) ω satisﬁes (ω1).
+(ii) Ωsatisﬁes (M{L}).
+(iii) ωΩ, Ωand Ω(2) satisfy any of the corresponding equivalent Roumieu-like conditions in (I)
+in Theorem 3.2.
+(iv) Ωsatisﬁes (M(L)).
+(v) ωΩ, Ωand Ω(2) satisfy any of the corresponding equivalent Beurling-like conditions in (II)
+in Theorem 3.2.
+So, the mixed (ω1) conditions of Roumieu and/or Beurling type are equivalent to (ω1) for ω.
+Proof. (i) ⇔(iii), (i) ⇔(v) Both equivalences hold true by taking into account that ω∼ωW x for
+all x > 0, see [11, Lemma 5.7].
+(i) ⇒(ii), (iv) holds by [11, Lemma 5.9 (5.10)], see (2.4).
+(ii) ⇒(iii), (iv) ⇒(v) Both implications follow by Lemma 3.1.
+□
+Remark 3.4. We summarize now some facts concerning the arising lim inf-conditions in the pre-
+vious results.
+(a) (3.1) implies (3.5) (with L = 1), but the latter condition is weaker than the ﬁrst one since
+j 7→(M x
+j )1/j is nondecreasing by log-convexity and normalization for each index x ﬁxed.
+(b) This observation is consistent with the characterizations shown in Lemma 3.1 and Theorem
+3.2; more precisely compare the mixed (ω1) conditions (3.2) and (3.4). In the latter one on
+the right hand side we only require a O-growth restriction (and similarly for the Beurling
+setting).
+(c) However, Corollary 3.3 yields that (3.1) is equivalent to (3.5) when the matrix M ≡Ωis
+associated with a given weight function ω ∈W0.
+(d) Concerning Corollary 3.3 we also make the following observation: When considering the
+matrix Ω, then w.l.o.g. in (I)(iii) and (I)(iv) resp. in (II)(iii) and (II)(iv) in Theorem 3.2
+we can choose y = x which can be seen directly as follows:
+By deﬁnition of the associated weight matrix and the properties for ϕ∗
+ω (see Section 2.6)
+we have
+∀y ≥x > 0 ∀L, L′ ∈N>0, L′ ≥yL
+x ∀j ∈N>0 :
+(W y
+Lj)1/(Lj) ≤(W x
+L′j)1/(L′j).
+From this, the desired statement follows for the Roumieu type immediately.
+In the Beurling case, when 0 < y < x, then we choose L1 ∈N>0 such that L1 ≥x
+y and
+so (W x
+j )1/j ≤(W y
+L1j)1/(L1j) holds true for any j ∈N>0. Thus we can estimate by
+lim inf
+j→∞
+(W x
+Lj)1/(Lj)
+(W y
+j )1/j
+≤lim inf
+j→∞
+(W x
+LL1j)1/(LL1j)
+(W y
+L1j)1/(L1j)
+≤lim inf
+j→∞
+(W x
+LL1j)1/(LL1j)
+(W x
+j )1/j
+,

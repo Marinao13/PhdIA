@@ -1,0 +1,98 @@
+7
+In this case we write f ∼u
+M,A bf in S, and e
+Au
+M,A(S) denotes the space of functions admitting
+uniform M-asymptotic expansion of type 1/A in S, endowed with the norm
+∥f∥M,A,
+∼u :=
+sup
+z∈S,p∈N0
+|f(z) −Pp−1
+k=0 akzk|
+ApMp|z|p
+,
+(13)
+which makes it a Banach space.
+e
+Au
+{M}(S) stands for the (LB) space of functions admitting a
+uniform {M}-asymptotic expansion in S, obtained as the union of the previous classes when A
+runs over (0, ∞). When the type needs not be speciﬁed, we simply write f ∼u
+{M} bf in S. Note
+that, taking p = 0 in (12), we deduce that every function in e
+Au
+{M}(S) is a bounded function.
+Finally, we deﬁne for every A > 0 the class AM,A(S) consisting of the holomorphic functions
+f in S such that
+∥f∥M,A :=
+sup
+z∈S,p∈N0
+|f (p)(z)|
+ApMp
+< ∞.
+(AM,A(S), ∥· ∥M,A) is a Banach space, and A{M}(S) := ∪A>0AM,A(S) is called a Carleman-
+Roumieu ultraholomorphic class in the sector S, whose natural inductive topology makes it an
+(LB) space.
+We warn the reader that these notations, while the same as in the paper [13], do not agree
+with the ones used in [28, 12], where e
+Au
+{M}(S) was denoted by e
+Au
+M(S), AM,A(S) by AM/L1,A(S),
+and A{M}(S) by AM/L1(S).
+If M is (lc), the spaces A{M}(S) and e
+Au
+{M}(S) are algebras, and if M is (dc) they are stable
+under taking derivatives. Moreover, if M ≈L the corresponding classes coincide.
+Since the derivatives of f ∈AM,A(S) are Lipschitz, for every p ∈N0 one may deﬁne
+f (p)(0) :=
+lim
+z∈S,z→0f (p)(z) ∈C.
+(14)
+As a consequence of Taylor’s formula and Cauchy’s integral formula for the derivatives,
+there is a close relation between Carleman-Roumieu ultraholomorphic classes and the concept of
+asymptotic expansion (the proof may be easily adapted from [1]).
+Proposition 2.3. Let M be a sequence and S be a sector. Then,
+(i) If f ∈A bM,A(S) then f admits bf := P
+p∈N0
+1
+p!f (p)(0)zp as its uniform M-asymptotic expan-
+sion in S of type 1/A, where (f (p)(0))p∈N0 is given by (14). Moreover, ∥f∥M,A,
+∼u ≤∥f∥bM,A,
+and so the identity map A bM,A(S) ֒→e
+Au
+M,A(S) is continuous. Consequently, we also have
+that A{ bM}(S) ⊆e
+Au
+{M}(S) and A{ bM}(S) ֒→e
+Au
+{M}(S) is continuous.
+(ii) If S is unbounded and T is a proper subsector of S, then there exists a constant c = c(T, S) >
+0 such that the restriction to T, f|T, of functions f deﬁned on S and admitting a uniform
+M-asymptotic expansion in S of type 1/A > 0, belongs to A bM,cA(T), and ∥f|T ∥bM,cA ≤
+∥f∥M,A,
+∼u. So, the restriction map from e
+Au
+M,A(S) to A bM,cA(T) is continuous, and it is also
+continuous from e
+Au
+{M}(S) to A{ bM}(T).
+One may accordingly deﬁne classes of formal power series
+C[[z]]M,A =
+n
+bf =
+∞
+X
+p=0
+apzp ∈C[[z]] :
+ bf
+
+M,A := sup
+p∈N0
+|ap|
+ApMp
+< ∞
+o
+.
+(15)

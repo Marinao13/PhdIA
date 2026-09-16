@@ -1,0 +1,204 @@
+JID:YJMAA
+AID:21635 /FLA
+Doctopic: Partial Diﬀerential Equations
+[m3L; v1.221; Prn:28/08/2017; 14:57] P.7 (1-17)
+S.A. Carrillo, J. Mozo-Fernández / J. Math. Anal. Appl. ••• (••••) •••–•••
+7
+Proposition 3.2. Consider f ∈O(Sp,q(d, π/k + 2ϵ, R0), E), 0 < 2ϵ < π/k, ˆf ∈C and s1 ≥0. Let g =
+Bα(xpk
+1 xqk
+2 f), ˆg = ˆBα(xpk
+1 xqk
+2 ˆf) and ˆTp,q(ˆg) =  gntn, where α =
+
+s
+pk, 1−s
+qk
+
+and 0 < s < 1. If f ∼(p,q)
+s1
+ˆf
+on Sp,q then g ∼(p,q)
+s2
+ˆg on Sp,q(d, 2ϵ), where s2 = max
+
+s1 −1
+k, 0
+
+. Furthermore for every unbounded 
+subsector S′′
+p,q of Sp,q(d, 2ϵ) there are positive constants B, D, M such that
+g(ξ1, ξ2) −
+N−1
+
+n=0
+gn(ξ1, ξ2)(ξp
+1ξq
+2)n
+ ≤DBNΓ(1 + Ns2)|ξp
+1ξq
+2|Ne
+M
+
+|ξ1|
+pk
+s +|ξ2|
+qk
+1−s
+
+on S′′
+p,q.
+For N = 0 the inequality is interpreted as g being of exponential growth at most 
+
+pk
+s ,
+qk
+1−s
+
+on Sp,q(d, 2ϵ).
+Proof. We have to establish the bounds for sectors of the form S′
+p,q = Sp,q(d, 2ϵ′) with 0 < ϵ′ < ϵ. The proof 
+relies on choosing adequately the radius of the arc of the path γ in the deﬁnition. Write γ = γ1 + γ2 −γ3
+where γ1, γ3 denote the half lines and γ2 denotes the circular part, parameterized by γ2(θ) = Reiθ, |θ| ≤
+π/2 + k(ϵ′′ −ϵ′)/2, where 0 < ϵ′ < ϵ′′ < ϵ and R will be chosen so that (ξ1u−s
+pk , ξ2u−1−s
+qk ) ∈Sp,q =
+Sp,q(d, π/k + 2ϵ′′, R0/2) for all u on γ and (ξ1, ξ2) ∈S′
+p,q.
+Without loss of generality we may assume that the fn are holomorphic on D2
+R0. By hypothesis inequality 
+(5) holds with CN = CANΓ(1 + Ns1) on Sp,q. Let us set a = sin
+ k
+2(ϵ′′ −ϵ′)
+
+and with R to be chosen, 
+a straightforward estimate using Remark 3.1 shows that for all N ∈N we have
+g(ξ1, ξ2) −
+N−1
+
+n=0
+gn(ξ1, ξ2)(ξp
+1ξq
+2)n
+ ≤2CAN
+a
+Γ(1 + Ns1)|ξp
+1ξq
+2|N
+RN/k
+e−aR
+R
++ eR
+
+on S′
+p,q.
+(12)
+For N = 0 we are denoting C = sup(x1,x2)∈Sp,q ∥f(x1, x2)∥(note that f is bounded here, as we have reduced 
+radius and opening of the sector).
+To prove the statement of the Proposition, let us divide our sector in two parts. First of all, consider 
+(ξ1, ξ2) ∈Sp,q(d, 2ϵ′, r), with r > 0 ﬁxed. In this case choose R ≥max{(2r/R0)
+k
+s , (2r/R0)
+k
+1−s }. Since it is 
+enough to establish the bounds for large N we can suppose N is large enough and take R = N/k. Then the 
+bound follows using Stirling’s formula twice, as we have, asymptotically, that
+eR
+RN/k =
+eN/k
+(N/k)N/k ∼
+
+2πN/k
+Γ(1 + N/k),
+and that Γ(1 + Ns1)
+Γ(1 + N/k) can be bounded by C′(A′)NΓ(1 + N(s1 −1
+k)), if s1 ≥1/k, for some C′, A′ > 0.
+To ﬁnish we establish the bound in the complementary, i.e., for (ξ1, ξ2) ∈S′
+p,q \ Sp,q(d, 2ϵ′, r). If R1, R2 <
+R0/2 we can take R = R(ξ1, ξ2) = max{(|ξ1|p/R1)
+k
+s , (|ξ2|q/R2)
+k
+1−s }. Using the second inequality of (4) we 
+see that |ξp
+1ξq
+2|k
+Rk
+1Rk
+2 ≤R(ξ1, ξ2) and thus (12) is bounded by
+CAN
+a
+Γ(1 + Ns1)RN
+1 RN
+2
+⎛
+⎜
+⎝e
+−a
+
+|ξ1|p
+R1
+ k
+s
+
+|ξ1|p
+R1
+k
++ e
+
+|ξ1|p
+R1
+ k
+s
+⎞
+⎟
+⎠
+⎛
+⎜
+⎝e
+−a
+
+|ξ2|q
+R2
+
+k
+1−s
+
+|ξ2|q
+R2
+k
++ e
+
+|ξ2|q
+R2
+
+k
+1−s
+⎞
+⎟
+⎠.
+(13)
+Arguing as in [8, Thm. 4.8] we see that for k, a, S > 0 and ρ > r > 0 there are positive constants L, K, M ′
+such that
+inf
+0<t<ρ tN
+⎛
+⎝e−a(τ/t)
+k
+S
+(τ/t)k
++ e(τ/t)
+k
+S
+⎞
+⎠≤
+LKN
+Γ
+
+1 + NS
+k
+τ NeM ′τ
+k
+S ,
+for all τ > r, N ∈N.
+(14)

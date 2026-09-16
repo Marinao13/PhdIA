@@ -1,0 +1,80 @@
+11
+Remark 4.2. Given δ with 0 < δ < γ(M), choose δ1 such that δ < δ1 < γ(M) and put
+S1 = S(d, δ1). For A > 0 and for every a = (ap)p∈N0 ∈ΛM,A(N0), we have the estimates (11)
+with C1 = |a|M,A and D1 = A. Since the previous result is valid in S1, we obtain a function
+f ∈AM(S1) that admits ˆf = P
+p∈N0
+ap
+p! zp as its uniform asymptotic expansion in S1. Moreover,
+by taking into account in detail the way constants are modiﬁed in the course of the proof of
+Theorem 4.1, one observes that there exist constants C, D > 0, not depending on f, such that
+for every N ∈N0 one has
+(15)
+
+f(z) −
+N−1
+X
+p=0
+ap
+p! zp
+
+≤(CC1)(DD1)NMN = C|a|M,A(DA)NMN,
+z ∈S1.
+According to Remark 2.2, there exists a constant c = c(S, S1) > 0 such that the restriction to
+S of f belongs to AM,cDA(S), and moreover, from (15) we get ∥f∥M,cDA,S ≤C|a|M,A. So, we
+have re-proved the following theorem of V. Thilliez.
+Theorem 4.3. Under the hypotheses of Theorem 4.1, there exists a positive constant c ≥1 such
+that for any A > 0, the integral operator
+TM,A : ΛM,A(N0) −→AM,cA(Sδ)
+deﬁned in (12) by
+TM,A(a = (ap)p∈N0) :=
+Z R0
+0
+eM(u/z)
+ ∞
+X
+p=0
+ap
+m(p)
+up
+p!
+du
+u
+is linear and continuous and it turns out to be a right inverse for the asymptotic Borel map B.
+5
+An application to the several variable setting
+As an application of the previous result, we will obtain a diﬀerent construction of continuous
+extension operators in Carleman ultraholomorphic classes in polysectors of Rn, obtained in [13]
+by the ﬁrst and the third authors as a generalization of V. Thilliez’s result (see [28, Thm. 3.2.1]).
+It is worth saying that the results in Section 4 are also valid when the functions and sequences
+involved take their values in a complex Banach space B. This will be crucial in the ongoing
+section.
+Let n ∈N, n ≥2, and ﬁx a sequence M = (Mp)p∈N0 of positive real numbers.
+For a
+polysector S in Rn, the space AM(S, B) consists of the holomorphic functions f : S →(B, ∥·∥B)
+such that there exists A > 0 (depending on f) with
+(16)
+∥f∥B
+M,A,S :=
+sup
+J∈Nn
+0 ,z∈S
+DJf(z)
+
+B
+Ajj!Mj
+< ∞
+(the notations adopted in Subsection 2.1 are being applied).
+For ﬁxed A > 0, AM,A(S, B) consists of the elements in AM(S, B) such that (16) holds, and
+the norm ∥· ∥B
+M,A,S makes it a Banach space. The space ΛM,A(Nn
+0, B) consists of the multi-
+sequences λ = (λJ)J∈Nn
+0 ∈NB
+0 such that
+|λ|M,A,B := sup
+J∈Nn
+0
+∥λJ∥B
+Ajj!Mj
+< ∞,

@@ -1,0 +1,87 @@
+12
+some suitably small ε ∈(0, π)), then the circular arc |z| = |z0| from z0 to the point z1 on the
+ray arg(z) = τ −ω(M)(π + ε)/2 (traversed clockwise), and ﬁnally the segment from z1 to the
+origin.
+Given kernels e, E for M−summability, we deﬁne the operator T −
+e,τ sending f to its e-Borel
+transform in direction τ, deﬁned as
+(T −
+e,τf)(u) := −1
+2πi
+Z
+δω(M)(τ)
+E(u/z)f(z)dz
+z ,
+u ∈S(τ, ε0),
+ε0 small enough.
+In case ω(M) ≥2, choose s > 0 and a kernel ˜e for M(1/s)−summability as in Remark 3.5(iii),
+and let T −
+˜e,τ be deﬁned as before, where the kernel under the integral sign is the function ˜E given
+in (11). Then, if φs is the operator sending a function f to the function f(zs), we deﬁne T −
+e,τ by
+the identity
+(14)
+φs ◦T −
+e,τ = T −
+˜e,τ ◦φs,
+in the same way as in [2, p. 90].
+Proposition 3.12. For G = G(d, α) and f : G →C as above, the family
+{T −
+e,τf}τ,
+where τ is a real number such that |τ −d| < (α −ω(M))π/2, deﬁnes a holomorphic function
+T −
+e f in the sector S = S(d, α −ω(M)). Moreover, T −
+e f is of M-growth in S.
+Proof. Due to the identity (14), it is clearly suﬃcient to prove our claim in the case ω(M) < 2.
+Since f is holomorphic in G and continuous at 0, for every τ ∈R such that |τ−d| < (α−ω(M))π/2
+the condition in Deﬁnition 3.4(vi) implies that T −
+e,τf is holomorphic in the sector S(τ, εω(M)/π),
+where ε > 0 is the one entering in the deﬁnition of δω(M)(τ), and it is small enough so that u/z
+stays in the sector S(π, 2 −ω(M)) as u ∈S(τ, εω(M)/π) and z runs over the two segments in
+δω(M)(τ). Cauchy’s theorem easily implies that the family {T −
+e,τf}, when τ ∈R and |τ −d| <
+(α −ω(M))π/2, deﬁnes a holomorphic function T −
+e f in the sector S = S(d, α −ω(M)). Let us
+ﬁnally check that T −
+e f is of M-growth in S. By compactness, it suﬃces to work on a proper
+unbounded subsector T of S(τ, εω(M)/π), for τ and ε as before. Put δω(M)(τ) = δ1 + δ2 + δ3,
+where δ1 and δ3 are the aforementioned segments in directions, say, θ1 and θ3, and δ2 is the
+circular arc with radius r2 > 0. As f is continuous at the origin, there exists M > 0 such that
+|f(z)| ≤M for every z in the trace of δω(M)(τ). So, for every u ∈T and j = 1, 3 we have
+ −1
+2πi
+Z
+δj
+E(u/z)f(z)dz
+z
+ ≤M
+2π
+Z r2
+0
+1
+t |E(ue−iθj/t)|dt = M
+2π
+Z r2/|u|
+0
+1
+s|E(ei(arg(u)−θj)/s)|ds,
+after the change of variable t = |u|s. According to the condition in Deﬁnition 3.4(vi), these
+expressions uniformly tend to 0 as u tends to inﬁnity in T. On the other hand, the estimates
+for E in (9) allow us to write
+ −1
+2πi
+Z
+δ2
+E(u/z)f(z)dz
+z
+ ≤M(θ1 −θ3)
+2π
+max
+|z|=r2
+|E(u/z)| ≤
+CM(θ1 −θ3)
+2πhM(Kr2/|u|).
+So, this integral has the desired growth and the conclusion follows.
+✷
+In the next paragraph we follow the same ideas in [2, p. 87-88] in order to justify the
+forthcoming deﬁnition of formal Laplace and Borel transforms.

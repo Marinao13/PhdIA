@@ -1,0 +1,99 @@
+15
+The next auxiliary result studies the growth of the remainders for the powers fj,
+j ∈N, for a function f ∈e
+Au
+M,h(S) with cf
+0 = 0. We note first that, if n ∈N0 and n ≤j,
+the fact that cf
+0 = 0 implies that rfj(z, n) = fj(z) for z ∈S. Since f(z) = rf(z, 0) =
+rf(z, 1), we know that |f(z)| ≤min{A, AhM1|z|} for every z ∈S and some A > 0, and
+so
+|rfj(z, n)| ≤Aj(min{1, hM1|z|})j,
+z ∈S.
+(13)
+We treat now the case n > j ≥1.
+Lemma 7.4. Let M = (Mj)j ∈RN0
+>0 be a sequence with M0 = 1, S be a sector and
+f ∈e
+Au
+M,h(S) with cf
+0 = 0, so that there exists A > 0 such that
+|rf(z, n)| ≤AhnMn|z|n,
+z ∈S, n ∈N0.
+(14)
+Then, for every j, n ∈N with n > j one has
+|rfj(z, n)| ≤Ajhn
+
+
+
+
+X
+m1+···+mj=n
+m1≥1,...,mj≥1
+Mm1 · . . . · Mmj
+
+
+
+|z|n,
+z ∈S.
+(15)
+Remark 7.5. Observe that the estimates (15) are also valid when n = j, since they
+take the form
+|rfj(z, j)| ≤AjhjMj
+1|z|j,
+z ∈S,
+which was already obtained in (13).
+Proof. We proceed by induction on j. For j = 1 it is clear that the estimates in (15)
+reduce to those in (14) particularized for n > 1. Suppose now that the estimates (15)
+hold true for some j −1 ≥1 and every n > j −1, and we treat the j-th power. Observe
+that, whenever 1 ≤i ≤n−j, one has n−i ≥n−(n−j) > j −1, and so we can apply the
+induction hypothesis in order to estimate rfj−1(z, n −i) in the formula (9). Moreover,
+we can use (4) and write
+|rfj(z, n)| ≤
+n−j
+X
+i=1
+AhiMi|z|iAj−1hn−i
+
+
+
+
+X
+m1+···+mj−1=n−i
+m1≥1,...,mj−1≥1
+Mm1 · . . . · Mmj−1
+
+
+
+|z|n−i
++ Ahn−j+1Mn−j+1|z|n−j+1(AhM1|z|)j−1
+= Ajhn
+n−j+1
+X
+i=1
+Mi
+
+
+
+
+X
+m1+···+mj−1=n−i
+m1≥1,...,mj−1≥1
+Mm1 · . . . · Mmj−1
+
+
+
+|z|n
+= Ajhn
+
+
+
+
+X
+m1+···+mj=n
+m1≥1,...,mj≥1
+Mm1 · . . . · Mmj
+
+
+
+|z|n,

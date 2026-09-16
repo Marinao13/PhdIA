@@ -1,0 +1,58 @@
+13
+aplicación cuando nos restringimos a una clase ultradiferenciable, B : EM([a, b]) →C[[z]]M. Tras
+T. Carleman, quien mostró en 1923 que la sobreyectividad no se da para clases casianalíticas que
+contienen estrictamente a la clase de funciones analíticas, la respuesta completa fue obtenida por
+H.-J.Petzsche en 1988 (con algunas imprecisiones corregidas en J. Schmets and M. Valdivia [91]
+en 2000): Si (p!Mp)p∈N0 es logarítmicamente convexa, entonces B : EM([a, b]) →C[[z]]M es
+sobreyectiva si y solo si M es fuertemente no casianalítica, es decir, existe B > 0 tal que
+∞
+X
+q=p
+Mq
+(q + 1)Mq+1
+≤B Mp
+Mp+1
+,
+p ∈N0.
+En resumen, mientras que se han caracterizado por completo la inyectividad y la sobreyectividad
+de la aplicación de Borel para clases ultradiferenciables, el problema para clases ultraholomorfas,
+especialmente en lo que se reere a la sobreyectividad, dista mucho de estar resuelto íntegramente.
+La inyectividad para las clases ˜
+Au
+M(S) y AM(S) fue completamente resuelto por S. Mandel-
+brojt y B. Rodríguez-Salinas en los años 1950 (véase la Sección 3.2).
+En lo relativo a la sobreyectividad sólo había disponibles informaciones parciales. Aparte del
+anteriormente mencionado Teorema de Borel-Ritt-Gevrey de 1978, y mediante la aplicación de
+técnicas del marco ultradiferenciable, V. Thilliez probó en 1995 para la clase Gevrey AMα(S)
+que se tiene sobreyectividad si y sólo si la apertura del sector es estrictamente menor que πα.
+En el año 2000, J. Schmets y M. Valdivia dieron los primeros resultados para una sucesión peso
+M, es decir, logarítmicamente convexa tal que su sucesión de cocientes de términos consecutivos
+m = (mp = Mp+1/Mp)p∈N0 tiende a innito. Su enfoque se basa en la consideración de ciertas
+clases de funciones ultradiferenciables no canónicas y obtienen, para sucesiones peso vericando
+la propiedad de ser cerrada por derivación, esto es, existe A > 0 tal que Mp+1 ≤Ap+1Mp
+para todo p ∈N0, una caracterización de la existencia de operadores de extensión lineales y
+continuos de C[[z]]M en AM(S) para cualquier sector S, lo que es mucho más exigente que
+la sobreyectividad, así que de sus resultados sólo pueden deducirse informaciones parciales. En
+2003, V. Thilliez dene la noción de sucesión fuertemente regular, i.e., logarítmicamente convexa,
+fuertemente no casianalítica que, además, satisface la condición de crecimiento moderado, es
+decir, que existe A > 0 tal que Mp+q ≤Ap+qMpMq para todos p, q ∈N0. Del mismo modo,
+introduce el índice γ(M) y prueba que si la amplitud del sector es estrictamente más pequeña
+que πγ(M) entonces ˜B : AM(S) →C[[z]]M es sobreyectiva y no inyectiva (véase la Section 3.3
+para más detalles y referencias). Sin embargo, incluso para sucesiones fuertemente regulares los
+resultados precedentes para clases ultraholomorfas no son enteramente satisfactorios, dado que
+las equivalencias establecidas en el Teorema de Borel-Ritt-Gevrey y en el Lema de Watson para
+el caso Gevrey sólo son ahora implicaciones en una dirección.
+Los resultados de S. Mandelbrojt y B. Rodríguez-Salinas sugieren la consideración de un
+índice de crecimiento ω(M), inicialmente denido por J. Sanz [88] para sucesiones fuertemente
+regulares, que separa las amplitudes para las cuales las tres clases antes mencionadas son o no
+son casianalíticas. No obstante, quedaba abierta en general la casianalíticidad de la clase ˜
+AM(S)
+para sectores de amplitud πω(M).
+La primera solución, aunque parcial, a esta situación depende del concepto de orden aproxi-
+mado, disponible desde los años 1920 y extremadamente útil en la teoría de crecimiento de fun-
+ciones enteras, y de ciertos resultado de L. S. Maergoiz [65] de 2001 relacionados con el mismo:
+si denimos las funciones auxiliares ωM(t) = supp∈N0 log(tp/Mp) y dM(t) := log(ωM(t))/ log(t)
+asociadas a M, se mostró en [88] que, siempre que dM(t) sea un orden aproximado no nulo,
+se pueden construir funciones planas no triviales en sectores de amplitud óptima y además se
+pueden dar versiones generalizadas del Lema de Watson y del Teorema de Borel-Ritt-Gevrey. La
+Universidad de Valladolid

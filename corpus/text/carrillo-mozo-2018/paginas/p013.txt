@@ -1,0 +1,145 @@
+JID:YJMAA
+AID:21635 /FLA
+Doctopic: Partial Diﬀerential Equations
+[m3L; v1.221; Prn:28/08/2017; 14:57] P.13 (1-17)
+S.A. Carrillo, J. Mozo-Fernández / J. Math. Anal. Appl. ••• (••••) •••–•••
+13
+For the Gevrey growth of the solution, for instance for the variable x1, if we write ˆy =  yn(x2)xn
+1, 
+C =  Cn,mxn
+1xm
+2 =  Cn(x2)xn
+1 and γ =  γn,mxn
+1xm
+2 =  γn(x2)xn
+1 replacing these expressions in the 
+equation we see that
+s
+p(n −p)xq
+2yn−p(x2) + 1 −s
+q
+xq+1
+2
+y′
+n−p(x2) =
+n
+
+i=0
+Cn−i(x2)yi(x2) + γn(x2),
+n ∈N.
+(21)
+Note that C0(x2) is also invertible for |x2| < r (reducing r if necessary). The coeﬃcients yn are uniquely 
+determined by these equations and are holomorphic on Dr. Following the same lines as in [3, Sec. 2] with 
+the aid of Nagumo norms (see [5]) we can conclude that ˆy ∈(C[[x1, x2]](1/p,0))l. The same argument for the 
+variable x2 let us conclude that (C[[x1, x2]](0,1/q))l and the result follows by equality (3) in Section 2.
+2
+Theorem 5.2. The unique formal solution ˆy given by the previous proposition is 1-summable in xp
+1xq
+2. The 
+possible singular directions are the ones passing through the eigenvalues of C(0, 0).
+Proof. By Theorem 4.1 it is enough to show that ˆy is 1 −(s, 1 −s)-Borel summable in the monomial xp
+1xq
+2. 
+To simplify notations we will write B = Bα, ˆB = ˆBα and ∗ = ∗α, where α =
+
+s
+pk, 1−s
+qk
+
+. We divide the 
+proof in three steps.
+Step 1. Setting the associated convolution equation. If w = xp
+1xq
+2y, equation (20) is transformed into 
+equation
+xp
+1xq
+2
+s
+px1
+∂w
+∂x1
++ 1 −s
+q
+x2
+∂w
+∂x2
+
+= (xp
+1xq
+2I + C(x1, x2)) w + xp
+1xq
+2γ(x1, x2),
+(22)
+which is solved formally by ˆw = xp
+1xq
+2ˆy. Here I denotes the identity matrix of size l. If we apply B to 
+this equation, using formulas (7) and (17) we see that ˆB( ˆw), holomorphic at (0, 0), is a solution of the 
+convolution equation
+(ξp
+1ξq
+2I −C(0, 0))F(ξ1, ξ2) = B( C) ∗F(ξ1, ξ2) + g(ξ1, ξ2),
+(23)
+where C(x1, x2) = xp
+1xq
+2I + C(x1, x2) −C(0, 0) and g = B(xp
+1xq
+2γ). Note that
+g =
+
+γn,m
+Γ
+
+1 + ns
+p + m(1−s)
+q
+ξn
+1 ξm
+2 ,
+B( C) =
+
+(n,m)̸=(0,0)
+Cn,m
+Γ
+
+ns
+p + m(1−s)
+q
+ξn−p
+1
+ξm−q
+2
+,
+(24)
+where Cn,m = Cn,m for (n, m) ̸= (p, q) and Cp,q = Cp,q + I.
+Let λ1, ..., λl be the eigenvalues of C(0, 0) repeated according to their multiplicity. They are all non-zero 
+by assumption. Working on Ω = {(ξ1, ξ2) ∈C2 | ξp
+1ξq
+2 ̸= λj for all j = 1, ..., l}, the open set where the matrix 
+ξp
+1ξq
+2I −C(0, 0) is invertible, we see that ﬁnding solutions of certain type of the convolution equation (23)
+is equivalent to ﬁnding a ﬁxed point of the operator H given by
+H(F)(ξ1, ξ2) = (ξp
+1ξq
+2I −C(0, 0))−1 
+B( C) ∗F(ξ1, ξ2) + g(ξ1, ξ2)
+
+,
+(25)
+and deﬁned in an adequate Banach space.
+Step 2. Establishing the analytic continuation of ˆB( ˆw). Let U be a bounded open such that U ⊂Ω and 
+N ∈N to be chosen. We prove that ˆB( ˆw) −
+n≤N
+
+m≥0
+yn,m
+Γ(1+ns/p+m(1−s)/q)ξn
+1 ξm
+2 admits analytic continu-
+ation on U. If we replace wN = w −
+n≤N xq
+2yn(x2)xn+p
+1
+in equation (22), then using the recurrences (21)
+we see that wN satisﬁes the same diﬀerential equation (22) but with γ replaced by a γN with ordx1γN > N. 

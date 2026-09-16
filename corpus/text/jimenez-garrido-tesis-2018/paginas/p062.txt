@@ -1,0 +1,93 @@
+62
+CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+where M and m are the positive constants of the almost monotonicity of (p−γap)p∈N. Conse-
+quently, the equality for the Matuszewska indices holds. On the other hand, we have that
+log(a⌊x⌋)
+log(x)
+≤log(a⌊x⌋)
+log(⌊x⌋) ≤
+log(x)
+log(⌊x⌋)
+log(a⌊x⌋)
+log(x) ,
+x ≥1.
+Since limx→∞log(x)/ log(⌊x⌋) = 1, we conclude that
+ρ(a) = lim sup
+x→∞
+log(a⌊x⌋)
+log(x)
+= lim sup
+x→∞
+log(a⌊x⌋)
+log(⌊x⌋) = lim sup
+p→∞
+log(ap)
+log(p) ,
+µ(a) = lim inf
+x→∞
+log(a⌊x⌋)
+log(x)
+= lim inf
+x→∞
+log(a⌊x⌋)
+log(⌊x⌋) = lim inf
+p→∞
+log(ap)
+log(p) .
+□
+When applying ramication arguments in the classes of functions dened in terms of a given
+sequence M, transformations of M will appear. Using this last characterization result, the indices
+for the transforms and the original sequence can be compared as indicated below.
+Proposition 2.1.11. Let a = (ap)p∈N be a sequence of positive numbers. For any r ∈R\{0},
+we have that
+α(ar) = rα(a),
+β(ar) = rβ(a),
+ρ(ar) = rρ(a),
+µ(ar) = rµ(a),
+where ar := (ar
+p)p∈N and we also obtain that
+α(gr · a) = r + α(a),
+β(gr · a) = r + β(a),
+ρ(gr · a) = r + ρ(a),
+µ(gr · a) = r + µ(a),
+where gr := (pr)p∈N and gr · a = (prap)p∈N.
+Proof. For every α ∈R, we observe that (app−γ)p∈N is almost decreasing (resp.
+almost in-
+creasing) if and only if (ar
+pp−γr)p∈N is almost decreasing (resp. almost increasing). By Proposi-
+tion 2.1.10, we deduce that α(ar) = rα(a) and β(ar) = rβ(a). Similarly, (app−γ)p∈N is almost
+decreasing (resp. almost increasing) if and only if (prapp−γ−r)p∈N is almost decreasing (resp.
+almost increasing), then α(gr · a) = r + α(a) and β(gr · a) = r + β(a).
+Employing the representation given by Proposition 2.1.10 of µ and ρ, we conclude that
+ρ(ar) = lim sup
+p→∞
+r log(ap)
+log p
+= rρ(a),
+ρ(gr · a) = lim sup
+p→∞
+r log(p) + log(ap)
+log p
+= r + ρ(a),
+µ(ar) = lim inf
+p→∞
+r log(ap)
+log p
+= rµ(a),
+µ(gr · a) = lim inf
+p→∞
+r log(p) + log(ap)
+log p
+= r + µ(a).
+□
+In the context of ultraholomorphic classes, it is always possible to switch M for an equivalent
+sequence. Since O-regular variation is stable for ≃(see Remark 1.2.47), it is unavoidable to ask
+if the same happens for the orders and the Matuszewska indices.
+Lemma 2.1.12. Let a = (ap)p∈N and b = (bp)p∈N be sequences of positive numbers with a ≃b.
+Then, we see that
+α(a) = α(b),
+β(a) = β(b),
+ρ(a) = ρ(b),
+µ(a) = µ(b).
+JAVIER JIMÉNEZ GARRIDO

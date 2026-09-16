@@ -1,0 +1,39 @@
+References
+275
+[105] F. R. Gantmacher, Theory of Matrices, vol. I & II, Chelsea, 1959.
+[106] R. G´erard and A. H. M. Levelt, Invariants mesurant l’irr´e-
+gularit´e en un point singulier des syst`emes d’´equations diﬀ´erentielles
+lin´eaires, Ann. Inst. Fourier Grenoble, 23 (1973), pp. 157–195.
+[107] R. G´erard and D. A. Lutz, Convergent factorial series solutions
+of singular operator equations, Analysis, 10 (1990), pp. 99–145.
+[108] R. G´erard and H. Tahara, Formal power series solutions of non-
+linear ﬁrst order partial diﬀerential equations, Funkcialaj Ekvacioj,
+41 (1998), pp. 133–166.
+[109] H. E. Gollwitzer and Y. Sibuya, Stokes multipliers for subdom-
+inant solutions of second order diﬀerential equations with polynomial
+coeﬃcients, J. reine u. angew. Math., 243 (1970), pp. 98–119.
+[110] I. J. Good, Note on the summation of a classical divergent series,
+J. London Math. Soc., 16 (1941), pp. 180–182.
+[111] V. P. Gurarij and V. I. Matsaev, Stokes multipliers for systems
+of linear ordinary diﬀerential equations of ﬁrst order, Soviet Math.
+Dokl., 31 (1985), pp. 52–56.
+[112] G. H. Hardy, On the summability of series by Borel’s and Mittag-
+Leﬄer’s methods, J. London Math. Soc., 9 (1934), pp. 153–157.
+[113]
+, Note on a divergent series, Proc. Cambr. Phil. Soc., 37 (1941),
+pp. 1–8.
+[114] W. A. Harris Jr., Characterization of linear diﬀerential systems
+with a regular singular point, Proc. Edinburgh Math. Soc., 18 (1972),
+pp. 93–98.
+[115] J. Heading, The Stokes phenomenon and certain n-th order diﬀer-
+ential equations I, II, Proc. Cambridge Phil. Soc., 53 (1957), pp. 399–
+441.
+[116]
+, The Stokes phenomenon and the Whittaker function, J. London
+Math. Soc., 37 (1962), pp. 195–00.
+[117] A. Hilali and A. Wazner, Calcul des invariants de Malgrange
+et de G´erard et Levelt d’un syst`eme diﬀ´erentiel lin´eaire en un point
+singulier irr´egulier, J. Diﬀerential Equ., 69 (1987).
+[118]
+, Formes super–irr´educibles des syst`emes diﬀ´erentiels lin´eaires,
+Numer. Math., 50 (1987), pp. 429–449.

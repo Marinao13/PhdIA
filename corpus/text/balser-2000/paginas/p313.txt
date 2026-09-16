@@ -1,0 +1,41 @@
+Symbols
+299
+S(d, α, ρ)
+A sector with bisecting direction d, opening α and radius
+ρ that may be ﬁnite or not
+(p. 60)
+¯S(d, α, ρ)
+A closed sector with bisecting direction d, opening α and
+radius ρ
+(p. 60)
+S±
+Two sectors with bisecting direction 0, resp, π, and open-
+ings adding up to 2π
+(p. 84)
+S
+Denotes a general summation method
+(p. 97)
+SA
+Denotes a matrix summation method
+(p. 97)
+Sk,d ( ˆf)
+The k-sum of ˆf in direction d
+(p. 100)
+ST,d ˆf
+The T-sum of ˆf in direction d
+(p. 108)
+ST ,d ˆf
+The T -sum of ˆf in the multidirection d
+(p. 161)
+Suppj
+A set of pairs (n, m), for which the jth Stokes multipliers
+may have nontrivial blocks
+(p. 141)
+T
+A tuple of integral operators
+(p. 161)
+T1 ∗T2
+The convolution of integral operators
+(p. 160)
+Z
+The set of integer numbers

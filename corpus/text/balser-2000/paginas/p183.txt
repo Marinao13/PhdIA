@@ -1,0 +1,53 @@
+166
+10. Multisummable Power Series
+For practical purposes, one therefore may always take Laplace operators
+Lκ1, . . . , Lκq. This case has been studied in [18] under the name of sum-
+mation by iterated Laplace integrals. For more theoretical purposes, the
+original deﬁnition of Ecalle in terms of acceleration operators sometimes is
+more appropriate, since it has very natural properties as far as convolution
+of power series is concerned.
+Exercises: In view of Exercise 4 on p. 162, we will extend the deﬁnition
+of multisummability to power series in a root z1/p, p ≥2 as follows: A
+power series ˆf in z1/p is called k-summable in the multidirection d if and
+only if ˆf(zp) is pk-summable in the multidirection d/p.
+1. Given admissible k and d, and ˆf ∈E {z}k,d, show for suﬃciently large
+natural p (depending only on k) that ˆf = q
+j=1 ˆfj, with formal power
+series ˆfj in z1/p which are kj-summable in direction dj, for 1 ≤j ≤q.
+2. For k1 > k2 > 0 with 1/κ = 1/k2 −1/k1 ≥2, let |d2 −d1| ≤π/(2κ),
+so that d = (d1, d2) is admissible with respect to k = (k1, k2). For
+ˆfj ∈E {z}kj,dj, j = 1, 2, conclude ˆf = ˆf1 + ˆf2 ∈E {z}k,d. Show that
+then ˆg = ˆBk1 ˆf is κ-summable in direction d2, hence g = Sκ,d2 ˆg is
+holomorphic in a sector S = S(d2, α, r) of opening larger than 2π.
+Moreover, show that ψ(z) = g(z) −g(ze2πi) can be holomorphically
+continued into a sector of inﬁnite radius and bisecting direction d2−π.
+3. For k1, k2 as in Ex. 3, show the existence of ˆf ∈E {z}k,d, k = (k1, k2),
+d = (d1, d2), which cannot be written as ˆf = ˆf1 + ˆf2, ˆfj ∈E {z}kj,dj,
+j = 1, 2.
+4. Under the assumptions of Theorem 50 (p. 164), show that the de-
+composition of ˆf into a sum q
+j=1 ˆfj, in case q ≥2, is never unique.
+10.5
+Some Rules for Multisummable Power Series
+The following is the analogue to some theorems in Section 6.3. To generalize
+the remaining ones will be easier using a result that we shall derive in
+Section 10.7.
+Theorem 51 For every admissible k and d, we have the following:
+(a) If ˆf, ˆg1, ˆg2 ∈E {z}k,d, then we have:
+ˆg1 + ˆg2 ∈E {z}k,d,
+Sk,d (ˆg1 + ˆg2) = Sk,d ˆg1 + Sk,d ˆg2,
+ˆf ′ ∈E {z}k,d,
+Sk,d ( ˆf ′) = d
+dz (Sk,d ˆf),
+ z
+0
+ˆf(w)dw ∈E {z}k,d,
+Sk,d
+ z
+0
+ˆf(w)dw
+
+=
+ z
+0
+(Sk,d ˆf)(w) dw.

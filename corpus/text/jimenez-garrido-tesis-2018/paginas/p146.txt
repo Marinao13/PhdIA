@@ -1,0 +1,57 @@
+146
+CHAPTER 4.
+MULTISUMMABILITY VIA PROXIMATE ORDERS
+Proposition 4.1.25. Let M be a weight sequence. Then,
+(i) If ˆf ∈C{z}M and sing( ˆf) = ∅, then ˆf is convergent.
+(ii) C{z}M,d, C{z}M are algebras. Moreover, if M is (dc) they are dierential algebras.
+Proof.
+(i) Using Lemma 4.1.22.(ii), we know that f(z) := SM,d ˆf(z) is well-dened (indepen-
+dent from direction d). By Lemma 4.1.22.(iv) we know that f is single-valued, then f can
+be expanded into a convergent power series about the origin. By the uniqueness of the
+asymptotic expansion, we deduce that ˆf coincides with this convergent power series.
+□
+4.2
+Tauberian theorems
+Classical Tauberian theorems ([71, Th. 2.2.4.2] and [7, Th. 37]) serve to compare the processes
+of k−summability for various k; these theorems are strongly related to multisummability. In
+this section, we will see what can be said about the connection between the algebras C{z}M
+and C{z}L for two given sequences M and L. For this purpose in the rst subsection we will
+thoroughly examine the comparability notion introduce at the beginning of the dissertation.
+Secondly, we will analyze the properties of the quotient and the product sequences of M and L.
+Finally, with all these tools, we will formulate our main results, generalizing the Gevrey case if
+ω(M) < ω(L), and if ω(M) = ω(L) showing that such a generalization is not possible for our
+denition of summability. The results in this section are stated for a couple of sequences but can
+be easily extended for a nite set of sequences M1, M2, . . . , Mk.
+4.2.1
+Comparison of sequences
+In this subsection, we want to see whether or not it is possible to compare two dierent sequences
+in such a way that the Tauberian theorems are available, so a multisummability notion, that
+generalizes the Gevrey situation, can be formulated. The example at the end of the subsection
+will show that, in general, we can not always determine which of two given weight sequences,
+i.e., (lc) with quotients tending to innity, M and L is greater, not even for sequences whose
+quotients are regularly varying which implies the admissibility of a nonzero proximate order (see
+Remark 2.2.18). Hence, it will be natural to impose some comparability condition between M
+and L in the forthcoming results.
+Let M and L be sequences, we recall (see Denition 1.1.12) that M ≾L if there exists some
+positive constant A > 0 such that
+Mp ≤ApLp,
+for all p ∈N0.
+We say that M and L are comparable if M ≾L or L ≾M holds. If both conditions hold,
+we say that M is equivalent to L, and we write M ≈L. We also remind that if M ≈L then
+the corresponding classes of functions are the same (see Remark 3.1.4) and ω(M) = ω(L) (see
+Remark 2.1.32). Since equivalent sequences dene the same classes, we are particularly interested
+in comparable but not equivalent sequences, i.e., L ≾M and L ̸≈M, which is true if and only if
+inf
+p∈N
+ Lp
+Mp
+1/p
+= 0,
+and
+sup
+p∈N
+ Lp
+Mp
+1/p
+< ∞,
+JAVIER JIMÉNEZ GARRIDO

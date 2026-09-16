@@ -1,0 +1,55 @@
+21
+so-called level 1+. More recently, S. Malek [70] has studied some singularly perturbed small
+step size dierence-dierential nonlinear equations whose formal solutions with respect to the
+perturbation parameter can be decomposed as sums of two formal series, one with Gevrey order
+1, the other of 1+ level, a phenomenon already observed for dierence equations [20].
+All these examples made it interesting to provide the tools for a general, common treatment of
+summability, extending the powerful theory of k−summability and multisummability, and which
+were able to deal with asymptotic expansions whose estimates in (1) correspond to a constant
+Cp of the form Cp = CApMp for some A, C > 0 for a suitable sequence M = (Mp)p∈N0 of positive
+real numbers. It turns out that the coecients of the formal power series whose partial sums
+appear in (1) for this choice of Cp are also controlled in the same way by M. The corresponding
+class of formal power series is denoted by C[[z]]M.
+This task, the common treatment of summability, requires two main types of results or
+techniques:
+(i) The knowledge of injectivity and surjectivity results for the Borel map in this general
+context. Observe that an analogue of Watson's Lemma should be obtained for a proper
+denition of summability.
+(ii) The construction of integral kernels for generalized Laplace and Borel (both formal and
+analytic) transforms which allow one to obtain an explicit expression for the sum of an
+M−summable series in a direction. Moreover, dierent levels corresponding to distinct se-
+quences should be combined, in the same way as dierent k−summability methods produce
+multisummability. This amounts to being able to deal with convolution and acceleration
+kernels, as developed by W. Balser in [7].
+As we will explain now, some parts of the previous program had been already achieved when
+I joined the research team in which my PhD has been developed, some other parts will be carried
+out in this dissertation, and the rest are work in progress and will be commented on to some
+extent in the conclusions.
+In order to tackle the rst problem, one should emphasize that one may consider three closely
+related, so-called ultraholomorphic classes of functions in a sector S of the Riemann surface of
+the logarithm: the class ˜
+Au
+M(S) of holomorphic functions with uniform asymptotic expansion in
+S, satisfying (1) for the above choice of Cp; the class ˜
+AM(S) consisting of holomorphic functions
+with nonuniform asymptotic expansion in S, meaning that (1) holds for Cp(T) = CT Ap
+T Mp on
+every proper bounded subsector T of S (instead of uniformly on S), where CT , AT > 0 depend
+on the subsector; and, nally, the class AM(S) of functions with bounded derivatives and for
+which there exists A = A(f) > 0 such that
+sup
+z∈S, p∈N0
+|f(p)(z)|
+App!Mp
+< ∞.
+Much older than the study of the ultraholomorphic classes is that of the ultradierentiable ones,
+which we introduce now. It is well-known that a function f : [a, b] →C is real analytic if and
+only if there exists a constant A > 0 such that
+sup
+x∈[a,b], p∈N0
+|f(p)(x)|
+App!
+< ∞.
+Moreover, a real analytic function is determined by the values of its derivatives at a point of the
+interval. In 1901, É. Borel showed the existence of classes of (nonanalytic) smooth functions,
+Universidad de Valladolid

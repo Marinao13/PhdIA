@@ -1,0 +1,48 @@
+18
+2. Singularities of First Kind
+• We shall see that for singularities of ﬁrst kind the matrix S(z) never
+has an essential singularity at z0. Whether it has a pole or a remov-
+able one depends on the selection of the monodromy matrix, since
+instead of M we can also choose M −kI, for every integer k, and
+accordingly replace S(z) by zkS(z). Hence in a way, poles and re-
+movable singularities of S(z) should not really be distinguished in
+this context. It will, however, make a diﬀerence whether or not S(z)
+has a removable singularity and at the same time det S(z) does not
+vanish at z0, meaning that the power series expansion of S(z) begins
+with an invertible constant term.
+• According to the exercises in Section 1.6, we may without loss in gen-
+erality make z0 equal to any preassigned point in the compactiﬁed
+complex plane C ∪{∞}. For singularities of ﬁrst kind it is customary
+to choose z0 = 0, and we shall follow this convention. Moreover, we
+also adopt the custom to consider the diﬀerential operator z (d/dz)
+instead of just the derivative d/dz; this has advantages, e.g., when
+making a change of variable z = 1/u (see Section 1.6). As a conse-
+quence, we shall here consider a system of the form
+z x′ = A(z) x,
+A(z) =
+∞
+
+n=0
+An zn,
+|z| < ρ.
+(2.1)
+Hence in other words, A(z) is a holomorphic matrix function in
+D(0, ρ), with ρ > 0, and we shall have in mind that A0 ̸= 0, although
+all results remain correct for A0 = 0 as well.
+As we shall see, the following condition upon the spectrum of A0 will be
+very important:
+E) We say that (2.1) has good spectrum if no two eigenvalues of A0 diﬀer
+by a natural number, or in other words, if A0 + nI and A0, for every
+n ∈N, have disjoint spectra. Observe that we do not regard 0 as a
+natural number; thus it may be that A0 has equal eigenvalues!
+For systems with good spectrum we shall see that A0 will be a monodromy
+matrix for some fundamental solution X(z), and we shall obtain a repre-
+sentation for X(z) from which we can read oﬀits behavior at the origin.
+For the other cases we shall obtain a similar, but more complicated result.
+The theory of singularities of ﬁrst kind is covered in most books dealing
+with ODE in the complex plane. In addition to those mentioned in Chap-
+ter 1, one can also consult Deligne [84] and Yoshida [290]. In this chapter, we
+shall also introduce some of the special functions which have been studied
+in the past. For more details, and other functions which are not mentioned
+here, see the books by Erd´elyi [100], Sch¨afke [235], Magnus, Oberhettinger,
+and Soni [180], and Iwasaki, Kimura, Shimomura, and Yoshida [141].

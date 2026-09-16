@@ -1,0 +1,81 @@
+8
+J. JIMÉNEZ-GARRIDO, J. SANZ, AND G. SCHINDL
+and so for U ⊆Rd non-empty open
+E{M}(U) =
+lim
+←−
+K⊂⊂U
+lim
+−→
+x∈I
+lim
+−→
+h>0
+EMx,h(K).
+Similarly we get for the Beurling case
+E(M)(U) =
+lim
+←−
+K⊂⊂U
+lim
+←−
+x∈I
+lim
+←−
+h>0
+EMx,h(K).
+Finally, for the matrix ωM we put
+E{ωM}(U) := {f ∈E(U) : ∀K ⊂⊂U ∃x ∈I ∃l > 0 : ∥f∥ωMx,K,l < +∞}
+and
+E(ωM)(U) := {f ∈E(U) : ∀K ⊂⊂U ∀x ∈I ∀l > 0 : ∥f∥ωMx,K,l < +∞}.
+Thus we obtain the topological vector spaces representations
+E{ωM}(U) =
+lim
+←−
+K⊂⊂U
+lim
+−→
+x∈I,l>0
+EωMx,l(K)
+and
+E(ωM)(U) =
+lim
+←−
+K⊂⊂U
+lim
+←−
+x∈I,l>0
+EωMx,l(K).
+Since all arising limits are equal to countable ones, in each setting the Beurling type class is a
+Fréchet space.
+Ultradiﬀerentiable classes of multi-index matrices can be deﬁned in a similar way; for our purposes
+we will only need M(2), see Section 5.
+3. The mixed (ω1) conditions
+Concerning (M{L}) and (M(L)) we start with the following characterization.
+Lemma 3.1. Let M := {M x : x ∈I} be (Msc) and let ωM := {ωMx : x ∈I} be the according
+matrix of associated weight functions. Then we get:
+(I) The following conditions are equivalent:
+(i) M does satisfy (M{L}).
+(ii) The matrix M does satisfy
+(3.1)
+∀x ∈I ∃D > 0 ∃y ∈I ∀j ∈N :
+2jM x
+j ≤DM y
+j .
+(iii) The matrix ωM does satisfy
+∀x ∈I ∃y ∈I ∃D > 0 ∀t ≥0 :
+ωMy(2t) ≤ωMx(t) + D.
+(iv) The matrix ωM does satisfy
+∀C > 0 ∀x ∈I ∃y ∈I ∃D > 0 ∀t ≥0 :
+ωMy(Ct) ≤ωMx(t) + D.
+(II) The following conditions are equivalent:
+(i) M does satisfy (M(L)),
+(ii) M does satisfy
+∀x ∈I ∃D > 0 ∃y ∈I ∀k ∈N :
+2jM y
+j ≤DM x
+j .
+(iii) The matrix ωM does satisfy
+(3.2)
+∀x ∈I ∃y ∈I ∃D > 0 ∀t ≥0 :
+ωMx(2t) ≤ωMy(t) + D.

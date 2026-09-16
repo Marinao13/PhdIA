@@ -1,0 +1,86 @@
+Index
+291
+highest level
+normal solution, 138
+HLFFS
+data pairs of a, 56
+holomorphic
+continuation, 224
+matrix-valued f., 2
+holomorphy
+in Banach spaces, 219
+weak, 219
+homotopic paths, 225
+hypergeometric
+equation, 26
+conﬂuent, 24
+generalized, 27
+function, 26
+conﬂuent, 23
+generalized, 26
+series
+generalized, 107
+system, 25
+conﬂuent, 21
+indicial equation, 36
+integrability
+at the origin, 86
+invariants, 153
+Jordan
+block, 211
+matrix, 211
+kernel function, 85
+kernel functions
+convolution of, 160
+kernel of small order, 89
+Laplace
+operator, 78
+Laplace operator
+ﬁnite, 74
+formal, 79
+Laurent series
+formal, 124
+leading term, 37
+Legendre
+equation, 5
+polynomials, 5
+level
+highest, 134
+set, 134
+logarithm
+Riemann surface of the, 226
+M¨obius transformation, 15
+matrix
+canonical form of a, 211
+companion, 4, 52
+connection, 193
+Jordan, 211
+method, 97
+monodromy, 9
+nilpotent
+order of a, 212
+permutation, 143
+power series, 3
+spectrum of a, 211
+unit, 211
+moderate growth, 55
+moment
+condition, 86
+function, 86
+moment methods, 107
+moment sequence, 119
+moments, 107
+monodromy
+factor, 9
+formal, 143
+matrix, 9
+formal, 143
+multi-index, 198
+multidirection, 161
+singular, 167
+of level j, 168
+multisummability, 173
+type of, 165
+nilpotent matrices
+superiority, 45
+norm, 216

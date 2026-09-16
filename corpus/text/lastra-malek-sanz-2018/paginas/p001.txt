@@ -1,0 +1,40 @@
+arXiv:1205.3971v1  [math.CV]  17 May 2012
+Continuous right inverses for the asymptotic Borel map in
+ultraholomorphic classes via a Laplace-type transform
+Alberto Lastra, St´ephane Malek and Javier Sanz
+November 8, 2018
+Abstract
+A new construction of linear continuous right inverses for the asymptotic Borel map is provided in the
+framework of general Carleman ultraholomorphic classes in narrow sectors. Such operators were already
+obtained by V. Thilliez by means of Whitney extension results for non quasianalytic ultradiﬀerentiable
+classes, due to J. Chaumat and A. M. Chollet, but our approach is completely diﬀerent, resting on
+the introduction of a suitable truncated Laplace-type transform. This technique is better suited for a
+generalization of these results to the several variables setting. Moreover, it closely resembles the classical
+procedure in the case of Gevrey classes, so indicating the way for the introduction of a concept of
+summability which generalizes k−summability theory as developed by J. P. Ramis.
+Key words: Laplace transform, formal power series, asymptotic expansions, ultraholomorphic classes,
+Borel map, extension operators.
+2010 MSC: 30D60, 30E05, 40C10, 41A60, 41A63.
+1
+Introduction
+For sectors S of suitably small opening and vertex at 0, the Borel-Ritt-Gevrey theorem proved
+by J. P. Ramis (see [24, 25, 18], [1, Thm. 2.2.1]) guarantees the existence of holomorphic functions
+on S having an arbitrarily prescribed Gevrey asymptotic expansion of order α at 0. This amounts
+to the surjectivity of the asymptotic Borel map, sending a function to its series of asymptotic
+expansion, when considered between the corresponding spaces of Gevrey functions, respectively
+Gevrey series. The proof is constructive, and basically consists in applying a truncated Laplace
+transform to the formal Borel transform of the initially given Gevrey series.
+For functions f holomorphic on a polysector S ⊂Cn with vertex at 0, H. Majima [14, 15]
+put forward the concept of strong asymptotic developability, which has been shown [9, 7] to
+amount to the boundedness of the derivatives of f on bounded proper subpolysectors of S, just
+as in the one-variable situation. The asymptotic behaviour of f is determined by the family
+TA(f) (see Section 5), consisting of functions obtained as limits of the derivatives of f when
+some of its variables tend to 0 (in the same way as the coeﬃcients of the series of asymptotic
+expansion in the one-variable case).
+In 1989 Y. Haraoka [8] considered the space of holomorphic functions f in a polysector S that
+admit Gevrey strong asymptotic expansion of order α = (α1, . . . , αn) ∈[1, ∞)n (one order per
+variable), and got two partial Borel-Ritt-Gevrey type results in this context again by applying
+a (multidimensional) truncated Laplace transform.
+Subsequently, in the one-variable setting V. Thilliez [27, Theorem 1.3] obtained a linear con-
+tinuous version of this result by constructing extension operators (linear continuous right inverses
+1

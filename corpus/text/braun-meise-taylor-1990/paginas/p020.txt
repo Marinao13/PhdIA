@@ -1,0 +1,38 @@
+Braun, Meise and Taylor 
+225 
+5.6 Proposition. For each weight function wand each open set n in ffiN, we have for 
+a(w, N) := (W(jI/N))jEJN: 
+v(w)(n)~ ~ (Ax.(a(w,N))~t, 
+v{w}(n)~ ~ AI(a(w,N))N. 
+(1) 
+(2) 
+In particular, v{w}(n);, is a nuclear Frechet space, while v(w)(n);, is complete, nuclear, and 
+reflexive. In view of the reflexivity of v.(n) this implies 
+v(w)(n) ~ EtJAx.(a(w,N)) 
+and Vrw)(n) ~ EtJA,(a(w,N))~. 
+IN 
+IN 
+PROOF. We apply Vogt [27], Theorem 5.1 with F as in the proof of 4.9. The structure 
+of the correponding spaces of periodic functions can be found in Braun and Meise [5], 11., 
+for Roumieu type, and in Franken and Meise [11] for Beurling type. 
+6 
+Convolutions 
+For I-' E £.(ffiN), convolution operators on £.(ffiN) and on V.(ffiNy are defined. 
+6.1 Definition. 
+For a weight function w, an ultradistribution I-' E £.(ffiNy, and I E 
+£.(ffiN) we define the convolution by 
+T1,(f) := I-' * f: ffiN -t <V, 
+I-' * I(x) = (I-'Y' f(x - y)). 
+For II E V.(ffiNy we define 
+where (fJ"f) = (l-'x,/(-x)). 
+6.2 Remark. If in the above the ultradistribution II is given by a function I E £.(ffiN), 
+i.e., (II,({)} = JRN l(x)({)(x)dmJV(x), then 1;,(1) = SI,(f), i.e., both definitions of I-' * I 
+coincide. 
+PROOF. Let (() E V.(ffiN) be arbitrary. Then 
+(I-'*II,({)) = 
+(1I,fJ, * ({)} =1. 
+l(x)fJ,*({)(x)dmJV(x) 
+RN 
+= 1.. l(x)(l-'y,({)(x + y))dmN(x) 
+RN 
+= JIR N (I-'Y' f(t - y)({)(t))dmJV(t) = (I-' * I, ({)). 

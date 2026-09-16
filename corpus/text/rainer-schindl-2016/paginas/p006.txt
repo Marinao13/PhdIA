@@ -1,0 +1,108 @@
+A. Rainer, G. Schindl
+is convex, increasing, and satisﬁes ϕ∗(0) = 0, ϕ∗∗= ϕ, and limt→∞t/ϕ∗(t) = 0. Moreover,
+the functions t 	→ϕ(t)/t and t 	→ϕ∗(t)/t are increasing; see e.g. [3]. For non-empty open
+U ⊆Rn deﬁne
+E(ω)(U, Rm) :=
+
+f ∈C∞(U, Rm) : ∀K ⊆U compact ∀ρ > 0 : ∥f ∥ω
+K,ρ < ∞
+
+E{ω}(U, Rm) :=
+
+f ∈C∞(U, Rm) : ∀K ⊆U compact ∃ρ > 0 : ∥f ∥ω
+K,ρ < ∞
+
+∥f ∥ω
+K,ρ := sup
+
+∥f (k)(x)∥Lk(Rn,Rm) exp(−1
+ρ ϕ∗(ρk)) : x ∈K, k ∈N
+
+and endow these spaces with their natural topologies:
+E(ω)(U, Rm) = lim
+←−
+K⊆U
+lim
+←−
+ℓ∈N>0
+Eω
+1
+ℓ(K, Rm),
+E{ω}(U, Rm) = lim
+←−
+K⊆U
+lim
+−→
+ℓ∈N
+Eω
+ℓ(K, Rm)
+where
+Eω
+ρ (K, Rm) := { f ∈C∞(K, Rm) : ∥f ∥ω
+K,ρ < ∞}
+We have Cω(U) ⊆E{ω}(U) iff ω(t) = O(t) as t →∞, and Cω(U) ⊆E(ω)(U) iff
+ω(t) = o(t) as t →∞; see e.g. [13].
+2.3 Ultradifferentiable functions deﬁned by weight matrices
+Let M be a weight matrix, let U ⊆Rn be non-empty and open, and let K ⊆U be compact.
+We deﬁne
+E(M)(K, Rm) :=
+
+λ∈
+E(Mλ)(K, Rm),
+E{M}(K, Rm) :=
+
+λ∈
+E{Mλ}(K, Rm),
+E(M)(U, Rm) :=
+
+λ∈
+E(Mλ)(U, Rm), E{M}(U, Rm) :=
+
+K⊆U
+
+λ∈
+E{Mλ}(K, Rm),
+and endow these spaces with their natural topologies:
+E(M)(U, Rm) := lim
+←−
+λ∈
+E(Mλ)(U, Rm), E{M}(U, Rm) := lim
+←−
+K⊆U
+lim
+−→
+λ∈
+E{Mλ}(K, Rm).
+It is no loss of generality to assume that the limits are countable.
+We have H(Cn) ⊆E(M)(U) iff (MH), Cω(U) ⊆E[M](U) iff (M[Cω]), and E[M](U) is
+derivation closed iff (M[dc]); see [13].
+3 Proof of Theorem 5: the Roumieu case
+The proof of the equivalence of the items (1)–(6) of Theorem 5 has the following structure:
+(4)
+ 
+
+(6′)
+ (1)
+ 
+
+ 
+
+
+ (2) 
+ (3)
+(6)
+
+
+
+
+
+
+
+
+
+
+(5)
+
+(3.1)
+where:
+(6′) If f ∈E{M}(R) and f (0) ̸= 0 then 1/f is E{M} on its domain of deﬁnition.

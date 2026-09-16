@@ -1,0 +1,56 @@
+2.2. LOG-CONVEX SEQUENCES, REGULAR VARIATION AND PROXIMATE ORDERS
+93
+Finally, Lemmas 2.2.10 and 2.2.12 suggest the next connection between the sequence U, a
+weight sequence M admitting ρ(t) as a nonzero proximate order and its bidual sequence EM (see
+Denition 2.1.41).
+Theorem 2.2.14. Let M be a weight function admitting ρ(t) as a nonzero proximate order.
+Then u ≃eM and u ≃m.
+Proof. By Lemma 2.2.10, v ≃dM then it exists a > 1 such that
+νv(a−1t) ≤νdM(t) ≤νv(at),
+t > 0.
+Consequently, as in the proof of Lemma 2.2.12, for t large enough we have that
+U(a−1t) ≤⌊U(a−1t)⌋+ 1 ≤νd(t) ≤⌊U(at)⌋+ 1 ≤2U(at).
+Using the regular variation of U(t), we observe that
+lim
+t→∞
+U(at)
+U(t) = a1/ρ,
+lim
+t→∞
+U(a−1t)
+U(t)
+= a−1/ρ,
+then we see that there exist A, B > 0 such that U(at) ≤AU(t) and U(a−1t) ≥BU(t) for t large
+enough. Hence
+BU(t) ≤νd(t) ≤2AU(t)
+for t large enough.
+We deduce that for p ∈N large enough
+Bup ≤eM
+p = νdM(p) ≤2Aup,
+which implies eM ≃u and we deduce that u ≃m by Theorem 2.1.42.
+□
+Remark 2.2.15. Other procedures for going from functions to sequences in this context have
+been considered, as the one by J. Bonet, R. Meise and S.N. Melikhov [17] decribed in Re-
+mark 2.1.37.
+In our work [44, Sect. 4.1], inspired by the argument by S. Mandelbrojt [72] and H. Ko-
+matsu [52] to recover a sequence from its associated function ωM(t), given a nonzero proximate
+order ρ(t), γ > 0 and V ∈MF(γ, ρ(t)) we dene the sequence
+MV
+p := sup
+t>0
+tp
+eV (t) ,
+p ∈N0.
+We show that MV is strongly regular, making use of the Young conjugate we see that ωMV (t) ∼
+V (t), nally, we prove that MV ≈U. Since the previous proofs are simpler than the ones in the
+paper, this new equivalent approach has been included in the dissertation.
+2.2.4
+Sequences admitting a nonzero proximate order
+Before proving that the weaker conditions (f) and (g) in Theorem 2.2.17 introduced at the begin-
+ning of the section, which are sucient for the construction of nontrivial `ne' at functions in
+sectors of optimal opening, are indeed the same, some worthy remarks regarding the admissibility
+condition (see Denition 2.2.1) are presented.
+First, note that the notion of equivalent proximate orders (see Denition 1.2.9) is more
+demanding (apart from the fact that here dM need not be a proximate order). If M admits a
+proximate order, dM veries all the properties of proximate orders except possibly (D), since
+Universidad de Valladolid

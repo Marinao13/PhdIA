@@ -1,0 +1,24 @@
+EXTENSION OPERATORS FOR SOME ULTRAHOLOMORPHIC CLASSES OF RAPID GROWTH 21
+[23] V. Thilliez, Division by ﬂat ultradiﬀerentiable functions and sectorial extensions, Results Math. 44
+(2003), 169–188. doi: https://doi.org/10.1007/BF03322923
+Aﬃliations:
+∗Javier Jim´enez-Garrido (corresponding author)
+Departamento de Matem´aticas, Estad´ıstica y Computaci´on,
+Universidad de Cantabria,
+Avda. Los Castros, s/n, 39005, Santander, Spain.
+Instituto de Investigaci´on en Matem´aticas IMUVA, Universidad de Valladolid
+ORCID: 0000-0003-3579-486X
+jesusjavier.jimenez@unican.es
+Alberto Lastra
+Universidad de Alcal´a
+Departamento de F´ısica y Matem´aticas
+Alcal´a de Henares, Madrid, Spain.
+ORCID: 0000-0002-4012-6471
+alberto.lastra@uah.es
+Javier Sanz
+Departamento de ´Algebra, An´alisis Matem´atico, Geometr´ıa y Topolog´ıa
+Universidad de Valladolid
+Facultad de Ciencias, Paseo de Bel´en 7, 47011 Valladolid, Spain
+Instituto de Investigaci´on en Matem´aticas IMUVA, Universidad de Valladolid
+ORCID: 0000-0001-7338-4971
+javier.sanz.gil@uva.es

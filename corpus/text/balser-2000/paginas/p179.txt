@@ -1,0 +1,43 @@
+162
+10. Multisummable Power Series
+The assumptions made are such that these operators all apply. In
+particular, the inequalities (10.1) assure that the function deﬁned by
+application of the integral operator Tj−1 is analytic for values of the
+variable close to the origin, having argument close to dj. By assump-
+tion, this function then can be holomorphically continued to inﬁnity
+and has the correct growth, so that the next operator applies.
+2. Show that to ˆf ∈E {z}T ,d there corresponds a tuple (f0(z), . . . , fq(z))
+of functions. The function fq(z) is the sum of the convergent se-
+ries ˆfq = ˆT −1
+q
+◦. . . ◦ˆT −1
+1
+ˆf. The others are successively obtained as
+fj−1 = Tj fj, 1 ≤j ≤q, integrating in a direction close to dj. From
+Theorem 27 (p. 91), conclude
+fj(z) ∼=sj ˆfj(z) = ( ˆT −1
+j
+◦. . . ◦ˆT −1
+1
+ˆf)(z) in Gj,
+0 ≤j ≤q −1,
+where sj = q
+j+1 1/κν, and Gj is a sectorial region with bisecting
+direction dj+1 and opening larger than π/κj+1. The function f0 then
+is the T -sum of ˆf, and in particular ˆf0(z) = ˆf(z).
+3. For ˆf1, ˆf2 ∈E {z}T ,d, show that ˆf1 + ˆf2 ∈E {z}T ,d, and we have
+ST ,d ( ˆf1 + ˆf2) = ST ,d ˆf1 + ST ,d ˆf2.
+4. Let ej(z) be the kernel of Tj, and let ˆf ∈E [[z]]. For a natural
+number p, consider the operators ˜Tj with kernels ˜ej(z) = p ej(zp)
+of corresponding orders ˜κj = pκj, and set ˆg(z) = ˆf(zp). Show that
+ˆf ∈E {z}T ,d if and only if ˆg ∈E {z} ˜T , ˜d, with ˜d = p−1d. If this is so,
+show (ST ,d ˆf)(z) = (S ˜T , ˜d ˆg)(z1/p), wherever both sides are deﬁned.
+5. For ˆf ∈E {z}T ,d, deﬁne fj and ˆfj as in Exercise 2. For each j,
+1 ≤j ≤q −1, show: ˆfj ∈E {z}T (j),d(j), with T (j) = (Tj+1, . . . , Tq),
+d(j) = (dj+1, . . . , dq), and ST (j),d(j) ˆfj = fj.
+6. For k = (1/κ1 + . . . + 1/κq)−1, show E {z}k,dq ⊂E {z}T ,d, and
+ST ,d ˆf = Sk,dq ˆf for every ˆf ∈E {z}k,dq.
+10.3
+Elementary Properties
+The following lemma lists properties of multisummability that are direct
+consequences of the deﬁnition, and the proof can be left to the reader:

@@ -1,0 +1,103 @@
+120
+CHAPTER 3.
+INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+Finally, if we iterate the integration by parts in (3.14) and use that f(p)(0) = δ1,p, we get for
+every p ≥2 the identity
+g(z) = 1
+zp
+Z ∞(ϕ)
+0
+e−ztf(p)(t) dt,
+z ∈Sγ+1.
+Using again (3.10) for p ≥2, we deduce that
+|g(z)| ≤
+CApp!Mp
+|z|p Re(eiϕz).
+(3.16)
+Our aim is to apply Theorem 3.2.1 to the function h given by h(w) = g(wγ+1), w ∈S1, when
+restricted to the half-plane {w : Re(w) > 1}.
+Note that the estimates in (3.13) imply for
+Re(w) > 1 (and so |w| > 1) that
+|h(w)| ≤
+C
+Re(eiϕwγ+1) +
+1
+|wγ+1| Re(eiϕwγ+1) ≤
+2C
+Re(eiϕwγ+1).
+These last estimates and the ones in (3.15) and (3.16) can now be summed up for h as
+|h(w)| ≤
+2CApp!Mp
+|w|p(γ+1) Re(eiϕwγ+1),
+Re(w) > 1, p ∈N0.
+Now we choose ϕ in order to minimize the value Re(eiϕwγ+1). We study two cases:
+(1) If | arg(w)| < γπ/(2(γ + 1)), then | arg(wγ+1)| < γπ/2 and, according to (3.12), we may
+choose ϕ = −arg(wγ+1), and we deduce that Re(eiϕwγ+1) = |w|γ+1 > 1. So, for such w
+we get
+|h(w)| ≤2CApp!Mp
+|w|p(γ+1) ,
+p ∈N0.
+(3.17)
+(2) If | arg(w)| ∈[γπ/(2(γ + 1)), π/2), the previous choice is not possible, and we choose
+ϕε =
+
+
+
+−γπ
+2 + ε
+if arg(w) ∈
+
+−π
+2 , −
+πγ
+2(γ+1)
+i
+,
+γπ
+2 −ε
+if arg(w) ∈
+h
+πγ
+2(γ+1), π
+2
+
+,
+for any ε ∈(0, γπ/2). Hence, Re(eiϕεwγ+1) = |w|γ+1 cos((γ + 1)| arg(w)| −γπ/2 + ε), and
+making ε tend to 0 we obtain that
+|h(w)| ≤
+2CApp!Mp
+|w|p(γ+1)|w|γ+1 cos((γ + 1)| arg(w)| −γπ/2),
+p ∈N0.
+(3.18)
+We observe that in this case
+0 < π
+2 −| arg(w)| ≤(γ + 1)(π
+2 −| arg(w)|) ≤π
+2 ,
+and so
+|w| cos
+
+(γ + 1)| arg(w)| −γπ
+2
+
+= |w| sin
+
+(γ + 1)
+π
+2 −| arg(w)|
+
+≥|w| sin
+π
+2 −| arg(w)|
+
+= |w| cos(arg(w)) = Re(w) > 1.
+Since we also have |w|γ > 1, from (3.18) we obtain the same estimates (3.17) given in the
+rst case.
+Since h is not identically 0, by Theorem 3.2.1 we deduce that the series P∞
+p=0((p+1)mp)−1/(γ+1)
+converges, and Theorem 3.2.4 implies that ˜B : AM(Sγ) −→C[[z]]M is not injective.
+□
+Remark 3.2.17. As an easy consequence we have that if ω(M) < ∞, then
+SM ⊆˜Su
+M ⊆˜SM ⊆(0, ω(M)].
+JAVIER JIMÉNEZ GARRIDO

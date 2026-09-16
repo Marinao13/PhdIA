@@ -1,0 +1,29 @@
+Appendix C
+Functions of a Matrix
+There is a beautiful classical theory of what is called a function of a matrix,
+to be distinguished from the term matrix function. In this context, one is
+concerned with interpreting f(A), for a suitable class of C-valued functions
+f and square matrices A. More generally, one can instead of matrices choose
+A in a Banach algebra, but we shall not need this here. In the simplest
+case, f will be a polynomial, say, f(z) = m
+0 fn zn, and then we simply set
+f(A) = m
+0 fnAn. Similarly, when f is an entire function, one can use the
+power series expansion of f to deﬁne f(A), and we shall do this in the case
+of f(z) = ez in the next section. More interesting are the cases when f is
+holomorphic in a region G ̸= C . It can then be seen that it is crucial to
+restrict ourselves to matrices with spectrum in G, and then one can deﬁne
+f(A) very elegantly by a generalization of Cauchy’s integral formula. A
+similar representation holds even for multivalued holomorphic functions on
+a Riemann surface.
+For applications in the theory of ODE, it is suﬃcient to understand,
+aside from the exponential function, the natural logarithm of a matrix and
+the closely related matrix powers of a complex variable z. In the following
+sections we shall present some basic facts concerning these concepts. In par-
+ticular, we shall show that every invertible matrix has a matrix logarithm
+which, however, is not uniquely deﬁned. For matrices A that are close to
+the unit matrix, i.e., ∥I −A∥is small, one can deﬁne the main branch of
+log A by means of the power series expansion of the logarithm, and the
+same is possible whenever I −A is nilpotent. For general A, however, we
+have to ﬁnd a diﬀerent deﬁnition of log A; this will be done in Section C.2,
+where we shall also show that we can select a unique branch of log A by

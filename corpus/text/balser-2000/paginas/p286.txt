@@ -1,0 +1,46 @@
+References
+271
+[49] M. A. Barkatou and E. Pfl¨ugel, An algorithm computing the
+regular formal solutions of a system of linear diﬀerential equations,
+RR 988, LMC–IMAG, 1997. To appear in J. of Symbolic Computa-
+tion.
+[50] A. Beck, Matrix-Summationsverfahren und Multisummierbarkeit,
+Dissertation, Universit¨at Ulm, 1995.
+[51] D. Bertrand, Travaux r´ecents sur les points singuliers des ´equations
+diﬀ´erentielles lin´eaires, in S´em. Bourbaki 1978/79, vol. 770 of Lecture
+Notes in Math., Springer, 1980, pp. 228–243.
+[52] L. Bieberbach, Theorie der gew¨ohnlichen Diﬀerentialgleichungen
+auf funktionentheoretischer Grundlage dargestellt, Springer, 1965.
+[53] G. D. Birkhoff, Singular points of ordinary linear diﬀerential equa-
+tions, Trans. of the Amer. Math. Soc., 10 (1909), pp. 436–470.
+[54]
+, Equivalent singular points of ordinary linear diﬀerential equa-
+tions, Math. Annalen, 74 (1913), pp. 134–139.
+[55]
+, The generalized Riemann problem for linear diﬀerential equa-
+tions and the allied problems for linear diﬀerence and q-diﬀerence
+equations, Proc. of the Amer. Acad. of Arts and Sc., 49 (1913),
+pp. 521–568.
+[56]
+, A theorem on matrices of analytic functions, Math. Annalen,
+74 (1913), pp. 122–133.
+[57]
+, Collected Mathematical Papers Vol. 1, Dover Publications,
+New York, 1968.
+[58] A. A. Bolibruch, Construction of a Fuchsian equation from a mon-
+odromy representation, Math. Notes of the Acad. of Sc. of USSR, 48
+(1990), pp. 1090–1099.
+[59]
+, The Riemann-Hilbert problem, Russian Math. Surveys, 45
+(1990), pp. 1–47.
+[60]
+, Fuchsian systems with reducible monodromy and the Riemann-
+Hilbert problem, in Global Analysis – Studies and Applications, Y. G.
+Borisovitch and Y. E. Gliklikh, eds., vol. 1520 of Lecture Notes in
+Mathematics, Springer, 1991, pp. 139–155.
+[61]
+, On analytic transformation to Birkhoﬀstandard form, Proc.
+of the Steklov Inst. of Math., 203 (1994), pp. 29–35.
+[62]
+, On analytic transformation to Birkhoﬀstandard form, Russian
+Acad. of Sc. Dokl. Math., 49 (1994), pp. 150–153.

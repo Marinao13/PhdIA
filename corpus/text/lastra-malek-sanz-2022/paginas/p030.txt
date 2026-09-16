@@ -1,0 +1,36 @@
+30
+Acknowledgements: The ﬁrst and third authors are partially supported by the Spanish Min-
+istry of Science and Innovation under project MTM2009-12561. The second author is partially
+supported by the French ANR-10-JCJC 0105 project and the PHC Polonium 2013 project No.
+28217SG. All the authors are partially supported by the Spanish Ministry of Economy and
+Competitiveness under project MTM2012-31439.
+References
+[1] W. Balser, From divergent power series to analytic functions. Theory and application of
+multisummable power series, Lecture Notes in Math. 1582, Springer-Verlag, Berlin, 1994.
+[2] W. Balser, Formal power series and linear systems of meromorphic ordinary diﬀerential
+equations, Springer, Berlin, 2000.
+[3] W. Balser, Multisummability of formal power series solutions of partial diﬀerential equations
+with constant coeﬃcients, J. Diﬀerential Equations 201 (2004), 63–74.
+[4] W. Balser, B. L. J. Braaksma, J.-P. Ramis, Y. Sibuya, Multisummability of formal power
+series solutions of linear ordinary diﬀerential equations, Asymptotic Anal. 5 (1991), 27–45.
+[5] W. Balser, R. W. Braun, Power series methods and multisummability, Math. Nachr. 212
+(2000), 37–50.
+[6] W. Balser, M. Miyake, Summability of formal solutions of certain partial diﬀerential equa-
+tions, Acta Sci. Math. (Szeged) 65 (1999), 543–551.
+[7] W. Balser, J. Mozo-Fern´andez, Multisummability of formal solutions of singular perturba-
+tion problems, J. Diﬀerential Equations 183 (2002), 526–545.
+[8] W. Balser, M. Yoshino, Gevrey order of formal power series solutions of inhomogeneous
+partial diﬀerential equations with constant coeﬃcients, Funkcialaj Ekvac. 53 (2010), 411–
+434.
+[9] B. L. J. Braaksma, Multisummability of formal power series solutions of nonlinear mero-
+morphic diﬀerential equations, Ann. Inst. Fourier (Grenoble) 42 (1992), 517–540.
+[10] B. L. J. Braaksma, B. Faber, G. Immink, Summation of formal solutions of a class of linear
+diﬀerence equations, Paciﬁc J. Math. 195 (2000), no. 1, 35–65.
+[11] M. Canalis-Durand, J. Mozo-Fern´andez, R. Sch¨afke, Monomial summability and doubly
+singular diﬀerential equations, J. Diﬀerential Equations 233 (2007), 485–511.
+[12] J. Chaumat, A. M. Chollet, Surjectivit´e de l’application restriction `a un compact dans des
+classes de fonctions ultradiﬀ´erentiables, Math. Ann. 298 (1994), no. 1, 7–40.
+[13] F. Galindo, J. Sanz, On strongly asymptotically developable functions and the Borel-Ritt
+theorem, Studia Math. 133 (3) (1999), 231–248.
+[14] A. A. Goldberg, I. V. Ostrovskii, Value distribution of meromorphic functions, Transl.
+Math. Monogr. 236, Amer. Math. Soc., Providence, RI, 2008.

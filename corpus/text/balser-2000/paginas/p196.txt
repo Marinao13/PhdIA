@@ -1,0 +1,65 @@
+11.3 Convolutions
+179
+Lemma 22 For k, f, g, and G as above, assume f(z) ∼=s1 ˆf(z), g(z) ∼=s1
+ˆg(z) in G, for some s1 > 0. Then we have (f ∗k g)(z) ∼=s1 ( ˆf ∗k ˆg)(z) in G.
+In case G is a sector of inﬁnite radius and f, g are of exponential growth
+not more than κ, with some κ > 0, then so is f ∗k g.
+Proof: By assumption, for every closed subsector ¯S of G there exist c, K >
+0 so that |rf(z, N)|, |rg(z, N)| ≤c KNΓ(1 + s1 N) for every N ≥0 and
+z ∈¯S. Using the Beta Integral, one can show for zs ∈¯S and h = f ∗k g,
+ˆh = ˆfˆ∗kˆg:
+zsNrh(zs, N)
+=
+d
+dz
+ z
+0
+
+f ((z −t)s) tsNrg(ts, N)
++
+N−1
+
+m=0
+gm (z −t)smts(N−m) rf(ts, N −m)
+
+dt.
+Using the above estimates, we ﬁnd
+
+ z
+0
+f ((z −t)s) tsN rg(ts, N)dt
+ ≤c2KNΓ(1 + N s1)|z|1+sN/(1 + s1 N),
+whereas, using Exercise 1 on p. 41,
+
+ z
+0
+N−1
+
+m=0
+gmtsm(z −t)s(N−m) rf ((z −t)s, N −m) dt
+
+≤c2 KN|z|1+sN
+1 + sN
+N−1
+
+m=0
+Γ(1 + ms1) Γ(1 + (N −m)s1).
+This shows altogether for suﬃciently large ˆc, ˆK > 0, independent of N, z
+as above, and N ≥0
+
+ z
+0
+wsN rh(ws, N)dw
+ ≤ˆc ˆKN|z|1+sNΓ(1 + Ns1).
+Using Cauchy’s formula for the ﬁrst derivative, one can see that this implies
+h(z) ∼=s1 ˆh(z) in G. An elementary estimate can be used to show that h is
+of the desired exponential growth, in case f and g are.
+2
+As we indicated above, the acceleration operators are well behaved with
+respect to convolutions. To prove this, we ﬁrst show that the Laplace op-
+erator of order k maps convolutions of the same index onto products:
+Theorem 57 Assume that E is a Banach algebra. Let S be a sector of
+inﬁnite radius, and let k > 0 be arbitrarily given. Moreover, let f, g be
+E -valued functions, holomorphic in S, continuous at the origin, and of
+exponential growth not more than k. Then
+Lk(f ∗k g) = (Lkf)(Lkg).

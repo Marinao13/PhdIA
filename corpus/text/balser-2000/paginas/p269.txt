@@ -1,0 +1,46 @@
+254
+Solutions
+with suﬃciently small τ > 0. Use Theorem 22 (p. 79) to show that
+h±(z) is holomorphic in a region G± containing the straight line
+z(y) = x0 + iy, with suﬃciently large x0 (ﬁxed) and −∞< y <
+∞, and h+(z(y)) (resp. h−(z(y)) tends to zero as y →−∞(resp.
+y →+∞). For z(y) as above, check that h±(z(y)) can be represented
+by an integral as above, but integration along the positive real axis,
+with a small detour about t, say, along a half-circle, in the upper,
+resp. lower, half-plane. Using Cauchy’s integral formula, show
+h−(z(y)) = h+(z(y)) + 2πif(t) e−tz(y).
+From this “connection relation,” conclude
+lim
+y→±∞h±(z(y))etz(y) = ∓2πi f(t).
+Then, observe that the left-hand side of (5.5) can be seen to equal
+(2πi)−1 [h+(z(−y))−h+(z(y))]. From these identities, conclude (5.5).
+Section 5.4:
+1. Observe N−1
+n=1 (ws/z)n = (wsN z1−N −ws) (ws−z)−1, and use (B.10)
+(p. 228) and (B.14) (p. 232).
+2. Observe (B.10) (p. 228). Can you show that the asymptotic expansion
+is of Gevrey order s by estimating the integral representation for
+Es(z; N)?
+Section 5.5:
+1. Compute the moment function corresponding to e(z; α) and deﬁne
+E(z; α) analogous to (5.12). Then, derive the integral representation
+E(z; α) =
+1
+2πi
+
+γ
+w−αE(w) dw
+w −z ,
+for |z| < 1, and discuss the behavior for z →∞.
+3. Analyze the behavior of E(z; α) as z →∞, following the same argu-
+ments used in the proof of Lemma 6 (p. 84), and then proceed as in
+the proof of Theorem 26 (p. 84).
+Section 5.6:
+2. Show the integral representation
+k(z) =
+ ∞(τ)
+0
+e1(u/z) E2(u) du
+u ,
+with 2k|τ| < π, and discuss convergence of the integral, using the
+behavior of E2(u) as u tends to inﬁnity.

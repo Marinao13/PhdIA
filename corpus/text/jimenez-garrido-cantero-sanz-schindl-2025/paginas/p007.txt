@@ -1,0 +1,51 @@
+7
+Lemma 2.4. Let M be a weight sequence and β > 0. The following statements hold:
+(i) γ(M) > 0 if and only if M satisfies (snq).
+(ii) γ(M) > β if and only if M satisfies (γβ).
+(iii) γ(M) > β implies that (p!β)p ⊂M.
+Remark 2.5. Every weight sequence M is almost increasing: since eventually mp ≥1,
+we have that Mp ≤Mp+1 if p ≥p0 for suitable p0. Then Mp ≤aMq for any p ≤q if we
+choose a := maxp≤q≤p0 Mp/Mq ≥1.
+The surjectivity of the asymptotic Borel mapping in a half-plane can be characterized
+as follows. Note that the condition γ(M) > 1 amounts, in view of (ii) and the easy
+equality γ(c
+M) = γ(M) + 1, to the fact that c
+M satisfies (γ2), which is the condition
+appearing in [3, Thm. 7.4.(b)].
+Theorem 2.6 ([3], Theorem 7.4.(b)). Let M be a weight sequence satisfying (dc). The
+following are equivalent:
+(i) B: A{M}(H) →Λ{M} is surjective.
+(ii) γ(M) > 2.
+The second index ω(M) is given by
+ω(M) := lim inf
+p→∞
+log(mp)
+log(p) ∈[0, ∞],
+and it turns out that
+ω(M) = sup{µ > 0 |
+∞
+X
+p=0
+1
+(mp)1/µ < ∞}
+= sup{µ > 0 |
+∞
+X
+p=0
+1
+((p + 1)mp)1/(µ+1) < ∞}.
+Concerning the injectivity of the asymptotic Borel mapping, we have the next result.
+Theorem 2.7. ([19, Thm. 12], [10, Thm. 3.4]) Let M be a weight sequence.
+Then,
+B : A{M}(H) →Λ{M} is injective if and only if
+∞
+X
+p=0
+1
+m1/2
+p
+= ∞,
+which in turn implies that ω(M) ≤2.
+Finally, we mention that if M is a weight sequence, the inequality γ(M) ≤ω(M)
+holds, and so the asymptotic Borel mapping B : A{M}(H) →Λ{M} is never bijective, see
+also [10, Thm. 3.17].

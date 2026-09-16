@@ -1,0 +1,79 @@
+Remark 4.2. The admissibility condition is interesting even if dM is a proximate order. For
+example, consider the sequence Mα,β in Example 2.17, with α > 0, and let us put Mα,β(t),
+dα,β(t), and so on, to denote the corresponding associated functions. Since for large t we
+have
+c2t1/α log−β/α(t) ≤Mα,β(t) ≤c1t1/α log−β/α(t)
+for suitable constants c1, c2 > 0 (see [23, Example 1.2.2]), then
+log(c2) ≤log(t)(dα,β(t) −ρα,β(t)) ≤log(c1)
+eventually
+(see Example 2.4 for the deﬁnition of ρα,β). This shows that the proximate order ρα,β(t) is
+admissible for Mα,β, and therefore, for our purposes, it may substitute dα,β(t) whenever it
+is convenient. In particular, when working with Gevrey ultraholomorphic classes one may
+consider the constant order ρα,0(t) ≡1/α, as expected.
+In order to show that the requirement (e) and the admission of a nonzero proximate
+order are equivalent for a sequence M, we need to construct well-behaved sequences from
+proximate orders.
+4.1
+Strongly regular sequences deﬁned from nonzero proximate or-
+ders
+Departing from a nonzero proximate order, and for every element V in the class B(γ, ρ(r))
+given by L.S. Maergoiz [12] (see Theorem 2.7 and Deﬁnition 2.8), we will construct a well-
+behaved sequence (M V
+p )p∈N0. This procedure uses the same argument by S. Mandelbrojt [13]
+and H. Komatsu [9] to recover a sequence from its associated function M(t), or by J. Bonet,
+R. Meise and S.N. Melikhov [4] when they construct a weight sequence from a weight func-
+tion.
+Deﬁnition 4.3. Let ρ(t) →ρ > 0 be a proximate order, γ > 0 and V ∈B(γ, ρ(t)). We
+deﬁne its associated sequence by
+M V
+p := sup
+t>0
+tp
+eV (t) ,
+p ∈N0,
+or equivalently,
+log(M V
+p ) = sup
+t>0
+(p log(t) −V (t)),
+p ∈N0.
+Note that, since ρ > 0, for every p ∈N0 we have that limt→∞tp/eV (t) = 0. As e−V (1) > 0,
+we see that M V
+p ∈(0, ∞).
+The forthcoming results aim at showing, in Theorem 4.8, that the sequence (M V
+p )p∈N0 is
+strongly regular. We will frequently use the properties, denoted by (I)-(VI) in Theorem 2.7,
+of the elements in the class B(γ, ρ(t)).
+Proposition 4.4. Let ρ(t) →ρ > 0 be a proximate order, γ > 0 and V ∈B(γ, ρ(t)), then
+the sequence (M V
+p )p≥0 is logarithmically convex and M V
+0 = 1.
+Proof. For any p ∈N we have that
+(M V
+p )2 = sup
+t>0
+t2p
+e2V (t) = sup
+t>0
+tp−1+p+1
+e2V (t)
+≤sup
+t>0
+tp−1
+eV (t) sup
+t>0
+tp+1
+eV (t) = M V
+p−1M V
+p+1.
+Using (III), V (t) is strictly increasing and limt→0 V (t) = 0, and so
+M V
+0 = sup
+t>0
+e−V (t) = exp
+
+lim
+t→0 V (t)
+
+= 1.
+14

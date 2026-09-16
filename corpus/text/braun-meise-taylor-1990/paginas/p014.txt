@@ -1,0 +1,34 @@
+Braun, Meise and Taylor 
+219 
+(c) there are e, C > 0 such that for all z E (VN 
+lj(z)1 ::; Cexp(Hn(Imz) - eW(Z)). 
+(2) The following are equivalent: 
+(a) f E V(w)(K), 
+(b) f E V(K) and for all k E IN 
+sUP, sup If(CY)(x)lexp (-k'P* (I~I)) < 00, 
+l.")'eNt ';l'Ei{N 
+(c) for all k E IN there is C > 0 such that for all z E (VN 
+If(z)1 ::; Cexp(Hdlmz) - kw(z)). 
+For a sequence 1P = (Pn)llEIN of continuous functions p,,: (VN ---+ IR, we define 
+AJP(VN) = {J E H(VN) I for some n: sup If(z)1 exp( -Pn(Z)) < oo}, 
+:E(fN 
+and 
+A~(VN) = {f E H(VN) I for all n: sup lJ(z)1 exp( -Pn(z)) < oo}. 
+::-E<r. N 
+The Paley-Wiener theorem 3.4 implies: 
+3.5 Proposition. Let w be a weight function. 
+v 
+(1) Let K C IR; 
+be a convex compact set. We set 
+and 
+1M: = {mil: z f-+ Hn(Im z) - nw(z) In E IN}. 
+Then V{w}(K) ~ AIP(VN) and V(w)(K) ~ A~(VN), where the isomorphisms are 
+given by the Fourier-Laplace transform (see 3.3). 
+'i'\r 
+0 
+0 
+(2) Let n c IRJ 
+be an open convex set. Let KI C KI C K2 C .. , be a convex compact 
+exhaustion of n, and set 
+1P = {Pn: z f-+ HI\,,(Imz) - ~w(z) In E IN}. 
+Then 'D{w}(n) ~ AIP(VN). 

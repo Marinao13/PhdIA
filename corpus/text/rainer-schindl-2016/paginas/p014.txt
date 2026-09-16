@@ -1,0 +1,44 @@
+A. Rainer, G. Schindl
+4.3 The cycle (1) ⇒(5) ⇒(6) ⇒(6′) ⇒(1)
+Obviously, (5) ⇒(6) ⇒(6′), and (1) ⇔(6′), by Subsect. 4.2. Finally, (1) ⇒(5) follows
+from the following proposition.
+Proposition 4 Let M be a weight matrix satisfying (M(rai)) and (M(Cω)). Let f : U →V be
+a C∞-mapping between open subsets U ⊆E and V ⊆F of Banach spaces E, F satisfying
+∀ν ∈, ρ > 0 ∃C ≥1 ∀k ∈N ∀x ∈U : ∥f (k)(x)∥Lk(E,F) ≤Cρk−1(k −1)!Mν
+k−1
+(4.10)
+and so that f ′(x0) ∈L(E, F) is invertible. Then there exist neighborhoods x0 ∈U0 ⊆U
+and f (x0) ∈V0 ⊆V and a C∞-mapping g : V0 →U0 satisfying
+∀μ ∈, σ > 0 ∃D ≥1 ∀k ∈N ∀y ∈V0 : ∥g(k)(y)∥Lk(F,E) ≤Dσ k−1(k −1)!Mμ
+k−1
+(4.11)
+and such that f ◦g = idV0.
+Proof Let λ ∈ be ﬁxed. By (M(rai)) and (M(Cω)), there exist μ, ν ∈ satisfying (4.8)
+and (4.9). If we set
+Lk−1 := sup
+x∈U
+1
+(k−1)!∥f (k)(x)∥Lk(E,F),
+then (4.10) implies L ◁Mν. In analogy to the proof of Proposition 3, we repeat the proof of
+Proposition 2 (and that of Lemma 2) with the sequences N 1 and N 2 provided by Lemma 4.
+⊓⊔
+5 Proof of Theorems 1, 2, 3, and 4
+5.1 Proof of Theorems 1 and 2
+Apply Theorems 5 and 6 to the constant weight matrix M = {M}.
+5.2 Proof of Theorems 3 and 4
+For a weight function ω and each ρ > 0 consider the sequence ρ ∈RN
+>0 deﬁned by
+ρ
+k := 1
+k! exp( 1
+ρ ϕ∗(ρk)).
+By the properties of ϕ∗, the collection W := {ρ : ρ > 0} forms a weight matrix, and we
+have E[ω](U) = E[W](U) as locally convex spaces, by [13]. Moreover, W satisﬁes (M(dc))
+as well as (M{dc}). If ω(t) = O(t) as t →∞, then W satisﬁes (MH), and if ω(t) = o(t) as
+t →∞, then W satisﬁes (M(Cω)). Thus Theorems 3 and 4 are immediate consequences of
+Theorems 5, 6, and [13, 6.3, 6.5].
+Appendix: Weight sequences as required in Remark 2
+Let us now ﬁnd explicit sequences that satisfy the requirements of Remark 2. To this end we
+construct a weight sequence M = (Mk) such that (Mk+1/Mk)1/k is bounded, M1/k
+k
+tends to

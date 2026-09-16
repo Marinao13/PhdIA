@@ -1,0 +1,68 @@
+8
+(C[[z]]M,h, | · |M,h) is a Banach space and we set C[[z]]{M} := ∪h>0C[[z]]M,h, the Carleman-
+Roumieu-type weighted space of formal power series, and C[[z]](M) := ∩h>0C[[z]]M,h, the
+Carleman-Beurling-type weighted space. C[[z]]{M} is an (LB) space and C[[z]](M) is a Fréchet
+space, when endowed with their natural locally convex topologies.
+The asymptotic Borel map eB sends a function f ∈e
+Au
+M,h(S) into its M-asymptotic expansion
+bf ∈C[[z]]M,h. By Proposition 2.8.(i) the asymptotic Borel map may be defined from e
+Au
+[M](S)
+or A[c
+M](S) into C[[z]][M] (with the aforementioned meaning), and from Ac
+M,h(S) into C[[z]]M,h,
+and it is continuous when considered between the corresponding (LB), Fréchet or Banach spaces.
+If M is (lc), eB is a homomorphism of algebras; if M is also (dc), differentiation commutes
+with eB. Finally, M ≈L implies C[[z]][M] = C[[z]][L], and the corresponding Borel maps are in
+all cases identical.
+We will focus on the surjectivity of the Borel map in unbounded sectors Sγ bisected by
+direction 0, as this problem is invariant under rotation. So, we define
+S[c
+M] :={γ > 0:
+eB : A[c
+M](Sγ) −→C[[z]][M] is surjective},
+eSu
+[M] :={γ > 0:
+eB : e
+Au
+[M](Sγ) −→C[[z]][M] is surjective}.
+The surjectivity intervals S[c
+M] and eSu
+[M] are either empty or left-open intervals having 0 as
+endpoint. By Proposition 2.8, we see that
+(eSu
+[M])◦⊆S[c
+M] ⊆eSu
+[M],
+(2.11)
+where I◦is the interior of I. The determination of these intervals is closely related to the existence
+of right inverses for the asymptotic Borel map, i. e., linear and continuous operators T such that
+eB ◦T is the identity map on a class of formal power series. They are naturally called extension
+operators, and they can be global, defined from C[[z]][M] onto e
+Au
+[M](S) or A[c
+M](S) (with their
+respective (LB) or Fréchet space structures), or local, at the level of Banach spaces, defined from
+C[[z]]M,h into some e
+Au
+M,h′(S) or Ac
+M,h′(S) for suitable h′ depending on h. In this latter case,
+it is common that a scaling of the type occurs, that is, h′ = ch for a universal constant c > 0
+independent from h.
+2.5
+Optimal flat functions and surjectivity of the Borel map in the Roumieu
+case and under (dc)
+The following result for the Roumieu case, already hinted in the work of V. Thilliez [26, Subsect.
+3.3] and resting on a result of H.-J. Petzsche [17, Th. 3.5], appeared, in a slightly different form,
+in [11, Lemma 4.5]. Since the result of Petzsche is equally valid for the Beurling case [17, Th.
+3.4], one can state the following.
+Lemma 2.9. Let M be a weight sequence. If eSu
+[M] ̸= ∅, then M satisfies (snq) or, equivalently,
+γ(M) > 0.
+Regarding the precise determination of the surjectivity intervals, the first seminal results
+appeared in a work of J. Schmets and M. Valdivia [24], whose results prove that
+(0, ⌈γ(M)⌉−1) ⊂S[c
+M],
+where ⌈x⌉is the least integer greater than or equal to a real number x. Moreover, for such
+openings surjectivity comes with local extension operators with scaling of the type, and with

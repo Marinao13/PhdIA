@@ -1,0 +1,36 @@
+19
+References
+[1] G. Auberson and G. Mennessier, Some properties of Borel summable functions, J.
+Math. Phys. 22 (1981), 2472-2481.
+[2] J. Jim´enez-Garrido, I. Miguel-Cantero, J. Sanz and G. Schindl, Stability properties
+of ultraholomorphic classes of Roumieu-type defined by weight matrices, Rev. Real
+Acad. Cienc. Exactas Fis. Nat. Ser. A-Mat. RACSAM 118, 85 (2024).
+[3] J. Jim´enez-Garrido, J. Sanz and G. Schindl, Sectorial extensions, via Laplace trans-
+forms, in ultraholomorphic classes defined by weight functions, Results Math. 74
+(2019), no. 1, 27.
+[4] J. Jim´enez-Garrido, J. Sanz and G. Schindl, Sectorial extensions for ultraholomor-
+phic classes defined by weight functions, Math. Nachr. 293 (2020), no. 11, 2140–
+2174.
+[5] H. Komatsu, Ultradistributions, I. Structure theorems and a characterization, J.
+Fac. Sci. Univ. Tokyo Sect. IA Math. 20 (1973), 25–105.
+[6] J. Mozo-Fern´andez, Teoremas de divisi´on y de Malgrange-Sibuya para funciones con
+desarrollo asint´otico fuerte en varias variables, Ph.D. thesis, University of Valladolid,
+1996.
+[7] J. P¨oschel, On the Siegel-Sternberg linearization theorem. J. Dyn. Diff. Equat. 33,
+1399–1425 (2021).
+[8] A. Rainer and G. Schindl, Composition in ultradifferentiable classes, Studia Math.
+224 (2014), no. 2, 97–131.
+[9] A. Rainer and G. Schindl, Equivalence of stability properties for ultradifferentiable
+function classes, Rev. R. Acad. Cienc. Exactas F´ıs. Nat. Ser. A Mat. RACSAM 110
+(2016), no. 1, 17–32.
+[10] B. Rodr´ıguez-Salinas,
+Clases de funciones anal´ıticas, clases semianal´ıticas y
+cuasianal´ıticas, Rev. R. Acad. Cienc. Exactas F´ıs. Qu´ım. Nat. Zaragoza (2) 17
+(1962), 5–75.
+[11] V. Thilliez, On quasianalytic local rings, Expo. Math. 26 (2008), no. 1, 1–23.
+Affiliations:
+Javier Jim´enez-Garrido:
+Departamento de Matem´aticas, Estad´ıstica y Computaci´on
+Universidad de Cantabria
+Avda. de los Castros, s/n, 39005 Santander, Spain
+Instituto de Investigaci´on en Matem´aticas IMUVA, Universidad de Valladolid

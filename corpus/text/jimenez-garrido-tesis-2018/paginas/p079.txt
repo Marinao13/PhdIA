@@ -1,0 +1,71 @@
+2.1. LOG-CONVEX SEQUENCES AND O-REGULAR VARIATION
+79
+Theorem 2.1.30 suggests that one may also nd relations for the Matuszewska indices of
+m, νm and ωM. This connection has been partially studied for functions in a recent work of
+D. Djur£i¢, R. Nikoli¢ and A. Torga²ev [26], where they analyze the O-regularly varying duality
+between a positive nondecreasing unbounded function f : [X, ∞) →(0, ∞) and the function
+f←(x) := inf{y ≥X; f(y) > x} = sup{y ≥X; f(y) ≤x}.
+for x ≥f(X). Even if some information can be inferred from their proofs, there is not a explicit
+correspondence between the indices. In our situation, we will show the duality between a weight
+sequence and its counting function.
+Proposition 2.1.38. Let M be a weight sequence. Then
+β(m) =
+1
+α(νm),
+α(m) =
+1
+β(νm),
+(with the typical conventions for 0 and ∞). Consequently, we recover the classical equivalence
+for the growth conditions of M and νm:
+(i) M has (mg) if and only if there exists H ≥1 such that lim inft→∞νm(Ht)/νm(t) > 1 (see
+[80, Lemma 2.2]).
+(ii) M satises (snq) if and only if νm(2t) = O(νm(t)) (see [17, Lemma
+12] for one of the
+implications).
+Proof. First we assume that 0 < γ < β(m), so, by Proposition 2.1.10, (p−γmp)p∈N is almost
+increasing, then (p−1mp1/γ)p∈N is almost increasing with constant D ≥1. We have that for
+every t ≥s ≥m0, there exist p, q ∈N0 such that q ≥p, s ∈[mp, mp+1) and t ∈[mq, mq+1). If
+q = p, we see that
+νm(s)
+s1/γ
+= νm(t)
+s1/γ
+≥νm(t)
+t1/γ ,
+and if q ≥p + 1 ≥1, we get
+νm(s)
+s1/γ
+≥
+p + 1
+(mp+1)1/γ ≥
+q
+D(mq)1/γ ≥
+q
+q + 1
+q + 1
+Dt1/γ ≥νm(t)
+2Dt1/γ ,
+that is, νm(t)/t1/γ is almost decreasing, then 1/γ ≥α(νm) and 1/β(m) ≥α(νm).
+Correspondingly, if γ > α(m), then ((p + 1)−1mp1/γ)p∈N0 is almost decreasing with constant
+d ∈(0, 1). For t ≥s ≥m0 taking p, q ∈N0 as before we see that
+νm(s)
+s1/γ
+≤
+p + 1
+(mp)1/γ ≤
+q + 2
+d(mq+1)1/γ ≤d−1 q + 2
+q + 1
+q + 1
+(t)1/γ ≤2d−1 νm(t)
+t1/γ ,
+then 1/γ ≤β(νm) and 1/α(m) ≤β(νm).
+Reciprocally, if γ > α(νm), there exists ε > 0 such that γ −ε > α(νm), so γ −ε > 0, since
+α(νm) ≥0 by Proposition 2.1.28.(i). Then, νm(t)/tγ−ε is almost decreasing which implies that
+there exists d ∈(0, 1) such that for every λ ≥1 and all t ≥m0 we have that
+νm(t) ≥dνm(λt)/λγ−ε.
+We x Q ∈N, large enough, such that Q(ε/2)/(γ−ε/2)d ≥1 and taking λ = Q1/(γ−ε/2) we see that
+νm(t)Q ≥νm(Q1/(γ−ε/2)t),
+t ≥m0.
+(2.14)
+Universidad de Valladolid

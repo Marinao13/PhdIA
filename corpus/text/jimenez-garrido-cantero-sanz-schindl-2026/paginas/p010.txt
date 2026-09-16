@@ -1,0 +1,94 @@
+10
+where the last estimate holds by Lemma 4.7. Finally, suppose f ∈e
+Au
+L,A(S) for some
+A > 0, then for all n ∈N0 we can estimate
+TM(f)(z) −
+n−1
+X
+k=0
+Rkckzk
+ ≤
+∞
+X
+j=0
+1
+2j
+Mj
+mj
+j
+f(mjz) −
+n−1
+X
+k=0
+ck(mjz)k
+
+≤∥f∥M,A,
+∼uAnLn|z|n
+∞
+X
+j=0
+1
+2j Mjmn−j
+j
+= ∥f∥M,A,
+∼uAnLnRn|z|n.
+By Lemma 4.7 we know that Rn ≤2Mn, so TM(f) ∈ALM,A(S), and moreover
+∥TM(f)∥LM,A,
+∼u =
+sup
+z∈S,n∈N0
+|TM(f)(z) −Pn−1
+k=0 Rkckzk|
+AnLnMn|z|n
+≤2∥f∥M,A,
+∼u.
+It follows that TM : e
+Au
+L,A(S) →e
+Au
+LM,A(S) is a well-defined continuous linear operator
+for any A > 0.
+Theorem 4.9. Let M be a (lc) sequence, L ∈RN0
+>0 and for a given sector S take
+f ∈e
+Au
+{L}(S) with f ∼u
+{L}
+P∞
+j=0 cjzj. If (|cj|)j∈N0 is equivalent to L, then (|cjRj|)j∈N0
+is equivalent to LM. Consequently, TM(f) is characteristic in the class e
+Au
+{LM}(S).
+Proof. The first assertion is clear from Lemma 4.7. The second one stems from Theo-
+rems 4.8 and 4.2.
+4.3
+Construction of characteristic functions
+Given a sequence M ∈RN0
+>0 and α > 0 we construct now, under suitable assumptions,
+characteristic functions in e
+Au
+{M}(Sα). For this we are using the basic functions from
+Subsection 4.1 and the characteristic transform from Subsection 4.2.
+Theorem 4.10. Let M ∈RN0
+>0 and α > 0.
+1. If α < 2, we assume that G
+2−αM := (j(2−α)jMj)j∈N0 is equivalent to an (lc)
+sequence L. Then, TL( eEα) is characteristic in the class e
+Au
+{M}(Sα).
+2. If α = 2, we assume that M is equivalent to an (lc) sequence L. Then, TL(KRS)
+is characteristic in the class e
+Au
+{M}(S2).
+3. If α > 2, we assume that there exists α′ > α such that G
+2−α′
+M := (j(2−α′)jMj)j∈N0
+is equivalent to an (lc) sequence L. Then, TL(fα,α′) is characteristic in the class
+e
+Au
+{M}(Sα).
+Proof. This follows by Theorems 4.3, 4.4, 4.5, 4.8 and 4.9, and from the fact that
+G
+α−2L in case 1, resp. L in case 2, resp. G
+α′−2L in case 3, is equivalent to M.

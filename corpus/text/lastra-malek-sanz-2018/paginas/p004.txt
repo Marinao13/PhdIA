@@ -1,0 +1,85 @@
+4
+with bisecting direction d ∈R, opening α π and (in the ﬁrst case) radius r ∈(0, ∞).
+A sectorial region G(d, α) will be a domain in R such that G(d, α) ⊂S(d, α), and for every
+β ∈(0, α) there exists ρ = ρ(β) > 0 with S(d, β, ρ) ⊂G(d, α).
+D(z0, r) stands for the disk centered at z0 with radius r > 0.
+For n ∈N, we put N = {1, 2, . . . , n}. If J is a nonempty subset of N, #J denotes its cardinal
+number.
+A polysector is a product of sectors, S = Qn
+j=1 Sj ⊂Rn. The polysector Qn
+j=1 S(dj, θj, ρj) (with
+ρj possibly equal to ∞) will be denoted by S = S(d, θ, ρ), with the obvious meaning for d, θ
+and ρ. In case ρj = +∞for j ∈N, we write S = S(d, θ).
+We say a polysector T = Qn
+j=1 T(d′
+j, θ′
+j, ρ′
+j) is a bounded proper subpolysector of S = S(d, θ, ρ),
+and we write T ≪S, if for j ∈N we have ρ′
+j < ρj (so that ρ′
+j < +∞) and
+(1)
+[d′
+j −θ′
+j/2, d′
+j + θ′
+j/2] ⊂(dj −θj/2, dj + θj/2).
+Finally, we say T = Qn
+j=1 T(d′
+j, θ′
+j) is an unbounded proper subpolysector of S = S(d, θ), and we
+write T ≺S, if for j ∈N we have (1). Given z ∈Rn, we write zJ for the restriction of z to J,
+regarding z as an element of RN .
+Let J and L be nonempty disjoint subsets of N. For zJ ∈RJ and zL ∈RL, (zJ, zL) represents
+the element of RJ∪L satisfying (zJ, zL)J = zJ, (zJ, zL)L = zL; we also write J′ = N \J, and for
+j ∈N we use j′ instead of {j}′. In particular, we shall use these conventions for multi-indices.
+For θ = (θ1, . . . , θn) ∈(0, ∞)n, we write Sθ = Qn
+j=1 Sθj and SθJ = Q
+j∈J Sθj ⊂RJ.
+If z = (z1, z2, . . . , zn) ∈Rn, α = (α1, α2, . . . , αn), β = (β1, β2, . . . , βn) ∈Nn
+0, we deﬁne:
+|α| = α1 + α2 + . . . + αn,
+α! = α1!α2! · · · αn!,
+Dα =
+∂α
+∂zα =
+∂|α|
+∂zα1
+1 ∂zα2
+2 ...∂zαn
+n ,
+ej = (0, . . . ,
+j)
+1, . . . , 0).
+For J ∈Nn
+0, we will frequently write j = |J|.
+2.2
+Asymptotic expansions
+Given A > 0, a sequence of positive real numbers M = (Mp)p∈N0 and a sector S, for every f in
+the class AM,A(S) one may put
+f (p)(0) :=
+lim
+z∈S,z→0 f (p)(z) ∈C
+for every p ∈N0. Then, f admits the formal power series P
+p∈N0
+1
+p!f (p)(0)zp as its uniform
+asymptotic expansion at 0, in the following sense.
+Deﬁnition 2.1. Let M = (Mp)p∈N0 be a sequence of positive real numbers and let f be a
+holomorphic function in a sector S with vertex at the origin. We say f admits the formal power
+series ˆf = P∞
+p=0 apzp ∈C[[z]] as its uniform M−asymptotic expansion in S of type A > 0 (when
+the variable tends to 0) if there exists C > 0 such that for every N ∈N, one has
+(2)
+
+f(z) −
+N−1
+X
+p=0
+apzp
+
+≤CANMN,
+z ∈S.
+We will write f ∼M
+P∞
+p=0 apzp (uniformly in S and with type A).

@@ -1,0 +1,72 @@
+JID:YJMAA
+AID:21635 /FLA
+Doctopic: Partial Diﬀerential Equations
+[m3L; v1.221; Prn:28/08/2017; 14:57] P.3 (1-17)
+S.A. Carrillo, J. Mozo-Fernández / J. Math. Anal. Appl. ••• (••••) •••–•••
+3
+If we can take CN(V ′) = C(V ′)A(V ′)NN!s, C(V ′), A(V ′) independent of N, the asymptotic expansion 
+is said to be of s-Gevrey type (denoted by f ∼s ˆf on V ). In this case ˆf ∈E[[x]]s, where E[[x]]s denotes the 
+space of s-Gevrey series, i.e. there exist C, A > 0 such that ∥an∥ ≤CAnn!s, for all n ∈N.
+Asymptotic expansions are unique, and respect algebraic operations and diﬀerentiation. In the Gevrey 
+case Watson’s lemma states that if f ∼s 0 on V (a, b, r) and b −a > sπ then f ≡0. This is the key point to 
+deﬁne k-summability, as is explained below.
+Deﬁnition 2.1. Let ˆf ∈E[[x]] be a formal power series, let k > 0 and let d be a direction.
+(1) The formal series ˆf is called k-summable on V = V (a, b, r) if b −a > π/k and there exists a map 
+f ∈O(V, E) such that f ∼1/k ˆf on V . If d is the bisecting direction of V then ˆf is called k-summable 
+in the direction d and f is called the k-sum of ˆf in direction d (or on V ).
+(2) The formal series ˆf is called k-summable, if it is k-summable in every direction with ﬁnitely many 
+exceptions mod. 2π (the singular directions).
+The space of k-summable series in the direction d will be denoted by E{x}1/k,d and the space of 
+k-summable series will be denoted by E{x}1/k. Both spaces inherit naturally a structure of algebra when 
+E is a Banach algebra.
+To calculate the k-sum of a k-summable series in a direction d we have at our disposal the Borel–Laplace 
+method that uses the following integral transformations:
+(1) The k-Borel transform, deﬁned as Bkf(ξ) =
+k
+2πi
+
+γ f(x)e(ξ/x)k
+dx
+xk+1 , where f ∈Ob(S, E), S = S(d, π/k+
+2ϵ, R0), 0 < 2ϵ < π/k and γ is the boundary of a sector at the origin of opening greater than π/k
+contained in S, oriented in the positive sense. It induces the formal k-Borel transform Bk, deﬁned for 
+elements of xkE[[x]] term by term using the formula Bk(xλ)(ξ) =
+ξλ−k
+Γ(λ/k) for λ ∈C.
+(2) The k-Laplace transform in direction d, deﬁned as Lk,d(g)(x) =
+ eid∞
+0
+g(ξ)e−(ξ/x)kdξk, where g is 
+continuous on the half-line with vertex at 0 and direction d and having exponential growth of order at 
+most k on its domain. When g is deﬁned on a sector of opening less than π/k, moving d leads to analytic 
+continuation of Lk,d(g), and we will simply write Lk(g).
+In order to sum ˆf ∈E[[x]]1/k, consider the convergent power series Bk(xk ˆf) and attempt to make analytic 
+continuation, say ϕ, to an inﬁnite sector W containing d. If this is possible and ϕ has exponential growth 
+of order at most k on W then ˆf is said to be k-Borel summable in direction d and its sum is deﬁned by 
+f(x) =
+1
+xk Lk(ϕ)(x). Since the previous integral transformations are inverses of each other and behave well 
+under Gevrey asymptotic expansions (see e.g. [1]) it follows that:
+Theorem 2.1 (Ramis). A power series ˆf ∈E[[x]] is k-Borel summable in a direction d if and only if it is 
+k-summable in the direction d and both sums coincide.
+We will extend now the concept of asymptotic expansions and k-summability in order to introduce 
+monomial asymptotics and summability in two variables. Indeed let p, q ∈N>0 be ﬁxed and consider the 
+monomial xp
+1xq
+2. For formal power series we may write any ˆf =  an,mxn
+1xm
+2 ∈E[[x1, x2]] uniquely as
+ˆf =
+∞
+
+n=0
+fn(x1, x2)(xp
+1xq
+2)n,
+fn =
+
+m<p or j<q
+anp+m,nq+jxm
+1 xj
+2.
+(2)

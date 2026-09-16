@@ -1,0 +1,7 @@
+266
+Solutions
+Section C.2:
+1. A = T −1diag [0, 2πi] T, hence eA = T −1diag [e0, e2πi] T = I.
+2. By deﬁnition, branches of the matrix logarithm cannot have eigen-
+values that diﬀer by integer multiples of 2πi.
+3. Insert into (C.1) and justify termwise integration.

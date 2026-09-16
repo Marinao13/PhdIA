@@ -1,0 +1,47 @@
+8.2 More on Transformation to Rational Form
+127
+3. Setting d(x) = 
+m dm(x), ˜d(x) = 
+m ˜dm(x), use the previous exer-
+cise to show functional equations, and from these compute the func-
+tions in terms of d1, ˜d1. In particular, show that both functions are
+holomorphic near the origin. Use this to conclude existence of d so
+that d(m)
+n
+, ˜d(m)
+n
+≤dn for every n, m.
+4. Use the previous exercises to show that T(u; m) and B(u; m) converge
+uniformly on every compact subset of the region G deﬁned in the
+proof of the above lemma.
+8.2
+More on Transformation to Rational Form
+In Theorem 11 (p. 52) we showed that a formal system can be transformed
+into a rational one – meaning a system with a coeﬃcient matrix being a ra-
+tional function with poles at the origin and inﬁnity only. Here we shall prove
+that, starting with a system (3.3) whose coeﬃcient matrix is r-summable,
+then so is the transformation obtained in the said theorem. Indeed, much
+more can be said:
+Proposition 19 For some d ∈R, let zx′ = ˆA(z) x and z˜x′ = ˆB(z) ˜x be
+two formal system of Poincar´e rank r ≥1 whose coeﬃcient matrices are
+r-summable in some direction d, and let ˆT(z) be a formal meromorphic
+transformation of Gevrey order s = 1/r satisfying (3.5). Furthermore, as-
+sume that −rd ̸= arg(µ −˜µ) mod 2π, for any two distinct eigenvalues µ, ˜µ
+of the leading term A0. Then ˆT(z) is also r-summable in direction d.
+Proof: Using Exercise 4 on p. 41, applied to the transpose of ˆT(z), we factor
+ˆT(z) = ˆT0(z) T(z) with a terminating meromorphic transformation T(z)
+and a formal analytic transformation ˆT0(z) of Gevrey order s and leading
+term I. Setting ˆB0(z) = (T(z) ˆB(z) + zT ′(z))T −1(z), we see that ˆB0(z)
+is also r-summable in direction d, while ˆT(z) is r-summable in direction
+d if and only if the same holds for ˆT0(z). This shows that in the proof
+we may without loss of generality assume that ˆT(z) is a formal analytic
+transformation with constant term I, and then the leading term of ˆB(z) is
+equal to A0, and its Poincar´e rank is again equal to r.
+Using the same notation as in the proof of Theorem 11 (p. 52), we con-
+clude from our assumptions that the matrices ur−1 A(u) and ur−1 B(u)
+are holomorphic in G = D(0, ρ) ∪S(−d, ε), for suﬃciently small ρ, ε > 0,
+and of exponential growth at most r there. Moreover, we conclude that
+T(u) is holomorphic in D(0, ρ), with ρ small enough, except for a pole of
+order at most r −1, and satisﬁes the integral equation (3.17) (p. 53) for
+|u| < ρ. Making the above ε > 0 smaller if necessary, we can arrange that
+the equation rur = µ −˜µ, with µ, ˜µ as above, does not have a solution in

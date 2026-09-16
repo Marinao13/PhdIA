@@ -1,0 +1,56 @@
+2.1 Systems with Good Spectrum
+19
+2.1
+Systems with Good Spectrum
+Here we prove a well-known theorem saying that for systems with good
+spectrum the matrix A0 always is a monodromy matrix. Moreover, a fun-
+damental solution can in principle be computed in a form from which the
+behavior of solutions near the origin may be deduced:
+Theorem 5 Every system (2.1) with good spectrum has a unique funda-
+mental solution of the form
+X(z) = S(z) zA0,
+S(z) =
+∞
+
+n=0
+Sn zn, S0 = I,
+|z| < ρ.
+(2.2)
+The coeﬃcients Sn are uniquely determined by the relations
+Sn (A0 + nI) −A0 Sn =
+n−1
+
+m=0
+An−m Sm,
+n ≥1.
+(2.3)
+Proof: Inserting the “Ansatz” (2.2) into (2.1) and comparing coeﬃcients
+easily leads to the recursion equations (2.3). Lemma 24 (p. 212) implies
+that the coeﬃcients Sn are uniquely determined by (2.3), owing to as-
+sumption E. Hence we are left to show that the resulting power series for
+S(z) converges as desired. To do this, we proceed similarly to the proof of
+Lemma 1 (p. 2): We have ∥An∥≤c Kn for every constant K > 1/ρ and
+suﬃciently large c > 0, depending upon K. Abbreviating the right-hand
+side of (2.3) by Bn, we obtain ∥Bn∥≤c n−1
+m=0 Kn−m ∥Sm∥, n ≥1. Divide
+(2.3) by n and think of the elements of Sn arranged, in one way or another,
+into a vector of length ν2. Doing so, we obtain a linear system of equa-
+tions with a coeﬃcient matrix of size ν2 × ν2, whose entries are bounded
+functions of n. Its determinant tends to 1 as n →∞, and is never going
+to vanish, according to E. Consequently, the inverse of the coeﬃcient ma-
+trix also is a bounded function of n. These observations imply the estimate
+∥Sn∥≤n−1˜c∥Bn∥, n ≥1, with suﬃciently large ˜c, independent of n. Let
+s0 = ∥S0∥, sn = n−1ˆc n−1
+m=0 Kn−m sm, n ≥1, with ˆc = ˜c c, and conclude
+by induction ∥Sn∥≤sn, n ≥0. The power series f(z) = ∞
+0 sn zn for-
+mally satisﬁes f ′(z) = ˆcK f(z) (1−Kz)−1, and as in the proof of Lemma 1
+(p. 2) we obtain convergence of f(z) for |z| < K−1, hence convergence of
+S(z) for |z| < ρ.
+2
+Note that the above theorem coincides with Lemma 1 (p. 2) in case of
+A0 = 0, which trivially has good spectrum. Moreover, the theorem obvi-
+ously solves the three problems stated above in quite a satisfactory manner:
+The computation of a monodromy matrix is trivial, the corresponding S(z)
+has a removable singularity at the origin, det S(z) attains value 1 there, and
+the coeﬃcients of its Laurent expansion, which here is a power series, can

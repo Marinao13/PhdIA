@@ -1,0 +1,72 @@
+EQUALITY OF ULTRADIFFERENTIABLE CLASSES BY MEANS OF INDICES
+15
+Note that (3.19) cannot be valid for M = N (see Remark 2.2) and in particular this result applies
+for any (non-constant) weight matrix M := {M x : x ∈I} being (Msc) and satisfying (M{L}) resp.
+(M(L)).
+Proof. The argument in (ii) ⇒(iii) in Lemma 3.1 may be repeated verbatim in order to yield
+that ωN(Ct) ≤ωM(t) + D1 for some D1 ≥1 and all t ≥0. Hence
+lim sup
+t→∞
+ωN(Ct)
+ωM(t) ≤1 < Ca
+for any a > 0, which gives the conclusion.
+□
+The next main result shows that the values deﬁned in (3.17) and (3.18) are closely related.
+Proposition 3.6. Let M, N ∈LC be given with M ≤N and let ωM, ωN be the corresponding
+associated weight functions, then we get
+β(M, ΩN) =
+1
+α(ωM, ωN).
+Proof. Suppose β(M, ΩN) > 0 and let 0 < b < β(M, ΩN), so (3.16) is valid for b, and then there
+exists some q > 1 and C ≥1 such that for all t ≥0 we get ϕ∗
+ωN(tq) ≥qϕ∗
+ωM (t) + tq log(qb) −C. We
+apply the Young conjugate to this inequality. Hence for all s ≥log(qb) we have
+ωN(es) = ϕωN(s) = ϕ∗∗
+ωN (s) = sup
+t≥0
+{st −ϕ∗
+ωN (t)}
+= sup
+t≥0
+{sqt −ϕ∗
+ωN (tq)} ≤sup
+t≥0
+{sqt −qϕ∗
+ωM (t) −tq log(qb)} + C
+= q sup
+t≥0
+{t(s −log(qb)) −ϕ∗
+ωM (t)} + C = qϕ∗∗
+ωM (s −log(qb)) + C
+= qϕωM (s −log(qb)) + C = qωM(es/qb) + C.
+Consequently there does exist C1 ≥1 such that for all t ≥0 we have ωN(tqb) ≤qωM(t) + C1, i.e.
+lim supt→+∞
+ωN(Kt)
+ωM(t) ≤K1/b with K := qb > 1 and so (ωMx, ωMy)ω1,1/b′ holds with this choice K
+for any b′ < b. Hence we have shown α(ωM, ωN) ≤1/b′, and by making b′ tend to b and then b
+tend to β(M, ΩN), we deduce that α(ωM, ωN) ≤1/β(M, ΩN).
+Conversely, suppose that α(ωM, ωN) < ∞and let a > (ωM, ωN)ω1, then (ωM, ωN)ω1,a is valid with
+some K > 1. So there exist C ≥1 and 0 < b < a such that ωN(Kt) ≤KbωM(t) + C for all t ≥0.
+Hence by setting k := log(K) > 0 and s := log(t) we have ϕωN (k + s) = ωN(ek+s) = ωN(Kt) ≤
+KbωM(es) + C = KbϕωM (s) + C for all s ∈R. Applying the Young-conjugate yields for all s ≥0:
+ϕ∗
+ωN (s) = sup
+t∈R
+{st −ϕωN (t)} = sup
+t∈R
+{s(k + t) −ϕωN (k + t)}
+≥sup
+t∈R
+{s(k + t) −KbϕωM (t)} −C = sup
+t≥0
+{st −KbϕωM (t)} −C + sk
+= Kb sup
+t≥0
+{(s/Kb)t −ϕωM (t)} −C + sk = Kbϕ∗
+ωM (s/Kb) −C + sk.
+Hence we have shown
+∃K > 1 ∃C ≥1 ∀s′ ≥0 :
+Kbϕ∗
+ωM (s′) + s′Kb log(K) ≤ϕ∗
+ωN(sKb) + C,

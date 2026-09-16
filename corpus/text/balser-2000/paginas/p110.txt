@@ -1,0 +1,56 @@
+5.8 Convolution of Kernels
+93
+remains in S−where then E(wt) is bounded. By adding a corresponding
+integral from 0 to 1/r, we can with help of Cauchy’s theorem also integrate
+along the ray arg w = ∓(π +ε)/(2k). Doing so, and using (5.15), we obtain
+k±(t, u) + −1
+2πi
+ 1/r
+0
+E(wt) e(wu)dw
+w =
+1
+2πi
+u
+t −u.
+(5.19)
+This shows k+(t, u) = k−(t, u), and k±(t, u) is analytic for u ∈S+ and
+arbitrary t, except for t = u. Hence we obtain
+(T −g)(t) = f+(t) −f−(t) =
+
+γ
+f(u) k±(t, u)du
+u ,
+where the path γ is from inﬁnity to the origin along the ray arg u = −δ,
+and back to inﬁnity along arg u = δ. For |u| > |t|, we can deform both
+rays to be along the real axis, and then these parts of the integral cancel.
+Therefore, we ﬁnd that γ may as well be replaced by a closed Jordan curve
+encircling t and having negative orientation. This, together with (5.19) and
+Cauchy’s formula, then implies T −g = f.
+2
+Exercises: In the following exercises, let e(z) be a kernel function of
+order k > 0, and consider the corresponding integral operators T and T −.
+1. Let S be a sector of inﬁnite radius, and let A denote a subspace of
+A(k)(S, E ) that is an asymptotic space, in the sense deﬁned on p. 75.
+Show that then the image of A under the operator T is again an
+asymptotic space.
+2. Let G be a sectorial region of opening more than π/k, and let A de-
+note a subspace of H(G, E ) which is an asymptotic space. Show that
+then the image of A under the operator T −is again an asymptotic
+space.
+5.8
+Convolution of Kernels
+In this section, we consider two pairs of operators Tj, T −
+j
+of order kj with
+corresponding moment functions mj(u), 1 ≤j ≤2. We will try to ﬁnd a
+third pair T, T −of operators, so that T coincides with T +
+1 ◦T +
+2 , resp. T =
+T +
+2 ◦T −
+1 , at least when applied to the geometric series. Consequently, the
+corresponding m(u) equals either the product m2(u) m1(u) or the quotient
+m2(u)/m1(u). In the ﬁrst case the new operators clearly will have to have
+order k = (1/k1 + 1/k2)−1, because it follows from Stirling’s formula that
+m(n) is of order Γ(1 + n/k). In the second case, their order will be k =

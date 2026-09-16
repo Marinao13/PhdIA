@@ -1,0 +1,49 @@
+168
+10. Multisummable Power Series
+set of all singular multidirections will be called the singular set of ˆf (with
+respect to k).
+Inspecting the deﬁnition of E {z}k,d, one sees that the reason for ˆf ̸∈
+E {z}k,d, i.e., d singular, will be connected to the “level” j, since it may be
+so that the functions fj, . . . , fq, deﬁned in Exercise 2 on p. 162, all exist, but
+fj cannot be holomorphically continued into any sector of inﬁnite radius
+and bisecting direction dj, or in every such sector has exponential growth
+larger than κj, so that application of the next operator fails. If this occurs,
+we shall say that d is singular of level j.
+Let d = (d1, . . . , dq) be singular of level j for ˆf. Then the above discussion
+implies that all multidirections ˜d = ( ˜d1, . . . , ˜dq) with ˜dν = dν for j ≤ν ≤q
+are automatically singular of level j for ˆf, and we shall identify all these
+singular multidirections. Moreover, in view of Lemma 19 (p. 163) we may
+also identify admissible multidirections d and ˜d with dj −˜dj = 2µπ, for
+some µ ∈Z. After doing so, the singular set of ˆf may or may not contain
+ﬁnitely many elements. If it does, we shall say that ˆf is k-summable. As
+for q = 1 we shall write E {z}k for the set of all k-summable formal power
+series with coeﬃcients in E .
+For q = 1 we have seen that absence of singular directions implies con-
+vergence of the series ˆf. This generalizes to arbitrary q as follows:
+Proposition 22 Let k = (k1, . . . , kq), q ≥2, be admissible, and assume
+that ˆf ∈E {z}k has no singular multidirections of level j, for some ﬁxed j,
+1 ≤j ≤q. Then ˆf ∈E {z}˜k, with ˜k = πj(k) = (k1, . . . , kj−1, kj+1, . . . , kq).
+Moreover, for every nonsingular multidirection d = (d1, . . . , dq) correspond-
+ing to k, the multidirection ˜d = (d1, . . . , dj−1, dj+1, . . . , dq) is nonsingular
+with respect to ˜k, and Sk,d ˆf = S˜k, ˜d ˆf.
+Proof: Without loss of generality, we assume that the operators Tj used
+are all Laplace operators of orders κj. Absence of singular multidirections
+of level j = q implies that fq = S ( ˆT −1
+q
+◦. . . ◦ˆT −1
+1
+ˆf) is entire and of
+exponential growth κq in arbitrary sectors of inﬁnite radius. This shows
+that fq−1 = Tq fq is holomorphic at the origin, completing the proof in
+this case. For j ≤q −1, consider any nonsingular multidirection d and the
+corresponding functions f0, . . . , fq deﬁned in Exercise 2 on p. 162. Absence
+of singular multidirections of this level shows existence of a sector S of
+inﬁnite radius, bisecting direction dj+1 and opening more than π/κj+1
+in which fj is holomorphic and of exponential growth at most κj. For
+fj+1 = T −1
+j+1 fj, we obtain from Exercise 2 on p. 821 that fj+1(z) is of
+exponential growth not larger than k, with 1/k = 1/κj +1/κj+1, in a small
+sector with bisecting direction dj+1. Consequently, the operator Tj ∗Tj+1
+can be applied to connect fj+1 with fj−1. This is equivalent to saying that
+1By choice of the operators, T −1
+j+1 is the Borel operator of order κj+1.

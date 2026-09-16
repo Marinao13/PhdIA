@@ -1,0 +1,69 @@
+8
+CONTENTS
+3.3
+Surjectivity of the asymptotic Borel map
+. . . . . . . . . . . . . . . . . . . . . . 121
+3.3.1
+Weight sequences . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 122
+3.3.2
+Weight sequences satisfying derivation closedness condition
+. . . . . . . . 129
+3.3.3
+Strongly regular sequences . . . . . . . . . . . . . . . . . . . . . . . . . . . 131
+3.3.4
+Sequences admitting a nonzero proximate order . . . . . . . . . . . . . . . 134
+4
+Multisummability via proximate orders
+137
+4.1
+M−summability . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 138
+4.1.1
+M−summability kernels . . . . . . . . . . . . . . . . . . . . . . . . . . . . 138
+4.1.2
+Generalized Laplace and Borel transforms . . . . . . . . . . . . . . . . . . 142
+4.1.3
+M−summability and e−summability . . . . . . . . . . . . . . . . . . . . . 144
+4.2
+Tauberian theorems
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 146
+4.2.1
+Comparison of sequences . . . . . . . . . . . . . . . . . . . . . . . . . . . . 146
+4.2.2
+Product and quotient of sequences . . . . . . . . . . . . . . . . . . . . . . 149
+4.2.3
+Tauberian theorems
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 152
+4.3
+Multisummability . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 154
+4.3.1
+Moment-kernel duality . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 155
+4.3.2
+Strong kernels of M−summability . . . . . . . . . . . . . . . . . . . . . . . 158
+4.3.3
+Convolution kernels
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 160
+4.3.4
+Acceleration kernels
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 169
+4.3.5
+Multisummability through acceleration . . . . . . . . . . . . . . . . . . . . 178
+5
+A Phragmén-Lindelöf theorem via proximate orders and the propagation of
+asymptotics
+183
+5.1
+M−atness extension . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 184
+5.2
+Watson's Lemmas
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 192
+5.3
+Asymptotic expansion extension . . . . . . . . . . . . . . . . . . . . . . . . . . . . 195
+Conclusiones y trabajo futuro
+197
+Conclusions and future work
+201
+Notation
+205
+Bibliography
+211
+JAVIER JIMÉNEZ GARRIDO

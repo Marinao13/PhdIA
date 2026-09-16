@@ -1,0 +1,63 @@
+4
+Two sequences M = (Mp)p∈N0 and L = (Lp)p∈N0 of positive real numbers, with M0 = L0 = 1
+and with respective quotient sequences m and ℓ, are said to be equivalent, and we write M ≈L,
+if there exist positive constants A, B such that ApMp ≤Lp ≤BpMp, p ∈N0. They are said
+to be strongly equivalent, denoted by m ≃ℓ, if there exist positive constants a, b such that
+amp ≤ℓp ≤bmp, p ∈N0. Whenever m ≃ℓwe have M ≈L but, in general, not conversely.
+In case M0 or L0 is not equal to 1, the previous deﬁnitions of equivalence are meant to deal
+with the normalized sequences (Mp/M0)p∈N0 or (Lp/L0)p∈N0.
+2.2
+Index γ(M) and auxiliary functions for weight sequences and functions
+The index γ(M), introduced by V. Thilliez [31, Sect. 1.3] for strongly regular sequences M, can be
+equally deﬁned for (lc) sequences, and it may be equivalently expressed by diﬀerent conditions:
+(i) A sequence (cp)p∈N0 is almost increasing if there exists a > 0 such that for every p ∈N0 we
+have that cp ≤acq for every q ≥p. It was proved in [10, 11] that for any weight sequence
+M one has
+γ(M) = sup{γ > 0 : (mp/(p + 1)γ)p∈N0 is almost increasing} ∈[0, ∞].
+(1)
+(ii) For any β > 0 we say that m satisﬁes the condition (γβ) if there exists A > 0 such that
+∞
+X
+ℓ=p
+1
+(mℓ)1/β ≤A(p + 1)
+(mp)1/β ,
+p ∈N0.
+(γβ)
+In [8, 11] it is proved that for a weight sequence M,
+γ(M) = sup{β > 0; m satisﬁes (γβ) };
+γ(M) > β ⇐⇒m satisﬁes (γβ).
+(2)
+If we observe that the condition (snq) for M is precisely (γ1) for bm, the sequence of quotients
+for bM, and that γ( bM) = γ(M) + 1 (this is clear from (1)), we deduce from the second statement
+in (2) that
+M satisﬁes (snq) if, and only if, γ(M) > 0.
+(3)
+Given a weight sequence M = (Mp)p∈N0, we write
+ωM(t) := sup
+p∈N0
+ln
+ tp
+Mp
+
+,
+t > 0,
+and ωM(0) = 0. This is the classical (continuous, nondecreasing) function associated with the
+sequence M, see [14].
+Another associated function will play a key-role, namely
+hM(t) := inf
+p∈N0 Mptp,
+t > 0.
+The functions hM and ωM are related by
+hM(t) = exp(−ωM(1/t)),
+t > 0.
+(4)
+In [14, Prop. 3.2] we ﬁnd that, for a weight sequence M,
+Mp = sup
+t>0
+tp exp(−ωM(t)) = sup
+t>0
+tphM(1/t),
+p ∈N0.
+(5)
+We record for the future some elementary facts about hM.

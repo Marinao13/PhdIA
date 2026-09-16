@@ -1,0 +1,44 @@
+160
+10. Multisummable Power Series
+power series can be written as a sum of ﬁnitely many formal power series,
+each of which is k-summable, in some direction, for an individual k > 0,
+depending on the series. Thus, roughly speaking, the set of multisummable
+power series is the linear hull of the union of the sets of k-summable ones.
+This description, although quite suggestive, is not entirely correct, as one
+also has to consider the corresponding directions, but that shall be made
+clearer later on.
+Several authors have presented and/or applied Ecalle’s theory of mul-
+tisummability, e.g., Martinet and Ramis [186, 187], Malgrange and Ramis
+[185], Loday-Richaud [169, 170], Thomann [260–262], Balser and Tovbis
+[43], Malgrange [184], and Jung, Naegele, and Thomann [142].
+10.1
+Convolution Versus Iteration of Operators
+In Sections 5.5 and 5.6 we introduced general kernel functions e(z) and cor-
+responding integral operators T. The most important examples of kernels
+of order k > 0 are e(z) = k zk exp[zk]; the corresponding operators be-
+ing Laplace resp. Borel operators. Other examples are Ecalle’s acceleration
+operators, which shall be investigated in the following chapter.
+Given two kernels e1(z), e2(z) of orders k1, k2 > 0 with corresponding
+operators T1, T2 and moment functions m1(u), m2(u), we have deﬁned
+in Theorem 31 (p. 94) a new kernel e(z) of order k = (1/k1 + 1/k2)−1
+with corresponding moment function m1(u) m2(u). This kernel e(z) shall
+be called the convolution e1 ∗e2 of e1 and e2. It deﬁnes an integral operator
+T1 ∗T2, for which we now investigate its relation with T1 ◦T2.
+Lemma 18 Under the above assumptions, let f ∈A(k)(S(d, ε), E ), for
+some d ∈R, ε > 0, so that T1∗T2 f is deﬁned. Then g = T2 f is holomorphic
+in the sector S(d, ε + π/k2), and is of exponential growth not more than k1
+there; consequently, T1 g is deﬁned, integrating along any direction d1 with
+2|d −d1| < ε + π/k2, and T1 g = T1 ∗T2 f.
+Proof: Use the deﬁnition of e1 ∗e2 and justify interchanging the order of
+integration in the formula representing T1 ∗T2 f.
+2
+The above lemma shows that T1 ∗T2 equals T1 ◦T2 whenever the ﬁrst one
+is deﬁned. However, examples show that T1 ◦T2 can be applied to a wider
+set of functions. In a sense, this observation is the key to multisummability.
+Exercises: In the following exercises, let kernels ej(z) of arbitrary orders
+κj > 0 (1 ≤j ≤q) be given.
+1. Show e1 ∗e2 = e2 ∗e1, (e1 ∗e2) ∗e3 = e1 ∗(e2 ∗e3).
+2. Let f ∈A(k)(S(d, ε), E ), for k−1 = q
+1 κ−1
+j . Show T1 ∗. . . ∗Tq f =
+T1 ◦. . . ◦Tq f and discuss the choice of directions of integration in

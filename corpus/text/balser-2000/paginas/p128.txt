@@ -1,0 +1,73 @@
+6.6 Factorial Series
+111
+Proposition 15 Let d ∈R be given. For an arbitrary formal power series
+ˆf(z) = ∞
+0 fn zn ∈E {z}1,d, let ω = reid, r > 0, and deﬁne
+bn(ω) =
+n
+
+m=1
+ωmfm Γn
+n−m,
+n ≥1.
+(6.2)
+Then for every suﬃciently small r > 0, there exists a number c > 0 so that
+the factorial series
+f(z) =
+∞
+
+n=1
+bn(ω)
+(ω/z + 1) · . . . · (ω/z + n)
+(6.3)
+converges absolutely for Re (ω/z) > c. The function f(z) then does not
+depend upon r, and
+f0 + f(z) = (S1,d ˆf)(z),
+(6.4)
+for such z where both sides give sense.
+Proof: According to our assumptions, the function g = S ( ˆB1 ˆf) is an-
+alytic in G = D(0, ρ) ∪S(d, ε), for suﬃciently small ρ, ε > 0. With r
+small enough, the function g(uω) is holomorphic in the region deﬁned by
+|1−e−u| < 1, and continuous up to its boundary. In other words, the func-
+tion h(t) = g(−ω log[1 −t]) is analytic in the unit disc, and continuous
+along its boundary except for a singularity at t = 1. In the sector S(d, ε),
+the function g(u) is of exponential growth at most one. We may assume
+without loss of generality that ε ≤π/2, so that this fact can be expressed
+as |g(u)| ≤c| exp[K u e−id]| in G, for suﬃciently large c, K > 0. This then
+implies
+|h(t)| ≤
+c
+|1 −t|rK ,
+|t| ≤1,
+(6.5)
+and we may take 0 < r < 1/K, so that h(t) has an integrable singularity
+at t = 1. As follows from Exercise 4 below, the coeﬃcients hn of the power
+series expansion of h(t) about the origin are equal to bn(ω)/n!, with bn(ω)
+given by (6.2), for n ≥1, while h0 = f0. Using Cauchy’s Formula and (6.5),
+we ﬁnd for the remainder term hN(t) = ∞
+n=N hn tn:
+|hN(t)| =
+
+tN
+2πi
+
+|u|=1
+h(u) du
+uN (u −t)
+ ≤
+c
+2π|1 −t|
+ 2π
+0
+dφ
+|1 −eiφ|Kr ,
+for 0 ≤t < 1. In the original variable u, this implies
+g(u) = f0 +
+∞
+
+n=1
+bn(ω)
+n!
+(1 −e−u/ω)n, |gN(u)| = |hN(1 −e−u/ω)| ≤˜c|eu/ω|,
+for arg u = d. Hence, by means of Lebesgue’s dominated convergence theo-
+rem, we conclude that we may insert the expansion for g(u) into Laplace

@@ -1,0 +1,47 @@
+14. Some Historical Remarks
+209
+so that each factor is k-summable, but with the number k depending upon
+the factor. In my treatment of ﬁrst-level formal solutions [8–10, 12, 40]
+I had, more or less by accident, independently obtained the same result.
+However, this factorization of formal solutions is not truly eﬀective, and
+the factors are not uniquely determined, so that this result does not really
+allow us to compute the resulting matrix function from the formal series.
+More recently, Ecalle [94–96] presented a way to achieve this computa-
+tion, introducing his deﬁnition of multisummability. In a sense, his method
+diﬀers from Ramis’s deﬁnition of k-summability by cleverly enlarging the
+class of functions to which the Laplace operator, in some generalized form,
+can be applied. Another way of interpreting his method is by realizing that
+Ramis’s k-summability in essence is a special case of what is called a Mo-
+ment Summability Method. The rapidly growing coeﬃcients of the formal
+power series are divided by a moment sequence to produce a convergent
+power series; then, the resulting holomorphic function is inserted into an
+integral operator, and the function so obtained is regarded as the sum of
+the original power series. Multisummability may be seen as the concept of
+iterating certain Moment Summability Methods. Given a power series with
+a radius of convergence equal to zero, we divide by a moment sequence
+as in the case of k-summability. The resulting series, however, will in gen-
+eral not be convergent, but instead is summable by some other Moment
+Method, which then produces a function to which the integral operator can
+be applied.
+The idea of iteration of summability methods was already familiar to
+Hardy [112] and Good [110], but it was Ecalle who realized its potential
+with respect to formal solutions of ODE. He stated without proofs a large
+number of results concerning properties and applications of multisumma-
+bility, e.g., to formal solutions of nonlinear systems of ODE. Based upon
+the described factorization of formal solutions in the linear case, it was
+more or less evident that multisummability applied to all formal solutions
+of linear systems. However, for nonlinear ones, the ﬁrst complete proof for
+this fact was given by Braaksma [70]. Independent proofs, using diﬀerent
+techniques, are due to Ramis and Sibuya [230] and myself [21].
+Before Ecalle founded the theory of multisummability, researchers at-
+tacked the ﬁrst one of the two questions raised above following diﬀerent
+approaches: The main reason for wanting to have a unique solution that,
+say, near the point inﬁnity, is asymptotic to the formal fundamental so-
+lution in some (small) sector lies in the fact that one wanted to have a
+clear description of what is called Stokes’ phenomenon. This term refers
+to the fact that in diﬀerent sectors one ﬁnds diﬀerent solutions with the
+same asymptotic behavior as the variable tends to inﬁnity. One way out
+of the dilemma was to just select a solution for each sector, study their
+interrelations, i.e., their dependence upon the sector, and then investigate
+how these relations change when one picks a diﬀerent set of solutions. This
+line of approach leads to a description of Stokes’ phenomenon in terms

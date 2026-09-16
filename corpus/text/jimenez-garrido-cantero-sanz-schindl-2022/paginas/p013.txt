@@ -1,0 +1,107 @@
+13
+For every p ∈N0 we deﬁne the p-th moment of the function e(z), given by
+m(p) :=
+Z ∞
+0
+tpe(t) dt.
+Note that the positive value m(0) need not be equal to 1.
+The following result is crucial for our aim.
+Proposition 3.11. Suppose bM is a regular sequence and G is an optimal {M}-ﬂat function in
+e
+Au
+{M}(S). Consider the sequence of moments m := (m(p))p∈N0 associated with the kernel function
+e(z) = G(1/z). Then, there exist B1, B2 > 0 such that
+m(0)Bp
+1Mp ≤m(p) ≤m(0)Bp
+2Mp,
+p ∈N0.
+(28)
+In other words, M and m are equivalent.
+Proof. We only need to reason for p ∈N. On the one hand, because of the right-hand inequalities
+in (27) and Lemma 2.1.(ii), for every p ∈N and s > 0 we may write
+m(p) =
+Z s
+0
+tpe(t) dt +
+Z ∞
+s
+1
+t2 tp+2e(t) dt
+≤K3
+Z s
+0
+tp dt + K3 sup
+t>0
+tp+2hM
+K4
+t
+ Z ∞
+s
+1
+t2 dt
+= K3
+sp+1
+p + 1 + K3
+1
+sKp+2
+4
+Mp+2 ≤K3
+ sp+1
+p + 1 + (K4D)p+2Mp
+s
+
+.
+Note that in the last equality we have used (5), and then we have applied (dc) with a suitable
+constant D > 0. Since s > 0 was arbitrary, we ﬁnally get
+m(p) ≤inf
+s>0 K3
+ sp+1
+p + 1 + (K4D)p+2Mp
+s
+
+= K3
+p + 2
+p + 1(K4D)p+1(Mp)(p+1)/(p+2) ≤m(0)Bp
+2Mp
+for a suitably enlarged constant B2 > 0 (observe that p ≥1 and that, eventually, Mp ≥1).
+On the other hand, by the left-hand inequalities in (27) and Lemma 2.1.(i), for every p ∈N
+and s > 0 we may estimate
+m(p) ≥
+Z s
+0
+tpe(t) dt ≥K1
+Z s
+0
+tphM
+K2
+t
+
+dt ≥K1hM
+K2
+s
+ sp+1
+p + 1.
+Then, again by (5), we deduce that
+m(p) ≥
+K1
+p + 1 sup
+s>0
+hM
+K2
+s
+
+sp+1 =
+K1
+p + 1Kp+1
+2
+Mp+1 ≥m(0)Bp
+1Mp
+for a suitable constant B1 > 0 (note that M is eventually nondecreasing).
+✷
+We can already state the following main result. The forthcoming implication (ii) ⇒(v) for
+strongly regular sequences M was ﬁrst obtained by V. Thilliez [31, Th. 3.2.1], and the proof heav-
+ily rested on the moderate growth condition, both for the construction [31, Th. 2.3.1] of optimal
+{M}-ﬂat functions in sectors Sγ for every γ > 0 such that γ < γ(M), and for the subsequent use
+of Whitney extension results in the ultradiﬀerentiable setting. In [16] the implication (ii) ⇒(iii)
+was proved again for strongly regular sequences, but with a completely diﬀerent technique, and
+it is this approach which allows here for the weakening of condition (mg) into (dc).

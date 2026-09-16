@@ -1,0 +1,62 @@
+9.3 The Associated Functions
+149
+So (n, m) ∈Suppj(k),n1 holds if and only if n ≺m. Similarly, one ﬁnds
+(n, m) ∈Suppj(k)−n1,n1 if and only if m ≺n. In both cases, we write C(k)
+n,m
+for the corresponding block of C+
+k , resp. C−
+k . Using this terminology, we
+state the following central result for the behavior of the associated functions
+at the points un:
+Theorem 46 Let a normalized system (3.1) with a normalized HLFFS
+( ˆF(z), Y (z)) be given, and let d be a nonsingular direction. For every n ̸= m
+and every s ∈C for which (I −e2πi (sI+Ln))−1 exists, the corresponding
+associated functions satisfy
+Φm(u; s; k) =
+!r−1
+
+ℓ=0
+Φn(u; s; k + ℓ)
+"
+(I −e−2πi (sI+Ln))−1 C(k)
+nm +hol(u−un),
+whenever n ≺m in the above sense, while in the opposite case we have
+Φm(u; s; k) =
+! r
+
+ℓ=1
+Φn(u; s; k + ℓ)
+"
+(e−2πi (sI+Ln) −I)−1 C(k)
+nm +hol(u−un).
+Proof: For the proof, we shall restrict ourselves to the ﬁrst case; the argu-
+ments in the second are very much analogous. Recall that Φ∗
+n(u; s; k) is holo-
+morphic everywhere except at un. Using this, together with the form of C±
+k ,
+we conclude from (9.11) that Φm(u; s; k) = Φ∗
+n(u; s; k) C(k)
+nm + hol(u −un).
+From Lemma 15 and (9.10) we conclude r−1
+ℓ=0 Φn(u; s; k+ℓ) = Φ∗
+n(u; s; k)−
+Φ∗
+n(u; s; k + r) + hol(u −un) = Φ∗
+n(u; s; k) (I −e−2πi (sI+Ln)) + hol(u −un),
+completing the proof.
+2
+This theorem has the following consequence:
+Corollary to Theorem 46 Under the assumptions of the above theorem,
+let Φm,n(u; s; k) stand for the continuation of Φm(u; s; k) across the nth cut
+in the positive, resp. negative, sense whenever n ≺m, resp. m ≺n. Then
+in both cases
+Φm(u; s; k) −Φm,n(u; s; k) = Φn(u; s; k) C(k)
+nm.
+(9.12)
+Proof: Observe that Φn(u; s; k + ℓ), when continued across the nth cut in
+the positive sense, becomes Φn(u; s; k + 1 + ℓ), while terms holomorphic at
+un remain unchanged.
+2
+The above identities theoretically may be used to compute all Stokes’
+multipliers of highest level. This shall be investigated in some detail in
+Section 9.5.

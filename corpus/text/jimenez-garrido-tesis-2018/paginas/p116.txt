@@ -1,0 +1,63 @@
+116
+CHAPTER 3.
+INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+β ≤α
+α < β ≤α + 1
+β > α + 1
+IMα,β
+[α, ∞)
+[α, ∞)
+(α, ∞)
+˜Iu
+Mα,β
+[α, ∞)
+(α, ∞)
+(α, ∞)
+˜IMα,β
+(α, ∞) or [α, ∞)?
+(α, ∞)
+(α, ∞)
+Table 3.2: Injectivity intervals for the sequence Mα,β with α > 0, β ∈R.
+Remark 3.2.9. Theorem 3.2.2 holds true for bounded sectors S(0, γ, r) with similar arguments.
+If P∞
+p=0 (mp)−1/γ < ∞the restriction to S(0, γ, r) of the nontrivial at function dened in Sγ
+given by Theorem 3.2.2 solves the problem. Hence, we only need to modify the proof of (ii)⇒(i).
+We proceed as in Theorem 3.2.5, by considering the transformation z(w) = 1/(w + (1/r)1/γ)γ,
+which maps H into a region D contained in S(0, γ, r): given a at function g ∈˜
+Au
+M(S(0, γ, r)),
+the function f(w) := g(z(w)) is dened in H and, by Mandelbrojt's theorem, it identically
+vanishes.
+For more general regions, including sectorial regions, the solution was also given by Mandel-
+brojt [72, Sect. 2.4.I] and the answer depends on the way the boundary of the region approaches
+the origin.
+Remark 3.2.10. The problem of quasianalyticity for classes of functions with uniformly bounded
+derivatives in bounded regions has also been treated. In the works of K. V. Trunov and R. S.
+Yulmukhametov [101, 108] a characterization is given, for a convex bounded region containing
+0 in its boundary, in terms of the sequence M and also of the way the boundary approaches 0.
+In particular, for bounded sectors, if γ ≤1, d ∈R and r > 0, it turns out that the class
+AM(S(d, γ, r)) is quasianalytic precisely when condition (ii) in Theorem 3.2.4 is satised.
+3.2.2
+New injectivity results
+In [88], J. Sanz shows how one can construct nontrivial at functions in the class ˜
+AM(Sω(M))
+for strongly regular sequences M (see Denition 1.1.1) such that dM(t) is a proximate order
+(see (2.15)) using a function V ∈MF(γ, dM(t)) (see Denition 1.2.17). Under these conditions
+for M, by Theorem 2.1.30 and Remark 2.1.19, we know that dM(t) is a nonzero proximate order.
+Moreover, by Remark 2.2.7, we know that one may equivalently assume that M is a weight
+sequence and dM(t) is a nonzero proximate order
+Theorem 3.2.11 (Watson's Lemma, Coro. 4.12 [88]). Suppose M is a strongly regular such
+that dM(t) is a nonzero proximate order, and let γ > 0 be given. The following statements are
+equivalent:
+(i)
+˜
+AM(Sγ) is quasianalytic, i.e., it does not contain nontrivial at functions (in other words,
+the Borel map is injective in this class).
+(ii) γ > ω(M).
+At it was pointed out in [88, Remark 4.11], it is enough to ask that M admits a nonzero
+proximate order and, by Remark 2.2.18, it suces to verify that M, originally strongly regular,
+is a weight sequence admitting a nonzero proximate order.
+A better understanding of the connection between proximate orders and sequences has been
+achieved (see Section 2.2) allowing us to extend this last result for arbitrary weight sequence.
+In fact, the admissibility of a proximate order ρ(t) guarantees that the associated function ωM
+JAVIER JIMÉNEZ GARRIDO

@@ -1,0 +1,43 @@
+4.7 Gevrey Asymptotics in Wide Regions
+75
+4.7
+Gevrey Asymptotics in Wide Regions
+We have learned from Proposition 10 that the mapping J : As(G, E ) →
+E [[z]]s is surjective for sectorial regions of opening at most sπ. We now
+show that for wider regions J is injective – the fact that then it is no longer
+surjective will follow from results in the next chapter. The proposition we
+are going to show is due to Watson [282]:
+Proposition 11 (Watson’s Lemma) Suppose that G is a sectorial region
+of opening more than sπ, s > 0, and let f ∈H(G, E ) satisfy f(z) ∼=s ˆ0 in
+G. Then f(z) ≡0 in G.
+Proof: Let ¯S = ¯S(d, α, ρ) be any closed subsector of G of opening α > sπ.
+From Exercise 6 on p. 74 we conclude for suitably large constants c, K and
+k = 1/s
+∥f(z)∥≤c e−K|z|−k,
+z ∈¯S.
+In particular, ∥f(z)∥is bounded, say, by C, on ¯S. For κ = π/α (< k)
+and z = z(w) = eid(ρ−κ + w)−1/κ we have z ∈¯S for every w in the
+closed right half-plane. Thus, for arbitrary x > 0, the function g(w) =
+exp[x w]f(z(w)) is bounded by C on the line Re w = 0 and, because of
+κ < k, bounded by some, possibly larger, constant for Re w ≥0. Phragm´en-
+Lindel¨of’s principle (p. 235) then implies
+∥g(w)∥= exp[x Re w] ∥f(z(w))∥≤C
+Re w ≥0.
+Letting x →∞completes the proof.
+2
+Given a sectorial region G, we shall say that a subspace B of A(G, E )
+is an asymptotic space, if the mapping J : B →E [[z]]s is injective. In this
+terminology we may express the above proposition as saying that As(G, E )
+is an asymptotic space if the opening of G is larger than sπ. This result, in
+a way, is the key to what will follow in the next chapters: Given a formal
+power series ˆf(z) and a sectorial region G of opening larger than sπ, if we
+succeed in ﬁnding a holomorphic function f with f(z) ∼=s ˆf(z) in G, then
+it is unique, and it is justiﬁed, if not to say very natural, to consider this
+f as a sum of some sort for ˆf. While this abstract deﬁnition of a sum will
+be seen to have very natural properties, one certainly would like to have
+a way of somehow calculating f, and we shall see that this indeed can be
+done, at least in principle.
+Exercises:
+1. Let f be holomorphic for |z| < ρ, ρ > 0, and let ˆf be its power series
+expansion. Conclude that then for every sectorial region G and every
+s > 0 we have f(z) ∼=s ˆf(z) in G.

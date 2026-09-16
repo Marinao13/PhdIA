@@ -1,0 +1,46 @@
+152
+9. Stokes’ Phenomenon
+compute the Stokes multipliers Vℓ, for j(k)−n1 +1 ≤ℓ≤j(k)+n1. Doing
+so for r consecutive values of k then gives enough multipliers to compute
+all others with help of (9.4). Hence, in principle the problem of computing
+the Stokes multipliers of highest level has been solved. In special situations,
+however, there are more eﬀective formulas for this computation.We shall
+brieﬂy illustrate this in the case of Poincar´e rank r = 1 and the leading
+term having all distinct eigenvalues. In this situation, the following holds:
+• The notions of HLFFS and FFS coincide, since there is only one level
+to consider.
+• There are ν distinct values un, equal to the negative of the eigenvalues
+of the leading term A0.
+• Owing to r = 1 and the form of a FFS, as stated in Exercise 4 on
+p. 45, the associated functions here are vectors given by convergent
+power series Φm(u; s; k) = ∞
+0 Fn,m (u−um)n−ℓm−s/Γ(1+n−ℓm−s),
+with not necessarily distinct complex numbers ℓm and −d + 2kπ <
+arg(u −um) < −d + 2(k + 1)π; for this, compare Exercise 1.
+• The formal monodromy matrices here are scalar, and Lm = ℓm. The
+vector F0,m equals the mth unit vector em.
+In this situation, Theorem 46 states that for n ≺m
+Φm(u; s; k) = Φn(u; s; k) (I −e−2πi (sI+ℓn))−1 C(k)
+nm + hol(u −un).
+For Re (ℓn + s) > 0, a term (u −un)ℓn+s Φ(u) tends to 0 whenever Φ(u)
+is holomorphic at un. Hence we may evaluate the scalar blocks C(k)
+nm by
+ﬁnding the limit of (u −un)ℓn+s Φm(u; s; k) when u →un. If arg(u −un) is
+chosen according to −d + 2kπ < arg(u −un) < −d + 2(k + 1)π, this limit
+equals, using (B.14) (p. 232):
+en c(k)
+nm
+(1 −e−2πi(s+ℓn)) Γ(1 −s −ℓn) = c(k)
+nm Γ(s + ℓn)
+2πi
+eπi(s+ℓn) en.
+Setting (u −un)ℓn+s = (un −u)ℓn+s eπi(s+ℓn), we ﬁnd
+lim
+u→un(un −u)ℓn+s Φm(u; s; k) = c(k)
+nm Γ(s + ℓn)
+2πi
+en,
+with −d+(2k−1)π < arg(un −u) < −d+(2k+1)π. A similar formula may
+be obtained for m ≺n as well. In Exercise 2 we shall use this result to ﬁnd
+explicit values for the Stokes multipliers of the two-dimensional conﬂuent
+hypergeometric system.

@@ -1,0 +1,44 @@
+xii       Preface
+diﬀerent problems such as Birkhoﬀ’s reduction problem or applications of
+the theory of multisummability to diﬀerence equations, partial diﬀerential
+equations, or singular perturbation problems. Several appendices provide
+the results from other areas of mathematics required in the book; in par-
+ticular some well-known theorems from the theory of complex variables are
+presented in the more general setting of functions with values in a Banach
+space.
+The book should be readable for students and scientists with some back-
+ground in matrix theory and complex analysis, but I have attempted to
+include all the (nonelementary) results from these areas in the appendices.
+A reader who is mainly interested in the asymptotic theory and/or multi-
+summability may leave out the beginning chapters and start reading with
+Chapters 4 through 7, and then go on to Chapter 10 – these are pretty
+much independent of the others in between and may be a good basis for a
+course on the subject of asymptotic power series, although the remaining
+ones may provide an excellent motivation for such a general theory to be
+developed.
+Personal Remarks
+Some personal remarks may be justiﬁed here: In fall of 1970, I came to the
+newly founded University of Ulm to work under the direction of Alexan-
+der Peyerimhoﬀin summability theory. About 1975 I switched ﬁelds and,
+jointly with W. B. Jurkat and D. A. Lutz, began my studies in the very
+classical, yet still highly active, ﬁeld of systems of ordinary linear diﬀeren-
+tial equations whose coeﬃcients are meromorphic functions of a complex
+variable (for short: meromorphic systems of ODE). This ﬁeld has occupied
+most of my (mathematical) energies, until almost twenty years later when
+I took up summability again to apply its techniques to the divergent power
+series that arise as formal solutions of meromorphic ODE. In this book, I
+have made an eﬀort to represent the classical theory of meromorphic sys-
+tems of ODE in the new light shed upon it by the recent achievements in
+the theory of summability of formal power series.
+After more than twenty years of research, I have become highly addicted
+to this ﬁeld. I like it so much because it gives us a splendid opportunity
+to obtain signiﬁcant results using standard techniques from the theory of
+complex variables, together with some matrix algebra and other classical
+areas of analysis, such as summability theory, and I hope that this book
+may infect others with the same enthusiasm for this fascinating area of
+mathematics. While one may also achieve useful results using more sophis-
+ticated tools borrowed from advanced algebra, or functional analysis, such
+will not be required to understand the content of this book.
+I should like to make the following acknowledgments: I am indebted to
+the group of colleagues at Grenoble University, especially J. DellaDora, F.
+Jung, and M. Barkatou and his students. During my appointment as Pro-

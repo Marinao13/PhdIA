@@ -1,0 +1,61 @@
+56
+3. Highest-Level Formal Solutions
+(a) The coeﬃcient matrix B(z) = ˆF −1(z)[A(z) ˆF(z)−z ˆF ′(z)] of the
+transformed system is of the form
+B(z) = wqr
+n0
+
+n=0
+Bnw−n,
+z = wq,
+for some n0 ∈N, and the coeﬃcients Bn are all diagonally
+blocked of some type (s1, . . . sµ), independent of n, with µ ≥2.
+(b) For some integer p, 0 ≤p < rq, which in case q ≥2 is positive
+and co-prime with q, the coeﬃcients B0, . . . , Bp have the form
+Bj
+=
+λj I
+(0 ≤j ≤p −1),
+Bp
+=
+diag [λ(p)
+1 Is1 + N1, . . . , λ(p)
+µ Isµ + Nµ],
+(3.19)
+with distinct complex numbers λ(p)
+ℓ
+and nilpotent matrices Nℓ.
+(c) The transformation ˆF(z) is of Gevrey order s = q/(qr −p).
+In the sequel, we shall abbreviate the term highest-level formal fundamen-
+tal solution by HLFFS. The notion of HLFFS will turn out to be very
+important in what follows, so we wish to make the following comments:
+• Having computed an HLFFS for a system (3.1), we have (formally)
+partially decoupled the system in the sense that we have reduced the
+problem of computing a fundamental solution of (3.1) to the same
+problem for several smaller systems. As we shall show later, the di-
+vergence of the transformation ˆF(z) does not keep us from giving a
+clear analytic meaning to it, so that the process of decoupling will be
+not only a formal one.
+• In the deﬁnition of HLFFS, the parameters q, p, λ0, . . . , λp−1 and the
+pairs (λ(p)
+j , sj), 1 ≤j ≤µ, occurred. As a convenient way of referring
+to those quantities, we deﬁne
+qj(z) =
+p−1
+
+n=0
+λn
+zr−n/q
+r −n/q + λ(p)
+j
+zr−p/q
+r −p/q ,
+1 ≤j ≤µ.
+These are polynomials in the qth root of z that shall play an impor-
+tant role later on, and the pairs (qj(z), sj) will be referred to as data
+pairs of the HLFFS. We shall show in Chapter 8 that any two HLFFS
+of the same system (3.1) have the same data pairs up to a renumer-
+ation; in fact, more cannot hold in general, since given one HLFFS,
+we can block its columns into blocks of sizes sk, and permuting these
+blocks can be seen to produce another HLFFS with the data pairs
+permuted correspondingly.

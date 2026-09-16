@@ -1,0 +1,54 @@
+1.2. REGULAR VARIATION, O-REGULAR VARIATION AND PROXIMATE ORDERS
+41
+1.2.2
+Proximate orders and smooth variation
+In order to study quasianalyticity of the ultraholomorphic classes (see Section 3.2) and to con-
+struct kernels of summability in this context (see Section 4.1) we need to introduce the notion
+of proximate order, appearing in the theory of growth of entire functions and developed, among
+others, by G. Valiron [103], B. Ja. Levin [63] and A. A. Goldberg and I. V. Ostrosvkii [32]. In
+this dissertation, a prominent role is played by the results of L. S. Maergoiz [65]. The concept of
+proximate order, its elementary properties, its relation to regular variation and the main results
+of L. S. Maergoiz are presented in this subsection.
+Denition 1.2.7. We say a real function ρ(t), dened on (c, ∞) for some c ≥0, is a proximate
+order, if the following hold:
+(A) ρ is continuous and piecewise continuously dierentiable in (c, ∞) (meaning that it is dif-
+ferentiable except possibly at a sequence of points, tending to innity, at any of which it is
+continuous and has nite but distinct lateral derivatives),
+(B) ρ(t) ≥0 for every t > c,
+(C) limt→∞ρ(t) = ρ < ∞,
+(D) limt→∞tρ′(t) log t = 0.
+In case the value ρ in (C) is positive (respectively, is 0), we say ρ(t) is a nonzero (resp. zero)
+proximate order.
+Remark 1.2.8. If ρ(t) is a proximate order with limit ρ at innity, for every ε > 0 there exists
+tε > 1 such that
+tρ−ε < tρ(t) < tρ+ε,
+t > tε.
+Denition 1.2.9. Two proximate orders ρ1(t) and ρ2(t) are said to be equivalent if
+lim
+t→∞[ρ1(t) −ρ2(t)] log t = 0.
+For the functions V1(t) = tρ1(t) and V2(t) = tρ2(t), this precisely means that
+lim
+t→∞
+V1(t)
+V2(t) = lim
+t→∞
+tρ1(t)
+tρ2(t) = 1,
+that is, V1 ∼V2.
+Remark 1.2.10. If ρ1(t) and ρ2(t) are equivalent and limt→∞ρ1(t) = ρ, then
+lim
+t→∞ρ2(t) = ρ.
+Example 1.2.11. The following are examples of proximate orders, dened in suitable intervals
+(c, ∞):
+(i) ρα,β(t) = 1
+α −β
+α
+log(log t)
+log t
+, α > 0, β ∈R.
+(ii) ρ(t) = ρ + 1
+tγ , ρ ≥0, γ > 0.
+(iii) ρ(t) = ρ +
+1
+logγ(t), ρ ≥0, γ > 0.
+Universidad de Valladolid

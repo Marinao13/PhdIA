@@ -1,0 +1,51 @@
+4.6 Gevrey Asymptotics in Narrow Regions
+73
+(a) f(z) −−1
+n=−m fn zn ∼=s
+∞
+n=0 fn zn in G,
+(b) zmf(z) ∼=s
+∞
+
+n=0
+fn−m zn in G.
+Let either one serve as deﬁnition for f(z) ∼=s ˆf(z) in G.
+6. Assume that E is a Banach algebra. Let As,m(G, E ) denote the set
+of functions f(z) that are meromorphic in G, so that the number
+of poles of f(z) in an arbitrary closed subsector of G is ﬁnite, and
+such that f(z) ∼=s ˆf(z) for some formal Laurent series ˆf. Show that
+As,m(G, E ) is a diﬀerential algebra. In case E = C (a ﬁeld), show
+that As,m(G, C ) is a diﬀerential ﬁeld, i.e., a diﬀerential algebra in
+which each element is invertible.
+7. Show the existence of f ∈A(G, E ) that is not in As(G, E ), for any
+s ≥0.
+8. Let fn ∈As(G, E ), n ≥0. Assume that for every m ≥0 the sequence
+(f (m)
+n
+)n converges uniformly on every closed subsector ¯S of G. More-
+over, assume existence of c, K, depending upon ¯S but independent of
+n and m, so that ∥f (m)
+n
+(z)∥≤c Km m! Γ(1 + sm) for every z ∈¯S.
+Show f = lim fn ∈As(G, E ). Compare this to Exercise 6 on p. 70.
+4.6
+Gevrey Asymptotics in Narrow Regions
+The following result is a version of Ritt’s theorem, adapted to the theory
+of Gevrey asymptotics; its proof makes use of the so-called ﬁnite Laplace
+operator, which is deﬁned and discussed in some detail in the following
+exercises.
+Proposition 10 (Ritt’s Theorem for Gevrey Asymptotics) For
+s > 0, let ˆf(z) ∈C[[z]]s and a sectorial region G of opening at most sπ be
+arbitrarily given. Then there exists a function f(z), holomorphic in G, so
+that f(z) ∼=s ˆf(z) in G.
+Proof: Let ˆf(z) = ∞
+0 fn zn and deﬁne g(u) = ∞
+0 fn un/Γ(1+sn), then
+ˆf(z) ∈C [[z]]s implies holomorphy of g(u) for |u| suﬃciently small. Let d
+be the bisecting direction of G and deﬁne for a = ρeid, with suﬃciently
+small ρ > 0, and k = 1/s:
+f(z) = z−k
+ a
+0
+g(u) exp[−(u/z)k] duk.
+(4.8)

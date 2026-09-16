@@ -1,0 +1,42 @@
+64
+4. Asymptotic Power Series
+8. For c > 0, let f(z) = g(z +π/2+c). For every ﬁxed φ ∈R, show that
+f(reiφ) remains bounded as r →∞. Why does this not imply that f
+is of exponential order zero in every sector S?
+4.3
+Formal Power Series
+Given a sequence (fn)∞
+n=0 of elements of the Banach space E , the series
+ˆf(z) = ∞
+0 fnzn is called a formal power series (in z), the term “formal”
+emphasizing that we do not restrict the coeﬃcients fn in any way; thus the
+radius of convergence of the series may well be equal to zero. The set of
+all such formal power series is denoted by E [[z]]. We say that ˆf converges,
+or is convergent, if ρ > 0 exists so that the power series converges for all
+z with |z| < ρ, deﬁning a function f(z), holomorphic in D(0, ρ). We shall
+call f(z) the sum of ˆf whenever ˆf converges, and we write f = S ˆf. The
+set of all convergent power series will be denoted by E {z}.
+If ˆf(z) =  fnzn is a formal power series so that for some positive c, K,
+and s ≥0 we have
+∥fn∥≤c Kn Γ(1 + sn)
+(4.3)
+for every n ≥0, then we say that ˆf is a formal power series of Gevrey
+order s, and we write E [[z]]s for the set of all such formal power series.
+Compare this to the deﬁnition of formal transformations of Gevrey order s
+on p. 39. Obviously, (4.3) holds for s = 0 if and only if the power series
+converges, hence E [[z]]0 = E {z}. It follows from the exercises below that
+E [[z]]s, under natural operations, is a vector space closed under termwise
+diﬀerentiation, and a diﬀerential algebra in case of E being a Banach alge-
+bra.
+Exercises: For formal power series in E [[z]] we consider the usual oper-
+ations; also compare Section B.2 of the Appendix.
+1. Show that E [[z]], with respect to addition and multiplication with
+scalars, is a vector space over C.
+2. In case E is a Banach algebra, show that E [[z]], with respect to mul-
+tiplication of power series, is an algebra over C, and is commutative
+if and only if E is so.
+3. In case E is a Banach algebra, show that E [[z]], with respect to
+termwise derivation, is a diﬀerential algebra over C; i.e., show that the
+map ˆf 	→ˆf ′ is C-linear and obeys the product rule ( ˆfˆg)′ = ˆf ′ˆg + ˆfˆg′.
+4. Suppose that E is a Banach algebra with unit element e (hence e = 1
+if E = C). Show that then ˆe, the power series whose coeﬃcients are

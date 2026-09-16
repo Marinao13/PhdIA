@@ -1,0 +1,98 @@
+Stability properties for ultradifferentiable classes
+∞but is not almost increasing, and k!s ≤Mk ≤k!t for suitable s, t > 0 and sufﬁciently large
+k. Since for every Gevrey sequence Gs = (k!s)k (where s ≥0), (Gs
+k)1/k is increasing (and
+tends to ∞if s > 0), the pair of sequences (Gs, M), or (M, Gt), will fulﬁll the requirements
+of Remark 2 (after adjusting ﬁnitely many terms of one sequence).
+Let k j := 2 ↑↑j = 22··2
+( j times) for j ≥1 and k0 := 0. Let ϕ : [0, ∞) →[0, ∞) be
+the function whose graph is the polygon with vertices {v j = (k j, ϕ(k j)) : j ∈N} deﬁned by
+ϕ(0) := 0,
+ϕ(2) := 8 log 2,
+ϕ(k j) :=
+#
+k j log k j+1
+j even
+k j log(k jk j−2)
+j odd ,
+( j ≥2).
+We claim that the sequence M = (Mk) deﬁned by Mk := exp(ϕ(k))/k! satisﬁes:
+(1) M is a weight sequence, i.e., M is weakly log-convex,
+(2) supk( Mk+1
+Mk )1/k < ∞,
+(3) M1/k
+k
+→∞,
+(4) M1/k
+k
+is not almost increasing,
+(5) k!s ≤Mk ≤k!t for all 0 ≤s ≤1/4, t > 3, and all k ≥k0(t).
+To see that M is weakly log-convex it sufﬁces to show that the slopes of the line segments
+in the graph of ϕ are increasing. Let a j denote the slope of the line segment left of the vertex
+v j. Then, for i ≥2,
+a2i−1 = k2i−1 log(k2i−1k2i−3) −k2i−2 log k2i−1
+k2i−1 −k2i−2
+=
+5
+4k2i−2 −1
+k2i−2 −1 log k2i−1
+a2i = k2i log k2i+1 −k2i−1 log(k2i−1k2i−3)
+k2i −k2i−1
+= 4k2i−1 −5
+4
+k2i−1 −1 log k2i−1
+a2i+1 = k2i+1 log(k2i+1k2i−1) −k2i log k2i+1
+k2i+1 −k2i
+= 5k2i −4
+k2i −1 log k2i−1
+(A.1)
+and a2i−1 ≤a2i ≤a2i+1. This proves (1). Let us check (2). Since
+ Mk+1
+Mk
+1/k
+= exp( ϕ(k+1)
+k
+−ϕ(k)
+k )
+(k + 1)1/k
+≤exp( ϕ(k+1)
+k
+−ϕ(k)
+k ),
+it sufﬁces to show that ϕ(k+1)
+k
+−ϕ(k)
+k
+is bounded or equivalently that the slope of the line
+segments of ϕ increases at most linearly in k. This is obvious from (A.1). Thanks to k! ≤
+kk ≤ekk! we have
+exp( ϕ(k)
+k )
+k
+≤M1/k
+k
+≤exp( ϕ(k)
+k
++ 1)
+k
+.
+This implies (3). To show (4) let j be even. Then
+log
+M
+1/k j
+k j
+M
+1/k j+1
+k j+1
+≥log k j + log k j+1 −log(k j+1k j−1) −1 = log k j−1 −1 →∞,
+as required. Finally, k!s ≤Mk ≤k!t is equivalent to 1 + s ≤ϕ(k)
+log k! ≤1 + t. We have
+ϕ(k j)
+k j log k j
+=
+#
+2
+j even
+1 + 1
+4
+j odd

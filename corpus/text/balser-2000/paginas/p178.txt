@@ -1,0 +1,44 @@
+10.2 Multisummability in Directions
+161
+the multiple integral on the right-hand side. Furthermore, show that
+for f as above, T1 ◦. . . ◦Tq does not depend on the enumeration of
+the Tj.
+10.2
+Multisummability in Directions
+In what follows, we shall consider a ﬁxed tuple T = (T1, . . . , Tq) of inte-
+gral operators Tj of respective orders κj > 0. Furthermore, we consider a
+likewise ﬁxed multidirection d = (d1, . . . , dq), which we call admissible with
+respect to T , provided that
+2κj |dj −dj−1| ≤π,
+2 ≤j ≤q.
+(10.1)
+Given T and d, we are now going to deﬁne T -summability in the multidi-
+rection d. To do so, we consider the inverse of the formal operators ˆTj, i.e.,
+( ˆT −1
+j
+ˆf)(z) =  fn zn/mj(n), for ˆf(z) =  fn zn ∈E [[z]].
+• For q = 1, we say that a formal power series ˆf ∈E [[z]] is T -summable
+in the multidirection d, provided that ˆg = ˆT −1
+1
+ˆf ∈E {z}, and that
+its sum g(z) is in A(κ1)(S(d1, ε), E ), for some ε > 0.
+• For q ≥2, set ˜T = (T2, . . . , Tq), ˜d = (d2, . . . , dq). Then we say that
+a formal power series ˆf ∈E [[z]] is T -summable in the multidirection
+d, provided that ˆg = ˆT −1
+1
+ˆf is ˜T -summable in the multidirection ˜d,
+and that its ˜T -sum g(z) is in A(κ1)(S(d1, ε), E ), for some ε > 0.
+• In both cases, note that the operator T1 can be applied to the function
+g(z), integrating along a ray inside the sector S(d1, ε). We then say
+that f = T1 g is the T -sum of ˆf in the multidirection d, and write
+f = ST ,d ˆf.
+We shall write E {z}T ,d for the set of all formal power series that are
+T -summable in the multidirection d. Observe for q = 1, that Theorem 38
+(p. 108) implies E {z}T ,d = E {z}κ1,d.
+Exercises: In what follows, let T and d, as above, be given.
+1. Show that the above inductive deﬁnition of T -summability in a mul-
+tidirection d is equivalent to the following: Given ˆf(z), we ﬁrst divide
+the coeﬃcients fn by m1(n) · . . . · mq(n) to obtain a convergent series
+– hence ˆf(z) has to be in E [[z]]s, with s = 1/κ1 + . . . + 1/κq, for this
+to hold. Then we apply the integral operator Tq, integrating in a di-
+rection close to dq, then Tq−1, integrating close to dq−1, and so forth.

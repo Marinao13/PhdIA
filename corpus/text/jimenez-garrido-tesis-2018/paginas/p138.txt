@@ -1,0 +1,55 @@
+138
+CHAPTER 4.
+MULTISUMMABILITY VIA PROXIMATE ORDERS
+are mutually distinct. In this situation, supplementary summability kernels will be constructed
+from some given kernel ej for Mj−summability in the third section. They will provide Laplace
+and Borel-like transforms for the quotient and the product of two moment sequences mej, mek
+allowing us to recover the multisum of a formal power series.
+4.1
+M−summability
+For a given sectorial region G of wide opening and a weight sequence M, i.e., (lc) with quotients
+tending to innity, Watson's Lemma in ˜
+AM(G), Theorem 3.2.15, ensures that every function f
+in such a class is determined by its asymptotic expansion ˆf. This fact motivates the concept,
+developed by A. Lastra, S. Malek, J. Sanz in [60, 88, 89], of summability of formal (i.e. divergent
+in general) power series with controlled growth in their coecients in the framework of general
+Carleman ultraholomorphic classes in sectors, described in the preceding chapter, so general-
+izing the by-now classical and powerful tool of k−summability of formal Gevrey power series,
+introduced by J.-P. Ramis [81, 82].
+Denition 4.1.1. Let d ∈R and M be a weight sequence. We say ˆf = P
+p≥0 apzp ∈C[[z]] is
+M−summable in direction d if there exist a sectorial region G = G(d, γ), with γ > ω(M), and a
+function f ∈˜
+AM(G) such that f ∼M ˆf.
+By Remark 3.1.7, we have that ˆf ∈C[[z]]M, according to Theorem 3.2.15, f is unique with
+the property stated, and will be denoted f = SM,d ˆf, the M−sum of ˆf in direction d.
+The aim of this section is to briey recall the suitable tools developed in [60, 88, 89], where
+the ideas in the theory of general moment summability methods put forward W. Balser in [7]
+were followed, in order to recover f from ˆf by means of formal and analytic transforms, in the
+same vein as in the classical theory for Gevrey case, so-called k−summability.
+4.1.1
+M−summability kernels
+Balser's moment summability methods, equivalent in a sense to k−summability, rely on the
+determination of a pair of kernel functions e and E with suitable asymptotic and growth prop-
+erties, in terms of which to dene formal and analytic Laplace- and Borel-like transforms. The
+denition of k−summability kernels in [7, Section 5.5] is extended for strongly regular sequences
+as follows, where the case ω(M) < 2 is mainly treated and indications will be given below on
+how to work in the opposite situation.
+Denition 4.1.2.
+Let M be a strongly regular sequence with ω(M) < 2. A pair of complex
+functions e, E are said to be kernel functions for M−summability if:
+(i) e is holomorphic in Sω(M).
+(ii) z−1e(z) is locally uniformly integrable at the origin, i.e., there exists t0 > 0, and for
+every z0 ∈Sω(M) there exists a neighborhood U of z0, U ⊆Sω(M), such that the integral
+R t0
+0 t−1 supz∈U |e(t/z)|dt is nite.
+(iii) For every ε > 0 there exist c, k > 0 such that
+|e(z)| ≤chM
+ k
+|z|
+
+= c e−ωM(|z|/k),
+z ∈Sω(M)−ε,
+(4.1)
+where hM and ωM are the functions associated with M dened Subsection 1.1.3.
+JAVIER JIMÉNEZ GARRIDO

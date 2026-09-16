@@ -1,0 +1,20 @@
+114
+6. Summable Power Series
+4. Under the assumptions of Proposition 15, use the previous exercise
+to show for n ∈N that the coeﬃcients hn, deﬁned in the proof, are
+equal to bn(ω)/n!, with bn(ω) given by (6.2).
+5. Show that the Laplace transform of order 1 of (1 −e−u/ω)n equals
+[(ω/z + 1) · . . . · (ω/z + n)]−1 n!.
+6. Given ˆf(z) ∈E [[z]], let ˆfj(z) be deﬁned as in (6.6). Show that
+ˆfj(z) = p z−j
+p−1
+
+µ=0
+e−2πijµ/p ˆf(ze2πiµ/p),
+0 ≤j ≤p −1,
+and use this to show that all ˆfj(z) are k-summable in direction d if
+and only if ˆf(z) is k-summable in all directions of the form d+2jπ/p,
+0 ≤j ≤p −1.
+7. Using the Stirling numbers, show that every formal power series with
+a zero constant term can be formally rewritten as a, usually divergent,
+factorial series of the form (6.3), and vice versa.

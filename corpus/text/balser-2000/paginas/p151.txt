@@ -1,0 +1,47 @@
+134
+8. Solutions of Highest Level
+The above result shows the existence, and describes the degree of free-
+dom, of FFS. To describe their summability properties, it is necessary to
+introduce some notation: For an arbitrary nonzero polynomial p(z) in some
+root of z, let deg p stand for the rational exponent of the highest power of z
+occurring in p(z). Given the data pairs of a FFS, we introduce the rational
+numbers
+djm = deg(pj −pm),
+if pj(z) ̸≡pm(z), 1 ≤j, m ≤µ.
+They form a ﬁnite, possibly empty, set of rational numbers, which are all
+positive, since by deﬁnition of the pj their constant terms all vanish. We
+write this set in the form {k1 > k2 > . . . > kℓ> 0}, referring to it as
+the level set of the FFS ˆF(z). The integer ℓ≥0 will be referred to as the
+number of levels of ˆF(z). In case ℓ≥1, we shall call k1 the highest level
+of ˆF(z). From now on, consider data pairs with ℓ≥1. For 1 ≤µ ≤ℓ, a
+number d ∈R will be called singular of level µ, provided that polynomials
+pj, pm exist for which
+pj(z) −pm(z) = pjm zkµ + lower powers,
+arg pjm = −d kµ.
+(8.6)
+In other words: exp[pj(z) −pm(z)] has degree kµ and maximal growth
+rate along the ray arg z = d. Furthermore, we write j ∼m of level µ,
+if deg(pj −pm) < kµ. This way, we obtain a number of equivalence rela-
+tions that become ﬁner with increasing µ, in the sense that fewer numbers
+m are equivalent. We now say that the data pairs (qm(z), Jm) are ordered
+provided that polynomials with indices that are equivalent of level µ come
+consecutively, for every µ = 1, . . . , ℓ. Note that we can always rearrange
+the columns of the FFS ˆF(z) and simultanuously permute its data pairs,
+so that ﬁrst polynomials whose indices are equivalent of level µ = 1 come
+consecutively, then further permute pairs within each equivalence class of
+level 1 to make polynomials come together whenever their indices are equiv-
+alent of level 2, and so on. In other words, every system (3.1) has a FFS
+with ordered data pairs.
+Consider now an ordered set of data pairs. Then to each equivalence
+relation of level µ, there corresponds a block structure of arbitrary ν × ν
+matrices, by grouping their rows and columns together once their indices
+are equivalent of that level. This block structure will be referred to as the
+µth block structure, or the block structure of level µ. In particular, for µ = 1
+we speak of the block structure of highest level. For convenience, we also
+introduce the trivial block structure of level zero, where we do not subdivide
+matrices at all. These block structures were studied in [34, 35] under the
+name iterated block structure.
+Using this terminology, we can now formulate the following basic result
+on FFS:
+Theorem 43 For an arbitrary FFS ˆF(z) of a system (3.1) (p. 37), the
+following holds:

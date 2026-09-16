@@ -1,0 +1,65 @@
+(I) For every z ∈L(γ),
+lim
+r→∞
+V (zr)
+V (r) = zρ,
+uniformly in the compact sets of L(γ).
+(II) V (z) = V (z) for every z ∈L(γ), where, for z = (|z|, arg(z)), we put z = (|z|, −arg(z)).
+(III) V (r) is positive in (0, ∞), strictly increasing and limr→0 V (r) = 0.
+(IV) The function t ∈R →V (et) is strictly convex (i.e. V is strictly convex relative to
+log(r)).
+(V) The function log(V (r)) is strictly concave in (0, ∞).
+(VI) The function ρV (r) := log(V (r))/ log(r), r > 0, is a proximate order equivalent to
+ρ(r).
+Deﬁnition 2.8. Let γ > 0 and ρ(r) be a proximate order, ρ(r) →ρ > 0.
+B(γ, ρ(r))
+stands for the class of functions V (z) deﬁned in L(γ) satisfying the conditions (I)-(VI) of
+Theorem 2.7.
+2.2
+Logarithmically convex sequences
+In what follows, M = (Mp)p≥0 always stands for a sequence of positive real numbers, and
+we always assume that M0 = 1.
+Deﬁnition 2.9. We say:
+(i) M is logarithmically convex (for short, (lc)) if
+M 2
+p ≤Mp−1Mp+1,
+p ∈N.
+(ii) M is of moderate growth (brieﬂy, (mg)) if there exists A > 0 such that
+Mp+q ≤Ap+qMpMq,
+p, q ∈N0.
+(iii) M satisﬁes the strong non-quasianalyticity condition (for short, (snq)) whenever there
+exists B > 0 such that
+X
+q≥p
+Mq
+(q + 1)Mq+1
+≤B Mp
+Mp+1
+,
+p ∈N0.
+Deﬁnition 2.10. For a sequence M we deﬁne the sequence of quotients m = (mp)p∈N0 by
+mp := Mp+1
+Mp
+p ∈N0.
+Although in many of our results we depart from a (lc) sequence with quotients tending
+to inﬁnity, we will frequently deduce that we are dealing with strongly regular sequences.
+Deﬁnition 2.11 ([22]). A sequence M is strongly regular if it veriﬁes the properties (i), (ii)
+and (iii) in Deﬁnition 2.9.
+Remark 2.12. Observe that for every p ∈N one has
+Mp =
+Mp
+Mp−1
+Mp−1
+Mp−2
+. . . M2
+M1
+M1
+M0
+= mp−1mp−2 . . . m1m0.
+(4)
+So, one may recover the sequence M (with M0 = 1) once m is known, and hence the
+knowledge of one of the sequences amounts to that of the other. Sequences of quotients of
+sequences M, L, etc. will be denoted by lowercase letters m, ℓand so on. Whenever some
+statement refers to a sequence denoted by a lowercase letter such as m, it will be understood
+that we are dealing with a sequence of quotients (of the sequence M given by (4)).
+5

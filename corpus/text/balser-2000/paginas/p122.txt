@@ -1,0 +1,43 @@
+6.4 Deﬁnition of k-Summability
+105
+however, in most applications one encounters series ˆf being k-summable
+in all directions d but (after identiﬁcation modulo 2π) ﬁnitely many direc-
+tions d1, . . . , dn. Whenever this is so, we simply call ˆf k-summable. The
+directions d1, . . . , dn then are called the singular directions of ˆf, provided
+they occur. For the set of all k-summable series ˆf we write E {z}k, and
+it may sometimes be convenient to deﬁne E {z}∞= E {z}, the set of all
+convergent series.
+It is immediately clear that Theorems 34–36 remain correct if we replace
+E {z}k,d by E {z}k, and the identities for the respective sums then hold for
+every but ﬁnitely many d (modulo 2π).
+Lemma 10 part (a) says that Sk,d ˆf is independent of d, as d varies in an
+interval not containing singular directions. At a singular direction, however,
+the sum will change abruptly, as can be seen from the following proposition.
+Proposition 12 For α < d0 < β, k > 0, assume that ˆf is k-summable in
+all directions d ∈(α, β), d ̸= d0. For some d1, d2 with α < d1 < d0 < d2 <
+β, |d1 −d2| < π/(2k), assume
+(Sk,d1 ˆf)(z) = (Sk,d2 ˆf)(z),
+for all z where both sides are deﬁned. Then ˆf is k-summable in direction
+d0.
+Proof:
+For 1 ≤j ≤2, the functions fj = Sk,dj ˆf are holomorphic in
+sectorial regions Gj = G(dj, αj) of opening αj > π/k. Owing to our as-
+sumptions, these sectors overlap on the Riemann surface of the logarithm,
+and within their intersection the functions are equal. Hence f = f1 = f2 is
+holomorphic in G1 ∪G2, and f(z) ∼=k ˆf(z) there. Obviously, G1 ∪G2 con-
+tains a sectorial region of opening larger than π/k and bisecting direction
+d0, so ˆf is k-summable in direction d0.
+2
+If a formal power series is k-summable in every direction, then the next
+proposition shows convergence. In the terminology of summability theory
+one can therefore say: Absence of singular rays is a Tauberian condition
+for k-summability.
+Proposition 13 Assume ˆf ∈E {z}k has no singular direction; in other
+words, ˆf ∈E {z}k,d for every d. Then ˆf ∈E {z}, i.e., ˆf(z) converges for
+suﬃciently small |z|.
+Proof: According to Lemma 10 parts (a), (c), the function f = Sk,d ( ˆf) is
+independent of d and single-valued; i.e., f(ze2πi) = f(z) for every z. From
+Proposition 7 (p. 65) we then obtain ˆf ∈E {z}.
+2
+Suppose ˆf ∈E {z}k is given, and d0 is a singular direction of ˆf. Then
+for g = S ( ˆBk ˆfk) two things can happen: Either g(u) is singular for some

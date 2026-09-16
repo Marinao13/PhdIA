@@ -1,0 +1,38 @@
+260
+Solutions
+3. Observe that for integer values of k the number j0 always is even.
+Then show that, after a suitable renumeration of the data pairs, i.e.,
+a permutation of the columns of the HLFFS, we may assume that
+(9.2) holds in the sector τj < arg z < τj+1, if and only if n < m.
+Use this to conclude than then the Vj+1, . . . , Vj+j0/2 are lower, the
+Vj+j0/2+1, . . . , Vj+j0 upper triangular, and use the previous exercises.
+Finally, use (9.4) to compute the remaining matrices.
+Section 9.3:
+1. Observe z Y ′(z) = B(z) Y (z), and use partial integration of (9.6).
+2. Estimate analogously to the proof of Theorem 23 (p. 80).
+Section 9.4:
+2. For z0 ∈Sj∗(k), observe the previous exercise to invert the integral
+representation of the auxiliary functions. Then, deform the path of
+integration in Borel’s transform. Finally, check that the integral does
+not depend upon the choice of z0.
+Section 9.5:
+2. Using Exercise 2 on p. 58, one can compute Φ1(u; s; k), which is a
+2-vector, with second component c (λ1 −λ2)−1(u + λ2)1−a−s F(1 +
+α, 1 + β; 2 −a −s; z)/Γ(2 −a −s), with z = (u + λ1)/(λ1 −λ2). Using
+Exercise 6 on p. 27, one can then compute C(k)
+21 . Assuming 2 ≺1, and
+choosing arg(λ1 −λ2) in dependence of k accordingly, one ﬁnds
+C(k)
+21 = 2πi (λ1 −λ2)d−a
+Γ(1 + α) Γ(1 + β) c.
+Section 9.6:
+2. Verify that the spectrum of A0 is directly related to the data pairs of
+HLFFS.
+Section 9.7:
+2. Show 0 ≤#n+p
+m=n(1 + xm) −1 ≤exp[n+p
+m=n xm] −1, for n, p ∈N.
+3. Proceed by induction with respect to m.
+4. For n, p ∈N, observe
+Tn+p(z) −Tn(z) = [I + Tn(z)] {[I + Un+p(z) · . . . · [I + Un+1(z)] −I},
+and then estimate as in the previous exercises.

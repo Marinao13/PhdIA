@@ -1,0 +1,37 @@
+258
+Solutions
+Section 8.2:
+1. Use Proposition 26 (p. 217).
+2. Use the previous exercise.
+3. Compare Proposition 13 (p. 105).
+Section 8.3:
+1. Set n = n0 and use Lemma 24 (p. 212) to conclude Tn0 = 0; then
+increase n0. For r = 0, A0+n I and B0 have to have disjoint spectrum,
+for every n ≥n0.
+2. Block rows, resp. columns, of ˆT(z) according to the block structure
+of ˆA(z), resp. ˆB(z). Then, use the previous exercise and invertibility
+of ˆT(z) to show that to every j there corresponds a unique k so that
+λj = ˜λk. Permuting columns of ˆT(z), conclude that one may assume
+this to happen for k = j, so ˆT(z) diagonally blocked. Use invertibility
+once more to conclude that then ˜sk = sk. For the convergence proof,
+use Exercise 3 on p. 128.
+3. Permute rows and columns of ˆB(z), or of ˆA(z), so that the leading
+terms agree, which can be done according to the previous exercise.
+Then in particular both matrices have the same block structure.
+Section 8.4:
+1. Observe that, owing to commutativity, (3.5) coincides with the re-
+cursion formula for Tn.
+2. Show that it suﬃces to consider Λ = diag [λ1 Is1, . . . , λµ Isµ] with
+distinct λm, and show that then N, hence: A, is diagonally blocked
+in the block structure of Λ. Next, use Lemma 24 (p. 212) to show that
+B commutes with A if and only if it is likewise diagonally blocked,
+so B certainly commutes with Λ.
+3. Use the series representation. In particular, conclude that T(z) com-
+mutes with ˆA(z).
+4. Use the ﬁrst exercise to reduce the problem to one where An = 0 for
+n ≥r+1. Then, use a constant transformation to put A0 into Jordan
+canonical form. Next, use T(z) as in the previous exercise to remove
+its nilpotent part, and conclude from above that then all other coef-
+ﬁcients are diagonally blocked in the block structure of A0. Thus, it
+suﬃces to continue with one such block. Repeating these arguments,
+conclude that every elementary system (3.3) can be transformed into

@@ -1,0 +1,68 @@
+2.1. LOG-CONVEX SEQUENCES AND O-REGULAR VARIATION
+75
+Specially relevant for our purposes, regarding the construction of proximate orders from
+weight sequences, is the next result that connects the upper order of ωM and νM with the lower
+one of m.
+In the following subsection, a more general dual relation between m and νm is
+established.
+Theorem 2.1.30. Let M be a weight sequence, then
+ρ(ωM) = lim sup
+t→∞
+log ωM(t)
+log t
+= ρ(νm) = lim sup
+p→∞
+log(p)
+log(mp) =
+1
+µ(m) =
+1
+ω(M)
+(where the last quotient is understood as 0 if ω(M) = ∞, and as ∞if ω(M) = 0). Moreover,
+µ(ωM) = lim inf
+t→∞
+log ωM(t)
+log t
+= lim inf
+t→∞
+log νm(t)
+log t
+= µ(νm).
+Proof. The rst expression for ρ(ωM) came from the very denition of the order because for
+t > m0, ωM(t) > 0. For the second expression of ρ(ωM), we take into account the link given
+in (2.8) between ωM(t) and the counting function νm(t). Since both functions are positive and
+nondecreasing for t > m0, one may apply [32, Ch. 2, Th. 1.1], in which the following classical
+chain of inequalities is stated
+νm(t) ≤ωM(et) ≤νm(et) log(et/m0),
+t > m0,
+(2.10)
+to deduce that the upper order of ωM(t) equals that of νm(t).
+Now, from [32, Ch. 2, Th. 1.8] we know that the upper order of νm(t) is in turn the exponent
+of convergence of m (see Proposition 2.1.25), we conclude that ρ(νm) = λ(m) = 1/µ(m) using
+Proposition 2.1.26, with γ = 0.
+The last expression can be obtained as the rst one, that is, from (2.10) but taking lim inf
+instead of lim sup.
+□
+Remark 2.1.31. The main diculty regarding the connection between µ(ωM), µ(νm) and ρ(m)
+is that there is not an extension of the notion of exponent of convergence in order to provide
+an analogous result to Proposition 2.1.26 for ρ(m). This problem will be skipped in the next
+subsection by passing to a dual sequence (see Theorem 2.1.43).
+Remark 2.1.32. We observe that if M and L are weight sequences with M ≈L then, as in
+(1.7), there exists A ≥1 such that
+ωL(A−1t) ≤ωM(t) ≤ωL(At),
+t > 0,
+and we can show that ρ(ωM) = ρ(ωL). As an easy consequence of the last theorem and Theo-
+rem 2.1.16, we have that
+ω(M) = µ(m) = µ(ℓ) = ω(L).
+Together with Remark 2.1.24, this means that one can extend Lemma 2.1.12, that is, we have
+stability for ≈, for the two relevant indices γ(M) and ω(M), as it will be shown in the next
+chapter, in the study of the asymptotic Borel map.
+Remark 2.1.33. Ultraholomorphic and ultradierentiable classes can also be dened in terms
+of a weight function, that is, a function ω : [0, ∞) →[0, ∞) continuous, nondecreasing with
+ω(0) = 0 and limt→∞ω(t) = ∞. For these functions Matuszewska indices and orders can be
+considered, in the same way we have done for the associated and the counting function. These
+values characterize growth conditions of the function ω(t), like the ones in Proposition 2.1.28
+or others like the strong nonquasianalyticity [75, condition (ε)], that, similarly to the sequence
+case, describe elementary properties of the corresponding spaces. Since these classes will be out
+of the study in this dissertation, the reader is referred to our works [45, 47].
+Universidad de Valladolid

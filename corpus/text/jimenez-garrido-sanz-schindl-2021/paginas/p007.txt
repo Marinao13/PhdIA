@@ -1,0 +1,127 @@
+EQUALITY OF ULTRADIFFERENTIABLE CLASSES BY MEANS OF INDICES
+7
+and the classes of Beurling type by
+E(M)(U) := {f ∈E(U) : ∀K ⊂⊂U ∀h > 0 : ∥f∥M,K,h < +∞},
+where we denote
+∥f∥M,K,h :=
+sup
+α∈Nd,x∈K
+|f (α)(x)|
+h|α|M|α|
+.
+For a compact set K with suﬃciently regular (smooth) boundary
+EM,h(K) := {f ∈E(K) : ∥f∥M,K,h < +∞}
+is a Banach space and so we have the following topological vector spaces
+E{M}(K) := lim
+−→
+h>0
+EM,h(K),
+and
+E{M}(U) =
+lim
+←−
+K⊂⊂U
+lim
+−→
+h>0
+EM,h(K) =
+lim
+←−
+K⊂⊂U
+E{M}(K).
+Similarly, we get
+E(M)(K) := lim
+←−
+h>0
+EM,h(K),
+and
+E(M)(U) =
+lim
+←−
+K⊂⊂U
+lim
+←−
+h>0
+EM,h(K) =
+lim
+←−
+K⊂⊂U
+E(M)(K).
+For any ω ∈W0 let the Roumieu type class be deﬁned by
+E{ω}(U) := {f ∈E(U) : ∀K ⊂⊂U ∃l > 0 : ∥f∥ω,K,l < +∞}
+and the space of Beurling type by
+E(ω)(U) := {f ∈E(U) : ∀K ⊂⊂U ∀l > 0 : ∥f∥ω,K,l < +∞},
+where
+∥f∥ω,K,l :=
+sup
+α∈Nd,x∈K
+|f (α)(x)|
+exp( 1
+l ϕ∗ω(l|α|)).
+For compact sets K with suﬃciently regular (smooth) boundary
+Eω,l(K) := {f ∈E(K) : ∥f∥ω,K,l < +∞}
+is a Banach space and we have the following topological vector spaces
+E{ω}(K) := lim
+−→
+l>0
+Eω,l(K),
+and
+E{ω}(U) =
+lim
+←−
+K⊂⊂U
+lim
+−→
+l>0
+Eω,l(K) =
+lim
+←−
+K⊂⊂U
+E{ω}(K).
+Similarly, we get
+E(ω)(K) := lim
+←−
+l>0
+Eω,l(K),
+and
+E(ω)(U) =
+lim
+←−
+K⊂⊂U
+lim
+←−
+l>0
+Eω,l(K) =
+lim
+←−
+K⊂⊂U
+E(ω)(K).
+Next, we consider classes deﬁned by weight matrices of Roumieu type E{M} and of Beurling type
+E(M) as follows, see also [11, 4.2]. For all K ⊂⊂U with suﬃciently smooth boundary we put
+E{M}(K) :=
+[
+x∈I
+E{Mx}(K),
+E{M}(U) :=
+\
+K⊂⊂U
+[
+x∈I
+E{Mx}(K),
+and
+E(M)(K) :=
+\
+x∈I
+E(Mx)(K),
+E(M)(U) :=
+\
+x∈I
+E(Mx)(U).
+For K ⊂⊂Rd one has the representation
+E{M}(K) = lim
+−→
+x∈I
+lim
+−→
+h>0
+EMx,h(K)

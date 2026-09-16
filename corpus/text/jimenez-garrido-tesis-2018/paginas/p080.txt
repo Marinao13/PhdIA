@@ -1,0 +1,52 @@
+80
+CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+Using (2.14), for p ∈N, we observe that
+mp = sup{t ≥m0; νm(t) ≤p} ≤sup{t ≥m0; νm(Q1/(γ−ε/2)t) ≤Qp}
+=Q−1/(γ−ε/2) sup{s ≥Q1/(γ−ε/2)m0; νm(s) ≤Qp} ≤
+mQp
+Q1/(γ−ε/2) .
+Hence we have shown that there exist Q ∈N, Q ≥2 and δ > 0 such that
+lim inf
+p→∞
+mQp
+Q1/γmp
+≥Qδ > 1.
+By Proposition 2.1.22.(viii), we obtain that 1/γ ≤β(m) and 1/α(νm) ≤β(m). Analogously, if
+0 < γ < β(νm), there exists ε > 0 with γ + ε < β(νm) and Q ∈N, large enough, such that
+νm(t)Q ≤νm(Q1/(γ+ε/2)t),
+t ≥m0.
+For p ∈N, large enough, we observe that
+mp = sup{t ≥m0; νm(t) ≤p} ≥sup{t ≥m0; νm(Q1/(γ+ε/2)t) ≤Qp}
+=Q−1/(γ+ε/2) sup{s ≥Q1/(γ+ε/2)m0; νm(s) ≤Qp} =
+mQp
+Q1/(γ+ε/2) .
+By Proposition 2.1.22.(iv), we obtain that 1/γ ≥α(m) and 1/β(νm) ≥α(m).
+Finally, by Proposition 2.1.18, M has (mg) if and only if α(m) < ∞if and only if β(νm) > 0
+which, by Proposition 2.1.28, is equivalent to the existence of H ≥1, such that
+lim inf
+t→∞νm(Ht)/νm(t) > 1.
+Similarly, we see that M satises (snq) if and only if νm(2t) = O(νm(t)).
+□
+Remark 2.1.39. In particular, for a weight sequence M, by using the previous result and
+Proposition 2.1.29, we can increase the list of alternative denitions of strong regularity in
+Corollary 2.1.6 and Remark 2.1.19, that is, the following are equivalent:
+(i) M is strongly regular,
+(v) 0 < lim inf
+t→∞
+νm(t)
+ωM(t) ≤lim sup
+t→∞
+νm(t)
+ωM(t) < ∞,
+(vi) α(νm) < ∞and β(νm) > 0,
+(vii) α(ωM) < ∞and β(ωM) > 0.
+In this case, we also have that α(ωM) = α(νm) < ∞and β(ωM) = β(νm) > 0 and ρ(ωM), µ(ωM),
+ρ(νm), µ(νm) ∈(0, ∞).
+This suggests a possible explanation, which was also pointed out in [57], of some of the facts
+described at the end of Remark 2.1.23, one may assert that νm is a dual function in terms of
+O-regularly varying behavior of the sequence m, but if we have strongly regularity we can replace
+νm by ωM. More concretely, for a weight sequence M, we have that
+(1) α(m) < ∞if and only if β(ωM) > 0 (see [80, Lemma 2.2]).
+(2) β(m) > 0 implies α(ωM) < ∞(see [17, Lemma 12]).
+JAVIER JIMÉNEZ GARRIDO

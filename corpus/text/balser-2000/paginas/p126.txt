@@ -1,0 +1,40 @@
+6.5 General Moment Summability
+109
+Sk,d ˆf(z) in G. Conversely, ˆf ∈E {z}k,d implies, owing to Theorem 28
+(p. 91), that g = T −(Sk,d ˆf) is analytic and of exponential growth not
+more than k in a sector S(d, ε), and g(u) ∼=0 ˆg(u) = ˆT −ˆf(u) there. An
+asymptotic of Gevrey order zero implies convergence of ˆg to g, for small
+|u|. Hence (S1), (S2) follow.
+2
+The equivalence of these summability methods is used in the following
+exercises:
+Exercises: Let k > 0 be ﬁxed and observe the following terminology: A
+sequence (λn)n≥0 is called a summability factor for k-summability, if for
+every Banach space E and every  fn zn ∈E {z}k, we have  λnfn zn ∈
+E {z}k.
+1. Show that if (λn) is a summability factor for k-summability, then
+necessarily  λn zn ∈C{z}k.
+2. Let e(z) be a kernel function of order k, with corresponding mo-
+ment function m(u). Show that the sequences (Γ(1+n/k)/m(n)) and
+(m(n)/Γ(1 + n/k)) both are summability factors for k-summability.
+3. Let e1(z), e2(z) be kernel functions of the same order k, with corre-
+sponding moment functions m1(u), m2(u). Show that the sequence
+m1(n)/m2(n) is a summability factor for k-summability.
+4. Show that the following sequences are summability factors for k-
+summability:
+(a) λn = Γ(α+n/k)
+Γ(β+n/k), for α, β > 0.
+(b) λn = Γ(1+s1n)(1+s2n)
+Γ(1+s3n)(1+s4n), for sj ≥0, s1 + s2 = s3 + s4.
+5. Show that the sequence λn = λn, for any ﬁxed λ ∈C , is a summa-
+bility factor for k-summability.
+6. For ﬁxed p ∈N, show that the sequence λn = 1 (resp. = 0) whenever
+n is (resp. is not) a multiple of p, is a summability factor for k-
+summability.
+7. For m ∈Z, show that the sequence λn = (1 + n)m is a summability
+factor for k-summability.
+8. Show that the sequence λn = 1 (resp. = 0) whenever n is (resp. is
+not) of the form 2m with m ∈Z, is not a summability factor for
+k-summability.
+9. For s > 0, show that (1/Γ(1 + sn)) is a summability factor for k-
+summability if and only if s ≥1/k.

@@ -1,0 +1,64 @@
+92
+5. Integral Operators
+Then g(u) is of exponential growth not more than k in S, so that (Tg)(z)
+is holomorphic in a sectorial region ˜G = ˜G(d, ˜α), with π/k < ˜α, and
+f(z) = (Tg)(z),
+z ∈˜G ∩G.
+Proof: For k > 1/2, the proof has been given in property 4 (p. 87). For
+smaller values of k, use the deﬁnition of T, T −given in Section 5.6 in terms
+of operators ˜T, ˜T −of order ˜k > 1/2, together with (5.18).
+2
+To prove the analogue to the second inversion theorem of Section 5.3 is
+harder, owing to the fact that we have to use diﬀerent rays of integration
+in the integral operator T in order to cover the path of integration γk(τ)
+used in the integral representation for T −. Here, we give a proof that in
+the case of T’s being a Laplace operator is considerably diﬀerent from the
+proof of Theorem 25 (p. 83).
+Theorem 30 For a sector S = S(d, α) of inﬁnite radius and k > 0, let
+f ∈A(k)(S, E ) and deﬁne g(z) = (Tf)(z), z ∈G = G(d, α + π/k). Then
+f = T −g follows.
+Proof: Without loss of generality, assume that d = 0 and k > 1/2; the
+latter assumption can be made owing to (5.18). Let β± be the following
+path: from the origin along the ray arg z = ±(ε + π)/(2k) to a point of
+modulus r, and then on the circle of radius r to the real axis, with ﬁxed
+ε, r > 0. Then, for 0 < δ < α we may, for r and ε suﬃciently small and
+t on the path β±, represent T f = g by the integral (5.13) with τ = ±δ.
+Doing so, we deﬁne for positive real u
+f±(t)
+=
+−1
+2πi
+
+β±
+E(t/z)
+ ∞(±δ)
+0
+e(u/z) f(u) du
+u
+dz
+z
+=
+ ∞(±δ)
+0
+f(u) k±(t, u)du
+u ,
+k±(t, u)
+=
+−1
+2πi
+
+β±
+E(t/z) e(u/z)dz
+z .
+By deﬁnition of the paths β± we conclude that f+−f−= T −g. To evaluate
+the kernels k±(t, u), we make a change of variable z = 1/w, giving
+k±(t, u) = −1
+2πi
+
+˜β±
+E(wt) e(wu)dw
+w ,
+with corresponding paths ˜β± beginning at the point w = 1/r and going
+oﬀto inﬁnity. The integrals remain the same when changing the paths of
+integration, provided that wu, for w on the path, stays within the sector
+S+ where the kernel e(wu) is deﬁned, and wt, at least for large values of t,

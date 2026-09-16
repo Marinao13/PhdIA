@@ -1,0 +1,48 @@
+References
+269
+[24]
+, Existence and structure of complete formal solutions of non-
+linear meromorphic systems of ODE, Asymptotic Analysis, 15 (1997),
+pp. 261–282.
+[25]
+, Moment methods and formal power series, J. des Math. Pures
+et Appl., 76 (1997), pp. 289–305.
+[26]
+, Multisummability of complete formal solutions for non-linear
+systems of meromorphic ordinary diﬀerential equations, Complex
+Variables, 34 (1997), pp. 19–24.
+[27]
+, Divergent solutions of the heat equation: on an article of Lutz,
+Miyake and Sch¨afke, Pac. J. of Math., 188 (1999), pp. 53–63.
+[28]
+, Some remarks, examples, and questions concerning summabil-
+ity of formal factorial series, Ulmer Seminare – Funktionalanalysis
+und Diﬀerentialgleichungen, University of Ulm, 1999.
+[29] W. Balser and A. Beck, Necessary and suﬃcient conditions for
+matrix summability methods to be stronger than multisummability,
+Ann. Inst. Fourier Grenoble, 46 (1996), pp. 1349–1357.
+[30] W. Balser and A. A. Bolibruch, Transformation of reducible
+equations to Birkhoﬀstandard form, Ulmer Seminare – Funktional-
+analysis und Diﬀerentialgleichungen, University of Ulm, 1997.
+[31] W. Balser, B. L. J. Braaksma, J.-P. Ramis, and Y. Sibuya,
+Multisummability of formal power series solutions of linear ordinary
+diﬀerential equations, Asymptotic Analysis, 5 (1991), pp. 27–45.
+[32] W. Balser and R. W. Braun, Power series methods and multi-
+summability, Ulmer Seminare – Funktionalanalysis und Diﬀerential-
+gleichungen, University of Ulm, 1997. To appear in Math. Nachrich-
+ten.
+[33] W. Balser, W. B. Jurkat, and D. A. Lutz, Birkhoﬀinvariants
+and Stokes multipliers for meromorphic linear diﬀerential equations,
+J. of Math. Analysis and Appl., 71 (1979), pp. 48–94.
+[34]
+, A general theory of invariants for meromorphic diﬀerential
+equations; Part I, formal invariants, Funkcialaj Ekvacioj, 22 (1979),
+pp. 197–221.
+[35]
+, A general theory of invariants for meromorphic diﬀerential
+equations; Part II, proper invariants, Funkcialaj Ekvacioj, 22 (1979),
+pp. 257–283.
+[36]
+, A general theory of invariants for meromorphic diﬀerential
+equations; Part III, applications, Houston J. of Math., 6 (1980),
+pp. 149–189.

@@ -1,0 +1,38 @@
+18
+INTRODUCCIÓN
+sección se recuerdan los elementos característicos de esta teoría de M−sumabilidad. Ahora esta-
+mos interesados en la extensión de la multisumabilidad a este contexto general. Comenzaremos
+con una discusión de carácter preliminar que afecta a la necesidad, para que el problema tenga
+sentido, de que las sucesiones, que denen los métodos de sumabilidad que van a combinarse,
+sean comparables y no equivalentes, lo que se estudiará en la Subsección 4.2.1. Tras establecer
+las propiedades básicas de las sucesiones producto y cociente de dos sucesiones peso, se obtendrá
+el Teorema Tauberiano 4.2.14:
+Teorema. Sean L y M sucesiones peso tales que L admite un orden no nulo aproximado, M/L
+es logarítmicamente convexa y ω(L) < ω(M). Si ˆf ∈C[[z]]L y ˆf es M−sumable en todas las
+direcciones salvo un número nito (mod 2π), entonces ˆf es convergente.
+Gracias a este resultado, es posible dar una denición consistente de multisumabilidad: una
+serie de potencias formal se dirá multisumable si se puede dividir en una suma nita de series
+de potencias formales ˆfj, cada una de las cuales es sumable para la correspondiente sucesión
+Mj que admite un orden aproximado. Nuestro objetivo es determinar el procedimiento para
+reconstruir de forma explícita su suma.
+En los Teoremas 4.3.21 y 4.3.25, se construirán los
+núcleos de sumabilidad para las sucesiones cociente y producto, con ellos se podrá reconstruir la
+multisuma como se muestra en el Teorema 4.3.31. Debemos mencionar que este estudio no se ha
+completado aún, especialmente en lo que respecta a las posibles aplicaciones, pero posponemos
+estos comentarios sobre este trabajo en curso para las conclusiones.
+El último capítulo de esta memoria no estaba inicialmente programado, pero su inclusión
+es natural una vez que las técnicas de los órdenes aproximados y la variación regular se han
+incorporado. En él se trata la propagación de las estimaciones M−asintóticas en una dirección
+de funciones, holomorfas y asintóticamente acotadas, a toda una región sectorial, donde M es una
+sucesión peso que admite un orden aproximado no nulo. El resultado principal es el siguiente,
+Teorema 5.3.1:
+Teorema. Dado γ > 0, supongamos que f es holomorfa en una región sectorial G de amplitud
+πγ y bisecada por la dirección 0, f está acotada en todo subsector T propio y acotado de G,
+y admite a ˆf ∈C[[z]] como su M−desarrollo asintótico en una dirección θ ∈(−πγ/2, πγ/2).
+Entonces, f ∈˜
+AM(G) y f admite a ˆf como su M−desarrollo asintótico en G.
+Este teorema generaliza un resultado de A. Fruchard y C. Zhang [29] de 1999 para desarrollos
+Gevrey. Como en el caso Gevrey, las pruebas de estos resultados dependen, por un lado, de una
+versión adecuada del clásico Teorema de Phragmén-Lindelöf , ver Lema 5.1.6, y por otro lado, de
+la disponibilidad de versiones apropiadas del Lema de Watson y el Teorema de Borel-Ritt-Gevrey.
+JAVIER JIMÉNEZ GARRIDO

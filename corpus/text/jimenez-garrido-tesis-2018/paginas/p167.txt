@@ -1,0 +1,126 @@
+4.3. MULTISUMMABILITY
+167
+and by condition (vi.b) for E2, |E2(u/z)z−1| is integrable on δω2(τ), so we can apply
+Dominated Convergence Theorem. Therefore, we can exchange integral and sum and, by
+Proposition 4.1.16, we see that
+(T −
+e2E1)(u) =
+∞
+X
+n=0
+(T −
+e2(zn/me1(n)))(u) =
+∞
+X
+n=0
+un
+me1∗e2(n) = E(u).
+We x τ ∈(0, 2 −(ω1 + ω2)), we take τ1 ∈(0, 2 −ω1) and τ2 ∈(0, 2 −ω2) such that
+τ + 2 ∈(0, τ1 + τ2 −(2 −ω2 −τ2)) and we can choose ε ∈(2 −ω2 −τ2, τ1 + τ2 −2 −τ). By
+(vi.b) for E1 and E2, we know that there exist β1, β2 > 0 (not depending on τ1 and τ2),
+and constants K1, K2 > 0, M1, M2 ≥1 such that
+|E1(z)| ≤K1
+|z|β1 ,
+z ∈S(π, τ1),
+|z| ≥M1,
+(4.38)
+|E2(z)| ≤K2
+|z|β2 ,
+z ∈S(π, τ2),
+|z| ≥M2.
+(4.39)
+We x u ∈S(π, τ) with |u| ≥M1M2. We write φ = arg(u) ∈(0, 2π) and we may consider
+a path δω2(φ) (see Denition 4.1.13). We can write δω2(φ) = δ1 + δ2 + δ3 (δ1 and δ3 are
+segments in directions θ1 = φ+(π/2)(ω2 +ε) and θ3 = φ−(π/2)(ω2 +ε), respectively, and
+δ2 is a circular arc with radius R = |u|/M2, that can be chosen in this way because E1 is
+entire). Then, using (4.37), we see that
+E(u) = −1
+2πi
+Z
+δω2(φ)
+E2
+u
+z
+
+E1 (z) dz
+z .
+We have that
+|E(u)| ≤1
+2π
+ Z |u|/M2
+0
+E2
+
+u
+reiθ1
+
+E1
+
+reiθ1 dr
+r +
+Z θ1
+θ3
+E2
+ uM2
+|u|eiθ
+
+E1
+|u|eiθ
+M2
+ dθ
++
+Z |u|/M2
+0
+E2
+
+u
+reiθ3
+
+E1
+
+reiθ3 dr
+r
+!
+.
+(4.40)
+First, we study the second integral in (4.40). By condition (v) for E2, we know that there
+exists a constant H2 such that |E2(z)| ≤H2 for every z ∈D(0, M2 + 1) and we deduce
+that
+Z θ1
+θ3
+E2
+
+M2ei(φ−θ)
+E1
+|u|eiθ
+M2
+ dθ ≤H2
+Z θ1
+θ3
+E1
+|u|eiθ
+M2
+ dθ.
+Using the upper bounds of ε we see that 2−τ −ω2 −ε > 2−τ1 and 2+τ +ω2 +ε < 2+τ1,
+then [θ3, θ1] ⊆((π/2)(2 −τ −ω2 −ε), (π/2)(2 + τ + ω2 + ε)) and we get that
+|u|eiθ/M2 ∈S(π, τ1),
+if θ ∈[θ3, θ1].
+(4.41)
+Since |u| ≥M1M2 we have that |ueiθ|/M2 ≥M1 and by (4.38), we deduce that
+H2
+Z θ1
+θ3
+E1
+|u|eiθ
+M2
+ dθ ≤H2K1Mβ1
+2
+|u|β1
+πτ1,
+|u| ≥M1M2.
+(4.42)
+We study now the rst and the last integral in (4.40). If r ∈(0, |u|/M2), we observe that
+|u/reiθj| ≥M2. Since ω2 + τ2 < 2 and τ1 −2 −τ < −ω1 −τ < 0, using the bounds for ε,
+we have that
+ω2 + ε ∈(2 −τ2, τ2 + ω2 + τ1 −2 −τ) ⊆(2 −τ2, 2)
+Universidad de Valladolid

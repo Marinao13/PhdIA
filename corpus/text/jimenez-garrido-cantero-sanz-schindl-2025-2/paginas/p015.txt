@@ -1,0 +1,70 @@
+15
+4.1
+Continuous right inverses under derivation closedness
+A first result on the length of the interval S(c
+M) was already provided by J. Schmets and M.
+Valdivia [24, Th. 4.4 and 4.6], and it can be rephrased as follows. Note that the target space for
+the Borel mapping in their results is the sequence space whose elements contain the derivatives
+of a given function at 0, subject to the natural growth restrictions; we are considering instead
+the target space consisting of the formal power series of asymptotic expansion, or the formal
+Taylor series, with a suitable control on their coefficients. Both spaces are naturally isomorphic,
+and both approaches are clearly equivalent. Here, ⌊x⌋stands for the greatest integer which is
+less than or equal to the real number x.
+Theorem 4.1. Let c
+M be a regular sequence and r > 0. If there is a global extension operator
+UM : C[[z]](M) →A(c
+M)(Sr), then γ(M) > ⌊r⌋.
+Later on, and regarding strongly regular sequences, the aforementioned result of V. Thilliez [26,
+Cor. 3.4.1] showed that (0, γ(M)) ⊂S(c
+M), and A. Debrouwere [4, Cor. 1.3] has recently proved
+that surjectivity comes with global extension operators. It is worth noting that [4, Th. 1.2] gives
+a complete solution to the Borel-Ritt problem in non-uniform Beurling classes (which are not
+treated in this paper) defined by strongly regular sequences.
+Going back to results without assuming the condition (mg), we first mention that the hypothe-
+ses in Theorem 4.1 can be improved by using some techniques included in [24], and Proposition
+4.3 therein, in the same line of ideas that inspired the proof of a similar statement [11, Theorem
+4.14(i)] in the Roumieu case. Note that we will exchange the existence of the extension operator
+into just the surjectivity of the Borel map, and that A(c
+M)(Sr) ⊂e
+Au
+(M)(Sr), what again weakens
+the forthcoming assumption.
+Theorem 4.2. Let c
+M be a regular sequence. If r > 0 is such that eB : e
+Au
+(M)(Sr) →C[[z]](M) is
+surjective, then γ(M) > ⌊r⌋.
+We include the proof for the reader’s convenience. First, for r ∈N we need to introduce the
+space Nr,(M)([0, ∞)) consisting of the functions f ∈C∞([0, ∞)) such that:
+(a) f(pr+j)(0) = 0 for every p ∈N0 and j ∈{1, . . . , r −1} (this condition is empty when r = 1),
+(b) for every h > 0 one has
+sup
+p∈N0, x∈[0,∞)
+|f(pr)(x)|
+hpMp
+< ∞.
+We recall the following crucial result.
+Proposition 4.3 ([24], Prop. 4.3). Let r ∈N and M be a weight sequence.
+If the map
+Br : Nr,(M)([0, ∞)) −→C[[z]](
+c
+M) sending f to the formal power series P∞
+p=0(f(pr)(0)/p!)zp
+is surjective, then the sequence m satisfies the condition (γr) or, in other words, γ(M) > r.
+Proof of Theorem 4.2. If r ∈(0, 1), then it suffices to observe that eSu
+(M) is not empty in order to
+conclude, by Lemma 2.9, that γ(M) > 0 = ⌊r⌋(note that (dc) has not been used in this case).
+Suppose now that r ≥1 and put r0 = ⌊r⌋∈N. We will show that Br0 : Nr0,(M)([0, ∞)) −→
+C[[z]](
+c
+M) is surjective, and then γ(M) > r0 = ⌊r⌋by Proposition 4.3, as desired.
+Given bg = P∞
+p=0 apzp ∈C[[z]](
+c
+M), we write bp := app! for all p ∈N0, and for every h > 0
+there exists C1 > 0 such that
+|bp| ≤C1hpp!
+c
+Mp = C1hpMp,
+p ∈N0.
+(4.1)

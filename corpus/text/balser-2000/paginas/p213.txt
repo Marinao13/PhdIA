@@ -1,0 +1,6 @@
+196
+12. Other Related Questions
+exp[2πi Mj] is diagonalizable, Ωj is determined up to a right-hand diagonal
+matrix factor, and this is exactly the degree of freedom we have in choosing
+a fundamental solution X(z) consisting of Floquet solutions. Therefore, the
+knowledge of the Stokes multipliers alone does not determine Ωj.

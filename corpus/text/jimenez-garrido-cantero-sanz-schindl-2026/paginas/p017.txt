@@ -1,0 +1,93 @@
+17
+Conversely and as before, whenever we have suitable characteristic functions in the
+Roumieu class, closure under composition implies condition (FdB).
+Theorem 7.7. Let M = (Mj)j ∈RN0
+>0 be a sequence with M0 = 1 and α > 0. If α ≤2
+we assume that G
+2−αM is equivalent to an (lc) sequence, and if α > 2 we assume that
+there exists α′ > α such that G
+2−α′
+M is equivalent to an (lc) sequence. Then the class
+e
+Au
+{M}(Sα) is closed under composition if and only if M satisfies (FdB).
+Proof. By Proposition 7.6, we only need to show necessity.
+By Theorem 4.10, there exists a characteristic function f ∈e
+Au
+{M}(Sα) in the strong
+sense, i.e., f ∼u
+{M}
+P∞
+j=0 cf
+j zj and (|cf
+j |)j∈N0 is equivalent to M.
+Moreover, by Re-
+mark 4.12 we know that cf
+0 > 0 and cf
+1 < 0. Let us consider the function f0 defined in
+Sα by f0(z) = cf
+0 −f(z). It is clear that f0 ∈e
+Au
+{M}(Sα) and f0 ∼u
+{M} −P∞
+j=1 cf
+j zj (in
+particular, cf0
+0 = 0).
+In case α ≤2, choose real numbers β and ε such that 0 < ε < π
+2 (α −β) < π
+2 .
+Consider ε1 := −cf
+1 sin(ε) < |cf
+1|. Due to (5), we have that
+lim
+z→0
+z∈Sβ
+f′
+0(z) = −cf
+1,
+and so there exists r > 0 such that for every z ∈Sβ,r = {w ∈Sβ : |w| < r} one has
+|f′
+0(z) + cf
+1| < ε1. Take z ∈Sβ,r, then the segment (0, z] is contained in Sβ,r and so,
+|f0(z) + cf
+1z| =
+
+Z
+[0,z]
+(f′
+0(w) + cf
+1) dw
+ ≤ε1|z|.
+For such z we deduce that
+| arg(f0(z)) −arg(z)| = | arg(f0(z)) −arg(−cf
+1z)| ≤arcsin
+ 
+ε1|z|
+−cf
+1|z|
+!
+= ε.
+The choices of β and ε guarantee that | arg(f0(z))| < απ
+2 , and so f0(Sβ,r) ⊂Sα. Since
+e
+Au
+{M}(Sα) is closed under composition, we know that φ := f ◦f0 ∈e
+Au
+{M}(Sβ,r) (where,
+for simplicity, we have written f0 instead of f0|Sβ,r, and f instead of f|f0(Sβ,r)).
+In particular, if φ ∼u
+{M}
+P∞
+n=0 cφ
+nzn, we know that there exist A1 > 0 and h1 > 0
+such that
+|cφ
+n| ≤A1hn
+1Mn,
+n ∈N0.
+(16)
+At the same time, the formulas (10) and (11) allow us to write cφ
+0 = cf
+0 and, since cf0
+0 = 0

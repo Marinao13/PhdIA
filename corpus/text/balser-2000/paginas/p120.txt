@@ -1,0 +1,56 @@
+6.3 Algebra Properties
+103
+Theorem 34 For ﬁxed, but arbitrary, k > 0 and d, let ˆf, ˆg1, ˆg2 ∈E {z}k,d
+be given. Then we have
+ˆg1 + ˆg2 ∈E {z}k,d,
+Sk,d (ˆg1 + ˆg2) = Sk,d ˆg1 + Sk,d ˆg2,
+ˆf ′ ∈E {z}k,d,
+Sk,d ( ˆf ′) = d
+dz (Sk,d ˆf),
+ z
+0
+ˆf(w)dw ∈E {z}k,d,
+Sk,d
+ z
+0
+ˆf(w)dw
+
+=
+ z
+0
+(Sk,d ˆf)(w) dw.
+Finally, if p is a natural number, then
+ˆf(zp) ∈E {z}pk,d/p,
+Spk,d/p ( ˆf(zp)) = (Sk,d ˆf)(zp).
+Proof: Follows from Theorems 18, 20 in Section 4.5, and Exercise 2 on
+p. 72.
+2
+Theorem 35 Let E , F both be Banach spaces, and let ˆf ∈E {z}k,d, ˆT ∈
+L(E , F){z}k,d, ˆα ∈C{z}k,d. Then
+ˆT ˆf ∈F{z}k,d,
+Sk,d ( ˆT ˆf) = (Sk,d ˆT) (Sk,d ˆf),
+ˆα ˆf ∈F{z}k,d,
+Sk,d (ˆα ˆf) = (Sk,d ˆα) (Sk,d ˆf).
+Proof: Follows from Theorem 19 (p. 71).
+2
+Theorem 36 For ﬁxed, but arbitrary, k > 0 and d, let ˆf, ˆg1, ˆg2 ∈E {z}k,d
+be given. If E is a Banach algebra, then
+ˆg1 ˆg2 ∈E {z}k,d,
+Sk,d (ˆg1 ˆg2) = (Sk,d ˆg1) (Sk,d ˆg2).
+Moreover, if E has a unit element and ˆf has invertible constant term, then
+ˆf −1 ∈E {z}k,d,
+Sk,d ( ˆf −1) = (Sk,d ˆf)−1,
+wherever the right-hand side is deﬁned.
+Proof: The ﬁrst statement follows from the previous theorem and the fact
+that for a Banach algebra E every series ˆg1 can be identiﬁed with the
+element of L(E , F){z}k,d corresponding to the mapping ˆg2 	→ˆg1 ˆg2. For
+the second one, use Exercise 2 to conclude that (Sk,d ˆf)−1 is deﬁned on
+a sectorial region with opening larger than π/k, then apply Theorem 21
+(p. 72).
+2
+Roughly speaking, the results in this section may be easily memorized
+as saying that that E {z}k,d has the same algebraic properties as E {z},
+the space of convergent power series. What these properties are in detail
+depends on whether E is an algebra, or has a unit element. In particular, we
+obtain that C{z}k,d is a diﬀerential algebra, and ˆf ∈C{z}k,d is invertible
+if and only if it has a nonzero constant term.

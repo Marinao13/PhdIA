@@ -980,6 +980,25 @@ def cmd_ingest(args):
         Q.ingerir(pdf, id_=args.id, **kw)
 
 
+def cmd_indexar(args):
+    from . import indice as I
+    I.indexar(rehacer=args.rehacer)
+
+
+def cmd_buscar(args):
+    from . import indice as I
+    pregunta = " ".join(args.pregunta).strip()
+    if not pregunta:
+        print('uso: python doc.py buscar "que condiciones sobre M usa el teorema de extension"')
+        return
+    res = I.buscar(pregunta, k=args.k, fuente=args.fuente, doc=args.doc, solo_bm25=args.bm25,
+                   por_doc=args.por_doc)
+    if not res:
+        print("nada en el indice para esa pregunta (o indice vacio: python doc.py indexar)")
+        return
+    I.imprimir(res)
+
+
 # ======================================================================
 # anki
 # ======================================================================

@@ -1,0 +1,41 @@
+190
+12. Other Related Questions
+This question was answered positively, ﬁrst for dimension ν = 2 by Jurkat,
+Lutz, and Peyerimhoﬀ[147], then for ν = 3 in [15], and ﬁnally for any
+dimension by Bolibruch [61, 62, 64].
+While the problem stated above concerns linear systems of ODE, all the
+attempts on proving it for various special cases are based on a general
+result on factorization of holomorphic matrices which was independently
+obtained by Hilbert [119] and Plemelj [220], as well as Birkhoﬀ[56]:
+Suppose that we are given a ν × ν matrix function S(z), holo-
+morphic for |z| > ρ, for some ρ ≥0, whose determinant does
+not vanish there. Then
+S(z) = T(z) E(z) zK,
+(12.1)
+with an analytic transformation T(z), an entire matrix function
+E(z) whose determinant does not vanish for any z ∈C, and a
+diagonal matrix of integers K = diag [k1, . . . , kν].
+For ν = 1 one can easily show this through an additive decomposition
+of log S(z); however, the proof for ν ≥2 is much more involved and shall
+not be given here. For a very readable presentation of the basic ideas of
+Birkhoﬀ’s proof, see Sibuya [251].
+The above factorization result applies to systems of ODE as follows: Let
+X(z) be a fundamental solution of (3.1) with monodromy matrix M, so
+that S(z) = X(z) z−M is single-valued for |z| > ρ. Then det S(z) cannot
+vanish for these z, because of Proposition 1 (p. 6). With T(z) as in (12.1),
+the transformation x = T(z) ˜x takes (3.1) into a system z˜x′ = B(z) ˜x, of
+the same Poincar´e rank r, and having the fundamental solution ˜X(z) =
+E(z) zK zM. So
+B(z) = z ˜X′(z) ˜X−1(z) = [zE′(z) + E(z) {K + zKM z−K}] E−1(z),
+showing that B(z) is holomorphic and single-valued in C , except for the
+origin. Moreover, we see from the form of ˜X that the origin is a regular-
+singular point of the new system, and will be of ﬁrst kind if zKM z−K is
+a polynomial. This certainly holds whenever M is diagonal. Hence we have
+proven the following result:
+Theorem 60 Every system (3.1) is analytically equivalent to one being
+singular only at inﬁnity and at the origin, with the origin being regular-
+singular. In case (3.1) has a fundamental solution with diagonal monodromy
+matrix, then there exists an analytically equivalent system in Birkhoﬀstan-
+dard form.
+In order to obtain Bolibruch’s result on irreducible systems, we show a
+somewhat diﬀerent factorization result:

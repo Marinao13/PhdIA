@@ -1,0 +1,50 @@
+208 
+Braun, Meise and Taylor 
+Ultradifferentiable functions and Fourier analysis 
+1.2 Lemma. 
+Let w be as in 1.1 and assume that w satisfies 1.1(a}. Then we have for 
+allx,YE<D N ; 
+w(x + y) ::; K(l + w(x) + w(y)). 
+PROOF. By the properties of w we have 
+w(x + y) = w(lx + yl) ::; w(lxl + Iyl) ::; w(2max(lxl, Iyl)) 
+::; K(l +w(max(lxl, Iyl)))::; K(l +w(x) +w(y)). 
+The following elementary statements are well known and easy to check. 
+1.3 Remark. 
+Let <p: [0, oo[ --> [O,oo[ be convex and increasing with <p(0) 
+o and 
+lim,._.x. x/<p(x) = O. Then we can define the Young conjugate <po of <p by 
+<pO: [0, oo[ --> [0,00[, 
+<p*(y):= sup(xy - <p( x)). 
+"2:0 
+<pO is convex and increasing and satisfies <p*(O) = 0 and limy_.x . y/<p*(y) = O. Moreover, we 
+have (<p*y = <po 
+1.4 Lemma. For <p as in 1.S assume that for some L > 0 we have <p(x+1) ::; L(l+<p(x)) 
+for all x E [0,00[. Then there exists Yo > 0 so that 
+<p*(y) - y;::: L<p*(f) - L 
+for all y;::: Yo· 
+1.5 Lemma. 
+Let f: [0, oo[ --> [O,oo[ be convex and increasing with f(O) = O. Then the 
+function h: x 1--+ f( x)/ x is increasing on [0,00[. 
+1.6 Lemma. Let w be as in 1.1 and assume that w satisfies 1.1 (a), ((3), and log( 1 + t) = 
+O(w(t)) as t tends to 00. Then there exists a function a: [0, oo[ --> [0,00[, satisfying 1.1(a}-
+h} with w(t) = o(a(t)). If w is a weight function, then a can be chosen to be a weight 
+function. 
+PROOF. Determine inductively a sequence (X n )IIElN in [O,oo[ with Xl = 0 and w(xz) > 0 
+which has the following properties for all n E IN: 
+["" 
+w(t) dt < 
+1 
+},.,,+I 1 + t Z 
+-
+(n + 1)3 , 
+X n+! ;::: 2xn , 
+w(xn+d ;::: 2n+l - iW(Xi) 
+for 1 ::; i ::; n. 
+Then define a: [0, oo[ --> [0, oo[ by 
+" 
+a(x) := nw(x) - LW(x;) for Ixl E [x",x,,+d. 
+i=l 
+(1) 
+(2) 
+(3) 
+(4) 

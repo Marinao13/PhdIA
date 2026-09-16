@@ -1,0 +1,59 @@
+232
+Appendix B. Functions with Values in Banach Spaces
+10. For Re λ > 0 and arbitrary real τ, show that
+z−1
+ ∞(τ)
+0
+!
+−1
+2πi
+
+γ(τ)
+eu/zzλ dz
+z
+"
+e−u/wdu = wλ,
+and use this and the previous two exercises to conclude (B.10). Com-
+pare this to Section 5.5, where an analogous formula is obtained for
+a more general situation.
+11. For Re z < −1, show that the path of integration γ in (B.10) can
+be replaced with a path from inﬁnity to the origin along the ray
+arg w = −π, and back to inﬁnity along the ray arg w = π, interpreting
+w−z = e−z log w accordingly. Use this to show
+Γ(z) Γ(1 −z) =
+π
+sin πz ,
+z ̸∈Z.
+(B.14)
+In particular, conclude that Γ(1/2) = √π.
+12. Use (B.14) and Exercise 6 to show Wallis’s product formula:
+sin(πz) = πz
+∞
+(
+k=1
+(1 −z2/k2),
+z ∈C.
+B.4
+Order and Type of Holomorphic Functions
+Let ¯S = {z :
+|z| ≥ρ0, α ≤arg z ≤β} and assume f holomorphic in
+the interior of ¯S and continuous up to the boundary. Deﬁne M(ρ, f) =
+sup{∥f(z)∥: α ≤arg z ≤β, |z| = ρ}, for ρ ≥ρ0, and call
+k = k(f) = lim sup
+ρ→∞
+log(log M(ρ, f))
+log ρ
+(B.15)
+the exponential order (or for short: the order) of f (in ¯S). By deﬁnition we
+have 0 ≤k ≤∞. It is easily seen that one can also deﬁne k as the inﬁmum
+of all κ > 0 for which a constant K exists such that
+∥f(z)∥≤K exp[|z|κ],
+z ∈¯S,
+(B.16)
+following the convention that the inﬁmum of the empty set is ∞. If k is
+neither zero nor inﬁnite, we refer to
+τ = τ(f) = lim sup
+ρ→∞
+log M(ρ, f)
+ρk
+(B.17)

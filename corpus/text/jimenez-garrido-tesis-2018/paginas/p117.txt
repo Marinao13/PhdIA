@@ -1,0 +1,56 @@
+3.2. INJECTIVITY OF THE ASYMPTOTIC BOREL MAP. IMPOSSIBILITY OF BIJECTIVITY
+117
+is bounded above and below by a constant times the function tρ(t) (see Denition 2.2.1). These
+bounds are needed for most of the results in [60, 88], but by suitably using the notion of regular
+variation we will see that the upper bounds are enough for the construction of at functions.
+The existence of a proximate order such that we have the upper bounds is guaranteed for each
+nonnegative, nondecreasing continuous function of nite upper order (see Denition 1.2.30) by
+the following classical result.
+Theorem 3.2.12 ([32], Ch. 2, Th. 2.1). Let ω : (a, ∞) →(0, ∞) be a nonnegative, nondecreasing
+continuous function with ρ(ω) = lim supt→∞log(ω(t))/ log(t) < ∞. Then, it exists a proximate
+order ρ(t) with limt→∞ρ(t) = ρ(ω) such that
+lim sup
+t→∞
+ω(t)
+tρ(t) ∈(0, ∞).
+(3.5)
+It was a particular version of this last result which motivates the introduction of the notion
+of proximate order for the study of the growth of entire functions.
+In that version, ω(t) =
+max(0, log(max|z|=t |f(z)|)) and the converse is also available, that is, given a proximate order
+it is possible to construct an entire function such that (3.5) is valid for the previous choice of ω
+(see [63, Th. 25, Th. 26]).
+The next property, easily deduced from the regular variation of the functions in the class
+MF(γ, dM(t)), will be employed.
+Proposition 3.2.13 ([65], Property 2.9). Let ρ(t) be a proximate order with limt→∞ρ(t) = ρ >
+0, γ ≥2/ρ and V ∈MF(γ, ρ(t)). Then, for every α ∈(0, 1/ρ) there exist constants b > 0 and
+R0 > 0 such that
+Re(V (z)) ≥bV (|z|),
+z ∈Sα, |z| ≥R0,
+where Re stands for the real part.
+We have all the ingredients for the main result in this section.
+Theorem 3.2.14. Suppose M is a weight sequence with ω(M) ∈(0, ∞). Then, ω(M) does not
+belong to ˜IM.
+Proof. For brevity, put ω := ω(M). By Theorem 2.1.30, the associated function ωM(t) is of nite
+order ρ := ρ(ωM) = 1/ω > 0, and by Theorem 3.2.12, there exist a nonzero proximate order ρ(t)
+with limt→∞ρ(t) = ρ = 1/ω > 0, A1 > 0 and t1 > 0 such that
+ωM(t) ≤A1tρ(t),
+t ≥t1.
+(3.6)
+Take now a function V ∈MF(2ω, ρ(t)). The proof will be complete if we show that G(z) :=
+exp(−V (1/z)), which is well dened and holomorphic in the sector Sω, belongs to
+˜
+AM(Sω)
+and it is at, for what we will apply Proposition 3.1.9.
+It is enough to work in subsectors
+S(0, β, r0) ≪Sω, where 0 < β < ω and r0 > 0. If z ∈S(0, β, r0), we have 1/z ∈Sβ. On the one
+hand, according to (VI) in Theorem 1.2.16, combined with (3.6), there exist A2 > 0 and t2 > 0
+such that
+ωM(t) ≤A2V (t),
+t ≥t2.
+(3.7)
+On the other hand, Proposition 3.2.13 provides us with constants b > 0 and R0 > 0 such that
+Re(V (ζ)) ≥bV (|ζ|),
+ζ ∈Sβ, |ζ| ≥R0.
+(3.8)
+Universidad de Valladolid

@@ -1,0 +1,78 @@
+Stability properties for ultradifferentiable classes
+– (Mi
+k)1/k →∞and supk(
+Mi
+k+1
+Mi
+k )1/k < ∞, i = 1, 2,
+– (M1
+k )1/k almost increasing,
+– (M2
+k )1/k not almost increasing,
+satisﬁes (M(rai)) but not (M{rai}). Whereas, if (M2
+k )1/k is almost increasing and (M1
+k )1/k is
+not, M satisﬁes (M{rai}) but not (M(rai)). We construct such sequences in Appendix.
+We shall prove Theorems 5 and 6 in Sects. 3 and 4, respectively. In Sect. 5 we show that
+Theorems 1, 2, 3, and 4 are corollaries of Theorems 5 and 6.
+Notation
+The notation E[∗] for ∗∈{M, ω, M} stands for either E(∗) or E{∗} with the following restric-
+tion: Statements that involve more than one E[∗] symbol must not be interpreted by mixing
+E(∗) and E{∗}.
+2 Ultradifferentiable function classes
+2.1 Ultradifferentiable functions deﬁned by weight sequences
+Let M = (Mk) be a weight sequence. For non-empty open U ⊆Rn, deﬁne
+E(M)(U, Rm) :=
+
+f ∈C∞(U, Rm) : ∀K ⊆U compact ∀ρ > 0 : ∥f ∥M
+K,ρ < ∞
+
+E{M}(U, Rm) :=
+
+f ∈C∞(U, Rm) : ∀K ⊆U compact ∃ρ > 0 : ∥f ∥M
+K,ρ < ∞
+
+∥f ∥M
+K,ρ := sup
+∥f (k)(x)∥Lk(Rn,Rm)
+ρkk!Mk
+: x ∈K, k ∈N
+
+and endow these spaces with their natural topologies:
+E(M)(U, Rm) = lim
+←−
+K⊆U
+lim
+←−
+ℓ∈N>0
+E M
+1
+ℓ(K, Rm),
+E{M}(U, Rm) = lim
+←−
+K⊆U
+lim
+−→
+ℓ∈N
+E M
+ℓ(K, Rm)
+where
+E M
+ρ (K, Rm) := { f ∈C∞(K, Rm) : ∥f ∥M
+K,ρ < ∞}
+We will need the following inclusion relations (cf. [13]):
+E[M] ⊆E[N] ⇔M ⪯N :⇔∃C, ρ > 0 ∀k : Mk ≤Cρk Nk
+E{M} ⊆E(N) ⇔M ◁N :⇔∀ρ > 0 ∃C > 0 ∀k : Mk ≤Cρk Nk
+In particular, Cω(U) ⊆E{M}(U) ⇔H(Cn) ⊆E(M)(U) ⇔lim M
+1
+k
+k > 0 and Cω(U) ⊆
+E(M)(U) ⇔lim M
+1
+k
+k = ∞.
+2.2 Ultradifferentiable functions deﬁned by weight functions
+Let ω be a weight function (hence satisfying (ω1), (ω2), and (ω3)). The Young conjugate of
+ϕ(t) = ω(et), given by
+ϕ∗(t) := sup{st −ϕ(s) : s ≥0},
+t ≥0,

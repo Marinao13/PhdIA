@@ -1,0 +1,103 @@
+18
+and using again Remark 4.12,
+cφ
+n =
+n
+X
+j=1
+cf
+j cfj
+0
+n =
+n
+X
+j=1
+cf
+j
+X
+m1+···+mj=n
+cf0
+m1 · · · cf0
+mj
+=
+n
+X
+j=1
+(−1)j|cf
+j |
+X
+m1+···+mj=n
+m1≥1,...,mj≥1
+(−(−1)m1|cf
+m1|) · · · (−(−1)mj|cf
+mj|)
+= (−1)n
+n
+X
+j=1
+|cf
+j |
+X
+m1+···+mj=n
+m1≥1,...,mj≥1
+|cf
+m1| · · · |cf
+mj|,
+n ∈N.
+As (|cf
+j |)j∈N0 is equivalent to M, there exist A2, B > 0 such that |cf
+j | ≥A2BjMj for all
+j ∈N0. Then,
+|cφ
+n| =
+n
+X
+j=1
+|cf
+j |
+X
+m1+···+mj=n
+m1≥1,...,mj≥1
+|cf
+m1| · · · |cf
+mj|
+≥
+n
+X
+j=1
+A2BjMj
+X
+m1+···+mj=n
+m1≥1,...,mj≥1
+A2Bm1Mm1 · · · A2BmjMmj
+= A2Bn
+n
+X
+j=1
+(A2B)jMj
+X
+m1+···+mj=n
+m1≥1,...,mj≥1
+Mm1 · · · Mmj.
+In case A2B ≥1, we deduce that, for every m1, . . . , mj ∈N with Pj
+i=1 mi = n, we have
+|cφ
+n| ≥A2BnMjMm1 . . . Mmj, and we obtain the condition (FdB) when comparing with
+the inequalities (16). If A2B < 1, we get |cφ
+n| ≥A2(A2B2)nMjMm1 . . . Mmj, and the
+conclusion follows similarly.
+Finally, the case α > 2 is treated by considering the restriction of a charasteristic
+function f in the class e
+Au
+{M}(Sα) to the sector S2, which can be identified with C \
+(−∞, 0], and proceeding as before to obtain a proper subsector Sβ,r, with β ∈(1, 2) and
+r > 0, so that the image of Sβ,r under the function cf
+0 −f is contained in S2. This
+allows us to reason as before with the function f ◦(cf
+0 −f) (after suitable restrictions),
+which belongs to the corresponding class by hypothesis, and we can deduce the condition
+(FdB) again.
+Acknowledgements: The first three authors are partially supported by the Spanish
+Ministry of Science and Innovation under the project PID2022-139631NB-I00. The re-
+search of the fourth author was funded in whole by the Austrian Science Fund (FWF)
+project 10.55776/PAT9445424.

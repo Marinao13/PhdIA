@@ -1,0 +1,45 @@
+280
+References
+[172]
+, Some characterizations of systems of linear diﬀerential equa-
+tions having regular singular solutions, Trans. Amer. Math. Soc., 126
+(1967), pp. 427–441.
+[173]
+, Asymptotic behavior of solutions of linear systems of ordi-
+nary diﬀerential equations near an irregular singular point, Amer.
+J. Math., 91 (1969), pp. 95–105.
+[174]
+, On the reduction of rank of linear diﬀerential systems, Pac. J.
+of Math., 42 (1972), pp. 153–164.
+[175]
+, Connection problems in the parameterless case: Progress and
+more problems, in Sing. Pert. and Asympt., R. Meyer and S. Parter,
+eds., J. Wiley, New York, 1980, pp. 357–378.
+[176] D. A. Lutz, M. Miyake, and R. Sch¨afke, On the Borel summa-
+bility of divergent solutions of the heat equation, Nagoya Math. J.,
+154 (1999), pp. 1–29.
+[177] D. A. Lutz and R. Sch¨afke, On the identiﬁcation and stability of
+formal invariants for singular diﬀerential equations, Linear Algebra
+and Appl., 72 (1985), pp. 1–46.
+[178]
+, Calculating connection coeﬃcients for meromorphic diﬀeren-
+tial equations, Complex Variables, 34 (1997), pp. 145–170.
+[179] I. J. Maddox, Elements of Functional Analysis, Cambridge Univer-
+sity Press, 1988.
+[180] W. Magnus, F. Oberhettinger, and R. P. Soni, Formulas and
+Theorems for Special Functions of Physics, Springer, 1966.
+[181] H. Majima, Asymptotic Analysis for Integrable Connections with Ir-
+regular Singular Points, vol. 1075 of Lecture Notes in Math., Springer,
+1984.
+[182] B. Malgrange, Sur les points singuliers des ´equations diﬀ´erenti-
+elles, Enseign. Math., 20 (1974), pp. 147–176.
+[183]
+, Remarques sur les ´equations diﬀ´erentielles `a points singuliers
+irr´eguliers, in ´Equations Diﬀ´erentielles et Syst`emes de Pfaﬀdans le
+Champ Complexe, vol. 712 of Lecture Notes in Math., Springer, 1979,
+pp. 77–86.
+[184]
+, Sommation de s´eries divergentes, Expos. Math., 13 (1995),
+pp. 163–222.
+[185] B. Malgrange and J.-P. Ramis, Fonctions multisommables, Ann.
+Inst. Fourier Grenoble, 42 (1991), pp. 1–16.

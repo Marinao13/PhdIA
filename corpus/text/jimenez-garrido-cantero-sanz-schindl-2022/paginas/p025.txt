@@ -1,0 +1,62 @@
+25
+Remark 4.6. We mention that a similar approach has been followed in the preprint [9], by
+A. Lastra and the ﬁrst and third authors, in order to construct extension operators for the
+ultraholomorphic classes associated with the sequences Mτ,σ = (pτpσ)p∈N0, for τ > 0 and σ ∈
+(1, 2). These sequences have appeared in a series of papers by S. Pilipović, N. Teofanov and F.
+Tomić [21, 22, 23, 24], inducing ultradiﬀerentiable spaces of so-called extended Gevrey regularity.
+However, in that case the construction of suitable kernels for our technique involves the Lambert
+function, whose handling is not so convenient. This fact has caused our results to be available
+only in sectors strictly contained in S2, in spite of the fact that γ(Mτ,σ) = ∞, what would in
+principle allow for such extension operators to exist in sectors of arbitrary opening.
+5
+Convolved sequences, ﬂat functions and extension results
+We show in this section that whenever two weight sequences are given and there exist optimal
+ﬂat functions in the respectively associated classes, then optimal ﬂat functions exist in the class
+deﬁned by the so-called convolved sequence as well (given by the point-wise product). Moreover,
+the extension technique works if one of the convolved sequences satisﬁes (dc).
+On the one hand the abstract statement is a straight-forward consequence of a result by H.
+Komatsu, see Remark 5.1 for more details. On the other hand this approach can be useful for
+constructing (counter-)examples. In general even for nice sequences the convolved sequence can
+behave complicated, see Sect. 5.3, and so a direct explicit construction of optimal ﬂat functions
+in the class deﬁned by the convolved sequence will be challenging.
+5.1
+Convolved sequences
+Let M1 = (M1
+p )p∈N0, M2 = (M2
+p)p∈N0 be two sequences of positive real numbers, then the
+convolved sequence L := M1 ⋆M2 is (Lp)p∈N0 given by
+Lp := min
+0≤q≤p M1
+q M2
+p−q,
+p ∈N0,
+see [14, (3.15)]. Hence, obviously M1 ⋆M2 = M2 ⋆M1.
+For all p ∈N0 we have Lp ≤min{M1
+0 M2
+p , M2
+0 M1
+p}. So, if in addition M1
+0 = M2
+0 = 1, then we
+get L0 = 1 and
+Lp ≤min{M1
+p , M2
+p },
+p ∈N0.
+(49)
+Given M = (Mp)p∈N0 with M0 = 1, put L = (Lp)p∈N0 = M ⋆M. The condition (mg) states
+precisely that there exists A > 0 such that Mp ≤ApLp for every p ∈N0; according to (49), M
+satisﬁes (mg) if and only if M and M ⋆M are equivalent.
+Remark 5.1. Let M, M1, M2 be weight sequences.
+(i) In [14, Lemma 3.5] the following facts are shown: M1 ⋆M2 is again a weight sequence. The
+corresponding quotient sequence m1 ⋆m2 is obtained when rearranging resp. ordering the
+sequences m1 and m2 in the order of growth. This yields, by deﬁnition of the counting
+function (see (6)), that for all t ≥0 one has
+νm1⋆m2(t) = νm1(t) + νm2(t);
+so, by (7) we get
+ωM1⋆M2(t) = ωM1(t) + ωM2(t),
+t ≥0,
+and by (4) we obtain
+hM1⋆M2(t) = hM1(t)hM2(t),
+t > 0.
+(50)

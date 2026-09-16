@@ -1,0 +1,95 @@
+4.3. MULTISUMMABILITY
+161
+In the second place, the following proposition shows the convergence of the double inte-
+gral (4.16) that will ensure that the operators T and Te1 ◦Te2 coincide.
+Proposition 4.3.19. Let Mj, j = 1, 2, be normalized weight sequences admitting a nonzero
+proximate order. We consider strong kernels ej for Mj−summability, its moment function mej
+and Tej the corresponding Laplace-like operators.
+If f ∈OM1·M2(S(d, γ)), then it exists a
+sectorial region G(d, γ +ω(M1)+ω(M2)) such that for every z0 ∈G(d, γ +ω(M1)+ω(M2)) there
+exist a neighborhood U0 ⊆G(d, γ + ω(M1) + ω(M2)) of z0 and directions θ and φ (depending on
+z0) such that we have
+Z ∞(θ+φ)
+0
+Z ∞(θ)
+0
+e1
+v
+z
+
+e2
+u
+v
+
+f(u)du
+u
+dv
+v
+ < ∞,
+(4.16)
+for every z ∈U0. Consequently, Te1 ◦Te2(f)(z) is holomorphic in the sectorial region G(d, γ +
+ω(M1) + ω(M2)) and we observe that
+Te1 ◦Te2(f)(z) =
+Z ∞(θ)
+0
+f(u)
+ Z ∞(φ)
+0
+e1(wu/z)e2(1/w)dw
+w
+!
+du
+u .
+Proof. We write M1 = (M1,p)p∈N0 and M2 = (M2,p)p∈N0 and, for simplicity, ω1 = ω(M1) and
+ω2 = ω(M2).
+We x ψ0 ∈(d −(ω1 + ω2 + γ)π/2, d + (γ + ω1 + ω2)π/2), we choose directions τ1 ∈(0, ω1),
+τ2 ∈(0, ω2), τ3 ∈(0, γ), θ and φ with |θ −d| < τ3π/2 and |φ| ≤πτ2/2 such that
+|θ + φ −ψ0| < πτ1/2.
+(4.17)
+Then, it exists ε > 0, such that [ψ0 −ε, ψ0 + ε] ⊆(d −(ω1 + ω2 + γ)π/2, d + (γ + ω1 +
+ω2)π/2) and (4.17) remains true if we replace ψ0 by ψ for every ψ ∈(ψ0 −ε, ψ0 + ε).
+By
+Denition 4.3.10 (ii.b), for e1 and e2 we know that there exist α1, α2 > 0 (not depending on τ1
+and τ2), and constants C1, C2 > 0, ε1, ε2 ∈(0, 1) such that
+|e1(w)| ≤C1|w|α1,
+w ∈Sτ1,
+|w| ≤ε1,
+(4.18)
+|e2(w)| ≤C2|w|α2,
+w ∈Sτ2,
+|w| ≤ε2.
+(4.19)
+Using condition (iii), for e1 and e2, there exist d1, d2, k1, k2 > 0 such that
+|e1(w)| ≤d1 e−ωM1(k1|w|),
+w ∈Sτ1,
+(4.20)
+|e2(w)| ≤d2 e−ωM2(k2|w|),
+u ∈Sτ2.
+(4.21)
+Since f ∈OM1·M2(S(d, γ)), we see that there exist d3, k3 > 0 such that
+|f(w)| ≤d3 eωM1·M2(k3|w|),
+w ∈S(d, τ3).
+(4.22)
+Now, we dene k4 := max(ε2, A2/k2) where A2 is the constant appearing in (1.8) for M2 and
+s = 2. We x z0 ∈S(d, γ + ω1 + ω2), with arg(z0) ∈(ψ0 −ε, ψ0 + ε) and |z0| < k1/(k3k4A1),
+where A1 is the constant appearing in (1.8) for M1 and s = 1. We consider U0 := B(z0, ρ0)
+centered in z0 such that U0 ⊆S(ψ0, ε, k1/(k3k4A1)).
+In order to prove (4.16), parametrizing the integral and using Tonelli's Theorem, it is enough
+to show that
+Z ∞
+0
+e1
+ 
+sei(θ+φ)
+z
+!
+Z ∞
+0
+e2
+ r
+seiφ
+ |f(reiθ)|dr
+r
+ ds
+s < ∞,
+Universidad de Valladolid

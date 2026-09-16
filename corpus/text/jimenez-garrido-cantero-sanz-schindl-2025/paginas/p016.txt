@@ -1,0 +1,55 @@
+16
+We are ready to study the injectivity and surjectivity of the Stieltjes moment mapping.
+Theorem 3.8. Let M be a weight sequence satisfying (sm) and (p!)p ⊂M, and let A
+be a sequence satisfying (nq) and such that bA is a weight sequence. Then, the following
+statements are equivalent:
+(i)
+∞
+X
+p=0
+1
+m1/2
+p
+= ∞.
+(ii) B : A{M+1}(H) →Λ{M+1} is injective.
+(iii) M : C{M}(0, ∞) →Λ{M+1} is injective.
+(iv) M : S{M}(0, ∞) →Λ{M+1} is injective.
+(v) M : S{ bA}
+{M}(0, ∞) →Λ{M+1} is injective.
+Proof. (i) ⇒(ii): By Theorem 2.7.
+(ii) ⇒(iii): Let φ ∈C{M}(0, ∞) be such that µp(φ) = 0 for all p ∈N0. By Lemma
+2.12 we have that L(φ) ∈A{M+1}(H). Moreover, L(φ)(p)(0) = ipµp(φ) = 0 for all p ∈N0
+and, thus, L(φ) ≡0. Since L is injective (Lemma 2.12), we obtain that φ ≡0.
+(iii) ⇒(iv) ⇒(v): Obvious, see Remark 2.11.
+(v) ⇒(i): In view of Theorem 2.7 it suffices to show that B : A{M+1}(H) →Λ{M+1}
+is injective.
+Let f ∈A{M+1}(H) be such that f (p)(0) = 0 for all p ∈N0.
+Consider
+the function G0 from Lemma 3.6. By Lemma 3.7 we have that (fG0)|R = bφ for some
+φ ∈S{ bA}
+{M}(0, ∞). Observe that
+µp(φ) = (−i)p bφ(p)(0) = (−i)p(fG0)(p)(0) = (−i)p
+p
+X
+j=0
+p
+j
+
+f (j)(0)G(p−j)
+0
+(0) = 0,
+p ∈N0.
+Hence, φ ≡0 and, thus, fG0 ≡0. Since G0 does not vanish (Lemma 3.6(i)), we obtain
+that f ≡0.
+In the case of surjectivity, it will frequently come with local extension operators, right
+inverses for the Borel, respectively, the moment mapping, with a uniform scaling of the
+constant h determining the Banach spaces under consideration.
+Theorem 3.9. Let M be a weight sequence satisfying (sm), and let A be a sequence
+satisfying (nq) and such that bA is a weight sequence. Then:
+(I) Each of the following statements implies the next one:
+(i) There exists a > 0 such that for every h ≥1 there exists a linear and continuous
+operator Rh : ΛM+1,h →S
+bA,ah
+M,ah(0, ∞) such that M◦Rh is the identity map in ΛM+1,h.
+(ii) There exists a > 0 such that for every h ≥1 there exists a linear and continuous
+operator Th : ΛM+1,h →SM,ah(0, ∞) such that M◦Th is the identity map in ΛM+1,h.

@@ -1,0 +1,94 @@
+9
+(i) There exist K1, K2 > 0 such that for all x > 0,
+K1hM(K2x) ≤G(x).
+(17)
+(ii) There exist K3, K4 > 0 such that for all z ∈S, one has
+|G(z)| ≤K3hM(K4|z|).
+(18)
+Besides the symmetry imposed by condition (i) (observe that G(x) > 0 for x > 0, and so
+G(z) = G(z), z ∈S), we note that the estimates in (18) amount to the fact that
+|G(z)| ≤K3Kp
+4Mp|z|p,
+p ∈N0, z ∈S,
+what exactly means that G ∈e
+Au
+{M}(S) and is {M}-ﬂat, i.e., its uniform {M}-asymptotic expan-
+sion is given by the null series. The inequality imposed in (17) makes the function optimal in
+a sense, as its rate of decrease on the positive real axis when t tends to 0 is accurately spec-
+iﬁed by the function hM. Note that, in previous instances where such optimal ﬂat functions
+appear [31, 16, 9], the estimates from below in (17) are imposed and/or obtained in the whole
+sector S, and not just on its bisecting direction. We think the present deﬁnition is more conve-
+nient, since it is easier to check for concrete functions, and for our purposes it provides all the
+necessary information in order to work with such functions.
+As a ﬁrst step for the construction of such ﬂat functions, we need to estimate the harmonic
+extension Pσ in terms of the majorant κσ. The right-hand side estimate in the next result is a
+slight reﬁnement of the one in [3, Lemma 3.3], which was not precise enough for our purposes.
+We include the whole proof for the sake of completeness.
+Proposition 3.4. Let σ : [0, ∞) →[0, ∞) be a nondecreasing nonquasianalytic function. Then,
+we have
+1
+πκσ(y) ≤Pσ(iy) ≤κσ(y),
+y ≥0.
+(19)
+Proof. If y = 0 all the values are equal to σ(0) and so the inequalities hold true. Now, for y > 0
+we have
+Pσ(iy) = y
+π
+Z ∞
+−∞
+σ(|t|)
+t2 + y2 dt = 2y
+π
+Z ∞
+0
+σ(t)
+t2 + y2 dt = 2
+π
+Z ∞
+0
+σ(ys)
+s2 + 1ds ≥2
+π
+Z ∞
+1
+σ(ys)
+s2 + 1ds.
+Since s2 + 1 ≤2s2 for s ≥1, we deduce that
+Pσ(iy) ≥1
+π
+Z ∞
+1
+σ(ys)
+s2
+ds = 1
+πκσ(y).
+In order to prove the right inequality, we start by splitting the integral into two parts:
+Pσ(iy) = 2
+π
+Z ∞
+0
+σ(ys)
+s2 + 1ds = 2
+π
+Z 1
+0
+σ(ys)
+s2 + 1ds +
+Z ∞
+1
+σ(ys)
+s2 + 1ds
+
+.
+(20)
+As σ is nondecreasing, we may write
+Z 1
+0
+σ(ys)
+s2 + 1ds ≤σ(y)
+Z 1
+0
+1
+s2 + 1ds = π
+4 σ(y)
+(21)

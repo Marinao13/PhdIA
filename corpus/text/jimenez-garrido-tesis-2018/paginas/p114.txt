@@ -1,0 +1,84 @@
+114
+CHAPTER 3.
+INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+(ii)
+∞
+X
+p=0
+
+1
+(p + 1)mp
+1/(γ+1)
+diverges.
+Similarly, by Proposition 2.1.26, we deduce that Theorem 3.2.3 may be stated as follows.
+Theorem 3.2.4. Let M be a weight sequence and γ > 0 be given. The following statements are
+equivalent:
+(i) The class AM(Sγ) is quasianalytic,
+(ii) P∞
+p=0((p + 1)mp)−1/(γ+1) = ∞,
+(ii) γ > ω(M), or γ = ω(M) and
+∞
+X
+p=0
+
+(p + 1)mp
+−1/(ω(M)+1)
+diverges.
+Finally, regarding
+˜
+AM a partial version of Watson's Lemma can be easily obtained as a
+consequence of Theorem 3.2.2.
+Theorem 3.2.5. Let M be a weight sequence, γ > 0 be given and Gγ a sectorial region. The
+following statements hold:
+(i) If γ > ω(M), then ˜
+AM(Gγ) is quasianalytic.
+(ii) If γ < ω(M), then ˜
+AM(Gγ) is nonquasianalytic.
+Proof. (i) Assume that γ > ω(M). We take f ∈˜
+AM(Gγ) with f ∼M ˆ0, and consider a proper
+bounded sector T ≪G, where T = S(0, β, r) with γ > β > ω(M).
+By the denition of
+M−asymptotic expansion, there exist CT , AT > 0 such that
+|f(z)| ≤CT Ap
+T Mp|z|p,
+z ∈T,
+p ∈N0.
+We consider the transformation z(w) = 1/(w + (1/r)1/β)β, which maps the right half-plane H =
+H(0) into a region D ⊆T, and the holomorphic function g : H →C dened by g(w) := f(z(w)).
+As for every w ∈H we have |w + (1/r)1/β| > |w|, we deduce that
+|g(w)| = |f(z(w))| ≤
+CT Ap
+T Mp
+|(w + (1/r)1/β)β|p ≤CT Ap
+T Mp
+|w|βp
+,
+w ∈H,
+p ∈N0.
+Hence g veries the bounds in Theorem 3.2.1.(ii). Since β > ω(M), by the properties of the
+growth index
+∞
+X
+p=0
+ 1
+mp
+1/β
+= ∞.
+Consequently, by Theorem 3.2.1 we obtain that g ≡0 and by the identity principle f ≡0, so
+˜
+AM(Gγ) is quasianalytic.
+(ii) Assume that γ < ω(M), what implies, by the properties of the growth index, that
+∞
+X
+p=0
+ 1
+mp
+1/γ
+< ∞.
+Then, by Theorem 3.2.1, there exist f ∈H(H), not identically zero and constants A, C > 0 with
+|f(z)| ≤CApMp
+|z|γp
+,
+z ∈H,
+p ∈N0.
+JAVIER JIMÉNEZ GARRIDO

@@ -1,0 +1,74 @@
+2.2. LOG-CONVEX SEQUENCES, REGULAR VARIATION AND PROXIMATE ORDERS
+89
+for all p large enough and we conclude that limp→∞νm(mp)/ωM(mp) = 1/ω(M).
+(b) ⇒(c) We redene ω′
+M(mp) := ω(mp)/(mpω) for all p ∈N0. Since limt→∞ωM(t) = ∞, there
+exists N ∈N such that ωM(t) > 0 for t ≥mN, we can write
+ωM(t) = ωM(mN) exp
+Z t
+mN
+uω′
+M(u)
+ωM(u)
+du
+u
+
+,
+t ≥mN.
+By (b) and the denition of ω′
+M(mp), we have that
+lim
+t→∞
+tω′
+M(t)
+ωM(t) = lim
+t→∞
+νm(t)
+ωM(t) = 1
+ω.
+Then by the Representation Theorem 1.2.4, we have that ωM(t) is regularly varying of index 1/ω
+and, again by (b) and Remark 1.2.6, we have that νm(t) is regularly varying of index 1/ω.
+For any ℓ∈N with ℓ≥2, for every ε ∈(0, 1) we take λ1(ℓ, ε) := (ℓ/(1 + ε))ω and λ2(ℓ, ε) :=
+(ℓ/(1 −ε))ω then, using the regular variation of νm(t), there exists t0 > 0 such that
+λ1/ω
+j
+(1 −ε) ≤νm(λjt)
+νm(t)
+≤λ1/ω
+j
+(1 + ε),
+for all
+t ≥t0,
+for j = 1, 2. Since limp→∞mp = ∞, there exists p0 ∈N such that mp0−1 > max(λ1t0, λ2t0, t0),
+then νm(t0) < p0. So for p ≥p0 we have that
+mp = sup{t ≥m0; νm(t) ≤p} = sup{t ≥t0; νm(t) ≤p}.
+Consequently, since νm(λ1t) ≤ℓνm(t) ≤νm(λ2t) for every t ≥t0, for every p ≥p0 we see that
+sup{t ≥t0; νm(λ2t) ≤ℓp} ≤mp ≤sup{t ≥t0; νm(λ1t) ≤ℓp}.
+Since ℓp ≥p ≥p0, for j = 1, 2 we have that νm(λjt0) < p0 and for all p ≥p0 we observe that
+sup{t ≥t0; νm(λjt) ≤ℓp} = (λj)−1 sup{s ≥λjt0; νm(s) ≤ℓp} = (λj)−1mℓp.
+Finally, for every p ≥p0 we conclude that
+ℓω
+(1 + ε)ω = λ1 ≤mℓp
+mp
+≤λ2 =
+ℓω
+(1 −ε)ω .
+(c) ⇒(d) Since sm = (mp)p∈N is nondecreasing, by Theorem 1.2.42 we see that sm is regularly
+varying of index ω > 0. Then it suces to apply Lemma 1.2.40 to ensure that m = (mp−1)p∈N0
+is regularly varying of index ω > 0.
+(d) ⇔(e) Apply Proposition 2.2.3.
+(e) ⇒(a) According to (2.16), condition (e) can be written as
+lim
+p→∞βp = ω ∈(0, ∞).
+(2.20)
+By using (2.18), we see that
+lim
+p→∞
+(αp+1 −βp+1) −(αp −βp)
+log(p + 1) −log(p)
+= lim
+p→∞
+βp/(p + 1)
+1/p
+= ω,
+Universidad de Valladolid

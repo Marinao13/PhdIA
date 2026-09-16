@@ -1,0 +1,80 @@
+54
+CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+Given M > 0, there exists n0 ∈N such that γn0 > M. Using that H is (lc) (by (ii)), for every
+k ≥2n0 we see that hkp ≥h2n0p for every p ∈N and we deduce that
+lim inf
+p→∞
+hkp
+hp
+≥lim inf
+p→∞
+h2n0p
+hp
+≥γn0 > M,
+i.e., (2.2) is valid. By (ii), h ≃m, that is, there exists c > 1 such that c−1hp ≤mp ≤chp for
+every p ∈N0. Then, for every k, p ∈N we have that
+hkp
+c2 hp
+≤mkp
+mp
+.
+Since (2.2) holds, we conclude that
+lim
+k→∞lim inf
+p→∞
+mkp
+mp
+= ∞.
+(iii)⇒(iv) Immediate.
+(iv)⇒(v) We deduce from (iv) that there exists ε > 0 such that
+lim inf
+p→∞mkp/mp > kε.
+Then, there exists p0 ∈N such that mkp/kε > mp for every p ≥p0. For every q, ℓ∈N with
+q ≥ℓ≥p0 there exists n ∈N0 such that knℓ≤q < kn+1ℓ, so we have that
+mℓ
+ℓε ≤mkℓ
+(kℓ)ε ≤mknℓ
+(knℓ)ε .
+Since bm is nondecreasing, for q ≥ℓ≥p0 with knℓ≤q < kn+1ℓwe deduce that
+mℓ
+ℓε ≤mknℓ
+(knℓ)ε ≤
+(q + 1)mq
+(knℓ+ 1)(knℓ)ε = mq
+qε
+(q + 1)qε
+(knℓ+ 1)(knℓ)ε ≤mq
+qε kεk.
+We denote by
+A :=
+max
+1≤ℓ≤q≤p0
+mℓ
+mq
+qε
+ℓε > 1,
+C := Akεk.
+If q ≥ℓ≥p0 or if ℓ≤q ≤p0, we see that mℓqε ≤C mqℓε, and if ℓ≤p0 ≤q we observe that
+mℓ
+ℓε ≤Amp0
+pε
+0
+≤C mq
+qε ,
+and we conclude that (mp/pε)p∈N is almost increasing.
+(v)⇒(vi) Since (mp/pε)p∈N is almost increasing, there exists C > 1 such that for every q, p ∈N
+with q ≥p we have that
+mp
+pε ≤C mq
+qε .
+We x θ ∈(0, 1), we take k ∈N such that k > (C/θ)1/ε with k ≥2 and for every p ∈N we have
+that
+mp ≤C mkp
+kε
+< θ mkp.
+(vi)⇒(i) For θ = 1/2 there exists k ∈N, k ≥2, such that 2mp ≤mkp for every n, p ∈N we
+deduce that
+2nmp ≤mknp.
+(2.3)
+JAVIER JIMÉNEZ GARRIDO

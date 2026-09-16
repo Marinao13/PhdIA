@@ -1,0 +1,96 @@
+56
+CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+Following the ideas in K. N. Bari and S. B. Ste£kin [12, Lemma 3], we can give ve equivalent
+conditions, analogous to the ones for (snq) that, according to the last lemma condition (iii),
+are tightly connected to (mg). The limiting value −1 appears because bM is (lc), under weaker
+conditions a more general version of this result might be given in the same direction of the
+auxiliary Lemma 2.1.21 that extends Proposition 2.1.2.
+Proposition 2.1.4. Let M be a sequence such that the sequence bM is (lc). For every γ > −1,
+the following statements are equivalent:
+(i) there exists B > 0 such that
+p
+X
+ℓ=0
+(ℓ+ 1)γ
+(ℓ+ 1)mℓ
+≤B(p + 1)γ
+mp
+for all
+p ∈N0,
+(ii) there exists a sequence H such that ((p + 1)−γhp)p∈N0 is nonincreasing, h ≃m and
+sup
+p≥1
+h2p
+hp
+< 2γ,
+(2.5)
+(iii) we have that lim
+k→∞lim sup
+p→∞
+mkp
+kγmp
+= 0,
+(iv) there exists k ∈N, k ≥2, such that
+lim sup
+p→∞
+mkp
+mp
+< kγ,
+(v) there exists ε > 0 such that (mp/pγ−ε)p∈N is almost decreasing,
+(vi) For every θ ∈(0, 1) there exists k ∈N, k ≥2, such that for every p ∈N we have that
+mkp < θkγ mp.
+Proof. (i)⇒(ii) First, we consider the auxiliary sequence (αp)p∈N0 given by
+αp := (p + 2)γ+1 −(p + 1)γ+1
+(p + 2)γ
+,
+p ∈N0.
+We observe that limp→∞αp = γ + 1 > 0, we take D > max(2γ+1(γ + 1)/(2γ+1 −1), supp∈N αp)
+and for every p ∈N0 we dene the sequence
+tp :=
+1
+(p + 1)γ
+p
+X
+ℓ=0
+(ℓ+ 1)γ
+(ℓ+ 1)mℓ
+−
+1
+Dmp
+.
+Using that m satises (i), for every p ∈N0 we have that
+mptp =
+mp
+(p + 1)γ
+p
+X
+ℓ=0
+(ℓ+ 1)γ
+(ℓ+ 1)mℓ
+−1
+D ≤B,
+and, since bm is nondecreasing and γ > −1, for every p ∈N we see that
+mptp ≥
+1
+(p + 1)γ+1
+p
+X
+ℓ=0
+(ℓ+ 1)γ −1
+D ≥
+1
+(p + 1)γ+1
+Z p+1
+1
+xγdx −1
+D
+≥
+1
+(γ + 1) −
+1
+(γ + 1)(p + 1)γ+1 −1
+D ≥D(2γ+1 −1) −(γ + 1)2γ+1
+(γ + 1)2γ+1D
+> 0.
+JAVIER JIMÉNEZ GARRIDO

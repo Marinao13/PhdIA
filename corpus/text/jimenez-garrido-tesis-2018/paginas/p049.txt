@@ -1,0 +1,67 @@
+1.2. REGULAR VARIATION, O-REGULAR VARIATION AND PROXIMATE ORDERS
+49
+Theorem 1.2.41 ([13],
+Th. 1.9.8). Let ρ ∈R be given. A sequence of positive real numbers
+a = (ap)p∈N is regularly varying with index ρ if and only if it exists a sequence of positive real
+numbers b = (bp)p∈N such that
+(i) limp→∞bp/ap = 1, i.e., a ∼b.
+(ii)
+bp+1
+bp
+= 1 + ω
+p + o
+1
+p
+
+as p →∞,
+(1.15)
+and we know by Remark 1.2.39 that b is also a regularly varying sequence of index ρ.
+Example 2.2.21 at the end of Chapter 2 shows that (1.15) does not hold in general for regularly
+varying sequences.
+Finally, we should mention that the theory of regularly varying sequences becomes much
+simpler if one considers only monotone sequences. The following theorem of L. de Haan [33]
+shows that if we have monotonicity, we only need to prove (1.14) for two suitable integer values
+of λ.
+Theorem 1.2.42 ([33], Th. 1.1.2). A monotone sequence of positive real numbers (ap)p∈N0 is
+regularly varying if there exist positive integers ℓ1, ℓ2 ≥2 with log(ℓ1)/ log(ℓ2) irrational such
+that for some real number ρ,
+lim
+p→∞
+aℓjp
+ap
+= ℓρ
+j,
+j = 1, 2.
+This property is not true if the monotonicity hypothesis is removed as it has been proved by
+J. Galambos and E. Seneta [30]. As it will be shown in Section 2.2, this is specially useful when
+dealing with the quotient sequence m of a (lc) sequence M.
+1.2.5
+O-regularly varying sequences
+The extension of the notion of O-regular variation for sequences was stated by S. Aljan£i¢ [2]
+and detailed by D. Djur£i¢ and V. Boºin [25] in 1997. We introduce the basic elements of this
+concept that will be required in the next chapter. For the denition, the characterization of
+O-regularly varying functions given in Remark 1.2.21 has been taken into account.
+Denition 1.2.43. A sequence a = (ap)p∈N of positive numbers is said to be O-regularly varying
+if
+lim sup
+p→∞
+a⌊λp⌋
+ap
+< ∞,
+for every λ ∈(0, ∞).
+Note that if a = (ap)p∈N is regularly varying then it is O-regularly varying. As for regular
+variation, O-regularly varying sequences are embeddable as O-regularly varying step function.
+Theorem 1.2.44 ([25], Th. 1). Let a = (ap)p∈N be a sequence of positive numbers. The sequence
+a is O-regularly varying if and only if the function fa(x) = a⌊x⌋for x ≥1 is O-regularly varying.
+From this result, we obtain the Uniform Convergence and Representation Theorems.
+Theorem 1.2.45 ([25], Th. 2, Uniform Convergence Theorem for O-regularly varying sequences).
+Let a = (ap)p∈N be an O-regularly varying sequence of positive numbers and a, b ∈(0, ∞) with
+a ≤b. Then
+lim sup
+p→∞
+sup
+λ∈[a,b]
+a⌊λp⌋
+ap
+< ∞.
+Universidad de Valladolid

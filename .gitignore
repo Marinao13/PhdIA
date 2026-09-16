@@ -3,3 +3,7 @@ drill/anki-*.csv
 __pycache__/
 *.pyc
 .DS_Store
+
+# derivados del corpus: se reconstruyen con doc.py indexar / ingest
+indice/
+corpus/text/*/_marker_tmp/

@@ -1,0 +1,11 @@
+174
+10. Multisummable Power Series
+but ﬁnitely many exceptional ones, while given dj, . . . , dq, the value
+dj−1 can be any number with 2κj |dj −dj−1| ≤π but ﬁnitely many,
+for 2 ≤j ≤q. Using this terminology, show the following analogue to
+the Main Decomposition Theorem:
+Theorem: Let ˆf be multisummable. Then there exist k1 > . . . >
+kq > 0, so that for almost all multidirections d = (d1, . . . , dq) we have
+ˆf = ˆf1 + . . . + ˆfq, with ˆfj ∈E {z}kj,dj.
+Discuss in which cases we can take k = (k1, . . . , kq) to be the optimal
+type of ˆf.

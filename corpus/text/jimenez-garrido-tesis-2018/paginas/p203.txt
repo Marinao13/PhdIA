@@ -1,0 +1,33 @@
+203
+of Mα,β−summability the sequence is replaced by the moment sequence meV constructed from
+a Maergoiz function V . This phenomenon, which is specially disturbing when dealing with
+moment summability methods, is in general a weakness of the Borel summability method,
+since there is not a systematic procedure to nd information about the global behavior of
+an analytic function, such as the analytic continuation or the position of its singularities, in
+terms of its Taylor coecients. For instance, in a recent work by O. Costin and X. Xia [24] the
+1−summability of the apparently naive series P∞
+p=0 pp+1zp has been shown, and their proof
+requires sophisticated tools and concepts such as the analyzability of its coecients and the
+use of transseries. It would be worthy to clarify if this could be done in our situation and if
+regular variation could bring some light to this issue.
+■It is relevant to verify if it is possible to redene the M−summability notion in such a way
+that the Tauberian Theorem 4.2.14 is available for two comparable but not equivalent weight
+sequences M and L with ω(M) = ω(L). Since Watson's Lemma 3.2.15 for nonuniform asymp-
+totics holds for arbitrary sectorial regions, one might need to consider uniform asymptotics.
+In this situation, thanks to a theorem of S. Mandelbrojt [72, Sect. 2.4.I] we can determine
+regions of quasianalyticity for the smaller sequence, say L, that do not have this property for
+the bigger one M, so the Tauberian theorem should be true in this context. However, since
+the growth index of the quotient sequence is ω(M/L) = 0, in order to recover the multisum a
+new concept of summability kernel, dened just over the positive real axis, should be given.
+Moreover, the associated function ωM/L may be rapidly varying, so Maergoiz functions are
+useless and a dierent procedure has to be considered for the construction of the kernels.
+■The multisummability techniques developed in Chapter 4 will allow to us work at the same time
+with M−and k−summability. This leads to the consideration of the summability properties
+of the formal power series solutions of dierent types of equations. In the study of dierence
+equations, the so-called level 1+ (see the works of G. I. Immink [40, 41]), which corresponds
+to the sequence M1,−1, appears. Whenever the other levels, apart from the 1+, of the formal
+solution are distinct from 1 we might apply our multisummability method. Nevertheless, there
+is an interesting situation in which one needs to apply an acceleration process for the Gevrey
+sequence of order 1 and the sequence M1,−1, and for which the issue presented in the last
+paragraph needs to be previously solved.
+Universidad de Valladolid

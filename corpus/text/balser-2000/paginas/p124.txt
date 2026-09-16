@@ -1,0 +1,50 @@
+6.5 General Moment Summability
+107
+2. For k1 > k2 > 0, let ˆf ∈E {z}k2,d ∩E [[z]]1/k1, for every d ∈(α, β),
+α < β. Prove ˆf ∈E {z}k1,d for every d ∈(α −π/(2k), β + π/(2k))
+with 1/k = 1/k2 −1/k1.
+3. For Re λ > 0, show that ˆf(z; λ) = ∞
+0 Γ(λ + n) zn is 1-summable,
+its 1-sum being the function
+f(z; λ) = z−λ
+ ∞(d)
+0
+wλ−1
+1 −w e−w/z dw,
+for d ̸= 2kπ, k ∈Z.
+4. For complex λ ̸= 0, −1, −2, . . . and ˆf(z; λ) as above, show ˆf(z; λ) ∈
+E {z}1.
+5. For ˆf(z) =  fnzn ∈E {z}1 and complex α, β with β ̸= 0, −1, . . .,
+show
+ˆf(z; α, β) =
+
+fn
+(α)n
+(β)n
+zn ∈E {z}1.
+6. Show that the generalized hypergeometric series
+F(α1, . . . , αp; β1, . . . , βq; z) =
+∞
+
+n=0
+(α1)n . . . (αp)n
+(β1)n . . . (βq)n
+zn
+n !
+(with βk ̸= 0, −1, −2, . . .) is 1-summable for p = q + 2, q ≥0.
+6.5
+General Moment Summability
+In Section 5.5 we have introduced general pairs of integral operators with
+features similar to those of Laplace and Borel operator. Here we shall show
+that each such pair deﬁnes a summability method, and that all methods
+corresponding to kernels of a ﬁxed order k > 0 are equivalent in the sense
+that they sum the same formal power series to the same analytic functions.
+However, observe that we do not claim that two such kernels of the same
+order represent the sum on exactly the same sectorial region. Moreover, the
+two summability methods may be inequivalent for series other than power
+series.
+All the summability methods we consider, aside from some minor modi-
+ﬁcations, ﬁt into the following classical family of methods:
+Moment Methods
+Let e(x) be positive and continuous on the positive real axis and
+asymptotically zero as x →∞, so that all moments m(n) =

@@ -1,0 +1,72 @@
+B.3 Holomorphic Continuation
+229
+follows by interchanging the order of integration and using the deﬁnition of
+the Gamma function. This, together with the integral for Γ(α+β), implies
+B(α, β) = Γ(α)Γ(β)
+Γ(α + β) ,
+Re α > 0, Re β > 0.
+(B.11)
+Finally, we show the following result upon the asymptotic behavior of the
+Gamma function for z →∞:
+Theorem 68 (Stirling’s Formula) For |z| →∞in sectors | arg z| ≤
+π −ε, for every ε > 0, we have
+Γ(z) ez √z
+√
+2π zz
+→1.
+(B.12)
+More precisely, there is a formal power series ˆf(z) = ∞
+0 fn z−n, with
+constant term f0 = 1, so that
+Γ(z) ez √z
+√
+2π zz
+∼=1
+ˆf(z),
+| arg z| < π,
+in the sense of Section 4.5.
+Proof: We give a proof especially suited to the theory developed in previous
+chapters; the reader may wish to verify that here we only use the deﬁnition
+of 1-summability and some results on integral equations, and in particular
+do not rely on anything for which we have used (B.12).
+As was shown above, the Gamma function is a solution of the diﬀerence
+equation x(z + 1) = z x(z), and putting y(z) = ez √z z−zx(z), we ﬁnd
+y(z + 1) = a(z) y(z), with
+a(z) = exp[1 −z log(1 + 1/z)]
+
+1 + 1/z
+= 1 + a2 z−2 + a3 z−3 + . . . ,
+|z| > 1.
+Formally setting y(z) = ˆy(z) = ∞
+0 yn z−n; hence
+y(z + 1) =
+∞
+
+n=0
+z−n
+n
+
+m=0
+ −m
+n −m
+
+ym,
+it is not diﬃcult to see that, for arbitrary y0, the power series formally
+satisﬁes the diﬀerence equation if and only if the remaining coeﬃcients are
+given by the recursion
+n yn =
+n−1
+
+m=0
+
+−m
+n + 1 −m
+
+−an+1−m
+
+ym,
+n ≥1.
+Set t(u) = ∞
+0 un yn+1/n!, k(u) = ∞
+1 un an+1/n!, with an being the
+coeﬃcients in the power series expansion of a(z); in particular, observe

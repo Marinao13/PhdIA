@@ -1,0 +1,45 @@
+References
+285
+[240]
+, ¨Uber das globale Verhalten der Normall¨osungen von x′(t) =
+(B+t−1A) x(t), und zweier Arten von assoziierten Funktionen, Math.
+Nachr., 121 (1985), pp. 123–145.
+[241] R. Sch¨afke and D. Schmidt, The connection problem for general
+linear ordinary diﬀerential equations at two regular singular points
+with applications in the theory of special functions, SIAM J. Math.
+Anal., 11 (1980), pp. 848–862.
+[242] R. Sch¨afke and H. Volkmer, On the reduction of the Poincar´e
+rank of singular systems of ordinary diﬀerential equations, J. reine u.
+angew. Math., 365 (1986), pp. 80–96.
+[243] S. Schlosser-Haupt and H. Wyrwich, ¨Uber die Stokesschen
+Multiplikatoren gewisser linearer Diﬀerentialgleichungen n-ter Ord-
+nung, Math. Nachr., 95 (1987), pp. 265–275.
+[244] D. Schmidt, Die L¨osung der linearen Diﬀerentialgleichung 2. Ord-
+nung um zwei einfache Singularit¨aten durch Reihen nach hyper-
+geometrischen Funktionen, J. reine u. angew. Math., 309 (1979),
+pp. 127–148.
+[245]
+, Global representations for the solutions of second-order mero-
+morphic diﬀerential equations by special functions, in Ordinary and
+partial diﬀerential equations, Vol. III, Pitman Research Notes in
+Mathematics, Vol. 254, B. D. Sleeman and R. J. Jarvis, eds., Long-
+man, Harlow, U.K., 1991, pp. 183–207.
+[246] A. Schuitman, A class of integral transforms and associated func-
+tion spaces, Ph.D. thesis, TH Delft, 1985.
+[247] Y. Sibuya, Stokes multipliers of subdominant solutions of the dif-
+ferential equation y′′ −(x3 + λ)y = 0, Proc. Amer. Math. Soc., 18
+(1967), pp. 238–243.
+[248]
+, Subdominant solutions of the diﬀerential equation y′′ −λ2(x −
+a1) (x −a2) . . . (x −am)y = 0, Acta Math., 119 (1967), pp. 235–273.
+[249]
+, Subdominant solutions admitting a prescribed Stokes phe-
+nomenon, in Int. Conf. on Diﬀerential Equations, Academic Press,
+New York, 1975, pp. 709–738.
+[250]
+, Stokes’ phenomena, Bull. Amer. Math. Soc., 83 (1977),
+pp. 1075–1077.
+[251]
+, Linear Diﬀerential Equations in the Complex Domain: Prob-
+lems of Analytic Continuation, vol. 82 of Transl. Math. Monographs,
+Amer. Math. Soc., Providence, R.I., 1990.

@@ -1,0 +1,107 @@
+3.2 The Splitting Lemma
+43
+and comparing coeﬃcients implies
+T (12)
+n
+A(22)
+0
+−A(11)
+0
+T (12)
+n
+=
+n−1
+
+m=1
+(A(11)
+n−mT (12)
+m
+−T (12)
+m
+A(22)
+n−m)
+−
+n−2
+
+µ=1
+T (12)
+µ
+n−µ−1
+
+m=1
+A(21)
+n−m−µT (12)
+m
++A(12)
+n
++ (n −r)T (12)
+n−r,
+(3.8)
+for n ≥1, interpreting T (12)
+n−r = 0 for n ≤r. From these formulas we
+can uniquely compute the coeﬃcients T (12)
+n
+. So we are left to estimate the
+coeﬃcients T (12)
+n
+, and this can be done as follows (also compare the proof
+of Lemma 2 (p. 28)):
+It suﬃces to consider the case s ≥1/r, so that ˜s = s. By assumption we
+have (3.4). Taking tn = ∥T (12)
+n
+∥K−n/Γ(1+sn), we conclude from (3.8), for
+suﬃciently large ˜c > 0:
+tn
+≤
+˜c
+
+1 + 2
+n−1
+
+m=1
+Γ(1 + s(n −m))Γ(1 + sm)
+Γ(1 + sn)
+tm
++
+n−1
+
+µ=1
+tµ
+n−µ−1
+
+m=1
+Γ(1 + sµ)Γ(1 + s(n −µ −m))Γ(1 + sm)
+Γ(1 + sn)
+tm
++K−r (n −r)Γ(1 + s(n −r))
+Γ(1 + sn)
+tn−r
+
+,
+n ≥1.
+According to Exercise 1 on p. 41, both quotients of Gamma functions inside
+the two sums can be estimated by 1, and by taking K larger we may also
+assume the term in front of tn−r to be bounded by 1. Finally, by allowing
+tn to become larger, we may assume equality in the above estimate, and
+thus get tn = ˜c [1 + tn−r + n−1
+µ=1 tµ(2 + n−µ−1
+m=1
+tm)], for n ≥1. Deﬁning
+f(z) = ∞
+1 tnzn, we conclude formally
+(1 −z)f(z) = z ˜c [1 + (2 + zr−1(1 −z)) f(z) + f 2(z)].
+This quadratic equation has exactly one solution that is holomorphic at the
+origin and vanishes there, while the other solution has a pole. This shows
+convergence of ∞
+1 tnzn, hence tn ≤˜Kn. Thus we obtain an estimate of
+the desired type for ∥T (12)
+n
+∥. In the same fashion one can estimate ∥T (21)
+n
+∥,
+hence T(z) is of Gevrey order s. Moreover, from (3.6) we conclude, using
+Exercise 2 on p. 41, that both diagonal blocks of the transformed system
+are of Gevrey order s.
+2
+Applying the above Lemma repeatedly and using Exercise 2 on p. 41, we
+obtain an analogous result when A0 has more than two blocks:

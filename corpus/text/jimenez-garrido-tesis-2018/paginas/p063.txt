@@ -1,0 +1,57 @@
+2.1. LOG-CONVEX SEQUENCES AND O-REGULAR VARIATION
+63
+Proof. For every r ∈R\{0}, we observe that a ≃b implies that gra ≃grb, where gr = (pr)p∈N.
+It is plain to check that almost monotonicity is kept for ≃by suitably enlarging the corresponding
+constant and we conclude, using Proposition 2.1.10, that α(a) = α(b) and β(a) = β(b). Since
+a ≃b, there exists c > 1 such that apc−1 ≤bp ≤c for every p ∈N and we have that
+log(ap) −log(c)
+log(p)
+≤log(bp)
+log(p) ≤log(ap) + log(c)
+log(p)
+,
+p ∈N.
+Taking lim sup and lim inf in these inequalities, by Proposition 2.1.10, we get ρ(a) = ρ(b) and
+µ(a) = µ(b).
+□
+In the next subsection, these results will be applied for the sequence of quotients m =
+(mp−1)p∈N of M, then the stability of those indices under ≃is a rst approach but the appropriate
+question is the stability under ≈. A partial but sucient solution is given at the end of the current
+section (see Remarks 2.1.24 and 2.1.32).
+Since the sequence m is dened for p ∈N0, it also naturally arises the question of the stability
+of these values and the notion of O-regular variation for index shifts.
+Lemma 2.1.13. For any sequence a = (ap)p∈N and the corresponding shifted sequence sa :=
+(ap+1)p∈N we have that
+α(a) = α(sa),
+β(a) = β(sa),
+ρ(a) = ρ(sa),
+µ(a) = µ(sa).
+Consequently, by Remark 2.1.9, a is O-regularly varying if and only if sa also is.
+Proof. We observe that for every α ≥0 we have that pα ≤(p + 1)α ≤2αpα, then for any γ ∈R
+we see that (pγap+1)p∈N is almost decreasing (resp. almost increasing) if and only if (pγap)p∈N
+is almost decreasing (resp. almost increasing). Hence α(a) = α(sa) and β(a) = β(sa).
+We also observe that
+log(ap+1)
+log(p)
+= log(ap+1)
+log(p + 1)
+log(p + 1)
+log(p)
+and, since limp→∞log(p + 1)/ log(p) = 1, we conclude that ρ(a) = ρ(sa) and µ(a) = µ(sa).
+□
+Remark 2.1.14. If the sequence a is regularly varying of index ω ∈R, by Theorem 1.2.37, the
+step function fa is also regularly varying of index ω, we deduce that
+β(a) = µ(a) = ρ(a) = α(a) = ω.
+The opposite is not true in general, see Examples 2.2.22 and 2.2.23 at the end of next section.
+2.1.3
+Logarithmically convex sequences, growth indices and O-regular vari-
+ation
+Almost monotonicity notions appear in the last two subsections: characterizing (snq) and (mg)
+conditions and in the denition of the Matuszewska indices for sequences. This fact is an obvious
+hint of the relation between growth properties for weight sequences and O-regular variation which
+will be settled in this subsection. Therefore, several equivalent denitions of the Matuszewska
+indices are deduced. Finally, the true nature of Thilliez's and Sanz's growth indices, γ(M) and
+ω(M), is revealed. These growth indices, which were independently dened and, as it will be
+shown in Chapter 3, characterize the injectivity and surjectivity of the Borel map, coincide with
+β(m) and µ(m), respectively.
+Universidad de Valladolid

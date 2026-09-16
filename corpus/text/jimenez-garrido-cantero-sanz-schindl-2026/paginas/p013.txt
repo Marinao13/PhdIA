@@ -1,0 +1,80 @@
+13
+|rh(z, n)| ≤|rf(z, n)||g(z)| +
+n−1
+X
+k=0
+|cf
+k||z|k|rg(z, n −k)|
+≤A1dn
+1Mn|z|nA2 +
+n−1
+X
+k=0
+A1dk
+1Mk|z|kA2dn−k
+2
+Mn−k|z|n−k
+≤A1A2dn
+1Mn|z|n + A1A2
+n−1
+X
+k=0
+dk
+1dn−k
+2
+CnMn|z|n
+≤A1A2dn
+1Mn|z|n + A1A2CnMn|z|n
+n
+X
+k=0
+n
+k
+
+dk
+1dn−k
+2
+≤A1A2dn
+1Mn|z|n + A1A2CnMn|z|n(d1 + d2)n
+≤2A1A2(C(d1 + d2))nMn|z|n.
+This finishes the Roumieu part. Concerning the Beurling class e
+Au
+(M) we use the same
+estimate, and notice that C(d1 + d2) →0 when di →0 since C is only depending on M
+via (alg) but not on di, i = 1, 2.
+Conversely, if we can ensure the existence of very well-suited characteristic functions
+in the Roumieu class, closure under point-wise multiplication implies condition (alg).
+The following result gathers different implications.
+Theorem 6.2. Let M = (Mj)j ∈RN0
+>0 be a sequence with M0 = 1 and α > 0. Consider
+the following statements:
+(i) In case α ≤2, G
+2−αM is equivalent to an (lc) sequence; if α > 2, there exists
+α′ > α such that G
+2−α′
+M is equivalent to an (lc) sequence.
+(ii) M satisfies (alg).
+(iii)
+e
+Au
+{M}(Sα) is an algebra.
+(iv) There exists a characteristic function f ∈e
+Au
+{M}(Sα), with f ∼u
+{M}
+P∞
+j=0 cf
+j zj, such
+that (|cf
+j |)j∈N0 is equivalent to M and, moreover, cf
+j = (−1)j|cf
+j | for all j ∈N0.
+Then, one has (i) ⇒(ii) ⇒(iii), (i) ⇒(iv) and (iii) + (iv) ⇒(ii).
+Proof. (i) ⇒(ii) This a consequence of the following general statement, with a straight-
+forward proof: Assume that we have sequences M, N (with M0 = 1 = N0) such that
+M · N ≈L and L satisfies (alg) (and L0 = 1). If N satisfies the condition of moderate
+growth, namely there exists A > 0 such that Nj+k ≤Aj+kNjNk for all j, k ∈N0, then
+M satisfies (alg) as well. In our case, it suffices to observe that (lc) implies (alg) and
+that the Gevrey-like sequences G
+β of every order β ∈R satisfy the moderate growth
+condition.

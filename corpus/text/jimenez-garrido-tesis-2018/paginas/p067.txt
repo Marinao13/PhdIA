@@ -1,0 +1,90 @@
+2.1. LOG-CONVEX SEQUENCES AND O-REGULAR VARIATION
+67
+(iii) for Example 25 in [17], Mp := ((p + 1) logs(es + p))p for s, p ∈N where es := exp(es−1),
+e0 = 1, logs = log(logs−1(x)) and log0(x) = x, as in the rst case, the regular variation
+entails β(m) = µ(m) = ρ(m) = α(m) = 1.
+It is possible to generalize Proposition 2.1.18, that has been stated individually for its rele-
+vance, by giving several alternative denitions of β(m) and α(m), but for this purpose we need
+the next auxiliary lemma that extends Proposition 2.1.2 in the direction of Proposition 2.1.4 but
+going one step further.
+Lemma 2.1.21. Let m be a sequence such that ((p + 1)−γmp)p∈N0 is nondecreasing. Then for
+every β > γ, the following are equivalent:
+(i) lim
+k→∞lim inf
+p→∞
+mkp
+kβmp
+= ∞,
+(ii) there exists k ∈N, k ≥2 such that
+lim inf
+p→∞
+mkp
+mp
+> kβ,
+(iii) there exists ε > 0 such that (p−β−εmp)p∈N is almost increasing,
+(iv) there exist δ > 0 and A > 0 such that
+∞
+X
+k=p
+(k + 1)β+δ
+(k + 1)mk
+≤A(p + 1)β+δ
+mp
+,
+p ∈N0.
+Proof. (i) ⇒(ii) Immediate. (ii) ⇒(iii) There exists ε > 0 such that mkp/mp > kβ+ε for every
+p ≥p0 ≥1. Then, for every q ≥p ≥p0 there exists n ∈N0 such that knp ≤q < kn+1p. Using
+that ((p + 1)−γmp)p∈N0 is nondecreasing and iterating the previous inequality we get
+mq
+qβ+ε ≥
+(q + 1)γmknp
+qβ+ε(knp + 1)γ > (q + 1)γmpkn(β+ε)
+qβ+ε(knp + 1)γ
+for all
+q ≥p ≥p0.
+Since knp ≤q < kn+1p, we see that 1 ≥(knp + 1)/(q + 1) ≥k−1 and 1 ≥knp/q ≥k−1. Then
+mq
+qβ+ε ≥min(1, k−β−ε) min(1, kγ) mp
+pβ+ε
+for all
+q ≥p ≥p0.
+Then, by suitably enlarging the constant as in the proof of Proposition 2.1.2, we see that
+(p−β−εmp)p∈N is almost increasing.
+(iii) ⇒(iv) As in the proof of Lemma 2.1.13, one can show that((p + 1)−β−εmp)p∈N0 is almost
+increasing. For every p ∈N0, for suitable M > 0, we see that
+∞
+X
+k=p
+(k + 1)β+ε/2
+(k + 1)mk
+≤M (p + 1)β+ε
+mp
+Z ∞
+p+1
+dx
+x1+ε/2 ≤2M(p + 1)β+ε/2
+εmp
+.
+We conclude by choosing δ := ε/2 > 0 and A := 2M/ε.
+(iv) ⇒(i) Using that ((q + 1)−γmq)p∈N0 is nondecreasing, for q, p ∈N0 with q ≥p we have that
+A(p + 1)β+δ
+mp
+≥
+∞
+X
+k=p
+(k + 1)β+δ
+(k + 1)mk
+≥
+q
+X
+k=p
+(k + 1)β−γ+δ−1
+(k + 1)−γmk
+≥
+1
+(q + 1)−γmq
+Z q+1
+p+1
+xβ−γ+δ−1dx.
+Universidad de Valladolid

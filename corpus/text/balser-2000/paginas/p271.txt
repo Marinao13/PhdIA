@@ -1,0 +1,43 @@
+256
+Solutions
+Section 6.4:
+1. The series in Nos. 1, 2, and 5 are k-summable. The one in No. 3
+converges for k ≥1, and hence is k-summable in this case, while for
+k < 1, there are inﬁnitely many singular directions. The one in No. 6
+is 1-summable.
+2. Proceed as in the proof of Lemma 10 part (b).
+3. Verify directly that f(z; λ) ∼=1 ˆf(z; λ) in |d −arg z| < π; to do so,
+proceed as in the proof of Theorem 22 (p. 79).
+4. Observe ˆf(z; λ) = m−1
+0
+Γ(λ + n) zn + zm ∞
+0 Γ(λ + m + n) zn, for
+suﬃciently large integer m, and use the previous exercise.
+5. Let g = S ( ˆB1 ˆf), g(·; α, β) = S ( ˆB1 ˆf(·; α, β)). For Re β > Re α > 0,
+use the Beta Integral (p. 229) to show
+g(u; α, β) =
+Γ(β)
+Γ(α) Γ(β −α)
+ 1
+0
+(1 −x)β−α−1 xα−1 g(xu) dx.
+Use this to conclude ˆf(z; α, β) ∈E {z}1. To remove the restrictions on
+α and β, use termwise integration resp. diﬀerentiation of ˆf(z; α, β).
+Section 6.5:
+1. Observe that the geometric series is contained in C {z}, for every
+k > 0.
+2. Assume f(z) ∼=1/k ˆf(z) in a sectorial region of opening larger than
+π/k, and let g = Lk(T −f), ˆg = ˆLk( ˆT −ˆf). Conclude that g(z) ∼=1/k
+ˆg(z) in another sectorial region of opening larger than π/k. This shows
+that (Γ(1+n/k)/m(n)) is a summability factor; the other case follows
+similarly.
+3. Follows from the previous exercise.
+4. Use the previous exercise and Theorem 31 (p. 94).
+5. Verify that f(z) ∼=1/k ˆf(z) in G implies f(λz) ∼=1/k ˆf(λz) in a corre-
+sponding sectorial region ˜G of the same opening.
+6. For ε = exp[2πi/p] and ˆf(z) =  fn zn, observe p−1
+j=0 ˆf(z εj) =
+p  fpn zpn, and use the previous exercise.
+7. Use termwise integration resp. diﬀerentiation!
+8. Use Exercise 1, and compare Exercise 1 on p. 99.
+9. Use Theorem 37 (p. 106).

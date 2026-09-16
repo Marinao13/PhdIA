@@ -1,0 +1,51 @@
+28
+(the so-called lower order of m) are equal. Suppose that (sm) fails and, moreover,
+lim
+p→∞(log(mp))1/p = ∞.
+This easily implies that ω(M) = ∞. If we suppose also that m satisfies (lc), we have
+that
+emp = mp+1
+2 + log(mp+2/mp+1)
+2 + log(mp+1/mp)
+≥mp+1,
+p ∈N0,
+and we can deduce that
+ω(f
+M) = lim inf
+p→∞
+log(emp)
+log(p) ≥lim inf
+p→∞
+log(mp+1)
+log(p)
+= ω(M) = ∞.
+Hence, under mild regularity assumptions, we obtain that also γ(f
+M) = ∞, and so the
+item (II.b) of Theorem 4.6 generally proves the surjectivity onto Λ{f
+M} of the moment
+mapping for such sequences.
+Remark 4.17. Let M be a weight sequence satisfying (sm) and such that f
+M is a weight
+sequence. According to Proposition 4.14.(ii), and since the gamma index is preserved by
+forward shifts of indices and by equivalence of weight sequences (see [9, Corollary 3.14]),
+we deduce that γ(f
+M) = γ(M +1) = γ(M). However, we cannot provide any information
+in case (sm) fails to hold.
+Acknowledgements: The first three authors are partially supported by the Spanish
+Ministry of Science and Innovation under the project PID2022-139631NB-I00. The re-
+search of the fourth author was funded in whole by the Austrian Science Fund (FWF)
+project 10.55776/PAT9445424.
+References
+[1] J. Chung, S.-Y. Chung, D. Kim, Every Stieltjes moment problem has a solution in
+Gelfand-Shilov spaces, J. Math. Soc. Japan 55 (2003), 909–913.
+[2] S.-Y. Chung, D. Kim, Y. Yeom, Stieltjes moment problem for Gelfand-Leontiev
+spaces, Fract. Calc. Appl. Anal. 2, 5 (1999), 623–629.
+[3] A. Debrouwere, Solution to the Stieltjes moment problem in Gelfand-Shilov spaces,
+Studia Math. 254 (2020), 295–323, doi: 10.4064/sm190627-8-10.
+[4] A. Debrouwere, J. Jiménez-Garrido, J. Sanz, Injectivity and surjectivity of the Stielt-
+jes moment mapping in Gelfand-Shilov spaces, RACSAM (2019) 113:3341–3358,
+https://doi.org/10.1007/s13398-019-00693-6.
+[5] A. L. Durán, R. Estrada, Strong moment problems for rapidly decreasing smooth
+functions, Proc. Amer. Math. Soc. 120 (1994), 529–534.
+[6] E. M. Dyn’kin, Pseudoanalytic extension of smooth functions. The uniform scale,
+Amer. Math. Soc. Transl. (2) 115 (1980), 33–58.

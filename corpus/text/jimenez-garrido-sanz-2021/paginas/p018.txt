@@ -1,0 +1,77 @@
+Proof. If we consider the sequences (αp)p∈N0 and (βp)p∈N0 deﬁned in Notation 3.7, we have
+to show that
+lim
+p→∞(αℓp −αp) = ω(M) log(ℓ),
+ℓ≥2.
+For simplicity we note ω = ω(M). Using (24) we see that
+αℓp −αp =
+ℓp−1
+X
+k=p
+βk
+k + 1 + βℓp −βp,
+p, ℓ≥2.
+By Proposition 3.13 we have limp→∞βp = ω, so it is suﬃcient to prove that
+lim
+p→∞
+ℓp−1
+X
+k=p
+βk
+k + 1 = ω(M) log(ℓ).
+If we take ε > 0, we ﬁx δ > 0 such that δ log(ℓ) < ε/6. There exists pδ ∈N such that
+|βp −ω| < δ for p ≥pδ. In the notation of (25), we remember that Hp = log(p) + γ + εp
+with limp→∞εp = 0, consequently for p ≥pδ we have
+ℓp−1
+X
+k=p
+βk
+k + 1 ≤(ω + δ)(Hℓp −Hp) = (ω + δ)(log(ℓ) + εℓp −εp).
+Now take p0 ≥pδ such that for p ≥p0 one has
+|ωεp| < ε/6,
+|δεp| < ε/6,
+then for p ≥p0 we see that
+ℓp−1
+X
+k=p
+βk
+k + 1 ≤ω log(ℓ) + ωεℓp −ωεp + δ log(ℓ) + δεℓp −δεp < ω log(ℓ) + ε.
+Analogously, for p ≥p0 we see that
+ω log(ℓ) −ε <
+ℓp−1
+X
+k=p
+βk
+k + 1,
+and we are done.
+Remark 4.7. For a given logarithmically convex sequence M, applying Proposition 2.10 to
+(p!Mp)p∈N0, which is also logarithmically convex, we see that (snq) and (4) are equivalent
+conditions. If we use Proposition 2.4(i) and (ii.2), we can establish the following result.
+Proposition 4.8. Let (Mp)p∈N0 be a sequence of positive numbers with M0 = 1. The
+following are equivalent:
+(i) M is strongly regular,
+(ii) m is non-decreasing, sup
+p∈N
+m2p
+mp
+< ∞and there exists k ∈N such that lim inf
+p→∞
+mkp
+mp
+> 1.
+In order to characterize strongly regular sequences satisfying (16), we will apply the
+following result of R. Bojanic and E. Seneta.
+Theorem 4.9 ([8], Th. 3). If (sp)p∈N is a regularly varying sequence of index ω, then there
+exist sequences of positive numbers (Cp)p∈N and (δp)p∈N converging to C ∈(0, ∞) and zero,
+respectively, such that
+sp = pωCp exp
+
+
+p
+X
+j=1
+δj/j
+
+,
+p ∈N.
+18

@@ -1,0 +1,56 @@
+2
+example [2, Prop. 11]). This result is the departure point for the deﬁnition of 1/α−summability
+in a direction, introduced by J.-P. Ramis [36, 37].
+A paradigmatic example of ﬂat function
+in
+˜
+Aα(Sα) is fα(z) = exp(−z−1/α), and it gives rise to kernels in terms of which one may
+deﬁne formal and analytic Laplace and Borel transforms permitting the reconstruction of the
+sum of a given Gevrey formal power series belonging to ˜B( ˜
+Aα(Sγ)) for some γ > α.
+The
+technique of multisummability (in a sense, an iteration of a ﬁnite number of 1/α−summability
+procedures) has been proven to apply successfully to a plethora of situations concerning the
+study of formal power series solutions at a singular point for linear and nonlinear (systems of)
+meromorphic ordinary diﬀerential equations in the complex domain (see, to cite but a few, the
+works [1, 2, 4, 9, 29, 38]), for partial diﬀerential equations (for example, [3, 6, 15, 27, 34]), as
+well as for singular perturbation problems (see [7, 11, 21], among others).
+However, it is known that non-Gevrey formal power series solutions may appear for diﬀerent
+kinds of equations. For example, V. Thilliez has proven some results on solutions within these
+general classes for algebraic equations in [41].
+Also, G. K. Immink in [16, 17] has obtained
+some results on summability for solutions of diﬀerence equations whose coeﬃcients grow at an
+intermediate rate between Gevrey classes, called of 1+ level, that is governed by a strongly
+regular sequence. Very recently, the second author [28] has studied some singularly perturbed
+small step size diﬀerence-diﬀerential nonlinear equations whose formal solutions with respect to
+the perturbation parameter can be decomposed as sums of two formal series, one with Gevrey
+order 1, the other of 1+ level, a phenomenon already observed for diﬀerence equations [10].
+All these results invite one to try to extend summability tools so that they are able to deal
+with formal power series whose coeﬃcients’ growth is controlled by a general strongly regular
+sequence, so including Gevrey, 1+ level and other interesting examples. Our approach will be in-
+spired by the study of moment summability methods, equivalent in a sense to 1/α−summability,
+developed by W. Balser in [2, Section 5.5] and which relies on the determination of a pair of
+kernel functions with suitable asymptotic and growth properties, in terms of which to deﬁne for-
+mal and analytic Laplace- and Borel-like transforms. These summability methods have already
+found its application to the analysis of formal power series solutions of diﬀerent classes of partial
+diﬀerential equations (for example, by the second author [25, 26] and by S. Michalik [30, 31]),
+and also for so-called moment-partial diﬀerential equations, introduced by W. Balser and Y.
+Yoshino [8] and subsequently studied by S. Michalik [32, 33].
+It seems clear that an analogue of Watson’s lemma should be obtained for a proper deﬁnition
+of summability, and ﬂat functions in sectors of optimal opening (like fα, see above) should be
+determined.
+We recall that V. Thilliez [40] introduced a growth index γ(M) ∈(0, ∞) for
+every strongly regular sequence M (which for Mα equals α), and proved the following facts:
+if γ < γ(M), then AM(Sγ) contains nontrivial ﬂat functions; and, resting on Whitney-type
+extension results, he obtained a generalized Borel-Ritt-Gevrey theorem (coming with right linear
+and continuous inverses for the Borel map). By means of these ﬂat functions, the authors [20]
+deﬁned suitable kernels and moment sequences and reproved this last result by the classical
+truncated Laplace transform technique, in the same vein as Ramis’ original proof. In the last
+section of [20], and resting on some partial Watson-like results obtained by the ﬁrst and third
+authors [22], some hints are given on how to deﬁne a Laplace transform which behaves properly
+with respect to M−asymptotics, and a deﬁnition of M−summability is suggested. However,
+the preceding results for general classes are not fully satisfactory, as the quantity γ(M) is not
+known to be optimal for quasianalyticity and, moreover, ﬂat functions are only obtained after
+restricting ourselves to sectors Sγ with γ < γ(M).
+These drawbacks have been recently overcome in the paper [39] by the third author. There,
+for every strongly regular sequence M a new constant ω(M) is introduced, measuring the rate of

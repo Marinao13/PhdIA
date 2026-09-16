@@ -1,0 +1,60 @@
+4
+VINCENT THILLIEZ
+for j = 1, . . . , d.
+Then there exist positive integers m, n1, . . . , nJ and elements
+y1, . . . , yJ of E1(M) such that
+(10)
+ϕ(xm, y) =
+J
+Y
+j=1
+(y −yj(x))nj.
+1.4. Smooth roots of quasianalytic polynomials. We can now state the ﬁrst
+main result of this paper.
+Theorem 2. Assume that E1(M) is quasianalytic and stable under derivation, and
+consider a polynomial
+ϕ(x, y) = yd + a1(x)yd−1 + · · · + ad(x)
+with aj ∈E1(M) for j = 1, . . . , d. If h is a germ of C∞function at the origin in R
+such that ϕ(x, h(x)) = 0, then h belongs to E1(M).
+Proof. Using Proposition 2, we remark ﬁrst that the zero set of (x, y) 7→ϕ(xm, y)
+is the union of the germs of smooth curves Γj = {(x, y) : y = yj(x)}, j = 1, . . . , J.
+Quasianalyticity implies the ﬁniteness of ω(yi −yj) for i ̸= j (in particular, the
+Γj’s do not intersect at points (x, y) with x ̸= 0). Since, by assumption, we have
+ϕ(xm, h(xm)) = 0, we derive that there is an index j0 such that
+(11)
+h(xm) = yj0(x).
+Now, remark that the equation
+(12)
+bϕ(x, Z(x)) = 0,
+where Z is a formal power series, has a ﬁnite number of solutions Z1, . . . , ZK:
+indeed, (10) and (12) imply Z(xm) = byj(xm) for some j. Let ν be an integer such
+that ω(Zk −Zl) < ν for k ̸= l. Using Proposition 1, we obtain, for each integer k,
+an element zk = zk,ν of E1(M) such that
+(13)
+ϕ(x, zk(x)) = 0
+and
+(14)
+ω(Zk −bzk) ≥ν.
+From (13) we derive that bzk belongs to the ﬁnite family {Z1, . . . , ZK}. By (14) and
+the choice of ν, we necessarily have, in fact, bzk = Zk for k = 1, . . . , K. Since the
+assumption on h implies that bh is a solution of (12), we get
+(15)
+bh = c
+zk0
+for some index k0. Setting w(x) = zk0(xm), and taking (11) and (15) into account,
+we see that c
+yj0 = bw. As both germs yj0 and w belong to E1(M), we derive yj0 = w
+by quasianalyticity. We therefore have proved h(xm) = zk0(xm), where zk0 belongs
+to E1(M). If m is odd, we derive h = zk0 and the job is done. If m is even, we
+also consider the germs ˇϕ and ˇh deﬁned by ˇϕ(x, y) = ϕ(−x, y) and ˇh(x) = h(−x),
+so that ˇϕ(x, ˇh(x)) = 0. The preceding argument yields an integer p ≥1 and an
+element z of E1(M) such that ˇh(xp) = z(xp), that is, h(−xp) = z(xp). Thus, h(t)
+coincides with z(t) for t ≤0 and with zk0(t) for t ≥0, as can be seen by setting
+t = −xp and t = xm, respectively. Since h is smooth and both z and zk0 belong to
+E1(M), we derive that z = zk0 and that h actually belongs to E1(M). The proof is
+complete.
+□
+Remark 1. A related result appears in [8], whose main theorem deals with functions
+g belonging to a quasianalytic class on a given interval I of R. If, for some real
+α > 0, the function gα is smooth, it is actually in the same class as g on I. In
+our local setting, this result can be obtained either by elementary means (writing

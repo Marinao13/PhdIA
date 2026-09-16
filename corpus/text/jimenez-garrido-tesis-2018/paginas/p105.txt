@@ -1,0 +1,76 @@
+2.2. LOG-CONVEX SEQUENCES, REGULAR VARIATION AND PROXIMATE ORDERS
+105
+Then it is enough to prove that
+2 + (2 + 1/p)(p + 1) log(p) ≥log(p + 1)(p + 1)
+
+2 +
+1
+p + 1
+
+,
+or, equivalently,
+2p ≥(2p2 + 3p) log(1 + 1/p) −log(p).
+Since log(1+1/p) ≤1/p, the last inequality is always true for p large enough, which proves (2.37).
+We observe that for n ≥n4 ≥n3 and p ∈{qn, . . . , kn+1 −1} we have that
+tp(p + 1) log(p + 1) > (2 + 1/p)(p + 1) log(p + 1) ≥(2 + 1/p)(1 + 1/(3p)) > 2 = ξp+1.
+We conclude that tp ≥tp+1 for n large enough and p ∈{qn, . . . , kn+1 −1}. Using these mono-
+tonicity properties of the sequence (tp)p≥1 we conclude that
+µ(m) = 5
+2 = lim
+n→∞tkn = lim inf
+p→∞tp ≤lim sup
+p→∞tp = lim
+n→∞tqn = 11
+4 = ρ(m).
+Finally, let us see that we have β(m) = γ(M) = 2. We will show that mp/pα is almost increasing
+if and only if α ∈(0, 2]. We have that mp/pα is almost increasing if and only if there exists
+M ≥1 such that for every p ∈N and all ℓ≥p we have that
+mp
+mℓ
+ℓα
+pα ≤M,
+or, equivalently, using (2.24),
+mp
+mℓ
+exp(α(Hℓ−Hp) −α(εℓ−εp)) ≤M.
+Since limp→∞εp = 0, using the denition of mp, we have that mp/pα is almost increasing if and
+only if, there exists M ≥1 such that for every p ∈N and all ℓ≥p we have that
+exp
+
+
+ℓ
+X
+k=p+1
+α −ξk
+k
+
+≤M.
+If α ∈(0, 2], we observe that, for every k ∈N, α −ξk ≤0. Then for every p ∈N and all ℓ≥p
+we see that
+exp
+
+
+ℓ
+X
+k=p+1
+α −ξk
+k
+
+≤1 =: M.
+If α > 2, we see that for every n ∈N and every k ∈{qn + 1, . . . , kn+1} we have that α −ξk =
+α −2 > 0. Then taking p = qn = 23n2 and ℓ= kn+1 = 23n+1 and using again (2.24) we see that
+exp
+
+
+kn+1
+X
+k=qn+1
+α −ξk
+k
+
+= exp((α −2)(3n log(2) −εkn+1 −εqn)),
+but the right hand side is unbounded as n →∞, then mp/pα is not almost increasing. Conse-
+quently, mp/pα is almost increasing if and only if α ∈(0, 2] and, by Proposition 2.1.10, it means
+that β(m) = 2. Similarly, we see that α(m) = 3.
+□
+Universidad de Valladolid

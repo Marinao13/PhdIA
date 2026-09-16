@@ -1,0 +1,60 @@
+25
+Proof. Consider the growth control function family g := {gH : H > 1, gH(0) := 1, gH(t) :=
+eHt, t > 0} and we apply Theorem 4.10 to the growth control function gH0, H0 > 1
+arbitrary but fixed. For (i) note that g uniformly controls h := {(1 + id)β : β > 0}. So,
+given H1 > H0 there exists A > 0 such that
+mβ
+p = mp(1 + p)β ≤AeHp
+1 ,
+p ∈N0.
+Taking logarithms we easily deduce that the condition (4.2) holds, and so M β satisfies
+(sm). Concerning (ii) note that M β strictly approaches gH0·(1+id)β and so, in particular,
+we obtain
+sup
+j∈N0
+mβ
+pj
+Dpj+1 = sup
+j∈N0
+eH
+pj
+0 (1 + pj)β
+Dpj+1
+= +∞
+for any D ≥1, which proves that (dc) fails.
+Corollary 4.13. For any β ∈[0, +∞) there exists a weight sequence M β satisfying the
+following properties:
+(i) M β does not satisfy (sm) (and hence (dc) either).
+(ii) γ(M β) = β.
+Proof. We apply Theorem 4.10 to the growth control function gH defined as
+gH(0) := 1,
+gH(t) := exp(eHt), t > 0,
+for some fixed H > 1, and obtain M β such that (ii) is satisfied.
+Since M β strictly
+approaches gH · (1 + id)β, in particular we obtain
+sup
+j∈N0
+log(mβ
+pj)
+Dpj+1
+= sup
+j∈N0
+eHpj + β log(1 + pj)
+Dpj+1
+= +∞
+for any D ≥1, which proves that (sm) fails.
+So, the failure of conditions (dc) or (sm) has no implication on the value of the index
+γ(M) for general weight sequences, and the statements of Theorems 3.9 and 4.6 are
+meaningful.
+We turn now to the study of the sequence f
+M.
+Proposition 4.14. Let M be an (lc) sequence.
+(i) M +1 ⊂f
+M holds.
+(ii) The following statements are equivalent:
+(1) M satisfies (sm).
+(2) M +1 satisfies (sm).
+(3) M +1 ≈f
+M.
+(4) f
+M satisfies (sm).

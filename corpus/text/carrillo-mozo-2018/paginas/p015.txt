@@ -1,0 +1,126 @@
+JID:YJMAA
+AID:21635 /FLA
+Doctopic: Partial Diﬀerential Equations
+[m3L; v1.221; Prn:28/08/2017; 14:57] P.15 (1-17)
+S.A. Carrillo, J. Mozo-Fernández / J. Math. Anal. Appl. ••• (••••) •••–•••
+15
+is ﬁnite. Then ES,K is a Banach space with the norm ∥ ·∥K and from (24) we see we can ﬁnd a large enough 
+constant K′ > 0 such that g ∈ES,K′ for any such S.
+As before we prove that H : ES,K →ES,K, is well-deﬁned and a contraction if K > K′ is large enough. 
+If F ∈ES,K, then
+|H(F)(ξ1, ξ2)|
+≤MS
+
+1
+
+0
+B( C)(ξ1t
+s
+p , ξ2t
+1−s
+q )F(ξ1(1 −t)
+s
+p , ξ2(1 −t)
+1−s
+q )ξp
+1ξq
+2dt
+
++ MS∥g∥K′eK′R(ξ1,ξ2)
+≤MS
+1
+
+0
+ξp
+1ξq
+2B( C)(ξ1t
+s
+p , ξ2t
+1−s
+q )
+ ∥F∥KeKR(ξ1,ξ2)(1−t)dt + MS∥g∥K′eK′R(ξ1,ξ2),
+where MS is a constant such that 
+(ξp
+1ξq
+2I −C(0, 0))−1 ≤MS, on S. To bound this term we use the 
+following estimate
+1
+
+0
+t
+ns
+p + m(1−s)
+q
+−1eKR(ξ1,ξ2)(1−t)dt ≤
+eKR(ξ1,ξ2)Γ
+
+ns
+p + m(1−s)
+q
+
+(KR(ξ1, ξ2))
+ns
+p + m(1−s)
+q
+,
+valid for all n, m ∈N, (n, m) ̸= (0, 0) and ξ1, ξ2 ∈C∗. Then we have
+|H(F)(ξ1, ξ2)| ≤MSL
+ 1
+K
+s
+p +
+1
+K
+1−s
+q
+
+∥F∥KeKR(ξ1,ξ2) + MS∥g∥K′eK′R(ξ1,ξ2)
+≤MS
+ 2L
+Ka ∥F∥K + ∥g∥K′
+
+eKR(ξ1,ξ2),
+where a = min{ s
+p, 1−s
+q } and L is a constant such that
+
+m≥1
+|C0m||ζ2|m−1,
+
+n≥1
+m≥0
+|Cnm||ζ1|n−1|ζ2|m ≤L,
+on D2
+r′,
+r′ < r and K chosen such that 1/Ka < r′. Therefore H(F) ∈ES,K. In the same way, if F, G ∈ES,K then
+∥H(F) −H(G)∥K ≤2MSL
+Ka
+∥F −G∥K,
+and if we take K such that 2MSL < Ka we can conclude that H is a contraction and it has a unique ﬁxed 
+point. This means that (23) has a unique solution deﬁned in S with the exponential growth as above.
+If we choose any direction d ̸= arg(λj), j = 1, ..., l and θd > 0 small enough such that S = Sp,q(d, 2θd) ⊂Ω, 
+then we have proved in particular that ˆB( ˆw) can be analytically continued to S with exponential growth 
+as required in Deﬁnition 4.1 for k = 1. Then ˆy is 1 −(s, 1 −s)-Borel summable in xp
+1xq
+2 in every direction 
+d ̸= arg(λj) as we wanted to prove.
+2
+Lemma 5.3. Let p, q, N ∈N>0 be given and n, m ∈N not both zero. For 0 < s < 1 there is a constant D
+independent of n, m such that
+1
+
+0
+t
+ns
+p + m(1−s)
+q
+−1(1 −t)
+Ns
+p dt ≤D
+N a ,
+a = min
+s
+p, 1 −s
+q
+
+.

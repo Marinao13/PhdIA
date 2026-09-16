@@ -1,0 +1,75 @@
+22
+[10] J. A. Hern´andez, J. Sanz, G´erard-Sibuya’s versus Majima’s concept of asymptotic expansion
+in several variables, J. Austral. Math. Soc. Ser. A 71 (2001), 21–35.
+[11] G. K. Immink, Exact asymptotics of nonlinear diﬀerence equations with levels 1 and 1+,
+Ann. Fac. Sci. Toulouse T. XVII, no. 2 (2008), 309–356.
+[12] A. Lastra, J. Sanz, Quasi-analyticity in Carleman ultraholomorphic classes, Annales Inst.
+Fourier 60 (2010), 1629–1648.
+[13] A. Lastra, J. Sanz, Extension operators in Carleman ultraholomorphic classes. J. Math.
+Anal. Appl. 372 (2010), no. 1, 287–305.
+[14] H. Majima, Analogues of Cartan’s Decomposition Theorem in Asymptotic Analysis, Funk-
+cial. Ekvac. 26 (1983), 131–154.
+[15] H. Majima, Asymptotic Analysis for Integrable Connections with Irregular Singular Points,
+Lecture Notes in Math. 1075, Springer, Berlin, 1984.
+[16] S. Malek, On the summability of formal solutions of linear partial diﬀerential equations, J.
+Dyn. Control Syst. 11 (2005), no. 3, 389–403.
+[17] S. Malek, On Gevrey functional solutions of partial diﬀerential equations with Fuchsian
+and irregular singularities, J. Dyn. Control Syst. 15 (2009), no. 2, 277–305.
+[18] J. Martinet, J. P. Ramis, Probl`emes de modules pour des ´equations diﬀ´erentielles non
+lin´eaires du premier ordre, Publ. I.H.E.S. 55 (1982), 63–164.
+[19] S. Michalik, Summability and fractional linear partial diﬀerential equations, J. Dyn. Control
+Syst. 16 (2010), no. 4, 557–584.
+[20] S. Michalik, On the multisummability of divergent solutions of linear partial diﬀerential
+equations with constant coeﬃcients, J. Diﬀerential Equations 249 (2010), no. 3, 551–570.
+[21] S.
+Michalik,
+Analytic
+solutions
+of
+moment
+partial
+diﬀerential
+equa-
+tions
+with
+constant
+coeﬃcients,
+Manuscript
+(available
+on
+the
+web
+page
+http://www.impan.pl/∼slawek/moment-pdes.pdf), 2012.
+[22] S.
+Michalik,
+Summability
+of
+formal
+solutions
+of
+linear
+partial
+differential
+equa-
+tions
+with
+divergent
+initial
+data,
+Manuscript
+(available
+on
+the
+web
+page
+http://www.impan.gov.pl/∼slawek/divergent.pdf), 2012.
+[23] H. J. Petzsche, On E. Borel’s theorem, Math. Ann. 282 (1988), no. 2, 299–313.
+[24] J. P. Ramis, D´evissage Gevrey, Asterisque 59–60 (1978), 173–204.
+[25] J. P. Ramis, Les s´eries k-sommables et leurs applications, Lecture Notes in Phys. 126,
+Springer-Verlag, Berlin, 1980.
+[26] J. Sanz, Linear continuous extension operators for Gevrey classes on polysectors, Glasg.
+Math. J. 45 (2003), no. 2, 199–216.
+[27] V. Thilliez, Extension Gevrey et rigidit´e dans un secteur, Studia Math. 117 (1995), 29–41.
+[28] V. Thilliez, Division by ﬂat ultradiﬀerentiable functions and sectorial extensions, Results
+Math. 44 (2003), 169–188.

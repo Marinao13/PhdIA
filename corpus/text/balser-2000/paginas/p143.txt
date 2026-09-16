@@ -1,0 +1,85 @@
+126
+8. Solutions of Highest Level
+it keeps a positive distance from the singular directions. For every n, the
+numbers t(m)
+n
+, b(m)
+n
+can be seen to be monotonically increasing with respect
+to m and become constant when m ≥n. Their limiting values tn, bn then
+satisfy the same recursion equations, with the superscripts dropped. Setting
+b(x) = ∞
+1 bn xn, t(x) = ∞
+1 tn xn, a(x) = ∞
+1 an xn = ax(1 −ax)−1, we
+obtain formally b(x) = a(x)[1+t(x)], t(x) = c[a(x)+(a(x)+b(x))t(x)]. This
+can be turned into a quadratic equation for t(x), having one solution t1(x)
+that is a holomorphic function near the origin, while the other one has a
+pole there. The coeﬃcients of t1(x) satisfy the same recursion formulas as
+tn, so are in fact equal to tn. This implies that both tn and bn cannot grow
+faster than some constant to the power n. From this fact we conclude that
+T(u; m) and B(u; m) can be estimated by c x1−reKxr with suitably large
+c, K independent of m. Therefore, the proof will be completed provided
+that we show convergence of T(u; m) and B(u; m) as m →∞. This can be
+done by deriving estimates, similar to the ones above, for the diﬀerences
+T(u; m)−T(u; m−1) and B(u; m)−B(u; m−1) and turning the sequence
+into a telescoping sum. For details, compare the exercises below.
+2
+It is important to note for later applications that the above lemma not
+only ensures r-summability of the transformation ˆT(z), but also allows ex-
+plicit computation of the possible singular directions in terms of parameters
+of the system (3.1) (p. 37). As we shall make clear in Chapter 9, it may
+happen that some, or all, of these directions are nonsingular, depending on
+whether some entries in Stokes’ multipliers are zero. However, in generic
+cases all these directions are singular!
+Exercises: In the following exercises, make the same assumptions as in
+the lemma above, and use the same notation as in its proof.
+1. For m ≥1 and u as in the proof of the above lemma, show
+∥T(u; m) −T(u; m −1)∥
+≤
+∞
+
+n=m
+d(m)
+n
+xn−r/Γ(n/r),
+∥B(u; m) −B(u; m −1)∥
+≤
+∞
+
+n=m
+˜d(m)
+n
+xn−r/Γ(n/r),
+with constants d(m)
+n
+, ˜d(m)
+n
+satisfying
+d(m+1)
+n
+=
+n−1
+
+k=m
+bn−k(d(m)
+k
++ ˜d(m)
+k
+),
+˜d(m+1)
+n
+=
+n−1
+
+k=m
+an−kd(m)
+k
+,
+for suitably large b > 0, and a as in the proof of the lemma.
+2. Setting dm(x) = ∞
+n=m d(m)
+n
+xn, and analogously for ˜dm(x), derive a
+recursion for these functions – in particular, conclude convergence of
+the series for 0 < x < min(a, b).

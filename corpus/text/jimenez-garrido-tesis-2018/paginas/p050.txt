@@ -1,0 +1,28 @@
+50
+CHAPTER 1.
+PRELIMINARIES
+Theorem 1.2.46 ([25], Th. 3, Representation Theorem for O-regularly varying sequences). Let
+a = (ap)p∈N be an O-regularly varying sequence of positive numbers. Then there exist bounded
+sequences of real numbers (dp)p∈N and (ξp)p∈N such that
+ap = exp
+
+dp +
+p
+X
+j=1
+ξj
+j
+
+,
+p ∈N.
+Conversely, such a representation for a sequence (ap)p∈N implies that it is O-regularly varying.
+In Section 2.1, the relation between weight functions and ORV sequences is established. In
+that context, this Representation Theorem will play a key role in the construction of pathological
+examples (see Example 2.2.26).
+One may notice the stability of the notion of O-regular variation for sequences under ≃.
+Remark 1.2.47. Let a = (ap)p∈N and b = (bp)p∈N be sequences of positive numbers with a ≃b.
+It is plain to check that a is O-regularly varying sequence if and only if b also is.
+Finally, it naturally arises the question about the possibility of considering the Matuszewska
+indices and the orders for sequences. This question was not posed by D. Djur£i¢ and V. Boºin
+and will be the main topic of Subsection 2.1.2.
+JAVIER JIMÉNEZ GARRIDO

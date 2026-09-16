@@ -1,0 +1,32 @@
+228 
+Braun, Meise and Taylor 
+For each A > 0 we have 
+,,~~~ If!")(x)lexp (-ACP' C~I)) = ,,~~~ Iz"llexp(-i(x,z))lexp (-.xcp. C~I)) 
+5: exp ((X,ImZ) + "~~~ lallog Izl- ACP' ('~I) ) 5: exp((x,Imz) + AW(Z)). 
+Thus fo E £.(0) for all wand O. The Fourier-Laplace transform jJ. of J-L E £.(oy is given 
+by 
+Note that for cP E 1'.(0): 
+J-L*CP(z) = JRN 
+J-L * cp(t)fo(t) dmN(t) = iN (J-Ly, J:(t)cp(t - y)) dmN(t) 
+= JR)J-Ly, fo(s + y)cp(S)) dmN(S) = k)J-L, f=)cp(s )fo(s) dmN(S) = jJ.(z)<j5(z). 
+7.2 Proposition. 
+Let 0 C lRN be open and suppose that for J-L E £(w)(O), there are 
+A, C > 0 and a compact K C 0 such that 
+(1) 
+Then jJ. is entire and satisfies 
+1jJ.(z)l5: Cexp(H/,(Imz) + AW(Z)) 
+for all z E (VN, 
+(2) 
+(J-L,Cp) = (2~)N .klN jJ.(-t)cp(t)dmN(t) for all cp E 1'(w)(IRN). 
+(3) 
+PROOF. We had seen in 7.1 that for every compact L C IRN 
+PL,,\(f=) 5: exp(HL(Imz) + AW(Z)) 
+for z E (VN, A> O. 
+(4) 
+This proves (2). We define F(z) = fo. We claim that F is holomorphic. In view of the 
+identity F( z + w) = F( z )F( w) for all z, w E (VN it is enough to prove differentiability in 
+the origin. For x E IRN, z E (VN with Izi < 1, and k E IN we have 
+Thus jJ. = J-LoF is entire. For cp E 1'(w)(O) set cp(x) = cp(-x). Then ,p(t) = cp(-t), and (3) 
+is shown in the following way 
+(J-L,CP) = J-L * cp(O) = ;:--1(J-L -;-cp)(O) = ;:--1(jJ.,p)(0) 
+= (2~)N kN jJ.(t)cp( -t) dmN(t) = (2~)N kN jJ.( -t)cp(t) dmN(t). 

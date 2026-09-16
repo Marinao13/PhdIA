@@ -1,0 +1,51 @@
+24
+When evaluating this condition at p = pj and q = pj+1 −1 ≥pj we obtain
+
+pj+1
+pj+1
+β
+≤H.
+Since
+pj+1
+pj + 1 ≥1
+2
+pj+1
+pj
+,
+holds for all j ≥1, in view of our hypothesis we get a contradiction. So, γ(M) = 0.
+Any sequence of positive real numbers is said to be dominated by a growth control
+function g if (i) in Proposition 4.8 holds, and it strictly approaches g if in addition (ii) is
+valid.
+Theorem 4.10. Given a growth control function g, a strictly increasing sequence of inte-
+gers (pj)j∈N0 with p0 = 0 and supj∈N
+pj+1
+pj
+= +∞, and β ≥0, there exists a weight sequence
+M β = (M β
+p )p, with corresponding quotients mβ = (mβ
+p)p, such that:
+(i) mβ
+p ≤g(p) · (1 + p)β for all p ∈N0,
+(ii) mβ
+pj = g(pj) · (1 + pj)β for all j ∈N0,
+(iii) γ(M β) = β.
+Proof. Let Gβ denote the Gevrey sequence with index β > 0, and let M be the weight
+sequence constructed in Proposition 4.8 for the function g and the sequence (pj)j. By
+Proposition 4.9, γ(M) = 0. Then, it is straightforward that M β := M · Gβ (termwise
+product) is a weight sequence and γ(M β) = γ(M) + β = β. If we define the growth
+control function g · (1 + id)β : t 7→g(t) · (1 + t)β, we immediately see that M β strictly
+approaches g · (1 + id)β.
+Remark 4.11. Suppose the definition of g involves a positive real parameter, say ℓ∈
+(L, +∞) for some L > 0, and write g = gℓ. If gℓ≤gℓ1 for any ℓ≤ℓ1 one obtains an
+ordered one parameter family of growth control functions g := {gℓ: ℓ∈(L, +∞)}. Let
+h := {hβ : β ∈(B, +∞)} be a further growth control function family and assume that
+∀ℓ1 > ℓ> L ∀β > B ∃A ≥1 ∀t ≥0 :
+gℓ(t) ≤(gℓ· hβ)(t) ≤Agℓ1(t).
+(4.3)
+If (4.3) holds, then we say that g uniformly controls h.
+Let us apply now this information and Theorem 4.10 to a concrete situation.
+Corollary 4.12. For any β ∈[0, +∞) there exists a weight sequence M β satisfying the
+following properties:
+(i) M β satisfies (sm).
+(ii) M β does not satisfy (dc) (and hence (mg) either).
+(iii) γ(M β) = β.

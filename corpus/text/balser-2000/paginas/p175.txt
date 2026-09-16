@@ -1,0 +1,19 @@
+158
+9. Stokes’ Phenomenon
+[I+T(z)] Fj(z) are the HLNS corresponding to [I+ ˆT(z)] ˆF(z), Y (z)). From
+this we obtain that the corresponding Stokes’ multipliers ˜Vj equal Vj, for
+1 ≤j ≤j0. The matrix ˜F−1(z) = [I + T(ze2πi)] F−1(z) has the correct
+asymptotic in S−1, and hence is the corresponding HLNS. This implies
+I + ˜V0 = [I + W] (I + V0), completing the proof.
+2
+Exercises:
+1. For x ≥0, show log(1 + x) ≤x.
+2. For nonnegative real numbers xm with ∞
+0 xm < ∞, show that the
+sequence pn = #n
+m=0(1 + xm) converges.
+3. For arbitrary ν ×ν-matrices An, show ∥(I +Am)·. . .·(I +A0)−I∥≤
+#m
+n=0(1 + ∥An∥) −1.
+4. Show that the sequence Tm(z), deﬁned in the proof of Lemma 17,
+converges uniformly on S∞.

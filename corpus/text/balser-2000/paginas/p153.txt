@@ -1,0 +1,53 @@
+136
+8. Solutions of Highest Level
+among those introduced above as being singular of level 1. This, together
+with the induction hypothesis, completes the proof of (a)–(c), and (e). To
+show (d), deﬁne Tm(z) by (8.7), and note that then
+ˆFm(z) Tm+1(z) ˆG−1
+m (z) = ˆF −1
+m−1(z) · . . . · ˆF −1
+1
+(z) ˆG1(z) · . . . · ˆGm−1(z),
+for 1 ≤m ≤ℓ. Assume that we have shown Tm+1(z) to converge, which
+holds trivially for m = ℓ. Then, the right-hand side of this identity is of
+Gevrey order at most 1/km−1, while the left-hand side is km-summable,
+so both sides converge according to Theorem 37 (p. 106). This, however,
+implies convergence of Tm(z).
+2
+The above theorem shows that FFS with more than one level cannot
+be k-summable for any k > 0, because of Theorem 37 (p. 106). Moreover,
+if only one level occurs, the notions of FFS and HLFFS coincide. In this
+situation, the summability of FFS was essentially known, but formulated
+diﬀerently, before Ramis created the theory of k-summability.
+Exercises: In the following exercises, consider a ﬁxed formal system (3.3)
+(p. 40) that is elementary.
+1. Setting T0 = I, deﬁne Tn recursively by
+−n Tn =
+n−1
+
+m=0
+An+r−m Tm,
+n ≥1.
+Show that all Tn commute with one another as well as with all Am,
+for m ≥0. For ˆT(z) = ∞
+0 Tn z−n, conclude formally (3.5) (p. 40)
+with ˆB(z) = r
+0 An z−n.
+2. Let A = Λ + N, with a diagonalizable matrix Λ and nilpotent N
+commuting with Λ (observe that such a decomposition always exists).
+If B commutes with A, show that B commutes with both Λ and N.
+3. Let N be a nilpotent matrix. Show that T(z) = exp[m−1 zm N],
+m ∈N, is a meromorphic transformation. In case N commutes with
+all An, show that
+ˆB(z) = T −1(z)
+
+ˆA(z) T(z) −z T ′(z)
+
+= ˆA(z) −zm N.
+4. Given an elementary formal system (3.3), show that there exists a
+formal meromorphic transformation ˆT(z) so that the transformed
+system has a coeﬃcient matrix B(z) of the form
+B(z) = diag [b1(z) Is1 + N1, . . . , bµ(z) Isµ + Nµ],
+with distinct polynomials bm(z) of degree at most r satisfying 0 ≤
+Re bm(0) < 1, 1 ≤m ≤µ, and nilpotent constant matrices Nm,
+whose blocks are increasing in size.

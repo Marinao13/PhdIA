@@ -1,0 +1,55 @@
+3
+mapping. This requires a careful study of the action of the Fourier transform under this
+new condition (sm) (Proposition 2.8), and the adaptation of some auxiliary results which
+were already useful in previous frameworks.
+In a final section we explore the situation when condition (sm) fails to hold and, so,
+the target space can no longer be Λ{M+1}. It turns out that the same accurate estimates
+leading us to the formulation of condition (sm) are the key for proposing the new target
+space, associated with a new sequence f
+M introduced in (4.1). In this framework, injectiv-
+ity and surjectivity results can be proved in a similar way as long as the weight sequence
+M has a fast and regular growth guaranteeing that f
+M is again a weight sequence.
+The paper is organized as follows. In the preliminary Section 2 we gather the main
+facts needed regarding sequences, ultraholomorphic classes, the asymptotic Borel mapping
+B and growth indices related to the injectivity and surjectivity of B, Gelfand-Shilov spaces
+and the Fourier and Laplace transform.
+Section 3 contains the main results. Firstly, the use of optimal flat functions in ultra-
+holomorphic classes, whose existence was shown in [12], allows to determine the appro-
+priate target space in the moment problem according to whether (dc) or (sm) is satisfied.
+After some auxiliary results, Theorem 3.8 characterizes the injectivity of the Stieltjes mo-
+ment mapping under condition (sm) for M, while Theorem 3.9 studies the surjectivity
+problem and its connection to the existence of local right inverses for M with a uni-
+form scaling of the parameter defining the Banach spaces under consideration. Finally,
+Section 4 consists of the study of the problem in the absence of (sm).
+2
+Preliminaries
+We set N = {1, 2, . . . }, N0 = {0, 1, 2, . . . }. M = (Mp)p∈N0 will stand for a sequence of
+positive real numbers with M0 = 1. The sequence of quotients of M is m = (mp)p∈N0
+given by mp :=
+Mp+1
+Mp , p ∈N0.
+The knowledge of M amounts to that of m, since
+Mp = m0 · · · mp−1, p ∈N. We will denote by small letters the quotients of a sequence given
+by the corresponding capital letters. We set c
+M := (p!Mp)p∈N0 and
+c
+M := (Mp/p!)p∈N0;
+( bmp)p and (
+b
+mp)p will denote the corresponding sequences of quotients: bmp = (p + 1)mp,
+b
+mp = mp/(p + 1) for p ∈N0.
+We shall use the following conditions on sequences M:
+(lc) M is log-convex if M 2
+p ≤Mp−1Mp+1, p ∈N. Equivalently, (mp)p∈N0 is nondecreas-
+ing.
+(sm) M has shifted moments if log(mp+1/mp) ≤C0Hp+1, p ∈N0, for some C0 > 0 and
+H > 1.
+(dc) M is derivation closed if Mp+1 ≤C0Hp+1Mp, p ∈N0, for some C0 > 0 and H > 1.
+(mg) M has moderate growth if Mp+q ≤C0Hp+qMpMq, p, q ∈N0, for some C0 > 0 and
+H > 1.
+(alg) M satisfies the algebrability condition if MpMq ≤Cp+q
+1
+Mp+q, p, q ∈N0, for some
+C1 ≥1.

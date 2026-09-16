@@ -1,0 +1,67 @@
+128
+CHAPTER 3.
+INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+In conclusion, F ∈Er,
+b
+M([0, 1]) and Br(F) = ˆg. So, S is surjective.
+Secondly, according to Theorem 3.2.16 the map ˜B : ˜
+AM(Sα) →C[[z]]M is not injective, this
+means by Theorem 3.2.15 that α ≤ω(M), then r = ⌊α⌋< ω(M) because α /∈N. By Lemma 3.3.7
+and Proposition 2.1.11, if P = Pr,M we have that
+ω(
+b
+P) = ω(Pr,M) −1 = ω(M)/r −1 > 0.
+Hence, since P is (lc), by Proposition 2.1.26.(ii),
+b
+P has (nq) (see Denition 1.1.5), so by the
+Denjoy-Carleman theorem (see [38, Ch. 1]) there exists a C∞nonnegative function ϕ in R with
+support contained in [−1, 1] and which takes the value 1 in a neighborhood of 0, such that there
+exists A > 0 with
+sup
+t∈R, n∈N0
+|ϕ(n)(t)|
+AnPn
+< ∞.
+Applying the Gorny-Cartan estimates of Lemma 3.3.8, for every h ∈Er,
+b
+M([0, 1]) one can check
+that the product ϕh belongs to Lr,
+b
+M([0, ∞)) and, moreover, (ϕh)(p)(0) = h(p)(0) for every p ∈N0.
+Since Br : Er,
+b
+M([0, 1]) →C[[z]]
+b
+M is surjective, we deduce that Br : Lr,
+b
+M([0, ∞)) −→C[[z]]
+b
+M
+also is. By Proposition 3.3.9, we conclude that m satises (γr), what amounts to γ(M) > r = ⌊α⌋.
+(ii) It is an immediate consequence of (i).
+□
+Corollary 3.3.11. Whenever M is a weight sequence, if γ(M) < ∞one always has
+˜SM ⊆(0, ⌊γ(M)⌋+ 1].
+In case γ(M) ∈N, then ˜SM ⊆(0, γ(M) + 1). Note that if γ(M) = ∞, the previous theorem does
+not provide any relevant information.
+Proof. The case ˜SM = ∅is trivial. So, we treat the case in which the surjectivity interval is not
+empty, what according to Lemma 3.3.5 implies γ(M) > 0.
+Let α ∈˜SM. On one hand, if α /∈N, by Theorem 3.3.10 we have ⌊α⌋< γ(M), and so
+α −1 < ⌊α⌋≤⌊γ(M)⌋, from where α < ⌊γ(M)⌋+ 1.
+On the other hand, if α ∈N then
+we can apply Theorem 3.3.10 for any β ∈(α −1, α) (since β ∈˜SM too) and deduce that
+α −1 = ⌊β⌋< γ(M), hence α < γ(M) + 1. We deduce that α ≤⌊γ(M) + 1⌋= ⌊γ(M)⌋+ 1,
+except in case γ(M) ∈N, where moreover α cannot coincide with γ(M) + 1. The conclusion
+easily follows.
+□
+Remark 3.3.12. Summing up, for a weight sequence M and taking into account (3.3) and
+Theorem 3.2.16 we see that:
+(i) if γ(M) = 0 (equivalently, if M has not (snq)) then SM = ˜Su
+M = ˜SM = ∅.
+(ii) if γ(M) ∈(0, ∞) and
+(a) γ(M) /∈N, then SM ⊆˜Su
+M ⊆˜SM ⊆(0, ⌊γ(M)⌋+ 1] ∩(0, ω(M)],
+(b) γ(M) ∈N, then SM ⊆˜Su
+M ⊆˜SM ⊆(0, γ(M) + 1) ∩(0, ω(M)].
+If ω(M) = ∞, the second interval in these intersections should be taken as (0, ∞).
+JAVIER JIMÉNEZ GARRIDO

@@ -1,0 +1,19 @@
+xviii
+Contents
+C Functions of a Matrix
+237
+C.1
+Exponential of a Matrix . . . . . . . . . . . . . . . . . . . .
+238
+C.2
+Logarithms of a Matrix
+. . . . . . . . . . . . . . . . . . . .
+240
+Solutions to the Exercises
+243
+References
+267
+Index
+289
+List of Symbols
+295

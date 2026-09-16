@@ -1,0 +1,55 @@
+3
+and Section 6 is devoted to their particularization to the case of classes induced by a
+weight function.
+Finally, we present in Section 7 some examples, including those of
+Gevrey and q-Gevrey classes, in order to illustrate the obtained results.
+2
+Preliminaries on sequences, weight functions and weight
+matrices
+2.1
+Weight sequences
+We write N0 := {0, 1, 2, . . . } and N := {1, 2, 3, . . . }. In what follows, we always denote by
+M = (Mj)j ∈RN0
+>0 a sequence with M0 = 1, we also use
+b
+M = (
+c
+M j)j deﬁned by
+c
+Mj := Mj
+j!
+and the sequence of quotients associated m = (mj)j deﬁned by mj := Mj+1/Mj, j ∈N0,
+and analogously for all other arising sequences. M is called normalized if 1 = M0 ≤M1
+holds true.
+M is said to be log-convex, (for short, (lc)) if
+∀j ∈N : M2
+j ≤Mj−1Mj+1,
+equivalently if m is nondecreasing. If M is log-convex and normalized, then both j 7→
+Mj and j 7→(Mj)1/j are nondecreasing and (Mj)1/j ≤mj−1 for all j ∈N. Finally
+Mj+k ≤MjMk follows for all j, k ∈N0.
+If
+b
+M is log-convex, then M is called strongly log-convex, denoted by (slc). We say
+that a sequence M is a weight sequence if it is (lc) and limj→∞mj = ∞. We see that M
+is a normalized weight sequence if and only if 1 ≤m0 ≤m1 ≤. . . , limj→+∞mj = +∞
+(e.g. see [13, p. 104]) and there is a one-to-one correspondence between M and m by
+taking Mj := Qj−1
+i=0 mi.
+For a ∈R we set
+Ga := (j!a)j∈N0,
+G
+a := (jja)j∈N0,
+i.e. for a > 0 the sequence Ga is the Gevrey-sequence of index a. Clearly Ga and G
+a are
+normalized weight sequences for any a > 0 (by the convention 00 := 1).
+M satisﬁes the condition of moderate growth, denoted by (mg), if
+∃C ≥1 ∀j, k ∈N0 : Mj+k ≤Cj+kMjMk.
+In the classical work of Komatsu [9] this condition is named (M.2) and also known in
+the literature under the name stability under ultradiﬀerential operators. M satisﬁes the
+weaker requirement of derivation closedness, denoted by (dc), if
+∃D ≥1 ∀j ∈N0 : Mj+1 ≤Dj+1Mj ⇐⇒mj ≤Dj+1.
+In [9] this is condition (M.2′). Both (mg) and (dc) are preserved when multiplying or
+dividing M by any sequence Ga. In particular, both conditions hold simultaneously true
+or false for M and
+b
+M.

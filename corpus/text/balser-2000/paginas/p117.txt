@@ -1,0 +1,41 @@
+100
+6. Summable Power Series
+6.2
+Summability in a Direction
+Let k > 0, d ∈R and ˆf ∈E [[z]] be given. We say that ˆf is k-summable
+in direction d, if a sectorial region G = G(d, α) of opening α > π/k and
+a function f ∈A1/k(G, E ) exist with J(f) = ˆf. If this is so, then ˆf ∈
+E [[z]]1/k follows from results in Section 4.5, and Watson’s Lemma (p. 75)
+guarantees uniqueness of f ∈A1/k(G, E ). In view of Theorem 33, ˆf is k-
+summable in direction d if and only if ˆg = ˆBk ˆf converges and g = S (ˆg) is
+holomorphic and of exponential growth at most k in a sector ˜S = S(d, ε), for
+some ε > 0. If this is so, we call the function f = Lkg, integrating along rays
+close to d, the k-sum of ˆf in direction d and write f = Sk,d ˆf = Lk◦S ◦ˆBk ˆf.
+Remark 8: If we are given a series ˆf ∈E [[z]]1/k whose k-summability in
+direction d is to be investigated, and if we then want to compute its sum,
+we are presented with the following problems:
+1. The function g(z), locally given by the convergent series ˆBk ˆf, has to
+be holomorphically continued into a sector S(d, ε), for some ε > 0,
+which typically will be small.
+2. In this sector, we have to show that g is of exponential growth not
+larger than k.
+3. We have to compute the integral Lkg.
+At ﬁrst glance, one might think that item 1 might be the major problem.
+However, there are explicit methods for performing holomorphic continu-
+ation, once we know that g is holomorphic in S(d, ε). Moreover, we shall
+show in Lemma 8 that we may even replace k by ˜k < k, with k −˜k suﬃ-
+ciently small; then the sum of ˆB˜k ˆf will be an entire function, so that item 1
+is no problem at all. This entire function, in general, will have too large an
+exponential growth in all directions but arg u = d. So in a way, the main
+diﬃculty lies in the problem of verifying item 2.
+3
+As we shall show, this summation method has all the properties listed
+at the beginning of the chapter, plus several additional ones, and we begin
+with proving some which are direct consequences of the deﬁnition:
+Lemma 8 For every ﬁxed k > 0 the following holds:
+(a) Let ˆf be convergent. Then for every d, the series ˆf is k-summable in
+direction d, and (Sk,d ˆf)(z) = (S ˆf)(z) for every z where both sides
+are deﬁned.
+(b) Let ˆf be k-summable in direction d, and let ε > 0 be suﬃciently
+small. Then ˆf is k-summable in all directions ˜d with | ˜d −d| < ε, and
+(Sk, ˜d ˆf)(z) = (Sk,d ˆf)(z) for every z where both sides are deﬁned.

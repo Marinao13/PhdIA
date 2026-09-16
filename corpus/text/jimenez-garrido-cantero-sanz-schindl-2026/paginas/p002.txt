@@ -1,0 +1,59 @@
+2
+is sufficient to ensure that the class constitutes an algebra.
+Similarly, for the more
+complex problem of stability under composition, the (FdB) condition,
+∃C ≥1 ∃h ≥1 ∀k ∈N ∀j1, . . . , jℓ∈N,
+ℓ
+X
+i=1
+ji = k :
+Mℓ· Mj1 · · · Mjℓ≤ChkMk,
+serves as a sufficient requirement for closure. We mention that both statements apply
+to the Beurling-type classes as well.
+The most challenging aspect of this work lies in proving that these sufficient condi-
+tions are, in fact, necessary in the Roumieu case. To achieve this characterization, we
+must ensure the existence of characteristic functions within the class. Following the ideas
+of B. Rodr´ıguez-Salinas [10], we define a function f ∈e
+Au
+{L}(S) to be characteristic if its
+membership in a smaller class e
+Au
+{M}(S) ⊆e
+Au
+{L}(S) implies the equality of the two spaces.
+As Theorem 4.2 shows, this property is a consequence of the fact that the coefficients
+(|cf
+j |)j∈N0 of its asymptotic expansion are equivalent to the defining sequence L.
+The construction of these functions is achieved through the characteristic transform
+TM, which allows us to modify some basic functions while maintaining precise control
+over the corresponding coefficients. By applying TM to these basic functions, we produce
+elements in e
+Au
+{M}(Sα) whose coefficients (|cf
+j |)j∈N0 are equivalent to M, where Sα stands
+for the unbounded sector bisected by the positive real line with opening πα in the
+Riemann surface of the logarithm.
+Furthermore, these coefficients are real, and we
+maintain precise control over their signs, which will be crucial in our reasoning.
+It
+should be emphasized that the requirements for the existence of characteristic functions
+are not uniform, varying significantly between sectors of small and large opening.
+It is important to note that the proofs of both sufficiency and necessity rely on the
+combinatorial formulas for asymptotic expansions established by G. Auberson and G.
+Mennessier [1], which allow for the precise tracking of remainder terms and coefficient
+dependencies.
+The stability properties of these classes have been a subject of extensive study in
+several related functional settings. In the ultradifferentiable context, A. Rainer and the
+fourth author [8, 9] provided a complete characterization of these properties. In those
+works, the condition of derivation closedness, denoted (dc), is generally required for
+stability under composition; later, J. P¨oschel [7] obtained results, in the weight sequences
+case, under the assumption of log-convexity (lc) without requiring (dc) (although some
+technical issue is to be fixed in his arguments regarding the composition of characteristic
+functions). It is worth noting that in the ultradifferentiable setting, the construction of
+characteristic functions is notably simpler than in the ultraholomorphic case.
+In the ultraholomorphic setting, earlier results often focused on specific weight se-
+quences rather than general characterizations. For instance, G. Auberson and G. Men-
+nessier [1] proved the stability of Gevrey classes of order 1 (corresponding to Mj = j!).
+Their result is not a characterization in the sense presented here, as Gevrey sequences in-
+herently satisfy both (alg) and (FdB) conditions. Furthermore, their technical approach
+to composition relied on specific combinatorial properties of factorials rather than the

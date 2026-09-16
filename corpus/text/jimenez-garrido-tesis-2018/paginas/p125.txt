@@ -1,0 +1,73 @@
+3.3. SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+125
+Lemma 3.3.8. If f ∈Cr([−1, 1]) for some r ∈N and
+Q0 :=
+sup
+x∈[−1,1]
+|f(x)|,
+and
+Qr :=
+sup
+x∈[−1,1]
+|f(r)(x)|,
+then
+sup
+x∈[−1,1]
+|f(j)(x)| ≤(8er/j)j max(Q1−j/r
+0
+, Qj/r
+r
+, (r/2)jQ0).
+for every j ∈{1, . . . , r −1}.
+We will employ the integral representation for the reciprocal Gamma function, usually referred
+to as Hankel's formula (see [7, p. 228]):
+1
+Γ(z) =
+1
+2πi
+Z
+γφ
+w−zewdw
+for all z ∈C where γφ is a path consisting of a half-line in direction −φπ/2 (for any φ ∈(1, 2))
+with end point w0 on the ray arg(w) = −φπ/2 then the circular arc |w| = |w0| from w0 to the
+point w1 on the ray arg(w) = φπ/2 (traversed anticlockwise), and nally the half-line starting
+at w1 in direction φπ/2. Now, for every β ∈(1, 3/2) and any t ∈S(β−1)/2, we dene
+φβ,t := β + 2 arg(t)/π ∈((β + 1)/2, (3β −1)/2) ⊆(1, 7/4).
+Hence, the change of variables u = t/w maps γφβ,t into δβ which is a path consisting of a segment
+from the origin to a point u0 with arg(u0) = βπ/2, then the circular arc |u| = |u0| from u0 to
+the point u1 on the ray arg(u) = −βπ/2 (traversed clockwise), and nally the segment from u1
+to the origin. Therefore, for every z ∈C and all t ∈S(β−1)/2 we have that
+tz−1
+Γ(z) = −1
+2πi
+Z
+δβ
+uz−1et/u du
+u .
+(3.19)
+Our rst result is obtained as a consequence of the next proposition and the proof is inspired
+by Theorem 4.6 in [91].
+Proposition 3.3.9 ([91], Prop. 5.1). Let M be a sequence such that bM is a weight sequence and
+r ∈N. If the restriction map
+Br : Lr,M([0, ∞)) −→C[[z]]M
+sending f to the formal power series P∞
+p=0(f(pr)(0)/p!)zp is surjective, then bm satises (γr).
+Theorem 3.3.10. Let M be a weight sequence.
+(i) Let α > 0, α /∈N, be such that ˜B : ˜
+AM(Sα) →C[[z]]M is surjective. Then, γ(M) > ⌊α⌋.
+(ii) If we have that ˜SM = (0, ∞), then γ(M) = ∞.
+Proof. (i) Consider rst the case α ∈(0, 1). Then, it suces to apply Lemma 3.3.5 to obtain
+that M has (snq), or equivalently γ(M) > 0 = ⌊α⌋, as desired.
+Suppose now that α > 1 and put r = ⌊α⌋, a positive natural number. Firstly, for
+b
+M =
+(Mp/p!)p∈N0 we will prove that the restriction map Br : Er,
+b
+M([0, 1]) −→C[[z]]
+b
+M is surjective.
+Since α /∈N, we may choose two numbers β1, β2 with
+1 < β1 < β2 < min{α
+r , 3
+2}.
+Universidad de Valladolid

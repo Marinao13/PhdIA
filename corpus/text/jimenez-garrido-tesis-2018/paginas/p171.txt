@@ -1,0 +1,119 @@
+4.3. MULTISUMMABILITY
+171
+In order to prove (4.44), parametrizing the integral and using Tonelli's Theorem, it is enough
+to show that
+Ji(z) =
+Z s0
+0
+|E1(z/seiθi)|
+Z ∞
+0
+|e2(reiφ−θi/s)f(reiφ)|dr
+r
+ds
+s < ∞,
+i = 1, 3,
+J2(z) =
+Z θ1
+θ3
+|E1(z/s0eiθ)|
+Z ∞
+0
+|e2(reiφ−θ/s0)f(reiφ)|dr
+r dθ < ∞,
+for every z ∈U0. For s ≤s0 and θ ∈[θ3, θ1] we consider
+I(s, θ) :=
+Z ∞
+0
+|e2(reiφ−θ/s)f(reiφ)|dr
+r .
+By (4.48) we show that reiφ−iθ/s ∈Sτ2 for all θ ∈[θ3, θ1] and every s ≤s0. Then, splitting the
+interval into three parts (0, ε2s), (ε2s, ε2sβ), (ε2sβ, ∞) as in the proof of Proposition 4.3.19 and
+using (4.50), (4.51), Lemma 1.1.24 and that ωM2(t) is nondecreasing, we get that
+I(s, θ) ≤C2d3εα2
+2
+α2
+exp(ωM2(k3ε2s0))+d2d3M2,1
+k2ε2
+exp(ωM2(k3ε2sβ
+0))+d2d3M2,1
+k3ε2sβ
+=: a1+a2
+sβ . (4.52)
+Applying (4.47), we see that z/seiθi ∈S(π, τ1) for i = 1, 3 and every z ∈U0 and since |z/s| ≥
+|z|/s0 ≥M, we can apply (4.49) and (4.52) and we see that
+Ji(z) ≤K1
+Z s0
+0
+sβ1
+|z|β1
+
+a1 + a2
+sβ
+ ds
+s ≤
+K1a1sβ1
+0
+β1(|z0| −ρ1)β1 +
+K1a2sβ1−β
+0
+(β1 −β)(|z0| −ρ1)β1 ,
+(4.53)
+for i = 1, 3 and every z ∈U0. Using that E1 is entire we have that |E1(w)| ≤H1 for every
+w ∈B(0, (|z0| + ρ1 + 1)/s0), and (4.52) shows that
+J2(z) ≤
+ 
+a1 + a2
+sβ
+0
+!
+(θ1 −θ3)H1
+(4.54)
+for every z ∈U0. Using (4.53) and (4.54) we see that (4.44) holds. Hence, by the Leibniz's rule
+the double integral
+Z
+δω1(arg(z0))
+Z ∞(φ)
+0
+E1(z/v)e2(u/v)f(u)du
+u
+dv
+v
+is a holomorphic function in the neighborhood U0 of z0 for every z0 ∈S(d, α + ω2 −ω1). If
+z ∈U0∩U1, with U1 the corresponding neighborhood of z1, the choice of δ > 0 in (4.46) guarantees
+that lims→0 |E1(z/seiθ)|I(s, θ) = 0, uniformly for θ between θi and θ′
+i = arg(z1)±(ω1 +ε)π/2 for
+i = 1, 3. This fact ensures that we can apply Cauchy's theorem to deform the path of integration
+from δω1(arg(z0)) to δω1(arg(z1)), and we deduce that
+Z
+δω1(arg(z))
+Z ∞(φ)
+0
+E1(z/v)e2(u/v)f(u)du
+u
+dv
+v
+(4.55)
+denes a holomorphic in the sector S(d, α + ω2 −ω1). We observe that
+T −
+e1 ◦Te2(f)(z) = −1
+2πi
+Z
+δω1(arg(z))
+E1(z/v)(Te2f)(v)dv
+v
+= −1
+2πi
+Z
+δω1(arg(z))
+Z ∞(φ)
+0
+E1(z/v)e2
+u
+v
+
+f(u)du
+u
+dv
+v ,
+Universidad de Valladolid

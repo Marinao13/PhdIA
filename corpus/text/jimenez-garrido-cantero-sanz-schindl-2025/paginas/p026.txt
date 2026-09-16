@@ -1,0 +1,84 @@
+26
+Proof. (i) Since mp ≤mp+1 for every p ∈N0, we have f
+Mp ≥2Mp+1.
+(ii) (1) ⇔(2) The condition (sm) is clearly preserved by any forward shift of indices.
+Conversely, if M +1 satisfies (sm) the corresponding inequality for M is obtained by
+taking into account also the position p = 0, the only one not covered by the hypothesis.
+(1) ⇔(3) According to (i), the condition (3) is equivalent to the fact that f
+M ⊂M +1,
+which means that there exist C > 0 and h > 1 such that for all p ∈N0,
+log
+e2mp+1
+mp
+
+≤Chp,
+and this amounts to the condition (sm) for M since Chp −2 ≤Chp ≤(C + 2)hp −2 for
+all p.
+(1) ⇒(4) Note that (1) implies (2) and (3), and recall that (sm) is stable under equivalence
+of sequences.
+(4) ⇒(1) In order to give the proof in a compact form we use the following representation
+for the quotients mp = Mp+1
+Mp :
+mp = exp
+ 
+p
+X
+j=0
+δj
+!
+,
+p ∈N0.
+(4.4)
+Thus the values δp are obtained by δp+1 = log(mp+1/mp) for all p ∈N0 and δ0 = log(m0).
+The fact that M is log-convex is equivalent to having δp ≥0 for all p and, moreover,
+recall that
+emp =
+f
+Mp+1
+f
+Mp
+= mp+1
+log(e2mp+2/mp+1)
+log(e2mp+1/mp)
+= mp+1
+2 + δp+2
+2 + δp+1
+,
+which gives
+emp+1
+emp
+= exp(δp+2)(2 + δp+3)(2 + δp+1)
+(2 + δp+2)2
+,
+p ∈N0.
+(4.5)
+By assumption f
+M satisfies (sm), then
+∃A ≥1 ∀p ∈N0 :
+emp+1
+emp
+≤eAp+1.
+(4.6)
+Suppose that M violates (sm), i.e.,
+∀n ∈N ∃pn ∈N :
+δpn+1 = log
+mpn+1
+mpn
+
+> npn+1,
+(4.7)
+and we will get a contradiction. By combining (4.5) and (4.6) we obtain the estimate
+eApn ≥
+empn
+empn−1
+= exp(δpn+1)(2 + δpn+2)(2 + δpn)
+(2 + δpn+1)2
+≥exp(δpn+1)
+4
+(2 + δpn+1)2,
+thus (2 + δpn+1)2 ≥4 exp (δpn+1 −Apn) for all n. Moreover, note that δpn+1 ≥1 for all n
+by (4.7), and so (2 + δpn+1)2 ≤(3δpn+1)2 = 9δ2
+pn+1, hence
+9
+4 ≥exp (δpn+1 −Apn −2 log(δpn+1)) ,
+n ∈N.

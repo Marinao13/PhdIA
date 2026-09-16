@@ -1,0 +1,39 @@
+EXTENSION OPERATORS FOR SOME ULTRAHOLOMORPHIC
+CLASSES DEFINED BY SEQUENCES OF RAPID GROWTH
+JAVIER JIM´ENEZ-GARRIDO, ALBERTO LASTRA, AND JAVIER SANZ
+Abstract. While the asymptotic Borel mapping, sending a function into its series of
+asymptotic expansion in a sector, is known to be surjective for arbitrary openings in the
+framework of ultraholomorphic classes associated with sequences of rapid growth, there
+is no general procedure to construct extension operators in this case. We do provide
+such operators in complex sectors for some particular classes considered by S. Pilipovi´c,
+N. Teofanov and F. Tomi´c in the ultradiﬀerentiable setting. Although these classes are,
+in their words, “beyond Gevrey regularity”, in some cases they keep the property of
+stability under diﬀerentiation, which is crucial for our technique, based on formal Borel-
+and truncated Laplace-like transforms with suitable kernels.
+AMS Classiﬁcation: Primary 47A57; secondary 46E10, 44A20.
+Keywords: Linear extension operators, asymptotic expansions, Carleman ultraholomor-
+phic classes, Lambert function, Laplace transform.
+1. Introduction
+The concept of asymptotic expansion dates back to H. Poincar´e in 1886, who gave
+an analytical meaning to the formal (generally divergent) power series solutions to some
+classical problems in optics or astronomy. Since then, its use has pervaded the theory of
+formal solutions to general classes of ordinary and partial diﬀerential equations, diﬀerence
+and q-diﬀerence equations, and so on. For simplicity, we consider asymptotic expansions
+P∞
+p=0 apzp of functions f analytic in unbounded sectors S of the Riemann surface of
+the logarithm with vertex at 0.
+Although in its original formulation the remainders
+f(z) −Pn−1
+p=0 apzp were assumed to be just bounded for all z ∈S by a suitable constant
+(depending on n) times |z|n, the asymptotic techniques have shown its real power when
+a precise rate of growth for the constants, in the form CAnMn for A, C > 0 and a
+sequence (Mp)∞
+p=0 of positive real numbers, is either obtained from the concrete problem
+under study, or speciﬁed for theoretical considerations. In this way, ultraholomorphic
+classes of functions associated with the weight sequence M = (Mp)∞
+p=0 and the sector S
+have been introduced, and it is important to decide about the injectivity and surjectivity
+of the (asymptotic) Borel map, sending a function in one of such classes into its series
+Date: April 5, 2022.
+1
+arXiv:2204.01316v1  [math.FA]  4 Apr 2022

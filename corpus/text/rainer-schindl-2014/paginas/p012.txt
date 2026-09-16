@@ -1,0 +1,87 @@
+108
+A. Rainer and G. Schindl
+we have N ≤M♭(c) ≤M. Set
+L :=
+Nk,
+k = ki,
++∞,
+otherwise
+♭(c)
+.
+For M ∈RN
+>0 consider the graph ΓM := {(k, log(k!Mk)) : k ∈N}. Then
+ΓM♭(c) and ΓL lie on piecewise linear curves with vertices {(ki, log(ki!Mki)) :
+i ∈N} and {(ki, log(ki!Nki)) : i ∈N}, respectively. Since N is weakly log-
+convex and since ΓL lies below ΓM♭(c), we have N ≤L ≤M♭(c) ≈N and
+hence L ≈N. As N is log-convex, we have, for ki ≤k ≤ki+1,
+log(k!Lk) = ki+1 −k
+ki+1 −ki
+log(ki!Nki) +
+k −ki
+ki+1 −ki
+log(ki+1!Nki+1)
+≥ki+1 −k
+ki+1 −ki
+log ki! +
+k −ki
+ki+1 −ki
+log ki+1! + log Nk,
+and therefore
+(3.5)
+log
+ k!Lk
+k!Nk
+1/k
+≥1
+k
+ki+1 −k
+ki+1 −ki
+log ki! + 1
+k
+k −ki
+ki+1 −ki
+log ki+1! −1
+k log k!.
+By Stirling’s formula, for ki+1/ki =: ai and k := 2ki the right-hand side of
+(3.5) is greater than
+1
+2
+ai −2
+ai −1(log ki −1) + 1
+2
+ai
+ai −1(log ai + log ki −1) −log(2ki)
+= 1
+2
+ai
+ai −1 log ai −log 2 −1,
+and so L ≈N implies that ai is bounded.
+3.6. Example. Choose r ∈R≥4. Set ki := ki−1⌈log(i + 1)⌉, i ≥2,
+k1 := 3, where ⌈x⌉denotes the smallest integer n ≥x, and deﬁne
+µk = µ(r)k :=
+
+
+
+1,
+k = 1, 2,
+rk,
+k = ki,
+rki−1,
+ki < k < ki+1,
+Mk = M(r)k := 1
+k!
+k
+Y
+j=1
+µj.
+Then M = (Mk) is derivation closed, since µk/k ≤rk for all k, and M is
+not weakly log-convex, since µ = (µk) is not increasing. By construction we
+have MjMk ≤M1Mj+k−1 for all j, k ≥1, i.e.,
+µ1
+1 · · · µk
+k ≤µ1
+1
+µj+1
+j + 1 · · · µj+k−1
+j + k −1,
+j, k ≥1.

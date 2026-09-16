@@ -1,0 +1,69 @@
+13.4 Partial Diﬀerential Equations
+203
+Given any type of multisummability k = (k1, . . . , kν) with kν ≥1, and
+any multidirection d = (d1, . . . , dν), admissible with respect to k, let 2k =
+(2k1, . . . , 2kν), d/2 = (d1/2, . . . , dν/2). Then the following statements are
+equivalent:
+(a) For every K ⊂D(0, ρ), ˆu ∈E K{t}k,d.
+(b) For 0 ≤j ≤1, ˆψj ∈C{t}k,d.
+(c) ˆψ± ∈C{t}2k,d/2.
+Proof:
+Assume (a). For K1 ⊂D(0, ρ), let K2 ⊂D(0, ρ) be so that K1
+is contained in the interior of K2. Then Cauchy’s formula for the deriva-
+tive implies that D = d/dz is a bounded linear operator from E K2 into
+E K1. From Theorem 52 (p. 171) we conclude that ˆu ∈E K2{t}k,d im-
+plies ˆuz(t, z) = ∞
+0 ϕ(2n+1)(z)/n! ∈E K1{t}k,d. Taking z = 0 and us-
+ing Exercise 4 on p. 172, this implies (b). From Theorem 51 (p. 166)
+we obtain that (b) is equivalent to ˆψj(t2) being in C {t}2k,d/2. Apply-
+ing Theorem 50 (p. 164) and Exercise 4 on p. 109, one can then show
+equivalence with ∞
+0 Γ(1 + n) ϕ2n t2n and ∞
+0 Γ(3/2 + n) ϕ2n+1 t2n be-
+ing in C {t}2k,d/2. This in turn is equivalent to (c). This leaves to con-
+clude (a) from either (b) or (c): To do so, ﬁrst observe that, as a con-
+sequence of Theorem 50 (p. 164), it suﬃces to consider the case ν = 1.
+In this situation, verify that ˆu(t, z) = ∞
+m=0 zm ˆψm(t), with ˆψ0(t), ˆψ1(t)
+as in (b), and ˆψm(t) = ˆψ(µ)
+j
+(t)/m! , for m = 2µ + j, 0 ≤j ≤1. So
+ˆψm ∈C {t}k,d, and ψm(t) = (Sk,d ˆψm)(t) = ψ(µ)
+j
+(t)/m! in some sectorial
+region G = G(d, α), α > π/k, independent of m. From Proposition 9 (p. 70)
+we obtain for every closed subsector ¯S ⊂G existence of constants C, c > 0
+with |ψm(t)| ≤C cm Γ(1 + m s)/m!, t ∈¯S, m ≥0, for s = (1 + 1/k)/2.
+Owing to k ≥1, the series u(t, z) = ∞
+m=0 zm ψm(t) converges uniformly
+(in two variables) for |z| ≤ρ, ρ > 0 suﬃciently small and t ∈¯S1. So
+u(t, z) ∈H(G, E K), for every K as in (a). Diﬀerentiating with respect to
+t, one can show
+∂n
+t u(t, z) =
+∞
+
+µ=0
+!
+z2µ ψ(µ+n)
+0
+(t)
+(2µ)!
++ z2µ+1 ψ(µ+n)
+1
+(t)
+(2µ + 1)!
+"
+→ϕ(2n)(z),
+as t →0. Hence we ﬁnd that u(t, z) has ˆu(t, z) as its asymptotic expansion.
+To show that this expansion is of Gevrey order k, we use Proposition 9
+(p. 70) again to obtain
+|∂n
+t u(t, z)|
+≤
+C
+∞
+
+m=0
+(c |z|)m Γ(1 + s(m + n))/m!
+1In fact, if k > 1, i.e., ϕ(z) entire, convergence takes place for every z.

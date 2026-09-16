@@ -1,0 +1,63 @@
+23
+We are ready for the proof of our last result.
+Theorem 4.10. Let M be a weight sequence with γ(M) > 0 and that satisfies (sm), and let
+0 < r < γ(M) be given. Then, the Borel map eB: e
+Au
+(M)(Sr) →C[[z]](M) is surjective, and so
+(0, γ(M)) ⊂eSu
+(M).
+Proof. Let bf = P∞
+p=0 apzp ∈C[[z]](M) be given. By the definition of C[[z]](M) (see also (2.10)),
+for every h > 0 there exists C(h) > 0 such that
+|ap| ≤C(h)hpMp,
+p ∈N0.
+(4.14)
+On the one hand, by the properties of the gamma index we have that γ(M 1/r) = γ(M)/r > 1,
+and Lemma 2.7 provides the existence of a weight sequence L = (Lp)p such that γ(bL) > 1 and of
+a constant a > 0 such that a−1(ℓp(p + 1)) ≤m1/r
+p
+≤a(ℓp(p + 1)) for all p ∈N0. In particular, we
+have that γ(L) > 0, and so L satisfies (snq). Moreover, it is clear that a−pp!Lp ≤M1/r
+p
+≤app!Lp
+for every p, and so M ≈(bL)r, what implies that the classes defined by these sequences coincide.
+Because of the stability properties of (sm) described in Subsection 2.1, L inherits (sm) from M.
+On the other hand, from (4.14) we obtain
+|ap|1/r
+p!
+≤C(h)1/r(ah1/r)pLp,
+p ∈N0,
+and so we are in a position to apply Theorem 4.9 to the sequences A = (|ap|1/r/p!)p and L.
+Hence, there exists a weight sequence K = (Kp)p which satisfies (snq) (i. e., γ(K) > 0) and
+(sm), such that there exists D > 0 with |ap|1/r/p! ≤DKp for all p ∈N0, and such that for all
+h > 0, there exists C′(h) > 0 such that
+Kp ≤C′(h)hpLp,
+p ∈N0.
+(4.15)
+The first estimates state that |ap| ≤Dr(p!Kp)r, and so bf ∈C[[z]]{N} for the weight sequence
+N := (c
+K)r. Again N inherits (sm) from K, and moreover γ(N) = r(γ(K)+1) > r. So, we can
+apply Theorem 3.3 to deduce that eB: e
+Au
+{N}(Sr) →C[[z]]{N} is surjective. Hence, there exists
+f ∈e
+Au
+{N}(Sr) such that eB(f) = bf. Finally, observe that from (4.15) we get
+Np = (p!Kp)r ≤C′(h)r(hr)p(bLp)r,
+p ∈N0,
+and so e
+Au
+{N}(Sr) ⊂e
+Au
+((bL)r)(Sr) = e
+Au
+(M)(Sr), from where the conclusion follows.
+References
+[1] W. Balser, Formal power series and linear systems of meromorphic ordinary differential
+equations, Springer, Berlin, 2000.
+[2] J. Chaumat, A. M. Chollet, Surjectivité de l’application restriction à un compact dans des
+classes de fonctions ultradifférentiables, Math. Ann. 298 (1994), no. 1, 7–40.
+[3] A. Debrouwere, Solution to the Stieltjes moment problem in Gelfand-Shilov spaces, Studia
+Math. 254 (2020), 295–323.
+[4] A. Debrouwere, The Borel-Ritt problem in Beurling ultraholomorphic classes, Results Math.
+(2021) 76:151.

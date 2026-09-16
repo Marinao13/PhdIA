@@ -1,0 +1,43 @@
+12.4 Birkhoﬀ’s Reduction Problem
+189
+• Given the points aj, the paths γj, and invertible matrices Cγj, are
+there matrices Aj, so that the corresponding Fuchsian system has the
+Cγj as its monodromy factors?
+The above problem is usually referred to as the Riemann-Hilbert problem,
+or Hilbert’s 21st problem. It was believed to have been positively solved by
+Plemelj [221], but Bolibruch [58, 59, 63] in 1989 showed that the answer is
+in fact negative by giving an explicit counterexample. For a discussion of
+the history of the problem, and a presentation of related results, see the
+book of Anosov and Bolibruch [2]. Very recently, new results have been
+obtained for the same problem, but lower triangular monodromy matrices,
+by Vandamme [273], based on earlier work of Bolibruch [60].
+12.4
+Birkhoﬀ’s Reduction Problem
+Let a system of ordinary diﬀerential equations of the form (3.1) (p. 37) be
+given. One classical question concerning such systems is that of the behavior
+of its solutions as z →∞. Since analytic transformations essentially leave
+this behavior unchanged, Birkhoﬀ[53, 56] in 1913 suggested the following
+approach:
+• Within an equivalence class of such systems, with respect to analytic
+transformations, determine the system(s) that in some sense are the
+simplest, and then study their solutions near the point inﬁnity. This
+approach is very much analogous to the question of normal forms
+of constant matrices with respect to similarity, leading to Jordan
+canonical form.
+Birkhoﬀconjectured that for every system (3.1) one can always ﬁnd an
+analytic transformation x = T(z) y, such that the transformed system z y′ =
+B(z) y, B(z) = T −1(z) [A(z) T(z) −z T ′(z)], has a polynomial B(z) as its
+coeﬃcient matrix. In his honor, we shall call every system with polynomial
+coeﬃcient matrix a system in Birkhoﬀstandard form.
+Birkhoﬀhimself showed in [54] that the answer to his question is positive
+under the additional assumption that some monodromy matrix, around
+the point inﬁnity, of (3.1) is diagonalizable, but seemed to believe that
+the same would hold in general. However, in 1959 Gantmacher [105] and
+Masani [188] independently presented examples of systems (3.1), in the
+smallest nontrivial dimension of ν = 2, for which no such transformation
+exists. These counterexamples had triangular coeﬃcient matrices, hence
+the following harder problem arose:
+• Calling (3.1) reducible if an analytic transformation exists for which
+the transformed system is lower triangularly blocked, with square
+diagonal blocks of arbitrary dimensions, is it so that every irreducible
+system can be analytically transformed to Birkhoﬀstandard form?

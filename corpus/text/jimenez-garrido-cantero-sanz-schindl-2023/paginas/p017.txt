@@ -1,0 +1,61 @@
+17
+(ii) inverse-closed, if for all f ∈A{M}(Sα) such that infz∈Sα |f(z)| > 0, we have
+1/f ∈A{M}(Sα).
+(iii) closed under composition, if for all f ∈A{M}(Sα) and for all g ∈H{M}(U),
+where U ⊆C is an open set containing the closure of the range of f, we have
+g ◦f ∈A{M}(Sα).
+Remark 5.3. We wish to highlight that it is important to state these deﬁnitions in a
+clear way. We cannot relax the condition infz∈Sα |f(z)| > 0 in the deﬁnition of inverse-
+closed by considering, for example, the weaker requirement:
+f(z) ̸= 0
+for all z ∈Sα.
+While this is enough when working with ultradiﬀerentiable classes on compact intervals,
+as done in [11], our situation is diﬀerent as Sα is not compact. This is easily seen by
+considering the function z 7→exp(−1/z), which belongs to the class A{G2}(Sα) for every
+α ∈(0, 1) (as a consequence of Cauchy’s integral formula for the derivatives) and never
+vanishes in Sα. However, observe that its multiplicative inverse z 7→exp(1/z) is not
+bounded, and hence it does not belong to any of the ultraholomorphic classes under
+consideration.
+In the same vein, the open set U in (i) and (iii) has to contain the closure of the
+range of f, and not just the range. This is clearly seen in the forthcoming arguments
+involving the function z 7→1/z, whose derivatives admit global analytic bounds in closed
+subsets of C \ {0}, but not in the whole of it.
+Our ﬁrst statement will consider classes in sectors Sα contained in a half-plane and
+deﬁned by a weight matrix M. In this case, the matrix can be changed, without altering
+the class, into a new matrix Mα which we deﬁne now.
+Deﬁnition 5.4. Let M = {M(p) : p > 0} be a weight matrix (not necessarily satisfying
+(Msc)). Given α > 0 we assume that limj→+∞(j(1−α)jM(p)
+j
+)1/j = ∞for all p > 0. The
+matrix
+Mα := {M(p,α) : p > 0}
+is deﬁned as
+M(p,α) = G
+α−1 
+G
+1−αM(p)lc
+,
+M(p,α)
+j
+= j(α−1)j 
+G
+1−αM(p)lc
+j ,
+j ∈N0.
+(16)
+So, every sequence in the original matrix is termwise multiplied by the Gevrey-
+like sequence G
+1−α (recall that G
+1−α≈G1−α), this sequence is changed into its log-
+convex regularization, and ﬁnally one termwise divides by G
+1−α again. It is clear that
+M(p,α)
+0
+= M(p)
+0
+= 1 (recall the convention 00 := 1) for all α > 0 and p > 0, and that
+the map p 7→M(p,α)
+j
+is non-decreasing for any j ∈N0 ﬁxed. So, M(p,α) ≤M(p′,α) for all
+0 < p < p′, i.e., Mα is a weight matrix according to the deﬁnition given in Subsection
+2.5. However, in general Mα is not log-convex.

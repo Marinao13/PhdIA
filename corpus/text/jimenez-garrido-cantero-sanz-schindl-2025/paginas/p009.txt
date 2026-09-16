@@ -1,0 +1,102 @@
+9
+With this definition it is well-known that
+F−1(φ)(ξ) = 1
+2πF(φ)(−ξ),
+φ ∈S(R), ξ ∈R,
+(2.6)
+where S(R) is the Schwartz space of complex-valued, rapidly decreasing smooth functions.
+In our next statements, the sequence
+M +1 := (Mp+1)p∈N0
+will play a prominent role. Note that its first term M1 will not be generally equal to 1.
+Proposition 2.8. Let M be a weight sequence satisfying (sm), and A be either an almost
+increasing sequence, or a sequence such that lim infp→∞A1/p
+p
+> 0 and bA satisfies (alg).
+Then:
+(i) There exists a > 0 such that for every h ≥1 one has F(S
+bA,h
+M,h(R)) ⊂SM+1,ah
+bA,ah
+(R),
+and F : S
+bA,h
+M,h(R) →SM+1,ah
+bA,ah
+(R) is continuous.
+(ii) F(S{ bA}
+{M}(R)) ⊂S{M+1}
+{ bA}
+(R) and F : S{ bA}
+{M}(R) →S{M+1}
+{ bA}
+(R) is continuous.
+(iii) The two previous statements are valid when replacing F by F−1.
+Proof. The statements about F−1 will be valid if the ones about F are, due to (2.6). (ii)
+is immediate from (i), which we prove now. Let h ≥1 and φ ∈S
+bA,h
+M,h(R) be arbitrary.
+Then,
+sup
+x∈R
+|xpφ(q)(x)| ≤s
+bA,h
+M,h(φ)hp+qMpq!Aq,
+p, q ∈N0.
+(2.7)
+After applying Leibniz’s theorem for parametric integrals and integration by parts, we get
+sup
+ξ∈R
+|ξq bφ(p)(ξ)| ≤
+min{p,q}
+X
+j=0
+q
+j
+
+p!
+(p −j)!
+Z ∞
+−∞
+|xp−jφ(q−j)(x)|dx.
+(2.8)
+We split each of the integrals into five intervals, and use (2.7) in order to estimate the
+first of them:
+Z −hmp+1−j
+−∞
+|xp+2−jφ(q−j)(x)|dx
+x2 ≤s
+bA,h
+M,h(φ)hp+q+2−2jMp+2−j(q −j)!Aq−j
+1
+hmp+1−j
+= s
+bA,h
+M,h(φ)hp+q+1−2jMp+1−j(q −j)!Aq−j.
+(2.9)
+One can proceed similarly for the integral over (hmp+1−j, ∞). Regarding the interval
+(hmp−j, hmp+1−j), one uses (2.5), then (2.4) and finally (sm) to obtain
+Z hmp+1−j
+hmp−j
+xp−j|φ(q−j)(x)|dx ≤s
+bA,h
+M,h(φ)hq−j(q −j)!Aq−j
+Z hmp+1−j
+hmp−j
+xp−jhM(h/x)dx
+= s
+bA,h
+M,h(φ)hq−j(q −j)!Aq−j
+Z hmp+1−j
+hmp−j
+xp−j hp+1−jMp+1−j
+xp+1−j
+dx
+= s
+bA,h
+M,h(φ)hp+q+1−2jMp+1−j(q −j)!Aq−j log(mp+1−j
+mp−j
+)
+≤C0s
+bA,h
+M,h(φ)Hp+1−jhp+q+1−2jMp+1−j(q −j)!Aq−j.
+(2.10)

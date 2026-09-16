@@ -1,0 +1,49 @@
+72
+4. Asymptotic Power Series
+Theorem 20 Given s > 0 and a sectorial region G, suppose that f(z) ∼=s
+ˆf(z) in G. Then
+f ′(z) ∼=s ˆf ′(z),
+ z
+0
+f(w) dw ∼=s
+ z
+0
+ˆf(w) dw
+in G.
+Proof: Follows directly from Proposition 9.
+2
+Theorem 21 Let E be a Banach algebra with unit element e. Given s > 0
+and a sectorial region G, suppose that f(z) ∼=s ˆf(z) in G. Moreover, assume
+that the constant term f0 of ˆf(z) and all values f(z), z ∈G, are invertible
+elements of E . Then
+f −1(z) ∼=s ˆf −1(z)
+in G,
+if ˆf −1(z) denotes the unique formal power series ˆg(z) with ˆf(z) ˆg(z) = ˆe,
+the unit element of E [[z]].
+Proof: From Exercise 7 on p. 65 we conclude that ˆf −1(z) = ∞
+0
+˜fn zn ∈
+E [[z]]s. Using the same arguments as in the proof of Theorem 17, one can
+obtain the necessary estimates.
+2
+Exercises: Let s > 0, let ˆf ∈E [[z]], and let f(z) be holomorphic in a
+sectorial region G with values in E .
+1.
+(a) Given integers p ≥1 and q ≥0, assume that to every closed
+subsector ¯S of G there exist c, K > 0 such that for every z ∈¯S
+and every N of the form N = pM + q, M ∈N, we have (4.7).
+Show that then f(z) ∼=s ˆf(z) in G.
+(b) Given ε > 0, assume that to every closed subsector ¯S of G with
+radius of ¯S smaller than ε, there exist c, K > 0 such that for
+every z ∈¯S and every non-negative integer N we have (4.7).
+Show that then f(z) ∼=s ˆf(z) in G.
+2. Let p be a natural number. For ˜G = {z| zp ∈G}, deﬁne g(z) = f(zp),
+z ∈˜G, and ˆg(z) = ˆf(zp). Show that then f(z) ∼=s ˆf(z) in G if and
+only if g(z) ∼=s/p ˆg(z) in ˜G.
+3. Suppose f(z) ∼=s ˆf(z) in G, and let the constant term of ˆf(z) be zero.
+Show that then z−1f(z) ∼=s z−1 ˆf(z) in G.
+4. Suppose f(z) ∼=s ˆf(z) in G(d, α). Show that f(ze±2πi) ∼=s ˆf(z) in a
+corresponding sectorial region G(d ∓2π, α).
+5. Given s > 0 and a formal Laurent series ˆf(z) = ∞
+n=−m fn zn, for
+some m ∈N, show that the following two statements are equivalent:

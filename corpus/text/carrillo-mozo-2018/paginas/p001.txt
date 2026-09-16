@@ -1,0 +1,48 @@
+JID:YJMAA
+AID:21635 /FLA
+Doctopic: Partial Diﬀerential Equations
+[m3L; v1.221; Prn:28/08/2017; 14:57] P.1 (1-17)
+J. Math. Anal. Appl. ••• (••••) •••–•••
+Contents lists available at ScienceDirect
+Journal of Mathematical Analysis and Applications
+www.elsevier.com/locate/jmaa
+An extension of Borel–Laplace methods and monomial 
+summability ✩
+Sergio A. Carrillo a, Jorge Mozo-Fernández b,∗
+a Escuela de Ciencias Exactas e Ingeniería, Universidad Sergio Arboleda, Calle 74, # 14-14, Bogotá,
+Colombia
+b Dpto. Álgebra, Análisis Matemático, Geometría y Topología, Facultad de Ciencias, Universidad de 
+Valladolid, Campus Miguel Delibes, Paseo de Belén, 7, 47011 Valladolid, Spain
+a r t i c l e 
+i n f o
+a b s t r a c t
+Article history:
+Received 5 June 2017
+Available online xxxx
+Submitted by J. Bonet
+Keywords:
+Summability
+Borel–Laplace
+Partial diﬀerential equations
+In this paper we will show that monomial summability can be characterized using 
+Borel–Laplace like integral transformations depending of a parameter 0 < s < 1. 
+We will apply this result to prove 1-summability in a monomial of formal solutions 
+of a family of partial diﬀerential equations.
+© 2017 Elsevier Inc. All rights reserved.
+1. Introduction
+Monomial summability was developed [4] in order to understand summability properties of formal solu-
+tions of a class of singularly perturbed diﬀerential systems (doubly singular diﬀerential systems). In contrast 
+with the classical theory of summability, there was not available an approach to the concept using integral 
+transformation, i.e. a Borel–Laplace method of summation. On the other hand, in [3] these formal solu-
+tions were studied in the linear case using certain integral transformations, also introduced later in [2] for 
+any number of variables, but the relation between the methods of summation was not clear. It turns out 
+that using an adaptation of those operators the problem of understanding that relation can be solved. In 
+fact, one of the main results in this work is the following one (appropriate deﬁnitions will be introduced 
+later):
+✩First author was supported by an FPI grant (call 2012/2013) conceded by Universidad de Valladolid, Spain. Both authors 
+partially supported by the Ministerio de Economía y Competitividad from Spain, under the Project “Álgebra y Geometría en 
+Dinámica Real y Compleja III” (Ref.: MTM2013-46337-C2-1-P).
+* Corresponding author.
+E-mail addresses: sergio.carrillo@usa.edu.co (S.A. Carrillo), jmozo@maf.uva.es (J. Mozo-Fernández).
+http://dx.doi.org/10.1016/j.jmaa.2017.08.028
+0022-247X/© 2017 Elsevier Inc. All rights reserved.

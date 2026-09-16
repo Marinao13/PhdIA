@@ -1,0 +1,29 @@
+Appendix B
+Functions with Values in Banach
+Spaces
+Here, we shall brieﬂy provide some results from the theory of holomorphic
+functions with values in a Banach space which are used in Chapters 4–7,
+10, and 11. Those who are not interested in such a general setting may
+concentrate on functions with values in C.
+Throughout the book, we shall consider ﬁxed, but arbitrary, Banach
+spaces E and F over the complex number ﬁeld. We write L(E , F) for the
+space of all linear continuous operators from E into F, which again is a
+Banach space, and even a Banach algebra in case E = F. Instead of L(E , C)
+we write E ∗. If nothing else is said, we shall denote by G some ﬁxed region
+in the complex domain, i.e., some nonempty open and connected subset of
+C, and by f some mapping f : G −→E (or f : G −→L(E , F)). We then
+call f holomorphic in G if for every z0 ∈G the limit
+lim
+z→z0
+f(z) −f(z0)
+z −z0
+= f ′(z0)
+exists.1 We call f weakly holomorphic in G if for every continuous linear
+functional φ ∈E ∗the (C -valued) function φ ◦f is holomorphic in G.
+Clearly, holomorphy implies weak holomorphy, and we shall see that the
+converse holds true as well. This makes it not too much of a surprise that
+many results from the theory of functions of a complex variable immediately
+carry over to the Banach space situation.
+1To be exact, the above quotient of diﬀerences should be interpreted as multiplication
+of the vector f(z) −f(z0) from the left by (z −z0)−1; we prefer the quotient notation
+in order to point out the close analogy to the scalar situation.

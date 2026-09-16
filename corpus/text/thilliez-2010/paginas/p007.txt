@@ -1,0 +1,64 @@
+SMOOTH SOLUTIONS OF QUASIANALYTIC OR ULTRAHOLOMORPHIC EQUATIONS
+7
+converse part, we ﬁrst observe that for any γ′ < γ and r′ < r, there is a real
+number δ > 0 such that for any z ∈Sγ′,r′, the closed disc Dz = {w : |w −z| ≤
+δ|z|} lies in Sγ,r. Using the Cauchy formula on Dz and (17), we get |f (j)(z)| ≤
+c1j!
+δj|z|j hM(c3|z|) for any j ≥0, with c3 = c2(1 + δ).
+Since the deﬁnition of hM
+obviously implies hM(c3|z|) ≤(c3|z|)jMj, we derive that f belongs to AM(Sγ′,r′).
+From the inequality hM(c3|z|) ≤(c3|z|)j+1Mj+1, we also derive that f (j)(z) tends
+to 0 at the vertex, hence bf = 0.
+□
+2.2. Smooth roots of ultraholomorphic polynomials. Our second main result
+can now be stated as follows.
+Theorem 3. Let γ and r be positive real numbers. Assume that the sequence M is
+strongly regular, and consider a polynomial
+ϕ(z, w) = wd + a1(z)wd−1 + · · · + ad(z)
+with aj ∈AM(Sγ,r) for j = 1, . . . , d. If h is an element of A∞(Sγ,r) such that
+ϕ(z, h(z)) = 0 for z ∈Sγ,r, then h belongs to AM(Sγ′,r′) for any γ′ < γ and r′ < r.
+Proof. We remark that the asymptotic expansion bh obviously satisﬁes bϕ(z,bh(z)) =
+0, where bϕ(z, w) = wd + ba1(z)wd−1 + · · · + bad(z). Puiseux’s theorem in the formal
+case implies that the equation bϕ(z, H(z)) = 0, where H is a formal power series,
+has a ﬁnite number of solutions H1, . . . , HK. Using a version of Artin’s theorem for
+equations in F1(M)[w] (see e.g. [7]) instead of Proposition 1, we can proceed as in
+the proof of Theorem 2 to derive that each Hk belongs to F1(M). Since bh = Hk
+for some k, we have in particular
+(18)
+bh ∈F1(M).
+Using, if necessary, a ﬁnite subdivision of Sγ,r into smaller subsectors, and ro-
+tating the subsectors, the problem is reduced to the case γ < γ(M). Thus, by (18)
+and Proposition 3, there is an element h0 of AM(Sγ,r) such that c
+h0 = bh. Replacing
+ϕ(z, w) by ϕ(z, h0(z) + w) and h by h −h0, we reduce the problem to the special
+situation
+(19)
+bh = 0.
+In particular, we then have bϕ(z, 0) = 0. Thus, there is an integer m, with 1 ≤m ≤
+d, such that
+(20)
+baj = 0
+for
+d −m < j ≤d
+and
+(21)
+[
+ad−m ̸= 0,
+using the convention a0 = 1 in the case m = d.
+Now, put p(z, w) = wd−m +
+a1(z)wd−1−m + · · · + ad−m(z) and Φ(z, w) = ϕ(z, w) −wmp(z, w). We then have
+(22)
+Φ(z, h(z)) = ϕ(z, h(z)) −(h(z))mp(z, h(z)) = (h(z))mp(z, h(z)).
+Moreover, by (19) and (21), there are constants c0 > 0 and ν ≥1 such that
+(23)
+|p(z, h(z))| ≥c0|z|ν for any z ∈Sγ,r.
+Notice that we also have Φ(z, w) = Pd
+j=d−m+1 aj(z)wd−j. Thus, (20) and Propo-
+sition 4 imply that, given a positive real number C, there are constants c1 and c2,
+depending only on C, M and d, such that
+(24)
+|Φ(z, w)| ≤c1hM(c2|z|) for any z ∈Sγ,r and any w with |w| ≤C.
+Gathering (22), (23) and (24), we get
+(25)
+|h(z)|m ≤c−1
+0 c1|z|−νhM(c2|z|) for any z ∈Sγ,r.

@@ -1,0 +1,72 @@
+21
+5
+Application to some moment-PDE
+Following the idea of W. Balser and M. Yoshino [8], given a sequence of moments m :=
+(m(p))p∈N0 let us consider the operator ∂m,z, from C[[z]] into itself, given by
+∂m,z
+
+X
+p≥0
+fp
+m(p)zp
+
+=
+X
+p≥0
+fp+1
+m(p)zp.
+S. Michalik [32] has studied the initial value problem for linear moment-partial diﬀerential
+equations of the form
+(28)
+P(∂m1,t, ∂m2,z)u(t, z) = 0,
+with given initial conditions
+(29)
+∂j
+m1,tu(0, z) = ϕj(z) ∈O(D),
+j = 0, . . . , n −1,
+for some n ∈N, and some neighborhood of the origin D, say D(0, r) for some r > 0. Here,
+P(λ, ξ) ∈C[[λ, ξ]] is a polynomial of degree n in the variable λ, and m1 = (m1(p))p∈N0 and
+m2 = (m2(p))p∈N0 are given moment sequences corresponding to kernels e1 and e2 of orders
+k1 > 0 and k2 > 0, respectively, as deﬁned by W. Balser in [2]. In this last section we aim
+at stating analogous results to those in [32], now in the case when these kernels are associated
+with general strongly regular sequences (which might not be equivalent to Gevrey ones). So, our
+setting is as described in Remark 3.8(ii). Although the class of linear moment-partial diﬀerential
+equations under study has been enlarged, the main ideas do not greatly diﬀer from the ones
+in [32], so we will omit some proofs requiring only minor modiﬁcations with respect to the ones
+provided in that work.
+The approach in [32] is based on the reduction of the initial problem (28),(29) into a ﬁnite
+number of problems which are easier to handle. For this purpose, we put
+(30)
+P(λ, ξ) = P0(ξ)(λ −λ1(ξ))n1 · · · (λ −λℓ(ξ))nℓ,
+where n1, . . . , nℓ∈N with n1 + · · · + nℓ= n. For every j = 1, . . . , ℓ, the function λj(ξ) is an
+algebraic function, holomorphic for |ξ| > R0, for some R0 > 0, and with polynomial growth at
+inﬁnity. The existence is proven of a normalised formal solution ˆu to the main problem (28),(29),
+chosen so as to satisfy also the equation
+(31)
+(∂m1,t −λ1(∂m2,z))n1 · · · (∂m1,t −λℓ(∂m2,z))nℓˆu = 0
+(the meaning of λj(∂m2,z) to be speciﬁed). Indeed, Theorem 1 in [32] states that one can recover
+ˆu as
+(32)
+ˆu =
+ℓ
+X
+α=1
+nα
+X
+β=1
+ˆuαβ,
+ˆuαβ being the formal solution of
+(33)
+
+
+
+
+
+(∂m1,t −λα(∂m2,z))β ˆuαβ = 0
+∂j
+m1,tˆuαβ(0, z) = 0,
+j = 0, . . . , β −2
+∂β−1
+m1,t ˆuαβ(0, z) = λβ−1
+α
+(∂m2,z)φαβ(z),

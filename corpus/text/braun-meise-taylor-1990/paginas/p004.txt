@@ -1,0 +1,58 @@
+Braun, Meise and Taylor 
+209 
+It is easy to check that u is a continuous even function. It has property 1.1(0), provided w 
+has it. To show that w(x) = o(u(x)), note that for x E [x",X n+1[, n ~ 2, we get from (3) 
+and (4) 
+u(x) = (n- ~:~:ij)W(x) ~ (n- ~2i-n)w(x) ~ (n-2)w(x), 
+which implies 
+1 
+w(x):::; --u(x) for x E [x",xn+d, n > 2. 
+n-2 
+(5) 
+Hence we have w( x) = o( u( x)) and consequently u satisfies LIb). To show that u satisfies 
+1.1(0:), note that 1.1(0:) for w implies L := sup,.> ... , w(2x)/w(x) < 00. Moreover, (2) implies 
+that for x > X3 we only have the following two cases: 
+CASE 1: x" :::; x < 2x < Xn+I' Then (4), (5), and the definition of Limply 
+n 
+u(2x) - u(x) = n(w(2x) - w(x)):::; n(L -1)w(x) :::; n _ 2(L -1)u(x). 
+CASE 2: Xn :::; x < xn+1 :::; 2x < X,,+2. Then we have 
+u(2x) - u(x) = (n + l)w(2x) - nw(x) - w(xn+d 
+n+l 
+:::; (n + l)w(2x) - (n + l)w(x) :::; n _ 2(L - l)u(x). 
+Hence u satisfies 1.1 ( 0:). Finally we get from (1) and (4) 
+lu
+x u(t) 
+X f)'''+1 u(t) 
+'x· fX nw(t) 
+X 
+1 
+--2dt = L 
+--2dt :::; L 
+--2dt :::; Ln3 < 00, 
+u 
+1 + t 
+n=1 ' .I'" 
+1 + t 
+,,=1 . .I'" 1 + t 
+n=1 n 
+which shows that u satisfies 1.1(,8). 
+Remark. 
+Clearly, Lemma 1.6 is inspired by Lemma 1 in section 3 of Beurling [1] (see 
+Bjorck [2], 1.2.7). However, the proof is a lot easier since we replaced the sub additivity of 
+w by condition 1.1(0:). 
+1. 7 Lemma. 
+Let w be a weight function and assume that g: [0, oo[ --+ [O,oo[ satisfies 
+g(t) = o(w(t)) as t tends to 00. Then there exists a weight function u with the following 
+properties: 
+(i) g(t) = o(u(t)) as t --+ 00, 
+(ii) u(t) = o(w(t)) as t --+ 00, 
+( ... ) tAl' 
+u(At) 
+l' 
+w(At) 
+m 
+Jor every 
+> 1: 
+1~~~P u(t) :::; l~~~P w(t) . 
+If in addition there is R ~ 1 such that wl[R, oo[ is concave, then it is possible to make 
+ul[R,oo[ concave, too. 

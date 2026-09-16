@@ -1,0 +1,13 @@
+{
+   "stamp" : true,
+   "sources" : [
+      {
+         "usage" : "toplevel",
+         "filename" : "JimenezGarrido_et_al_Surject_Borel_map_Carleman_ultrahol_classes_shifted_moments.tex"
+      }
+   ],
+   "process" : {
+      "fontmaps" : [],
+      "compiler" : "pdflatex"
+   }
+}

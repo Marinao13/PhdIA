@@ -1,0 +1,46 @@
+142
+9. Stokes’ Phenomenon
+4. Show that every half-open interval of length π/k contains the same
+number of Stokes directions, say, n1. For Suppj,n1 = Suppj+1 ∪. . . ∪
+Suppj+n1 and distinct n, m, ℓ∈{ 1, . . . , µ }, show:
+(a) (n, n) ̸∈Suppj,n1.
+(b) (n, m) ∈Suppj,n1 ⇐⇒(m, n) ̸∈Suppj,n1.
+(c) (n, m) ∈Suppj,n1 and (m, ℓ) ∈Suppj,n1 ⇒(n, ℓ) ∈Suppj,n1.
+(d) The matrices of the form I+C, with Cnm = 0 whenever (n, m) ̸∈
+Suppj,n1, form a group Gj,n1 with respect to multiplication.
+(e) Statements (a)–(d), except for the backward direction in (b),
+also hold for Suppj instead of Suppj,n1. In the sequel, denote
+the corresponding group by Gj.
+(f) For j + 1 ≤ℓ≤j + n1, each Gℓis a subgroup of Gj,n1.
+(g) For I + C ∈Gj,n1, unique matrices I + Vℓ∈Gℓexist with
+I + C = (I + Vj+n1) · . . . · (I + Vj+1).
+9.2
+The Periodicity Relation
+The result we are going to prove next says that, of the inﬁnitely many
+Stokes multipliers, it suﬃces to compute only j0 consecutive ones, for j0 as
+deﬁned in Section 8.5. This will be a consequence of the following lemma
+showing how the multipliers change when we choose another HLFFS – in
+particular, another fundamental solution Y (z) of the transformed system.
+Since we have seen that a permutation of the data pairs of an HLFFS ˆF(z)
+reﬂects in a permutation of its columns, we may without loss of generality
+restrict to the case of two HLFFS with the same data pairs.
+Lemma 12 Given a system (3.1) with an essentially irregular singular-
+ity at inﬁnity, let ( ˆF(z; 1), Y (z; 1)), ( ˆF(z; 2), Y (z; 2)) be two HLFFS with
+identical data pairs. Then there is a unique constant invertible matrix
+D = diag [D1, . . . , Dµ], diagonally blocked in the block structure determined
+by the data pairs, for which Y (z; 1) = T(z) Y (z; 2) D, with a q-meromorphic
+transformation T(z) that is likewise blocked and satisﬁes ˆF(z; 1) T(z) =
+ˆF(z; 2). For the corresponding Stokes multipliers V (1)
+j
+, V (2)
+j
+we then have
+V (1)
+j
+= D−1 V (2)
+j
+D, for every j ∈Z.
+Proof: From the Main Theorem (p. 129) we conclude that the matrix
+T(z) = ˆF −1(z; 1) ˆF(z; 2) is diagonally blocked and convergent. If Fj(z; n)
+denote the HLNS corresponding to ˆF(z; n), then Fj(z; 1) T(z) = Fj(z; 2)
+follows from the properties of k-summability, for every j ∈Z. Since the

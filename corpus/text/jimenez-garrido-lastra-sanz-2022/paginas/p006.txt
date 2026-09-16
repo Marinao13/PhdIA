@@ -1,0 +1,62 @@
+6
+JAVIER JIM´ENEZ-GARRIDO, ALBERTO LASTRA, AND JAVIER SANZ
+We note that the notation (M.2)′, resp. (M.2), comes from [19], while in [17, 18, 20]
+^
+(M.2)′, resp. ^
+(M.2), is used.
+These conditions (M.2)′ and (M.2) are diﬀerent from the classical ones, namely (dc)
+and (mg), appearing in the literature when dealing with Carleman-like classes (see [13]).
+They play a prominent role in the study of the corresponding ultradiﬀerentiable and
+ultradistributional classes carried out by S. Pilipovi´c, N. Teofanov and F. Tomi´c in [17,
+18, 19, 20], as they allow for a precise control of the ﬂexibility obtained by introducing
+the two parameter dependence.
+Accordingly, they introduce a convenient modiﬁcation of the classical associated func-
+tion by setting (see [19, Deﬁnition 2.1])
+Tτ,σ,h(t) := sup
+p∈N
+ln+
+hpσtp
+M τ,σ
+p
+
+,
+t > 0,
+and Tτ,σ,h(0) = 0. We write Tτ,σ for the function Tτ,σ,1, which is the standard function
+associated with the sequence Mτ,σ in the literature (see [13, Deﬁnition 3.1]).
+Remark 2.3. We note that, from the expression (2.1), it is easy to check that γ(Mτ,σ) =
++∞for every σ > 1, so we say these sequences are of rapid growth. The terminology
+comes from the theory of regular variation, see [2] for the case of functions and [6, 11]
+for some extensions of the theory for the case of sequences. Although there are diﬀerent
+deﬁnitions of the notion of rapid variation, they all coincide when we restrict ourselves
+to nondecreasing sequences, see [5]. Then one can say that a nondecreasing sequence is
+of rapid variation if its lower Matuszewska index is +∞. It turns out [11, Section 3.3]
+that, for a general sequence of positive real numbers M = (Mp)p∈N0, the index γ(M)
+equals the lower Matuszewska index of the sequence of quotients (Mp+1/Mp)p∈N0, which
+is nondecreasing if M is (lc); so, the sequence (M τ,σ
+p+1/M τ,σ
+p )p∈N0 is of rapid variation, what
+justiﬁes the previous nomenclature.
+As mentioned before, the rapid growth of Mτ,σ implies (snq) is satisﬁed, while (mg) is
+not, hence Mτ,σ is not strongly regular for any σ > 1. However, whenever σ belongs to
+the interval (1, 2), the sequence (M τ,σ
+p )p∈N0 not only satisﬁes (M.2)′ but also the property
+(dc), i.e., there exists C > 0 such that M τ,σ
+p+1 ≤Cp+1M τ,σ
+p . Indeed, for logarithmically
+convex sequences (Mp)p∈N0, (dc) is equivalent to the condition log(Mp) = O(p2), p →∞,
+which clearly holds for Mτ,σ if, and only if, σ ∈(1, 2). Hence, for such values bMτ,σ is
+regular. This fact will make a diﬀerence with respect to the general case. Moreover, it
+implies the following well-known estimate: if one deﬁnes the auxiliary function
+hτ,σ(t) := e−Tτ,σ(1/t) = inf
+p≥0 M τ,σ
+p tp,
+t > 0; hτ,σ(0) = 0,
+for every t > 0 one has
+(2.4)
+hτ,σ(t) ≤inf
+p≥1 M τ,σ
+p tp = inf
+p≥0 M τ,σ
+p+1tp+1 ≤Ct inf
+p≥0 M τ,σ
+p (Ct)p = Cthτ,σ(Ct).

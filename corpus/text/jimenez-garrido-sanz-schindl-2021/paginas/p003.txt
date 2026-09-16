@@ -1,0 +1,50 @@
+EQUALITY OF ULTRADIFFERENTIABLE CLASSES BY MEANS OF INDICES
+3
+Inspired by these known results and the mixed conditions mentioned before, for weight sequences
+and (their associated) weight functions we introduce in this paper new mixed growth indices which
+are related to mixed O-regular variation. Moreover, we study and compare these indices under the
+construction M 7→ωM 7→ΩM.
+Summarizing, it turns out that we can give an answer to problem (∗∗) by assuming (M{mg}) and
+(1.1) resp. (M(mg)) and (1.2), and problem (∗∗)′ can by reduced to (∗∗). Alternatively, we have
+the possibility to express problem (∗∗) (and hence (∗∗)′) purely in terms of these new concept of
+mixed indices. In particular, when considering M = {M} or MW = {ω}, then we get the results
+from [1] expressed in the language of O-regular variation. Finally, by using these indices one is able
+to understand the diﬀerence between conditions (M{L}) and (1.1) resp. between (M(L)) and (1.2)
+in a more quantitative way.
+The paper is structured as follows: In Section 2 we gather all relevant information on weight
+sequences, functions and matrices and we recall the multi-index construction. In Section 3, ﬁrst
+we give an exhaustive characterization of (M{L}) and (M(L)) resp. of (1.1) and (1.2) by means
+of growth conditions expressed in terms of the weight structures M, ωM and of the multi-index
+construction, see Lemma 3.1 and Theorem 3.2. It turns out that for the weight matrix Ωthere is no
+diﬀerence between these requirements of the particular, Roumieu or Beurling, type, see Corollary
+3.3. Based on these characterizations, in Section 3.1 we introduce mixed growth indices for weight
+sequences and (associated) weight functions, see Proposition 3.6 and Theorem 3.7.
+In Section 4 the analogous procedure is done for the mixed moderate growth conditions (M{mg})
+and (M(mg)), see Proposition 4.2 and Theorem 4.4.
+In the ﬁnal Section 5 we apply the developed theory and prove the main results, Theorem 5.4
+which is solving (∗∗), and Theorem 5.6 answering problem (∗∗)′. The special (and classical) cases
+M = {M} and MW = {ω} are discussed as well.
+2. Weights and conditions
+2.1. General notation. We write N := {0, 1, 2, . . .} and N>0 := {1, 2, 3, . . .}. For any real x ≥0
+we denote by ⌊x⌋the largest integer j such that j ≤x. With the symbol E we denote the class of
+all smooth functions.
+2.2. Weight sequences. Given a sequence M = (Mj)j ∈RN
+>0 we also use µj :=
+Mj
+Mj−1 , µ0 := 1.
+M is called normalized if 1 = M0 ≤M1 holds true which can always be assumed without loss of
+generality.
+M is called log-convex if
+∀j ∈N>0 : M 2
+j ≤Mj−1Mj+1,
+equivalently if (µj)j is nondecreasing. If M is log-convex and normalized, then both j 7→Mj and
+j 7→(Mj)1/j are nondecreasing and (Mj)1/j ≤µj for all j ∈N>0.
+For our purposes it is convenient to consider the following set of sequences
+LC := {M ∈RN
+>0 : M is normalized, log-convex,
+lim
+j→+∞(Mj)1/j = +∞}.
+We see that M ∈LC if and only if (µj)j is nondecreasing and limj→+∞µj = +∞(e.g. see [11,
+p. 104]). Moreover, there is a one-to-one correspondence between M and µ = (µj)j by taking
+Mj := Qj
+i=0 µi.

@@ -1,0 +1,61 @@
+1.1. LOGARITHMICALLY CONVEX SEQUENCES
+31
+(ii) If M is logarithmically convex and nonquasianalytic, then limp→∞mp = ∞.
+(iii) If limp→∞mp = ∞, then it exists p0 ∈N such that Mp ≤Mp+1 for every p ≥p0.
+(iv) If M is logarithmically convex, then MpMl ≤Mp+l for every p, l ∈N0.
+(v) If M is logarithmically convex, then (Mp)1/p ≤mp−1 for every p ∈N.
+(vi) If M is logarithmically convex, then ((Mp)1/p)p∈N is nondecreasing.
+(vii) If M is logarithmically convex, limp→∞(Mp)1/p = ∞if and only if limp→∞mp = ∞.
+Proof.
+(i) Note that M is logarithmically convex if and only if Mp/Mp−1 ≤Mp+1/Mp for every
+p ∈N. Since mp = Mp+1/Mp, M is logarithmically convex if and only if mp−1 ≤mp for
+every p ∈N.
+(ii) Since M is logarithmically convex, m is nondecreasing (by (i)). If we suppose that m is
+bounded, i.e., it exists C > 0 such that mp ≤C for every p ∈N, we see that
+∞
+X
+l=0
+Ml
+(l + 1)Ml+1
+=
+∞
+X
+l=0
+1
+(l + 1)ml
+≥
+∞
+X
+l=0
+1
+(l + 1)C = ∞.
+This is impossible if M is nonquasianalytic, so m is unbounded and nondecreasing, and we
+conclude that limp→∞mp = ∞.
+(iii) If limp→∞mp = ∞, it exists p0 ∈N such that mp ≥1 for every p ≥p0 that implies
+Mp+1 ≥Mp for every p ≥p0.
+(iv) We x p ∈N0 and apply an induction argument on ℓ. The statement holds for ℓ= 0,
+because M0 = 1. Assume that it is valid for some value of ℓ, using the induction hypothesis
+and that m is nondecreasing (by (i)) we have
+MpMℓ+1 = MpMℓ
+Mℓ+1
+Mℓ
+≤Mp+ℓmℓ≤Mp+ℓmp+ℓ= Mp+ℓ+1.
+(v) We observe that Mp = m0m1 · · · mp−2mp−1 and, since m is nondecreasing (by (i)), we have
+Mp ≤(mp−1)p for every p ∈N.
+(vi) By (v), we deduce that
+M(p+1)/p
+p
+= Mp(Mp)1/p ≤Mpmp−1 ≤Mpmp = Mp+1,
+p ∈N.
+(vii) By (v), if limp→∞(Mp)1/p = ∞, then limp→∞mp = ∞. If limp→∞mp = ∞, since
+lim
+p→∞
+log(Mp+1) −log(Mp)
+(p + 1) −p
+= lim
+p→∞log(mp) = ∞,
+we deduce by the Stolz's criterion that limp→∞(Mp)1/p = ∞.
+□
+Along this document, we may use the basic properties of the last lemma, specially (i) and
+(ii), without mentioning.
+Universidad de Valladolid

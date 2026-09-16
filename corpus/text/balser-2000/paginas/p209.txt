@@ -1,0 +1,42 @@
+192
+12. Other Related Questions
+Because of J lower triangular and dj decreasing, we ﬁnd the right-hand
+side to be holomorphic at the origin. If there was a j with kj −kj+1 > r,
+then the fact that z y′ = B(z) y has Poincar´e rank r would imply B(z)
+triangularly blocked. This, however, would contradict the irreducibility of
+(3.1). Hence, kj −kj+1 ≤r for 1 ≤j ≤ν −1 follows. Using Exercise 2, we
+conclude Y (z) = ¯T(z) ˜Y (z), with ˜Y (z) = ¯E(z) z ˜
+K+D zJ, where ¯E±(z) are
+entire, and ˜K is equal to K but for a permutation of its diagonal elements.
+Owing to our choice of D, we ﬁnd that the diagonal elements of ˜K + D
+are decreasing, so that z ˜Y ′(z) ˜Y −1(z) is holomorphic at the origin, i.e., in
+fact, is a polynomial.
+2
+As we pointed out above, the problem of Birkhoﬀstandard form arose
+in the study of behavior of solutions of (3.1) for z →∞. This behavior
+is not too drastically altered even when using meromorphic transforma-
+tions instead of analytic ones. So it is natural to ask whether transfor-
+mation to Birkhoﬀstandard form is always possible using meromorphic
+transformations. The answer to this question is positive, once we allow the
+transformation to increase the Poincar´e rank of the system. However, it is
+more natural to restrict to meromorphic transformations leaving the rank
+the same. For dimensions ν = 2, resp. ν = 3, Jurkat, Lutz, and Peyer-
+imhoﬀ[147], resp. Balser [14], have shown the answer to this question to
+be positive. For general dimensions, but under the additional assumption
+of the leading matrix A0 of (3.1) having distinct eigenvalues, Turrittin [271]
+also obtained a positive answer, but in general this problem is still open.
+For numerous suﬃcient conditions under which a positive answer is known,
+see Balser and Bolibruch [30].
+Exercises: Let E(z) be an entire ν×ν matrix function with det E(0) ̸= 0,
+and let kj ∈Z, k1 ≥. . . ≥kν be given.
+1. Show E(z) = P(z) ˜E(z) R, with:
+• P(z) = [pjℓ] is a lower triangular matrix with pjj(z) ≡1, and
+pjℓ(z) polynomials of degree at most kℓ−kj, for 1 ≤ℓ< j ≤ν;
+• ˜E(z) = [˜ejℓ(z)] is entire, with ˜ejℓ(z) vanishing at the origin at
+least of order kℓ−kj + 1 for 1 ≤ℓ< j ≤ν;
+• R is a permutation matrix.
+2. With K = diag [k1, . . . , kν], show zK E(z) = ¯T(z) ¯E(z) z ˜
+K, with an
+analytic transformation ¯T(z), ¯E(z) entire, det ¯E(z) ̸= 0 everywhere,
+and ˜K a diagonal matrix of integers, diﬀering from K only by per-
+mutation of its diagonal elements.

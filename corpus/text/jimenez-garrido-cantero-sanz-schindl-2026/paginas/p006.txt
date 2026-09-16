@@ -1,0 +1,73 @@
+6
+Moreover, if f ∼u
+M,h
+P∞
+j=0 cjzj on S, then by (3) we have
+∃A > 0 ∀n ∈N0 :
+|cn| ≤AhnMn.
+(4)
+It is also a well-known fact, steming from Cauchy’s integral formula for the deriva-
+tives, that for every n ∈N0 and every proper subsector T of S one has
+lim
+z→0
+z∈T
+f(n)(z)
+n!
+= cn.
+(5)
+Remark 3.1. When a statement is valid for both Roumieu and Beurling classes, we will
+use the notation e
+Au
+[M](S) and so on (substituting every square bracket by either of them,
+curly brackets or parentheses, but the same all through the statement). Moreover, if M ≈
+L the corresponding classes coincide (as locally convex vector spaces), i.e.
+e
+Au
+[M](S) =
+e
+Au
+[L](S).
+4
+Characteristic functions for classes with Roumieu uni-
+form asymptotics
+We introduce the concept of characteristic functions for the classes under consideration.
+Definition 4.1. Let L ∈RN0
+>0 and S be a given sector. A function f ∈e
+Au
+{L}(S) is said
+to be characteristic in the class e
+Au
+{L}(S) if, whenever f ∈e
+Au
+{M}(S) ⊆e
+Au
+{L}(S) for some
+M ∈RN0
+>0, we have that e
+Au
+{M}(S) = e
+Au
+{L}(S).
+Let f ∈e
+Au
+{L}(S). We consider the sequence defined by
+eCn(f) := sup
+z∈S
+|z−nrf(z, n)|,
+n ∈N0.
+We deduce that a function is characteristic of the class if the sequence of moduli of
+the coefficients of the associated asymptotic expansion (resp. the sequence ( eCj(f))j∈N0)
+is equivalent to the sequence defining the class. More precisely,
+Theorem 4.2. Let L ∈RN0
+>0, S be a given sector and f ∈
+e
+Au
+{L}(S) with f ∼u
+{L}
+P∞
+j=0 cjzj. Then, each of the following conditions implies the next one:
+(1) The sequence (|cj|)j∈N0 is equivalent to L.
+(2) The sequence ( eCj(f))j∈N0 is equivalent to L.
+(3) f is characteristic in the class e
+Au
+{L}(S).

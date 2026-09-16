@@ -1,0 +1,56 @@
+9.3 The Associated Functions
+147
+For τ = −d + (2k + 1) π/r with k ∈Z, there is a unique j = j(k) ∈Z
+for which dj−1 < −τ < dj. By deﬁnition of the number n1 in Exercise 4
+on p. 142, we have j(k + 1) = j(k) −2 n1 for every k. With this value j(k),
+consider the integrals
+r
+2πi
+
+β(τ)
+zs−1Fj(k),m(z) Gm(z) ezr(u−um) dz,
+1 ≤m ≤µ,
+(9.9)
+with β(τ) as in (9.6). Note that for suﬃciently small ε > 0, the path β(τ) ﬁts
+into the sector Sj(k) where Fj(k),m(z) is bounded. So the integral converges
+for s ∈C
+and | arg(u −um) −r τ| < ε/2 and is holomorphic in both
+variables. By variation of τ, we can continue the function with respect to
+u into the region Gk,m = {z : −r dj(k) < arg(u −um) < −r dj(k)−1} ⊂C d.
+As we shall show now, this integral represents Φm(u; s; k):
+Lemma 14 Under the assumptions made above, the integral (9.9) equals
+Φm(u; s; k), for arbitrary s ∈C and u ∈Gk,m with |u −um| suﬃciently
+small. Hence Φm(u; s) is holomorphic in Gk,m.
+Proof: Fix a value for τ and restrict to such u with arg(u −um) = r τ.
+For N ∈N, let Φm(u; s; k; N) stand for the diﬀerence between the integral
+and the ﬁrst N terms of the right-hand side of (9.7). Observing (9.6),
+express Φm(u; s; k; N) as a corresponding integral. By estimates completely
+analogous to those in the proof of Theorem 23 (p. 80), one can show that
+Φm(u; s; k; N) tends to zero as N →∞, for suﬃciently small values of
+|u −um|. The identity theorem then completes the proof.
+2
+To discuss the global behavior of Φm(u; s; k) in C d, we introduce auxiliary
+functions Φ∗
+m(u; s; k) as follows: For every k ∈Z, there exists a unique
+j = j∗(k) ∈Z with dj−1 < d−2k π/r < dj, and we have j∗(k) = j(k)+n1,
+with j(k) and n1 as above. With this value j∗(k) and any ﬁxed point z0 of
+modulus larger than ρ and independent of k, we deﬁne
+Φ∗
+m(u; s; k) =
+r
+2πi
+ ∞(α)
+z0
+zs−1Fj∗(k),m(z) Gm(z) ezr(u−um) dz,
+integrating along the circle |z| = |z0| to the ray arg z = α, and then along
+this ray to inﬁnity. For dj∗(k)−1−π/(2r) < α < dj∗(k)+π/(2r), this integral
+converges compactly for s ∈C and π/2 < r α + arg(u −um) < 3π/2.
+Varying α, the function can be continued into −r dj∗(k) < arg(u −um) <
+2π −r dj∗(k)−1. By deﬁnition of j∗(k), we therefore see that Φ∗
+m(u; s; k) is
+holomorphic in C d, and even holomorphic at points on the nth cut, for
+every n ̸= m, including the point un itself. Using the same notation as
+above, we write Φ∗
+m(u; s; k) = hol(u −un), for n ̸= m, 1 ≤n, m ≤µ.
+Unlike the associated functions, the auxiliary ones are not directly linked
+via holomorphic continuation across the mth cut. However, from (9.4) one

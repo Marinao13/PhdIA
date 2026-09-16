@@ -1,0 +1,48 @@
+6
+1. Basic Properties of Solutions
+Proposition 1 (Wronski’s Identity) Consider a holomorphic matrix-
+valued function X(z) satisfying X′(z) = A(z) X(z) for z ∈G, and let
+w(z) = det X(z) and a(z) = trace A(z). Then
+w(z) = w(z0) exp
+ z
+z0
+a(u) du
+
+,
+z ∈G,
+for arbitrary z0 ∈G. Hence in particular, either w(z) ≡0 or w(z) ̸= 0 for
+every z ∈G.
+Proof: The deﬁnition of determinants shows w′(z) = ν
+k=1 wk(z), where
+wk(z) is the determinant of the matrix obtained from X(z) by diﬀerenti-
+ating its kth row and leaving the others. If rk(z) denotes the kth row of
+X(z), then X′(z) = A(z) X(z) implies r′
+k(z) = ν
+j=1 akj(z) rj(z). Using
+this and observing that the determinant of matrices with two equal rows
+vanishes, we obtain wk(z) = akk(z) w(z), hence
+w′(z) = a(z) w(z).
+Solving this diﬀerential equation then completes the proof.
+2
+Existence of fundamental solutions is clear: For ﬁxed z0 ∈G, take the
+unique solution of the initial value problem (1.5) with x0 = ek, the kth
+unit vector, for 1 ≤k ≤ν. Combining these vectors as columns of a matrix
+X(z), we see that det X(z0) = 1; hence X(z) is a fundamental solution.
+The signiﬁcance of fundamental solutions is that, as for the real case, every
+solution of (1.1) is a linear combination of the columns of a fundamental
+one:
+Theorem 2 Suppose that X(z) is a fundamental solution of (1.1), and
+let x(z) be the unique solution of the initial value problem (1.5). For c =
+X−1(z0) x0, we then have
+x(z) = X(z) c,
+z ∈G.
+Thus, the C -vector space of all solutions of (1.1) is of dimension ν, and
+the columns of X(z) are a basis.
+Proof: First observe that X(z) c, for any c ∈C ν, is a solution of (1.1).
+Deﬁning c as in the theorem then leads to a solution satisfying the initial
+value condition, so the proof is completed.
+2
+In principle, the computation of the power series expansion of a funda-
+mental solution of (1.1) presents no new problem: For z0 ∈G and x0 = ek,
+1 ≤k ≤ν, compute the power series expansion of the solution of (1.5) as
+in the proof of Lemma 1, thus obtaining a power series representation of a

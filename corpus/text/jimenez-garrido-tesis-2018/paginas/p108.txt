@@ -1,0 +1,65 @@
+108
+CHAPTER 3.
+INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+3.1
+Asymptotic expansions and ultraholomorphic classes
+In this section, we introduce three dierent classes of ultaholomorphic functions. We will study
+their relations and their elementary properties. Next the asymptotic Borel map will be dened
+from these classes into the algebra of formal power series. Finally, some helpful notation regarding
+the injectivity and surjectivity of the Borel map will be considered.
+3.1.1
+Basic denitions
+The functions appearing below are dened in regions of the Riemann surface of the logarithm
+R, some of them already introduced in the rst chapter. We consider bounded sectors
+S(d, γ, r) := {z ∈R : |arg(z) −d| < γ π
+2 , |z| < r},
+respectively unbounded sectors
+S(d, γ) := {z ∈R : |arg(z) −d| < γ π
+2 },
+with bisecting direction d ∈R, opening γ π (γ > 0) and (in the rst case) radius r ∈(0, ∞). For
+unbounded sectors of opening γ π bisected by direction 0, we write Sγ := S(0, γ).
+In some cases, it will also be convenient to considered more general domains. A sectorial region
+G(d, γ) with bisecting direction d ∈R and opening γ π will be an open connected set in R such
+that G(d, γ) ⊆S(d, γ), and for every β ∈(0, γ) there exists ρ = ρ(β) > 0 with S(d, β, ρ) ⊆
+G(d, γ). In particular, sectors are sectorial regions. If d = 0 we just write Gγ.
+A bounded (respectively, unbounded) sector T is said to be a proper subsector of a sectorial
+region G (resp. of an unbounded sector S) , and we write T ≪G (resp. T ≺≺S), if T ⊂G
+(where the closure of T is taken in R, and so the vertex of the sector is not under consideration).
+For an open set U ⊂R, the set of all holomorphic functions in U will be denoted by H(U).
+Finally, C[[z]] stands for the set of formal power series in z with complex coecients.
+As in the previous chapters, M = (Mp)p∈N0 is a sequence of positive real numbers with
+M0 = 1.
+We consider the following three classes of functions dened for arbitrary sectorial
+regions, so also for sectors.
+Denition 3.1.1. Given a sectorial region G, we say f ∈H(G) admits the formal power series
+ˆf = P∞
+n=0 anzn ∈C[[z]] as its M−asymptotic expansion in G (when the variable tends to 0) if
+for every T ≪G there exist CT , AT > 0 such that for every p ∈N0 one has
+f(z) −
+p−1
+X
+n=0
+anzn ≤CT Ap
+T Mp|z|p,
+z ∈T.
+We will write f ∼M
+ˆf in G, and
+˜
+AM(G) will stand for the space of functions admitting
+M−asymptotic expansion in G.
+Denition 3.1.2. Given a sectorial region G, we say f ∈H(G) admits ˆf = P∞
+n=0 anzn ∈C[[z]]
+as its uniform M−asymptotic expansion in G (of type 1/A for some A > 0) if there exists C > 0
+such that for every p ∈N0 one has
+f(z) −
+p−1
+X
+n=0
+anzn ≤CApMp|z|p,
+z ∈G.
+We will write f ∼u
+M ˆf in G, and ˜
+Au
+M(G) stands for the space of functions admitting uniform
+M−asymptotic expansion in G (of some type).
+JAVIER JIMÉNEZ GARRIDO

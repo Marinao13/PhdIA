@@ -1,0 +1,68 @@
+4.3. MULTISUMMABILITY
+155
+Remark 4.3.4. Similarly to the classical situation, this denition can be recursively extended
+for a nite set of sequences M1, M2, . . . , Mk with ω(M1) < ω(M2) < · · · < ω(Mk) < 2 (see [7,
+Ch. 10] and [64, Ch. 7]).
+The rest of this section is devoted to recover the multisum by means of some suitable integral
+transform.
+4.3.1
+Moment-kernel duality
+The main aim of this subsection is to prove that a kernel e of M−summability is uniquely
+determined by its sequence of moments me, similarly to the result of W. Balser for the moment
+summability methods [7, Sect. 5.8].
+For bounded functions on sectors, the following auxiliary lemma shows that the domain of
+holomorphy of their e−Laplace transform is not an arbitrary sectorial region, as it is shown in
+Proposition 4.1.12, but an unbounded sector.
+Lemma 4.3.5. Let a kernel function e(z) of M−summability with corresponding operator T =
+Te be given. Given f a function dened in a sector S = S(d, α), assume that for every 0 < β < α,
+there exists a constant Cβ > 0 such that we have that
+|f(u)| ≤Cβ,
+u ∈S(d, β).
+Then g = Tf is holomorphic in S(d, α + ω(M)).
+Proof. We have that f ∈OM(S) with S = S(d, α). Let τ ∈R be a direction in S, i.e., such that
+|τ −d| < πα/2. For every u, z ∈R with arg(u) = τ and |τ −arg(z)| < ω(M)π/2 we have that
+u/z ∈Sω(M), so the expression under the integral sign in (4.7) makes sense. We x a > 0, and
+write
+g(z) =
+Z ∞(τ)
+0
+e(u/z)f(u)du
+u =
+Z aeiτ
+0
+e(u/z)f(u)du
+u +
+Z ∞(τ)
+aeiτ
+e(u/z)f(u)du
+u .
+Since f is bounded at the origin following direction τ and by Denition 4.1.2.(ii), it is straight-
+forward to apply Leibniz's rule for parametric integrals and deduce that the rst integral in the
+right-hand side denes a holomorphic function in S(τ, ω(M)). Regarding the second integral, we
+take β < α such that |τ −d| < βπ/2 and we x 0 < γ < ω(M). We have that u/z ∈Sγ, for
+arg(u) = τ and z such that |τ −arg(z)| < γπ/2. The property in Denition 4.1.2.(iii) provides
+us with constants c, k > 0 such that
+|e(u/z)| ≤chM(k|z|/|u|),
+arg(u) = τ,
+z ∈S(τ, γ),
+then
+1
+ue(u/z)f(u)
+ ≤cCβ
+|u| hM(k|z|/|u|),
+arg(u) = τ,
+z ∈S(τ, γ).
+For any z0 ∈S(τ, γ) we x a bounded neighborhood U of z0 contained in S(τ, γ). We have that
+|z| < r for every z ∈U, and from the monotonicity of hM we deduce that
+1
+ue(u/z)f(u)
+ ≤cCβ
+|u| hM(kr/|u|).
+By the denition of hM, we have that hM(kr/|u|) ≤M1kr/|u|, so the right-hand side of the last
+inequality is an integrable function of |u| in (a, ∞), and again Leibniz's rule allows us to conclude
+the desired analyticity for the second integral.
+Consequently, g is holomorphic in S(τ, γ) for every |τ −d| < πα and every 0 < γ < ω(M).
+As in the proof of Proposition 4.1.12, we see that the value of g(z) is the same in the intersection
+of these regions and we have that g is holomorphic in S(d, α + ω(M)).
+□
+Universidad de Valladolid

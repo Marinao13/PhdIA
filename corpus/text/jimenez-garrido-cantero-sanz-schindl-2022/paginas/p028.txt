@@ -1,0 +1,45 @@
+28
+[8] J. Jiménez-Garrido, Applications of regular variation and proximate orders to ultraholo-
+morphic classes, asymptotic expansions and multisummability, PhD dissertation, University
+of Valladolid, 2018. Available online at http://uvadoc.uva.es/handle/10324/29501 (last ac-
+cessed October 28th, 2022).
+[9] J. Jiménez-Garrido, A. Lastra, J. Sanz, Extension operators for some ultraholomor-
+phic classes deﬁned by sequences of rapid growth,
+submitted,
+available online at
+https://arxiv.org/abs/2204.01316 (last accessed October 28th, 2022).
+[10] J. Jiménez-Garrido, J. Sanz, Strongly regular sequences and proximate orders, J. Math.
+Anal. Appl. 438 (2016), no. 2, 920–945.
+[11] J. Jiménez-Garrido, J. Sanz, G. Schindl, Indices of O-regular variation for weight functions
+and weight sequences, Rev. R. Acad. Cienc. Exactas Fís. Nat. Ser. A Mat. RACSAM 113
+(4) (2019), 3659–3697.
+[12] J. Jiménez-Garrido, J. Sanz, G. Schindl, Injectivity and surjectivity of the asymptotic Borel
+map in Carleman ultraholomorphic classes, J. Math. Anal. Appl. 469 (2019), no. 1, 136–168.
+[13] J. Jiménez-Garrido, J. Sanz, G. Schindl, Surjectivity of the asymptotic Borel map in
+Carleman-Roumieu ultraholomorphic classes deﬁned by regular sequences, Rev. R. Acad.
+Cienc. Exactas Fís. Nat. Ser. A Mat. RACSAM (2021), 115:181.
+[14] H. Komatsu, Ultradistributions, I: Structure theorems and a characterization, J. Fac. Sci.
+Univ. Tokyo Sect. IA Math. 20 (1973), 25–105.
+[15] M. Langenbruch, Extension of ultradiﬀerentiable functions, Manuscripta Math. 83 (1994),
+no. 2, 123–143.
+[16] A. Lastra, S. Malek, J. Sanz, Continuous right inverses for the asymptotic Borel map in
+ultraholomorphic classes via a Laplace-type transform, J. Math. Anal. Appl. 396 (2012),
+724–740.
+[17] S. Mandelbrojt, Séries adhérentes, régularisation des suites, applications, Collection de
+monographies sur la théorie des fonctions, Gauthier-Villars, Paris, 1952.
+[18] W. Matsumoto, Characterization of the separativity of ultradiﬀerentiable classes, J. Math.
+Kyoto Univ. 24-4 (1984), 667–678.
+[19] R. Meise, B. A. Taylor, Whitney’s extension theorem for ultradiﬀerentiable functions of
+Beurling type, Ark. Mat. 26 (1988), no. 2, 265–287.
+[20] D. N. Nenning, A. Rainer, G. Schindl, The Borel map in the mixed Beurling setting, 2022,
+available online at https://arxiv.org/pdf/2205.08195.pdf (last accessed October 28th, 2022).
+[21] S. Pilipović, N. Teofanov, F. Tomić, On a class of ultradiﬀerentiable functions. Novi Sad J.
+Math. 45, no. 1 (2015), 125–142.
+[22] S. Pilipović, N. Teofanov, F. Tomić, Beyond Gevrey regularity, J. Pseudo-Diﬀer. Oper. Appl.
+7 (2016), 113–140.
+[23] S. Pilipović, N. Teofanov, F. Tomić, A Paley-Wiener theorem in extended Gevrey regularity,
+J. Pseudo-Diﬀer. Oper. Appl. 11 (2020), 593–612.
+[24] S. Pilipović, N. Teofanov, F. Tomić, Boundary values in ultradistribution spaces related to
+extended Gevrey regularity, Mathematics 2021, 9, 7.
+[25] A. Rainer, G. Schindl, Extension of Whitney jets of controlled growth, Math. Nachr. 290
+(2017), 2356–2374.

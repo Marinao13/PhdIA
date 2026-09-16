@@ -1,0 +1,68 @@
+298
+Symbols
+H(G, E )
+The space of functions, holomorphic in G, with values in
+E
+(p. 221)
+HLFFS
+Short for highest-level formal fundamental solution (p. 55)
+HLNS
+Short for highest-level normal solution
+(p. 138)
+J
+The linear map that maps functions to their asymptotic
+expansion
+(p. 67)
+Jµ(z)
+Bessel’s function
+(p. 23)
+j0
+Number of singular directions in a half-open interval of
+length 2π
+(p. 137)
+j1
+Number of singular directions in a half-open interval of
+length µπ/(qr −p)
+(p. 137)
+Lk
+The Laplace operator of order k
+(p. 78)
+ˆLk
+The formal Laplace operator of order k
+(p. 79)
+L(E , F)
+The Banach algebra of bounded linear maps from E into
+F
+(p. 219)
+N
+The set of natural numbers; observe that we here assume
+0 ̸∈N
+N0
+Is equal to N ∪{0}
+ODE
+Short for ordinary diﬀerential equation
+p.
+Short for page
+PDE
+Short for partial diﬀerential equation
+resp.
+Short for respectively
+R
+The ﬁeld of real numbers
+R(z0, ρ)
+The set of z with 0 < |z| < ρ
+(p. 8)
+R(∞, ρ)
+The set of z with |z| > ρ
+(p. 14)
+rf(z, N)
+The residue term of order N in the asymptotic expansion
+of the function f
+(p. 65)
+sα
+The substitution map
+(p. 78)
+S(d, α)
+The sector with bisecting direction d, opening α and inﬁ-
+nite radius
+(p. 60)

@@ -1,0 +1,50 @@
+5.8 Convolution of Kernels
+95
+Theorem 32 Given two kernel functions ej(z) of order kj with corre-
+sponding moment functions mj(u), 1 ≤j ≤2, assume k1 > k2. Then
+there exists a unique kernel function e(z) of order k = (1/k2 −1/k1)−1
+corresponding to the moment function m(u) = m2(u)/m1(u). In particu-
+lar, the function e(1/u) is given by an application of T −
+1
+to the function
+e2(1/z).
+Proof: As above, uniqueness follows from Lemma 7, resp. Remark 7. For
+existence, let f(u) = (1 −u)−1 and deﬁne g2 = T2 f. Then g = T −
+1 g2 is
+holomorphic in −π/(2k) < arg w < (2 + 1/(2k))π, and we deﬁne e(z) by
+(5.20). Interchanging the order of integration, one obtains that e(1/u) is
+given by an application of T −
+1
+to the function e2(1/z). To complete the
+proof, one can verify the necessary properties for e(z), using Theorems 27
+and 28.
+2
+As an application of the last theorem, we mention that for k1 = α > 1,
+e1(z) = α zα exp[−zα], and k2 = 1, e2(z) = z ez, the function Cα(u) =
+u−1 e(u) equals the kernel of Ecalle’s acceleration operator, which will be
+studied in detail in Chapter 11. More kernels are constructed in the follow-
+ing exercises.
+Exercises:
+1. Using the above results, verify existence of kernel functions corre-
+sponding to moment functions of the form
+m(u) = Γ(1 + s1u) · . . . · Γ(1 + sνu)
+Γ(1 + σ1u) · . . . · Γ(1 + σµu),
+(5.21)
+with positive parameters sj, σj satisfying ν
+j=1 sj −µ
+j=1 σj > 0,
+and ﬁnd the order of the kernels.
+2. Using the above results, verify existence of kernel functions of order
+one corresponding to moment functions of the form
+m(u) = Γ(β1 + u) · . . . · Γ(βµ + u) Γ(1 + u)
+Γ(α1 + u) · . . . · Γ(αµ + u)
+,
+µ ≥1,
+(5.22)
+with positive parameters αj, βj. Relate E(z) to the generalized con-
+ﬂuent hypergeometric function (p. 23).
+3. Let ˆf(z) = ∞
+0 m(n) zn, with m(n) as in (5.21), resp. (5.22), and let
+k be the order of the corresponding kernel function. Show existence
+of a sectorial region G of opening larger than π/k and a function
+f ∈H(G, C) with f(z) ∼=1/k ˆf(z) in G.

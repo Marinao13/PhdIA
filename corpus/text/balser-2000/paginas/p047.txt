@@ -1,0 +1,45 @@
+30
+2. Singularities of First Kind
+B11(z) = A11(z) −T12(z) A21(z),
+B21(z) = A21(z),
+B22(z) = A21(z) T12(z) + A22(z).
+Iterating this result, we are able to prove that a system with general spec-
+trum can be transformed into another one that is reduced in a block struc-
+ture determined by the Jordan canonical form of A0:
+Proposition 3 Let a system (2.1) with general spectrum be given. As-
+sume that the matrix A0 is diagonally blocked, with the diagonal blocks
+having exactly one eigenvalue, and let these eigenvalues have increasing
+real parts. Then an analytic transformation T(z) exists that is upper tri-
+angularly blocked with respect to the block structure of A0, with diagonal
+blocks identically equal to I, so that the corresponding transformed system
+is lower triangularly reduced in the same block structure.
+Proof: We proceed by induction with respect to the number of blocks of
+A0. In the case of one such block nothing remains to prove, while for two
+blocks Lemma 2 assures the existence of the transformation as stated. If
+we have even more diagonal blocks in A0, we block all matrices in a coarser
+block structure with two diagonal blocks by grouping several of the blocks
+of A0 into one large block. Then we can again apply Lemma 2 to obtain
+a system that is lower triangularly blocked of this coarser type, with two
+diagonal blocks to which the induction hypothesis applies. Since diagonally
+blocked analytic transformations leave the system in lower triangularly
+blocked form, we can use such a transformation to put all the diagonal
+blocks into the desired form. This, however, completes the proof.
+2
+Note that the assumptions of the above proposition can always be made
+to hold by a constant transformation T(z) ≡T, putting A0 into Jordan
+canonical form with the eigenvalues ordered accordingly. Hence, in princi-
+ple the above proposition allows us to compute fundamental solutions of
+systems with general spectrum: First, we ﬁnd an analytic transformation
+to another system that is reduced and has diagonal blocks, each of which
+has good spectrum. Then, we compute a fundamental solution of the new,
+reduced, system by means of Theorem 5, applied to each diagonal block,
+and Theorem 4. This fundamental solution will be investigated further:
+Proposition 4 Let a system (2.1) be given that is reduced of some type
+(ν1, . . . , νµ), with Ajj(0) having exactly one eigenvalue λj, and assume that
+these eigenvalues have increasing real parts. Moreover, let Akj(0) = 0 for
+k > j. Finally, let κj ∈Z be such that 0 ≤Re λj −κj < 1. Then there
+exists a triangularly blocked fundamental solution X(z) of (2.1) of the form
+X(z) = T(z) zK zM,
+where T(z) is a lower triangularly blocked analytic transformation, M is
+a lower triangularly blocked constant matrix with diagonal blocks equal to
+Ajj(0) −κjI, and K = diag [κ1Iν1, . . . , κµIνµ].

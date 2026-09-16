@@ -1,0 +1,46 @@
+140
+9. Stokes’ Phenomenon
+proof of this fact using a somewhat diﬀerent approach, see the monograph
+of Sibuya [251].
+Many authors have been concerned with the theoretical investigation
+and/or numerical computation of Stokes multipliers, e.g., Turrittin [267,
+272], Heading [115, 116], Okubo [205], Hsieh and Sibuya [130], Sibuya [247–
+250, 252], Kohno [154, 155, 160], Smilyansky [256], Braaksma [66–69], Goll-
+witzer and Sibuya [109], McHugh [189], Jurkat, Lutz, and Peyerimhoﬀ[146–
+149], Emamzadeh [97–99], Hsieh [129], Sch¨afke [237, 240], Hinton [121],
+Balser, Jurkat, and Lutz [33, 37–39, 41], Gurarij and Matsaev [111], Ramis
+[228, 227], Balser [11–13, 16, 20], Slavyanov [255], Schlosser-Haupt and
+Wyrwich [243], Duval and Mitschi [93], Babbitt and Varadarajan [4], Tovbis
+[264, 265], Lin and Sibuya [168], Immink [135–137], Tabara [259], Kostov
+[162], Naegele and Thomann [197], Sibuya and Tabara [254], and Olde Dal-
+huis and Olver [211]. Also compare Section 12.5 on the so-called central
+connection problem.
+9.1
+Highest-Level Stokes’ Multipliers
+Throughout what follows, we consider a ﬁxed system (3.1) (p. 37), having
+an essentially irregular singularity at inﬁnity. Let ˆF(z) be an HLFFS of
+(3.1), together with the corresponding HLNS Fj(z). Recall that each Fj(z)
+satisﬁes (8.9) (p. 138), with B(z) diagonally blocked of type (s1, . . . , sµ).
+We arbitrarily choose a fundamental solution Y (z) = diag [Y1(z), . . . , Yµ(z)]
+of z y′ = B(z) y. It follows from (8.9) that Xj(z) = Fj(z) Y (z) is a solu-
+tion of (3.1). Since det Xj(z) ̸= 0 follows from Exercise 3 on p. 138, every
+Xj(z) is in fact a fundamental solution of (3.1). From the exercises be-
+low, we then conclude that every solution of (8.9) can be represented as
+Xj(z) C Y −1(z), for a suitable constant matrix C. So in particular, there
+exist unique matrices Vj such that
+Fj−1(z) −Fj(z) = Fj(z) Y (z) Vj Y −1(z),
+|z| > ρ,
+j ∈Z.
+(9.1)
+This formula is equivalent to Xj−1(z) = Xj(z) (I + Vj), for j ∈Z, and we
+shall refer to the matrices Vj as the Stokes multipliers of highest level of the
+system (3.1). Note that Vj depends upon both ˆF(z) and Y (z). Therefore, we
+here shall always consider pairs ( ˆF(z), Y (z)), and for simplicity of notation
+we also use the term HLFFS to refer to such a pair. From (8.9) we conclude
+that the left-hand side of (9.1) is asymptotically zero of Gevrey order 1/k
+in Sj ∩Sj−1, and we shall use this to investigate the structure of the Stokes
+multipliers Vj:
+With qn(z) as in the deﬁnition of the data pairs of HLFFS, we set
+Gn(z) = e−qn(z)Yn(z). From the special form of B(z), and using Exer-
+cise 4 on p. 52 together with Exercise 6 on p. 7, we conclude that each
+Gn(z) and its inverse are of exponential growth strictly less than k. Hence,

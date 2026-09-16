@@ -1,0 +1,37 @@
+Braun, Meise and Taylor 
+231 
+Define for each j E IN 
+gj(r) = suplogIPAz)l- H/\)Imz) for r > 0, 
+101=1' 
+(1) 
+then gj = o(w) for all j because of 7.4. Hence by Proposition 1.8 there is a weight function 
+a with a = o( w) and g j = o( a) for all j. If we denote by f the convex hull of 0 then 
+Theorem 7.4 and (1) imply that I-'j E £«T)(fY. On the other hand, SUPPl-'j C K j , so that 
+the sum L~l I-'j is locally finite in 0 and, hence, convergent in D(".)(O);'. The second part 
+of the statement follows from the first one and 5.2. 
+8 
+Concluding remarks 
+In this section we indicate how the kernel theorem of L. Schwartz extends to the present 
+classes of ultradifferentiable functions and ultradistributions. Moreover, we use Cioranescu 
+and Zsid6 [9], section 7, to compare the present theory with existing other ones. 
+Using well known results of Grothendieck [12J on topological tensor products one can prove 
+the following theorem (see, e.g., Komatsu [15J, 2.1 and 2.3, and Meyer [23]). 
+8.1 Theorem. 
+Let w be a weight function, let K; c lR:"" be compact and ni C IRN, be 
+open for j = 1,2. Then we have the following canonical isomorphisms 
+V.(Kd 
+V{w}(Od 
+V{w}(02) ~ V{w}(OI x O2 ) 
+£.(01) 
+£.(02 ) ~ £.(01 x O2 ) 
+V.(OI);,?" V.(02);, ~ V.(Oj x O2 );, 
+To compare different approaches to ultradifferentiable functions, we recall from Cioranescu 
+and Zsid6 [9J, section 7: 
+8.2 Theories of ultradistributions. Let L; be an index set and assume that for each 
+a E L; a locally convex space V" C V(IR) is defined, so that the following conditions are 
+satisfied. 
+(1) Vcr is an (LF)-space, 
+(2) the topology of Vcr is stronger than the topology of pointwise convergence, 
+(3) Vcr is an algebra under pointwise multiplication, 
+(4) for every compact K C IR and open D ::) K there exists <p E V" such that 0:<:; <p :<:; 1, 
+<p(x) = 1 for all x E K, Supp<p C D, 

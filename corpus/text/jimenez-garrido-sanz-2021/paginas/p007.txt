@@ -1,0 +1,67 @@
+Proposition 2.13. Let G be a sectorial region and f : G →C a holomorphic function. The
+following are equivalent:
+(i) f ∈˜
+AM(G).
+(ii) For every T ≪G there exist CT , AT > 0 such that for every p ∈N0 and z ∈T , one
+has
+|f (p)(z)| ≤CT Ap
+T p!Mp.
+In case any of the previous holds, for every p ∈N0 one may deﬁne
+f (p)(0) :=
+lim
+z∈T,z→0 f (p)(z) ∈C,
+which is independent of T ≪G, and one has f ∼M
+P
+p∈N0
+1
+p!f (p)(0)zp in G.
+In accordance with the ultraholomorphic classes we deﬁne the classes of sequences
+ΛM =
+n
+µ = (µp)p∈N0 ∈CN0 : there exist C, A > 0 with |µp| ≤CApp!Mp, p ∈N0
+o
+.
+Then, it is clear that the map ˜B : ˜
+AM(G) −→ΛM given by
+˜B(f) := (f (p)(0))p∈N0,
+is well deﬁned, and it will be called the asymptotic Borel map.
+Deﬁnition 2.14. A function f ∈˜
+AM(G) is said to be ﬂat if ˜B(f) is the null sequence or,
+in other words, f ∼M ˆ0, where ˆ0 denotes the null power series.
+2.4
+Quasianalyticity
+We are interested in characterizing those ultraholomorphic classes in which the asymptotic
+Borel map is injective.
+Deﬁnition 2.15. Let G be a sectorial region and M = (Mp)p∈N0 be a sequence of positive
+numbers. We say that ˜
+AM(G) is quasianalytic if it does not contain nontrivial ﬂat functions.
+Remark 2.16. By a simple rotation, we see that the bisecting direction d of the sectorial
+region G is irrelevant in the study of quasianalyticity. This allow us to consider only sectorials
+regions bisected by the direction d = 0, which will be denoted by Gγ whenever their opening
+equals πγ, no matter what their speciﬁc shape is.
+In order to obtain our next result, Theorem 2.19, we will use the following generalization
+of Watson’s Lemma, given by S. Mandelbrojt in [33]. A diﬀerent approach may be found
+in [50], where we used a result of B. I. Korenbljum [23] on quasianalyticity for ultraholo-
+morphic classes on sectors with uniformly bounded derivatives, a setting which we are not
+interested in considering here.
+Theorem 2.17 ([33], Section 2.4.III). Let M be a logarithmically convex sequence with
+limp→∞mp = ∞, H = {z ∈C : Re(z) > 0} and α > 0. The following statements are
+equivalent:
+(i)
+∞
+X
+p=0
+ 1
+mp
+1/α
+diverges,
+(ii) If f ∈H(H) and there exist A, C > 0 such that
+|f(z)| ≤CApMp
+|z|αp
+,
+z ∈H,
+p ∈N0,
+then f identically vanishes.
+We need also to recall now the deﬁnition of exponent of convergence of a sequence and
+how it may be computed.
+7

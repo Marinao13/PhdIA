@@ -1,0 +1,134 @@
+4.3. MULTISUMMABILITY
+175
+with θ1 = (π/2)(ω1 + ε) and θ3 = −(π/2)(ω1 + ε). Since E1 and e2 are positive real over
+the positive real axis and holomorphic in Sω2, we deduce that
+e1 ◁e2(x) = 1
+2πi
+Z R
+0
+E1
+
+1
+xre−iθ1
+
+e2
+
+1
+re−iθ1
+ dr
+r
+−
+Z θ3
+θ1
+E1
+
+1
+xRe−iθ
+
+e2
+
+1
+Re−iθ
+
+idθ +
+Z 0
+R
+E1
+
+1
+xre−iθ3
+
+e2
+
+1
+re−iθ3
+ dr
+r
+
+.
+Since θ1 = −θ3, we observe that e1 ◁e2(x) = e1 ◁e2(x), then (iv) holds.
+Let us show that
+me1◁e2(λ) = me2(λ)/me1(λ)
+(4.63)
+for Re(λ) ≥0. We have that
+me1◁e2(λ) =
+Z ∞
+0
+xλ−1(e1 ◁e2)(x)dx
+= −1
+2πi
+Z ∞
+0
+xλ−1
+Z
+δω1(0)
+E1
+ 1
+ux
+
+e2 (1/u) du
+u dx.
+We make the change of variables t = 1/(xu). Then the path δω1(0) (with radius R = 1/x,
+that can be chosen in this way because e2 is holomorphic in Sω2) stays inside Sω2 and
+it is transformed into ∆ω1(0), with ∆ω1(0) = ∆3 + ∆2 + ∆1 (∆3 is the line in direction
+θ3 = −(π/2)(ω1 + ε) from innity to eiθ3, ∆2 is a circular arc with radius R = 1, and ∆1
+is the line from eiθ1 in direction θ1 = (π/2)(ω1 + ε) to innity) and we get
+me1◁e2(λ) = 1
+2πi
+Z ∞
+0
+xλ
+Z
+∆ω1(0)
+E1 (t) e2 (xt) dt
+t
+dx
+x .
+We make the change of variables xt = s, we see that
+me1◁e2(λ) = 1
+2πi
+Z ∞
+0
+sλe2 (s)
+Z
+∆ω1(0)
+E1 (t) dt
+tλ+1
+ds
+s .
+Using condition (vi.b) for E1 and Cauchy's theorem to deform the path of integration and
+replace ∆ω1(0) by the disc D(0, 1), we obtain
+me1◁e2(λ) =
+Z ∞
+0
+sλe2 (s)
+ 
+1
+2πi
+Z
+D(0,1)
+E1 (t) dt
+tλ+1
+!
+ds
+s .
+By Cauchy's formula for E1, we see that
+me1◁e2(λ) =
+Z ∞
+0
+sλe2 (s)
+1
+me1(λ)
+ds
+s .
+Finally, by condition (v) for e2 we show that (4.63) is satised.
+We deduce that me1◁e2(λ) is continuous in {Re(λ) ≥0}, holomorphic in {Re(λ) > 0} and
+me1◁e2(x) > 0 for every x ≥0. We dene the function E◁by
+E◁(z) :=
+∞
+X
+p=0
+zn
+me1◁e2(p),
+z ∈C.
+Universidad de Valladolid

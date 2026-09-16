@@ -1,0 +1,40 @@
+102
+6. Summable Power Series
+region which, for every d ∈(α, β), contains a sector of opening larger
+than π/k and bisecting direction d. So Sk,d ˆf = f, for every such d.
+(b) From the deﬁnition of k2-summability in direction d we conclude ex-
+istence of f with f(z) ∼=1/k2 ˆf(z) in G(d, α) for some α > π/k2. Thus,
+g = Bk1f is holomorphic and of exponential growth not more than k1
+in S(d, α −π/k1), and the assumption of k1-summability in direction
+d implies that g is holomorphic at the origin. Hence statement (b)
+follows.
+(c) Use Exercise 4 on p. 72.
+2
+Exercises: Always assume k > 0.
+1. Show that ˆf(z) = ∞
+0 Γ(1+n/k) zn is k-summable in every direction
+d ̸= 2jπ, j ∈Z.
+2. Assume that ˆf is chosen so that g = S ( ˆBk ˆf) is a rational function.
+Let d be so that no poles of g lie on the ray arg u = d, and show that
+then ˆf is k-summable in direction d.
+3. Show that ˆf(z) = ∞
+0 Γ(1 + n/k) zn/Γ(1 + n) is k-summable in
+directions d with (2j + 1/2)π < d < (2j + 3/2)π, j ∈Z.
+4. For ˆf as in Exercise 3, let d be such that (2j−1/2)π < d < (2j+1/2)π,
+j ∈Z. Show that ˆf is (resp. is not) k-summable in direction d, if k ≥1
+(resp. 0 < k < 1).
+5. Assume ˆf so that g = S ( ˆBk ˆf) is as in (4.2) (p. 63). Show that ˆf is
+k-summable in all directions d ̸= 2jπ, j ∈Z, and is not k-summable
+in the remaining directions.
+6. Show that ˆf(z) = ∞
+0 Γ(1 + 2n) zn/Γ(1 + n)
+(a) is 1-summable in every direction d ∈[−π, π) but one (which?).
+(b) is 1/2-summable in every direction d with (2j + 1/2)π < d <
+(2j + 3/2)π,
+j ∈Z.
+6.3
+Algebra Properties
+Let k > 0 and d be given, and let E {z}k,d denote the set of all ˆf that are
+k-summable in direction d. The following theorems are direct consequences
+from the results on Gevrey asymptotics in Section 4.5, together with the
+deﬁnition of k-summability in direction d.

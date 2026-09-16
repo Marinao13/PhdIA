@@ -1,0 +1,44 @@
+24
+[5] E. M. Dyn’kin, Pseudoanalytic extension of smooth functions. The uniform scale, Amer.
+Math. Soc. Transl. (2) 115 (1980), 33–58.
+[6] J. Jiménez-Garrido, Applications of regular variation and proximate orders to ultraholo-
+morphic classes, asymptotic expansions and multisummability, PhD dissertation, University
+of Valladolid, 2018. Available online at http://uvadoc.uva.es/handle/10324/29501 (last ac-
+cessed October 28th, 2022).
+[7] J. Jiménez-Garrido, A. Lastra, J. Sanz, Extension operators for some ultraholomorphic
+classes defined by sequences of rapid growth, Constr. Approx. 60 (2024), 285–307.
+[8] J. Jiménez-Garrido, D. N. Nenning, G. Schindl, On generalized definitions of ultradifferen-
+tiable classes, J. Math. Anal. Appl. 526 (2) (2023), 127260.
+[9] J. Jiménez-Garrido, J. Sanz, Strongly regular sequences and proximate orders, J. Math.
+Anal. Appl. 438 (2016), no. 2, 920–945.
+[10] J. Jiménez-Garrido, J. Sanz, G. Schindl, Indices of O-regular variation for weight functions
+and weight sequences, Rev. R. Acad. Cienc. Exactas Fís. Nat. Ser. A Mat. RACSAM 113
+(4) (2019), 3659–3697.
+[11] J. Jiménez-Garrido, J. Sanz, G. Schindl, Injectivity and surjectivity of the asymptotic Borel
+map in Carleman ultraholomorphic classes, J. Math. Anal. Appl. 469 (2019), no. 1, 136–168.
+[12] J. Jiménez-Garrido, J. Sanz, G. Schindl, Surjectivity of the asymptotic Borel map in
+Carleman-Roumieu ultraholomorphic classes defined by regular sequences, Rev. R. Acad.
+Cienc. Exactas Fís. Nat. Ser. A Mat. RACSAM (2021), 115:181.
+[13] J. Jiménez-Garrido, I. Miguel-Cantero, J. Sanz, G. Schindl, Optimal flat functions in
+Carleman-Roumieu ultraholomorphic classes in sectors, Results Math. (2023) 78:98.
+[14] H. Komatsu, Ultradistributions, I: Structure theorems and a characterization, J. Fac. Sci.
+Univ. Tokyo Sect. IA Math. 20 (1973), 25–105.
+[15] A. Lastra, S. Malek, J. Sanz, Continuous right inverses for the asymptotic Borel map in
+ultraholomorphic classes via a Laplace-type transform, J. Math. Anal. Appl. 396 (2012),
+724–740.
+[16] I. Miguel-Cantero, Stability properties and Borel-Ritt theorems in ultraholomorphic classes.
+An application to a generalized moment problem, PhD dissertation, University of Valladolid,
+2025. Available online at https://uvadoc.uva.es/handle/10324/75750 (last accessed May
+14th, 2025).
+[17] H.-J. Petzsche, On E. Borel’s theorem, Math. Ann. 282 (1988), no. 2, 299–313.
+[18] S. Pilipović, N. Teofanov, F. Tomić, On a class of ultradifferentiable functions. Novi Sad J.
+Math. 45, no. 1 (2015), 125–142.
+[19] S. Pilipović, N. Teofanov, F. Tomić, Beyond Gevrey regularity, J. Pseudo-Differ. Oper. Appl.
+7 (2016), 113–140.
+[20] S. Pilipović, N. Teofanov, F. Tomić, A Paley-Wiener theorem in extended Gevrey regularity,
+J. Pseudo-Differ. Oper. Appl. 11 (2020), 593–612.
+[21] S. Pilipović, N. Teofanov, F. Tomić, Boundary values in ultradistribution spaces related to
+extended Gevrey regularity, Mathematics 9 (2021), 7.
+[22] J. P. Ramis, Dévissage Gevrey, Asterisque 59–60 (1978), 173–204.
+[23] J. Sanz, Flat functions in Carleman ultraholomorphic classes via proximate orders, J. Math.
+Anal. Appl. 415 (2014), 623–643.

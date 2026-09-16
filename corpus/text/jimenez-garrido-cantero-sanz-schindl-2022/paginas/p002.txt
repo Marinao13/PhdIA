@@ -1,0 +1,49 @@
+2
+sequences due to A. Debrouwere [5]. This information is transferred into the asymptotic frame-
+work in a halfplane by means of the Fourier transform, and in [13] Laplace and Borel transforms
+of arbitrary order allow to conclude for general sectors. However, in the particular case of classes
+given by strongly regular sequences in the sense of V. Thilliez, the proof of surjectivity of the
+Borel map [31] rests on the construction of optimal ﬂat functions in suitable sectors and a dou-
+ble application of Whitney extension results. Subsequently, A. Lastra, S. Malek and the third
+author [16] reproved surjectivity in a more explicit way by means of formal Borel- and truncated
+Laplace-like transforms, deﬁned from suitable kernel functions obtained from those optimal ﬂat
+functions.
+The ﬁrst aim of this paper is to construct such optimal ﬂat functions for Carleman-Roumieu
+ultraholomorphic classes deﬁned by general weight sequences (not just strongly regular ones)
+and in sectors Sγ with γ < γ(M). The key idea comes from a recent preprint by D. N. Nenning,
+A. Rainer and the fourth author [20], where they have studied the mixed Borel problem in
+Beurling ultradiﬀerentiable classes. They consider a mixed condition inspired by a related one
+(see (23) in this paper) appearing in a work of M. Langenbruch [15].
+It turns out that the
+condition of Langenbruch is, under natural hypotheses, equivalent to the fact that γ(M) > 1,
+and it is crucial in order to construct optimal ﬂat functions in a halfplane by means of the
+classical harmonic extension of the associated function ωM. A ramiﬁcation process provides then
+optimal ﬂat functions in the general situation. These results completely close the problem of
+the explicit construction of optimal ﬂat functions in sectors of appropriate opening for classes
+deﬁned in terms of a general weight sequence. Moreover, the constructive techniques developed
+in this paper could be used in other contexts where weighted structures appear.
+Secondly, for ultraholomorphic classes deﬁned by regular sequences we establish the con-
+nection with the surjectivity of the Borel map by providing a constructive technique for the
+corresponding extension results, in the same vein as in [16]. For sake of completeness, in the
+case of strongly regular sequences we also give an alternative approach, based on the work of
+J. Bruna [4], to this connection.
+In order to highlight the power of the technique in concrete situations, we will also present a
+family of (non strongly) regular sequences for which such optimal ﬂat functions can be provided
+in any sector of the Riemann surface of the logarithm (what agrees with the fact that the index
+γ(M) is in this case equal to ∞), resting on precise estimates for the associated function ωM
+instead of appealing to its harmonic extension. We end by showing how optimal ﬂat functions
+and extension results can be obtained for convolved sequences, in case the factor sequences admit
+such constructions separately. Some examples are commented on in regard with this technique.
+The paper is organized as follows.
+Section 2 consists of all the preliminary information
+concerning weight sequences and some indices or auxiliary functions associated with them, and
+the main facts about ultraholomorphic classes and the (asymptotic) Borel map deﬁned for them.
+In Section 3 we deﬁne optimal ﬂat functions and carefully detail their construction for general
+weight sequences. Next, we show that their existence entails the surjectivity of the Borel map
+in ultraholomorphic classes deﬁned by regular sequences. In the particular case of sequences
+of moderate growth, diﬀerent statements are presented relating the property of strong non-
+quasianalyticity to the existence of such ﬂat functions. In Section 4 we give a family of sequences
+(among which the classical q-Gevrey sequences are found) for which optimal ﬂat functions can
+be constructed in a more explicit way. We need to work ﬁrst in C \ (−∞, 0], and then apply
+a ramiﬁcation in order to reason for arbitrary sectors in the Riemann surface of the logarithm.
+Finally, the last section is devoted to the work with convolved sequences.

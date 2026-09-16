@@ -1,0 +1,95 @@
+Composition in ultradiﬀerentiable classes
+109
+Indeed, since µk/k is decreasing for ki ≤k < ki+1 and since
+µki+1
+ki + 1 ≤µki+2−1
+ki+2 −1
+for all i,
+it suﬃces to check that, for all i,
+µki+1−1
+ki+1 −1
+µki+1
+ki+1
+≤µki+2−2
+ki+2 −2
+µki+2−1
+ki+2 −1
+which is a straightforward computation. By Lemma 2.2(3) and Proposi-
+tion 3.1, E[M] is stable under composition.
+Consider the graph ΓM := {Pk := (k, log(k!Mk)) : k ∈N}. The subset
+{Pk : ki ≤k < ki+1} lies on an aﬃne line with slope (ki −1) log r. The line
+that connects Pki−1 and Pki has slope ki log r, and the line that connects
+Pki−1 and Pki+1−1 has slope (ki −1 + (ki+1 −ki)−1) log r. All these slopes
+are strictly increasing to inﬁnity as i →∞. We conclude that the graph
+ΓM♭(c) := {(k, log(k!M♭(c)
+k
+)) : k ∈N} lies on the piecewise linear curve with
+vertices {Pki−1 : i ∈N} and that {ki −1} is precisely the set of k with
+Mk = M♭(c)
+k
+.
+As Mk/Mk−1 = µk/k →∞we have M1/k
+k
+→∞(see the remarks after
+2.12), and, by Lemma 3.4, there is no log-convex N ∈RN
+>0 such that E[M] =
+E[N]. It is easy to see that the mapping r 7→E[M(r)] is injective.
+4. More general spaces of ultradiﬀerentiable functions
+4.1. Weight matrices. A weight matrix M = {Mλ ∈RN
+>0 : λ ∈Λ}
+is a family of weakly log-convex sequences Mλ = (Mλ
+k ) satisfying Mλ
+0 = 1,
+limk(k!Mλ
+k )1/k = ∞, and Mλ ≤Mµ if λ ≤µ, where Λ is a directed par-
+tially ordered set. Let M = M (Λ) be the set of all weight matrices M
+parameterized by the same set Λ. Consider the following conditions:
+∀λ ∈Λ :
+lim (Mλ
+k )1/k > 0.
+(MH)
+∀λ ∈Λ :
+lim (Mλ
+k )1/k = ∞.
+(M(Cω))
+∃λ ∈Λ :
+lim (Mλ
+k )1/k > 0.
+(M{Cω})
+∀λ ∈Λ ∃µ ∈Λ ∃C > 0 ∀k ∈N :
+Mµ
+k+1 ≤CkMλ
+k .
+(M(dc))
+∀λ ∈Λ ∃µ ∈Λ ∃C > 0 ∀k ∈N :
+Mλ
+k+1 ≤CkMµ
+k .
+(M{dc})
+∀λ ∈Λ ∃µ ∈Λ ∃C > 0 ∀j, k ∈N :
+Mµ
+j+k ≤Cj+kMλ
+j Mλ
+k .
+(M(mg))
+∀λ ∈Λ ∃µ ∈Λ ∃C > 0 ∀j, k ∈N :
+Mλ
+j+k ≤Cj+kMµ
+j Mµ
+k .
+(M{mg})
+∀λ ∈Λ ∃µ ∈Λ ∃C > 0 ∀j, k ∈N :
+Mµ
+j Mµ
+k ≤Cj+kMλ
+j+k.
+(M(alg))
+∀λ ∈Λ ∃µ ∈Λ ∃C > 0 ∀j, k ∈N :
+Mλ
+j Mλ
+k ≤Cj+kMµ
+j+k.
+(M{alg})
+∀λ ∈Λ ∃µ ∈Λ :
+(Mµ)◦⪯Mλ.
+(M(FdB))

@@ -1,0 +1,56 @@
+140
+CHAPTER 4.
+MULTISUMMABILITY VIA PROXIMATE ORDERS
+which will behave as indicated in (v) and (vi) of Denition 4.1.2 for such a kernel of
+M(1/s)−summability.
+It is worth remarking that, once such s and ˜e as in the denition exist, one easily checks
+that for any real number t > ω(M)/2 a kernel e for M(1/t)−summability exists with e(z) =
+e(z1/t)/t.
+Remark 4.1.4.
+(i) Note that Denition 4.1.2 can be given for arbitrary weight sequences
+with ω(M) ∈(0, 2). If, moreover, M is (dc) and there exists an M−summability kernel,
+one can show, following the ideas in [58, 88], that M satises (snq), so this condition is
+obtained automatically and, furthermore, γ(M) = ω(M).
+However, (mg) seems not to be deduced from the denition of the kernels but it turns
+out that for the proofs below (mg) is essential. In any case, since the existence of such
+kernels is only guaranteed for a subfamily of strongly regular sequences, the ones admitting
+a nonzero proximate order (see (ii) in this remark), the denition in [60] has been kept.
+(ii) The existence of such kernels have been proved in [60], by taking into account the construc-
+tion of nontrivial at functions in ˜
+AM(Sω(M)) accomplished by J. Sanz in [88], whenever the
+function dM(t) is a nonzero proximate order (see (2.15) and Theorem 2.2.6) which can be
+extended whenever the sequence M admits a nonzero proximate order. In Remark 2.2.18,
+we have explained that this condition holds for the strongly regular sequences appearing
+in the applications but it is strictly stronger. We recall that a weight sequence M admits
+a nonzero proximate order if there exists a nonzero proximate order ρ(t) and constants A
+and B such that
+A ≤log(t)(ρ(t) −dM(t)) ≤B,
+for t large enough,
+or, equivalently, if
+eA ≤tρ(t)
+ωM(t) ≤eB,
+for t large enough.
+In this situation we know that limt→∞dM(t) = limt→∞ρ(t) = 1/ω(M) (see Subsec-
+tion 2.2.4). Then, for such a sequence and for every V ∈MF(2ω(M), ρ(t)) they consider
+the function eV dened in Sω(M) by
+eV (z) = z exp(−V (z)).
+Since V is holomorphic in S2ω(M) and real in (0, ∞), the same is true for eV , so (i) and (iv) in
+Denition 4.1.2 hold. Property (ii) in that Denition has been obtained, as in [88, Lemma
+5.3], as a consequence of Proposition 3.2.13 which ensures that for every ε ∈(0, ω(M))
+there exists b > 0 such that for any z ∈Sω(M)−ε,
+|eV (z)| ≤|z| exp(−Re(V (z))) ≤|z| exp(−bV (|z|)) ≤|z| exp(−AbωM(|z|)) ≤|z|,
+(4.4)
+because ωM(|z|) ≥0. Similarly for (iii), using in addition Lemma 1.1.24, also as in [88,
+Lemma 5.3], we see that there exist constants c, k > 0 such that
+|eV (z)| ≤|z| exp(−AbωM(|z|)) ≤c exp(−ωM(|z|/k))
+for every z ∈Sω(M)−ε. Then, the moment function associated with eV ,
+mV (λ) :=
+Z ∞
+0
+tλ−1eV (t)dt =
+Z ∞
+0
+tλe−V (t)dt,
+is well dened in {Re(λ) ≥0}, continuous in its domain, holomorphic in {Re(λ) > 0} and
+mV (x) > 0 for every x ≥0. Moreover, we have the following result of L.S. Maergoiz.
+JAVIER JIMÉNEZ GARRIDO

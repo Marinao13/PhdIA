@@ -1,0 +1,82 @@
+12
+Proof. It is clear that the function G is holomorphic in S1. On the one hand, by taking into
+account (9), for z ∈S1 we have that
+|G(z)| = exp(−PωM(i/z)) ≤exp(−ωM(1/|z|)) = hM(|z|).
+On the other hand, the condition γ(M) > 1 implies, by Proposition 3.6, that there exists C > 0
+such that PωM(ix) ≤ωM(Cx)+C for every x > 0. Since one can easily check that QωM(i/x) = 0,
+we have that
+G(x) = exp(−PωM(i/x)) ≥exp(−ωM(C/x) −C) = exp(−C)hM(x/C),
+as desired.
+By a ramiﬁcation of the variable we can extend this method to an arbitrary weight sequence
+with γ(M) > 0 and any sector whose opening is less than πγ(M).
+Proposition 3.10. Let M be a weight sequence with γ(M) > 0. Then, for any 0 < γ < γ(M)
+there exist an optimal {M}-ﬂat function in Sγ.
+Proof. Let s > 0 be such that γ < 1/s < γ(M). Then, by [11, Th. 3.10, Prop. 3.6] we have
+that γ(Ms) = sγ(M) > 1, where Ms := (Ms
+p)p∈N0 is again a weight sequence. We apply the last
+result to the sequence Ms, so there exist an optimal {Ms}-ﬂat function G in S1. It is important
+to note that the bounds for G appearing in Deﬁnition 3.3 will be in terms of hMs, instead of hM.
+Moreover, the following relation between the functions ωMs and ωM is straightforward:
+ωM(t1/s) = 1
+sωMs(t),
+t ≥0.
+(26)
+Now, let us prove that the function F(z) = (G(zs))1/s, z ∈Sγ, is an optimal {M}-ﬂat function
+in Sγ. From the fact that G is an optimal {Ms}-ﬂat function, (4) and (26), we get
+F(x) = (G(xs))1/s ≥K1/s
+1
+exp(−s−1ωMs(1/(K2xs)))
+≥K1/s
+1
+exp(−ωM(1/(K1/s
+2
+x))) = K1/s
+1
+hM(K1/s
+2
+x),
+x > 0,
+for suitable constants K1, K2 > 0. Moreover, we have that
+|F(z)| ≤K1/s
+3
+exp(−s−1ωMs(1/(K4|z|s)))
+≤K1/s
+3
+exp(−ωM(1/(K1/s
+4
+|z|))) = K1/s
+3
+hM(K1/s
+4
+|z|),
+z ∈Sγ,
+for suitable constants K3, K4 > 0, and we are done.
+3.2
+Surjectivity of the Borel map for regular sequences
+We will describe next how, by means of an optimal ﬂat function, one can obtain extension opera-
+tors, right inverses for the Borel map, for ultraholomorphic classes deﬁned by regular sequences.
+If G is an optimal {M}-ﬂat function in e
+Au
+{M}(S), we deﬁne the kernel function e: S →C
+given by
+e(z) := G
+1
+z
+
+,
+z ∈S.
+It is obvious that e(x) > 0 for all x > 0, and there exist K1, K2, K3, K4 > 0 such that
+K1hM
+K2
+x
+
+≤e(x),
+x > 0,
+and
+|e(z)| ≤K3hM
+K4
+|z|
+
+,
+z ∈S.
+(27)

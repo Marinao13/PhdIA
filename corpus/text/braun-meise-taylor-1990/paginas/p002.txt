@@ -1,0 +1,45 @@
+Braun, Meise and Taylor 
+207 
+presented here provides a suitable and smooth frame whenever Fourier analysis is applied. 
+In fact, it was used already successfully to clarify when the analogue of Whitney's exten-
+sion theorem holds and when the extension can be given by a continuous linear operator 
+(see Bonet, Braun, Meise, and Taylor [3], Bonet, Meise, and Taylor [4J, Meise and Taylor 
+[21], [22]). Moreover, it was applied in Meise [19J and in Braun, Meise, and Vogt [6], [7], 
+to study convolution operators on £{w}(JR) and partial differential operators with constant 
+coefficients on £{w}(JRN ). 
+The article has eight sections. In the first two we prove-as basic ingredients-some 
+technical lemmas on weight functions and on the existence of certain smooth functions with 
+compact support. After that, well known arguments (which are mostly not reproduced) 
+show that the classical results can also be derived in the present framework. More precisely, 
+the spaces of test functions D(w)(O) and D{w}(O) are introduced in section three and the 
+analogue of the Paley-Wiener theorem is proved. In section four the locally convex algebras 
+£(w)(O) and £{w}(O) are introduced and a result of Vogt [27J is used to represent them 
+as sequence spaces. The same is done for D(w)(OY and D{w)(OY in section five, while 
+convolutions of test functions and ultradistributions are introduced in section six. In 
+section seven, the analogue of the theorem of Paley-Wiener-Schwartz is proved and it is 
+shown that for each weight function w 
+D{w}(O)' = U{ D(IT) (0)' I 
+(7 is a weight function with (7 = o(w)}. 
+In the last section we indicate how D.(K) and £.(0) behave under tensor products and 
+we compare the present theories of ultradistributions with other existing theories. 
+The authors thank U. Franken for the communication of Lemma 8.5. 
+1 
+Weight functions 
+In this section we introduce the weight functions we will use in the subsequent sections. 
+Moreover, we state and prove some technical results about existence of weight functions 
+with certain upper and lower estimates. 
+1.1 Definition. 
+Let w: [0, oo[ -. [0, oo[ be a continuous even function with wl[O, IJ == 0 
+which is increasing on [0,00[. It will be called a weight function if it has the following 
+properties: 
+(0:) there exists K ~ 1 with w(2t) ::; K(1 + wet)) for all t ~ 0, 
+r wet) 
+(13) il 
+1 + t2 < 00, 
+(-y) lim 10g(l+t) =0, 
+I-,x, 
+wet) 
+(0) <p: [0, oo[ -. [0,00[, <pc t) := w( et ) is convex. 
+N 
+N 
+For z E <D' we write w(z) for w(lzl), where Izl = Lj=l IZjl. 

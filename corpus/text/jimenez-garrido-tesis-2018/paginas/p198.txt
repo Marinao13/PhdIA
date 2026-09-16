@@ -1,0 +1,51 @@
+198
+CONCLUSIONES Y TRABAJO FUTURO
+disponible proveniente de la teoría de variación regular o de O-variación regular, por lo tanto
+se podría profundizar en algunas de las conclusiones del segundo capítulo. Finalmente, merece
+la pena mencionar que, aunque los métodos de M−sumabilidad se han aplicado en [60, 61], su
+desarrollo permanece aún en un plano bastante teórico.
+Antes de terminar, y a la luz de los resultados obtenidos en esta tesis, sus implicaciones y
+sus limitaciones, se listan a continuación algunas líneas de investigación futura.
+■En primer lugar, parece que todavía se puede explotar la conexión entre sucesiones peso y
+la O-variación regular, establecida en la Sección 2.1, para dilucidar el signicado de otras
+condiciones que aparecen frecuentemente cuando se consideran clases ultraholomorfas o ultra-
+diferenciables de funciones. En esta misma dirección, se podría analizar la noción, también
+clásica, de E-variación regular (véase [13, Sect. 2.1]), que se encuentra entre la variación reg-
+ular y la O-variación regular. Adjunto a este concepto interviene un par adicional de índices,
+los de Karamata, distintos en general de los órdenes y de los índices de Matuszewska. Por
+lo tanto, es natural el análisis de si estos también describen propiedades signicativas de las
+sucesiones peso. Una línea diferente, mencionada en la Observación 2.1.33, tiene que ver con la
+consideración de clases ultraholomorfas y ultradiferenciables denidas por medio de funciones
+peso.
+Hemos mostrado en [45, 47] que los requerimientos impuestos sobre estas funciones
+tienen una interpretación en términos de propiedades o índices de O-variación regular. Sin
+embargo, como ocurre en el caso de sucesiones peso, parece que no hemos explotado todavía
+toda la información que se puede obtener a partir de estas potentes herramientas.
+■La sucesión dual introducida en la Subsección 2.1.5 sugiere la existencia de cierta dualidad
+entre los espacios correspondientes. La dualidad clásica en espacios de Orlicz, construidos
+a partir de una función monótona y de O-variación regular cuya inversa `por la derecha'
+determina el espacio dual (ver [86]), apoya esta conjetura. Puesto que la función de conteo
+νm puede verse como una suerte de inversa de la función escalonada fm(x) = m⌊x⌋, puede
+esperarse dicha dualidad.
+■Uno de los objetivos más evidentes que alcanzar es el estudio completo de la sobreyectividad de
+la aplicación de Borel. Como se señaló en la Observación 3.3.19, se espera que ˜SM = (0, γ(M)]
+y SM = ˜Su
+M = (0, γ(M)), al menos para sucesiones fuertemente regulares. En este caso, solo
+queda determinar si el valor γ(M) pertenece o no a alguno de estos intervalos.
+Cuando M no es fuertemente regular, se debe observar que solo se tiene información acerca de
+la extensión máxima de los intervalos de sobreyectividad pero, hasta donde sabemos, perfec-
+tamente podrían ser vacíos. Por lo tanto, se debería dedicar algún esfuerzo a la construcción
+de operadores de extensión bajo la condición necesaria (snq) junto con, posiblemente, alguna
+otra condición más débil que (mg).
+■La existencia de núcleos de M−sumabilidad ha sido probada únicamente para sucesiones peso
+que admiten un orden aproximado no nulo (ver la Observación 4.1.4). Es un problema abierto
+el determinar si tales núcleos existen para sucesiones fuertemente regulares arbitrarias. Es-
+trechamente relacionado con este, se podría también intentar caracterizar las sucesiones que
+pueden ser escritas como momentos de un núcleo de M−sumabilidad; observemos que la solu-
+ción de este problema no se conoce ni siquiera en el caso Gevrey, como ha señalado W. Balser [7,
+p. 94]. Se comentó en la Observación 4.1.3 que, para una sucesión peso M que satisfaga (dc),
+con 0 < ω(M) < 2 y para la que exista un núcleo de M−sumabilidad, se puede deducir que
+no solo M es (snq), sino que de hecho γ(M) = ω(M). Un asunto interesante sería el estudio
+de las posibles implicaciones o equivalencias entre diferentes propiedades de este tipo, como la
+existencia de núcleos de M−sumabilidad, la existencia de funciones planas `buenas' en sectores
+JAVIER JIMÉNEZ GARRIDO

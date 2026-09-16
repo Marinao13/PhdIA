@@ -1,0 +1,43 @@
+The Stieltjes moment problem in Gelfand-Shilov
+spaces defined by weight sequences in the absence of
+derivation closedness
+Javier Jiménez-Garrido
+Ignacio Miguel-Cantero
+Javier Sanz
+Gerhard Schindl
+November 11, 2025
+Abstract
+The Stieltjes moment problem is studied in a new framework within the gen-
+eral Gelfand-Shilov spaces defined via weight sequences.
+The novelty consists of
+allowing for a naturally larger target space for the moment mapping, which sends a
+function to its sequence of Stieltjes moments. The motivation comes from a recent
+version of the Borel-Ritt theorem, concerning the surjectivity of the Borel mapping
+in Carleman-Roumieu ultraholomorphic classes in sectors, whose defining weight
+sequence is subject to the condition, weaker than derivation closedness, of having
+shifted moments. The injectivity and surjectivity of the moment mapping in this
+new setting is studied and, in some cases, characterized. Finally, results are provided
+for general weight sequences of fast and regular enough growth when the condition
+of shifted moments fails to hold.
+Key words: Stieltjes moment problem, Gelfand-Shilov spaces, growth and regularity
+conditions for sequences.
+2020 MSC: 30E05, 44A60, 46F05.
+1
+Introduction
+This paper is a new contribution to the study of the Stieltjes moment problem in the
+context of Gelfand-Shilov spaces of Roumieu type defined by weight sequences, first in-
+troduced in [7] and which we define now. S(0, ∞) will denote the subspace of the Schwartz
+class of rapidly decreasing complex-valued smooth functions in R with support in [0, ∞),
+and N0 = {0, 1, 2, . . . }. Given two sequences of positive real numbers M = (Mp)p∈N0 and
+A = (Ap)p∈N0, we consider the Gelfand-Shilov spaces of Roumieu type S{A}
+{M}(0, ∞) and
+S{M}(0, ∞), consisting of all φ ∈S(0, ∞) such that there exists h > 0 with
+sup
+p,q∈N0
+sup
+x∈R
+|xpφ(q)(x)|
+hp+qMpAq
+< ∞
+1
+arXiv:2511.06878v1  [math.FA]  10 Nov 2025

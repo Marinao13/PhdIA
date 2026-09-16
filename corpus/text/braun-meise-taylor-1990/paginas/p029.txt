@@ -1,0 +1,37 @@
+234 
+Braun, Meise and Taylor 
+As an immediate consequence of Lemma 8.5 we get: 
+8.6 Corollary. 
+For each wEn there existJ a weight function w E W so that for each 
+open set G in JR the space Vw(G) in the sense of Cioranescu and Zsid6 {9} coincides with 
+V(~)( G) defined in S.l . 
+Remark. Corollary 8.6 shows that the theory of ultradistributions presented here extends 
+the one of Cioni.nescu and Zsid6 to JRN. Hence problem 7.9(v) of [9] is solved as far as 
+JRN is concerned. 
+From Cioranescu and Zsid6 [9], 1.6, Lemma 8.5, and Corollary 2.6 we get: 
+8.7 Corollary. For each increasing continuous function a: [0, oo[ -+ [0, oo[ which satisfies 
+It a(t)/t1dt < 00 there exist a weight function wand A > 0 so that 
+a(t) ::; w(t) + A 
+for all t ~ O. 
+In particular, there exists f E V(JR), f i- 0, such that 
+l:~X li(t)1 exp(ma(t))dt < 00 
+for all m E IN. 
+By 1.6, 7.4, and 7.7 of Cioranescu and Zsid6 [9] and Corollary 8.6 we have the following 
+relations among the theories of ultradistributions mentioned so far: 
+8.8 Proposition. 
+(1) The theories {VwLEn, {Vp/,.)}P/,.)E_I4 , {Vpl/.) hM,.)EM, {V(w)}wEW, and {V{wj}wEW 
+are equivalent. 
+(2) The theories {Vw}wE[lo and {VoLo are equivalent. {V(w)}wEW and {V{w) }wEW are 
+strictly larger than these. 
+Remark. The fact that {V(w)}wEW is strictly larger than {V", }c>EA is also a consequence 
+of Franken [10], S 7, where explicit weight functions are constructed which cannot be 
+dominated by any function a E A. 
+8.9 Remark. Let (Ml')I.EJNo be a sequence' in .vt which satisfies 
+(M2) there exist A, H > 1 so that for all p E IN: 
+and 
+(*) there exists k E IN so that m i := M;/M i- 1 satisfies 
+m j k 
+liminf -
+> 1. 
+j ~ ,")0 
+mj 

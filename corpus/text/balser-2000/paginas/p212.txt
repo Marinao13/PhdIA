@@ -1,0 +1,58 @@
+12.5 Central Connection Problems
+195
+with respect to s, to become a meromorphic function of s with poles at the
+points
+s + µ = −j,
+j ∈N0.
+This will, however, not be needed here.
+For the auxiliary functions, deﬁned on p. 147, we may choose z0 = 0,
+whenever Re s is large enough. Doing so, we ﬁnd
+Ψ(u; s; k) =
+µ
+
+m=1
+Φ∗
+m(u; s; k) Ω(k)
+m ,
+where Ωm(k) denotes the mth row of blocks of Ωj∗(k), when this matrix is
+blocked of type (s1, . . . , sµ). This shows that Ψ(u; s; k) is holomorphic in
+C d. For its singular behavior at the points un, recall that Φ∗
+m(u; s; k) =
+hol(u −un) for m ̸= n, while we have shown in the proof of Theorem 46
+(p. 149) that r−1
+ℓ=0 Φn(u; s; k+ℓ) = Φ∗
+n(u; s; k) (I −e−2πi (sI+Ln))+hol(u−
+un). This shows:
+Theorem 62 Under the assumptions made above, we have for every s with
+Re s large and so that (I −e2πi (sI+Ln))−1 exists,
+Ψm(u; s; k) =
+!r−1
+
+ℓ=0
+Φn(u; s; k + ℓ)
+"
+(I −e−2πi (sI+Ln))−1 Ω(k)
+n +hol(u−un),
+for every n = 1, . . . , µ.
+This identity shows that the central connenction problem can theoreti-
+cally be solved as follows: Compute the matrix Ψ(u; s; k), either by its in-
+tegral representation or the convergent power series (12.2), for u and Re s
+suﬃciently large. Then, continue the function with respect to u to the sin-
+gularities un, and there use the above identity to compute Ω(k)
+n . Doing this
+for every n allows to compute the matrix Ωj∗(k), linking the fundamental
+solution X(z) to the corresponding normal solution of highest level.
+Without going into detail, we mention that given two matrices Ωj∗(k) and
+Ωj∗(k+1), one can compute the Stokes multipliers Vj, for j∗(k + 1) + 1 ≤
+j ≤j∗(k), by factoring Ωj∗(k+1) Ω−1
+j∗(k) as in the exercises in Section 9.2.
+Consequently, if we have computed Ωj∗(k+ℓ), for ℓ= 0, . . . , r −1, then all
+Stokes’ multipliers of highest level can be found explicitly. However, the
+knowledge of the Stokes multipliers is not suﬃcient to ﬁnd the central con-
+nection matrices: Assume that we had chosen X(z) so that exp[2πi M] were
+in Jordan normal form. Moreover, assume all Stokes’ multipliers of highest
+level are known. Then the monodromy factor exp[2πi Mj] for Xj(z) is given
+by (9.5). So by continuation of the relation X(z) = Xj(z) Ωj about inﬁn-
+ity we obtain Ωj exp[2πi M] = exp[2πi Mj] Ωj. This then shows that Ωj
+is some matrix which transforms exp[2πi Mj] into Jordan form. However,
+such a matrix is not uniquely determined. In the generic situation where

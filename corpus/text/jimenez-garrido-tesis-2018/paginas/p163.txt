@@ -1,0 +1,106 @@
+4.3. MULTISUMMABILITY
+163
+Consequently, by (4.23), (4.25) and (4.26), for all s < s0 we see that
+I(s) ≤C2d3εα2
+2
+α2
+exp(ωM1·M2(k3ε2s0)) + d2d3M2,1
+k2ε2
+exp(ωM1·M2(k3ε2sα
+0 )) + d2d3M1,1M2,1
+k3ε2sα
+= a1 + a2
+sα .
+(4.27)
+Now, for every s ≥s0 we split the integral into two parts ˜Ij(s) for j = 1, 2. Since r/(seiφ) ∈Sτ2
+and |r/(seiφ)| ≤ε2 for all r ∈(0, ε2s), by (4.19) and (4.22), as before we get that
+˜I1(s) :=
+Z ε2s
+0
+e2
+ r
+seiφ
+ |f(reiθ)|dr
+r ≤C2d3
+sα2
+Z ε2s
+0
+rα2eωM1·M2(k3r) dr
+r .
+Using (4.15) and the monotonicity of ωM1(t), we see that
+˜I1(s) ≤C2d3εα2
+2
+α2
+exp(ωM1(k3ε2s)).
+(4.28)
+By (4.21) and (4.22) again, we can see that
+˜I2(s) :=
+Z ∞
+ε2s
+e2
+ r
+seiφ
+ |f(reiθ)|dr
+r ≤d2d3
+Z ∞
+ε2s
+e−ωM2(k2r/s)eωM1·M2(k3r) dr
+r .
+Applying Lemma 1.1.24 to ωM2 and by (4.14) we can show that
+˜I2(s) ≤d2d3
+Z ∞
+ε2s
+e−2ωM2(k2r/(sA2))eωM1(k3A2s/k2)eωM2(k2r/(sA2)) dr
+r .
+Using the denition of ωM2(t), as in (4.24), we deduce that
+˜I2(s) ≤d2d3eωM1(k3A2s/k2)
+Z ∞
+ε2s
+e−ωM2(k2r/(sA2)) dr
+r ≤d2d3A2M2,1
+k2ε2
+eωM1(k3A2s/k2).
+Together with (4.28), for all s ≥s0 we get that
+I(s) ≤C2d3εα2
+2
+α2
+exp(ωM1(k3ε2s)) + d2d3A2M2,1
+k2ε2
+exp(ωM1(k3A2s/k2)).
+Since k4 = max(ε2, A2/k2) and ωM1(t) is nondecreasing, for every s ≥s0 we have shown that
+I(s) ≤b1 exp(ωM1(k3k4s)).
+(4.29)
+Consequently, for any z ∈U0 and any s ∈(0, s0) we have that sei(θ+φ)/z ∈Sτ1 and s/|z| ≤
+s0/|z| ≤ε1 and, by (4.18) and (4.27), we deduce that
+J1(z) :=
+Z s0
+0
+e1
+ 
+sei(θ+φ)
+z
+! I(s)ds
+s ≤
+C1
+|z|α1
+Z s0
+0
+(a1sα1 + a2sα1−α)ds
+s .
+Since α < α1, for every z ∈U0 we see that
+Z s0
+0
+e1
+ 
+sei(θ+φ)
+z
+! I(s)ds
+s ≤
+C1a1sα1
+0
+α1(|z0| −ρ0)α1 +
+C1a2sα1−α
+0
+(α1 −α)(|z0| −ρ0)α1 .
+(4.30)
+Universidad de Valladolid

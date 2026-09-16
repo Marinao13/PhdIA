@@ -1,0 +1,75 @@
+48
+3. Highest-Level Formal Solutions
+are linear combinations of the rows of N ℓ
+µ. Now, take ℓ= sµ, the size of
+the last, i.e., the smallest, Jordan block of A0. Then we have N ℓ
+µ = 0, but
+C(ℓ)
+k
+̸= 0 for at least one k, hence inequality holds for the ranks, thus B0 is
+superior to A0.
+2
+Suppose that we are given a formal system with a leading term as in (3.9),
+normalized up to z−n0. Proposition 6 then implies that either ˆAkµ(z) =
+O(zr−n0−1), 1 ≤k ≤µ−1, or we have a shearing transformation producing
+a system with a superior leading term. Much more can be said, however:
+Theorem 9 Let (3.3) be a formal system with a leading term of the form
+(3.9), normalized up to z−n0. Then we can ﬁnd an unramiﬁed shearing
+transformation producing a system with a superior leading term, except
+when the coeﬃcients An, 1 ≤n ≤n0, are all diagonally blocked in the
+block structure of A0, i.e., when (3.3) is reduced up to z−n0.
+Proof:
+For µ = 1 nothing remains to prove, so suppose otherwise. Ap-
+plying Proposition 6 shows the existence of a shearing transformation as
+required, except when all An, 1 ≤n ≤n0, are lower triangularly blocked,
+not necessarily in the block structure of A0, but the coarser one with two
+diagonal blocks, the second one of the same size as Nµ. It is not diﬃcult
+to see that an analogue to Proposition 6, with a shearing transformation
+inverse to the one used there, produces a system with a superior leading
+term, except when the above-mentioned coeﬃcients are diagonally blocked
+in the same coarser block structure. Repeating the same arguments for the
+ﬁrst diagonal block then completes the proof.
+2
+According to the above results, we are now left to deal with a formal
+system (3.3) with a leading term as in (3.9), and for some n0 to be chosen
+later we may assume that (3.3) is reduced up to z−n0, i.e., for all n =
+1, . . . , n0 and 1 ≤j, k ≤µ:
+A(jj)
+n
+=
+
+
+a(j,1)
+n
+a(j,2)
+n
+. . .
+a(j,sj)
+n
+0
+0
+. . .
+0
+...
+...
+...
+0
+0
+. . .
+0
+
+,
+A(jk)
+n
+= 0 (j ̸= k).
+(3.11)
+Note that in case µ = 1, the condition on A(jk)
+n
+for j ̸= k becomes void!
+Remark 5: On one hand, for theoretical arguments we may assume with-
+out loss in generality that the number n0 introduced above is as large as we
+need it to be; however, for more computational purposes it is convenient
+to keep it as small as possible. So in the discussion to follow, we shall con-
+sider an arbitrarily ﬁxed value n0, but keep in mind that we might have
+arranged n0 ≥ν, because if not, then we may apply Theorem 9 to obtain
+a system with larger n0, or one with superior leading term, and the latter

@@ -1,0 +1,131 @@
+xvi       Contents
+4.2
+Functions in Sectorial Regions . . . . . . . . . . . . . . . . .
+61
+4.3
+Formal Power Series . . . . . . . . . . . . . . . . . . . . . .
+64
+4.4
+Asymptotic Expansions
+. . . . . . . . . . . . . . . . . . . .
+65
+4.5
+Gevrey Asymptotics . . . . . . . . . . . . . . . . . . . . . .
+70
+4.6
+Gevrey Asymptotics in Narrow Regions
+. . . . . . . . . . .
+73
+4.7
+Gevrey Asymptotics in Wide Regions
+. . . . . . . . . . . .
+75
+5
+Integral Operators
+77
+5.1
+Laplace Operators
+. . . . . . . . . . . . . . . . . . . . . . .
+78
+5.2
+Borel Operators . . . . . . . . . . . . . . . . . . . . . . . . .
+80
+5.3
+Inversion Formulas . . . . . . . . . . . . . . . . . . . . . . .
+82
+5.4
+A Diﬀerent Representation for Borel Operators . . . . . . .
+83
+5.5
+General Integral Operators
+. . . . . . . . . . . . . . . . . .
+85
+5.6
+Kernels of Small Order . . . . . . . . . . . . . . . . . . . . .
+89
+5.7
+Properties of the Integral Operators
+. . . . . . . . . . . . .
+91
+5.8
+Convolution of Kernels . . . . . . . . . . . . . . . . . . . . .
+93
+6
+Summable Power Series
+97
+6.1
+Gevrey Asymptotics and Laplace Transform . . . . . . . . .
+99
+6.2
+Summability in a Direction
+. . . . . . . . . . . . . . . . . .
+100
+6.3
+Algebra Properties . . . . . . . . . . . . . . . . . . . . . . .
+102
+6.4
+Deﬁnition of k-Summability . . . . . . . . . . . . . . . . . .
+104
+6.5
+General Moment Summability . . . . . . . . . . . . . . . . .
+107
+6.6
+Factorial Series . . . . . . . . . . . . . . . . . . . . . . . . .
+110
+7
+Cauchy-Heine Transform
+115
+7.1
+Deﬁnition and Basic Properties . . . . . . . . . . . . . . . .
+116
+7.2
+Normal Coverings . . . . . . . . . . . . . . . . . . . . . . . .
+118
+7.3
+Decomposition Theorems
+. . . . . . . . . . . . . . . . . . .
+119
+7.4
+Functions with a Gevrey Asymptotic . . . . . . . . . . . . .
+121
+8
+Solutions of Highest Level
+123
+8.1
+The Improved Splitting Lemma . . . . . . . . . . . . . . . .
+124
+8.2
+More on Transformation to Rational Form . . . . . . . . . .
+127
+8.3
+Summability of Highest-Level Formal Solutions . . . . . . .
+129
+8.4
+Factorization of Formal Fundamental Solutions . . . . . . .
+131
+8.5
+Deﬁnition of Highest-Level Normal Solutions
+. . . . . . . .
+137
+9
+Stokes’ Phenomenon
+139
+9.1
+Highest-Level Stokes’ Multipliers . . . . . . . . . . . . . . .
+140
+9.2
+The Periodicity Relation . . . . . . . . . . . . . . . . . . . .
+142
+9.3
+The Associated Functions . . . . . . . . . . . . . . . . . . .
+144
+9.4
+An Inversion Formula
+. . . . . . . . . . . . . . . . . . . . .
+150
+9.5
+Computation of the Stokes Multipliers . . . . . . . . . . . .
+151
+9.6
+Highest-Level Invariants . . . . . . . . . . . . . . . . . . . .
+153

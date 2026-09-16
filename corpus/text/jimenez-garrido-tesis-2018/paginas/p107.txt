@@ -1,0 +1,35 @@
+107
+Chapter 3
+Injectivity and surjectivity of the
+asymptotic Borel map
+From the sequences of positive real numbers considered in the previous chapters we will dene
+classes of holomorphic functions in unbounded sectors of the Riemann surface of the logarithm.
+In this context, the study of properties of the asymptotic Borel map, sending a function f into its
+asymptotic expansion, appears as a natural problem. The injectivity and surjectivity of the Borel
+map will be examined in three instances: in Roumieu-Carleman ultraholomorphic classes and in
+classes of functions admitting (uniform or nonuniform) asymptotic expansion at the origin. It
+will be shown that the solution depends on the opening of the sector, injectivity is possible if
+the sector is wide enough whereas surjectivity is only attainable in narrow regions. This issue is
+closely related with the summability theory presented in the next chapter: injectivity provides
+uniqueness and surjectivity existence of the sum of a formal power series.
+Injectivity had been solved in two cases by S. Mandelbrojt and B. Rodríguez-Salinas in the
+1950's, respectively, and we completely solve the third one by means of the theory of proximate
+orders (see Theorem 3.2.15).
+Sanz's growth index ω(M) turns out to put apart the values
+of the opening of the sector for which injectivity holds or not.
+The rst section ends with
+Theorem 3.2.16 in which it is proved that the Borel map is never bijective as an outcome of the
+injectivity theorems.
+In the case of surjectivity, only some partial results were available by J. Schmets and M.
+Valdivia and by V. Thilliez at the very beginning of this century, resting on results from the
+ultradierentiable setting and disregarding questions about the optimality of the opening of
+the sector, that was only established for the Gevrey case Mα = (p!α)p∈N0 . This last author
+introduced the growth index γ(M) for this problem. We considerably extend here their results,
+proving that γ(M) is indeed optimal in some standard situations, for instance for strongly regular
+sequences, putting now apart the values of the opening of the sector for which surjectivity holds
+or not.
+From the information in Section 2.1, we know that for strongly regular sequences the value of
+theses indices ω(M) and γ(M) is generally dierent. However they coincide for a large class, the
+ones admitting a nonzero proximate order (see Section 2.2), which contains most of the sequences
+appearing in the applications.
+The results gathered in this chapter can be found in [48].

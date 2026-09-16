@@ -1,0 +1,104 @@
+4.2. TAUBERIAN THEOREMS
+147
+or, equivalently, if
+lim inf
+p→∞
+ Lp
+Mp
+1/p
+= 0,
+and
+lim sup
+p→∞
+ Lp
+Mp
+1/p
+< ∞.
+In other words, we want to avoid noncomparable sequences, that is,
+lim inf
+p→∞
+Mp
+Lp
+1/p
+= 0,
+and
+lim sup
+p→∞
+Mp
+Lp
+1/p
+= ∞.
+(4.9)
+For the construction of our example of noncomparable sequences, we need to characterize
+(4.9) in terms of the corresponding associated functions (see (1.4)). For any weight sequence M
+admitting a nonzero proximate order, by Lemma 1.2.12 and Remark 1.2.31, we know that the
+associated function ωM(t) is O-regularly varying with all the Matuszewska indices and the orders
+coinciding with 1/ω(M) ∈(0, ∞) and we deduce the next Lemma.
+Lemma 4.2.1. Let M be a weight sequence admitting a nonzero proximate order. Then for any
+A > 0 there exist tA, E, F > 0 such that
+ωM(Et) < AωM(t) < ωM(Ft),
+t > tA,
+and for any B > 0 there exist constants tB, G, H > 0 such that
+GωM(t) < ωM(Bt) < HωM(t),
+t > tB.
+The characterization of comparability in terms of the associated function is stated below in
+the most regular case, i.e., for a sequence M admitting a nonzero proximate order, because these
+are the ones used to develop the summability theory, but Lemma 4.2.1 is still valid if weaker
+conditions are satised by M (see [90, Lemmma 3.18] by G. Schindl). Hence, the next proposition
+also holds for simpler but less regular sequences, for instance strongly regular, and examples of
+noncomparability can be constructed in a similar way.
+Proposition 4.2.2. Let M and L be two weight sequences such that M admits a nonzero
+proximate order. We have that
+lim inf
+p→∞
+Mp
+Lp
+1/p
+= 0
+if and only if
+lim inf
+t→∞
+ωL(t)
+ωM(t) = 0,
+and
+lim sup
+p→∞
+Mp
+Lp
+1/p
+= ∞
+if and only if
+lim sup
+t→∞
+ωL(t)
+ωM(t) = ∞.
+Proof. If we suppose that lim inft→∞ωL(t)/ωM(t) > 0, then there exists A > 0 such that ωL(t) ≥
+AωM(t) for every t ≥t0. By Proposition 1.1.23, we have that
+lim inf
+p→∞
+Mp
+Lp
+1/p
+= lim inf
+p→∞
+
+Mp
+supt>0(tp/eωL(t))
+1/p
+≥lim inf
+p→∞
+
+Mp
+supt>0(tp/eAωM(t))
+1/p
+.
+By Lemma 4.2.1, there exists E > 0 such that AωM(t) > ωM(Et) for t large enough.
+It is
+easy to check that the supremum for t > 0 of the function fp,M(t) = tpe−AωM(t) is attained in
+[m⌊p/A⌋, ∞), so for p large enough we have that
+sup
+t>0
+(tp/eAωM(t)) < sup
+t>0
+(tp/eωM(Et)),
+Universidad de Valladolid

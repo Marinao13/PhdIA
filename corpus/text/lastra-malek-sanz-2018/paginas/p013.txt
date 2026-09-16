@@ -1,0 +1,58 @@
+13
+It is immediate to prove that, if we put
+νM,A(G) := sup
+j∈N
+n
+|Gj|M,2AA1,AM,2AA1(Sj′,B)
+o
+,
+G ∈F1
+M,A(S, B),
+then (F1
+M,A(S, B), νM,A) is a Banach space. We may consider a generalized Borel map, say B1,
+sending any function in AM,A(S, B) to its corresponding ﬁrst order family. Then, one has
+Proposition 5.5 ([13], Proposition 3.4). The map B1 : AM,A(S, B) →F1
+M,A(S, B) is well
+deﬁned, linear and continuous.
+The main purpose of the current section is to obtain a continuous right inverse for the
+preceding operator. The procedure followed is similar to the one in [26] for Gevrey classes, and
+it is based on our new proof of Theorem 4.3, so overcoming the technical diﬃculties encountered
+in [13].
+The ﬁrst step in the proof consists of changing the problem into an equivalent one in terms
+of functions in one variable with values in an appropriate Banach space of functions. In order
+to do this, the following result is essential. Since the proof for a similar statement can be found
+in detail in [10, Thm. 4.5], we omit it.
+Theorem 5.6. Let n, m ∈N, M be a sequence of positive real numbers, B be a complex Banach
+space, A > 0 and S and V be (poly)sectors in Rn and Rm, respectively. Then, we have:
+(i) If M fulﬁlls (µ) and A1 is the constant involved in this property, then the map
+ψ1 : AM,A(S × V, B) −→AM,2AA1 (S, AM,2AA1(V, B))
+sending each function f ∈AM,A(S × V, B) to the function f ⋆= ψ1(f) given by
+(f ⋆(z)) (w) = f(z, w),
+(z, w) ∈S × V,
+is well deﬁned, linear and continuous. Given f ∈AM,A(S × V, B), for every α ∈Nn
+0,
+β ∈Nm
+0 and (z, w) ∈S × V we have
+D(α,β)f(z, w) = Dα (Dαf ⋆(z)) (w),
+and so
+∥f ⋆∥
+AM,2AA1(V,B)
+M,2AA1,S
+≤∥f∥B
+M,A,S×V .
+(ii) If M fulﬁlls (α0), the map
+ψ2 : AM,A (S, AM,A(V, B)) −→AM,A(S × V, B)
+given by
+(ψ2(f)) (w, z) = (f(z)) (w),
+(z, w) ∈S × V,
+is well deﬁned, linear and continuous. For f ∈AM,A (S, AM,A(V, B)), every α ∈Nn
+0,
+β ∈Nm
+0 and (z, w) ∈S × V we have
+(18)
+D(α,β) (ψ2(f)) (z, w) = Dβ (Dαf(z)) (w),
+and consequently
+∥ψ2(f)∥B
+M,A,S×V ≤∥f∥AM,A(V,B)
+M,A,S
+.

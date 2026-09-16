@@ -1,0 +1,27 @@
+5
+Integral Operators
+In this chapter we introduce a certain type of integral operators that shall
+play an important role later on. The simplest ones in this class are Laplace
+operators, while some of the others will be Ecalle’s acceleration operators,
+that will be studied in detail in Chapter 11. All of them will be used in the
+next chapter to deﬁne some summability methods that, in the terminology
+common in this ﬁeld, are called moment methods. As we shall prove, most
+of these methods are equivalent in the sense that they sum the same formal
+power series to the same holomorphic functions. The reason for investigat-
+ing all these equivalent methods is that for particular formal power series it
+will be easier to check applicability of a particular method. Thus having all
+of them at our disposal gives a great deal of ﬂexibility. Moreover, it also is
+of theoretical interest to know what properties of the methods are needed
+to sum a certain class of formal power series. It should, however, be noted
+that statements on methods being equivalent are here to be understood
+for summation of power series in interior points of certain regions, while
+the methods may be inequivalent when studying the same series at some
+boundary point.
+Laplace and Borel operators are used in several diﬀerent areas of math-
+ematics, and are therefore deﬁned and studied in many textbooks, such
+as [284] and others. They will also be the main tool in our theory of multi-
+summability. Here, we only apply them to functions that are holomorphic
+in sectorial regions and continuous at the origin, which simpliﬁes most of
+the proofs for their properties. For example, the identity theorem for holo-
+morphic functions implies that formulas proven for some “small” set of
+complex numbers, e.g., an inﬁnite set accumulating at some interior point

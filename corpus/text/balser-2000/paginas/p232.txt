@@ -1,0 +1,38 @@
+216
+Appendix A. Matrices and Vector Spaces
+If ˜b also is an inverse of a, then ˜b = ˜b e = ˜b a b = e b = b follows, using
+the associative law. It is common to write a−1 for the inverse of a, in
+case it exists.
+• Let E be an algebra over C . A linear mapping d : E × E 	−→E is
+called a derivation provided that for any a, b ∈E the product rule
+d(a b) = d(a) b + a d(b)
+holds. If such a derivation is deﬁned, then E is called a diﬀerential
+algebra.
+• Let E be a vector space over C. A mapping ∥· ∥: E 	−→R is called
+a norm on E if for any a, b ∈E and α ∈C we have
+(a) ∥a∥≥0,
+∥a∥= 0 ⇐⇒a = 0.
+(b) ∥αa∥= |α| ∥a∥.
+(c) ∥a + b∥≤∥a∥+ ∥b∥.
+Given such a norm, one can deﬁne convergent sequences, resp. Cauchy
+sequences in E , as for sequences of real or complex numbers, by re-
+placing the absolute value sign by the notion of norm. Doing so, we
+say that E is a Banach space, if every Cauchy sequence converges.
+• Let E be an algebra on which a norm ∥· ∥is deﬁned. If additionally
+to (a), (b), (c) we have
+∥ab∥≤∥a∥∥b∥,
+then E is called a normed algebra. If E even is a Banach space, we
+speak of a Banach algebra. Note that, in case E has a unit element e,
+∥e∥≥1 follows, but equality not necessarily holds. However, one can
+always replace the given norm on E by another one, diﬀering from
+the former one by a constant factor, so that then we do have ∥e∥= 1,
+and we shall always assume this to be the case.
+Let V be a Banach space. An arbitrary mapping F, deﬁned on a subset
+D ⊂X, is said to have a ﬁxed point if for some v ∈D we have F(v) = v.
+Several theorems show existence of such a ﬁxed point; here we are going to
+use the most elementary one:
+Theorem 64 (Banach’s Fixed Point Theorem)
+Let D be a closed subset of a Banach space V , and let F : D −→D be a
+contraction; i.e., for some α ∈(0, 1) let
+∥F(v1) −F(v2)∥≤α ∥v1 −v2∥,
+for any two v1, v2 ∈D. Then F has a unique ﬁxed point in D.

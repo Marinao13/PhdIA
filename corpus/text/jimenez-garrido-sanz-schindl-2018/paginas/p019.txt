@@ -1,0 +1,99 @@
+Proof. For simplicity, we note (Mp)p≥0 for the sequence (M V
+p )p≥0. We observe that, us-
+ing (19) and (20),
+M(t) = sup
+p∈N0
+log
+ tp
+Mp
+
+= sup
+p∈N0
+(p log(t) −ϕ∗
+V (p))
+≤sup
+y∈R
+(y log(t) −ϕ∗
+V (y)) = ϕ∗∗
+V (log(t)) = ϕV (log(t)) = V (t).
+(21)
+Let us show that
+supy∈R (y log(t) −ϕ∗
+V (y))
+supp∈N0 (p log(t) −ϕ∗
+V (p)) = V (t)
+M(t) ≤
+ν(t)
+ν(t) −1,
+t > m1
+(observe that for t > m1, we have that ν(t) ≥2 and M(t) > 0). For t > m1 we deﬁne the
+function
+ft(y) := y log(t) −ϕ∗
+V (y),
+y ∈R.
+Since ϕ∗
+V (x) is convex (by Proposition 4.11), we have that ft(y) is a concave function. We
+see that ϕ∗
+V (y) = ∞for y < 0, because
+xy −V (ex) < 0
+for x ≥0,
+and
+xy −V (ex) ≥xy −V (1)
+for x < 0.
+Consequently, ft(y) = −∞if y < 0. As ϕ∗
+V (0) = log M0 = 0, we have ft(0) = 0 for every
+t > m1. Then supy∈R ft(y), which equals V (t), is attained for some y > 0.
+Let us see that this happens in the interval (ν(t) −1, ν(t) + 1). Otherwise, there are two
+possibilities: there exists x ≥ν(t) + 1, respectively x ≤ν(t) −1, such that ft(x) > ft(ν(t)).
+Since ft is concave, all the points (y, ft(y)) such that y ∈[ν(t), x], resp. y ∈[x, ν(t)], have to
+lie above the line which connects (ν(t), ft(ν(t))) and (x, ft(x)). In particular, ft(ν(t) + 1) >
+ft(ν(t)), resp. ft(ν(t) −1) > ft(ν(t)), and this is impossible because, by virtue of (10), we
+have
+ft(ν(t)) = M(t) = sup
+p∈N0
+(p log(t) −ϕ∗
+V (p)) ≥ft(p),
+p ∈N0.
+Therefore, there exists yt ∈(ν(t) −1, ν(t) + 1) such that
+ft(yt) = sup
+y∈R
+ft(y) = V (t).
+We distinguish three cases: yt = ν(t), yt ∈(ν(t) −1, ν(t)) or yt ∈(ν(t), ν(t) + 1). First, if
+yt = ν(t) we have that
+V (t)
+M(t) =
+ft(yt)
+ft(ν(t)) = 1 ≤
+ν(t)
+ν(t) −1.
+Secondly, if we assume that yt ∈(ν(t), ν(t) + 1), we consider the connecting line between
+(0, ft(0)) = (0, 0) and (ν(t), ft(ν(t))), which is given by the equation z = (ft(ν(t))/ν(t))w.
+Let us see that every point (y, ft(y)) with y ∈(ν(t), ν(t) + 1) has to lie below this line:
+Otherwise, we would have ft(y) > (ft(ν(t))/ν(t))y for some y ∈(ν(t), ν(t) + 1). This would
+imply that (ft(y)/y)ν(t) > ft(ν(t)), which is a contradiction to the concavity of ft, since it
+means that the point (ν(t), ft(ν(t))) lies below the line with equation z = (ft(y)/y)w, which
+joins (0, 0) and (y, ft(y)).
+In particular, as yt ∈(ν(t), ν(t) + 1), we have seen that
+V (t)
+M(t) =
+ft(yt)
+ft(ν(t)) ≤(ft(ν(t))/ν(t))yt
+ft(ν(t))
+≤ft(ν(t))((ν(t) + 1)/ν(t))
+ft(ν(t))
+≤ν(t) + 1
+ν(t)
+≤
+ν(t)
+ν(t) −1.
+Thirdly, if yt ∈(ν(t) −1, ν(t)), we consider now the connecting line between (0, 0) and
+(ν(t) −1, ft(ν(t) −1)), which is given by the equation z = (ft(ν(t) −1)/(ν(t) −1))w.
+Reasoning as before, the point (yt, ft(yt)) lies below this line. Hence we have shown that
+ft(yt) ≤ft(ν(t) −1)
+ν(t) −1
+yt ≤ft(ν(t) −1)
+ν(t)
+ν(t) −1 ≤ft(ν(t))
+ν(t)
+ν(t) −1.
+19

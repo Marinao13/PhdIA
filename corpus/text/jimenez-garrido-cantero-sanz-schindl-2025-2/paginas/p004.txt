@@ -1,0 +1,74 @@
+4
+The converse statement in the previous lemma does not hold, as shown by the forthcoming
+Example 2.5.(iii).
+Remark 2.4. Under the same hypothesis of the previous Lemma, one easily checks that the
+condition
+∃C1 > 0, H > 1: log(mp) ≤C1Hp,
+p ∈N0
+(∗)
+implies (sm). Indeed, these two conditions are then equivalent, since (sm) implies that
+log(mp) = log(m0) +
+p−1
+X
+k=0
+log
+mk+1
+mk
+
+≤log(m0) + C0
+p−1
+X
+k=0
+Hk+1 = log(m0) + C0
+Hp+1 −H
+H −1
+,
+and (∗) is readily obtained. Although the condition (∗) is simpler, and easier to check in concrete
+examples, than (sm), we have preferred to keep the latter as our standard assumption since it
+enters our arguments directly, see for example the proof of Proposition 3.1.
+Examples 2.5.
+(i) The Gevrey sequences (p!α)p (α > 0) are strongly regular, and their per-
+turbations (p!α Qp
+j=0 logβ(e + j))p (α > 0, β ∈R) also are after suitably modifying a finite
+number of their terms, if necessary. They appear all through the study of formal power
+series solutions to differential and difference equations.
+(ii) The sequences M = (qpα)p (q > 1, 0 < α ≤2) and M = (pτpσ)p (τ > 0, 1 < σ < 2) are
+such that c
+M is regular, but they are not strongly regular since they do not satisfy (mg). In
+particular, the q-Gevrey sequences M = (qp2)p (q > 1) appear in the study of q-difference
+equations.
+(iii) The weight sequences M = (qpα)p (q > 1, α > 2) and M = (pτpσ)p (τ > 0, σ ≥2)
+do not satisfy (dc), so that c
+M is not regular, but they still satisfy (sm). The sequences
+of the family {(pτpσ)p}σ>1 have appeared as the defining sequences for some generalized
+ultradifferentiable classes “beyond Gevrey regularity”, deeply studied in a series of papers
+by S. Pilipović, N. Teofanov and F. Tomić [18, 19, 20, 21, 25] and by some of the authors
+of this paper and their collaborators [7, 8].
+(iv) The rapidly growing weight sequences M = (qpp)p (q > 1; M0 := 1) are weight sequences
+which do not satisfy (sm). As it will be seen, they are the only ones in the list to which
+the results in this paper cannot be applied.
+Following H. Komatsu [14], the relation M ⊂N between two sequences means that there
+are C, h > 0 such that Mp ≤ChpNp for all p ∈N0. We say M and N are equivalent, de-
+noted M ≈N, if M ⊂N and N ⊂M; equivalently, there exist h1, h2 > 0 such that
+hp+1
+1
+Np ≤Mp ≤hp+1
+2
+Np for all p ∈N0. It is straightforward that (dc) and (mg) are stable under
+equivalence for general sequences, and the same can be deduced for (snq) for weight sequences
+by an indirect method, as this condition characterizes the surjectivity of the Borel mapping in
+Carleman ultradifferentiable classes, by a result of H.-J. Petzsche [17, Cor. 3.2] (see [10, Cor.
+3.14] for a direct proof of a more general statement about the stability of (snq)). We prove the
+result for (sm).
+Lemma 2.6. The property (sm) is preserved under equivalence of sequences.
+Proof. Suppose M satisfies (sm), and consider L = (Lp)p such that M ≈L. There exists C > 1
+such that C−p−1Lp ≤Mp ≤Cp+1Lp, p ∈N0. Consequently, for all p ∈N0 one has
+lp = Lp+1
+Lp
+≤Cp+2Cp+1Mp+1
+Mp
+= C2p+3mp,
+lp ≥
+Mp+1
+Cp+2Cp+1Mp
+= C−2p−3mp.

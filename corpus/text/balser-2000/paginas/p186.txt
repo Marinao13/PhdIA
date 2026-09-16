@@ -1,0 +1,38 @@
+10.7 Applications of Cauchy-Heine Transforms
+169
+ˆf is ˜k-summable in the multidirection ˜d = (d1, . . . , dj−1, dj+1, . . . , dq), and
+f0 = S˜k, ˜d ˆf.
+2
+This result has the following converse:
+Proposition 23 Let k = (k1, . . . , kq), q ≥2, be admissible, and set ˜k =
+πj(k) = (k1, . . . , kj−1, kj+1, . . . , kq) for some ﬁxed j, 1 ≤j ≤q. Then
+every ˆf ∈E {z}˜k is also in E {z}k, and therefore ˆf has no singular mul-
+tidirections of level j. In other words, a multidirection d = (d1, . . . , dq)
+is nonsingular for ˆf, regarded as an element of E {z}k, if and only if
+˜d = (d1, . . . , dj−1, dj+1, . . . , dq) is nonsingular for ˆf in E {z}˜k.
+Proof: The proof is obvious for j = q, so assume otherwise. For operators
+T1, . . . , Tq of respective orders κ1, . . . , κq, the collection
+T1, . . . , Tj−1, Tj ∗Tj+1, Tj+2, . . . , Tq
+can serve as operators for ˜k-summability. Using Lemma 18 (p. 160), one can
+then replace Tj ∗Tj+1 by the iteration Tj ◦Tj+1, choosing any admissible
+direction to integrate along. This then completes the proof.
+2
+Exercises: In the following exercises, consider some admissible k =
+(k1, . . . , qq) with q ≥2.
+1. Let ˆf ∈E {z}k ∩E [[z]]1/κ, for κ > kq. Show ˆf ∈E {z}˜k, ˜k = πq(k).
+2. Let ˆf ∈E {z}k have no singular multidirections of whatever level.
+Show that then ˆf converges.
+10.7
+Applications of Cauchy-Heine Transforms
+The following two propositions characterize functions f that are the sum of
+multisummable power series. To do so, we deﬁne for every admissible k =
+(k1, . . . , kq) and d = (d1, . . . , dq) closed intervals I1, . . . , Iq corresponding to
+d by Ij = [dj −π/(2kj), dj + π/(2kj)], 1 ≤j ≤q. Admissibility of d with
+respect to k then is equivalent to the inclusions I1 ⊂I2 ⊂. . . ⊂Iq. We also
+set k0 = ∞and recall that f(z) ∼=0 ˆf(z) in S implies that ˆf will converge
+and be the power series expansion of f about the origin. In particular, if
+ˆf = ˆ0, then f vanishes identically.
+Proposition 24 Let k = (k1, . . . , kq) and d = (d1, . . . , dq) be admissible,
+let p ∈N with p kq > 1/2, and let ˆf ∈E {z}k,d. Then we can ﬁnd ε, ρ > 0
+such that to every φ ∈R there exists a function f(z; φ), holomorphic in
+Sφ = S(φ, ε, ρ), such that the following holds:

@@ -1,0 +1,54 @@
+B.2 Power Series
+223
+and the series converges at least for |z −z1| < ρ −|z1 −z0| but may
+converge in a larger disc. This is important in our discussion of holomorphic
+continuation in the next section.
+We close this section with a brief discussion of holomorphic functions
+deﬁned by integrals. While the reader should be familiar with the concept
+of locally uniform convergence of series and the fact that a function repre-
+sented by such a series is holomorphic once each term is so, it may be not
+entirely clear what we mean by locally uniform convergence of an integral:
+For a < b, where a = −∞and/or b = +∞may occur, let f(t, z) be an
+E -valued function of a real variable t ∈(a, b) and a complex variable z ∈G,
+and deﬁne
+g(z) =
+ b
+a
+f(t, z) dt.
+(B.6)
+We then say that the above integral converges absolutely and locally uni-
+formly in G, if for every z0 ∈G we can ﬁnd an ε > 0 and a function b(t),
+depending upon z0 and ε, but independent of z, such that ∥f(t, z)∥≤b(t)
+for |z −z0| ≤ε and every t ∈(a, b), and so that
+ b
+a b(t) dt exists. Then we
+have the following result on holomorphy of g:
+Lemma 26 Suppose that f(t, z) is continuous in t ∈(a, b), for ﬁxed z ∈G,
+and holomorphic in z ∈G, for ﬁxed t ∈(a, b), and the integral (B.6)
+converges absolutely and locally uniformly in G. Then g(z) is holomorphic
+for z in G.
+Proof: Observe that ∥f(t, z)∥≤b(t) for |z−z0| ≤ε implies (using Cauchy’s
+formula) f(t, z) = ∞
+0 fn(t) (z −z0)n, with ∥fn(t)∥≤ε−n b(t). Hence
+termwise integration of the series is justiﬁed for |z −z0| < ε, and doing
+so gives the power series representation of g(z) about the point z0, thus
+proving its holomorphy.
+2
+Exercises:
+1. Let a power series ∞
+0 fn (z−z0)n, with coeﬃcients fn ∈E , converge
+for |z−z0| < ρ, ρ > 0, deﬁning an analytic function f in D = D(z0, ρ).
+Assume f(zk) = 0 for values zk ̸= z0 in D with limk→∞zk = z0. Show
+that then fn = 0, n ≥0, hence f(z) ≡0.
+2. Let f ∈H(R, E ), R = {z : ρ1 < |z −z0| < ρ2}.
+(a) For ρ1 < ρ < ρ2, deﬁne
+f ±(z) =
+1
+2πi
+
+|w−z0|=ρ
+f(w)
+w −z dw,
+±|z −z0| > ±ρ.
+Show that f ±(z) is independent of ρ (provided that ±|z −z0| >
+±ρ remains valid). Conclude that f +, resp. f −, is analytic for

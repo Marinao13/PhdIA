@@ -1,0 +1,58 @@
+9.1 Highest-Level Stokes’ Multipliers
+141
+the behavior of Yn(z) near inﬁnity is in principle determined by that of
+qn(z). Blocking Vj = [V (j)
+nm] in the block structure of Y (z), the matrix
+Y (z) Vj Y −1(z) on the right-hand side of (9.1) is likewise blocked, and the
+behavior of a block, as z →∞, depends upon whether or not we have
+exp[qn(z) −qm(z)] = exp[(λ(p)
+n
+−λ(p)
+m )zk/k] ∼=1/k ˆ0
+(9.2)
+for z ∈Sj−1 ∪Sj. For a pair (n, m), this holds if and only if −kdj−1 =
+arg(λ(p)
+m −λ(p)
+n ) mod 2π. In other words, this characterizes pairs (n, m) for
+which the left-hand side of (9.2) has maximal rate of descend along the ray
+arg z = dj−1. The set of all such pairs will be denoted by Suppj. Note that
+we always have (n, n) ̸∈Suppj, and Suppj is never empty, owing to the
+deﬁnition of dj−1. The next theorem says that the set of these pairs is “the
+support” of Vj:
+Theorem 45 For a system (3.1) with an essentially irregular singularity
+at inﬁnity, let ( ˆF(z), Y (z)) be a given HLFFS. Then for the corresponding
+Stokes multipliers of highest level, (n, m) ̸∈Suppj implies V (j)
+nm = 0. Hence,
+in particular all the diagonal blocks of Vj vanish.
+Proof: From (9.1) we conclude Y (z) Vj Y −1(z) ∼=1/k ˆ0 in Sj−1 ∪Sj. Using
+Exercise 7 on p. 74, this is equivalent to eqn(z) V (j)
+nm e−qm(z) = exp[(λ(p)
+n
+−
+λ(p)
+m ) zk] V (j)
+nm ∼=1/k ˆ0 in Sj ∩Sj−1, for every (n, m), since Gn(z) and G−1
+m (z)
+both are of exponential growth strictly less than k. According to the deﬁ-
+nition of Suppj, this completes the proof.
+2
+Exercises: In the ﬁrst two exercises to follow, we consider two linear
+systems zx′
+j = Aj(z) xj for |z| > ρ, of arbitrary Poincar´e ranks at inﬁnity
+and of dimension νj, with ν1 not necessarily equal to ν2.
+1. Let Xj(z) be a fundamental solution of zx′
+j = Aj(z) xj. For C ∈
+C ν1×ν2, show that X1(z) C X−1
+2 (z) is a solution of
+zX′ = A1(z) X −X A2(z),
+|z| > ρ.
+(9.3)
+2. Let X(z) be any solution of (9.3). Verify that X(z) can be represented
+as X1(z) C X−1
+2 (z) for a unique C ∈C ν1×ν2.
+3. For every pair (n, m), 1 ≤n < m ≤µ, show: Every half-open inter-
+val of length π/k contains exactly one direction τ where, for every
+suﬃciently small ε > 0, (9.2) holds for arg z = τ + ε and fails for
+arg z = τ −ε or vice versa. The set of all these directions, for arbi-
+trary (n, m), are exactly the Stokes directions, i.e., the boundary rays
+of the sectors Sj.

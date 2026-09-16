@@ -1,0 +1,65 @@
+6.6 Factorial Series
+113
+the sum of ˆBk ˆf, and f(z) for the k-sum in direction d of ˆf(z). Perhaps, the
+ﬁrst idea that comes to mind is to observe that then f(z1/k) is the Laplace
+transform of index one of g(u1/k), so that one might think of applying the
+above propositions. However, g(u1/k) will in general not be analytic at the
+origin, but instead has a branch-point of order p, or in other words, has a
+representation in terms of a power series in u1/p. To remedy this, we form
+the series
+ˆfj(z) =
+∞
+
+n=0
+fpn+j zpn,
+0 ≤j ≤p −1,
+(6.6)
+so that ˆf(z) = p−1
+j=0 zj ˆfj(z). According to Exercise 6 below, the series
+ˆfj(z) are going to be k-summable in direction d if and only if the original
+series ˆf(z) is k-summable in all directions of the form d + 2jπ/p, 0 ≤
+j ≤p −1. Then we can indeed apply the above propositions to each of
+the series ˆfj(z1/k), obtaining representations of their sums as convergent
+factorial series in the variable ω/zk. Combining these representations, one
+then ﬁnds a corresponding formula for the sum of ˆf(z). Since we are not
+going to use this, we shall not work out the details of this approach here, but
+mention that this approach has already been taken by Nevanlinna [201].
+Here we have restricted ourselves to investigating convergence of factorial
+series. In the context of diﬀerence equations, divergent factorial series also
+arise, and their summability properties may be investigated. For partial
+results in this direction, see [28, 48]. Instead of factorial series, several
+authors have given representations of solutions of ODE in terms of higher
+transcendental functions. These series have the advantage of converging
+“globally” and can be used in the context of the central connection problem.
+We here mention Schmidt [244, 245], Kurth and Schmidt [165], Dunster and
+Lutz [90], and Dunster, Lutz, and Sch¨afke [91].
+Exercises:
+1. Setting Γn
+m = 0 for m ≥n, show the recursion
+Γn+1
+m
+= n Γn
+m−1 + Γn
+m,
+n ≥m ≥0.
+2. Let g(u) be analytic near the origin. For n ≥1, show the existence of
+numbers bnm, independent of g, such that
+(1 −t)n dn
+dtn g (−log[1 −t]) =
+n−1
+
+m=0
+bnm g(n−m) (−log[1 −t]) .
+Applying this to g(u) = ezu, conclude bnm = Γn
+m.
+3. Let g(u) = ∞
+0 gn un, |u| < ρ, with ρ > 0. Conclude that then
+g(−log[1 −t]) = ∞
+0 hn tn, |t| < ˜ρ, with h0 = g0 and
+hn n! =
+n
+
+m=1
+Γn
+n−mgm m!,
+n ≥1.

@@ -1,0 +1,73 @@
+12
+is, if and only if M satisfies (sm), since µ(p) = me(p + 1) for all p ∈N0. Observe that this same
+shift occurs for the classical Laplace transform given by
+L(f)(t) =
+Z ∞
+0
+e−tuf(u)du,
+for which Le(up)(t) = Γ(p + 1)/tp+1 = p!/tp+1 for all p ∈N0.
+We can already state the following main result, whose proof is an adaptation of the one for
+Theorem 2.14. Regrettably, we are not able to deduce γ ≤γ(M) from the surjectivity of the
+Borel map in classes on sectors Sγ under this weaker condition (sm).
+Theorem 3.3. Let M be a weight sequence satisfying (sm) and with γ(M) > 0, and let γ > 0
+be given. Then, each of the following statements implies the next one:
+(i) γ < γ(M).
+(ii) There exists c > 0 such that for every h > 0 there exists an extension operator from
+C[[z]]M,h into e
+Au
+M,ch(Sγ).
+(iii) The Borel map eB: e
+Au
+{M}(Sγ) →C[[z]]{M} is surjective. In other words, (0, γ] ⊂eSu
+{M}.
+(iv) (0, γ) ⊂S{c
+M}.
+In particular, one has (0, γ(M)) ⊂S{c
+M} ⊂eSu
+{M}.
+Proof. (i) ⇒(ii) By Proposition 2.12, valid for any weight sequence M with γ(M) > 0, we
+can consider an optimal {M}-flat function G in e
+Au
+{M}(Sγ). Let (µ(p))p∈N0 be the sequence
+of moments associated with the function e(z) = G(1/z). Given h > 0 and bf = P∞
+p=0 apzp ∈
+C[[z]]M,h, by the definition of the norm in C[[z]]M,h (see (2.10)), we have
+|ap| ≤| bf|M,hhpMp,
+p ∈N0.
+Because of Proposition 3.1, there exist h1, h2 > 0 such that
+hp+1
+1
+Mp+1 ≤µ(p) ≤hp+1
+2
+Mp+1,
+p ∈N0.
+(3.1)
+So, we deduce that
+
+ap+1
+µ(p)
+ ≤| bf|M,h
+ h
+h1
+p+1
+,
+p ∈N0.
+(3.2)
+Hence, the formal Borel-like transform of bf −a0, defined as
+bg =
+∞
+X
+p=0
+ap+1
+µ(p)zp,
+is convergent in the disc D(0, R) for R = h1/h > 0, and it defines a holomorphic function g
+there. Choose R0 := h1/(2h) < R, and define
+IM,h( bf )(z) :=
+Z R0
+0
+e
+u
+z
+
+g(u) du,
+z ∈Sγ,

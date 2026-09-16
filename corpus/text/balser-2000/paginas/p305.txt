@@ -1,0 +1,87 @@
+290
+Index
+locally uniform
+of an integral, 223
+convolution, 178
+formal, 178
+of kernel functions, 160
+curve, 62
+data pairs of FFS, 132
+ordered, 134
+derivation, 216
+diﬀerentiability
+at the origin, 62
+diﬀerential
+ﬁeld, 73
+diﬀerential algebra, 216
+direction
+anti-Stokes’, 137
+Stokes’, 137
+distinct eigenvalue case, 44
+entire function, 233
+equation
+Bessel’s, 24
+hypergeometric, 26
+conﬂuent, 24, 25
+generalized, 27
+indicial, 36
+Legendre’s, 5
+equivalence
+analytic, 28, 153
+meromorphic, 153
+exponential
+growth, 62
+in a direction, 63
+order, 232
+shift, 39
+factorial series, 110
+ﬁnite type, 233
+Floquet
+exponent, 20
+solution, 20
+for scalar ODE, 34
+formal
+fundamental solution, 131
+of highest level, 55
+Laplace operator, 79
+Laurent series, 72, 124
+power series, 64
+solution, 42
+system, 40
+of Gevrey order s, 40
+formula
+Hankel’s, 228
+Stirling’s, 229
+Fuchsian
+system, 188
+function
+associated, 146
+Bessel’s, 23
+bounded at the origin, 61
+continuous at the origin, 61
+entire, 233
+Gamma, 227
+hypergeometric, 26
+conﬂuent, 23
+generalized, 26
+kernel, 85, 89
+Kummer’s, 23
+matrix-valued, 2
+Mittag-Leﬄer’s, 233
+aymptotic of, 84
+of a matrix, 237
+order of a, 232
+root of a, 230
+single-valued, 227
+type of a, 233
+fundamental solution, 5
+computation of, 6
+existence of, 6
+formal, 42
+general summability method, 97
+Gevrey order
+asymptotic, 70
+of a system, 40
+of a transformation, 39
+good spectrum, 18
+Hankel’s formula, 228

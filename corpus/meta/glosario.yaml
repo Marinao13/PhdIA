@@ -1,0 +1,53 @@
+# Glosario ES -> EN para expandir consultas de `buscar` sin modelo. Los papers
+# estan en ingles; la tesis, en espanol. Una consulta en espanol se completa con
+# estos terminos para que BM25 alcance los papers. Amplialo cuando eches en falta
+# un termino: una clave en minusculas, sin tildes, y su traduccion literal.
+sucesion fuertemente regular: strongly regular sequence
+sucesion peso: weight sequence
+sucesiones peso: weight sequences
+sucesion de pesos: weight sequence
+matriz peso: weight matrix
+funcion peso: weight function
+clase ultraholomorfa: ultraholomorphic class
+clases ultraholomorfas: ultraholomorphic classes
+clase ultradiferenciable: ultradifferentiable class
+clases de carleman: Carleman classes
+clase de carleman: Carleman class
+roumieu: Roumieu
+beurling: Beurling
+teorema de extension: extension theorem
+operador de extension: extension operator
+aplicacion de borel: Borel map
+transformada de borel: Borel transform
+transformada de laplace: Laplace transform
+sumabilidad: summability
+sumable: summable
+serie formal: formal power series
+series formales: formal power series
+desarrollo asintotico: asymptotic expansion
+crecimiento moderado: moderate growth
+log-convexa: log-convex
+logaritmicamente convexa: logarithmically convex
+fuertemente no cuasianalitica: strongly non-quasianalytic
+no cuasianalitica: non-quasianalytic
+cuasianalitica: quasianalytic
+cuasianaliticidad: quasianalyticity
+variacion regular: regular variation
+orden aproximado: proximate order
+indice de crecimiento: growth index
+sector: sector
+polisector: polysector
+abertura: opening
+direccion singular: singular direction
+funciones planas: flat functions
+funcion plana: flat function
+sobreyectiva: surjective
+sobreyectividad: surjectivity
+inyectiva: injective
+condicion: condition
+condiciones: conditions
+sucesion: sequence
+teorema: theorem
+lema: lemma
+demostracion: proof
+definicion: definition

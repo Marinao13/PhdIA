@@ -1,0 +1,40 @@
+24
+2. Singularities of First Kind
+(with radius of convergence of the series equal to inﬁnity), is
+called generalized conﬂuent hypergeometric function. For some
+parameter values (which?), the function is a polynomial, and
+otherwise an entire function of exponential order 1 and ﬁnite
+type. The function arises in solutions of a scalar (m + 1)st-
+order ODE, called generalized conﬂuent hypergeometric diﬀer-
+ential equation, introduced in the exercises below.
+For more details upon this case we refer to [13].
+Exercises: In the ﬁrst two of the following exercises, consider a ﬁxed
+conﬂuent hypergeometric system with A, B as in (2.7). Also, restrict µ1−µ2
+so that E holds. For the last one, consider m ∈N and parameters αj, βj as
+in the deﬁnition of the generalized conﬂuent hypergeometric function, and
+let δ denote the diﬀerential operator z(d/dz).
+1. For A having distinct eigenvalues, but not assuming det A = 0, ex-
+plicitly express one Floquet solution of (2.5) using exponential and
+conﬂuent hypergeometric functions.
+2. For A having equal eigenvalues, do the same as above in terms of
+exponential and Bessel functions.
+3. Verify that the (scalar) conﬂuent hypergeometric ODE
+z y′′ −(z −β)y′ −αy = 0
+for β ̸= 0, −1, −2, . . . has the solution F(α; β; z). Moreover, verify
+that the equation has only one solution, aside from a constant factor,
+which is holomorphic at the origin. Note that in the literature one
+can ﬁnd another second-order ODE, closely related to the one above,
+bearing the same name.
+4. Show Kummer’s transformation
+F(α; β; z) = ez F(β −α; β; −z),
+z ∈C, β ̸= 0, −1, −2, . . .
+5. For Re β > Re α > 0, show
+F(α; β; z) =
+Γ(β)
+Γ(α) Γ(β −α)
+ 1
+0
+ezttα−1(1 −t)β−α−1dt.
+6. Verify that Bessel’s equation
+z2y′′ + zy′ + (z2 −µ2)y = 0
+has the solution Jµ(z).

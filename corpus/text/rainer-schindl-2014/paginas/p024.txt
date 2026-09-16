@@ -1,0 +1,75 @@
+120
+A. Rainer and G. Schindl
+5.4. Examples. For s ∈R≥0 the weight function γs(t) = t1/(1+s) has
+all properties listed in 5.1 except (ω8) and (ω5) if s = 0; it is quasianalytic
+if and only if s = 0. The elements of E{γ0}(U) are exactly the real analytic
+functions Cω(U), and the elements of E(γ0)(U) are exactly the restrictions
+of entire functions from H(Cn). The class E{γs} coincides with the Gevrey
+class G1+s.
+5.5. Associated sequences. For ω ∈W and each ρ > 0 consider the
+sequence Ωρ ∈RN
+>0 deﬁned by
+Ωρ
+k := 1
+k! exp
+1
+ρϕ∗(ρk)
+
+.
+By the properties of ϕ∗, each Ωρ is weakly log-convex, (k!Ωρ
+k)1/k ↗∞, and
+Ωρ ≤Ωσ if ρ ≤σ. By (5.2),
+(5.6)
+j!Ωρ
+j k!Ωρ
+k ≤(j + k)!Ωρ
+j+k ≤j!Ω2ρ
+j k!Ω2ρ
+k ,
+j, k ∈N.
+In particular, Ωρ
+k+1 ≤CΩ2ρ
+k
+for all k, where C > 0 is a constant depending
+on ρ.
+With Ωρ we may associate the function ωρ := log ◦TΩρ (cf. [20, (3.1)]).
+Then
+ωρ(t) = sup
+k∈N
+
+k log t −1
+ρϕ∗(ρk)
+
+≤sup
+s≥0
+
+s log t −1
+ρϕ∗(ρs)
+
+= 1
+ρω(t).
+5.7. Lemma. For ω ∈W we have ω ≈ωρ for all ρ > 0.
+Proof. It suﬃces to show that ω ≈ω1; for arbitrary ρ > 0 replace ω by
+1
+ρω. By [27, 1.8.III],
+ω1(t) = sup
+k∈N
+(k log t −ϕ∗(k)) = kt log t −ϕ∗(kt),
+where kt ∈N is such that ϖkt ≤t < ϖkt+1 and ϖk := kΩ1
+k/Ω1
+k−1 ↗∞.
+Consider the function ft : [0, ∞) →R given by ft(s) = s log t −ϕ∗(s),
+which is concave (for t ≥1) since ϕ∗is convex. Concavity of ft shows that
+ω(t) = sups≥0 ft(s) = ft(st) for some point st ∈(kt −1, kt + 1).
+Assume that st ∈(kt, kt + 1). By concavity of ft and since ft(0) = 0, we
+ﬁnd
+ft(st) ≤ft(kt)
+kt
+st ≤ft(kt)
+kt
+(kt + 1) ≤2ft(kt)
+and hence ω(t) ≤2ω1(t) for suﬃciently large t. The case st ∈(kt −1, kt) is
+similar.
+5.8. Corollary. For ω ∈W we have:
+(1) ω is quasianalytic if and only if each (equivalently, some) Ωρ is quasi-
+analytic.

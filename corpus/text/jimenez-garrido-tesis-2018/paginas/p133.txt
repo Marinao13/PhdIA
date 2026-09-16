@@ -1,0 +1,64 @@
+3.3. SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+133
+We apply now the property (mg) of M: by Remark 1.1.10, there exists A0 > 0 such that for all
+n ∈N0 we have Mqn ≤An
+0Mq
+n. We may use this fact in (3.36) and obtain that
+
+f(w) −
+n−1
+X
+j=0
+ajwj
+
+≤C1(A0Aq
+1)nMq
+n|w|n.
+So, f ∈˜
+Au
+Mq(Sp) and ˜B(f) = ˆf, what shows the surjectivity as intended.
+□
+This result has several important consequences.
+Corollary 3.3.17. Let M be a strongly regular sequence with γ(M) ∈Q. Then, SM = ˜Su
+M =
+(0, γ(M)).
+Proof. By Theorem 3.3.2 and (3.3), we have (0, γ(M)) ⊆SM ⊆˜Su
+M, while (iii) =⇒(i) in The-
+orem 3.3.16 ensures that, γ(M) being rational, it cannot be the case that γ(M) ∈˜Su
+M, and so
+˜Su
+M ⊆(0, γ(M)).
+□
+Corollary 3.3.18. Let M be a strongly regular sequence, and let t ∈R, t > 0 be given. Each
+assertion implies the following one:
+(i) t < γ(M),
+(ii) the Borel map ˜B : AM(St) →C[[z]]M is surjective,
+(iii) the Borel map ˜B : ˜
+Au
+M(St) →C[[z]]M is surjective,
+(iv) the Borel map ˜B : ˜
+AM(St) →C[[z]]M is surjective,
+(v) for every ξ ∈I with ξ < t, the Borel map ˜B : ˜
+AM(Sξ) →C[[z]]M is surjective,
+(vi) t ≤γ(M).
+Hence, (0, γ(M)) ⊆SM ⊆˜Su
+M ⊆˜SM ⊆(0, γ(M)].
+Proof. Only (v) =⇒(vi) needs a short proof.
+For every q ∈N we have that ζ = ξq /∈N,
+we will show that ˜B : ˜
+AMq(Sζ) →C[[z]]Mq is surjective so, by Theorem 3.3.10.(i), we see that
+⌊ζ⌋< γ(Mq). Then γ(M) > ⌊ξq⌋/q > ξ −1/q. Since q is arbitrary, making q tend to ∞we
+deduce that ξ ≤γ(M) for every irrational ξ < t, so t ≤γ(M).
+The proof of the surjectivity follows the same ramication argument used in (iv) =⇒(i)
+of Theorem 3.3.16, where the asymptotic relations obtained for bounded subsectors of Sξ are
+transformed into the analogous ones for the corresponding bounded subsectors of Sζ.
+□
+Remark 3.3.19. The situation for strongly regular sequences is summed up in Table 3.4. The
+conjecture is that, at least for strongly regular sequences, one always has ˜SM = (0, γ(M)] and
+SM = ˜Su
+M = (0, γ(M)). The main dierence with the injectivity problem, in which the belonging
+of the value ω(M) to the injectivity interval depends on the convergence of a series, might lie in
+the fact that the value of γ(M) completely characterized (snq) condition, that is, γ(M) > 0 if
+and only if M has (snq), whereas for ω(M) we remember that if ω(M) > 0 then M is (nq), but
+if M is (nq) then only ω(M) ≥0 is known.
+Universidad de Valladolid

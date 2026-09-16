@@ -1,0 +1,34 @@
+Solutions
+261
+Section 10.1:
+1. Use the deﬁnition and justify interchanging the order of integration.
+2. Let the jth integral be performed along arg z = dj; then we may
+choose dj−1 so that 2|dj−1 −dj| ≤κ−1
+j .
+Section 10.2:
+4. Follows from the deﬁnition and (5.18) (p. 90).
+6. Consider the operator T = T1 ∗. . . ∗Tq, and use Exercise 2 on p. 161.
+Section 10.3:
+2. Let ˜Tj = T1 ∗. . . ∗Tj and use the previous exercise, with a suitable
+choice of projections.
+Section 10.4:
+1. Apply Theorem 50 to ˆf(zp).
+2. Note that h2 = S ( ˆBk2 ˆf2) is holomorphic and of exponential growth at
+most k2 in some S(d2, ε). Therefore, g = g1 +g2, with g1 holomorphic
+at the origin, and g2 = Lκ holomorphic in S(d2, ε+π/κ). This implies
+ψ(z) = g2(z) −g2(ze2πi), hence ψ is holomorphic in S(d2 −π, ε +
+π(1/κ −2)).
+3. Using Exercise 1 on p. 99, show the existence of ψ(z), holomorphic in
+S = S(d2 −π, ε + π(1/κ −2), r), having no holomorphic continuation
+beyond |z| = r, and so that ψ(z) ∼=1/κ ˆ0 in S. Deﬁne ˆf(z) =  fnzn,
+fn = Γ(1 + n/k1)
+ a
+0 ψ(w)w−n−1dw, n ≥1, for some a ∈S, and use
+the previous exercise.
+4. Consider convergent series ˆgj with q
+j=1 ˆgj = ˆ0.
+Section 10.5:
+2. Use Theorem 50 and Exercise 5 on p. 73.
+Section 10.6:
+1. Argue as in the proof of Theorem 37 (p. 106).
+2. Use Proposition 22 (p. 168) and Proposition 13 (p. 105).

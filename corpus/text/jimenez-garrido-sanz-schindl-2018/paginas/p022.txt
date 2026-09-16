@@ -1,0 +1,87 @@
+Remark 4.15. The implication (a) ⇒(e) (see Theorems 3.6 and 4.14) is obvious, while
+Example 3.12 shows that the converse fails.
+It is also clear that (e) ⇒(g), by Corollary 3.10 and since the existence, and the value if
+it exists, of the limit in (16) are stable under equivalence, and the same is true for the value
+of the indices γ(M) and ω(M). Again, the converse implication (g) ⇒(e) fails, as the next
+Example 4.16 shows.
+So, (a) ⇒(e) ⇒(g), and the arrows cannot be reversed. We think it is an interesting
+open problem to look for some easy-to-check condition (h) on the sequence M such that one
+has that (e) ⇔[(g)+(h)]. We note that the condition (h) should be stable by equivalence
+of sequences.
+Example 4.16. Let M be deﬁned using the sequence of quotients (mp)p∈N0. The construc-
+tion is similar as the one given in Example 3.12. We set m0 = m1 = 1 and m2 = 2. For
+each k ∈N0, we consider the interval (22k, 22k+1] which we divide in 2k subintervals. We
+put Ik
+j := (22k+j, 22k+j+1] for 0 ≤j ≤2k −1. For 0 ≤j ≤k −1 we deﬁne mp as follows:
+mp := 4m22k+j,
+p ∈Ik
+j ,
+and for k ≤j ≤2k −1 we set
+mp := 2τkm22k+j,
+p ∈Ik
+j ,
+where τk = (2k −2k)/(2k −k). For k ∈N, we observe that
+m22k = 22k
+and
+m22k+k = 22k+2k.
+The sequence M is clearly (lc), since (mp)p∈N0 is nondecreasing, and limp→∞mp = ∞.
+By deﬁnition, for any p ∈Ik
+j we have that 2p belongs to the adjacent interval Ik
+j+1. We
+distinguish two cases:
+1. If p ∈Ik
+j for 0 ≤j ≤k −2 or j = 2k −1, we have that m2p/mp = 4.
+2. If p ∈Ik
+j for k −1 ≤j ≤2k −2, we have that m2p/mp = 2τk.
+We observe that limk→∞τk = 1. From both cases, we have that
+1 < 2 = lim inf
+p→∞
+m2p
+mp
+≤lim sup
+p→∞
+m2p
+mp
+= 4 < ∞.
+(26)
+Using Proposition 2.13, items (ii.2) and (iii), we see that M is (mg) and (snq). Next, we are
+going to show that
+lim
+p→∞
+log(mp)
+log(p)
+= ω(M) = 1.
+If p ∈Ik
+j for 0 ≤j ≤k −1 we get
+(j + 1) log(4) + 2k log(2)
+(2k + j + 1) log(2)
+≤log(mp)
+log(p)
+≤(j + 1) log(4) + 2k log(2)
+(2k + j) log(2)
+.
+Since 0 ≤j ≤k −1 we have that
+2 + 2k
+2k + k ≤log(mp)
+log(p)
+≤2k + 2k
+2k
+.
+(27)
+Now let p ∈Ik
+k+j for 0 ≤j ≤2k −k −1, then
+(j + 1) · τk · log(2) + (2k + 2k) log(2)
+(2k + k + j + 1) log(2)
+≤log(mp)
+log(p)
+≤(j + 1) · τk · log(2) + (2k + 2k) log(2)
+(2k + k + j) log(2)
+,
+or equivalently,
+1 +
+k(2k −k −j −1)
+(2k + k + j + 1)(2k −k) ≤log(mp)
+log(p)
+≤1 + k(2k −k −j −2) + 2k
+(2k + k + j)(2k −k) .
+22

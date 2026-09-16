@@ -1,0 +1,68 @@
+[3] R. Bojanic, E. Seneta, A uniﬁed theory of regularly varying sequences, Math. Z. 134
+(1973), 91–106.
+[4] J. Bonet, R. Meise, S.N. Melikhov, A comparison of two diﬀerent ways to deﬁne classes
+of ultradiﬀerentiable functions, Bull. Belg. Math. Soc. Simon Stevin 14, (2007), no. 3,
+425–444.
+[5] J. Boos, Classical and modern methods in summability, Oxford University Press, Ox-
+ford, 2000.
+[6] A.A. Goldberg, I.V. Ostrovskii, Value Distribution of Meromorphic Functions, Amer.
+Math. Soc., Providence, R.I., 1991.
+[7] L. de Haan, On regular variation and its application to the weak convergence of sample
+extremes, Mathematical Centre Tracts, 32 Mathematisch Centrum, Amsterdam, 1970.
+[8] J. Jim´enez-Garrido, J. Sanz, Strongly regular sequences and proximate orders, J. Math.
+Anal. Appl. 438 (2016), no. 2, 920–945.
+[9] H. Komatsu, Ultradistributions, I: Structure theorems and a characterization, J. Fac.
+Sci. Univ. Tokyo Sect. IA Math. 20 (1973), 25–105.
+[10] A. Lastra, S. Malek, J. Sanz, Summability in general Carleman ultraholomorphic
+classes, J. Math. Anal. Appl. 430 (2015), 1175–1206.
+[11] B.Ya. Levin, Distribution of zeros of entire functions, Amer. Math. Soc., Providence,
+R.I., 1980.
+[12] L.S. Maergoiz, Indicator diagram and generalized Borel-Laplace transforms for entire
+functions of a given proximate order, St. Petersburg Math. J. 12 (2) (2001), 191–232.
+[13] S. Mandelbrojt, S´eries adh´erentes, r´egularisation des suites, applications, Collection de
+monographies sur la th´eorie des fonctions, Gauthier-Villars, Paris, 1952.
+[14] F. Moricz, Necessary and suﬃcient Tauberian conditions for the logarithmic summa-
+bility of functions and sequences, Studia Math. 219 (2013), no. 2, 109–121.
+[15] C.P. Niculescu, L. Persson, Convex functions and their applications. A Contemporary
+Approach, CMS Books in Mathematics, n. 23, Springer, New York, 2006.
+[16] H.-J. Petzsche, On E. Borel’s theorem, Math. Ann. 282 (1988), no. 2, 299–313.
+[17] H.-J. Petzsche, D.Vogt, Almost analytic extension of ultradiﬀerentiable functions and
+the boundary values of holomorphic functions, Math. Ann. 267 (1984), 17–35.
+[18] R.T. Rockafellar, Convex analysis, Princeton University Press, 1972.
+[19] J. Sanz, Flat functions in Carleman ultraholomorphic classes via proximate orders, J.
+Math. Anal. Appl. 415 (2014), no. 2, 623–643.
+[20] J. Sanz, Asymptotic analysis and summability of formal power series, in: G. Filipuk, Y.
+Haraoka, S. Michalik (Eds.), Analytic, Algebraic and Geometric Aspects of Diﬀerential
+Equations, Bedlewo, Poland, September 2015, in: Trends in Mathematics, Birkh¨auser,
+2016, in press.
+[21] G.
+Schindl,
+Exponential
+laws
+for
+classes
+of
+Denjoy-Carleman
+diﬀer-
+entiable
+mappings,
+PhD
+thesis,
+Universit¨at
+Wien,
+2013.
+Available
+at
+http://othes.univie.ac.at/32755/1/2014-01-26 0304518.pdf
+(last
+access
+July
+21st,
+2016).
+[22] V. Thilliez, Division by ﬂat ultradiﬀerentiable functions and sectorial extensions, Re-
+sults Math. 44 (2003), 169–188.
+[23] V. Thilliez, Estimates for Weierstrass division in ultradiﬀerentiable classes, J. Math.
+Anal. Appl. 440 (2016), 421–436.
+[24] G. Valiron, Th´eorie des Fonctions, Masson et Cie., Paris, 1942.
+Authors’ Aﬃliation:
+25

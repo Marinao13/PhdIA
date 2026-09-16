@@ -1,0 +1,48 @@
+1.2. REGULAR VARIATION, O-REGULAR VARIATION AND PROXIMATE ORDERS
+39
+Proof. Since m is nondecreasing, (P0) is satised then γ(M) ≥0 and we also have
+log mp
+log p ≥log m1
+log p
+for all p ∈N then ω(M) ≥0.
+□
+From this last lemma, we deduce also that for (lc) sequences the original denition of γ(M)
+given by V. Thilliez, where the supremum is taken only for γ > 0, coincides with the general
+one considered in this subsection. In [88, 95], it has been shown that if M is strongly regular
+then γ(M), ω(M) ∈(0, ∞) (see also Remark 2.1.19). However, there are sequences that are not
+strongly regular such that γ(M), ω(M) ∈(0, ∞) (see Remark 2.2.27). These properties of the
+indices will be obtained in Section 2.1, where the relation between O-regularly varying sequences
+and (lc) sequences is presented, as an easy consequence of Theorem 2.1.16.
+Example 1.1.30. For the sequences appearing in Example 1.1.4, one may prove (see Exam-
+ple 2.1.20) that
+(i) For α > 0 and β ∈R or α = 0 and β > 0 we have that γ(Mα,β) = ω(Mα,β) = α.
+(ii) For (qp2)p∈N0 with q > 1, γ((qp2)p∈N0) = ω((qp2)p∈N0) = ∞.
+Most of the classical examples of strongly regular sequences satisfy that ω(M) = γ(M).
+Moreover, in Section 2.2 we will show that the values of the indices coincide for a large class of
+sequences. However, it is possible to construct a strongly regular sequence for which the values
+are dierent, arbitrarily chosen, positive real numbers (see Example 2.2.26).
+1.2
+Regular variation, O-regular variation and proximate orders
+In the next chapter, the relations between the sequences, the associated functions and the notions
+of regular variation, O-regular variation and proximate orders will be studied. This section is
+devoted to the description of these concepts and their fundamental properties.
+1.2.1
+Regularly varying functions
+First, we will recall the notion of regular variation introduced in 1930 by J. Karamata ([49, 50]),
+although partial treatments may be found in the works of E. Landau [56], G. Valiron [102], G.
+Pólya [79] and others (see the historical survey [14]). Several applications of this concept have
+been shown in analytic number theory, complex analysis and, specially, in probability. The proofs
+of most of the results in this subsection are gathered in the books of E. Seneta [92] and N. H.
+Bingham, C. M. Goldie and J. L. Teugels [13].
+Denition 1.2.1. A measurable function f : [a, ∞) →(0, ∞), with a ≥0, is regularly varying
+if
+lim
+x→∞
+f(λx)
+f(x) = g(λ) ∈(0, ∞),
+(1.9)
+for every λ ∈(0, ∞).
+There are three main results regarding the notion of regular variation, the continuous version
+of these results is due to J. Karamata [49] and the measurable one was given by J. Korevaar,
+T. van Aardenne-Ehrenfest and N.G. de Bruijn [55].
+Universidad de Valladolid

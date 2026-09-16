@@ -1,0 +1,56 @@
+68
+4. Asymptotic Power Series
+Proof: We only prove the ﬁrst one of the two statements; the second one
+can be shown following the same steps.
+Let (J T)(z) = ∞
+0 Tn zn, (J f)(z) = ∞
+0 fn zn. Given a closed subsec-
+tor ¯S of G and N ∈N, there exists cN > 0 such that for every z ∈¯S we
+have ∥rf(z, N)∥≤cN, ∥rT (z, N)∥≤cN. Then
+∥rT f(z, N)∥≤∥T(z)∥∥rf(z, N)∥+
+N−1
+
+m=0
+∥fm∥∥rT (z, N −m)∥.
+Proposition 7 (p. 65) part (a) implies ∥fm∥≤cm (m ≥0). Hence
+∥rT f(z, N)∥≤
+N
+
+m=0
+cm cN−m,
+(4.6)
+completing the proof.
+2
+If E is a Banach algebra, every f ∈A(G, E ) can be identiﬁed with an
+element of L(E , E ). Thus, the above theorem immediately implies:
+Corollary to Theorem 14 In case E is a Banach algebra, let f1, f2 ∈
+A(G, E ). Then f1 f2 ∈A(G, E ) and J(f1 f2) = (J f1)(J f2). In other
+words,
+fj(z) ∼= ˆfj(z) in G,
+1 ≤j ≤2,
+implies
+f1(z) f2(z) ∼= ˆf1(z) ˆf2(z) in G.
+Note that f(z) ∼= ˆf(z) implies continuity of f(z) at the origin, so that
+ z
+0 ˆf(w) dw is well deﬁned. For ˆf(z) ∈E [[z]] we deﬁne
+ z
+0 ˆf(w) dw by
+termwise integration.
+Theorem 15 Given a sectorial region G, suppose that f(z) ∼= ˆf(z) in G.
+Then
+f ′(z) ∼= ˆf ′(z),
+ z
+0
+f(w) dw ∼=
+ z
+0
+ˆf(w) dw
+in G.
+Proof: Follows easily from Proposition 8 (p. 66).
+2
+The next result implies surjectivity of the mapping J deﬁned in (4.5)
+and was shown for E = C in [233], but the proof easily generalizes:
+Theorem 16 (Ritt’s Theorem) Given any sectorial region G and any
+ˆf(z) ∈E [[z]], there exists f(z) ∈A(G, E ) such that f(z) ∼= ˆf(z) in G.
+Proof: Without loss of generality, let G be a sector S(d, α) of inﬁnite
+radius, and let ˆf(z) =  fnzn be given. For β = π/α, and cn = (∥fn∥n!)−1

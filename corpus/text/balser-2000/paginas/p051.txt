@@ -1,0 +1,54 @@
+34
+2. Singularities of First Kind
+equations for the entries of the matrices Tn, for a fundamental solu-
+tion of the form (2.17).
+2.5
+Scalar Higher-Order Equations
+Consider a νth-order linear ODE (1.6) (p. 4), with coeﬃcients ak(z) holo-
+morphic in some punctured disc R(0, ρ) about the origin. As for systems,
+we say that the origin is a regular-singular point of (1.6), if all solutions do
+not grow faster than some inverse powers of |z|, as z →0 in | arg z| ≤π.
+Moreover, we call the origin a singularity of the ﬁrst kind for (1.6), if ak(z)
+has at most a pole of kth order there, for 1 ≤k ≤ν. To see how this
+deﬁnition relates to the system case, see Exercise 1.
+In contrast to the case of systems, for scalar equations regular-singular
+points and singularities of the ﬁrst kind are the same:
+Theorem 7 The origin is a regular-singular point for (1.6) if and only if
+it is a singularity of the ﬁrst kind.
+Proof: First, assume that (1.6) has a singularity of the ﬁrst kind at the
+origin. Then the equivalent system constructed in Exercise 1 has a singu-
+larity of the ﬁrst kind as well, hence a regular-singular point according to
+Theorem 6. This in turn implies a regular-singular point for (1.6).
+Conversely, assume that (1.6) has a regular-singular point at the origin.
+From Exercise 9 on p. 10, we conclude existence of a solution of the form
+y(z) = s(z) zµ, with µ ∈C and s(z) single-valued at the origin. Owing to
+the assumption of a regular-singular point, s(z) cannot have an essential
+singularity at the origin. Redeﬁning µ mod 1, we therefore may assume
+y(z) =
+∞
+
+n=0
+yn zn+µ,
+|z| < ρ,
+with y0 ̸= 0. As for systems, we call such a solution y(z) a Floquet solution
+of (1.6). Making ρ smaller if necessary, we may also assume that y(z) does
+not vanish on R(0, ρ). We now complete the proof by induction with respect
+to ν: For ν = 1, we obtain from (1.6) that z a1(z) = zy′(z)/y(z), and on the
+right one can cancel zµ. Thus z a1(z) is the quotient of two holomorphic
+functions, with a nonzero denominator, hence holomorphic at the origin.
+So for ν = 1 we completed the proof. For larger ν, we substitute y = y(z)˜y
+into (1.6), use that y(z) is a solution to cancel two terms, and then divide
+by y(z), to obtain (setting a0(z) ≡−1):
+˜y(ν) =
+ν−1
+
+j=1
+˜y(j)
+ν
+
+k=j
+k
+j
+y(k−j)(z)
+y(z)
+aν−k(z).

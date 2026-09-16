@@ -1,0 +1,110 @@
+4.3. MULTISUMMABILITY
+173
+1. Let us show that the function (e1 ◁e2)(z) = T −
+e1(e2(1/u))(1/z) has the necessary properties
+for a strong kernel function of M2/M1−summability, as listed in Denition 4.3.10.
+Since the function e2(1/u) is holomorphic in Sω2, continuous at the origin and ω2 > ω1,
+by Proposition 4.1.14 we have that T −
+e1(e2(1/u))(z) is holomorphic in Sω2−ω1 which proves
+requirement (i).
+Regarding the integrability condition (ii.b), we x τ ∈(0, ω2 −ω1) and we take τ1 ∈
+(0, 2 −ω1) and τ2 ∈(0, ω2) such that 2 + τ ∈(0, τ1 + τ2 −(2 −ω1 −τ1)) and we can choose
+ε ∈(2 −ω1 −τ1, τ1 + τ2 −2 −τ). By Denition 4.3.10.(vi.b) for E1 and (ii.b) for e2 we
+know that there exist β1, α2 > 0 (not depending on τ1 and τ2), and contants K1, C2 > 0,
+M1 ≥1, ε2 ∈(0, 1) such that
+|E1(z)| ≤K1
+|z|β1 ,
+z ∈S(π, τ1),
+|z| ≥M1,
+(4.56)
+|e2(z)| ≤C2|z|α2,
+z ∈Sτ2,
+|z| ≤ε2.
+(4.57)
+We x z ∈Sτ with |z| ≤ε2
+2/M 2
+1 , then |z| ≤1. We write φ = arg(z) ∈(−πτ/2, πτ/2) and
+we may consider a path δω1(−φ) (see Denition 4.1.13). We can write δω1(−φ) = δ1+δ2+δ3
+(δ1 and δ3 are segments in directions θ1 = −φ+(π/2)(ω1 +ε) and θ3 = −φ−(π/2)(ω1 +ε),
+respectively, and δ2 is a circular arc with radius R = 1/(|z|M1), that can be chosen in
+this way because e2 is holomorphic in Sω2, that is unbounded, and the path δω1(−φ) stays
+inside Sτ2). Then, by denition, we see that
+e1 ◁e2(z) = −1
+2πi
+Z
+δω1(−φ)
+E1
+ 1
+uz
+
+e2 (1/u) du
+u .
+We have that
+|e1 ◁e2(z)| ≤1
+2π
+ Z 1/(|z|M1)
+0
+E1
+
+1
+zreiθ1
+
+e2
+
+1
+reiθ1
+
+dr
+r
++
+Z θ1
+θ3
+E1
+|z|M1
+zeiθ
+
+e2
+|z|M1
+eiθ
+ dθ
++
+Z 1/(|z|M1)
+0
+E1
+
+1
+zreiθ3
+
+e2
+
+1
+reiθ3
+
+dr
+r
+!
+.
+(4.58)
+First, we study the second integral in (4.58). By condition (v) for E1, we know that there
+exists a constant H1 such that |E1(w)| ≤H1 for every w ∈D(0, M1 +1). Using the bounds
+for φ, we see that
+[θ3, θ1] ⊆((π/2)(−τ −ω1 −ε), (π/2)(τ + ω1 + ε)).
+Employing the upper bound for ε, we obtain that τ + ω1 + ε < τ2 −(2 −ω1 −τ1), then we
+deduce that
+|z|M1e−iθ ∈Sτ2,
+θ ∈[θ3, θ1].
+(4.59)
+Since |z| ≤|z|1/2 ≤ε2/M1, we have that |ze−iθM1| ≤ε2 and, by (4.57), we conclude that
+Z θ1
+θ3
+E1
+|z|M1
+zeiθ
+
+e2
+|z|M1
+eiθ
+ dθ ≤H1C2|z|α2Mα2
+1 πτ2.
+(4.60)
+Universidad de Valladolid

@@ -1,0 +1,66 @@
+100 CHAPTER 2.
+LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
+In the fourth place, we present an example of a sequence that is strongly regular for which
+the lower Matuszewska index and the upper and lower orders coincide (then (k) holds) but the
+upper Matuszewska index takes a dierent value ((j) is violated).
+Example 2.2.24. Let M be dened using the sequence of quotients m. The construction is
+similar to the one in Example 2.2.22. We set m0 = m1 = 1 and m2 = 2. For each k ∈N0,
+we consider the intervals Ak := (22k, 22k+1] which we divide in 2k subintervals. We put Ik
+j :=
+(22k+j, 22k+j+1] ∩N for 0 ≤j ≤2k −1. For all 0 ≤j ≤k −1 we dene mp as follows:
+mp := 4m22k+j = 4j+122k,
+p ∈Ik
+j ;
+for every k ≤j ≤2k −1 we write τk = (2k −2k)/(2k −k) ≥0 and we set
+mp := 2τkm22k+j = 2(j−k+1)τk22k+k,
+p ∈Ik
+j .
+For all k ∈N, we observe that
+m22k = 22k
+and
+m22k+k = 22k+2k.
+In some sense, one may say that the sequence is oscillating between M1,0 and M1,1. We can show
+that
+(i) M is strongly regular,
+(ii) µ(m) = ρ(m) = 1, so (k) holds,
+(iii) β(m) ∈(0, 1] and α(m) ≥2, then (j) is violated.
+Proof. (i) The sequence M is a weight sequence, since m is nondecreasing, and limp→∞mp = ∞.
+By denition, for any p ∈Ik
+j we have that 2p belongs to the adjacent interval. We distinguish
+two cases:
+1. If p ∈Ik
+j for 0 ≤j ≤k −2 or j = 2k −1, we have that m2p/mp = 4.
+2. If p ∈Ik
+j for k −1 ≤j ≤2k −2, we have that m2p/mp = 2τk.
+We observe that limk→∞τk = 1. From both cases, we have that
+1 < 2 = lim inf
+p→∞
+m2p
+mp
+≤lim sup
+p→∞
+m2p
+mp
+= 4 < ∞.
+Applying Corollary 2.1.6, we see that M is (mg) and (snq).
+(ii) We are going to show that
+lim
+p→∞
+log(mp)
+log(p) = 1,
+which implies that µ(m) = ρ(m) = 1. For all 0 ≤j ≤k −1, if p ∈Ik
+j we get
+(j + 1) log(4) + 2k log(2)
+(2k + j + 1) log(2)
+≤log(mp)
+log(p) ≤(j + 1) log(4) + 2k log(2)
+(2k + j) log(2)
+.
+Since 0 ≤j ≤k −1 we have that
+2 + 2k
+2k + k ≤log(mp)
+log(p) ≤2k + 2k
+2k
+.
+(2.26)
+JAVIER JIMÉNEZ GARRIDO

@@ -1,0 +1,50 @@
+32
+(i) If 2 > α > 1, suppose that ω(t) = O(t) as t →∞, (i.e ω(t) has (ω2)), and that
+there exists some s > α−1 such that ωs satisﬁes the condition (α0). Let us observe
+that we can take s′ < s such that 1 > s′ > α −1, and it is then easy to show that
+ωs′ satisﬁes the conditions (ω5) and (α0).
+(ii) If α ≥2, suppose there exists s according to the assumptions in the theorem.
+Then, we will have s > 1, and since ωs satisﬁes the condition (ω5), we can check
+immediately that ω has (ω2).
+7
+Examples
+In this section, we apply the previous results to some well-known examples of ultraholo-
+morphic classes. Let us ﬁx α > 0.
+7.1
+Gevrey-related classes
+Consider the sequence G
+β := (jjβ)j∈N0 of index β ∈R. Note that this sequence has
+the (rai) property if and only if β ≥1. We are going to study the stability of the class
+A{G
+β}(Sα) in terms of the values of α and β. Let us distinguish some cases:
+(a) Let α ∈(0, 1]:
+(i) If β < α−1 then limj→+∞(j(1−α)jjjβ)1/j = 0, and therefore the class is stable
+because it is trivial, i.e., it only contains constant functions (see Remark 5.5).
+(ii) If β ∈(α −1, 1) Corollary 5.10, together with the fact that G
+β has not the
+(rai) property, ensure that the class is non stable.
+(iii) If β = α −1, the sequence Mα is G
+β, which does not satisfy (rai). So, by
+Remark 5.9 and Corollary 5.10 the class is not stable.
+(iv) If β ≥1 we deduce from the Corollary 5.10 that the class is stable.
+(b) Let α > 1:
+(i) If β ≤α−1 then the lim infj→+∞(j(1−α)jjjβ)1/j < ∞, and therefore the class
+is stable because it only contains constant functions (see Remark 5.5).
+(ii) If β > α −1, we have stability provided that β ≥1, thanks to the Corollary
+5.16.
+We include a graphic in order to see the stability (resp. non stability) regions:
+We
+consider now a second example.
+Let us ﬁx α > 1, take some β > α and consider
+the weight matrix L(β) = {G
+β−
+1
+p+1 : p > 0}.
+Note that the ultraholomorphic class
+associated with L(β) is strictly smaller than the class associated with the constant matrix
+Gβ = {G
+β : p > 0}. Under these assumptions, let us observe that G
+β−
+1
+p+1 is an (lc)
+sequence for all p > 0. Then Theorem 5.12 guarantees that the class A{L(β)}(Sα) is

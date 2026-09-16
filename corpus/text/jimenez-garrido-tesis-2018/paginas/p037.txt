@@ -1,0 +1,76 @@
+1.1. LOGARITHMICALLY CONVEX SEQUENCES
+37
+One may consider the logarithmically convex minorant sequence M(lc) of a sequence M, that
+is, the (lc) sequence such that M(lc)
+p
+≤Mp for all p ∈N0, and for every other (lc) sequence L
+with Lp ≤Mp for every p ∈N0 we have that Lp ≤M(lc)
+p
+for all p ∈N0. The associated function
+is related to this minorant in the following sense.
+Proposition 1.1.23 ([72] p. 17 and [52] Prop. 3.2.). Let M be a sequence with lim inf M1/p
+p
+> 0.
+Then, we have that M(lc)
+p
+= supt>0 tp/eωM(t) for all p ∈N0. Consequently, M is (lc) if and only if
+Mp = sup
+t>0
+tp
+eωM(t) = sup
+t>0
+tphM(1/t),
+p ∈N0.
+In particular, this representation is valid for weight sequences.
+Some of the conditions for sequences in Section 1.1.1 can be described in terms of the asso-
+ciated function, see Subsection 2.1.4. In particular, the next characterization of (mg) condition
+plays a fundamental role in many of our arguments, it already appears in the work of H. Ko-
+matsu [52, Prop. 3.6] and of V. Thilliez [95].
+Lemma 1.1.24. Let M = (Mp)p∈N0 be a weight sequence. The following are equivalent:
+(i) M has (mg),
+(ii) For every real number with s ≥1, there exists ρ(s) ≥1 (only depending on s and M) such
+that
+hM(t) ≤(hM(ρ(s)t))s
+for t ≥0,
+or, equivalently, that
+sωM(t) ≤ωM(ρ(s)t)
+for t ≥0.
+(1.8)
+(iii) There exist H ≥1 and t0 > 0 (only depending on M) such that
+hM(t) ≤(hM(Ht))2
+for t ≤1/t0,
+or, equivalently, that
+2ωM(t) ≤ωM(Ht)
+for t ≥t0.
+Proof. (i) ⇒(ii) Given s ≥1 we take k ∈N such that k > s. By (mg) condition, there exists
+A > 0, depending on k and M (see Remark 1.1.10), such that Mkp ≤AkpMk
+p for every p ∈N0.
+We deduce that
+hM(t) = inf
+p∈N0 tpMp ≤inf
+p∈N0 tkpMkp ≤inf
+p∈N0(tA)kpMk
+p = (hM(At))k,
+for every t ≥0. Since hM(t) ∈[0, 1], (hM(At))k ≤(hM(At))s for all t ≥0, then (ii) is satised
+with ρ(s) = A.
+(ii) ⇒(iii) Immediate.
+(iii) ⇒(i) Since M is (lc), applying Proposition 1.1.23, we see that Mp = supt>0 (tphM(1/t)) for
+all p ∈N0. By (iii), we obtain that
+M2p = sup
+t>0
+t2phM(1/t) = max( sup
+0<t<t0
+(t2phM(1/t)), sup
+t≥t0
+(t2phM(1/t)))
+≤max(t2p
+0 , sup
+t≥t0
+(t2phM(H/t)2)) ≤max(t2p
+0 , H2pM2
+p )
+for all p ∈N0. Since Mp ≥1, for p large enough, we can choose A ≥1 such that M2p ≤A2pM2
+p
+for every p ∈N0. Then, by Lemma 1.1.9, we deduce that M satises (mg).
+□
+Universidad de Valladolid

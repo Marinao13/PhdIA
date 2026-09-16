@@ -1,0 +1,84 @@
+DIVISION BY FLAT FUNCTIONS AND SECTORIAL EXTENSIONS
+9
+From (27), (28) and (29), we derive easily |F(w)| ≥b5(hN(b8u))2 with b5 =
+exp(2b2/π) and b8 = min(1, b1).
+By virtue of property (10) for N, this yields
+the desired lower bound, with b6 = b8/ρ(2).
+□
+2.2. Background on ultraholomorphic functions. For any open subset Ωof
+Cn, we use the standard identiﬁcation between Cn and R2n to consider the spaces
+CM,σ(Ω) and CM(Ω) as introduced in subsection 1.2. We put AM,σ(Ω) = H(Ω) ∩
+CM,σ(Ω), where H(Ω) denotes the space of holomorphic functions in Ω. Clearly,
+AM,σ(Ω) is a closed subspace of CM(Ω).
+In the same way, we put AM(Ω) =
+H(Ω) ∩CM(Ω).
+Now consider the sectors Sγ introduced at the beginning of the current section.
+For γ < 2, one can use the preceding deﬁnition with Ω= Sγ since in this case Sγ is
+an open subset of C. It is then easy to see that any element f of AM(Sγ) extends
+continuously, together with all its derivatives, to the closure of Sγ. In particular,
+f has a Taylor series at 0. For γ ≥2, in other words for sectors on the Riemann
+surface Σ, one can similarly deﬁne AM(Sγ) as the space of holomorphic functions
+f in Sγ whose derivatives at any order j are uniformly bounded by Cfσjj!Mj for
+suitable constants Cf and σ.
+The Taylor series still makes sense, since all the
+restrictions of f to subsectors of aperture smaller than 2π have the same expansion
+at 0. In all cases, one has thus a Borel map (abusively still denoted by B)
+B : AM(Sγ) −→ΛM(N).
+f 7−→(f (j)(0))j∈N
+As for CM(Rn), an element f of AM(Sγ) is said to be ﬂat if Bf = 0, and the
+class AM(Sγ) is said to be non-quasianalytic if it contains a non-zero function f
+which is ﬂat at 0. A classical work of Korenblum provides a necessary and suﬃcient
+condition for this property ([12], theorem 3 and remark 1). In our setting, thanks to
+(8), (9) and Stirling’s formula, Korenblum’s result can be stated as follows: AM(Sγ)
+is non-quasianalytic if and only if
+(30)
+X
+j≥1
+
+Mj
+(j + 1)Mj+1
+
+1
+γ+1
+< ∞.
+Just as the Denjoy-Carleman condition appears as a limit case of (30) (putting
+γ = 0), it turns out that the strong non-quasianalyticity condition (4) appears as
+the limit case of another condition (31), stronger than (30), and related to the
+growth index γ(M) by means of the following lemma.
+Lemma 2.2.1. Let M be a strongly regular sequence and let γ be a real number
+with 0 < γ < γ(M). Then there exists a constant b9 > 0 such that
+(31)
+X
+j≥ℓ
+
+Mj
+(j + 1)Mj+1
+
+1
+γ+1
+≤b9(ℓ+ 1)
+
+Mℓ
+(ℓ+ 1)Mℓ+1
+
+1
+γ+1
+for any ℓ∈N.
+Proof. Consider the sequence M ′ associated with M and γ by lemma 1.3.6. Since
+we have a−1m′
+j ≤mj ≤am′
+j for some constant a ≥1, it suﬃces to prove (31)
+with M replaced by M ′. Put M ′′
+j = j!−γM ′
+j and M ′′′
+j
+= (M ′′
+j )
+1
+γ+1 . Since M ′′ is
+strongly regular, lemma 1.3.4 shows that M ′′′ is also strongly regular. Writing the
+strong non-quasianalyticity property (4) for the sequence M ′′′, we obtain precisely
+the desired estimate.
+□
+Remark 2.2.2. If we replace γ by a natural integer r in (31), we recover the so-called
+property (γr+1) of Schmets and Valdivia [15].

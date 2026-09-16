@@ -1,0 +1,120 @@
+3.3. SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+127
+On the other hand, by the same estimates (3.23) and by the choice made for R0, for j = 1, 3 we
+have
+
+Z
+δj
+et/u
+ 
+ϕ(u) −
+p−1
+X
+k=0
+bkukr
+!
+du
+u
+ ≤CApMp
+Z |t|/p
+0
+spr|et/(se±iπβ1/2)| ds
+s
+≤CC1ApMp
+|t|
+p
+pr
+,
+(3.25)
+where C1 is a constant, independent of both t and p, given by
+C1 =
+sup
+t∈S(0,(β1−1)/2,R), p∈N
+Z |t|/p
+0
+|et/(se±iπβ1/2)| ds
+s
+=
+sup
+t∈S(0,(β1−1)/2,R), p∈N
+Z |t|/p
+0
+e|t| cos(arg(t)∓πβ1/2)/s ds
+s
+≤
+sup
+|t|<R, p∈N
+Z |t|/p
+0
+e−|t| cos(π(β1−1)/4)/s ds
+s = sup
+p∈N
+Z 1/p
+0
+e−cos(π(β1−1)/4)/u du
+u
+≤
+Z 1
+0
+e−cos(π(β1−1)/4)/u du
+u < ∞.
+According to (3.22), (3.24) and (3.25), and using Stirling's formula, we nd that there exist
+constants C2, A2 > 0 such that for every p ∈N and t ∈S(0, (β1 −1)/2, R) one has
+f(t) −
+p−1
+X
+k=0
+bk
+tkr
+(kr)!
+ ≤C2Ap
+2
+Mp
+(pr)!|t|pr.
+(3.26)
+This last estimation also holds for p = 0, in a similar way, taking R0 = |t| and using the denition
+of f and (3.21). Hence one can show that f admits the series P∞
+p=0 bptpr/(pr)! as its asymptotic
+expansion as t tends to 0 in the sector (if r ≥2 observe that for (p −1)r + 1 ≤n < pr we have
+|t|pr ≤|t|n whenever |t| ≤1). It is then a standard fact that for every m ∈N0 and every proper
+subsector T of S(0, (β1 −1)/2, R) there exists
+lim
+t→0, t∈T f(m)(t) =
+(
+bp
+if m = pr for some natural number p ∈N0,
+0
+otherwise.
+(3.27)
+Finally, we dene the function F : [0, 1] →C given by F(t) = f(t) for t ∈(0, 1], F(0) = b0.
+Since f is holomorphic in S(0, (β1 −1)/2, R) and we have (3.27), we immediately deduce that F
+belongs to C∞([0, 1]) and
+F (m)(0) =
+(
+bp
+if m = pr for some p ∈N0,
+0
+otherwise.
+Moreover, we may take ε > 0 such that for every t ∈(0, 1] the disk D(t, εt) is contained in
+S(0, (β1 −1)/2, R). Then, Cauchy's integral formula together with (3.26) allow us to deduce
+that for every p ∈N0,
+|F (pr)(t)| =
+
+ 
+f(t) −
+p−1
+X
+k=1
+bk
+tkr
+(kr)!
+!(pr)
+≤(pr)!
+1 + ε
+ε
+pr C2Ap
+2Mp
+(pr)!
+= C3Ap
+3Mp.
+Universidad de Valladolid

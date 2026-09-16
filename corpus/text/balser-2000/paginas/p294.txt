@@ -1,0 +1,41 @@
+References
+279
+[159]
+, A two point connection problem, Hiroshima Math. J., 9 (1979),
+pp. 61–135.
+[160]
+, Derivatives of Stokes multipliers, Hiroshima Math. J., 14
+(1984), pp. 247–256.
+[161] M. Kohno and T. Yokoyama, A central connection problem for
+a normal system of linear diﬀerential equations, Hiroshima Math. J.,
+14 (1984), pp. 257–263.
+[162] V. P. Kostov, The Stokes multipliers and the Galois group of a non-
+Fuchsian system and the generalized Phragmen-Lindel¨of principle,
+Funkcialaj Ekvacioj, 36 (1993), pp. 329–357.
+[163] M. A. Kovalevskij, Construction of the Stokes multipliers for an
+equation with two singular points, Vestnik Leningrad Univ. Math., 14
+(1982), pp. 135–141.
+[164]
+, Determination of the connection between two fundamental fam-
+ilies of solutions of a linear ordinary diﬀerential equation, Vestnik
+Leningrad Univ. Math., 14 (1982), pp. 39–45.
+[165] T. Kurth and D. Schmidt, On the global representation of the
+solutions of second-order linear diﬀerential equations having an ir-
+regular singular point of rank one in ∞by series in terms of conﬂu-
+ent hypergeometric functions, SIAM J. of Math. Analysis, 17 (1986),
+pp. 1086–1103.
+[166] W. Lay and S. Y. Slavyanov, The central two–point connection
+problem for the Heun class of ODEs, J. Phys. A: Math. Gen., 31
+(1998), pp. 4249–4261.
+[167] A. H. M. Levelt, Jordan decomposition for a class of singular dif-
+ferential operators, Ark. Mat., 13 (1975), pp. 1–27.
+[168] C.-H. Lin and Y. Sibuya, Some applications of isomonodromic
+deformations to the study of Stokes multipliers, J. Fac. Sci. Tokyo,
+36 (1989), pp. 649–663.
+[169] M. Loday-Richaud, Introduction `a la multisommabilit´e, Gaz. Math.
+Soc. France, 44 (1990), pp. 41–63.
+[170]
+, Solutions formelles des syst`emes diﬀ´erentiels lin´eaires m´ero-
+morphes et sommation, Expos. Math., 13 (1995), pp. 115–162.
+[171] D. A. Lutz, On systems of linear diﬀerential equations having reg-
+ular singular solutions, J. Diﬀerential Equ., 3 (1967), pp. 311–322.

@@ -1,0 +1,113 @@
+8
+VINCENT THILLIEZ
+Proof. Pick a real γ with 1 < γ < γ(N). By deﬁnition of γ(N), and by property (17)
+for the sequence N, we have aj
+1j!γ ≤Nj for any j ∈N. Multiplying this inequality
+by |t|j and taking the inﬁmum with respect to j, we derive exp(−b4|t|−1/γ) ≤
+hN(|t|) for some suitable b4 > 0. The lemma follows, since 1/γ < 1.
+□
+We are now ready to work out the key construction.
+Lemma 2.1.3. Let N be a strongly regular sequence with γ(N) > 1. Then there
+exist a function F holomorphic in the right half-plane S1 and constants b5 > 0,
+b6 > 0 and b7 > 0, depending only on N, such that
+(23)
+b5hN(b6ℜw) ≤|F(w)| ≤hN(b7|w|) for any w ∈S1.
+Proof. We use the classical construction of outer functions in Hp spaces, see e.g.
+[8], theorem 11.6, or [10], chapter 8. For w ∈S1, we put
+F(w) = exp
+ 1
+π
+Z +∞
+−∞
+Log hN(|t|)itw −1
+it −w
+dt
+1 + t2
+
+.
+Thanks to lemma 2.1.2 and to the boundedness of hN, it is known that F is a
+bounded holomorphic function in S1. For w ∈S1, put now w = u + iv (thus,
+u > 0). Then we have
+(24)
+|F(w)| = exp
+ 1
+π
+Z +∞
+−∞
+Log hN(|t|)
+u
+(t −v)2 + u2 dt
+
+.
+Remark that
+R
+|t−v|≤u
+u
+(t−v)2+u2 dt = π
+2 . Since |t −v| ≤u implies |t| ≤2|w|, we
+derive
+(25)
+Z
+|t−v|≤u
+Log hN(|t|)
+u
+(t −v)2 + u2 dt ≤π
+2 Log hN(2|w|).
+Since hN(|t|) ≤1 for any t, we also have
+(26)
+Z
+|t−v|>u
+Log hN(|t|)
+u
+(t −v)2 + u2 dt ≤0
+By (24), (25) and (26), we obtain |F(w)| ≤
+p
+hN(2|w|). Using property (10) with
+M = N, we get the upper bound in (23), with b7 = 2ρ(2). The proof of the lower
+bound goes as follows. Putting t = us in (24) gives
+(27)
+|F(w)| = exp
+ 1
+π
+Z +∞
+−∞
+Log hN(u|s|)
+u2
+(us −v)2 + u2 ds
+
+.
+For |s| ≥1, one has Log hN(u|s|) ≥Log hN(u), hence
+Z
+|s|≥1
+Log hN(u|s|)
+u2
+(us −v)2 + u2 ds ≥Log hN(u)
+Z
+|s|≥1
+u2
+(us −v)2 + u2 ds.
+Since Log hN(u) ≤0 and
+R
+|s|≥1
+u2
+(us−v)2+u2 ds ≤π, this implies
+(28)
+Z
+|s|≥1
+Log hN(u|s|)
+u2
+(us −v)2 + u2 ds ≥π Log hN(u).
+One has also
+u2
+(us−v)2+u2 ≤1 and Log hN(u|s|) ≤0 for any u, v and s. Invoking
+lemma 2.1.1, we get therefore
+Z
+|s|≤1
+Log hN(u|s|)
+u2
+(us −v)2 + u2 ds ≥
+Z
+|s|≤1
+Log hN(u|s|)ds
+≥2(Log hN(b1u) + b2).
+(29)

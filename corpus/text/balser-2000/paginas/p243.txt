@@ -1,0 +1,50 @@
+B.3 Holomorphic Continuation
+227
+the visualization as a staircase. Taking this into account, the function log z
+can then be unambiguously deﬁned by (B.7). It will be very convenient
+to view other functions √z, or zα, having branch points at the origin, as
+being deﬁned on this Riemann surface, in order to avoid discussing which
+one of their, in general inﬁnitely many, branches one should take in a par-
+ticular situation. For arbitrary functions f, deﬁned on some domain G
+considered on the Riemann surface, we shall say that f is single-valued if
+f(z) = f(z exp[2πi]) whenever both sides are deﬁned (which may very well
+never happen). This is nothing else but saying that we may consider the
+function, instead of the domain G on the Riemann surface, as deﬁned on
+the corresponding projection in the plane. For example, the function zα is
+single-valued whenever α ∈Z.
+• The Gamma Function
+The following C-valued function plays a prominent role in this book as well
+as in many other branches of mathematics:
+The Gamma Function
+For z in the right half-plane, the function
+Γ(z) =
+ ∞
+0
+tz−1 e−t dt
+(B.8)
+(integrating along the positive real axis and deﬁning the, in gen-
+eral multi-valued, function tz−1 according to the speciﬁcation
+of arg t = 0) is named the Gamma function.
+It is easily seen that the integral in (B.8) converges absolutely and locally
+uniformly for z in the right half-plane; hence the function is holomorphic
+there, because the integrand is a holomorphic function of z. If, instead of
+starting from zero, we integrate from one to inﬁnity, the corresponding
+function is entire, i.e., analytic in C. In the remaining integral, we expand
+e−t into its power series and integrate termwise to obtain
+Γ(z) =
+∞
+
+n=0
+(−1)n
+n! (z + n)
++
+ ∞
+1
+tz−1 e−t dt.
+Clearly, the series in this representation formula remains convergent for z
+in the closed left half-plane except for the points 0, −1, . . . where one of
+the terms becomes inﬁnite; thus, this formula provides the holomorphic
+continuation of Γ(z) into the complex plane except for ﬁrst-order poles at
+the nonpositive integers. In particular, holomorphic continuation along ar-
+bitrary paths avoiding these points is always possible and the value of the
+function at the endpoint is independent of the path, because the function

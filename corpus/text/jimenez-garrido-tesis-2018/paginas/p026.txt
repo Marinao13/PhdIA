@@ -1,0 +1,52 @@
+26
+INTRODUCTION
+obtain a characterization of the sequences for which dM = log(ωM(t))/ log(t) is a nonzero proxi-
+mate order, which was the open question (a) and has been successfully answered in Theorem 2.2.6
+in terms of the regular variation of m, summarized as follows:
+Theorem. Let M be a weight sequence. The following are equivalent:
+(i) dM(t) is a proximate order with limt→∞dM(t) ∈(0, ∞),
+(ii) m is regularly varying with a positive index of regular variation.
+In case any of these statements holds, the value of the index mentioned in (ii) is ω(M) and the
+limit in (i) is 1/ω(M).
+Regarding the sequences admitting a nonzero proximate order, in the sense of (3), we will get
+a representation formula for them so solving the problem in (b). Furthermore, since equivalent
+sequences dene the same ultraholomorphic classes, it will turn out that the admissibility of a
+proximate order by M is a natural condition in the sense that it is equivalent to the existence of
+a sequence L equivalent to M and such that dL is a nonzero proximate order. The proof of these
+facts is presented in Theorem 2.2.19, that states:
+Theorem. Let M be a weight sequence, then the following conditions are equivalent:
+(i) There exists a weight sequence L equivalent to M (i.e., there exist constants A, B > 0 such
+that ApLp ≤Mp ≤BpLp for all p ∈N0) such that dL(t) is a nonzero proximate order,
+(ii) M admits a nonzero proximate order,
+(iii) There exist ω ∈(0, ∞) and bounded sequences of real numbers (bp)p∈N, (ηp)p∈N such that
+(ηp)p∈N converges to ω and we can write
+mp = exp
+
+bp+1 +
+p+1
+X
+j=1
+ηj
+j
+
+,
+p ∈N0.
+In case the previous holds, limt→∞dL(t) = 1/ω = 1/ω(M).
+In addition, a new characterization of regularly varying sequences will be obtained in Propo-
+sition 2.2.3 and it will also be shown how one can construct well-behaved weight sequences from
+proximate orders in Theorem 2.2.14. Finally, in Subsection 2.2.5 and thanks to our improved
+understanding of the properties involved, several examples will be provided exhibiting dierent
+pathological behaviors, including Example 2.2.26 mentioned before.
+If, instead of admitting a proximate order, weaker conditions are asked for M, for instance
+and with the notation of the above representation formula, if (ηp)p∈N is only bounded, which
+is equivalent to the O-regular variation of m, it is not known how the M−summability method
+can be replicated. However, and this was the problem posed in (d) and (e), it is natural to ask
+oneself about the injectivity and surjectivity of the Borel map. The third chapter is devoted
+to the study of these questions in the three ultraholomorphic classes of functions previously
+considered. After introducing the basic notation in the rst section, we analyze the injectivity
+for which, as commented above, nearly all the information was already known. It turns out that
+proximate orders again provide the denitive solution for the injectivity problem: even if M does
+not admit a nonzero proximate order, one can always control dM by a nonzero proximate order
+from above, and a suitable use of the regular variation of the functions of Maergoiz associated
+with this proximate order allows one to construct at functions in sectors of optimal opening.
+JAVIER JIMÉNEZ GARRIDO

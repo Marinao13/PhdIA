@@ -1,0 +1,31 @@
+7
+Cauchy-Heine Transform
+Let ψ(w) be a continuous function for w on the straight line segment from
+0 to a point a ̸= 0. Then the function
+f(z) =
+1
+2πi
+ a
+0
+ψ(w)
+w −z dw
+obviously is holomorphic for z in the complex plane with a cut from 0 to
+a, but f in general will be singular at points on this cut. If ψ is holomor-
+phic, at least at points strictly between 0 and a, then one can use Cauchy’s
+integral formula to see that f is holomorphic at these points, too. At the
+endpoints, however, f will be singular, even if ψ is analytic there; for this,
+see the exercises at the end of the ﬁrst section. For our purposes, it will
+be important to assume that ψ, for w →0, decreases faster than arbitrary
+powers of w, since then we shall see that f will have an asymptotic power
+series expansion at the origin. We shall even show that this expansion is
+of Gevrey order s, provided that ψ(w) ∼=s ˆ0. Hence integrals of the above
+type provide an excellent tool for producing examples of functions with
+asymptotic expansions, or even of series that are k-summable in certain
+directions. Much more can be done, however: For arbitrary functions, ana-
+lytic in a sectorial region and having an asymptotic expansion at the origin,
+we shall obtain a representation that is the analogue to Cauchy’s formula
+for functions analytic at the origin. As a special case, we shall obtain a
+very useful characterization of such functions f that are the sums of k-
+summable series in some direction d. In other words, we shall characterize
+the image of the operator Sk,d , for k > 0 and d ∈R. As another appli-
+cation of this representation formula, we shall prove several decomposition

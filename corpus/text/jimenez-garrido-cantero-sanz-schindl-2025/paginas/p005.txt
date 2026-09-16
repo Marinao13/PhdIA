@@ -1,0 +1,68 @@
+5
+Following Komatsu [14], the relation M ⊂N means that there are C, h > 0 such
+that Mp ≤ChpNp for all p ∈N0. We say M and N are equivalent, denoted M ≈N,
+if M ⊂N and N ⊂M. It is straightforward that (sm) (see [13, Lemma 2.4]), (dc),
+(mg) and (alg) are stable under equivalence for general sequences, and the same can be
+deduced for (nq) and (snq) for weight sequences by indirect methods, as these two last
+conditions characterize the non injectivity and the surjectivity, respectively, of the Borel
+map in Carleman ultradifferentiable classes, by the classical Denjoy-Carleman theorem
+(see, for example, [20]) and the results of H.-J. Petzsche [17, Cor. 3.2] (see [9, Cor. 3.14]
+for a direct proof of a more general statement about the stability of (snq)).
+The associated weight function of M is defined as
+ωM(t) := sup
+p∈N0
+log tp
+Mp
+,
+t > 0,
+and ωM(0) := 0. Another associated function is
+hM(t) := inf
+p∈N0 Mptp,
+t > 0; hM(0) := 0.
+The functions hM and ωM are related by
+hM(t) = exp(−ωM(1/t)),
+t > 0.
+(2.2)
+It is well known that ωM(t) < ∞for every t > 0 if, and only if, limp→∞M 1/p
+p
+= ∞, which
+will be our standard assumption when ωM enters our considerations. In particular, this
+condition is satisfied for weight sequences. In [14, Prop. 3.2] we find that, for a weight
+sequence M,
+Mp = sup
+t>0 tp exp(−ωM(t)) = sup
+t>0 tphM(1/t),
+p ∈N0,
+(2.3)
+and it is plain to check that
+hM(t) = Mp+1tp+1
+for
+1
+mp+1
+≤t < 1
+mp
+, p ∈N0;
+hM(t) = 1
+for t ≥1
+m0
+,
+(2.4)
+so that an explicit expression is also available for ωM. Moreover, hM and ωM are nonde-
+creasing and continuous.
+2.1
+Ultraholomorphic classes on the upper half-plane and the
+asymptotic Borel mapping
+Given an open set Ωin the complex plane C, we denote by O(Ω) the space of holomorphic
+functions in Ω. We write H for the open upper half-plane of C.
+Let M = (Mp)p be a sequence of positive real numbers.
+In the definition of the
+following classes of functions or sequences it is not relevant that M0 = 1, but, as said
+before, this will be assumed unless stated otherwise. For h > 0 we define AM,h(H) as the
+space consisting of all f ∈O(H) such that
+∥f∥M,h := sup
+p∈N0
+sup
+z∈H
+|f (p)(z)|
+hpMp
+< ∞.

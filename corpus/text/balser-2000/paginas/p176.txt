@@ -1,0 +1,27 @@
+10
+Multisummable Power Series
+In previous chapters we have shown that HLFFS are very natural to con-
+sider when discussing Stokes’ phenomenon, since they are k-summable,
+for some suitable k > 0. Unfortunately, their computation is not so easy,
+because of one step requiring use of Banach’s ﬁxed point theorem. So in
+applications one may prefer to work with formal fundamental solutions in
+the classical sense. They can be computed relatively easily, using computer
+algebra tools which will brieﬂy be discussed in Section 13.5. In Section 8.4
+we have shown these FFS to be a product of ﬁnitely many matrix power
+series, each of which is k-summable with a value of k depending on the
+factor. However, this factorization is neither unique nor fully constructive,
+so the problem of summation of FFS remains. In this chapter we are now
+presenting a summability method that is stronger than k-summability for
+every k > 0, enabling us to sum FFS as a whole. This method, named multi-
+summability, was ﬁrst introduced in somewhat diﬀerent form by Ecalle [94],
+using what he called acceleration operators. Here, we present an equivalent
+deﬁnition, based on the more general integral operators introduced in Sec-
+tions 5.5 and 5.6. We also show that it would be suﬃcient to work with
+Laplace operators only, but it can be convenient in applications to have
+the more general integral operators at hand: Sometimes one will meet for-
+mal power series for which it will be simpler to show applicability of some
+particular integral operator, but more complicated to do so for a Laplace
+operator, although theoretically they are equivalent.
+As we stated above, multisummability will turn out to be stronger than
+k-summability, for every k > 0. On the other hand, it will be not too
+much stronger, as we are going to show that every multisummable formal

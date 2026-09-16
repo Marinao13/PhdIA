@@ -1,0 +1,43 @@
+19
+Introduction
+The main objective of this dissertation is to answer several open questions related to Carleman-
+Roumieu ultraholomorphic classes of functions, dened in sectors of the Riemann surface of
+the logarithm by imposing constraints for their derivatives' growth in terms of a sequence of
+positive real numbers. These problems were motivated by the study of some properties involved
+in the work with a summability procedure of formal power series in this context, and by the
+introduction of the corresponding new tool of multisummability. The solutions provided here
+will heavily rest on the classical, and closely related, theories of regular variation and proximate
+orders. The foundations and development of these diverse essential ingredients will be described
+in the following paragraphs.
+The rst and basic topic which we are interested in is the study of divergent series through
+asymptotic expansions. L. Euler is commonly credited with starting the systematic manipulation
+of divergent series in the 18th century. He was concerned with their application for the approx-
+imation of the values of constants such as e and π. However, during the 19th century and for
+some time after this, divergent series were, roughly speaking, excluded from mathematics. This
+was mainly due to the fact that A. L. Cauchy gave a rigorous and general denition of the sum
+of a (convergent) series which quickly became the standard one. In this sense, we may cite G.
+H. Hardy that, in his book [35, p. 5] in 1949, when discussing about the appropriate denition
+of the sum of a divergent series, notes the following:
+it does not occur to a modern mathematician that a collection of mathematical
+symbols should have a `meaning' until one has been assigned to it by denition. It
+was not a triviality even to the greatest mathematicians of the eighteenth century.
+They had not the habit of denition: it was not natural to them to say, in so many
+words, `by X we mean Y'. There are reservations to be made, but it is broadly true to
+say that mathematicians before Cauchy asked not `How shall we dene 1−1+1−...?'
+but `What is 1 −1 + 1 −...?' and that this habit of mind led them into unnecessary
+perplexities and controversies which were often really verbal.
+In 1886, H. Poincaré boosted again the mathematical interest in formal (usually divergent)
+power series introducing the notion of asymptotic expansion in order to solve several problems
+of mathematical physics and celestial mechanics. The asymptotic expansions, in the sense of
+Poincaré, are kind of Taylor expansions which provide successive approximations: a complex
+function f, holomorphic on a sector S = {z ∈C; 0 < |z| < r, a < arg(z) < b}, admits the
+complex formal power series ˆf = P∞
+p=0 apzp as its (uniform) asymptotic expansion at the origin
+if for every p ∈N0 = N ∪{0} there exists a positive constant Cp such that for every z ∈S one
+has
+f(z) −
+p−1
+X
+n=0
+anzn ≤Cp|z|p,
+(1)

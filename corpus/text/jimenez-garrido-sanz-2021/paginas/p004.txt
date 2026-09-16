@@ -1,0 +1,75 @@
+2.2
+Strongly regular sequences
+Most of the information in this subsection is taken from the works of H. Komatsu [22], H.-J.
+Petzsche [45], H.-J. Petzsche and D. Vogt [46] and V. Thilliez [55], which we refer to for
+further details and proofs. In what follows, M = (Mp)p≥0 always stands for a sequence of
+positive real numbers, and we always assume that M0 = 1. There is no general agreement in
+the literature on the terminology describing the forthcoming properties. For the convenience
+of the reader, we have used the names given by V. Thilliez and the descriptive shortcuts
+employed by G. Schindl [51].
+Deﬁnition 2.1. We say M is strongly regular if the following hold:
+(i) M is logarithmically convex (for short, (lc)), that is,
+M 2
+p ≤Mp−1Mp+1,
+p ∈N.
+(ii) M is of moderate growth (brieﬂy, (mg)), i.e., there exists A > 0 such that
+Mp+q ≤Ap+qMpMq,
+p, q ∈N0.
+(iii) M satisﬁes the strong non-quasianalyticity condition (for short, (snq)), that is, there
+exists B > 0 such that
+X
+q≥p
+Mq
+(q + 1)Mq+1
+≤B Mp
+Mp+1
+,
+p ∈N0.
+Deﬁnition 2.2. For a sequence M we deﬁne the sequence of quotients m = (mp)p∈N0 by
+mp := Mp+1
+Mp
+p ∈N0.
+Remark 2.3. The properties (lc) and (snq) can be easily stated in terms of the sequence
+of quotients, and we will see in Proposition 2.4 that the same holds for (mg) as long as the
+given sequence M is (lc). Moreover, observe that for every p ∈N one has
+Mp =
+Mp
+Mp−1
+Mp−1
+Mp−2
+. . . M2
+M1
+M1
+M0
+= mp−1mp−2 . . . m1m0.
+(2)
+So, one may recover the sequence M (with M0 = 1) once m is known, and hence the
+knowledge of one of the sequences amounts to that of the other. Sequences of quotients of
+sequences M, L, etc. will be denoted by lowercase letters m, ℓand so on. Whenever some
+statement refers to a sequence denoted by a lowercase letter such as m, it will be understood
+that we are dealing with a sequence of quotients (of the sequence M given by (2)).
+The following properties are easy consequences of the deﬁnitions, except for (ii.2), which
+is due to H.-J. Petzsche and D. Vogt [46].
+Proposition 2.4. Let M = (Mp)p∈N0 be a sequence. Then, we have:
+(i) M is (lc) if, and only if, m is nondecreasing. If, moreover, M satisﬁes (snq) then m
+tends to inﬁnity.
+(ii) Suppose from now on that M is (lc). Then
+(ii.1) (M 1/p
+p
+)p∈N is nondecreasing, and M 1/p
+p
+≤mp−1 for every p ∈N.
+Moreover, limp→∞mp = ∞if, and only if, limp→∞M 1/p
+p
+= ∞.
+(ii.2) The following statements are equivalent:
+(ii.2.a) M is (mg),
+(ii.2.b) supp∈N
+mp
+M1/p
+p
+< ∞,
+(ii.2.c) supp∈N0
+m2p
+mp < ∞,
+4

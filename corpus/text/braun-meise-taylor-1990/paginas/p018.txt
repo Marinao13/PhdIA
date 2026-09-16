@@ -1,0 +1,38 @@
+Braun, Meise and Taylor 
+223 
+4.8 Proposition. 
+Let (OJ )jEIN be an open covering of o. Then there are fj E 'D. (OJ ) 
+with 0 $ Ii $ 1 such that L~11i = 1 and (Supp(fj )}iEIN is a locally finite cover of o. 
+PROOF. The proof of Komatsu [14], 5.2, works also in our case. 
+From 4.5 and 3.6 it follows easily that £.(0) is complete and nuclear for each open set 0 in 
+JRN. More information on £.(0) can be obtained if we apply a general result of Vogt [27]. 
+To formulate this, we define the notion of a power series space. 
+For an increasing unbounded sequence a and R = 1, 00, the space AR ( a) is defined as 
+AR(a) = {x E ())N IllxIL.:= t IXjlr"j < 00 for all 0 < r < R}. 
+,j=1 
+Obviously, AR ( a) is a Frechet-Schwartz space. 
+For a locally convex space E we denote by E{, its strong dual. 
+4.9 Proposition. 
+For each weight function wand each open set 0 in JRN we have for 
+a(w,N):= (w(j1/N))nEIN 
+£(w)(O) ~ Ax, ( a(w, N))IN, 
+£{w}(O) ~ (A1(a(w, N))~)1N . 
+(1) 
+(2) 
+In particular, £(w)(O) is a nuclear Frechet space, while £{w}(O) is nuclear, complete, and 
+reflexive. 
+PROOF. We apply Theorem 5.1 of Vogt [27] with 'D. in the role of F and £. in the role of 
+G. Then G is a sheaf of F-modules. Most of the other hypotheses of Vogt's Theorem 5.1 
+are clear by definition or from our previous results. We construct the partitions of unity 
+required in Vogt's second hypothesis first in 'D(JRN), convolve them with a suitable function 
+in 'D.(JRN) and apply 3.7. Then Vogt's theorem implies 
+where £'2tr is the space of all 27r-periodic functions in £.(JRN). The structure of these spaces 
+can be calculated by estimating the Fourier coefficients, thereby using 1.1(a) and b) (see 
+also Meise, Schwerdtfeger, and Taylor [20], 3.2, and Meise [19], 3.8). 
+Note that by 4.9 it is also possible to prove the nuclearity of £.(0) applying the 
+Grothendieck-Pietsch criterion to AR(w(a, N)). 
+4.10 Proposition. 
+Let 01> O2 C JRN be given, let g: 0 1 --+ O2 be real-analytic, and let 
+f E £.(02). Then fog E £.(0 1). In particular, £.(0) contains all real-analytic functions 
+on O. 
+PROOF. See Hormander [13], proof of 8.4.1. 

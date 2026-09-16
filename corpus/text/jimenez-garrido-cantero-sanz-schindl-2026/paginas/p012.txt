@@ -1,0 +1,84 @@
+12
+φ := g ◦f we can write for all z ∈S:
+φ(z) = cg
+0 +
+n−1
+X
+k=1
+cg
+k(f(z))k + rg(f(z), n).
+Moreover, we have that
+(f(z))k =
+n−1
+X
+j=k
+cfk
+j zj + rfk(z, n),
+with
+cfk
+j
+=
+X
+m1+···+mk=j
+cf
+m1 · · · cf
+mk,
+(10)
+see [1, (70) & (71)]. Next we recall the crucial formulas [1, (73), (74) & (75)]:
+φ(z) =
+n−1
+X
+j=1
+cφ
+j zj + rφ(z, n),
+cφ
+0 = cg
+0,
+cφ
+n =
+n
+X
+j=1
+cg
+jcfj
+n ,
+n ∈N,
+(11)
+and
+rφ(z, n) =
+n−1
+X
+j=1
+cg
+jrfj(z, n) + rg(f(z), n).
+(12)
+6
+Stability under point-wise multiplication
+We start with the following generalization of [1, Thm. 3]:
+Proposition 6.1. Let M = (Mj)j ∈RN0
+>0 be a sequence with M0 = 1, and let S be a sec-
+tor. If M satisfies (alg), then the class e
+Au
+[M](S) is closed under point-wise multiplication
+of functions; i.e. e
+Au
+[M](S) is an algebra.
+Proof. Since M satisfies (alg), we have MjMk ≤Cj+kMj+k for some C ≥1 and for
+all j, k ∈N0.
+Let f, g ∈
+e
+Au
+[M](S).
+Now, by the definition of the classes, we have
+f ∈e
+Au
+M,d1(S) and g ∈e
+Au
+M,d2(S) for some (resp. all) di > 0, and so there exist A1, A2 > 0
+such that
+|rf(z, n)| ≤A1dn
+1Mn|z|n,
+|rg(z, n)| ≤A2dn
+2Mn|z|n,
+z ∈S.
+Thus by (8) and (4), we estimate as follows for all n ∈N0 and z ∈S:

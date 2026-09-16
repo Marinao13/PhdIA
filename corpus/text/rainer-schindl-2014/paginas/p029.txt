@@ -1,0 +1,55 @@
+Composition in ultradiﬀerentiable classes
+125
+(3) If E(ω)(R) ⊆E{σ}(R), then W(⪯}S, by Corollary 5.15 and Proposi-
+tion 4.6. As in (1) we may derive that there exist ρ, τ > 0 such that (5.18),
+and so ω ⪯σ. This and (1) imply the assertion.
+As E{t}(U) = Cω(U) and E(t)(U) = H(Cn) (via restriction), condition
+(ω4) is equivalent to Cω ⊆E{ω} and condition (ω5) is equivalent to Cω ⊆E(ω).
+5.19. Intersection and union of all non-quasianalytic Gevrey
+classes. For the weight matrix G = {Gs : s > 0} with Gs = (Gs
+k) = ((k!)s)
+(5.20)
+E(G)(U) =
+\
+s>0
+G1+s(U),
+U ⊆Rn open,
+is the intersection and
+(5.21)
+E{G}(K) =
+[
+s>0
+G1+s(K),
+K ⊆Rn compact,
+is the union of all non-quasianalytic Gevrey classes G1+s = E{Gs} (as locally
+convex spaces). Indeed, Gs  Gs′ for all s < s′ (so G satisﬁes (M(BR)) and
+(M{BR})), and hence we get (5.20):
+E(G)(U) =
+\
+s>0
+E(Gs)(U) =
+\
+s>0
+E{Gs}(U) =
+\
+s>0
+G1+s(U),
+while (5.21) is evident by deﬁnition. Note that E(G), and hence also E{G},
+is non-quasianalytic. In fact, the sequence L = (Lk) deﬁned by k!Lk :=
+kk(log(k + e))2k is non-quasianalytic and satisﬁes L  Gs for all s > 0, and,
+as (k!Lk)1/k is increasing, E[L] is non-quasianalytic, by the Denjoy–Carleman
+theorem.
+The following theorem shows that there exist spaces E[M] that are dif-
+ferent from E[M] as well as from E[ω].
+5.22. Theorem. Neither E(G)(R) nor E{G}(R) coincides (as vector space)
+with E(M)(R), E{M}(R), E(ω)(R), or E{ω}(R) for any weight sequence M or
+weight function ω.
+Proof. We show ﬁrst that, given a weight matrix M = {Mλ : λ ∈Λ}
+with Mλ ̸≈Mµ for all λ ̸= µ, there cannot exist a weakly log-convex
+M ∈RN
+>0 such that E[M](R) = E[M](R). Indeed, if there is such an M,
+Proposition 4.6 implies M ≈Mλ for some λ. Then, by Proposition 2.12(1),
+E(M)(R) = E(M)(R) =
+\
+λ
+E(Mλ)(R) ⊊E(M)(R),

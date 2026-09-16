@@ -1,0 +1,23 @@
+13.5 Computer Algebra Methods
+205
+be transformed into scalar equations (in Exercise 1.8 on p. 5 we have brieﬂy
+discussed cyclic vectors near a regular point of an ODE, but one can also
+show existence of cyclic vectors in a neighborhood of a singular point [84]).
+So in principle, a computer algebra package written for systems may also
+be used for scalar equations, or vice versa, but there may be diﬀerences in
+performance.
+Algorithms for the scalar case are usually based on the Newton polygon
+construction and Newton’s algorithm [44, 123, 263]. Available programs in
+Maple are the package DIFFOP (see van Hoeij [122–124]), which can be
+down-loaded at
+http://klein.math.fsu.edu/ hoeij/maple.html,
+the ELISE package of Dietrich [88] at
+www.math2.rwth-aachen.de/∼dietrich/elise.html
+and versions of the package DESIR developed at Grenoble in Maple
+and Reduce.
+Much work has been done at the last institute for the system case with
+the emphasis on the algorithmical eﬃcient resolution [45–47, 49, 79, 117,
+118]. The package ISOLDE recently developed by Barkatou and Pﬂ¨ugel in
+Maple contains several functions computing formal solutions and other
+applications for systems. It is, together with DESIR, available at
+http://www-lmc.imag.fr/CF/logiciel.html.

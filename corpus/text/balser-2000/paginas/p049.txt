@@ -1,0 +1,63 @@
+32
+2. Singularities of First Kind
+Theorem 6 A system (2.1) with general spectrum has a fundamental so-
+lution of the form
+X(z) = T(z) zK zM,
+(2.17)
+where
+• T(z) is an analytic transformation,
+• M is constant, lower triangularly blocked of some type (ν1, . . . , νµ),
+• the kth diagonal block of M has exactly one eigenvalue mk with real
+part in the half-open interval [0, 1),
+• K = diag [κ1Iν1, . . . , κµIνµ], κj ∈Z, weakly increasing and so that
+mk + κk is an eigenvalue of A0 with algebraic multiplicity νk.
+It is worth pointing out that the above result does not coincide with
+Theorem 5 (p. 19) in case of a good spectrum, since the eigenvalues of A0
+need not have real parts in [0, 1). Nonetheless, the theorem clariﬁes the
+structure of fundamental solutions of (2.1) with general spectrum, and the
+propositions in principle allow the computation of the monodromy matrix
+M, the diagonal matrix K, and any ﬁnite number of coeﬃcients of T(z).
+For a more eﬀective computation, one may use the following procedure
+from Gantmacher [105], which also provides another proof of Theorem 6:
+Remark 1: Let (2.1) and an analytic transformation T(z) = ∞
+0 Tn zn be
+arbitrarily given, and expand B(z) = ∞
+0 Bn zn. Then (2.13) is equivalent
+to
+Tn (B0 + nI) −A0 Tn =
+n−1
+
+m=0
+(An−m Tm −Tm Bn−m),
+(2.18)
+for n ≥0. We assume that A0 = diag [A11, . . . , Aµµ] is diagonally blocked as
+in Proposition 3 (p. 30), which can always be brought about by a constant
+transformation, and take T0 = I, B0 = A0. Blocking Tn = [T (jk)
+n
+], and
+similarly An, Bn, according to the block structure of A0, the equations
+(2.18) for n ≥1 are of the form
+T (jk)
+n
+(Akk + nI) −Ajj T (jk)
+n
+= A(jk)
+n
+−B(jk)
+n
++ . . .
+According to Lemma 24 (p. 212), whenever Akk + nI and Ajj do not have
+the same eigenvalue, these equations can be solved for T (jk)
+n
+for whatever
+block B(jk)
+n
+we have, and we then choose such blocks equal to vanish. In
+the other case we apply Lemma 25 (p. 213) to see that the equation be-
+comes solvable if we pick B(jk)
+n
+accordingly. This second case occurs only
+for ﬁnitely many values of n and for some j > k, and one can see that the
+transformed system so obtained has a fundamental solution zKzM, with K
+and M as described in the theorem.
+3

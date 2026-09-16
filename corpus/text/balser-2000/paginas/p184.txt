@@ -1,0 +1,40 @@
+10.6 Singular Multidirections
+167
+(b) If ˆf ∈E {z}k,d and p is a natural number, then ˆg(z) = ˆf(zp) ∈
+E {z}pk,p−1d, and (Spk,p−1d ˆg)(z) = (Sk,d ˆf)(zp).
+(c) If ˆf ∈E {z}k,d and p is a natural number for which ˆg(z) = ˆf(z1/p) is
+again a power series, then ˆg(z) ∈E {z}p−1k,pd, and (Sp−1k,pd ˆg)(z) =
+(Sk,d ˆf)(z1/p).
+Proof:
+Statements (b) and (c) follow directly from the deﬁnition and
+Exercise 2 on p. 88. For (a), we may assume that the numbers κj all are
+larger than 1/2, because if not we may use (b), (c) with suﬃciently large p.
+In this case, (a) follows from Theorem 50 (p. 164) and the corresponding
+results in Section 6.3.
+2
+While some of the rules for k-summability have been generalized to mul-
+tisummability, we did not yet do so for those concerning products of series.
+This shall be done later with help of a result that characterizes those func-
+tions arising as sums of multisummable series.
+Exercises: Let admissible k and d be given.
+1. Show that the exercises in Section 6.3 generalize to multisummability.
+2. Let ˆf(z) = ∞
+n=−p fn zn be a formal Laurent series, with p ∈N and
+fn ∈E . There are two ways of deﬁning multisummability of ˆf:
+(a) We say that ˆf is k-summable in the multidirection d if ˆg(z) =
+∞
+n=0 fn zn ∈E {z}k,d, and we then deﬁne Sk,d ˆf = Sk,d ˆg +
+−1
+n=−p fnzn.
+(b) We say that ˆf is k-summable in the multidirection d if ˆg(z) =
+zp ˆf(z) ∈E {z}k,d, and we then deﬁne Sk,d ˆf = z−pSk,d ˆg.
+Show that both deﬁnitions are equivalent, and in case f−p = . . . =
+f−1 = 0 coincide with the original deﬁnition for power series.
+10.6
+Singular Multidirections
+Let a multisummability type k = (k1, . . . , kq) and a formal power series
+ˆf(z) ∈E [[z]] be given. A multidirection d, admissible with respect to k,
+will be called singular for ˆf, if and only if ˆf ̸∈E {z}k,d; otherwise, we
+say that d is nonsingular. It is possible that all d are singular, e.g., when
+ˆf ̸∈E [[z]]1/kq, or when g = S ( ˆBkq ˆf) cannot be holomorphically continued
+across the boundary of some bounded region containing the origin. The

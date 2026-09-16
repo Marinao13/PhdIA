@@ -1,0 +1,49 @@
+27
+So, the question in (d) is answered, see Theorem 3.2.15. Here the index ω(M) shows its dividing
+character. This section ends, helped by the quasianalyticity results, showing in Theorem 3.2.16
+that the Borel map is never bijective.
+The last section is centered on the surjectivity problem. Some partial results will be obtained
+for weight sequences, for example it is shown that for arbitrary weight sequences, surjectivity
+for any opening requires γ(M) > 0 or, in other words, M has to be strongly nonquasianalytic.
+However, the main advances are for strongly regular sequences. In Corollary 3.3.18, if Sγ is the
+unbounded sector of opening πγ and bisecting direction d = 0 of the Riemann surface of the
+logarithm, it will be proved the following:
+Corollary. Let M be a strongly regular sequence, and let t ∈R, t > 0. Each assertion implies
+the following one:
+(i) t < γ(M),
+(ii) the Borel map ˜B : AM(St) →C[[z]]M is surjective,
+(iii) the Borel map ˜B : ˜
+Au
+M(St) →C[[z]]M is surjective,
+(iv) the Borel map ˜B : ˜
+AM(St) →C[[z]]M is surjective,
+(v) for every ξ ∈I with ξ < t, the Borel map ˜B : ˜
+AM(Sξ) →C[[z]]M is surjective,
+(vi) t ≤γ(M).
+Hence, γ(M) is shown to be the suitable limiting value for surjectivity and this answers the
+previous question (e). Finally, some information is specied in case the sequence is even more
+regular.
+In Chapter 4 we turn to last problem, (f), in the previous list.
+Observe that we know
+now for which sequences the M−summability method is available. The rst section recalls the
+most import features of M−summability theory. So, we are now interested in the extension
+of multisummability to this general context. A preliminary discussion concerns the necessity,
+for the problem to make sense, that the sequences, which dene the summability methods to
+be merged, are comparable and nonequivalent, what will be studied in Subsection 4.2.1. After
+establishing the basic properties of the quotient and product sequences of two weight sequences,
+the Tauberian Theorem 4.2.14 will be obtained:
+Theorem. Let L and M be weight sequences such that L admits a nonzero proximate order,
+M/L is logarithmically convex and ω(L) < ω(M). If ˆf ∈C[[z]]L and ˆf is M−summable in all
+directions except a nite set (mod 2π), then ˆf is convergent.
+Thanks to this result, a consistent denition of multisummability can be given: a formal
+power series will be said to be multisummable if it can be split into the sum of nitely many
+formal power series ˆfj, each of them summable for a corresponding sequence Mj admitting a
+nonzero proximate order. Our objective is to devise a procedure for the explicit reconstruction
+of its sum. In Theorems 4.3.21 and 4.3.25, the summability kernels for the quotient and product
+sequences of two sequences will be built, with them we will be able to construct the multisum
+as it is shown in Theorem 4.3.31. We should mention that the study of multisummability has
+not been completed, specially what pertains to some of its possible applications, but we will
+postpone the comments on this work in progress to the conclusions.
+The last chapter in this dissertation was not initially scheduled, but its inclusion is natu-
+ral once the techniques of proximate order and regular variation have been incorporated. It
+Universidad de Valladolid

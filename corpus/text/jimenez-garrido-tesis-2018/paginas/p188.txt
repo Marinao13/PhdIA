@@ -1,0 +1,70 @@
+188
+CHAPTER 5.
+A PHRAGMÉN-LINDELÖF THEOREM VIA PROXIMATE ORDERS AND THE
+PROPAGATION OF ASYMPTOTICS
+For z ∈Sγ with |z| < s1, by using (5.5) and (5.7) we have that
+Re
+
+V
+a
+z
+
+≤2|a|1/ωV
+ 1
+|z|
+
+.
+As γ < ω, there exists µ > 0 such that γ < µ < ω.
+By property (VI), we know that
+log(V (t))/ log(t) is a proximate order equivalent to ρ(t), hence tending to 1/ω at innity. Then,
+we can apply Remark 1.2.8: there exists 0 < s3 ≤s2 small enough such that for every z ∈Sγ,
+|z| ≤s3,
+Re
+
+V
+a
+z
+
+≤2|a|1/ω
+ 1
+|z|
+1/µ
+.
+Since f(z) is bounded in Sγ, we have that
+|F(z)| ≤K exp(2|a|1/ω|z|−1/µ),
+for all z ∈Sγ,
+with |z| ≤s3,
+and, in particular,
+|F(z)| ≤K exp(2|a|1/ωs−1/µ
+3
+),
+for every z ∈Sγ,
+with |z| = s3.
+By applying Phragmén-Lindelöf theorem 5.1.5 to the function F(z) in S(0, γ, s3), we obtain that
+|F(z)| ≤K0 := max(K, c1, K exp(2|a|1/ωs−1/µ
+3
+))
+for |z| ≤s3 and arg(z) ∈[−πγ/2, πγ/2].
+Consequently, using (5.6), if |z| ≤s3 and arg(z) ∈[−πγ/2, πγ/2] we have that
+|f(z)| ≤K0eRe(−V (a/z)) ≤K0e−(cos((arg(a)−arg(z))/ω)−ε)|a|1/ωV (1/|z|).
+Assuming that arg(z) ∈[−πγ/2 + δ, πγ/2], we deduce that
+cos((arg(a) −arg(z))/ω) ≥cos
+π
+2 −δ
+2ω
+
+= −cos(β) ≥η + ε > 0.
+Then, for r2 := η|a|1/ω > 0 we nd that for every z with arg(z) ∈[−πγ/2 + δ, πγ/2] and |z| < s3
+we have that
+|f(z)| ≤K0e−r2V (1/|z|).
+Choose k2 > 0 such that (1/k2)1/ω < r2/B. Property (I) of the functions in MF(2ω, ρ(t)) implies
+that, for z with |z| < s4 < min(s3, 1/(t0k2)), small enough, and arg(z) ∈[−πγ/2 + δ, πγ/2], we
+have
+|f(z)| ≤K0e−BV (1/(k2|z|)) ≤K0e−ωM(1/(k2|z|)).
+We take k1 := K0eωM(1/(k2s4)) ≥K0.
+Then, since ωM(t) is nondecreasing, if |z| ≥s4 and
+arg(z) ∈[−πγ/2 + δ, πγ/2] we have
+|f(z)| ≤K ≤K0 = k1e−ωM(1/(k2s4)) ≤k1e−ωM(1/(k2|z|)),
+which concludes the proof.
+□
+JAVIER JIMÉNEZ GARRIDO

@@ -1,0 +1,117 @@
+21
+(b) ⇒(c) This is obvious by taking g : z 7→
+1
+z since g ∈H(C\{0}) and C\{0}
+contains the (compact) closure of the image of any element f ∈A{M}(Sα) such that
+infz∈Sα |f(z)| > 0.
+(c) ⇒(a) We follow the ideas from [25, Thm. 1] and apply the constructions from
+the previous section. First, recall that L(p) := G
+1−αM(p,α)= (G
+1−αM(p,α))lc is log-convex
+for any p > 0, see (16). Let p > 0 be arbitrary but from now on ﬁxed. According to
+Theorem 4.9 we put
+fp(z) := TL(p)( eEα)(z).
+By using (12) and Lemma 4.6 we estimate as follows:
+|f (n)
+p
+(z)| ≤
+∞
+X
+k=0
+1
+2k L(p)
+k
+(ℓ(p)
+k )n
+(ℓ(p)
+k )k | eE(n)
+α (ℓ(p)
+k z)| ≤4L(p)
+n
+n!en
+n(2−α)n
+= 4M(p,α)
+n
+n!en
+nn ≤4enM(p,α)
+n
+,
+for all n ∈N0 and z ∈Sα. This estimate shows that fp ∈A{Mα}(Sα) and, in particular
+when being applied to n = 0, it yields supz∈Sα |fp(z)| ≤4 < +∞.
+Set R(p)
+n
+:= P∞
+k=0
+1
+2k L(p)
+k (ℓ(p)
+k )n−k and so we get
+∀n ∈N0 :
+f (n)
+p
+(0) = R(p)
+n
+n!(−1)n
+Γ((2 −α)(n + 1) + 2),
+(18)
+and from Lemma 4.6
+∀n ∈N0 :
+R(p)
+n
+≥n(1−α)nM(p,α)
+n
+2n
+.
+(19)
+Take λ > 4 (note that in [24, p.
+349, line 5] there is a mistake, one should write
+λ > C0(f)Mα
+0 ). Then, if we put efp := λ −fp, we have that efp ∈A{Mα}(Sα). Moreover,
+since infz∈Sα | efp(z)| > 0 and A{Mα}(Sα)(= A{M}(Sα)) is assumed to be inverse-closed,
+we get that z 7→
+1
+efp(z) =
+1
+λ−fp(z) ∈A{Mα}(Sα). We write g : z 7→
+1
+λ−z, then by applying
+again the Fa`a-di-Bruno-formula to the composition g ◦fp ∈A{Mα}(Sα) and thanks to
+the fact that g(k)(z) =
+k!
+(λ−z)k+1 for all k ∈N0, yields: For some C, h > 0 and some index
+p′ > 0 (large) we get for all n ∈N0 that
+|(g ◦fp)(n)(0)| =
+
+X
+Pn
+i=1 ki=k,Pn
+i=1 iki=n
+n!
+k1! · · · kn!
+k!
+(λ −fp(0))k+1
+n
+Y
+i=1
+ 
+f (i)
+p (0)
+i!
+!ki
+≤ChnM(p′,α)
+n
+.
+By (18) we see
+ 
+f (i)
+p (0)
+i!
+!ki
+=
+ 
+(−1)iR(p)
+i
+Γ((2 −α)(i + 1) + 2)
+!ki
+,
+1 ≤i ≤n,

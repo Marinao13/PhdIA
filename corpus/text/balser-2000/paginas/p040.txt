@@ -1,0 +1,83 @@
+2.2 Conﬂuent Hypergeometric Systems
+23
+is called conﬂuent hypergeometric function. Another name for
+this function is Kummer’s function. It arises in solutions of
+the conﬂuent hypergeometric diﬀerential equation introduced in
+the exercises below. For α = −m, m ∈N0, the function is a
+polynomial of degree m; otherwise, it is an entire function of
+exponential order 1 and ﬁnite type.
+In the case of λ = 0, the coeﬃcients fn obviously decrease at a much faster
+rate. This is why the corresponding functions are of smaller exponential
+order. In a way, it is typical in the theory of linear systems of meromorphic
+ODE to have a “generic situation” (here: λ ̸= 0 and α ̸= 0, −1, . . .) in
+which solutions show a certain behavior (here, they are entire functions of
+exponential order 1 and ﬁnite type), while in the remaining case they are
+essentially diﬀerent (of smaller order, or even polynomials). To explicitly
+ﬁnd the solutions in these exceptional cases, we deﬁne another type of
+special functions, which are very important in applications:
+Bessel’s Function
+For µ ∈C, the function
+Jµ(z) =
+∞
+
+n=0
+(−1)n
+n! Γ(1 + µ + n)(z/2)2n+µ,
+z ∈C,
+is called Bessel’s function. Removing the power (z/2)µ, we ob-
+tain an entire function of exponential order 1 and ﬁnite type.
+The function is a solution of a scalar second-order ODE, called
+Bessel’s diﬀerential equation.
+In Exercise 2 we shall show that Bessel’s function also arises in solutions
+of (2.6) for ν = 2 and nilpotent A, i.e., λ = 0.
+Next, we brieﬂy mention another special case of (2.5) where Floquet
+solutions can be computed in closed form: For arbitrary dimension ν, let
+A = diag [0, . . . , 0, 1],
+B =
+
+
+λ′
+1
+0
+. . .
+0
+a1
+0
+λ′
+2
+. . .
+0
+a2
+...
+...
+...
+...
+...
+0
+0
+. . .
+λ′
+ν−1
+aν−1
+b1
+b2
+. . .
+bν−1
+λ′
+ν
+
+
+.
+(2.8)
+Under certain generic additional assumptions one can explicitly compute
+Floquet solutions of (2.5), using the following well-known functions:
+Generalized Confluent Hypergeometric Functions
+For m ≥1, αj ∈C , βj ∈C \ {0, −1, −2, . . .}, 1 ≤j ≤m, the
+function
+F(α1, . . . , αm; β1, . . . , βm; z) =
+∞
+
+n=0
+(α1)n · . . . · (αm)n
+n! (β1)n · . . . · (βm)n
+zn

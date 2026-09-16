@@ -1,0 +1,143 @@
+174
+CHAPTER 4.
+MULTISUMMABILITY VIA PROXIMATE ORDERS
+We study now the rst and the last integral in (4.58). If r ∈(0, 1/(|z|M1)), we observe
+that |1/(zreiθj)| ≥M1. Since ω1 + τ1 < 2 and τ2 < 2, using the bounds for ε, we have that
+ω1 + ε ∈(2 −τ1, τ2 + ω1 + τ1 −2 −τ) ⊆(2 −τ1, 2)
+and we deduce that arg(1/(zreiθ3)) = (π/2)(ω1 + ε) ∈((π/2)(2 −τ1), π) and also that
+arg(1/(zreiθ1)) ∈(−π, −(π/2)(2 −τ1)). Then for j = 1, 3 we see that 1/(zreiθj) ∈S(π, τ1)
+and, by (4.56), we show that
+Z (|z|M1)−1
+0
+E1
+
+1
+zreiθj
+
+e2
+
+1
+reiθj
+
+dr
+r ≤K1|z|β1
+Z (|z|M1)−1
+0
+rβ1
+e2
+
+1
+reiθj
+
+dr
+r .
+Since |z| ≤1, we can split (0, 1/(|z|M1)) as the union of the intervals (0, 1/(|z|1/2M1)) and
+[1/(|z|1/2M1), 1/(|z|M1)). By condition (iii) for e2, we know that there exists a constant
+D2 such that |e2(w)| ≤D2 for every w ∈Sτ2. If r ≥1/(|z|1/2M1), then 1/r ≤ε2, by (4.59),
+we can apply (4.57) and we obtain
+Z (|z|M1)−1
+0
+E1
+
+1
+zreiθj
+
+e2
+
+1
+reiθj
+
+dr
+r ≤K1|z|β1/2D2
+Mβ1
+1 β1
++K1C2|z|β1
+Z (|z|M1)−1
+(|z|1/2M1)−1 rβ1−α2 dr
+r .
+According to Remark 4.3.15, we may assume that α2 < β1. Then for j = 1, 3 and for every
+u ∈Sτ with |z| ≤ε2
+2/M 2
+1 we have that
+Z (|z|M1)−1
+0
+E1
+
+1
+zreiθj
+
+e2
+
+1
+reiθj
+
+dr
+r ≤K1D2|z|β1/2
+Mβ1
+1 β1
++
+K1C2|z|α2
+(β1 −α2)Mβ1−α2
+1
+.
+(4.61)
+Consequently, by (4.60) and (4.61), condition (ii.b) is satised with α = min(β1/2, α2).
+By condition (iii) for e2, for every ε > 0 there exist c, k > 0 such that
+|e2(1/u)| ≤c e−ωM2(k/|u|),
+u ∈Sω2−ε.
+Then, by Proposition 3.1.9, we have that e2(1/u) ∼M2 ˆ0 in Sω2.
+By Theorem 4.1.18, we see that e1 ◁e2(1/z) = T −
+e1(e2(1/u))(z) ∼M2/M1 ˆ0 in Sω2−ω1 which
+implies, again by Proposition 3.1.9, that for every ε > 0 there exist c, k, r > 0 such that
+|e1 ◁e2(z)| ≤c e−ωM2/M1(|z|/k),
+z ∈Sω2−ω1−ε,
+|z| > r.
+(4.62)
+By condition (ii.b) for e1 ◁e2, we know that |e1 ◁e2(z)| ≤C for z ∈Sω2−ω1−ε with |z| ≤δ.
+Since e1 ◁e2(z) is continuous, (4.62) holds for every z ∈Sω2−ω1−ε and we conclude that
+condition (iii) is satised.
+For x > 0 we have that
+e1 ◁e2(x) = 1
+2πi
+ Z R
+0
+E1
+
+1
+xreiθ1
+
+e2
+
+1
+reiθ1
+dr
+r
+−
+Z θ3
+θ1
+E1
+
+1
+xReiθ
+
+e2
+
+1
+Reiθ
+
+idθ +
+Z 0
+R
+E1
+
+1
+xreiθ3
+
+e2
+
+1
+reiθ3
+dr
+r
+!
+JAVIER JIMÉNEZ GARRIDO

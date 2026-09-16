@@ -1,0 +1,65 @@
+124
+CHAPTER 3.
+INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
+(a) f(pr+j)(0) = 0 for every p ∈N0 and j ∈{1, . . . , r −1} (this condition is empty when r = 1),
+(b) there exists a constant A > 0 for which
+sup
+p∈N0, x∈[0,∞)
+|f(pr)(x)|
+App!Mp
+< ∞.
+The subspace of Nr,M([0, ∞)) consisting of those functions with support contained in [0, 1] will be
+denoted by Lr,M([0, ∞)). Similarly, we introduce the space Er,M([0, 1]) of functions f ∈C∞([0, 1])
+such that
+(a) f(pr+j)(0) = 0 for every p ∈N0 and j ∈{1, . . . , r −1} (this condition is empty when r = 1),
+(b) there exists a constant A > 0 for which
+sup
+p∈N0, x∈[0,1]
+|f(pr)(x)|
+App!Mp
+< ∞.
+Note that these spaces coincide with the classical ones for r = 1. In this context, it is natural
+to consider the next auxiliary sequence.
+Denition 3.3.6. Given a sequence M and r ∈N, its r−interpolating sequence Pr,M = P =
+(Pn)n∈N0 is dened by
+Pkr+j =
+
+Mr−j
+k
+Mj
+k+1
+1/r
+,
+k ∈N0, j ∈{0, . . . , r}.
+Note that with j = r for k and j = 0 for k + 1 we obtain the same value. As it was pointed out
+in [91], a simple computation leads to
+(i) P1,M = M,
+(ii) Pkr = Mk for every k ∈N0,
+(iii) pkr+j = (mk)1/r for all k ∈N0 and j ∈{0, . . . , r −1},
+(iv) If M is a weight sequence, then P also is.
+We also deduce the following relation for their injectivity indices.
+Lemma 3.3.7. Let M be a sequence and r ∈N. Then
+ω(M) = rω(P).
+Proof. Fix j ∈{0, . . . , r −1} , the lemma is deduce from the next calculation
+ω(M) = lim inf
+k→∞
+log mk
+log k
+= r lim inf
+k→∞
+log(mk)1/r
+log k
+= r lim inf
+k→∞
+log pkr+j
+log(kr + j)
+log(kr + j)
+log(k)
+= r lim inf
+k→∞
+log pkr+j
+log(kr + j).
+□
+The introduction of this r−interpolating sequence is motivated by the following estimates,
+independently obtained by A. Gorny and H. Cartan (see [72, Sect. 6.4.IV]).
+JAVIER JIMÉNEZ GARRIDO

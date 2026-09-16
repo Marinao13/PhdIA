@@ -1,0 +1,66 @@
+5
+Lemma 2.1. Let M = (Mp)p∈N0 be a weight sequence, then:
+(i) t ∈(0, ∞) 7→hM(t) is nondecreasing and continuous,
+(ii) hM(t) ≤1 for all t > 0, hM(t) = 1 for all t suﬃciently large and limt→0 hM(t) = 0.
+We also introduce the counting function νm for the sequence m,
+νm(λ) := #{p ∈N0 : mp ≤λ}.
+(6)
+If M is a weight sequence, then the functions νm and ωM are related by the following useful
+integral representation formula, e.g. see [17] and [14, (3.11)]:
+ωM(x) =
+Z x
+0
+νm(λ)
+λ
+dλ =
+Z x
+m0
+νm(λ)
+λ
+dλ,
+x > 0.
+(7)
+In [11], the nature of the index γ(M), fundamental in the study of the surjectivity of the
+asymptotic Borel map, is explained. More precisely, it is shown that γ(M) is the lower Ma-
+tuszewska index of m. In addition, the relation between ORV-indices of m and νm is clariﬁed
+and from this connection we characterized some properties of νm that will be important for our
+aim.
+Lemma 2.2. Let M = (Mp)p∈N0 be a weight sequence, then:
+(i) γ(M) > 0 if and only if νm satisﬁes the condition νm(2t) = O(νm(t)) as t tends to ∞.
+(ii) γ(M) > 1 if and only if νm satisﬁes the condition (ωsnq), i.e., there exists D > 0 such that
+Z ∞
+1
+νm(ys)
+s2
+ds ≤Dνm(y) + D,
+y ≥0.
+Proof. (i) follows by (3) and [11, Coro. 4.2.(ii)]. (ii) holds true by combining [11, Lemma 2.10],
+[11, Coro. 2.13], [11, Thm. 3.10] and [11, Prop. 4.1].
+We conclude this subsection by introducing the harmonic extension and a particular majorant
+of a nondecreasing nonquasianalytic function.
+A nondecreasing (or even just measurable) function σ : [0, ∞) →[0, ∞) satisﬁes the non-
+quasianalyticity property (ωnq) (and we say σ is nonquasianalytic) if
+Z ∞
+1
+σ(t)
+t2 dt < ∞.
+Let σ : [0, ∞) →[0, ∞) be a nondecreasing nonquasianalytic function. The harmonic exten-
+sion Pσ of σ to the open upper and lower halfplanes of C is deﬁned by
+Pσ(x + iy) =
+
+
+
+σ(|x|)
+if x ∈R, y = 0,
+|y|
+π
+Z ∞
+−∞
+σ(|t|)
+(t −x)2 + y2 dt
+if x ∈R, y ̸= 0.
+(8)
+For every z ∈C one has (see, for example, [3, Remark 3.2] or [20, Prop. 5.5]):
+σ(|z|) ≤Pσ(z).
+(9)
+We list some basic properties of the harmonic extension that will be used later:

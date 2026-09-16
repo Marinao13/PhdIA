@@ -1,0 +1,79 @@
+Using Proposition 2.13, items (ii.2) and (iii), we see that M is (mg) and (snq). However,
+the limit
+lim
+p→∞
+m2p
+mp
+does not exist, then condition (d) in Theorem 3.6 is violated and dM(t) is not a nonzero
+proximate order.
+Next, we are going to see that m ≃ℓ, where the sequence ℓ= (ℓp)p∈N0, with ℓp = p + 1
+for every p ∈N0, corresponds to the Gevrey sequence of order 1. For every p ≥8 and
+22k+j ≤p ≤22k+j+1 −1, we have that
+22k3
+
+22k/3
+ j−1
+2k−1
+22k+j+1
+≤mp
+p
+≤
+22k3
+
+22k/3
+ j−1
+2k−1
+22k+j
+.
+Then
+3
+2k−j
+2k−1 2
+j−2k
+2k−1 −1 ≤mp
+p
+≤3
+2k−j
+2k−1 2
+j−2k
+2k−1 .
+Since j = 1, 2, . . ., 2k, we see that
+2−2 ≤mp
+p
+≤3,
+from where the equivalence is clear.
+Since the existence, and the value if it exists, of
+the limit appearing in (16) are stable under equivalence, and moreover it is obvious that
+limp→∞log(ℓp)/ log(p) = 1, we deduce that m satisﬁes (16) with ω(M) = 1.
+4
+Sequences admitting a nonzero proximate order
+Example 3.12 provides a strongly regular sequence M such that dM(t) is not a proximate
+order. However, this sequence is equivalent to L = (p!)p∈N0, and, as indicated in Example 3.7,
+dL is a nonzero proximate order (in particular, we deduce that the property of dM being
+a proximate order is not stable under equivalence of sequences).
+So, we may obtain a
+satisfactory summability theory in the Carleman ultraholomorphic class associated to L,
+which coincides with that associated to M. This shows that asking for dM to be a nonzero
+proximate order is too strong a restriction for a (lc) sequence M with m tending to inﬁnity,
+and one could ask instead for:
+(e) There exists a (lc) sequence L, with quotients tending to inﬁnity, such that L ≈M
+and dL(t) is a nonzero proximate order.
+On the other hand, the second author had already observed [19, Remark 4.11(iii)] that,
+for the construction of nontrivial ﬂat functions in optimal sectors, dM need not be a nonzero
+proximate order, but it is enough that there exist nonzero proximate orders close enough to
+dM, in the following sense.
+Deﬁnition 4.1. Let M = (Mp)p∈N0 be a (lc) sequence with limp→∞mp = ∞. We say that
+M admits a proximate order if there exist a proximate order ρ(t) and constants A and B
+such that
+A ≤log(t)(ρ(t) −dM(t)) ≤B,
+t large enough.
+(17)
+Observe that, if dM(t) is a proximate order and ρ(t) is another proximate order equivalent
+to dM(t), then one has
+lim
+t→∞log(t)(ρ(t) −dM(t)) = 0,
+and so (17) is veriﬁed.
+In case M admits a proximate order, dM veriﬁes all the properties of proximate orders
+except possibly (D), since it is clear from the deﬁnition of admissibility that limt→∞dM(t) =
+limt→∞ρ(t) exists.
+13

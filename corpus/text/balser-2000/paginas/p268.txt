@@ -1,0 +1,37 @@
+Solutions
+253
+6. Abbreviate s = 1/k. By assumption there exist c, K > 0 so that
+∥f(z)∥≤c (|z|K)n Γ(1+sn) for every n ≥0 and z ∈¯S. According to
+Stirling’s formula the same holds, for diﬀerent constants c, K, with
+Γ(1 + sn) replaced by nsn. For small |z|, the term (|z|K)n nsn ﬁrst
+decreases, then increases with respect to n and is approximately min-
+imal for n with |z|K esns ≤1 < |z|K es(n + 1)s. For this n we have
+(|z|K)n nsn ≤e−sn ≤˜ce−˜
+K|z|−k, with suﬃciently large constants
+˜c, ˜K, independent of z.
+7. Use the previous exercise.
+Section 4.7:
+2. Let ˜G = {z ∈G : ze2πi ∈G}. Conclude that f(z) −f(ze2πi) ∼=s ˆ0 in
+˜G and then use Watson’s Lemma and Proposition 7 (p. 65).
+Section 5.1:
+1. Make a change of variable (u/z)k = x in (5.1). The formula holds
+whenever the integral exists, which is certainly the case for λ = 0.
+2. Make a change of variable (u/z)k = x in (5.1) and estimate f.
+3. Substitute uk = ak + tk, conclude that ˜f(t) = f((ak + tk)1/k) is
+of exponential growth at most k on the line arg t = τ, and use the
+previous exercise.
+Section 5.2:
+1. Use (B.10) (p. 228).
+2. Estimate the integral for g = Bkf in terms of the length of the path
+of integration times maximum of the integrand, occurring along the
+circular part of γ(τ), to obtain ∥g(u)∥≤c exp[Kρκ1 + (|u|/ρ)k], with
+ρ being the radius of the circular part. Then, observe that ρ can be
+selected, depending upon |u|, so that the right-hand side is minimal.
+3. Make a change of variable z−k = w, both in (5.4) and (5.3).
+Section 5.3:
+2. For real t > 0, deﬁne
+h±(z) =
+ ∞(±τ)
+0
+f(u) e−uz du
+u −t,

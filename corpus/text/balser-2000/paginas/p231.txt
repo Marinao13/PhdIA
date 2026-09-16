@@ -1,0 +1,57 @@
+A.3 Some Functional Analysis
+215
+2. For
+A =
+ A11
+A12
+A21
+A22
+
+,
+with A11 invertible, show
+A =
+ A11
+0
+A21
+A22 −A21 A−1
+11 A12
+ 
+I
+A−1
+11 A12
+0
+I
+
+.
+3. For A as above, conclude det A = det A11 det(A22 −A21A−1
+11 A12) and
+compute A−1, in case it exists.
+A.3
+Some Functional Analysis
+In several chapters of the book we study functions with values in a Ba-
+nach space. In this context, we shall make use of some standard results of
+Functional Analysis, in particular, of Hahn-Banach’s theorem and the ba-
+sic theory of continuous linear operators. While for the elementary theory
+of Banach spaces we refer to standard texts, we shall brieﬂy outline some
+notation which we shall use:
+• Given a vector space E over the ﬁeld of complex numbers, assume
+that an operation · :
+E × E 	−→E is deﬁned. We say that E is
+an algebra over C , if for elements a, b, c ∈E and α ∈C the two
+associative laws
+a · (b · c) = (a · b) · c,
+α(a · b) = (αa) · b
+and the two distributive laws
+a · (b + c) = a · b + a · c,
+(a + b) · c = a · c + b · c
+always hold. If the commutative law a · b = b · a also holds, then we
+say that E is a commutative algebra.
+The operation · will be referred to as the multiplication in E and for
+convenience we shall write a b instead of a · b.
+• Let E be an algebra over C . If an element e ∈E exists so that for
+every a ∈E we have e a = a e = a, then e is called unit element in
+E . Observe that E can contain at most one such e, since if ˜e also is
+a unit element, then we have ˜e = e ˜e = ˜e e = e.
+• Let E be an algebra over C with unit element e. An element a ∈E
+is called invertible, if some b ∈E exists with a b = b a = e, and b then
+is called inverse of a. Again, it follows that only one such b can exist:

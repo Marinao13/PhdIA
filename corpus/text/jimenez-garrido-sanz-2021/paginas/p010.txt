@@ -1,0 +1,98 @@
+We are ﬁrstly interested in determining the order of the function M(t) ∈Λ (deﬁned in (6)
+for every strongly regular sequence M). We will need the following fact, which can be found
+in [33]: if we consider the counting function for the sequence of quotients m, ν : (0, ∞) →N0
+given by
+ν(t) := #{j : mj ≤t},
+(9)
+then one has that
+M(t) =
+Z t
+0
+ν(r)
+r
+dr,
+t > 0.
+(10)
+The following result consists of the right assertions included in Theorem 2.14 in [50],
+where, as aforementioned, it was incorrectly obtained that limt→∞log M(t)/ log t exists.
+Theorem 3.2. Let M be strongly regular. Then, the order of M(t) is given by
+ρ[M] = lim sup
+t→∞
+log M(t)
+log t
+= lim sup
+p→∞
+log(p)
+log(mp).
+(11)
+Consequently, by Corollary 2.21 we have
+ρ[M] =
+1
+ω(M) ∈(0, ∞).
+Proof. The ﬁrst expression for ρ[M] comes from the very deﬁnition of the order because
+M(t) > 1 for t large enough. For the second one, we take into account the link given in
+(10) between M(t) and the counting function ν(t), which also belongs to Λ. We may apply
+Theorem 2.1.1 in [14] to deduce that the order of M(t) equals that of ν(t). Now, from
+Theorem 2.1.8 in [14] we know that the order of ν(t) is in turn the exponent of convergence
+of m, given by the formula in (8).
+The function dM(t) always veriﬁes conditions (A) and (B) of proximate orders (see Def-
+inition 2.23). In order to study condition (C), we will use Proposition 2.11 to prove the
+following auxiliary result.
+Lemma 3.3. Let M be a strongly regular sequence, then there exists a strongly regular
+sequence L such that L ≈M and
+lim inf
+p→∞log
+ 
+ℓp
+L1/p
+p
+!
+> 0,
+(12)
+where ℓ= (ℓp)p∈N0 is the sequence of quotients associated with L. Moreover, if L(t) is the
+associated function of L we deduce that
+lim
+p→∞
+log(L(ℓp))
+log(p)
+= 1.
+(13)
+Proof. Since M is (lc) and veriﬁes (snq), by Proposition 2.11 there exist ε > 0 and a sequence
+of positive numbers (Lp)p≥0 such that m ≃ℓand (Lp(p!)−ε)p∈N0 is (lc) and veriﬁes (snq).
+Remark 2.8 implies that L also satisﬁes (mg) and (snq). Moreover, as (Lp(p!)−ε)p∈N0 is (lc),
+L also is:
+ℓp = ℓp(p + 1)ε−ε ≤
+ℓp+1
+(p + 2)ε (p + 2)ε = ℓp+1,
+p ∈N0.
+Now let us show (12). Since the sequence (ℓp(p + 1)−ε)p∈N0 is nondecreasing, for every
+p, k ∈N0 with p > k we have
+ℓk ≤(k + 1)ε
+(k + 2)ε ℓk+1 ≤ℓp
+p−1
+Y
+j=k
+j + 1
+j + 2
+ε
+= ℓp
+p
+Y
+j=k+1
+
+j
+j + 1
+ε
+.
+Consequently,
+Lp = ℓ0ℓ1 · · · ℓp−1 ≤ℓp
+p
+p
+Y
+j=1
+
+j
+j + 1
+εj
+.
+10

@@ -1,0 +1,68 @@
+Composition in ultradiﬀerentiable classes
+105
+2.13. Lemma ([11, Lemme 3]). Let M ∈RN
+>0 and λ > 0. If M0 ≤λkMk
+for all k and
+|f(k)(t)| ≤k!Mk
+for all t ∈[−λ, λ], k ∈N,
+then
+|f(k)(0)| ≤2ekk!M♭(c)
+k
+for all k ∈N.
+2.14. Proposition. Let M ∈RN
+>0 satisfy lim M1/k
+k
+> 0 and M0 = 1, let
+K ⊆Rn be compact, and let Kλ := S
+x∈K Bλ(x), λ > 0, be a λ-neighborhood
+of K. Then E{M}(Kλ) ⊆E{M♭(c)}(K) via restriction.
+Proof. By the assumption lim M1/k
+k
+> 0 there exists τ > 0 such that
+Mk ≥τ k for all k. If f ∈E{M}(Kλ), then C := ∥f∥M
+Kλ,ρ < ∞, where we may
+assume that ρ is such that ρλτ ≥1. The function fx,v(t) := f(x+tv) satisﬁes
+∥fx,v∥M
+[−λ,λ],ρ ≤∥f∥M
+Kλ,ρ = C for all x ∈K and v ∈Sn−1. By Lemma 2.13,
+we have
+|dk
+vf(x)| = |f(k)
+x,v (0)| ≤2C(eρ)kk!M♭(c)
+k
+for all x ∈K, v ∈Sn−1, k ∈N,
+since (CρkMk)♭(c) = CρkM♭(c)
+k
+(see 2.6). Thus f|K ∈E{M♭(c)}(K) (see e.g.
+[23, 7.13.1]).
+2.15. Theorem. Let M ∈RN
+>0 and let U ⊆Rn be open. We have:
+(1) If lim M1/k
+k
+> 0 then E{M}(U) = E{M♭(c)}(U).
+(2) If lim M1/k
+k
+= ∞then E(M)(U) = E(M♭(c))(U).
+Under these assumptions E[M](U) is an algebra.
+(1) is due to [11, Thm. I & Appendix].
+Proof. (1) Apply Propositions 2.12(1) and 2.14.
+(2) Proposition 2.12(1) implies E(M♭(c))(U) ⊆E(M)(U). Conversely, let
+K ⊆U be compact and let Kλ := S
+x∈K Bλ(x) ⊆U be a λ-neighborhood of
+K in U. By Proposition 2.12(3), Proposition 2.14, and Lemma 2.6,
+E(M)(Kλ) =
+[
+E{L}(Kλ) ⊆
+[
+E{L♭(c)}(K) ⊆E(M♭(c))(K),
+where the unions are taken over all L  M with L1/k
+k
+→∞. As K was
+arbitrary, we have E(M)(U) ⊆E(M♭(c))(U).
+The last statement is a well-known consequence of weak log-convexity.
+As a consequence, Cω ⊆E{M} = E(N) is impossible. Assume the con-
+trary. Then, by 2.12(4)&(5) and Theorem 2.15, we may assume that M and
+N are weakly log-convex, and by Proposition 2.12(1), we have M  N. Set-
+ting L = (Lk) with Lk := √MkNk we obtain M LN, and, by Lemma 2.6,
+we may assume that L is weakly log-convex. But then E{M} ⊆E(L) ⊆E{L} ⊆
+E(N) = E{M} and thus M ≈L ≈N, a contradiction.

@@ -1,0 +1,83 @@
+18
+J. JIMÉNEZ-GARRIDO, J. SANZ, AND G. SCHINDL
+since q 7→
+1
+jq ϕ∗
+ωMx(jq)) is nondecreasing for any x ∈I and j > 0 (ﬁxed) and since j ≤⌊j⌋+1 ≤2⌊j⌋
+for all j ≥1. Thus (4.1) with the choice q > 0 does imply (4.2) with the same indices x and y and
+with the parameter q′ := q/2.
+(v) ⇒(iii) We have to distinguish between two cases. First, if q ≥2 then we immediately get (4.1)
+with q = 2 (q 7→
+1
+jq ϕ∗
+ωMx (jq) is nondecreasing for any x ∈I and j > 0 ﬁxed). Consequently (i)
+follows again by recalling (2.5).
+Second, if 0 < q < 2, then we iterate (4.2) as follows for all j ≥1
+exp( 1
+j2q ϕ∗
+ωMx (j2q))
+exp( 1
+j ϕ∗ωMz (j))
+=
+exp( 1
+2jq ϕ∗
+ωMx(2jq))
+exp( 1
+qj ϕ∗ωMy (qj))
+exp( 1
+jq ϕ∗
+ωMy (jq))
+exp( 1
+j ϕ∗ωMz (j)) .
+Hence, after applying suﬃciently many iterations again depending only on given q (choose n ∈N
+minimal to have 2nq ≥2), we get (4.2) with q′ ≥2 and some index z ∈I and are again able to
+conclude.
+□
+Assertion (ii) in the previous result is the mixed (ω6)-condition of the particular, Roumieu or
+Beurling, type. Using resp. applying iterations as in the proofs of the previous section it is straight-
+forward to extend the list(s) of equivalences in Proposition 4.1 by replacing in (ii) the value 2 by
+any C > 1 not depending on x and y.
+4.1. Mixed growth indices based on mixed moderate growth conditions. Let M, N ∈LC
+with M ≤N be given and a > 0. We write (N, ΩM)mg,a, if
+(4.3)
+∃q > 1 : lim sup
+j→+∞
+exp( 1
+jq ϕ∗
+ωM (jq))
+exp( 1
+j ϕ∗ωN (j))
+< qa,
+which should be compared with [4, Thm.
+3.16 (v)].
+Note that, if we write ΩM = {W q =
+(W q
+j )j∈N : q > 0} for the weight matrix associated with ωM, so in particular W 1 = M (see Section
+2.6), then the previous condition reads
+∃q > 1 :
+lim sup
+j→+∞
+ 
+W q
+j
+Nj
+!1/j
+< qa.
+Given weight two functions ω and σ with σ ≥ω we write (ω, σ)ω6,b if
+(4.4)
+∃K > 1 : lim inf
+t→+∞
+σ(Kt)
+ω(t)
+> Kb,
+which should be compared with [4, Thm. 2.16 (iii)]. It is immediate to see that if (4.3) is satisﬁed
+for some a > 0, then also for all a′ > a with the same choices of q and if (4.4) is satisﬁed for some
+given b > 0, then also for all 0 < b′ < b with the same choices for K. According to these growth
+restrictions we can put
+(4.5)
+α(N, ΩM) := inf{a > 0 : (N, ΩM)mg,a} ∈[0, ∞],
+and
+(4.6)
+β(ω, σ) := sup{b > 0 : (ω, σ)ω6,b} ∈[0, ∞].
+If the corresponding sets are empty, we write α(N, ΩM) = ∞and β(ω, σ) = 0.
+The next result shows that the values deﬁned in (4.5) and (4.6) are related.

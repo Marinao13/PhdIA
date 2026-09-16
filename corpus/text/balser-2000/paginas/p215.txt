@@ -1,0 +1,49 @@
+198
+13. Applications in Other Areas, and Computer Algebra
+equivalent. On the other hand, however, it may be easier to ﬁnd the coeﬃ-
+cients for a factorial series solution directly from the underlying functional
+equation, and the question of summation for a factorial series may have an
+easier answer than for the corresponding power series. Since we have only
+discussed summation of formal power series, we shall here restrict to that
+case, but mention a paper by Barkatou and Duval [48], concerning sum-
+mation of formal factorial series. The second comment we wish to make
+concerns the question of summation of formal power series in several vari-
+ables: In the situations we are going to discuss we shall always treat all
+but one variable as (temporarily ﬁxed) parameters, thus leaving us with a
+series in the remaining variable, with coeﬃcients in some Banach space. It
+is for this reason that we have developed the theory of multisummability in
+such a relatively general setting. While this approach is successful in some
+situations, there are other cases indicating that one should better look for
+a summation method that treats all variables simultaneously, but so far
+nobody has found such a method!
+13.1
+Nonlinear Systems of ODE
+Throughout this section, we shall be concerned with nonlinear systems of
+the following form:
+z−r+1x′ = g(z, x),
+(13.1)
+where r, the Poincar´e rank, is a nonnegative integer, x = (x1, . . . , xν)T ,
+ν ≥1, and g(z, x) = (g1(z, x), . . . , gν(z, x))T is a vector of power series
+in x1, . . . , xn. Let p = (p1, . . . , pν)T be a multi-index, i.e., all pj are non-
+negative integers, and deﬁne xp = xp1
+1 · . . . · xpν
+ν . Then such a power se-
+ries can be written as gj(z, x) = gj(z, x1, . . . , xn) = ∞
+p≥0 gj,p(z) xp. The
+coeﬃcients gj,p(z) are assumed to be given by power series in z−1, say,
+gj,p(z) = ∞
+m=0 gj,p,m z−m. Throughout, it will be assumed that all these
+series converge for |z| > ρ, with some ρ ≥0 independent of p, while the
+series for gj(z, x), for every such z, converges in the ball ∥x∥< ρ.
+As is common for multi-indices, we write |p| = p1 + . . . + pν. If it so
+happens that gj,p(z) ≡0 whenever |p| ≥2, for every j, then (13.1) obviously
+becomes an inhomogeneous linear system of ODE, whose corresponding
+homogeneous system is as in (3.1) (p. 37). If gj,0(z) ≡0 for every j, then
+(13.1) obviously has the solution x(z) ≡0, and we then say that (13.1) is
+a homogeneous nonlinear system.
+It is shown in [24] that homogeneous nonlinear systems have a formal
+solution ˆx(z), sharing many of the properties of FFS in the linear case:
+1. The formal solution ˆx(z) is a formal power series ˆx(z) = ˆx(z, c) =
+
+|p|≥0 ˆxp(z) cp in parameters c1, . . . , cν. Its coeﬃcients ˆxp(z) are ﬁ-
+nite sums of expressions of the form ˆf(z) zλ logk z exp[p(z)], with a

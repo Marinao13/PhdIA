@@ -1,0 +1,16 @@
+Preface       xiii
+fesseur Invit´e in September 1997 and February 1998, they introduced me
+to the realm of computer algebra and helped me prepare the corresponding
+section, and in addition created a perfect environment for writing a large
+portion of the book while I was there. In March 1998, while I was sim-
+ilarly visiting Lille University, Anne Duval made me appreciate the very
+recent progress on application of multisummability to the theory of diﬀer-
+ence equations, for which I am grateful as well. I would also like to thank
+many other colleagues for support in collecting the numerous references
+I added, and for introducing me to related, yet diﬀerent, applications of
+multisummability on formal solutions of partial diﬀerential equations and
+singular perturbation problems. Last, but not least, I owe thanks to my
+two teachers at Ulm University, Peyerimhoﬀ(who died all too suddenly
+in 1996) and Jurkat, who were not actively involved in writing, but from
+whom I acquired the mathematics, as well as the necessary stamina, to
+complete this book.

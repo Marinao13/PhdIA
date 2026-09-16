@@ -1,0 +1,65 @@
+194
+CHAPTER 5.
+A PHRAGMÉN-LINDELÖF THEOREM VIA PROXIMATE ORDERS AND THE
+PROPAGATION OF ASYMPTOTICS
+so, for |z| < s3 ≤s2 small enough, we have that V (1/k2|z|) ≥q2V (1/|z|). We conclude that
+|F(z)| ≤k1e(−Aq2+2|a|1/ω)V (1/|z|),
+if |z| < s3,
+arg(z) ∈[−3πω/8, πω/2].
+Since |a| has been chosen small enough in order that −Aq2 + 2|a|1/ω < 0, proceeding as before,
+we nd that F(z) is M−at uniformly for arg(z) ∈[−3πω/8, πω/2].
+Consequently, F veries estimates of the type (5.8) in Sω and, by Remark 5.2.1, F ∈˜
+Au
+M(Sω)
+and F ∼M ˆ0. Since P∞
+p=0(mp)−1/ω(M) is assumed to be divergent, we can apply Theorem 3.2.2
+to the function F(z) in Sω, and deduce that F(z) ≡0 and f ≡0.
+□
+In the proof of Lemma 5.2.3 we need to distinguish two situations: in case γ > ω(M) we
+have been given an M−at function f in a wide enough sector (what entails uniqueness), while
+in case γ = ω(M) an M−at function F in a sector of opening πω(M) has to be constructed in
+order to apply Theorem 3.2.2, what is possible thanks to the additional assumption on the series
+P∞
+p=0(mp)−1/ω(M).
+It is interesting to note that in the Gevrey case the aforementioned series diverges, so the
+previous result extends Lemma 5 in [29]. Indeed, in that instance the very divergence of the series
+allows one to treat the case γ > ω(M) by restricting the function to a sector with γ = ω(M), an
+argument which is not available in our general situation.
+Remark 5.2.4. In most situations we can obtain converse statements to Lemma 5.2.2 and
+Lemma 5.2.3. Observe that if γ < ω(M) and we take γ < µ < ω(M), by Theorem 3.2.2 we know
+there exists a nontrivial at function f ∈˜
+Au
+M(Sµ). Then (the restriction of) f is a bounded
+holomorphic function in Sγ that admits a continuous extension to the boundary ∂Sγ, and that
+is M−at in directions d = πγ/2 and −d.
+Analogously, if γ = ω and P∞
+p=0((p + 1)mp)−1/(ω(M)+1) converges, we deduce that the series
+P∞
+p=0(mp)−1/ω(M) converges too. Hence, by Theorem 3.2.4 there exists a nontrivial at function
+f ∈AM(Sω(M)). Since the derivatives of f are Lipschitzian, one may continuously extend f to
+the boundary of Sω(M) preserving the estimates, and again obtain that f is M−at in directions
+πω(M)/2 and −πω(M)/2.
+However, the converse of Lemma 5.2.2 and Lemma 5.2.3 fails in case γ = ω(M), the series
+P∞
+p=0(mp)−1/ω(M) converges and P∞
+p=0((p + 1)mp)−1/(ω(M)+1) diverges (for instance, this is the
+situation for the sequence M1,3/2, see Example 1.1.4(i)). Although nontrivial at functions in
+˜
+Au
+M(Sω(M)) exist in this situation, there is no warranty that they can be continuously extended
+to the boundary of the sector.
+Finally, we provide a version of Watson's Lemma for functions in sectorial regions which are
+M−at in a direction.
+Proposition 5.2.5. Let γ > 0 be given with γ > ω(M). Suppose f is holomorphic in a sectorial
+region Gγ, bounded in every T ≪G, and M−at in a direction θ in Gγ. Then f ≡0.
+Proof. Using Proposition 5.1.11 we know that for every T ≪Gγ we have (5.9) for suitable
+k1, k2 > 0 depending on T and for every z ∈T. Then, Proposition 3.1.9 implies that f ∈˜
+AM(Gγ)
+and f ∼M ˆ0, and Theorem 3.2.15 leads to the conclusion.
+□
+Remark 5.2.6. By Theorem 3.2.15, if γ ≤ω(M) we can nd a nontrivial function f ∈˜
+AM(Gγ)
+such that f ∼M ˆ0, so it is bounded on every proper bounded subsector T of Gγ and M−at in
+any direction θ0 ∈(−πγ/2, πγ/2). Consequently, in this situation we have a complete version of
+Watson's Lemma.
+JAVIER JIMÉNEZ GARRIDO

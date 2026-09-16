@@ -1,0 +1,45 @@
+234
+Appendix B. Functions with Values in Banach Spaces
+∥fn∥≤C ρ−n exp[cρκ], n ≥1. The right-hand side, as a function of ρ, be-
+comes minimal for cρκ = n/κ; hence ∥fn∥≤C (cκ/n)n/κ exp[n/κ], n ≥1
+follows. Conversely, such an estimate for fn implies, using Stirling’s formula,
+that ∥fn∥≤˜C (Kc1/κ)n/Γ(1 + n/κ), n ≥1, for every K > 1 and ˜C suﬃ-
+ciently large. Hence, according to the above discussion of Mittag-Leﬄer’s
+function, we obtain ∥f(z)∥≤˜C E1/κ(Kc1/κ|z|) ≤˜C e˜c|z|κ, for every ˜c > c.
+Using this, one can easily complete the proof.
+2
+Exercises: In the following exercises, let α > 0 and consider Mittag-
+Leﬄer’s function Eα(z).
+1. Assume α < 2, and let ¯S = {z :
+| arg z| ≤απ/2. Use (B.19) and
+Cauchy’s integral theorem to show for s ∈¯S and |z| > 1 that
+Eα(z) = α−1ez1/α +
+1
+2πi
+
+γ
+ew wα−1
+wα −z dw,
+and the integral tends to zero as z →∞.
+2. Let α and ¯S be as in the previous exercise. Use (B.19) and Cauchy’s
+integral theorem to show that Eα(z) remains bounded in arbitrary
+closed subsectors that do not intersect with ¯S. Use this and the pre-
+vious exercise to show that Eα(z) is of order k = 1/α and type τ = 1.
+3. Compute order and type of Eα(z), for arbitrary α > 0.
+B.5
+The Phragm´en-Lindel¨of Principle
+In the literature one ﬁnds a number of theorems, all bearing the name
+Phragm´en-Lindel¨of and being variants, resp. consequences, of the well-
+known Maximum Modulus Principle, which easily generalizes to Banach
+space valued functions:
+Proposition 29 (Maximum Modulus Principle) Let G be any region
+in C , and assume that some z0 and ρ > 0 with D(z0, ρ) ⊂G exist for
+which we have
+∥f(z)∥≤∥f(z0)∥,
+z ∈D(z0, ρ).
+Then f(z) is constant.
+Proof: Without loss of generality, let z0 = 0. Expanding f(z) = ∞
+0 fn zn,
+|z| < ρ, we wish to show fn = 0 for n ≥1. Suppose we did so for
+1 ≤n ≤m −1, which is an empty assumption for m = 1. Accord-
+ing to Hahn-Banach’s theorem, there exists φ ∈E ∗with ∥φ∥= 1 and

@@ -1,0 +1,39 @@
+264
+Solutions
+Section B.1:
+1. Use linearity of φ to show
+φ[(z −z0)−1(f(z) −f(z0))] = (z −z0)−1[φ(f(z)) −φ(f(z0))],
+and then let z →z0, using continuity of φ.
+2. Observe
+T(z) f(z) −T(z0) f(z0)
+z −z0
+= T(z)[f(z) −f(z0)]
+z −z0
+−[T(z) −T(z0)]f(z0)
+z −z0
+,
+and analogously for α in place of T.
+Section B.2:
+1. Assume f(z) = ∞
+m fn (z −z0)n, for some m ≥0, and set g(z) =
+(z −z0)−mf(z). Then g is holomorphic in D(z0, ρ), and g(zk) = 0.
+Letting k →∞implies g(0) = fm = 0.
+2. Use Cauchy’s integral theorem and proceed as in case of E = C.
+5. Use Theorem 27 to show that all Taylor coeﬃcients fn, for n ≥1, are
+equal to zero.
+Section B.3:
+1. Use holomorphic continuation by successive re-expansion.
+2. Use the previous exercise.
+3. Use the previous exercises together with Exercise 1 on p. 223.
+4. For (a), use (B.8) and a change of variable t = x u. For (d), observe
+that we have shown the left-hand side of (B.12) to have a limit; to
+evaluate it, it suﬃces to consider positive real values of z.
+5. Show (1 + a/z)a+z = exp[(a + z) log(1 + a/z)] →ea for |z| →∞in
+sectors | arg z| ≤π −ε.
+6. Observe that the left-hand side is Γ(1 + z) Γ(1 + n) nz/Γ(1 + n + z)
+and use the previous exercise.
+10. Justify interchanging the order of integration and use Cauchy’s for-
+mula to evaluate the integral. Then, prove (B.14) for Re z > 0, and
+use Exercises 3 and 7 to show the same for general z ∈C.
+11. Use the identity theorem of Exercise 3 to see that the formula (B.14),
+proven for Re z < −1, extends automatically.

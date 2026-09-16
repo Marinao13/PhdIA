@@ -1,0 +1,52 @@
+4
+VINCENT THILLIEZ
+Now consider the space CM,σ(Ω) of those functions f for which pσ(f, x) is uni-
+formly bounded with respect to x in Ω, in other words, for which there exists a
+constant Cf such that
+(11)
+|DJf(x)| ≤Cfσjj!Mj for any J ∈Nn and any x ∈Ω.
+This is a Banach space for the norm ∥f∥Ω,σ deﬁned as the smallest constant Cf such
+that (11) holds. We deﬁne the Carleman class CM(Ω) as the increasing union of all
+Banach spaces CM,σ(Ω) for σ > 0, endowed with its natural (LB)-space topology.
+Remark 1.2.2. In view of (11), the sequence M conveys the defect of analyticity
+of the elements of CM(Ω). Depending on authors, Mj often rather denotes what
+appears in (11) as j!Mj. For practical reasons we prefer to separate the analytic
+part. Anyways, writing Mj = j!Mj, it can be checked that the strong regularity
+of M is equivalent to the classical set of conditions (M1)-(M2)-(M3) for M, as it
+appears in [1] or [11], for instance.
+Example. Taking Mj = j!α with α > 0, we obtain Gevrey classes G1+α(Ω).
+Now denote by Λ(Nn) the space of families λ = (λJ)J∈Nn of complex numbers
+and consider the Borel map B : C∞(Rn) −→Λ(Nn), given by (Bf)J = DJf(0) for
+any f of C∞(Rn) and any multi-index J. Deﬁne ΛM,σ(Nn) as the space of those
+elements λ of Λ(Nn) for which there exists a constant Cλ such that
+(12)
+|λJ| ≤Cλσjj!Mj for any multi-index J ∈Nn.
+The Borel map restricts obviously as follows:
+(13)
+B : CM,σ(Rn) −→ΛM,σ(Nn).
+In the same way as for functions, we deﬁne the norm |λ|σ as the smallest possible Cλ
+in (12). Then ΛM,σ(Nn) becomes a Banach space and the map (13) is continuous,
+with norm 1. We also consider the (LB)-space ΛM(Nn) obtained as the inductive
+limit of these spaces. Thus, we have naturally
+(14)
+B : CM(Rn) −→ΛM(Nn).
+This map is surjective, as shown in particular by the following proposition, which
+summarizes results of several authors [1][3][6][13], not in full generality, but rather
+in a form adapted to our needs.
+Proposition 1.2.3. Let M be a strongly regular sequence.
+(i) One can ﬁnd a constant b ≥1, depending only on M and n, such that, for any
+real σ > 0, there exists a linear continuous operator
+Eσ : ΛM,σ(Nn) −→CM,bσ(Rn)
+satisfying BEσλ = λ for any element λ of ΛM,σ(Nn). The extensions Eσλ can be
+assumed to have compact support, contained in a prescribed neighborhood of 0.
+(ii) For any bounded open subset Ωof Rn with Lipschitz boundary, one can ﬁnd a
+constant c ≥1, depending on M and Ω, such that, for any real σ > 0, there exists
+a linear continuous operator
+Fσ : CM,σ(Ω) −→CM,cσ(Rn)
+satisfying Fσf |Ω= f for any element f of CM,σ(Ω).
+Proof. The proposition can be derived from suﬃciently precise CM versions of the
+Whitney extension theorem, see for instance [6], theorem 11 and remark 12. Part
+(i) corresponds to K = {0} and part (ii) corresponds to K = Ω, since the Lipschitz
+smoothness of ∂Ωallows us to identify functions in CM(Ω) and Whitney jets of
+class CM on Ω.
+□

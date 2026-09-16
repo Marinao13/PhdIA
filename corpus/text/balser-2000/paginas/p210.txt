@@ -1,0 +1,47 @@
+12.5 Central Connection Problems
+193
+12.5
+Central Connection Problems
+Generally speaking, a connection problem is concerned with two fundamen-
+tal solutions X1(z), X2(z) of the same system of ODE, say, of the form (1.1)
+(p. 2). The solutions may be given in terms of power series, or integrals, con-
+verging in regions G1, G2 ⊂G, and usually have certain natural properties
+there. According to Theorem 1 (p. 4), both solutions Xj(z) can be holomor-
+phically continued into all of G, and then are related as X1(z) = X2(z) Ω,
+with a unique invertible constant matrix Ω. This matrix then is the cor-
+responding connection matrix, and its computation is referred to as the
+connection problem. For example, the system may be of the form (3.1)
+(p. 37), and the fundamental solutions can be two consecutive highest-level
+normal solutions Xj(z) and Xj−1(z), which were introduced in Section 9.1
+and are characterized through their Gevrey asymptotic in the correspond-
+ing sectors Sj, Sj−1. In this setting, the connection problem is the same
+as the computation of the corresponding Stokes multiplier of highest level
+and has been discussed in Chapter 9. While such problems sometimes are
+called lateral connection problems, we shall here be concerned with another
+type: Consider a system that is singular at two points z1, z2. Assume z1 to
+be of ﬁrst kind, or at least regular-singular; then a fundamental solution
+X1(z) can be obtained as X1(z) = ∞
+0 Sm (z−z1)m I+M, |z−z1| < ρ, with
+a monodromy matrix M and matrix coeﬃcients Sn that at least theoret-
+ically can be computed from the system. Then the problem arises of how
+this fundamental solution behaves as we approach the other singularity z2.
+To study this behavior is what we call the central connection problem.
+Such problems, with z2 also being regular-singular, have been treated,
+e.g., by Sch¨afke [238], resp. Sch¨afke and Schmidt [241, 253]. Here, we shall
+instead assume that the point z2 is irregular-singular. This situation, under
+various additional assumptions, has been investigated by, among others,
+Newell [202], Kazarinoﬀand Kelvey [150], Knobloch [152], Wasow [280],
+Kohno [156–159], Wyrwich [285, 286], Okubo [206], Naundorf [198–200],
+Bakken [6, 7], Jurkat [143], Sch¨afke [237, 239, 240], Paris and Wood [216–
+218], Paris [215], Lutz [175], Kovalevski [163, 164], Balser, Jurkat, and
+Lutz [37, 41], Yokoyama [287–289], Balser [13], Lutz and Sch¨afke [178],
+Okubo, Takano, and Yoshida [208], Sibuya [251], and Reuter [231, 232].
+For numerical investigations and applications to problems in physics, see a
+recent article by Lay and Slavyanov [166] and the literature quoted there.
+Here, we shall study the central connection problem in the following
+general setting: We shall consider a system (3.1) (p. 37), where A(z) is a
+rational matrix function with poles only at the origin and inﬁnity. Moreover,
+we shall make the following additional assumptions upon the nature of the
+singularities at the origin resp. inﬁnity:
+1. The origin is supposed to be a regular-singular point of the system,
+but may not be a singularity of ﬁrst kind. Moreover, assume that a

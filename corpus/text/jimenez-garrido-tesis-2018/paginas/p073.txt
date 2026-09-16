@@ -1,0 +1,62 @@
+2.1. LOG-CONVEX SEQUENCES AND O-REGULAR VARIATION
+73
+For a weight sequence M, using (1.5) we recover the classical relation, which can be also
+found in [72], between νm and the associated function ωM. One has that
+ωM(t) =
+Z t
+0
+νm(r)
+r
+dr,
+t > 0,
+(2.8)
+which allows us to write
+ωM(t) = νm(t) log(t) −log(Mνm(t)),
+t > 0; ω′
+M(t) = νm(t)
+t
+,
+t > 0, t ̸= mp, p ∈N0.
+(2.9)
+The associated function ωM(t) of a weight sequence M is continuous, so measurable, and
+positive in [X, ∞) with X > m0. Since the counting function νm(t) is nondecreasing, the same
+holds. Consequently, we can consider their Matuszewska indices β(ωM), β(νm), α(ωM), α(νm)
+and their upper and lower orders µ(ωM), µ(νm), ρ(ωM), ρ(νm). Please note that if ωM (or νm) is
+regularly varying of index ρ, the corresponding indices of ωM (or of νm) are all equal to ρ. Using
+the monotonicity of these functions, we easily obtain the analogue version of Proposition 2.1.18.
+Proposition 2.1.28. Let M be a weight sequence, then
+(i) β(ωM), β(νm), α(ωM), α(νm), µ(ωM), µ(νm), ρ(ωM), ρ(νm) ∈[0, ∞].
+(ii) νm ∈ORV if and only if α(νm) < ∞if and only if νm(2t) = O(νm(t)).
+(iii) ωM ∈ORV if and only if α(ωM) < ∞if and only if ωM(2t) = O(ωM(t)).
+(iv) β(νm) > 0 if and only if there exists H ≥1 such that lim inft→∞νm(Ht)/νm(t) > 1.
+(v) β(ωM) > 0 if and only if there exists H ≥1 such that lim inft→∞ωM(Ht)/ωM(t) > 1.
+Proof. (i) By Theorem 1.2.28, since ωM and νm are nondecreasing, β(ωM), β(νm) ∈[0, ∞], from
+Proposition 1.2.32, (i) is valid.
+(ii) By (i) and by Theorem 1.2.23, νm ∈ORV if and only if α(νm) < ∞.
+By Theorem 1.2.28, if α(νm) < ∞, then there exists α > 0 such that νm(t)t−α is almost de-
+creasing. Hence there exists c > 0 such that νm(t)t−α ≥cνm(2t)(2t)−α for t ≥X. Subsequently,
+νm(2t) = O(νm(t)).
+Conversely, if νm(2t) = O(νm(t)) there exist α, t0 > 0 such that νm(2t) ≤2ανm(t) for t ≥t0.
+Then, for s ≥t ≥t0 there exists j ∈N0 such that s ∈[2jt, 2j+1t] and iterating the last inequality
+we see that
+νm(s)
+sα
+≤νm(2j+1t)
+(2jt)α
+≤(2j+1)ανm(t)
+(2jt)α
+= 2α νm(t)
+tα
+.
+By suitably choosing A ≥2α, we obtain that νm(t)t−α is almost decreasing for t ≥X.
+(iii) Analogous to (ii).
+(iv) By Theorem 1.2.28, β(νm) > 0 if and only if there exists ε > 0 such that νm(t)t−ε is almost
+increasing. Then, if β(νm) > 0, there exists c > 0 such that for any H ≥1 we have that
+νm(Ht) ≥(Ht)εcνm(t)
+tε
+= Hεcνm(t),
+t ≥X.
+We take H such that Hεc > 1, then lim inft→∞νm(Ht)/νm(t) > 1. Reciprocally, if
+lim inf
+t→∞νm(Ht)/νm(t) > 1,
+Universidad de Valladolid

@@ -1,0 +1,53 @@
+194
+12. Other Related Questions
+fundamental solution of the form X(z) = S(z) zM, S(z) = ∞
+0 Sn zn,
+has been computed. Note that, owing to the absence of other ﬁnite
+singular points, the power series automatically has an inﬁnite radius
+of convergence; hence S(z) is an entire function, and det S(z) ̸= 0 for
+every z ̸= 0.
+2. Inﬁnity is supposed to be an essentially irregular singularity with an
+HLFFS ( ˆF(z), Y (z)), satisying the assumptions in Section 9.3. Note
+that these restrictions are without loss of generality, since some easy
+normalizing transformations can be used to make them hold. Also,
+recall from Section 9.3 the deﬁnition of the associated functions and
+their behavior in the cut plane C d, for every nonsingular direction d.
+Under these assumptions, let Xj(z) = Fj(z) Y (z) be the normal solutions
+of highest level. Then there exist unique invertible matrices Ωj, so that
+X(z) = Xj(z) Ωj, j ∈Z. What we are going to show is how the central
+connection matrices Ωj can be computed via an analysis of some functions
+Ψ(u; s; k), corresopnding to the HLNS via Laplace transform.
+Let k ∈Z, and recall the deﬁnition of j∗(k) from p. 147. For α with
+dj∗(k)−1 −π/(2r) < α < dj∗(k) + π/(2r), consider the integral
+Ψ(u; s; k) =
+r
+2πi
+ ∞(α)
+0
+zs−1X(z) ezru dz.
+The assumptions made above imply that X(z) is of moderate growth at the
+origin, and of exponential growth at most r in arbitrary sectors at inﬁnity.
+Therefore, the integral converges absolutely and locally uniformly for Re s
+suﬃciently large and u in a sectorial region (near inﬁnity) of opening π
+and bisecting direction π −r α. We have X(z) = S(z) zM, with an entire
+function S(z) of exponential growth at most r, so that it is justiﬁed to
+termwise integrate the power series expansion of S(z). Making a change of
+variable zr u = eiπ x in the above integral, we obtain for s and u as above
+Ψ(u; s; k) =
+1
+2πi
+∞
+
+n=0
+Sn Γ([(n + s) I + M]/r) (eiπ/u)[(n+s) I+M]/r,
+(12.2)
+where the matrix Gamma function Γ(A) here is deﬁned by the integral
+Γ(A) =
+ ∞
+0
+xA−I e−x dx.
+Observe that this integral converges absolutely for every matrix A whose
+eigenvalues all have positive real parts. Integrating by parts, we can show
+A Γ(A) = Γ(I+A). Using this, it is possible to extend the deﬁnition of Γ(A)
+to matrices having no eigenvalue equal to a nonpositive integer. Therefore,
+the expansion (12.2) can serve as holomorphic continuation of Ψ(u; s; k),

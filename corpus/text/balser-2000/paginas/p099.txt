@@ -1,0 +1,43 @@
+82
+5. Integral Operators
+2. Under the assumptions of Theorem 23, let G be a sector of inﬁnite
+radius, and assume f ∈A(κ1)(G, E ), for some κ1 > 0. Show that
+then Bkf ∈A(κ2)(S, E ) for 1/κ2 = 1/k + 1/κ1.
+3. For G(d, α), f, k and τ as in (5.3), and suﬃciently large c > 0,
+show that the curve βy, parameterized by z(t) = eiτ(c + it)−1/k,
+−y ≤t ≤y, is contained in G for arbitrary y > 0. Use Cauchy’s
+integral theorem to conclude for arg u = τ that
+lim
+y→∞
+1
+2πi
+
+βy
+zkf(z) exp[(u/z)k] dz−k = (Bkf)(u).
+(5.4)
+5.3
+Inversion Formulas
+The following two theorems say that, roughly speaking, Bk is the inverse
+operator of Lk, considered as mappings between certain spaces of analytic
+functions. In the ﬁrst theorem we shall not worry about the exact region
+where Lk(Bkf)(z) will be deﬁned, compared to that of f(z). Instead, we
+show Lk(Bkf)(z) = f(z) for suﬃciently many z, so that the Identity Theo-
+rem in Exercise 3 on p. 230 allows to conclude that they both are the same
+analytic function.
+Theorem 24 Let G(d, α) be a sectorial region, and let k > π/α. For any
+f ∈H(G, E ) that is bounded at the origin, let
+g(u) = (Bkf)(u),
+u ∈S = S(d, α −π/k).
+Then g(u) is of exponential growth not more than k in S, so that (Lkg)(z)
+is holomorphic in a sectorial region ˜G = ˜G(d, ˜α), with π/k < ˜α, and
+f(z) = (Lkg)(z),
+z ∈˜G ∩G.
+Proof: Split γk(τ) into three pieces, as in the proof of Theorem 23. Then
+the integrals over the radial parts uniformly tend to zero as u →∞in
+S(τ, ε/(2k)). In the integral over the circular arc, expand exp[(u/z)k] into
+the exponential series and integrate termwise to see that this integral is an
+entire function of u of exponential growth not more than k. Altogether, this
+shows Bkf of exponential growth not more than k in S(τ, ε/(2k)). Varying
+τ, we ﬁnd the same in S.
+To prove f = Lkg, it suﬃces to do so for z with arg z = d and |z|
+suﬃciently small. For such z, we may insert the integral for Bkf into that

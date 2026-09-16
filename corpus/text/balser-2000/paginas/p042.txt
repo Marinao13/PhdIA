@@ -1,0 +1,54 @@
+2.3 Hypergeometric Systems
+25
+7. Show that F(α1, . . . , αm; β1, . . . , βm; z) satisﬁes the following scalar
+ODE of (m + 1)st order, called the conﬂuent hypergeometric diﬀer-
+ential equation:
+[(δ + α1) · . . . · (δ + αm) −(δ + β1) · . . . · (δ + βm) d
+dz ] y = 0.
+2.3
+Hypergeometric Systems
+In this section we consider so-called hypergeometric systems, which are of
+the form
+(A −zI) x′ = B x,
+A, B ∈C ν×ν.
+(2.9)
+As shall become clear in the following chapters, (2.9) is intimately related,
+via Laplace transform, to a conﬂuent hypergeometric system with slightly
+diﬀerent A and B. Another relation is through a process called conﬂuence,
+which shall not be discussed here but is mentioned to explain the name for
+the systems (2.5).
+For simplicity, we restrict our discussion to A = diag [λ1, . . . , λν], with
+not necessarily distinct values λk. The system (2.9) then is meromorphic in
+C with ﬁrst-order poles at the numbers λ1, . . . , λν. If all the λk are equal, a
+change of variable z = u+λ, reduces the system to one treated in Exercise 1
+on p. 9, so we exclude this case here. For λ1 = . . . = λν−1 ̸= λν, we shall
+compute Floquet solutions of (2.9) using the hypergeometric function resp.
+its generalized versions. For ν = 3 and three distinct values λk, the system,
+under some additional assumptions, should be closely related to Heun’s
+ODE, and the corresponding conﬂuent one to one of its various conﬂuent
+forms [234], but to the author’s knowledge these relations have never been
+worked out. We leave this to the reader as a research problem.
+Making a change of variable z = au + b, a ̸= 0, one can achieve λ1 = 0,
+λν = 1. This shows that in dimension ν = 2 we may assume
+A =
+
+0
+0
+0
+1
+
+,
+B =
+
+a
+b
+c
+d
+
+.
+Putting the system into the form (2.1), we ﬁnd that the Floquet exponents
+are −a and 0. For simplicity we restrict to a noninteger value for a, so
+that in particular E is satisﬁed. Using the same notation as in the previous
+section, the recursion relations for the coeﬃcients of a Floquet solution
+with exponent µ = −a are
+0 = nfn + b gn, (n + 1 −a)gn+1 = c fn + (n + d −a)gn, n ≥0,
