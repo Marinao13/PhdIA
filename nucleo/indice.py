@@ -130,6 +130,8 @@ def fuentes():
         with open(ruta, encoding="utf-8") as f:
             unidades = [json.loads(l) for l in f if l.strip()]
         if unidades:
+            if doc not in bib:
+                print(f"  AVISO: corpus/text/{doc} no tiene entrada en bib.yaml (id renombrado o bib pisada?)")
             out.append((bib.get(doc, {}).get("fuente", "paper"), doc, unidades))
     if os.path.exists(C.F_PROYECTO):
         out.append(("proyecto", "proyecto", _unidades_markdown(C.leer(C.F_PROYECTO))))
