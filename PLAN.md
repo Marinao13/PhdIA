@@ -5,51 +5,65 @@ Mariano son solo revision y pruebas, y van aparte porque son las que escasean.
 Cada fase termina con tests en verde, commit, push y una linea en el registro de
 abajo.
 
-## Decisiones de arquitectura (propuestas; se cierran con las respuestas)
+## Decisiones de arquitectura (cerradas el 2026-09-16 con las respuestas de Mariano)
 
-1. **Un solo punto de entrada.** Los comandos del BRIEF (`ingest`, `ask`, `nota`,
-   `referee`, `lab demo`) se anaden como subcomandos de `doc.py`. Si se quiere
-   `phd`, es un alias de una linea. Motivo: el README ya promete "un unico punto
-   de acceso a la IA" y `motor.llamar()` es la unica puerta.
-2. **`ask` respeta las fases.** Pasa por `motor.llamar()`: apagado en fases 1 y 3,
-   `--forzar` registrado como violacion. **[PENDIENTE: pregunta 6]** Si se prefiere
-   corpus consultable siempre, `ask` entra por `llamar(..., forzar=True)` con
-   `comando="ask"` y se ve en `metricas`, pero no rompe la puerta de `preguntar`.
+1. **Un solo punto de entrada.** Los comandos del BRIEF (`ingest`, `indexar`,
+   `buscar`, `ask`, `nota`, `referee`, `lab demo`) son subcomandos de `doc.py`.
+   Motivo: el README ya promete "un unico punto de acceso a la IA" y
+   `motor.llamar()` es la unica puerta.
+2. **Dos comandos, no uno.** `buscar "..."` es recuperacion pura (BM25 +
+   embeddings): devuelve fragmentos con `[id:pagina]`, sin llamada al modelo, en
+   todas las fases; equivale a abrir el PDF y buscar. `ask "..."` es sintesis con
+   modelo sobre esos fragmentos, por `motor.llamar()`, sujeta a las fases igual
+   que `preguntar`. La puerta conserva su sentido y el corpus no queda inutil en
+   fases 1 y 3.
 3. **Nombres en espanol y sobre lo que ya hay.** `corpus/raw|meta|text` bajo el
    `corpus/` existente; `indice/` para el almacen; `lecturas/{id}.md` para la nota
    por paper (la unidad `sesiones/` sigue siendo el dia); `registro/verificaciones.md`
-   hace de `log/verificaciones.md`; los prompts nuevos van a `nucleo/prompts.py`
-   como los demas.
-4. **Extraccion: PyMuPDF con numero de pagina, siempre.** Marker/Nougat solo si hay
-   GPU **[PENDIENTE: pregunta 4]**; sin ella tardan horas por paper en CPU y en
-   Windows su instalacion es fragil. Las formulas de un PDF con capa de texto salen
-   como texto plano deformado: se guarda tal cual, se marca la pagina, y la cita
-   `[id:pagina]` remite al PDF. No se pretende LaTeX limpio en esta fase.
-5. **Indice minimo sin dependencias pesadas.** BM25 con `rank_bm25` + embeddings
-   por API (`text-embedding-3-small`, mismo `.env`) guardados en sqlite + numpy.
-   10 papers son ~2.000 chunks: centimos de embedding, consulta en milisegundos.
-   Local (`sentence_transformers`) solo si hay GPU y presupuesto cero
-   **[PENDIENTE: preguntas 4 y 5]**.
-6. **Laboratorio en SymPy + `Fraction`/`QQ` + mpmath.** Sage no se asume
-   **[PENDIENTE: pregunta 3]**; si existe, `algebraic.py` lo usa para Puiseux en la
-   fase 5c y ahorra 3-4 h.
-7. **Antes de la fase 1:** `git tag pre-brief` en `master`.
+   hace de `log/verificaciones.md`; `registro/consultas/` guarda cada `ask` con los
+   fragmentos usados **y los recuperados no usados**, para auditar el indice y no
+   solo la respuesta; los prompts nuevos van a `nucleo/prompts.py`. El BRIEF vive
+   en `docs/BRIEF.md`.
+4. **Extraccion en tres capas, por prioridad.** (1) Fuente `.tex` de arXiv cuando
+   el paper tenga id (`arxiv.org/e-print/<id>`, descargada en el `ingest`):
+   formulas exactas, cita `[id:seccion/teorema]`. (2) Si no, Marker en la GPU
+   (RTX 4070): markdown con LaTeX, cita `[id:pagina]`. (3) PyMuPDF como fallback
+   y para mapear paginas. Cada fichero de `corpus/text/` declara con que capa se
+   extrajo. Nougat no.
+5. **Indice sin dependencias pesadas.** BM25 con `rank_bm25` + embeddings por API
+   (`text-embedding-3-small`, mismo `.env`) en sqlite + numpy. Local en la 4070
+   solo si algun dia se quiere independencia del proveedor; no es prioridad.
+   Fuentes: papers (`paper`), `corpus/PROYECTO.md` sin extraccion (`proyecto`),
+   `lecturas/` y `sesiones/` (`nota`).
+6. **Laboratorio en SymPy + `Fraction`/`QQ` + mpmath.** Sin Sage. Si Puiseux lo
+   pide mas adelante, WSL + Sage; no antes.
+7. **Presupuesto: 20 EUR/mes.** `metricas` muestra el coste acumulado del mes por
+   comando; las llamadas de embeddings tambien se registran en `llamadas.jsonl`.
+   Tabla de precios editable en `config.py`, con la fecha en que se verifico.
+8. **Orden.** Los tests de `estado.py` y `pesos.py` (4a) van antes de `ask` (1c) y
+   de `referee` (3b): `motor.llamar()` no se toca sin tests que la cubran.
+9. **Antes de la fase 1:** `git tag pre-brief` en `master`.
 
 ## Fases
 
-### Fase 0 — Auditoria y plan  · hecha
-Entrega: `ESTADO_SISTEMA.md`, `PLAN.md`. Aceptacion: Mariano responde las 6
-preguntas y aprueba las decisiones de arriba.
+### Fase 0 — Auditoria y plan  · hecha (2026-09-16)
+Entrega: `ESTADO_SISTEMA.md`, `PLAN.md`. Las 8 preguntas respondidas; decisiones
+cerradas arriba.
 
-### Fase 1 — Corpus + indice + `ask`  · prioridad maxima
-Bloqueada por: **PDFs y documento del proyecto [preguntas 1 y 2]**.
+### Fase 1 — Corpus + indice + `buscar` + `ask`  · en curso
+Corpus: 19 PDFs en `corpus/raw/` (los 8 de `orden.md` primero; los demas, de
+Sanz, Jimenez-Garrido, Lastra, Malek, Schindl, Rainer, la tesis de
+Jimenez-Garrido 2018). Lista de lectura de los directores: pendiente de la primera
+reunion; hasta entonces `orden.md` es la lista. **`corpus/PROYECTO.md` no esta en
+el repo: pendiente de Mariano.**
 
 | Paso | Que | Horas agente |
 |---|---|---|
-| 1a | `corpus/meta/bib.yaml` (id, autores, titulo, ano, venue, DOI/arXiv, etiquetas, `estado: pendiente_verificar`). `doc.py ingest <pdf>`: copia a `corpus/raw/`, texto por pagina a `corpus/text/{id}/pNNN.txt`, entrada en `bib.yaml`. Resolucion de DOI/arXiv por red para pasar a `verificado`. | 3 |
-| 1b | Chunking por parrafo (300-800 tokens) con id, pagina, seccion si se detecta, tipo si se detecta (definicion / teorema / prueba). Indice BM25 + embeddings en `indice/`. `doc.py indexar`. Tambien `lecturas/` y `sesiones/` como fuente `nota`. | 3 |
-| 1c | `doc.py ask "pregunta"`: recupera k, responde con `[id:pagina]` tras cada afirmacion, separa "el corpus dice" de "conocimiento general", dice "no esta en el corpus" cuando no hay evidencia. Por `motor.llamar()`. Guarda pregunta, fragmentos usados y respuesta en `registro/consultas/`. | 3 |
-| 1d | Registro de conversaciones de `preguntar` (hueco del ESTADO 9). Mismo formato. | 1 |
+| 1a | `corpus/meta/bib.yaml` (id, autores, titulo, ano, venue, DOI, arXiv, etiquetas, `estado: pendiente_verificar`, capa de extraccion). `doc.py ingest <pdf>`: detecta id de arXiv en el PDF, descarga la fuente `.tex` (capa 1) o extrae con Marker (capa 2) / PyMuPDF (capa 3); texto a `corpus/text/{id}/` con paginas; resuelve DOI/arXiv por red para pasar a `verificado`; nunca completa metadatos de memoria. | 4 |
+| 1b | Chunking por parrafo/seccion (300-800 tokens) con id, pagina o seccion, tipo si se detecta (definicion / teorema / prueba). BM25 + embeddings en `indice/`. `doc.py indexar` (incremental). `doc.py buscar "..."`: solo recuperacion, todas las fases. | 3 |
+| 4a | `pytest`; tests de `estado.py` (7 escenarios de medianoche) y de `pesos.py`. Antes de tocar `motor.llamar()`. | 2,5 |
+| 1c | `doc.py ask "pregunta"`: recupera k, responde con `[id:pagina]` tras cada afirmacion, separa "el corpus dice" de "conocimiento general", dice "no esta en el corpus" si no hay evidencia. Por `motor.llamar()`. Guarda en `registro/consultas/` pregunta, fragmentos usados, fragmentos recuperados y no usados, respuesta. | 3 |
+| 1d | Registro de conversaciones de `preguntar` (hueco del ESTADO 9). Mismo formato. Coste del mes por comando en `metricas`. | 2 |
 
 Aceptacion: `ingest` procesa un PDF nuevo de principio a fin y una formula de
 muestra queda legible (o marcada como deformada con su pagina); 5 preguntas de
@@ -83,8 +97,8 @@ Aceptacion: `referee` sobre la seccion Fase 3 de una sesion devuelve objeciones 
 | 4b | `series.py`: series truncadas a orden N, operaciones, generadores Gevrey alpha (semilla fija), fuertemente regular no Gevrey, q-Gevrey; construccion desde una Borel con singularidades dadas. | 4 |
 | 4c | `growth.py`: ajuste en la cola de log abs(a_n), test de cocientes, (abs(a_n)/M_n)^(1/n) para M dado (Roumieu acotado / Beurling a 0), informe con intervalos. | 3 |
 | 4d | `algebraic.py`, raiz simple: Hensel/Newton sobre series formales con coeficientes exactos. | 3 |
-| 4e | Tests 1-3 del BRIEF: Euler (Gevrey-1, polo en -1, direccion pi), algebraica convergente (alpha ~ 0), raiz simple con f Gevrey-1 (alpha ~ 1). | 2 |
-| 4f | `borel.py`: Borel de orden k con normalizacion documentada y citada, Pade para singularidades, direcciones y radio, Laplace numerico de vuelta. | 4-5 |
+| 4e | Tests 1-3 del BRIEF, parte de crecimiento: Euler es Gevrey-1, algebraica convergente (alpha ~ 0), raiz simple con f Gevrey-1 (alpha ~ 1). | 2 |
+| 4f | `borel.py`: Borel de orden k con normalizacion documentada y citada, Pade para singularidades, direcciones y radio, Laplace numerico de vuelta. Aqui va la parte de Borel del test 1: polo en -1, direccion pi. | 4-5 |
 | 4g | Raices multiples: poligono de Newton, ramificacion z = t^r, Puiseux; test 4. | 4-6 (3 con Sage) |
 | 4h | `viz.py` y `doc.py lab demo` con los cuatro casos. | 2 |
 
@@ -110,8 +124,8 @@ cita `[id:pagina]` cuando el corpus exista. `gamma(M)` sigue siendo de Mariano.
 | Fase 5 | 3,5 | 0,5 |
 | **Total** | **45-48** | **~3 + los PDFs** |
 
-Orden temporal: 1 -> 2 -> 3 -> 4a-4e -> 5 -> 4f -> 4g. La fase 1 se puede
-entregar en dos dias desde que existan los PDFs. Las fases 4f y 4g esperan a que
+Orden temporal: 1a -> 1b -> 4a -> 1c -> 1d -> 2 -> 3 -> 4b-4e -> 5 -> 4f -> 4g.
+Los PDFs ya existen: la fase 1 se entrega en dos dias. Las fases 4f y 4g esperan a que
 haya una conjetura que las necesite: construirlas antes es el "no optimizar la
 arquitectura antes de que `ask` funcione" del BRIEF 7.
 
@@ -125,4 +139,4 @@ que ya devuelve horas; el BRIEF se construye alrededor, no encima.
 
 | Fecha | Fase | Hecho | Queda |
 |---|---|---|---|
-| 2026-09-16 | 0 | Auditoria y plan | Respuestas a las 6 preguntas; aprobacion |
+| 2026-09-16 | 0 | Auditoria y plan; 8 respuestas; decisiones cerradas; BRIEF a `docs/`; 19 PDFs versionados; tag `pre-brief` | Fase 1: 1a ingest |
