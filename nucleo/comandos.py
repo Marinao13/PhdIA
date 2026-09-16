@@ -415,6 +415,17 @@ AYUDA_REPL = """Fase 2. Tres usos y nada mas.
 Sin plantilla la pregunta va tal cual, con las reglas de fase 2 igualmente."""
 
 
+def _registrar_conversacion(fase, pregunta, respuesta, plantilla, fragmento):
+    """Cada turno de preguntar queda en registro/consultas/AAAA-MM-DD-preguntar.jsonl."""
+    os.makedirs(C.DIR_CONSULTAS, exist_ok=True)
+    ruta = os.path.join(C.DIR_CONSULTAS, f"{HOY}-preguntar.jsonl")
+    C.anadir(ruta, json.dumps(dict(
+        ts=datetime.datetime.now().isoformat(timespec="seconds"), fase=fase, modelo=C.MODELO,
+        plantilla=(plantilla[:40].split("]")[0].lstrip("[") if plantilla else None),
+        fragmento=fragmento or None, pregunta=pregunta, respuesta=respuesta,
+    ), ensure_ascii=False) + "\n")
+
+
 def cmd_preguntar(args):
     fase, _ = E.fase_actual()
     if fase not in E.MOTOR_PERMITIDO and not args.forzar:
@@ -479,6 +490,7 @@ def cmd_preguntar(args):
         historia.append({"role": "assistant", "content": respuesta})
         print()
         M.imprimir(respuesta)
+        _registrar_conversacion(fase, contenido, respuesta, plantilla, fragmento)
         plantilla, fragmento = "", ""
 
 
@@ -891,6 +903,48 @@ def _reunion_preparar(args):
 # metricas
 # ======================================================================
 
+def _coste_eur(l):
+    """Coste de una llamada segun config.PRECIOS, o None si falta el precio."""
+    p = C.PRECIOS.get(l.get("modelo") or "", {})
+    if p.get("entrada") is None or p.get("salida") is None:
+        return None
+    return (l.get("tokens_in", 0) * p["entrada"] + l.get("tokens_out", 0) * p["salida"]) / 1e6
+
+
+def _coste_del_mes(ll):
+    """Imprime tokens y euros del mes en curso por comando."""
+    mes = datetime.date.today().strftime("%Y-%m")
+    del_mes = [l for l in ll if l.get("ts", "").startswith(mes) and not l.get("simulado")]
+    if not del_mes:
+        return
+    por = defaultdict(lambda: dict(n=0, tin=0, tout=0, eur=0.0, sin_precio=False))
+    for l in del_mes:
+        d = por[l.get("comando", "?")]
+        d["n"] += 1
+        d["tin"] += l.get("tokens_in", 0)
+        d["tout"] += l.get("tokens_out", 0)
+        c = _coste_eur(l)
+        if c is None:
+            d["sin_precio"] = True
+        else:
+            d["eur"] += c
+    print(f"\n  coste de {mes} por comando          llamadas    tokens in / out       EUR")
+    total, incompleto = 0.0, False
+    for cmd, d in sorted(por.items(), key=lambda kv: -kv[1]["tin"]):
+        eur = f"{d['eur']:8.3f}" + ("+?" if d["sin_precio"] else "  ")
+        print(f"    {cmd:<28} {d['n']:>8}    {d['tin']:>9,} / {d['tout']:<9,} {eur}")
+        total += d["eur"]
+        incompleto = incompleto or d["sin_precio"]
+    aviso = ""
+    if incompleto:
+        aviso = "   (+? = modelos sin precio en config.PRECIOS: solo tokens)"
+    elif total > C.PRESUPUESTO_MES:
+        aviso = f"   <-- por encima del presupuesto de {C.PRESUPUESTO_MES:.0f} EUR"
+    elif total > 0.8 * C.PRESUPUESTO_MES:
+        aviso = f"   <-- al {100 * total / C.PRESUPUESTO_MES:.0f}% del presupuesto"
+    print(f"    {'total':<28} {len(del_mes):>8}    {'':>21} {total:8.3f}{aviso}")
+
+
 def cmd_metricas(args):
     # por dia: inicio / sello1 / ataque / sello3
     dias = defaultdict(lambda: dict(inicio=None, sello1=None, ataque=None, sello3=None))
@@ -946,6 +1000,7 @@ def cmd_metricas(args):
     tin = sum(l.get("tokens_in", 0) for l in ll)
     tout = sum(l.get("tokens_out", 0) for l in ll)
     print(f"  tokens: {tin:,} entrada / {tout:,} salida")
+    _coste_del_mes(ll)
 
     conj = re.sub(r"```.*?```", "", C.leer(C.F_CONJETURAS), flags=re.S)
     estados = Counter(re.findall(r"^Estado:\s*(\w+)", conj, re.M))

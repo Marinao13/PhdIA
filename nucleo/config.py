@@ -40,6 +40,16 @@ MAX_TOKENS_JSON = 4000
 MAX_TOKENS_DIAGNOSTICO = 6000
 MAX_TOKENS_ASK = 1800
 
+# Precios en EUR por millon de tokens (entrada, salida) y fecha en que se
+# verificaron en la cuenta. None = sin precio: metricas muestra tokens, no euros.
+# Actualiza los valores con los de platform.openai.com > Billing / Pricing.
+PRECIOS = {
+    "gpt-6-astra":            dict(entrada=None, salida=None, verificado=None),
+    "claude-sonnet-5":        dict(entrada=None, salida=None, verificado=None),
+    "text-embedding-3-small": dict(entrada=None, salida=0.0,  verificado=None),
+}
+PRESUPUESTO_MES = 20.0   # EUR; decision de Mariano, 2026-09-16
+
 DIR_SESIONES = os.path.join(RAIZ, "sesiones")
 DIR_REGISTRO = os.path.join(RAIZ, "registro")
 DIR_DRILL = os.path.join(RAIZ, "drill")
