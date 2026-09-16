@@ -192,6 +192,73 @@ def unidades_pymupdf(paginas):
     return out
 
 
+NOMBRE_IMPRESO = {"teorema": "Theorem", "lema": "Lemma", "proposicion": "Proposition",
+                  "corolario": "Corollary", "definicion": "Definition", "observacion": "Remark",
+                  "ejemplo": "Example", "conjetura": "Conjecture", "problema": "Problem",
+                  "notacion": "Notation", "afirmacion": "Claim", "pregunta": "Question"}
+NOMBRE_ES = {"teorema": "Teorema", "lema": "Lema", "proposicion": "Proposicion",
+             "corolario": "Corolario", "definicion": "Definicion", "observacion": "Observacion",
+             "ejemplo": "Ejemplo", "conjetura": "Conjetura", "problema": "Problema",
+             "notacion": "Notacion", "afirmacion": "Afirmacion", "pregunta": "Pregunta",
+             "demostracion": "Demostracion", "resumen": "Resumen"}
+
+
+def numero_en_pdf(texto_unidad, tipo, texto_pagina):
+    """
+    El numero impreso ("Proposition 4.3") del entorno, leido en el texto PyMuPDF de su
+    pagina: se busca el rotulo cuyo enunciado empieza como la unidad. None si no se
+    resuelve; entonces la cita lleva la etiqueta LaTeX marcada como tal.
+    """
+    nombre = NOMBRE_IMPRESO.get(tipo)
+    if not nombre or not texto_pagina:
+        return None
+    palabras = _norm(_texto_plano(texto_unidad)).split()[:6]
+    if len(palabras) < 3:
+        return None
+    pag = unicodedata.normalize("NFKC", texto_pagina)
+    for m in re.finditer(rf"\b{nombre}\s+(\d+(?:\.\d+)*)\b\.?", pag):
+        cola = _norm(pag[m.end():m.end() + 260])
+        cola = re.sub(r"^[a-z ]{0,60}?(?=\b" + re.escape(palabras[0]) + r"\b)", "", cola)  # salta "(Watson lemma)."
+        if all(w in cola for w in palabras[:3]) and sum(w in cola for w in palabras) >= min(4, len(palabras)):
+            return m.group(1)
+    return None
+
+
+def referencias_tex(dir_tex):
+    """{clave: texto} de los \\bibitem del .bbl (o del thebibliography del .tex). Vacio si no hay."""
+    fuentes = sorted(glob.glob(os.path.join(dir_tex, "**", "*.bbl"), recursive=True)) or \
+        sorted(glob.glob(os.path.join(dir_tex, "**", "*.tex"), recursive=True))
+    refs = {}
+    for f in fuentes:
+        txt = _sin_comentarios(_leer_tex(f))
+        if r"\bibitem" not in txt:
+            continue
+        cuerpo = txt.split(r"\begin{thebibliography}", 1)[-1].split(r"\end{thebibliography}")[0]
+        for m in re.finditer(r"\\bibitem(?:\[[^\]]*\])?\{([^}]+)\}(.*?)(?=\\bibitem|\Z)", cuerpo, re.S):
+            texto = m.group(2)
+            texto = re.sub(r"\\newblock", " ", texto)
+            texto = re.sub(r"\\(emph|textit|textbf|it|bf)\b\*?", "", texto)
+            texto = re.sub(r"\\[a-zA-Z]+\*?(\[[^\]]*\])?", " ", texto)
+            texto = re.sub(r"[{}~]", "", texto)
+            texto = re.sub(r"\s+", " ", texto).strip(" .,")
+            if texto:
+                refs[m.group(1).strip()] = texto
+        if refs:
+            break
+    return refs
+
+
+def claves_cite(texto):
+    """Claves de todos los \\cite{...} de un texto LaTeX, en orden y sin repetir."""
+    out = []
+    for grupo in re.findall(r"\\cite[tp]?\*?(?:\[[^\]]*\])?(?:\[[^\]]*\])?\{([^}]+)\}", texto):
+        for k in grupo.split(","):
+            k = k.strip()
+            if k and k not in out:
+                out.append(k)
+    return out
+
+
 # ======================================================================
 # capa 1: fuente .tex de arXiv
 # ======================================================================
@@ -324,6 +391,9 @@ def unidades_tex(tex, paginas):
         u["pagina"] = pag if pag is not None else ultima
         u["pagina_estimada"] = pag is None
         ultima = u["pagina"]
+        u["numero"] = None
+        if u["tipo"] in NOMBRE_IMPRESO and u["pagina"] and not u["pagina_estimada"]:
+            u["numero"] = numero_en_pdf(u["texto"], u["tipo"], paginas[u["pagina"] - 1])
     return unidades
 
 
@@ -413,10 +483,11 @@ def unidades_marker(md, paginas):
                 continue
             m = RE_TITULO_MD.match(p)
             tipo = NOMBRE_A_TIPO.get(m.group(1).lower(), "demostracion") if m else "parrafo"
+            num = re.search(r"\d+(?:\.\d+)*", m.group(0)) if m else None
             if pag is None:
                 pag = mapear_pagina(p, paginas_norm)
             unidades.append(dict(capa="marker", pagina=pag, seccion=seccion, tipo=tipo,
-                                 label=None, texto=p))
+                                 label=None, numero=num.group(0) if num else None, texto=p))
     return unidades
 
 
@@ -596,6 +667,7 @@ def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True
     with open(os.path.join(dir_id, "unidades.jsonl"), "w", encoding="utf-8", newline="\n") as f:
         for u in unidades:
             f.write(json.dumps(u, ensure_ascii=False) + "\n")
+    _guardar_referencias(dir_id)
     con_pagina = sum(1 for u in unidades if u.get("pagina"))
     meta = dict(id=id_, capa=capa_usada, paginas=len(paginas), unidades=len(unidades),
                 unidades_con_pagina=con_pagina, escaneado=escaneado, avisos=avisos, fecha=hoy())
@@ -617,6 +689,33 @@ def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True
         for a in avisos:
             print(f"    - {a}")
     return ent
+
+
+def _guardar_referencias(dir_id):
+    dir_tex = os.path.join(dir_id, "tex")
+    if os.path.isdir(dir_tex):
+        refs = referencias_tex(dir_tex)
+        if refs:
+            C.escribir(os.path.join(dir_id, "referencias.json"), json.dumps(refs, ensure_ascii=False, indent=1))
+
+
+def leer_referencias(id_):
+    ruta = os.path.join(C.DIR_TEXT, id_, "referencias.json")
+    return json.loads(C.leer(ruta)) if os.path.exists(ruta) else {}
+
+
+def referencia_en_corpus(texto_ref, bib):
+    """Id de bib.yaml al que corresponde una referencia bibliografica, o None."""
+    plano = _norm(texto_ref)
+    for id_, e in bib.items():
+        if e.get("arxiv") and e["arxiv"].lower() in texto_ref.lower():
+            return id_
+        if e.get("doi") and e["doi"].lower() in texto_ref.lower():
+            return id_
+        tit = [w for w in _norm(e.get("titulo") or "").split() if len(w) > 3]
+        if len(tit) >= 3 and sum(w in plano for w in tit) / len(tit) >= 0.7:
+            return id_
+    return None
 
 
 def remapear(id_, verbose=True):
@@ -642,6 +741,7 @@ def remapear(id_, verbose=True):
     with open(os.path.join(dir_id, "unidades.jsonl"), "w", encoding="utf-8", newline="\n") as f:
         for u in unidades:
             f.write(json.dumps(u, ensure_ascii=False) + "\n")
+    _guardar_referencias(dir_id)
     bib[id_]["unidades"] = len(unidades)
     escribir_bib(bib)
     if verbose:

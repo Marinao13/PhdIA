@@ -78,7 +78,7 @@ def fragmentar(unidades):
             return
         texto = "\n\n".join(u["texto"] for u in grupo)
         base = dict(pagina=grupo[0].get("pagina"), seccion=grupo[0].get("seccion"),
-                    tipo="parrafos" if len(grupo) > 1 else grupo[0].get("tipo"), label=None)
+                    tipo="parrafos" if len(grupo) > 1 else grupo[0].get("tipo"), label=None, numero=None)
         for t in (_partir_largo(texto) if _tokens(texto) > MAX_TOK else [texto]):
             out.append(dict(base, texto=t))
         grupo.clear()
@@ -93,7 +93,8 @@ def fragmentar(unidades):
             partes = _partir_largo(u["texto"]) if _tokens(u["texto"]) > MAX_TOK else [u["texto"]]
             for i, t in enumerate(partes):
                 out.append(dict(pagina=u.get("pagina"), seccion=u.get("seccion"), tipo=tipo,
-                                label=u.get("label") if i == 0 else None, texto=t))
+                                label=u.get("label") if i == 0 else None,
+                                numero=u.get("numero") if i == 0 else None, texto=t))
             continue
         if grupo and (u.get("seccion") != grupo[0].get("seccion")
                       or _tokens("\n\n".join(g["texto"] for g in grupo) + u["texto"]) > MAX_TOK):
@@ -153,6 +154,9 @@ def _db():
     con.execute("""CREATE TABLE IF NOT EXISTS fragmentos (
         id TEXT PRIMARY KEY, fuente TEXT, doc TEXT, pagina INTEGER, seccion TEXT,
         tipo TEXT, label TEXT, texto TEXT, hash TEXT, n_tokens INTEGER, orden INTEGER)""")
+    cols = {r[1] for r in con.execute("PRAGMA table_info(fragmentos)")}
+    if "numero" not in cols:
+        con.execute("ALTER TABLE fragmentos ADD COLUMN numero TEXT")
     return con
 
 
@@ -219,7 +223,7 @@ def indexar(rehacer=False, verbose=True):
             if os.path.exists(f):
                 os.remove(f)
     existentes = {r[0]: r[1] for r in con.execute("SELECT id, hash FROM fragmentos")}
-    meta_existente = {r[0]: r[1:] for r in con.execute("SELECT id, pagina, seccion, tipo, label FROM fragmentos")}
+    meta_existente = {r[0]: r[1:] for r in con.execute("SELECT id, pagina, seccion, tipo, label, numero FROM fragmentos")}
     actualizados = 0
     vec, ids = _leer_vectores()
     tiene_vec = set(ids)
@@ -235,15 +239,16 @@ def indexar(rehacer=False, verbose=True):
             fid = f"{doc}#{k:04d}"
             vistos.add(fid)
             if existentes.get(fid) == h and fid in tiene_vec:
-                nuevo_meta = (fr.get("pagina"), fr.get("seccion"), fr.get("tipo"), fr.get("label"))
+                nuevo_meta = (fr.get("pagina"), fr.get("seccion"), fr.get("tipo"), fr.get("label"), fr.get("numero"))
                 if meta_existente.get(fid) != nuevo_meta:      # mismo texto, otra pagina: sin re-embeber
-                    con.execute("UPDATE fragmentos SET pagina=?, seccion=?, tipo=?, label=? WHERE id=?",
+                    con.execute("UPDATE fragmentos SET pagina=?, seccion=?, tipo=?, label=?, numero=? WHERE id=?",
                                 (*nuevo_meta, fid))
                     actualizados += 1
                 continue
-            con.execute("INSERT OR REPLACE INTO fragmentos VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+            con.execute("INSERT OR REPLACE INTO fragmentos (id, fuente, doc, pagina, seccion, tipo, label, "
+                        "texto, hash, n_tokens, orden, numero) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                         (fid, fuente, doc, fr.get("pagina"), fr.get("seccion"), fr.get("tipo"),
-                         fr.get("label"), fr["texto"], h, _tokens(fr["texto"]), k))
+                         fr.get("label"), fr["texto"], h, _tokens(fr["texto"]), k, fr.get("numero")))
             nuevos.append((fid, _texto_para_embeber(fr, doc)))
     # fragmentos que ya no existen (documento reingerido con otra particion)
     sobrantes = set(existentes) - vistos
@@ -286,7 +291,7 @@ def _tokenizar(texto):
 
 def _cargar(fuente=None, doc=None):
     con = _db()
-    q, args = "SELECT id, fuente, doc, pagina, seccion, tipo, label, texto FROM fragmentos", []
+    q, args = "SELECT id, fuente, doc, pagina, seccion, tipo, label, texto, numero FROM fragmentos", []
     cond = []
     if fuente:
         cond.append("fuente = ?"); args.append(fuente)
@@ -296,7 +301,7 @@ def _cargar(fuente=None, doc=None):
         q += " WHERE " + " AND ".join(cond)
     filas = con.execute(q, args).fetchall()
     con.close()
-    claves = ("id", "fuente", "doc", "pagina", "seccion", "tipo", "label", "texto")
+    claves = ("id", "fuente", "doc", "pagina", "seccion", "tipo", "label", "texto", "numero")
     return [dict(zip(claves, f)) for f in filas]
 
 
@@ -374,11 +379,11 @@ def seguir_refs(resultados, maximo=4):
     extra, vistos = [], {f["id"] for f in resultados}
     for f in resultados:
         for lab in RE_REF.findall(f["texto"]):
-            fila = con.execute("SELECT id, fuente, doc, pagina, seccion, tipo, label, texto FROM fragmentos "
+            fila = con.execute("SELECT id, fuente, doc, pagina, seccion, tipo, label, texto, numero FROM fragmentos "
                                "WHERE doc = ? AND label = ? LIMIT 1", (f["doc"], lab)).fetchone()
             if fila and fila[0] not in vistos:
                 vistos.add(fila[0])
-                g = dict(zip(("id", "fuente", "doc", "pagina", "seccion", "tipo", "label", "texto"), fila))
+                g = dict(zip(("id", "fuente", "doc", "pagina", "seccion", "tipo", "label", "texto", "numero"), fila))
                 g["via_ref"] = f["id"]
                 extra.append(g)
                 if len(extra) >= maximo:
@@ -389,10 +394,25 @@ def seguir_refs(resultados, maximo=4):
 
 
 def cita(f):
-    """[doc:pNN] o [doc:pNN, sec 3.1, label]."""
-    partes = [f["doc"] + (f":p{f['pagina']}" if f.get("pagina") else "")]
-    extra = [x for x in (f"sec {f['seccion']}" if f.get("seccion") else None, f.get("label")) if x]
-    return "[" + ", ".join(partes + extra) + "]"
+    """
+    Cita legible: pagina verificada en el PDF + tipo de entorno con su numero impreso;
+    si el numero no se resolvio, la etiqueta LaTeX marcada como tal. Nada de "sec N.N".
+        [thilliez-2003:p7, Teorema 3.2]
+        [jimenez-garrido-sanz-2016:p21, proposicion, etiqueta LaTeX: pro.gamma.menor.omega]
+        [balser-2000:p143]
+    """
+    from .corpus import NOMBRE_ES
+    base = f["doc"] + (f":p{f['pagina']}" if f.get("pagina") else "")
+    tipo = f.get("tipo")
+    if tipo in NOMBRE_ES and tipo not in ("demostracion", "resumen"):
+        if f.get("numero"):
+            return f"[{base}, {NOMBRE_ES[tipo]} {f['numero']}]"
+        if f.get("label"):
+            return f"[{base}, {tipo}, etiqueta LaTeX: {f['label']}]"
+        return f"[{base}, {tipo}]"
+    if tipo == "demostracion":
+        return f"[{base}, demostracion" + (f", etiqueta LaTeX: {f['label']}" if f.get("label") else "") + "]"
+    return f"[{base}]"
 
 
 def imprimir(resultados, ancho=420):
