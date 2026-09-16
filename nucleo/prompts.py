@@ -124,6 +124,9 @@ si no, la etiqueta LaTeX marcada como tal. Reglas:
   7. Fragmentos de fuente `nota` o del `proyecto` son textos del propio Mariano: se citan
      como tales y no valen como evidencia bibliografica.
 
+  8. No copies macros privadas del paper ($\\M$, $\\Mb$, $\\A$...): escribe $M$, $\\mathbb{M}$,
+     $\\mathcal{A}$ con comandos estandar de LaTeX.
+
 Breve. Sin resumir la pregunta, sin preambulos. Formulas entre $...$, nunca con \\( \\).
 """
 

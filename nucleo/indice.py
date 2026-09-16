@@ -393,6 +393,21 @@ def seguir_refs(resultados, maximo=4):
     return extra
 
 
+def vecinos_anteriores(fid, n=2):
+    """Textos de los n fragmentos anteriores del mismo documento (por orden), para leer la
+    atribucion que precede a un enunciado."""
+    doc, _, k = fid.rpartition("#")
+    try:
+        k = int(k)
+    except ValueError:
+        return []
+    con = _db()
+    filas = con.execute("SELECT texto FROM fragmentos WHERE doc = ? AND orden < ? AND orden >= ? ORDER BY orden",
+                        (doc, k, max(0, k - n))).fetchall()
+    con.close()
+    return [f[0] for f in filas]
+
+
 def cita(f):
     """
     Cita legible: pagina verificada en el PDF + tipo de entorno con su numero impreso;
