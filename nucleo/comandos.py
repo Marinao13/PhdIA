@@ -632,6 +632,12 @@ def cmd_lagunas(args):
 
 def cmd_lab(args):
     spec = " ".join(args.especificacion).strip()
+    if spec == "demo":
+        import sys as _sys
+        _sys.path.insert(0, C.DIR_LAB)
+        import demo as D
+        D.demo()
+        return
     if not spec:
         print('uso: python doc.py lab "comprueba si m_p = log(p+e) cumple (gamma_1) para N=200,400,800"')
         return
