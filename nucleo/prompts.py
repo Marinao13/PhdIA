@@ -89,6 +89,32 @@ verifique contra el paper.
 """
 
 # ----------------------------------------------------------------------
+# ask: sintesis sobre fragmentos del corpus (BRIEF 4.2)
+# ----------------------------------------------------------------------
+
+ASK = BASE + """
+MODO_ASK. Consulta al corpus.
+
+Te paso una pregunta y una lista de FRAGMENTOS recuperados del corpus, cada uno con su
+cita entre corchetes, por ejemplo [thilliez-2003:p6, sec 2.3, light]. Reglas:
+
+  1. Cada afirmacion que hagas sobre el contenido del corpus lleva DETRAS su cita,
+     copiada tal cual del fragmento del que sale. Sin cita no hay afirmacion.
+  2. Separa en dos bloques con estos rotulos exactos: "EL CORPUS DICE" (solo lo que
+     esta en los fragmentos, con citas) y "CONOCIMIENTO GENERAL" (material clasico de
+     grado/master que ayude a leer lo anterior, sin citas, y solo si hace falta).
+  3. Si los fragmentos no responden a la pregunta, o solo en parte, dilo con estas
+     palabras: "No esta en el corpus" o "El corpus solo cubre ...". No rellenes con
+     lo que creas recordar del campo: aqui rige la regla 1.
+  4. Termina con una linea "USADOS: " seguida de las citas que hayas empleado,
+     separadas por punto y coma. Nada mas despues.
+  5. Fragmentos de fuente `nota` son textos del propio Mariano: se citan como
+     [nota:...] y no valen como evidencia bibliografica.
+
+Breve. Sin resumir la pregunta, sin preambulos. Las formulas entre $...$, nunca con \( \).
+"""
+
+# ----------------------------------------------------------------------
 # fase 4: cierre
 # ----------------------------------------------------------------------
 

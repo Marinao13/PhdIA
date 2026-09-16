@@ -980,6 +980,51 @@ def cmd_ingest(args):
         Q.ingerir(pdf, id_=args.id, **kw)
 
 
+def cmd_ask(args):
+    """Sintesis con modelo sobre fragmentos de `buscar`. Sujeta a las fases."""
+    from . import indice as I
+    pregunta = " ".join(args.pregunta).strip()
+    if not pregunta:
+        print('uso: python doc.py ask "que condiciones sobre M usa el teorema de extension de Thilliez"')
+        return
+    fase, _ = E.fase_actual()
+    if fase not in E.MOTOR_PERMITIDO and not args.forzar:
+        M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
+        print("(el corpus sigue disponible sin modelo:  python doc.py buscar \"...\")")
+        return
+    frags = I.buscar(pregunta, k=args.k, fuente=args.fuente, doc=args.doc, por_doc=args.por_doc)
+    if not frags:
+        print("nada en el indice para esa pregunta (o indice vacio: python doc.py indexar)")
+        return
+    bloque = "\n\n".join(f"{I.cita(f)}\n{f['texto']}" for f in frags)
+    contenido = f"PREGUNTA: {pregunta}\n\nFRAGMENTOS:\n\n{bloque}"
+    try:
+        respuesta = M.llamar("ask", P.ASK, [{"role": "user", "content": contenido}],
+                             max_tokens=C.MAX_TOKENS_ASK, forzar=args.forzar)
+    except M.MotorApagado as e:
+        M.aviso("MOTOR APAGADO: " + str(e))
+        return
+    print()
+    M.imprimir(respuesta)
+
+    # registro: pregunta, respuesta y TODOS los fragmentos recuperados, marcando los usados
+    m = re.search(r"^USADOS:\s*(.*)$", respuesta, re.M)
+    usadas = {c.strip() for c in m.group(1).split(";")} if m else set()
+    for f in frags:
+        f["usado"] = I.cita(f) in usadas
+    os.makedirs(C.DIR_CONSULTAS, exist_ok=True)
+    marca = datetime.datetime.now().strftime("%Y-%m-%d-%H%M%S")
+    ruta = os.path.join(C.DIR_CONSULTAS, f"{marca}.json")
+    C.escribir(ruta, json.dumps(dict(
+        ts=marca, fase=fase, pregunta=pregunta, k=args.k, fuente=args.fuente, doc=args.doc,
+        respuesta=respuesta, modelo=C.MODELO,
+        fragmentos=[{k_: f.get(k_) for k_ in ("id", "doc", "pagina", "seccion", "tipo", "label",
+                                              "bm25", "coseno", "rrf", "usado", "texto")} for f in frags],
+    ), ensure_ascii=False, indent=1))
+    print(f"\n[{sum(f['usado'] for f in frags)}/{len(frags)} fragmentos usados; "
+          f"consulta guardada en {os.path.relpath(ruta, C.RAIZ)}]")
+
+
 def cmd_indexar(args):
     from . import indice as I
     I.indexar(rehacer=args.rehacer)

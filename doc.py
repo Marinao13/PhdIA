@@ -20,6 +20,7 @@ Unico punto de entrada del sistema. Toda llamada a la IA pasa por aqui.
   python doc.py ingest [pdf...]        ingiere PDFs al corpus (tex de arXiv / Marker / PyMuPDF)
   python doc.py indexar                fragmenta y embebe lo ingerido (incremental)
   python doc.py buscar "..."           fragmentos con [id:pagina], sin modelo, en cualquier fase
+  python doc.py ask "..."              sintesis con citas [id:pagina] sobre esos fragmentos; motor ON
   python doc.py ahora                  que te toca ahora, y el comando exacto
 """
 import sys, argparse
@@ -98,6 +99,15 @@ def main():
     s.add_argument("--bm25", action="store_true", help="sin embeddings")
     s.add_argument("--por-doc", dest="por_doc", type=int, default=2, help="maximo por documento (0 = sin tope)")
     s.set_defaults(fn=K.cmd_buscar)
+
+    s = sub.add_parser("ask", help="sintesis con modelo sobre el corpus, con citas; respeta las fases")
+    s.add_argument("pregunta", nargs="*")
+    s.add_argument("-k", type=int, default=8)
+    s.add_argument("--fuente", choices=["paper", "proyecto", "nota"])
+    s.add_argument("--doc", help="limitar a un id de bib.yaml")
+    s.add_argument("--por-doc", dest="por_doc", type=int, default=2)
+    s.add_argument("--forzar", action="store_true", help="saltar la puerta (queda registrado)")
+    s.set_defaults(fn=K.cmd_ask)
 
     sub.add_parser("metricas", help="los numeros").set_defaults(fn=K.cmd_metricas)
     sub.add_parser("anki", help="exporta tarjetas").set_defaults(fn=K.cmd_anki)

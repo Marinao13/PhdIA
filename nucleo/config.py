@@ -38,6 +38,7 @@ SIMULAR = os.environ.get("DOC_SIMULAR", "") not in ("", "0", "false")
 MAX_TOKENS_CHAT = 1500
 MAX_TOKENS_JSON = 4000
 MAX_TOKENS_DIAGNOSTICO = 6000
+MAX_TOKENS_ASK = 1800
 
 DIR_SESIONES = os.path.join(RAIZ, "sesiones")
 DIR_REGISTRO = os.path.join(RAIZ, "registro")
