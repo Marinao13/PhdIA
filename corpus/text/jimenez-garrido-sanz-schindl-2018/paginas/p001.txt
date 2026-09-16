@@ -1,51 +1,0 @@
-arXiv:1607.08027v2  [math.CA]  15 Feb 2018
-Log-convex sequences and nonzero proximate orders
-Javier Jim´enez-Garrido, Javier Sanz and Gerhard Schindl
-October 11, 2018
-Abstract
-Summability methods for ultraholomorphic classes in sectors, deﬁned in terms of a
-strongly regular sequence M = (Mp)p∈N0, have been put forward by A. Lastra, S. Malek
-and the second author [10], and their validity depends on the possibility of associating to
-M a nonzero proximate order. We provide several characterizations of this and other re-
-lated properties, in which the concept of regular variation for functions and sequences plays
-a prominent role. In particular, we show how to construct well-behaved strongly regular
-sequences from nonzero proximate orders.
-Keywords: Log-convex sequences; regular variation; proximate orders; Carleman ultraholo-
-morphic classes.
-AMS 2010 Classiﬁcation: 26A12, 40A05, 26A51, 30D60.
-1
-Introduction
-A general, common treatment of summability in Carleman ultraholomorphic classes in sec-
-tors, which extends the powerful theory of k−summability dealing with Gevrey formal power
-series, has been put forward by A. Lastra, S. Malek and the second author [10]. The tech-
-nique consisted in the construction of pairs of kernel functions with suitable asymptotic and
-growth properties, in terms of which to deﬁne formal and analytic Laplace- and Borel-like
-transforms which allow one to explicitly recover the sum of a summable formal power series
-in a direction. The main inspiration came from the theory of moment summability methods
-developed by W. Balser in [1, Section 5.5], and required the notion of proximate order,
-appearing in the study of growth properties of holomorphic functions in sectors.
-The Carleman ultraholomorphic classes
-˜
-AM(G) we deal with are those consisting of
-holomorphic functions f admitting an asymptotic expansion ˆf = P
-p≥0 apzp, in a sectorial
-region G with vertex at 0, with remainders suitably bounded in terms of a sequence M =
-(Mp)p∈N0 of positive real numbers: for every bounded and proper subsector T of G, there
-exist CT , AT > 0 such that for every p ∈N0 and z ∈T , one has
-f(z) −
-p−1
-X
-k=0
-akzk ≤CT Ap
-T Mp|z|p.
-We will mostly consider logarithmically convex sequences M with quotients mp :=
-Mp+1/Mp tending to inﬁnity, and frequently our attention will focus on strongly regular
-sequences as deﬁned by V. Thilliez [22], of which the best known example is that of Gevrey
-classes, appearing when the sequence is chosen to be (p!α)p∈N0, α > 0.
-The second author introduced in [19] the constant
-ω(M) = lim inf
-p→∞
-log(mp)
-log(p)
-∈(0, ∞),
-1

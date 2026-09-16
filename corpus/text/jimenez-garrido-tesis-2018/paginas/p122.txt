@@ -1,54 +1,0 @@
-122
-CHAPTER 3.
-INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
-quotients m. We will show that for the surjectivity problem the suitable one is Thilliez's growth
-index γ(M) which has been proved to coincide with the lower Matuszewska index of m, β(m)
-(see Theorem 2.1.16). Please note that we always have γ(M) ≤ω(M) (see Proposition 1.1.28).
-For a strongly regular sequence such that the function dM is a proximate order we have that
-γ(M) = ω(M) (see Remark 2.2.7), then this dierence was hidden. In Subsection 2.2.5, we have
-constructed strongly regular sequences for which γ(M) < ω(M) (see Remark 3.3.20 below for the
-implications of this fact concerning ˜B).
-We recall some convenient properties obtained in Section 2.1 for γ(M). For any sequence M
-and every s > 0 one has
-γ((p!sMp)p∈N0) = γ(M) + s,
-γ((Ms
-p)p∈N0) = sγ(M).
-(see Proposition 2.1.11). We also recall some of the information given in Proposition 2.1.22 and
-Remark 2.1.23, for any β > 0 we say that m satises (γβ) if there exists A > 0 such that
-(γβ)
-∞
-X
-ℓ=p
-1
-(mℓ)1/β ≤A(p + 1)
-(mp)1/β ,
-p ∈N0.
-If M is (lc), γ(M) ≥0 and using this condition we can state an alternative denition of the index:
-γ(M) = sup{β > 0; m satises (γβ)}.
-In addition, the next equivalences will be used several times if: bM = (p!Mp)p∈N0 is (lc) and β > 0
-we have that
-(i) γ(M) > 0 if and only if M is (snq) (see Proposition 2.1.18).
-(ii) γ( bM) > 1 if and only if bm satises (γ1) (see Remark 2.1.23).
-(iii) γ( bM) > β if and only if bm satises (γβ) (using (ii) and Proposition 2.1.11).
-We will start with an arbitrary weight sequence M for which we will obtain some necessary
-conditions for the surjectivity of the Borel map. Subsequently, imposing (dc) (see Denition 1.1.5)
-we will get some improvements on that conditions for the classes AM and ˜
-Au
-M (see Table 3.3).
-For strongly regular sequences, after applying the sucient condition provided by Thilliez and
-some ramication arguments, we will prove that the surjectivity intervals are either (0, γ(M)) or
-(0, γ(M)] (see Table 3.4). Finally, in case γ(M) = ω(M) or if, furthermore, M admits a nonzero
-proximate order we will apply the theorems from the previous section to analyze if the value
-γ(M) belongs to these intervals or not (see Table 3.5).
-3.3.1
-Weight sequences
-Our rst result is based on a theorem by H.-J. Petzsche in the ultradierentiable setting and we
-need to consider the following space.
-Denition 3.3.3. We say that f ∈EM([−1, 1]) if f ∈C∞([−1, 1]) and there exists a constant
-A > 0 for which
-sup
-p∈N0, x∈[−1,1]
-|f(p)(x)|
-App!Mp
-< ∞.
-JAVIER JIMÉNEZ GARRIDO

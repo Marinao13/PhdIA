@@ -1,49 +1,0 @@
-2.2. LOG-CONVEX SEQUENCES, REGULAR VARIATION AND PROXIMATE ORDERS
-91
-Condition (k) trivially implies (ℓ) and, by Remark 2.1.19 we deduce that, if (j) is valid, M is
-strongly regular and, using Proposition 2.1.10, we see that (2.23) holds, then (j) implies (k). The
-converse implications do not hold, see Example 2.2.24 for (j) and (k) and Example 2.2.26 for (k)
-and (ℓ).
-It is plain to check that (j), (k) and (ℓ) are stable for ≃. Moreover, if M is a weight se-
-quence satisfying any of these conditions and L is another weight sequence with L ≈M, by
-Proposition 1.1.20, we have that ℓ≃m, consequently, L also satises the same condition.
-In some sense, Theorem 2.2.6 can be seen as the analogous version of the equivalent denitions
-for strongly regular sequences in Corollary 2.1.6, Remarks 2.1.19 and 2.1.39 for the case of
-regularly varying sequences.
-Example 2.2.8. For the sequences in the Example 1.1.4 we have shown that ω(Mα,β) = α and
-ω(Mq) = ∞for the considered values of α, β and q (see Example 2.1.20). So, Theorem 2.2.6
-shows that for the sequences M0,β and Mq the function dM is not a nonzero proximate order.
-On the contrary, one may easily check that (c) or (e) in that theorem hold for Mα,β whenever
-α > 0 and, consequently, dMα,β is indeed a nonzero proximate order, although its handling will
-be dicult in general (in this sense, see Remark 2.2.16).
-Among the examples at the end of the chapter, only the rst one Example 2.2.21 satises the
-theorem. For the second one, Example 2.2.22, even if dM is not a nonzero proximate order, we are
-still able to apply the results from the generalized summability theory, presented in Section 4.1,
-whereas the others are examples of pathological strongly regular sequences for which this theory
-is not available, but nevertheless the properties of the asymptotic Borel map can be analyzed,
-as it will be done in the next chapter.
-2.2.3
-Regularly varying sequences dened from proximate orders
-In the previous subsection it has been shown how to go from weight sequences to nonzero prox-
-imate orders. Now, departing from a nonzero proximate order, and for every element V in the
-class MF(γ, ρ(t)) given by L.S. Maergoiz [65] (see Theorem 1.2.16 and Denition 1.2.17), we
-will construct a well-behaved sequence V. This procedure is closely related to the one described
-in Subsection 2.1.5.
-Denition 2.2.9. Let ρ(t) be a nonzero proximate order, γ > 0 and V ∈MF(γ, ρ(t)). We
-dene its associated sequence by
-vp := V (p),
-p ∈N,
-v0 := V (1).
-Then Vp := v0v1 · · · vp−1 for all p ∈N and V0 = 1.
-Using Remark 1.2.8, Theorem 1.2.16.(I), (III) and (VI), we see that V is a weight sequence and
-that v is regularly varying of positive index ρ := limt→∞ρ(t). In particular, by Theorem 2.2.6,
-dV is a nonzero proximate order and, by Remark 2.2.7, V is strongly regular.
-We have the following relation between V and the dual sequence DM (see Denition 2.1.40)
-of a weight sequence M admitting ρ(t) as a nonzero proximate order (see Denition 2.2.1).
-Lemma 2.2.10. Let M be a weight sequence admitting ρ(t) as a nonzero proximate order. Then
-for any γ > 0 and every V ∈MF(γ, ρ(t)) we have that v ≃dM.
-Proof. Since M admits ρ(t) as a nonzero proximate order, there exist A, B > 0 such that
-B ≤tρ(t)
-ωM(t) ≤A,
-for t large enough.
-Universidad de Valladolid

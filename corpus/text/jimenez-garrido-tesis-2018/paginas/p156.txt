@@ -1,94 +1,0 @@
-156
-CHAPTER 4.
-MULTISUMMABILITY VIA PROXIMATE ORDERS
-Remark 4.3.6. Moreover, if f(z) ∼M′ P∞
-n=0 anzn, by Theorem 4.1.18.(i), we deduce that g =
-Tef ∼MM′ P∞
-n=0 anme(n)zn on a sectorial region G(d, α+ω(M)). Since the notion of asymptotic
-expansion only depends on the behavior of the function on bounded subsectors, we can say that
-g ∼MM′ P∞
-n=0 anme(n)zn on S(d, α + ω(M)), whenever g is holomorphic in S(d, α + ω(M)).
-As it happens in the Gevrey case, since the moment function me(λ) is the Mellin transform of
-e(z) (see [100, Sect. 1.29]), there is a duality between me(λ) and e and the next lemma shows how
-one can recover e(z) from its moment sequence me, thanks to the inversion formula. However,
-observe that, as it was mentioned in [7], we shall not be concerned with the harder question
-of how to characterize such m to which a kernel e(z) exists. The following lemma generalizes
-Lemma 7 in [7].
-Lemma 4.3.7. Let a kernel function e(z) of M−summability with corresponding operator T =
-Te be given. For f(u) := (1 −u)−1, we have that g = Tf is holomorphic in S(π, 2 + ω(M)),
-is M−asymptotic to ˆg(z) = P∞
-0 m(n)zn there and g(z) →0 as |z| →∞uniformly for z ∈
-S(π, 2 + γ) for every γ < ω(M). Moreover,
-g(z) −g(ze2πi) = 2πie(1/z),
-z ∈Sω(M).
-(4.11)
-Proof. The function f(u) is dened in the sector S(π, 2) and continuous at the origin. For every
-1 < β < 2, we have that
-|f(u)| ≤
-1
-|1 −u| ≤
-1
-sin(π −βπ/2),
-u ∈S(π, β).
-Hence, by Lemma 4.3.5, we have that g is holomorphic in S(π, 2 + ω(M)). Since f is convergent
-at 0, we have that f(z) ∼M′ P∞
-n=0 zn with M′ = (1)n∈N0 and, by Remark 4.3.6, we deduce that
-g ∼M
-P∞
-n=0 m(n)zn on S(π, 2 + ω(M)).
-The behavior at innity can be again read o from the integral representation as follows. We
-x a direction τ ∈(0, 2π), τ ̸= π, and we consider a direction θ ∈(−πω(M)/2, 2π + πω(M)/2)
-such that |τ −θ| < πγ/2 < πω(M)/2. For every z ∈S(τ, γ) with arg(z) = θ, we have that
-g(z) =
-Z ∞
-0
-e
- r
-|z|ei(τ−θ)
-
-dr
-r(1 −reiτ) =
-Z ∞
-0
-e(sei(τ−θ))
-ds
-s(1 −s|z|eiτ).
-We split the integral into two parts and we see that
-
-Z 1/|z|1/2
-0
-e(sei(τ−θ))
-ds
-s(1 −s|z|eiτ)
- ≤
-1
-inf0<s<∞{|1 −s|z|eiτ|}
-Z 1/|z|1/2
-0
-|e(sei(τ−θ))|
-s
-ds.
-If τ ∈(0, π/2) ∪(3π/2, 2π), we have that
-inf
-0<s<∞{|1 −s|z|eiτ|} = | sin(τ)| ̸= 0,
-and if τ ∈[π/2, 3π/2] (τ ̸= π), we observe that
-inf
-0<s<∞{|1 −s|z|eiτ|} = 1 ≥| sin(τ)| ̸= 0.
-Consequently, we have shown that
-
-Z 1/|z|1/2
-0
-e(sei(τ−θ))
-ds
-s(1 −s|z|eiτ)
- ≤
-1
-| sin(τ)|
-Z 1/|z|1/2
-0
-sup
-|φ|<πγ/2
-|e(seiφ)|ds
-s .
-(4.12)
-JAVIER JIMÉNEZ GARRIDO

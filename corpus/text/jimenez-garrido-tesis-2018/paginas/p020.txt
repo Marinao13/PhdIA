@@ -1,58 +1,0 @@
-20
-INTRODUCTION
-and we write f ∈
-˜
-A(S). In this context it is natural to consider the asymptotic Borel map
-˜B : ˜
-A(S) →C[[z]] sending a function f into its asymptotic expansion ˆf.
-In 1916, J. F. Ritt showed that this map is surjective for any sector S, while it is never injective
-(given a sector bisected by direction 0, the exponential exp(−z−α), α > 0, is a nontrivial at,
-i.e., asymptotically null, function for a suitable choice of α). Hence, given a formal power series
-ˆf and a sector S, it is in general hopeless to try to assign a well-dened sum to it, in the sense
-that there is not a unique holomorphic function in S asymptotic to ˆf.
-Crucial and original advances were produced in this sense during the 1970's with the works of
-J. P. Ramis. He noted that, although the formal power series solutions to dierential equations
-are frequently divergent, under fairly general conditions the rate of growth of their coecients
-is not arbitrary.
-Indeed, a remarkable result of E. Maillet [66] in 1903 states that for any
-solution ˆf = P
-p≥0 apzp of an analytic dierential equation there will exist C, A, k > 0 such that
-|ap| ≤CAp(p!)1/k for every p ∈N0. Inspired by this fact, Ramis introduces and structures the
-notion of k−summability, that rests on classical results by G. N. Watson and R. Nevannlina
-and generalizes Borel's summability method. His developments are based on a modication of
-Poincaré's asymptotic expansion where the growth of the constant Cp in (1) is made explicit
-in the form Cp = CAp(p!)1/k for some A, C > 0, what entails the same kind of estimates for
-the coecients ap in ˆf. The sequence M1/k = (p!1/k)p∈N0 is the Gevrey sequence of order 1/k,
-f is said to be 1/k−Gevrey asymptotic to ˆf (denoted by f ∈˜
-AM1/k(S)), and ˆf, because of
-the estimates satised by its coecients, is said to be a 1/k−Gevrey series ( ˆf ∈C[[z]]M1/k).
-The Borel map, dened in this case from ˜
-AM1/k(S) to C[[z]]M1/k, is surjective if and only if the
-opening of the sector S is smaller than or equal to π/k (Borel-Ritt-Gevrey Theorem), and it is
-injective if and only if the opening is greater than π/k (Watson's Lemma), see Section 3.2.
-This last fact enables the denition of k−summable power series in a direction d as those in
-the image of the Borel map for a wide enough sector S bisected by d, to which a k−sum (the
-unique holomorphic function in S asymptotic to it) is assigned. J. P. Ramis proved, by a purely
-theoretical (not explicit) method, that every formal solution to a linear system of meromorphic
-ordinary dierential equations in the complex domain at an irregular singular point can be
-written as some known functions times a nite product of formal power series, each of which
-is k−summable (i.e., k−summable in every direction except for a nite number of them) for
-some level k depending on the series. The non-constructive character of the proof was solved
-by the introduction of a more powerful tool, accelerosummability, due to J. Ecalle [27] and
-which, in the case involving only a nite number of Gevrey levels, is named multisummability
-(in a sense, an iteration of elementary k−summability procedures). Indeed, in 1991 W. Balser,
-B. L. J. Braaksma, J. P. Ramis and Y. Sibuya [9] (see also [7, 73]) proved the multisummability
-of the formal solutions of linear meromorphic dierential equations at a singular point, and
-B. L. J. Braaksma [19] (for dierent proofs, see [6, 85]) extended this result for nonlinear equations
-in 1992, which allows in every case to compute actual solutions from formal ones. This technique
-has also been proven to apply successfully to a plethora of situations concerning the study of
-formal power series solutions at a singular point for partial dierential equations, as well as for
-singular perturbation problems (see the introduction to Chapter 4 for further references).
-However, nonGevrey formal power series solutions may appear for dierent kinds of equations,
-which must not be ordinary dierential equations (according to the aforementioned result by
-B. L. J. Braaksma).
-For example, V. Thilliez has proven some results on formal solutions
-within these more general classes for algebraic equations in [97]. Also, G. K. Immink in [40, 41]
-has obtained some results on summability for formal solutions of dierence equations whose
-coecients grow at the rate specied by the sequence (p! log(p + e)−p)p∈N0, belonging to the
-JAVIER JIMÉNEZ GARRIDO

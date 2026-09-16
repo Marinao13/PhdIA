@@ -1,64 +1,0 @@
-13
-Theorem 4.3. ([16, Thm. 5, Thm. 20]) Let α ∈(0, 1], then
-∀z ∈Sα ∀n ∈N0 :
- eE(n)
-α (z)
- ≤2 n!en
-n(2−α)n .
-(12)
-Consequently, eEα ∈A{G
-α−1}(Sα). Moreover,
-eE(n)
-α (0) =
-(−1)nn!
-Γ((2 −α)(n + 1) + 2),
-n ∈N0,
-and so eEα is a characteristic function in the class A{G
-α−1}(Sα).
-Let α > 1 and take α′ > α. For all z ∈Sα we deﬁne
-gα,α′(z) :=
-Z ∞(−φ)
-0
-e−zvα′−1e−vdv,
-(13)
-where we choose φ ∈(−(α−1)
-(α′−1)
-π
-2 , (α−1)
-(α′−1)
-π
-2 ) with | arg(z) −(α′ −1)φ| < π/2.
-Theorem 4.4. ([16, Thm. 28]) Let α > 1, α′ > α and gα,α′ be the function from (13).
-Then,
-∃C, A ≥1 ∀z ∈Sα ∀n ∈N0 :
-g(n)
-α,α′(z)
- ≤CAnΓ((α′ −1)n + 1).
-(14)
-Consequently, gα,α′ ∈A{G
-α′−1}(Sα). Moreover,
-g(n)
-α,α′(0) = (−1)nΓ((α′ −1)n + 1),
-n ∈N0,
-and so gα,α′ is a characteristic function of the class A{G
-α′−1}(Sα).
-4.2
-Characteristic transform
-Following again the work of Rodr´ıguez Salinas [16], we present a functional transform
-that modiﬁes the derivatives at 0 of a function in a ultraholomorphic class with a precise
-control, what allows for the construction of characteristic functions in more general
-classes than the Gevrey ones, considered previously.
-Deﬁnition 4.5. Let M be an (lc) sequence, L ∈RN0
->0, S a sector and f ∈A{L}(S). Then
-we deﬁne the TM−transform of f by
-TM(f)(z) :=
-∞
-X
-j=0
-1
-2j
-Mj
-mj
-j
-f(mjz),
-z ∈S.

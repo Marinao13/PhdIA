@@ -1,52 +1,0 @@
-184
-CHAPTER 5.
-A PHRAGMÉN-LINDELÖF THEOREM VIA PROXIMATE ORDERS AND THE
-PROPAGATION OF ASYMPTOTICS
-Γ(1+p/k) could be changed into (p!)1/k without changing the asymptotics, but this would aect
-the base of the geometric factor providing the type (by Stirling's formula, see [22, pp. 3-4]) in
-any case. As it will be explained below, our interest in the type will be limited, and so we will
-choose a simple approach in this respect, see Denitions 5.1.1 and 5.1.2.
-The proof of this result is based on the classical Phragmén-Lindelöf theorem and on the so-
-called Borel-Ritt-Gevrey theorem. This last statement provides the surjectivity, as long as the
-opening of the sector is at most π/k, of the Borel map sending a function with Gevrey asymptotic
-expansion of order 1/k in a sector to its series of asymptotic expansion, whose coecients will
-necessarily satisfy Gevrey-like estimates (see Section 3.3). Also, the injectivity of the Borel map
-in sectors of opening greater than π/k (known as Watson's lemma) plays an important role
-when specifying conditions that guarantee the uniqueness of a function with a prescribed Gevrey
-asymptotic expansion of order 1/k in a direction (see Section 3.2).
-The main aim of this chapter is to extend these results for other types of asymptotic ex-
-pansions available in the literature. This possibility was already mentioned in [62], where A.
-Lastra, J. Mozo-Fernández and J. Sanz generalized the results of Fruchard and Zhang for holo-
-morphic functions of several variables in a polysector (cartesian product of sectors) admitting
-strong asymptotic expansion in the sense of H. Majima [67, 68], considering also the Gevrey case
-as introduced by Y. Haraoka in [34].
-The asymptotics we will consider are those associated with a general ultraholomorphic class
-of functions, as the ones studied in the previous chapters, dened by constraining the growth of
-the sequence of their successive derivatives in a sector in terms of a sequence M = (Mp)p∈N0 of
-positive numbers (N0 = {0, 1, 2, . . .} = {0} ∪N), which will play the role of (Γ(1 + p/k))p∈N0 in
-(5.1). The possibility of extending to this more general framework the results on the injectivity
-or surjectivity of the Borel map, gathered in Chapter 3, and a Phragmén-Lindelöf-like state-
-ment, obtained below applying the relation between weight sequences, proximate orders and the
-property of regular variation established in Chapter 2, are the keys to our success.
-As in the Gevrey case, the study of the type as the direction moves in the sector is possible,
-although some information is lost in general (see Remark 5.1.7). This is due to the fact that the
-classical exponential kernel appearing in the nite Laplace transform providing the solution of
-the Borel-Ritt-Gevrey theorem in the Gevrey case is now replaced by eV (z) (see Remark 4.1.4)
-whose behavior at innity is only given by some asymptotic relations, which is not enough for
-an accurate handling of the resulting type.
-This chapter, whose contents may be found in our work [46], is organized as follows. In Sec-
-tion 5.1, several lemmas of a Phragmén-Lindelöf avor are obtained. A paradigm is Lemma 5.1.6,
-where exponential decrease is extended from just one direction to a whole small (in the sense of
-its opening) sector adjacent to it. Section 5.2 contains several versions of Watson's lemma on the
-uniqueness of a function admitting a given asymptotic expansion in a direction, and in the nal
-Section 5.3 we characterize the functions with an asymptotic expansion in a sectorial region as
-those asymptotically bounded and admitting such expansion in just one direction in the region.
-5.1
-M−atness extension
-As in the previous chapters M = (Mp)p∈N0 always stands for a sequence of positive real numbers,
-and we always assume that M0 = 1. In most of the statements, M will be also assumed to be a
-weight sequence, that is, (lc) with limp→∞mp = ∞. The reader is referred to Chapters 1 and 2
-for the information involving sequences, proximate orders and regular and O-regular variation
-and to Chapter 3 for the notation and results concerning the ultraholomorphic classes of functions
-dened in sectors and sectorial regions.
-JAVIER JIMÉNEZ GARRIDO

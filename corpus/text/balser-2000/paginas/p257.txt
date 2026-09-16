@@ -1,26 +1,0 @@
-242
-Appendix C. Functions of a Matrix
-Exercises: In what follows, consider the matrices
-A =
- 0
-0
-1
-2πi
-
-,
-J =
- 1
-0
-1
-1
-
-.
-1. Show that eA = I.
-2. Show that the above matrix A is not a branch of log I.
-3. For A = I + N, N nilpotent, show
-(zI −A)−1 =
-
-n≥0
-(z −1)−n−1 N n
-(observe that the series terminates). Use this to obtain the formula
-given for the main branch of log(I + N) from (C.1).

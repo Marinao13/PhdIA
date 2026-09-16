@@ -1,96 +1,0 @@
-15
-(iii) sup
-p∈N
-sup
-x∈R
-|G(p)
-0 (x)|eω b
-A(|x|/2)
-2pp!
-< ∞.
-Proposition 2.10 and Lemma 3.6 imply the following general result. A similar proof
-for classical Gelfand-Shilov spaces (i.e., when M is a Gevrey sequence (p!α)p with α > 1)
-can be found in [15, Prop. 4.13], and a similar statement for strongly regular sequences
-M with γ(M) > 1 was included in [16, Prop. 6.6] without proof. Another version, disre-
-garding continuity and under stronger conditions than the ones imposed here, appeared
-in [4, Lemma 3.3]. Note that, as indicated in Subsection 2.2, the conditions imposed on
-the sequence A are precisely those guaranteeing that the class S{ bA}
-{M}(0, ∞) is non-trivial.
-Lemma 3.7. Let M be a sequence satisfying (alg) and such that (p!)p ⊂M (equivalently,
-lim infp→∞
-c
-M
-1/p
-p
-> 0), and let A be a sequence satisfying (nq) and such that bA is a weight
-sequence. Consider the function G0 from Lemma 3.6. Then, there exists a > 0 such that
-for every h ≥1 and for every f ∈AM+1,h(H) one has (fG0)|R ∈SM+1,ah
-bA,ah
-(R), and the
-map so defined is continuous from AM+1,h(H) into SM+1,ah
-bA,ah
-(R).
-If, additionally, M is a weight sequence and satisfies also (sm), then for every f ∈
-A{M+1}(H) we have (fG0)|R ∈F(S{ bA}
-{M}(0, ∞)).
-Proof. According to Lemma 3.6.(iii), (2.2) and the definition of h bA, there exists C > 0
-such that for every p, j ∈N0 and x ∈R \ {0} one has
-|G(j)
-0 (x)| ≤C2jj!h bA(2/|x|) ≤C2jj! bAp
- 2
-|x|
-p
-,
-(3.5)
-while |G(j)
-0 (0)| ≤C2jj! for every j ∈N0. Hence, for h ≥1, f ∈AM+1,h(H), x ∈R and
-p, q ∈N0 we get
-|xp(fG0)(q)(x)| =
-xp
-q
-X
-k=0
-q
-k
-
-f (k)(x)G(q−k)
-0
-(x)
-
-≤C∥f∥M+1,h2p bAp
-q
-X
-k=0
-q
-k
-
-hkMk+12q−k(q −k)!.
-Let C1 be the constant in (alg) for M. Also, by hypothesis there exists B > 0 such that
-Mp ≥Bpp! for every p ∈N0, so
-|xp(fG0)(q)(x)| ≤C∥f∥M+1,h2p bApCq+1
-1
-Mq+1
-q
-X
-k=0
-q
-k
-
-hk2q−k (q −k)!
-Mq−k
-≤C∥f∥M+1,h2p bApCq+1
-1
-Mq+1
-q
-X
-k=0
-q
-k
-
-hk
- 2
-B
-q−k
-≤CC1∥f∥M+1,h (2C1(1 + 2/B)h)p+q bApMq+1.
-Hence, the first statement is proved with a = 2C1(1 + 2/B). The second assertion stems
-directly from Proposition 2.10.

@@ -1,44 +1,0 @@
-9
-Introducción
-El principal objetivo de esta memoria es dar respuesta a varias preguntas abiertas relativas a
-las clases ultraholomorfas de tipo Carleman-Roumieu de funciones, denidas en sectores de la
-supercie de Riemann del logaritmo mediante restricciones para el crecimiento de sus derivadas
-dadas en términos de una sucesión de números reales positivos. La motivación de estos problemas
-surge del estudio de algunas propiedades que aparecen a la hora de trabajar con un proceso de
-sumabilidad de series de potencias formales en este contexto y de la construcción de la nueva
-herramienta de multisumabilidad correspondiente. La solución que se presenta aquí depende
-fuertemente de las teorías clásicas de variación regular y de órdenes aproximados, que están
-estrechamente relacionadas. En los siguientes párrafos se describe el origen y desarrollo de estos
-ingredientes esenciales.
-El primer tema básico que nos interesa es el estudio de series divergentes a través de los de-
-sarrollos asintóticos. El comienzo de la manipulación sistemática de series divergentes, atribuido
-normalmente a L. Euler, data del siglo XVIII. Las empleó principalmente para la aproximación
-de constantes como e y π. Sin embargo, durante el siglo XIX las series divergentes fueron, a
-grandes rasgos, excluidas de las matemáticas. La causa principal de este hecho fue la denición
-rigurosa y general de la suma de una serie (convergente) proporcionada por A. L. Cauchy, que
-rápidamente se convirtió en la estándar. En este sentido, podemos citar a G. H. Hardy quien, en
-su libro [35, p. 5] de 1949, cuando está debatiendo acerca de la denición apropiada de la suma
-de una serie divergente, apunta lo siguiente:
-it does not occur to a modern mathematician that a collection of mathematical
-symbols should have a `meaning' until one has been assigned to it by denition. It
-was not a triviality even to the greatest mathematicians of the eighteenth century.
-They had not the habit of denition: it was not natural to them to say, in so many
-words, `by X we mean Y'. There are reservations to be made, but it is broadly true to
-say that mathematicians before Cauchy asked not `How shall we dene 1−1+1−...?'
-but `What is 1 −1 + 1 −...?' and that this habit of mind led them into unnecessary
-perplexities and controversies which were often really verbal.
-En 1886, H. Poincaré renovó el interés matemático en el uso de series de potencias formales
-(normalmente divergentes) introduciendo la noción de desarrollo asintótico para resolver diversos
-problemas de física matemática y de la mecánica celeste. Los desarrollos asintóticos, en el sentido
-de Poincaré, son una especie de desarrollo de Taylor que proporciona aproximaciones sucesivas:
-una función f compleja y holomorfa en un sector S = {z ∈C; 0 < |z| < r, a < arg(z) < b},
-admite a la serie de potencias formal con coecientes complejos ˆf = P∞
-p=0 apzp como su desarrollo
-asintótico (uniforme) en el origen si para todo p ∈N0 = N ∪{0} existe una constante positiva
-Cp tal que para cada z ∈S se tiene que
-f(z) −
-p−1
-X
-n=0
-anzn ≤Cp|z|p,
-(1)

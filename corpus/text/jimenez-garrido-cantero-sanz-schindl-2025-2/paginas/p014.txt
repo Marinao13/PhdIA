@@ -1,119 +1,0 @@
-14
-Then,
-I2,p(z) ≤| bf|M,h
-2h
-h1
-p Z ∞
-R0
-e
-u
-z
- up−1 du,
-and together with (3.3) and (3.4) we deduce
-IM,h( bf )(z) −
-p−1
-X
-n=1
-anzn
- ≤| bf|M,h
-2h
-h1
-p Z ∞
-0
-e
-u
-z
- up−1 du.
-We estimate the last integral using first the second inequality in (2.14), then the first one, and
-the fact that e(x) > 0 for x > 0, so that for every z ∈Sγ and every u > 0 we have
-|e(u/z)| ≤K3hM
-
-K4
-|z|
-u
-
-≤K3
-K1
-e
- K2u
-K4|z|
-
-.
-A change of variable and the right-hand estimates in (3.1) lead to
-Z ∞
-0
-e
-u
-z
- up−1 du ≤
-Z ∞
-0
-K3
-K1
-e
- K2u
-K4|z|
-
-up−1 du
-= K3
-K1
-K4|z|
-K2
-p
-µ(p −1) ≤K3
-K1
-K4h2
-K2
-p
-Mp|z|p.
-So, for every p ∈N0 we have
-IM,h( bf )(z) −
-p−1
-X
-n=1
-anzn
- ≤K3| bf|M,h
-K1
-2K4h2h
-K2h1
-p
-Mp|z|p,
-z ∈Sγ,
-and IM,h( bf ) admits bf −a0 as its uniform {M}-asymptotic expansion in Sγ. We consider the
-map TM,h defined in C[[z]]M,h as
-TM,h( bf )(z) := IM,h( bf )(z) + a0,
-z ∈Sγ,
-which is obviously linear. Moreover, if we set c := 2K4h2/(K2h1) > 0,
-TM,h( bf )(z) −
-p−1
-X
-n=0
-anzn
- =
-IM,h( bf )(z) −
-p−1
-X
-n=1
-anzn
- ≤K3| bf|M,h
-K1
-(ch)p Mp|z|p,
-z ∈Sγ,
-which proves that TM,h( bf ) ∈e
-Au
-M,ch(Sγ) and, according to (2.8),
-∥TM,h( bf )(z)∥M,ch,
-∼u ≤K3
-K1
-| bf|M,h,
-bf ∈C[[z]]M,h,
-so that the continuity of TM,h : C[[z]]M,h →e
-Au
-M,ch(Sγ) is obtained.
-(ii) ⇒(iii) Immediate for any weight sequence M.
-(iii) ⇒(iv) It follows from (2.11), again valid for any weight sequence.
-4
-New surjectivity results in the Beurling Case
-In this last section we collect some results on surjectivity and existence of right inverses for
-the asymptotic Borel maps for Beurling ultraholomorphic classes. We split the results into two
-subsections according to the condition imposed on the sequence, (dc) or (sm).

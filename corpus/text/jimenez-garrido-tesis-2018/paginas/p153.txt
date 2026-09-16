@@ -1,40 +1,0 @@
-4.2. TAUBERIAN THEOREMS
-153
-As a consequence of the last proposition, a generalization of the classical Tauberian result
-for k−summability of J.-P. Ramis (see [84, Th. 3.8.1], [7, Th. 37] and [64, Coro. 5.3.16]) can be
-stated when the indices ω(L) and ω(M) are distinct.
-Theorem 4.2.14. Let L and M be weight sequences such that L admits a nonzero proximate
-order, M/L is (lc) and ω(L) < ω(M). If ˆf ∈C{z}M ∩C[[z]]L, then ˆf is convergent.
-Proof. Using Proposition 4.2.13, we know that ˆf ∈C{z}M ∩C{z}L and
-(SL,d ˆf)(z) = (SM,d ˆf)(z),
-for every z where both functions are dened. Given θ ∈singM( ˆf) = {θ1, θ2, . . . , θm}, we can
-take d ̸∈singM( ˆf) such that |d −θ| < δ := π(ω(M) −ω(L)). Then (SM,d ˆf)(z) = (SL,d ˆf)(z) is
-dened in a sectorial region G of opening πα > πω(M) bisected by direction d. We observe that
-f = (SL,d ˆf)(z) is a holomorphic function dened in a sectorial region ˜G contained in G, bisected
-by direction θ, and of opening
-απ −|d −θ| > απ −δ = απ −πω(M) + πω(L) > πω(L).
-By Proposition 4.2.13.(ii), we have that f ∼L ˆf in this region, then ˆf ∈C{z}L,θ. Since singL( ˆf) ⊆
-singM( ˆf), we deduce that singL( ˆf) = ∅and, by Proposition 4.1.25, we conclude that ˆf ∈C{z}.
-□
-Remark 4.2.15. Regarding the last two results, in the case ω(L) < ω(M), if M also admits a
-nonzero proximate order, the logarithmic convexity of the sequence M/L does not need to be
-assumed since it is automatically guaranteed (see Remark 4.2.9).
-Finally, we will show that this theorem is not valid when the indices coincide.
-Theorem 4.2.16. Let L and M be weight sequences with L ≾M and ω(L) = ω(M). Then
-C{z}M ∩C{z}L = C{z}L.
-Moreover, if L admits a nonzero proximate order, L ̸≈M and M/L is (lc) we have that
-C{z}M ∩C[[z]]L = C{z}M ∩C{z}L = C{z}L.
-Proof. If ˆf is L−summable in direction d, then it exists α > ω(L) = ω(M) and f holomorphic
-in G = G(d, α) such that f ∼L ˆf in G. Since L ≾M, we deduce that f ∼M ˆf in G, and we
-conclude that ˆf is M−summable in direction d. Then, C{z}L,d ⊆C{z}M,d and, consequently,
-C{z}L ⊆C{z}M. The last statement is obtained immediately using Proposition 4.2.13.
-□
-Example 4.2.17. With the notation and computations in Examples 1.1.4 and 1.1.30, we deduce
-that C{z}Mα,β ∩C[[z]]Mα,β′ = C{z}Mα,β′, but C{z}Mα,β ∩C[[z]]Mα′,β = C{z} for any α > α′ > 0
-and every β > β′.
-Remark 4.2.18. In order to generalize this result and to put forward a satisfactory multisumma-
-bility theory when the indices coincide we would need to redene the notion of M−summability
-according to the classical theorem of S. Mandelbrojt [72, Sect. 2.4.I]. In this new tentative deni-
-tion, as it will be specied in the conclusions of the dissertation, the sectorial regions are replaced
-by regions of uniqueness whose boundary is tangent to the boundary of the sector Sω(M) near 0.
-Universidad de Valladolid

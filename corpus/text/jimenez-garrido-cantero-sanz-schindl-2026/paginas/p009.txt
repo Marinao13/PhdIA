@@ -1,130 +1,0 @@
-9
-This expression should be compared with the characteristic functions obtained in
-the ultradifferentiable and ultraholomorphic setting in [11, Thm. 1], [8, Lemma 2.9], [7,
-Lemma 1] and [2, Definition 4.5.]. For every j ∈N0 let us set
-Rj :=
-∞
-X
-n=0
-1
-2n
-Mn
-mnn
-mj
-n.
-The following result provides estimates for this sequence in terms of the general sequence
-M we depart from.
-Lemma 4.7. ([2, Lemma 4.6]) Let M ∈RN0
->0, then
-∀j ∈N0 :
-Rj ≥1
-2j Mj.
-If M is (lc), then also
-∀j ∈N0 :
-Rj ≤2Mj,
-and so (Rj)j∈N0 is equivalent to M.
-Theorem 4.8. Let M be a (lc) sequence, L ∈RN0
->0 and for a given sector S take
-f ∈e
-Au
-{L}(S), with f ∼u
-{L}
-P∞
-j=0 cjzj. Then, TM(f) ∈e
-Au
-{LM}(S) with
-TM(f) ∼u
-{LM}
-∞
-X
-j=0
-Rjcjzj,
-z ∈S.
-(7)
-Moreover, for any A > 0, TM : e
-Au
-L,A(S) →e
-Au
-LM,A(S) is a continuous linear operator.
-Proof. By definition of e
-Au
-{L}(S) we have that f is bounded in S by some constant
-C > 0. Since M is log-convex, we have that Mj ≤mj
-j for all j ∈N0 and then
-∞
-X
-j=0
-1
-2j
-Mj
-mj
-j
-|f(mjz)| ≤C
-∞
-X
-j=0
-1
-2j = 2C,
-z ∈S.
-Consequently, the series defining TM(f) normally converges in the whole of S, it provides
-a function holomorphic in S. For each z ∈S and every n ∈N0, we observe then that
-TM(f)(z) −
-n−1
-X
-k=0
-Rkckzk
- =
-
-∞
-X
-j=0
-1
-2j
-Mj
-mj
-j
-f(mjz) −
-n−1
-X
-k=0
-ck(
-∞
-X
-j=0
-1
-2j
-Mj
-mj
-j
-mk
-j )zk
-
-=
-
-∞
-X
-j=0
-1
-2j
-Mj
-mj
-j
- 
-f(mjz) −
-n−1
-X
-k=0
-ck(mjz)k
-!
-≤
-∞
-X
-j=0
-1
-2j
-Mj
-mj
-j
-CAnLnmn
-j |z|n = CAnLnRn|z|n
-≤2CAnLnMn|z|n,

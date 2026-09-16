@@ -1,53 +1,0 @@
-152
-CHAPTER 4.
-MULTISUMMABILITY VIA PROXIMATE ORDERS
-4.2.3
-Tauberian theorems
-Assuming a basic comparability hypothesis, justied in the previous subsections, and that one
-of the sequences is regular enough in order to employ summability techniques, we are ready to
-clarify the relation between C{z}M and C{z}L. First, we observe that if a formal power series
-is summable for two dierent sequences, then its sums agree, extending what was proved for
-k−summability by J.-P. Ramis and J. Martinet [83, Ch. 2, Prop.
-4.3] (see also [7, Lemma 8]
-and [64, Coro. 5.3.15]).
-Proposition 4.2.13. Let L and M be weight sequences such that L admits a nonzero proximate
-order and M/L is (lc). If ω(L) < ω(M), or if ω(L) = ω(M) assuming in addition that L ≾M
-and L ̸≈M, then for every ˆf ∈C{z}M ∩C[[z]]L, we have that
-(i) singL( ˆf) ⊆singM( ˆf) and ˆf ∈C{z}M ∩C{z}L.
-(ii) For every d ̸∈singM( ˆf), (SL,d ˆf)(z) ∼L ˆf on G(d, α) with α > ω(M),
-(iii) (SL,d ˆf)(z) = (SM,d ˆf)(z) for every z where both functions are dened.
-Proof. By Proposition 4.2.11, from the hypothesis in both situations ω(L) < ω(M) or ω(L) =
-ω(M), we deduce that M/L is a weight sequence. Then, Watson's Lemma is available.
-(i) Since ˆf ∈C{z}M, we have that singM( ˆf) is nite. Let d be a nonsingular direction of
-M−summability. We write f(z) := SM,d ˆf(z). We choose a kernel of L−summability, that
-exists by Remark 4.1.4, and we consider g := T −
-L f.
-Since f is dened on a sectorial
-region G(d, α) with α > ω(M) ≥ω(L), by Proposition 4.1.14, g is holomorphic in a sector
-S(d, α −ω(L)) with L−growth on this sector.
-On the other hand, ˆf ∈C[[z]]L, hence we have that ˆg := ˆT −
-L ˆf ∈C{z}.
-By Theo-
-rem 4.1.18.(ii), we have that g ∼M/L ˆg on S(d, α −ω(L)) and, since ˆg ∈C{z}, Sˆg ∼M/L ˆg
-in a disc, and then in a sectorial region of opening π(α −ω(L)). By the Watson's Lemma,
-Theorem 3.2.15, we have that
-˜B : ˜
-AM/L(Gγ) −→C[[z]]M/L
-is injective for every γ > ω(M/L) = ω(M) −ω(L) (see Remark 4.2.10). Since g is holomor-
-phic in a sector of opening π(α −ω(L)) > π(ω(M) −ω(L)), g is unique and, consequently,
-it is an analytic extension of ˆg := ˆT −
-L ˆf with L−growth in the sector S(d, α −ω(L)).
-Using Theorem 4.1.20, we see that ˆf is L−summable in direction d. We conclude that
-singL( ˆf) ⊆singM( ˆf), then ˆf ∈C{z}L.
-(ii) From (i), we know that ˆg = ˆT −
-L ˆf converges in a disc and admits analytic continuation
-g in a sector S = S(d, α −ω(L)), g ∈OL(S) and we have that Sˆg ∼M′ ˆT −
-L ˆf in S with
-M′ = (1)n∈N0. Then, in Theorem 4.1.18.(i), we obtain that the function f := SL,d ˆf = TLg
-is holomorphic in a sectorial region G(d, α) and f ∼L ˆf there.
-(iii) With the notation in (i), we have that
-(SL,d ˆf)(z) = (TLg)(z) = (TLT −
-L f)(z) = f(z) = (SM,d ˆf)(z)
-for every z where these functions are dened.
-□
-JAVIER JIMÉNEZ GARRIDO

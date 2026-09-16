@@ -1,8 +1,0 @@
-210
-NOTATION
-Uniform Convergence Theorem for O-regularly varying functions . . . . . . . . . . . . . . . . . . . . . . . . . . 45
-Uniform Convergence Theorem for regularly varying functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
-upper and lower orders of a positive function . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
-weight sequence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
-weight sequence admitting a proximate order . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 84
-JAVIER JIMÉNEZ GARRIDO

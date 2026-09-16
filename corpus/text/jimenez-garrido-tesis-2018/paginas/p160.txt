@@ -1,65 +1,0 @@
-160
-CHAPTER 4.
-MULTISUMMABILITY VIA PROXIMATE ORDERS
-Remark 4.3.14. This stronger notion need to be considered to assure that the convolution and
-the acceleration kernels, dened in the forthcoming subsections from two given kernels e1 and
-e2, also satisfy adequate integrability properties which seem not to be preserved in the standard
-situation.
-Remark 4.3.15. We observe that once condition (ii.b) or (vi.b) is satised for some values
-α and β, it is possible to replace α for any 0 < α′ < α and β for any 0 < β′ < β and the
-corresponding conditions hold.
-4.3.3
-Convolution kernels
-In this subsection, we consider two strong kernels e1 and e2 satisfying the properties in De-
-nition 4.3.10 for two sequences M1 and M2 with corresponding operators Tej, T −
-ej and moment
-functions mej(λ) for j = 1, 2. We will nd a pair of operators T, T −such that T coincides with
-Te1 ◦Te2 for a suitable class of functions containing the monomials. Hence, we will deduce that
-the moment function m(λ) associated with T equals me1(λ)me2(λ). The kernel that denes the
-operator T will be obtained as a Mellin convolution of the kernels e1 and e2, which justies its
-name.
-First, we prove an auxiliary lemma that connects the associated function of two weight
-sequences M1 and M2 with the associated function of their product sequence M1 · M2. This will
-be essential when dealing with functions in the classes OM1, OM2 and OM1·M2.
-Lemma 4.3.16. Let Mj, j = 1, 2, be weight sequences, for every s, r > 0 we have that
-eωM1·M2(r) ≤eωM1(s)eωM2(r/s).
-(4.14)
-Proof. We write M1 = (M1,p)p∈N0 and M2 = (M2,p)p∈N0. For every s, r > 0, we observe that
-eωM1·M2(r) = sup
-p∈N0
-rp
-M1,pM2,p
-= sup
-p∈N0
-sp
-M1,p
-(r/s)p
-M2,p
-≤sup
-p∈N0
-sp
-M1,p
-sup
-p∈N0
-(r/s)p
-M2,p
-= eωM1(s)eωM2(r/s).
-□
-Remark 4.3.17. We say that a weight sequence M is normalized if m0 = M1 = 1, which by
-log-convexity implies that mp ≥1, Mp ≤Mp+1 and Mp ≥1 for all p ∈N0.
-Given two normalized weight sequences L and M, then
-min(ωL(t), ωM(t)) ≥ωL·M(t)
-for t > 0.
-(4.15)
-which follows directly from the denition of the associated functions since Lp ≤LpMp and
-Mp ≤LpMp for all p ∈N0.
-For arbitrary weight sequences, (4.15) is satised for t large enough. However, normalization
-is not a signicant restriction since mp ≥1 for p large and we can modify the rst terms of a
-sequence according to Remark 1.1.19 getting a normalized weight sequence M′ with m′ ≃m.
-This assumption simplies in a considerable way the proofs of the forthcoming results.
-Remark 4.3.18. The results until the end of the chapter might be valid for normalized strongly
-regular sequences such that we can associate with them a strong kernel.
-Nevertheless, the
-existence of such kernels has only been proved for sequences admitting a nonzero proximate
-order which, as it was pointed out in Remark 2.2.18, are the ones appearing in the applications.
-JAVIER JIMÉNEZ GARRIDO

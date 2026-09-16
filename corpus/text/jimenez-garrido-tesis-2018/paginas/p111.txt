@@ -1,78 +1,0 @@
-3.1. ASYMPTOTIC EXPANSIONS AND ULTRAHOLOMORPHIC CLASSES
-111
-that f(t) = 0 for every t ∈(0, A] which, by the identity principle, implies that f(z) identically
-vanishes in G. Consequently, the Borel map is always injective.
-On the other hand, in the same situation, the Borel map is never surjective: we consider
-a holomorphic function at the origin L(z) whose Taylor expansion at 0 is given by a lacunary
-series ˆL ∈C{z} ⊆C[[z]]M, whose domain of convergence is a disc of radius R where R < |z|
-for some z ∈G. We have that L ∼M ˆL on a region G′ ⊆G, so by the injectivity of the Borel
-map it cannot exist another function E ∈˜
-AM(G) ⊆˜
-AM(G′) with E ∼M ˆL. Since L cannot be
-analytically continued to G, the Borel map is not surjective, which justies the consideration of
-the limit condition for m.
-By using a simple rotation, we see that the injectivity and the surjectivity of the Borel map
-in any of the previously considered classes do not depend on the bisecting direction d of the
-sectorial region G, so we limit ourselves to the case d = 0. Moreover, in this dissertation we will
-restrict our study to the unbounded sectors Sγ, and include comments on what can be said, to
-our knowledge, for more general sectorial regions. So, we dene
-IM :={γ > 0;
-˜B : AM(Sγ) −→C[[z]]M is injective},
-˜Iu
-M :={γ > 0;
-˜B : ˜
-Au
-M(Sγ) −→C[[z]]M is injective},
-˜IM :={γ > 0;
-˜B : ˜
-AM(Sγ) −→C[[z]]M is injective}.
-Whenever γ > 0 belongs to any of these sets, we say that the corresponding class is quasianalytic.
-Hence, nonquasianalyticity amounts to the existence of nontrivial at functions in the class.
-We easily observe that, by restriction and the identity principle, if γ > 0 is in any of those
-sets then every γ′ > γ also is. Consequently, IM, ˜Iu
-M and ˜IM are either empty or unbounded
-intervals contained in (0, ∞), which we call quasianalyticity or injectivity intervals.
-Similarly, we dene
-SM :={γ > 0;
-˜B : AM(Sγ) −→C[[z]]M is surjective},
-˜Su
-M :={γ > 0;
-˜B : ˜
-Au
-M(Sγ) −→C[[z]]M is surjective},
-˜SM :={γ > 0;
-˜B : ˜
-AM(Sγ) −→C[[z]]M is surjective}.
-It is also plain to check that if γ > 0 is in any of those sets then every 0 < γ′ < γ also is, so
-SM, ˜Su
-M and ˜SM are either empty or left-open intervals having 0 as endpoint, called surjectivity
-intervals. Using Proposition 3.1.5.(i), we easily see that
-IM ⊇˜Iu
-M ⊇˜IM,
-(3.2)
-SM ⊆˜Su
-M ⊆˜SM.
-(3.3)
-Remark 3.1.11. In the literature, a set of conditions dierent from those presented in the
-previous chapters appears when dealing with ultraholomorphic or ultradierentiable classes of
-functions, specially if they are given in terms of bounds for the derivatives. In particular, some
-authors (H. Komatsu [52], H.-J. Petzsche [77], J. Bonet, R. Meise and S.N. Melikhov [17] and
-others) dene the classes replacing the sequence M by bM := (p!Mp)p∈N0 in the estimates of
-Denitions 3.1.1, 3.1.2 and 3.1.3, that is,
-sup
-z∈G,p∈N0
-|f(p)(z)|
-Ap c
-Mp
-< ∞,
-or
-f(z) −
-p−1
-X
-n=0
-anzn ≤CAp c
-Mp
-p! |z|p,
-for z in the corresponding region. In this situation, the following conditions, with the notation
-of H. Komatsu, are considered for bM:
-Universidad de Valladolid

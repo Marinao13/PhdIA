@@ -1,163 +1,0 @@
-18
-JAVIER JIM´ENEZ-GARRIDO, ALBERTO LASTRA, AND JAVIER SANZ
-which allows us to write the preceding diﬀerence as
-Z R0
-0
-eτ,σ
-u
-z
-
-∞
-X
-k=0
-ck
-mτ,σ(k)uk du
-u −
-N−1
-X
-p=0
-cp
-mτ,σ(p)
-Z ∞
-0
-upeτ,σ
-u
-z
- du
-u
-=
-Z R0
-0
-eτ,σ
-u
-z
-
-∞
-X
-k=N
-ck
-mτ,σ(k)uk du
-u −
-Z ∞
-R0
-eτ,σ
-u
-z
- N−1
-X
-p=0
-cp
-mτ,σ(p)updu
-u .
-Then, we have
-f(z) −
-N−1
-X
-p=0
-cpzp
- ≤f1(z) + f2(z),
-where
-f1(z) =
-
-Z R0
-0
-eτ,σ
-u
-z
-
-∞
-X
-k=N
-ck
-mτ,σ(k)uk du
-u
- ,
-f2(z) =
-
-Z ∞
-R0
-eτ,σ
-u
-z
- N−1
-X
-p=0
-cp
-mτ,σ(p)updu
-u
- .
-We now give suitable estimates for f1(z) and f2(z). From (4.21) there exist C2, D2 > 0
-(not depending on z) such that
-(5.2)
-ck
-mτ,σ(k) ≤C1Dk
-1M τ,σ
-k
-mτ,σ(k)
-≤C2Dk
-2,
-for all k ∈N0. This yields
-f1(z) ≤C2
-Z R0
-0
-eτ,σ
-u
-z
-
-∞
-X
-k=N
-(D2u)k du
-u .
-Taking R0 ≤(1 −ϵ)/D2 for some ϵ > 0 if necessary, we get
-f1(z) ≤C2
-ϵ DN
-2
-Z R0
-0
-eτ,σ
-u
-z
- uN−1du.
-Let us turn our attention to f2(z). We have up ≤Rp
-0uN/RN
-0 for u ≥R0 and 0 ≤p ≤
-N −1. So, according to (5.2), we may write
-(5.3)
-N−1
-X
-p=0
-cpup
-mτ,σ(p) ≤
-N−1
-X
-p=0
-C1Dp
-1M τ,σ
-p up
-mτ,σ(p)
-≤C2
-N−1
-X
-p=0
-Dp
-2up ≤uN
-RN
-0
-C2
-N−1
-X
-p=0
-Dp
-2Rp
-0 ≤C5DN
-5 uN,
-for some positive constants C5, D5. Then, we conclude
-f2(z) ≤C5DN
-5
-Z ∞
-R0
-eτ,σ
-u
-z
- uN−1du.

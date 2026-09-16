@@ -1,117 +1,0 @@
-16
-Consider the formal power series bf = P∞
-p=0(−1)pr0bpzp ∈C[[z]](M). By hypothesis, there exists
-ψ ∈e
-Au
-(c
-M)(Sr) such that eB(ψ) = bf, and so there exists C2 > 0 such that for every p ∈N0 one
-has
-ψ(z) −
-p−1
-X
-k=0
-(−1)kr0bkzk ≤C2hpMp|z|p,
-z ∈Sr.
-(4.2)
-The function φ : Sr/r0 →C given by φ(w) = ψ(w−r0) −b0, is well defined and holomorphic in
-Sr/r0 ⊇S1. Moreover, according to (4.2) for p = 1, for every w ∈S1 one has
-
-φ(w)
-w
- = 1
-|w||ψ(w−r0) −b0| ≤C2hM1
-|w|r0+1 .
-(4.3)
-So, the function f : R →C given by
-f(t) =
-1
-2πi
-Z 1+∞i
-1−∞i
-etu φ(u)
-u
-du
-is well defined and continuous on R. By the classical Hankel formula for the reciprocal Gamma
-function, for every natural number p ≥2 and every t ∈R we may write
-f(t) −
-p−1
-X
-k=1
-(−1)kr0bk
-tkr0
-(kr0)! =
-1
-2πi
-Z 1+∞i
-1−∞i
-etu
- 
-φ(u)
-u
-−
-p−1
-X
-k=1
-(−1)kr0bk
-ukr0+1
-!
-du.
-(4.4)
-Since, again by (4.2), we have
-
-φ(u)
-u
-−
-p−1
-X
-k=1
-(−1)kr0bk
-1
-ukr0+1
- = 1
-|u|
-ψ(u−r0) −
-p−1
-X
-k=0
-(−1)kr0bk(u−r0)k
- ≤C2hpMp
-|u|pr0+1
-(4.5)
-for every u ∈S1, we can apply Leibniz’s theorem for parametric integrals and deduce that the
-function
-f(t) −
-p−1
-X
-k=1
-(−1)kr0bk
-tkr0
-(kr0)!
-belongs to Cpr0−1(R). Moreover, all of its derivatives of order m ≤pr0 −1 at t = 0 vanish, see
-the proof of [11, Theorem 4.14(i)].
-As p is arbitrary, we have that f ∈C∞(R) and, moreover,
-f(m)(0) =
-(
-(−1)pr0bp
-if m = pr0 for some p ≥1,
-0
-otherwise.
-Finally, we define the function
-F(t) = b0 + f(−t),
-t ≥0.
-Obviously, F ∈C∞([0, ∞)) and F (pr0)(0) = bp, p ∈N0; F (m)(0) = 0 otherwise. In order to
-conclude, we estimate the derivatives of F of order pr0 for arbitrary p ∈N0. For p = 0 and t ≥0,
-we take into account (4.1) and (4.3) in order to obtain that
-|F (0)(t)| ≤|b0| + 1
-2π
-Z ∞
-−∞
-e−t
-C2hM1
-|1 + yi|r0+1 dy ≤C1 + C2hM1
-2π
-Z ∞
-−∞
-1
-(1 + y2)(r0+1)/2 dy,
-(4.6)

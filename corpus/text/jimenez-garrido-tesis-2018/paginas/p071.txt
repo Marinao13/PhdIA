@@ -1,49 +1,0 @@
-2.1. LOG-CONVEX SEQUENCES AND O-REGULAR VARIATION
-71
-It is worthy to mention that, due to the previously commented index shift, the last condition also
-appears in the literature as: there exists k ∈N, k ≥2, such that lim infp→∞bmkp−1/ bmp−1 > 1.
-Thanks to Lemma 2.1.13, we know both are equivalent.
-Finally, using Proposition 2.1.18, α( bm) = α(m) + 1 and that M has (mg) if and only if bM
-also has (see the proof of Lemma 2.1.3), for a nondecreasing sequence bm, we obtain that
-α( bm) < ∞if and only if bM has (mg).
-In particular, the classical result of J. Bonet, R. Meise and S.N. Melikhov [17, Th. 14], stated
-in a more general framework in [90, Sect. 6] by G. Schindl, can be translated into the following
-form: the ultradierentiable space dened by a weight sequence bM satisfying β( bm) > 0 can be
-dened in terms of a weight function ω (see Remark 2.1.33), measuring the decay properties of
-the Fourier transform of the functions in the space, if and only if α( bm) < ∞.
-Taking into account the stability of (γ1) property under ≈, we can also obtain the stability
-of the index γ(M) = β(m) for weight sequences generalizing Lemma 2.1.12 where only stability
-for ≃was proved.
-Remark 2.1.24. Let M and L be sequences such that bM and bL are weight sequences, i.e., (lc) and
-such that bm and bℓtend to innity, with bM ≈bL. Then β( bm), β(bℓ) ≥0 and, by Proposition 2.1.11,
-we have that β( bm) > γ > 0 if and only if β( bm1/γ) > 1 where bm1/γ = ((mp(p+1))1/γ)p∈N0. Since
-bm1/γ is nondecreasing, by the previous remark, β( bm1/γ) > 1 if and only if bm1/γ satises (γ1).
-Using that bM1/γ and bL1/γ are weight sequences with bM1/γ ≈bL1/γ and that H.-J. Petszche has
-proved the stability of (γ1) for weight sequences (see [77, Th. 3.4]), we see that β( bm) > γ > 0
-if and only if bℓ1/γ satises (γ1) which, with the same reasoning, is equivalent to β(bℓ) > γ > 0.
-Then
-γ( bM) = β( bm) = β(bℓ) = γ(bL).
-Moreover, again by Proposition 2.1.11 and Theorem 2.1.16, we deduce that
-γ(M) = γ( bM) −1 = γ(bL) −1 = γ(L).
-In particular, if M and L are weight sequences with M ≈L, the same is true for bM and bL and
-the last equality also holds.
-Similarly but more directly, the stability for ≈of the value α(m) is obtained. Because if M
-and L are weight sequences with M ≈L, by Proposition 2.1.18, α(m) = ∞if and only if M is not
-(mg), or equivalently, by Proposition 1.1.17, L is not (mg), that is, α(ℓ) = ∞, so α(m) = α(ℓ). If
-α(m) < ∞or α(ℓ) < ∞, by Proposition 1.1.20 ≈is equivalent to ≃, using Proposition 2.1.12 we
-conclude that α(m) = α(ℓ). Furthermore, this implies that O-regular variation for the sequence
-of quotients of a weight sequences is also stable for ≈.
-Recalling the denition of exponent of convergence of a sequence and how it may be computed,
-a characterization for the lower order µ, similar to (vi) and (x) in Proposition 2.1.22, can be
-established, getting as a byproduct the relation with (nq) property.
-Proposition 2.1.25 ([37], p. 65). Let a = (ap)p∈N be a nondecreasing sequence of positive real
-numbers. The exponent of convergence of a is dened as
-λ(a) := inf{µ > 0 :
-∞
-X
-p=1
-1
-aµ
-p
-converges}
-Universidad de Valladolid

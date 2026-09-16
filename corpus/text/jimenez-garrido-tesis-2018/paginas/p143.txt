@@ -1,64 +1,0 @@
-4.1.
-M−SUMMABILITY
-143
-Te,τ sending f to its e−Laplace transform in direction τ, dened as
-(Te,τf)(z) :=
-Z ∞(τ)
-0
-e(u/z)f(u)du
-u ,
-| arg(z) −τ| < ω(M)π/2, |z| small enough,
-(4.7)
-where the integral is taken along the half-line parametrized by t ∈(0, ∞) 7→teiτ. We have the
-following result.
-Proposition 4.1.12 ([60], Prop. 3.11). For a sector S = S(d, α) and f ∈OM(S), the family
-{Te,τf}τ in S denes a holomorphic function Tef in a sectorial region G(d, α + ω(M)).
-We now dene the generalized Borel transforms.
-Denition 4.1.13. Suppose ω(M) < 2, and let G = G(d, α) be a sectorial region with α > ω(M),
-and f : G →C be holomorphic in G and continuous at 0. For τ ∈R such that |τ −d| <
-(α −ω(M))π/2 we may consider a path δω(M)(τ) in G like the ones used in the classical Borel
-transform, consisting of a segment from the origin to a point z0 with arg(z0) = τ +ω(M)(π+ε)/2
-(for some suitably small ε ∈(0, π)), then the circular arc |z| = |z0| from z0 to the point z1 on
-the ray arg(z) = τ −ω(M)(π + ε)/2 (traversed clockwise), and nally the segment from z1 to
-the origin.
-Given kernels e, E for M−summability, we dene the operator T −
-e,τ sending f to its e−Borel
-transform in direction τ, dened as
-(T −
-e,τf)(u) := −1
-2πi
-Z
-δω(M)(τ)
-E(u/z)f(z)dz
-z ,
-u ∈S(τ, ε0),
-ε0 small enough.
-Proposition 4.1.14 ([60], Prop. 3.12). For G = G(d, α) and f : G →C as above, the family
-{T −
-e,τf}τ,
-where τ is a real number such that |τ −d| < (α −ω(M))π/2, denes a holomorphic function
-T −
-e f in the sector S = S(d, α −ω(M)). Moreover, T −
-e f is of M−growth in S.
-Remark 4.1.15. In case ω(M) ≥2, choose s > 0 and a kernel ˜e for M(1/s)−summability as in
-Remark 4.1.3.(ii), and let T −
-˜e,τ be dened as before, where the kernel under the integral sign is
-the function ˜E given in (4.3). Then, if φs is the operator sending a function f to the function
-f(zs), we dene T −
-e,τ by the identity
-φs ◦T −
-e,τ = T −
-˜e,τ ◦φs,
-in the same way as in [7, p. 90].
-One can compute the e−transforms of a monomial.
-Proposition 4.1.16 ([60], p. 1187). Given λ ∈C with Re(λ) ≥0, the function fλ(z) = zλ
-belongs to the space OM(S) and we have that
-Tefλ(z) =
-Z ∞
-0
-e(t)zλ−1tλ−1zdt = me(λ)zλ,
-T −
-e fλ(u) =
-uλ
-me(λ).
-Universidad de Valladolid

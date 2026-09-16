@@ -1,16 +1,0 @@
-28
-INTRODUCTION
-deals with the propagation of M−asymptotics in a direction for holomorphic and asymptoti-
-cally bounded functions to the whole sectorial region, where M is a weight sequence admitting a
-nonzero proximate order. The main result is the following, Theorem 5.3.1:
-Theorem. Given γ > 0, suppose f is holomorphic in a sectorial region G of opening πγ and
-bisected by direction 0, f is bounded in every proper and bounded subsector T of G and it admits
-ˆf ∈C[[z]] as its M−asymptotic expansion in a direction θ ∈(−πγ/2, πγ/2). Then, f ∈˜
-AM(G)
-and f admits ˆf as its M−asymptotic expansion in G.
-This generalizes a result by A. Fruchard and C. Zhang [29] in 1999 for Gevrey asymptotic
-expansions. As in the Gevrey version, the proofs of the results rest, on one hand, on a suitable
-version of the classical Phragmén-Lindelöf Theorem, Lemma 5.1.6, here obtained for functions
-whose growth in a sector is specied by a nonzero proximate order; and, on the other hand, on
-the available versions of the Watson Lemma and Borel-Ritt-Gevrey Theorem.
-JAVIER JIMÉNEZ GARRIDO

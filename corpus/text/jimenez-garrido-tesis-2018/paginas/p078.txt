@@ -1,52 +1,0 @@
-78
-CHAPTER 2.
-LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
-In particular, if f(2x) = O(f(x)), or, equivalently, α(f) < ∞(see the proof of Proposi-
-tion 2.1.28.(ii)), then it is plain to check that (2.12) holds, so we can represent our function f
-by the sequence a.
-Monotonicity hypothesis on f might be replaced by some weaker or dierent condition but,
-in the context of weight sequences and weight functions, this requirement is enough.
-Remark 2.1.36. Condition (2.11) also appears in dierent contexts (see [80, (2.10)]). We know
-that if M is (lc) we have the following implications:
-(mg) ⇒(2.11) ⇒(dc),
-meaning that if M has (mg) then m satises (2.11) because, by Proposition 1.1.9, for all p ∈N
-we see that
-mp+1 ≤m2p ≤Cmp,
-and, by a simple computation, if m satises (2.11), then M satises (dc) since
-Mp+1 = m0m1 · · · mp ≤m0Cpm0m1 · · · mp−1 = m0CpMp,
-p ∈N0.
-The converse implications fail in general. For the rst one, we have the q−Gevrey sequences
-M = (qp2)p∈N0, q > 1, do not satisfy (mg) but nevertheless (2.11) holds true. For the second
-one, we consider
-mp := exp(2j),
-2j ≤p < 2j+1,
-j ∈N0.
-We observe that m is nondecreasing, mp = exp(2j) ≤exp(p) for p ∈N, then M satises (dc)
-and the quotient m2j+1/m2j+1−1 = exp(2j) is not bounded, then (2.11) is violated.
-Remark 2.1.37. This is not the rst approach to go from weight functions to weight sequences.
-In [17], where the connection between weight functions and regular variation was mentioned,
-from a function g : [0, ∞) →[1, ∞) they construct a sequence M = (((p + 1)g(p))p)p∈N0. Under
-suitable assumptions for g the authors show that the corresponding sequence M is strongly
-regular, that is, M is (lc), has (mg) and is (snq). In between these conditions, for a continuously
-dierentiable increasing function g, three are connected to O-regular variation:
-(I) g(2x) = O(g(x)) [17, Lemma 22.(1)].
-(II) lim supx→∞(g(x + 1)/g(x))x < ∞[17, Lemma 22.(2)].
-(III) supx≥0 xg′(x)/g(x) < ∞[17, Lemma 24.(i)].
-For the construction of Example 25 [17] the function g was directly proved to satisfy (III) that
-implies the other two conditions (I) and (II).
-It is plain to check that condition (I) is equivalent to α(g) < ∞(as in the proof of Propo-
-sition 2.1.28.(ii)).
-Regarding condition (III), one may observe that for g : [0, ∞) →[1, ∞)
-continuously dierentiable and increasing with g(0) = 1, we can write
-g(x) = 1 +
-Z x
-0
-tg′(t)dt
-t ,
-x ≥0,
-which leads to Theorem 1.2.34, since h(t) = tg′(t) is a positive locally integrable function. Con-
-sequently, from the point of view of O-regular variation, one may alternatively assume that
-α(g′) < ∞then, by using the almost decreasing characterization, α(h) < ∞and, by Theo-
-rem 1.2.34.(i), (III) is satised. Hence also (I) and (II) hold and the corresponding sequence bM
-has also the expected properties.
-JAVIER JIMÉNEZ GARRIDO

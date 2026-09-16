@@ -1,56 +1,0 @@
-190
-CHAPTER 5.
-A PHRAGMÉN-LINDELÖF THEOREM VIA PROXIMATE ORDERS AND THE
-PROPAGATION OF ASYMPTOTICS
-By recursively reasoning in the sectors
-Sj = {z ∈R : arg(z) ∈[θj −ε, θj−1]},
-j = 2, 3, . . . , m −1,
-and nally in the sector
-Sm = {z ∈R : arg(z) ∈[θm, θm−1]},
-we obtain constants k1,j, k2,j > 0 such that
-|f(z)| ≤k1,je−ωM(1/(k2,j|z|)),
-if arg(z) ∈[θj, θj−1].
-Then for k1 := maxj k1,j and k2 := maxj k2,j we have that
-|f(z)| ≤k1e−ωM(1/(k2|z|)),
-if arg(z) ∈[−πγ/2 + δ, πγ/2].
-□
-In the next result we impose M−atness in both boundary directions of the sector, and
-conclude uniform M−atness throughout the sector.
-Lemma 5.1.9. Let γ > 0 be given. Suppose f is a bounded holomorphic function in Sγ that
-admits a continuous extension to the boundary ∂Sγ, and that is M−at in directions d = πγ/2
-and −d. Then there exist constants k1, k2 > 0 with
-|f(z)| ≤k1e−ωM(1/(k2|z|)),
-if arg(z) ∈[−πγ/2, πγ/2].
-(5.8)
-Proof. By Lemma 5.1.8, there exist constants k1,1, k2,1, k1,2, k2,2 > 0 such that
-|f(z)| ≤k1,1e−ωM(1/(k2,1|z|)),
-if arg(z) ∈[0, πγ/2]
-and
-|f(z)| ≤k1,2e−ωM(1/(k2,2|z|)),
-if arg(z) ∈[−πγ/2, 0].
-We conclude taking k1 := max{k1,1, k1,2} and k2 := max{k2,1, k2,2}.
-□
-Remark 5.1.10. By carefully inspecting its proof, we see that Lemma 5.1.6 holds true in any
-bounded sector S(d, γ, r) and, consequently, Lemma 5.1.8 and Lemma 5.1.9 are also valid in
-bounded sectors.
-We show next that, as Remark 5.1.10 suggests, it is also possible to work in sectorial regions.
-Proposition 5.1.11. Let γ > 0 be given. Suppose f is holomorphic in a sectorial region Gγ,
-bounded in every T ≪G, and M−at in a direction θ in Gγ. Then, for every T ≪Gγ there
-exist constants k1(T), k2(T) > 0 with
-|f(z)| ≤k1e−ωM(1/(k2|z|)),
-for all z ∈T.
-(5.9)
-Proof. By suitably enlarging the opening of the subsector, we can assume that θ is one of the
-directions in T. There exist R, c1, c2 > 0 with
-|f(z)| ≤c1e−ωM(1/(c2|z|)),
-if arg(z) = θ
-and |z| ≤R.
-(5.10)
-If θ1 < θ2 are the (radial) boundary directions of T, we consider δ > 0 such that −πγ/2 < θ1 −δ
-and θ2 +δ < πγ/2. There exists 0 < r < R such that the sectors S1 = {z ∈R : |z| ≤r, arg(z) ∈
-[θ1 −δ, θ]} and S2 = {z ∈R : |z| ≤r, arg(z) ∈[θ, θ2 + δ]} are contained in Gγ. Taking into
-account (5.10) and Remark 5.1.10, we can apply Lemma 5.1.8 to the restriction of f to each
-sector and we conclude that f is M−at uniformly for arg(z) ∈[θ1, θ2] and |z| ≤r. Since ωM(t)
-is nondecreasing, by suitably enlarging the constant k1 we obtain (5.9).
-□
-JAVIER JIMÉNEZ GARRIDO

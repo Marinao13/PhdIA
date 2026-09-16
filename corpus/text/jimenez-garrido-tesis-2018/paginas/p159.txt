@@ -1,81 +1,0 @@
-4.3. MULTISUMMABILITY
-159
-(vi.b) It exists β > 0 such that for every τ ∈(0, 2 −ω(M)), there exist Kτ, Mτ > 0 such that
-|E(z)| ≤Kτ
-|z|β ,
-for all z ∈S(π, τ),
-with |z| ≥Mτ.
-Remark 4.3.11. In case ω(M) ≥2, condition (vi.b) makes no sense and, in the same way as
-in [7, p. 90] and in Remark 4.1.3, suitable adaptations should be made. For simplicity, we will
-omit this situation from now on.
-Lemma 4.3.12. Let M be a strongly regular sequence with ω(M) < 2. Let e and E be a pair of
-complex function satisfying Denition 4.3.10, then they fulll the conditions in Denition 4.1.2.
-Proof. We only have to check that e and E satisfy conditions (ii) and (vi) in Denition 4.1.2,
-respectively. We take z0 ∈Sω(M), we x r0 > 0 and τ0 ∈(0, ω(M)) such that U := B(z0, r0) ⊆
-Sτ0. By condition (ii.b), we have that
-|e(z)| ≤C0|z|α,
-z ∈Sτ0,
-|z| ≤ε0.
-For t ∈(0, ε0(|z0| −r0)) and for every z ∈U we observe that t/z ∈Sτ0 and |t/z| ≤ε0. Then
-Z ε0(|z0|−r0)
-0
-sup
-z∈U
-|e(t/z)|dt
-t ≤
-Z ε0(|z0|−r0)
-0
-C0tα−1dt
-(|z0| −r0)α ≤C0εα
-0
-α
-.
-We x T > 0, if ε0(|z0| −r0) ≥T condition (ii) is immediately satised. If ε0(|z0| −r0) < T we
-dene D0 := {t/z; z ∈U, t ∈[ε0(|z0| −r0), T]} ⊆Sτ0, by condition (i), e is continuous on Sτ0
-and, since D0 is contained on a compact subset of Sτ0 , we have that supw∈D0 |e(w)| = K0 < ∞.
-Then
-Z T
-0
-sup
-z∈U
-|e(t/z)|dt
-t ≤C0εα
-0
-α
-+
-TK0
-ε0(|z0| −r0) < ∞.
-Analogously, we will verify condition (vi). We take z0 ∈S(π, 2 −ω(M)), we x r0 > 0 and
-τ0 ∈(0, 2 −ω(M)) such that U := B(z0, r0) ⊆S(π, τ0). By condition (vi.b), we have that
-|E(z)| ≤K0
-|z|β ,
-z ∈S(π, τ0),
-|z| ≥M0.
-For 0 < t ≤(|z0| −r0)/M0 and for every z ∈U we observe that z/t ∈S(π, τ0) and |z/t| ≥M0.
-Then
-Z (|z0|−r0)/M0
-0
-sup
-z∈U
-|E(z/t)|dt
-t ≤
-Z (|z0|−r0)/M0
-0
-K0dt
-(|z0| −r0)βt1−β ≤
-K0
-Mβ
-0 β
-,
-and, since E is entire, we conclude as before.
-□
-Remark 4.3.13. In general, thanks to Remark 4.3.9 one can only guarantee that e tends to 0 in
-the regions considered in (ii.b) but it seems not possible to ensure that it has power-like growth,
-likewise for E.
-However, either the classical kernels in the Gevrey theory ek(z) = kzk exp(−zk) (see [7]), or
-the new ones eV (z) = z exp(−V (z)), constructed for sequences admitting a nonzero proximate
-order (see Remark 4.1.4), using the functions V dened in [65] (see [60, Th. 4.8, Prop. 4.11]),
-satisfy conditions (ii.b) and (vi.b) (see (4.4), (4.5)).
-Moreover, if we want to proof the integrability conditions (ii) or (vi) in some concrete exam-
-ple, we end up showing estimates similar to those appearing in (ii.b) and (vi.b).
-Universidad de Valladolid

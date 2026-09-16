@@ -1,42 +1,0 @@
-BIBLIOGRAPHY
-213
-[34] Y. Haraoka, Theorems of Sibuya-Malgrange type for Gevrey functions of several variables,
-Funkcial. Ekvac. 32 (1989), 365388.
-[35] G. H. Hardy, Divergent Series, Oxford, at the Clarendon Press, 1949.
-[36] M. Hibino, Summability of formal solutions for singular rst-order linear PDEs with
-holomorphic coecients, in Dierential equations and exact WKB analysis, 4762, RIMS
-Kôkyûroku Bessatsu, B10, Res. Inst. Math. Sci. (RIMS), Kyoto, 2008.
-[37] A. S. B. Holland, Introduction to the theory of entire functions, Academic Press, New York
-and London, 1973.
-[38] L. Hörmander, The analysis of linear partial dierential operators I. Distribution theory and
-Fourier analysis, Second edition. Springer Study Edition. Springer-Verlag, Berlin, 1990.
-[39] P. Hsieh, Y. Sibuya, Basic Theory of Ordinary Dierential Equations, Universitext. Springer,
-New York (1999).
-[40] G. K. Immink, Exact asymptotics of nonlinear dierence equations with levels 1 and 1+,
-Ann. Fac. Sci. Toulouse T. XVII, no. 2 (2008), 309356.
-[41] G. K. Immink, Accelero-summation of the formal solutions of nonlinear dierence equations,
-Ann. Inst. Fourier (Grenoble) 61 (2011), no. 1, 151.
-[42] J. Jiménez-Garrido, S. Kamimoto, A. Lastra, J. Sanz, Multisummability via proximate
-orders, in preparation.
-[43] J. Jiménez-Garrido, J. Sanz, Strongly regular sequences and proximate orders, J. Math.
-Anal. Appl. 438 (2016), no. 2, 920945.
-[44] J. Jiménez-Garrido, J. Sanz, G. Schindl, Log-convex sequences and nonzero proximate or-
-ders, J. Math. Anal. Appl., 448 (2017), no. 2, 15721599.
-[45] J. Jiménez-Garrido, J. Sanz, G. Schindl, Sectorial extensions for some Roumieu ultraholo-
-morphic classes dened by weight functions, submitted, available at (last accessed in De-
-cember 15th, 2017): https://arxiv.org/abs/1710.10081.
-[46] J. Jiménez-Garrido, J. Sanz, G. Schindl, A Phragmén-Lindelöf theorem via proximate orders
-and the propagation of asymptotics, submitted, available at (last accessed in December 15th,
-2017): https://arxiv.org/abs/1706.08804.
-[47] J. Jiménez-Garrido, J. Sanz, G. Schindl, Growth index for weight functions and weight
-sequences for the surjectivity of the Borel map, in preparation.
-[48] J. Jiménez-Garrido, J. Sanz, G. Schindl, Injectivity and surjectivity of the asymptotic Borel
-map in Carleman ultraholomorphic classes of functions dened in sectors, in preparation.
-[49] J. Karamata, Sur un mode de croissance regulière des functions, Mathematica (Cluj) 4
-(1930), 3853.
-[50] J. Karamata, Sur un mode de croissance regulière, Bull. Soc. Math. France 61, (1933),
-5562.
-[51] J. Karamata, Bemerkung über die vorstehende Arbeit des Herrn Avakumovi¢, mit naherer
-Betrachtung einer Klasse von Funktionen, welche bei den Inversionssätzen vorkommen, Bull.
-Int. Acad. Youg. Zagreb (1936) 29-30, 117123.
-Universidad de Valladolid

@@ -1,82 +1,0 @@
-132
-CHAPTER 3.
-INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
-the optimality of γ(M) was provided. Our next attempt will be to obtain as much information
-as possible in this direction. The following result rests on Theorem 3.3.14 and a ramication
-argument. As usual, Q denotes the rational numbers and I the irrationals.
-Theorem 3.3.16. Let M be a strongly regular sequence, and let r ∈Q, r > 0 be given. The
-following assertions are equivalent:
-(i) r < γ(M),
-(ii) there exists d ≥1 such that for every A > 0 there is a linear continuous operator
-TM,A,r : C[[z]]M,A →AM,dA(Sr)
-such that ˜B ◦TM,A,γ = IdC[[z]]M,A the identity map in C[[z]]M,A,
-(iii) the Borel map ˜B : AM(Sr) →C[[z]]M is surjective,
-(iv) the Borel map ˜B : ˜
-Au
-M(Sr) →C[[z]]M is surjective.
-Proof. (i) =⇒(ii) =⇒(iii) This is Theorem 3.3.2.
-(iii) =⇒(iv) Trivial by contention.
-(iv) =⇒(i) In case r ∈N, we use Theorem 3.3.14.(i) and we conclude.
-Otherwise, we write r = p/q with p, q ∈N relatively prime, q ≥2. Consider the sequence
-Mq = (Mq
-n)n∈N0, which also turns out to be strongly regular (see [95, Lemma 1.3.4] or, alter-
-natively, Proposition 2.1.11 and Remark 2.1.19). We will prove that ˜B : ˜
-Au
-Mq(Sp) →C[[z]]Mq
-is surjective, so, again by Theorem 3.3.14.(i), we see that p < γ(Mq).
-Hence, we get that
-r = p/q < γ(M), as desired.
-Let us prove the aforementioned surjectivity. Given ˆf = P∞
-j=0 ajzj ∈C[[z]]Mq, there exist
-C, A > 0 such that |aj| ≤CAjMq
-j for every j ∈N0. Let us dene a new formal power series
-ˆg = P∞
-j=0 bjzj with coecients
-bqj = aj, j ∈N0;
-bm = 0 otherwise.
-The log-convexity of M implies that Mq
-j ≤Mqj for every j, so we have that
-|bqj| ≤CAjMq
-j ≤C(A1/q)qjMqj,
-and consequently, ˆg ∈C[[z]]M. By hypothesis, there exists a function g ∈˜
-Au
-M(Sr) such that
-˜B(g) = ˆg, and so there exist C1, A1 > 0 such that for every z ∈Sr and n ∈N0 one has
-
-g(z) −
-n−1
-X
-j=0
-bjzj
-
-≤C1An
-1Mn|z|n.
-(3.35)
-Consequently, the function f : Sp →C given by f(w) = g(w1/q) is well-dened and holomorphic
-in Sp. Moreover, for every w ∈Sp and n ∈N0 one deduces from (3.35) that
-
-f(w) −
-n−1
-X
-j=0
-ajwj
-
-=
-
-g(w1/q) −
-n−1
-X
-j=0
-bqj(w1/q)qj
-
-=
-g(w1/q) −
-qn−1
-X
-k=0
-bk(w1/q)k
-
-≤C1Aqn
-1 Mqn|w1/q|qn.
-(3.36)
-JAVIER JIMÉNEZ GARRIDO

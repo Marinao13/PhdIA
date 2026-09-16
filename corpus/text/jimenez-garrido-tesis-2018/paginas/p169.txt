@@ -1,67 +1,0 @@
-4.3. MULTISUMMABILITY
-169
-the Te1 transform to Te2f and, by Lemma 4.3.5, we have that g = Te1Te2f is holomorphic
-in S = S(π, 2 + ω1 + ω2). Then, the function
-e(1/z) := g(z) −g(ze2πi)
-2πi
-,
-is holomorphic in Sω1+ω2. Since f ∈OM1·M2(Sω1+ω2), then, by statement 3, (Te1∗Te2)(f) =
-(Te1 ◦Te2)(f) and, by Lemmma 4.3.7, we deduce that
-e(1/z) = g(z) −g(ze2πi)
-2πi
-= (Te1 ∗Te2)(f)(z) −((Te1 ∗Te2)f)(ze2πi)
-2πi
-= e1 ∗e2(1/z).
-□
-Remark 4.3.22. We know that M1 · M2 is a weight sequence with quotients tending to innity
-admitting nonzero proximate order (see Proposition 4.2.5). Consequently, we can construct a
-kernel e of M1·M2−summability (see Remark 4.1.4). However, we do not have any control on the
-corresponding moment sequence of e apart from being equivalent to M1 · M2. Last proposition
-guarantees that the moment sequence associated with e1 ∗e2 is (me1(n)me2(n))n∈N0, which is
-important because it ensures good behavior of formal and analytic Borel-Laplace operators for
-asymptotics.
-Remark 4.3.23. Note that OM1·M2(S) ⊂OM2(S). Consequently, Te1 ◦Te2 extends the operator
-Te1 ∗Te2. The opposite situation occurs for the acceleration operator that will be presented in
-the next subsection, whose main advantage is that it extends the composition operator.
-4.3.4
-Acceleration kernels
-In the same conditions as in the previous subsection, assuming in addition that ω(M1) < ω(M2),
-we will construct a pair of operators T, T −such that T extends T −
-e1 ◦Te2. This new operator will
-be called the acceleration operator from e2 to e1 because it will send a function f ∈OM2(S) into
-a function with greater growth Tf ∈OM1( ˜S). According to this property, the kernel associated
-with T will be called acceleration kernel and its corresponding sequence of moments will be
-me2(λ)/me1(λ).
-Our rst result is the analogous version of Proposition 4.3.19 that guarantees that the oper-
-ators T and T −
-e1 ◦Te2 coincide for a large enough class of functions.
-Proposition 4.3.24. Let Mj, j = 1, 2, be weight sequence admitting a nonzero proximate order.
-We consider strong kernels ej of Mj−summability. Let Tej T −1
-ej
-be the corresponding integral
-operators. Assume that ω(M1) < ω(M2) < 2.
-If f ∈OM2(S(d, γ)), then for every z0 ∈S(d, γ +ω(M2)−ω(M1)) there exist a neighborhood
-U0 ⊆S(d, γ + ω(M2) −ω(M1)) of z0 and a direction φ with |d −φ| < πγ/2 (depending on z0)
-such that we have
-Z
-δω1(arg(z0))
-Z ∞(φ)
-0
-E1(z/v)e2(u/v)f(u)du
-u
-dv
-v
- < ∞
-(4.44)
-for every z ∈U0, where δω1(arg(z0)) is a path as considered in Denition 4.1.13. Moreover, the
-function
-F(z) :=
-Z
-δω1(arg(z))
-Z ∞(φ)
-0
-E1(z/v)e2(u/v)f(u)du
-u
-dv
-v
-Universidad de Valladolid

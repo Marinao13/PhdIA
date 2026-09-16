@@ -1,112 +1,0 @@
-18
-We are ready for the introduction of the M−Laplace transform.
-Deﬁnition 6.3. Let S = S(d, α), f ∈A(M)(S), τ ∈R with |τ −d| < απ
-2 and 0 < δ < γ(M).
-Consider the function eM deﬁned in (8). We deﬁne the M−Laplace transform of f in direction
-τ as
-(Lτ
-Mf) (z) :=
-Z ∞(τ)
-0
-eM
-u
-z
-
-f(u)du
-u ,
-for every z ∈R with |z| small enough and with |arg(z) −τ| < δ π
-2 , and where the integral is
-taken along the path parameterized by t ∈(0, ∞) 7→teiτ.
-Proposition 6.4. Under the hypotheses of the preceding deﬁnition, Lτ
-Mf(z) is well-deﬁned and
-it turns out to be a holomorphic function. Moreover, {Lτ
-Mf}τ/|τ−d|<απ/2 deﬁnes a holomorphic
-function LMf in a sectorial region G(d, α + δ).
-Proof For every u, z ∈R with arg(u) = τ and |arg(z) −τ| < δ π
-2 we have that u/z ∈Sδ and
-
-1
-ueM
-u
-z
-
-f(u)
- ≤1
-|u|
-u
-z
-
-GM
-z
-u
- |f(u)| ≤1
-|z|hM
-
-k3
- z
-u
-
-
-k4
-hM(k5/|u|),
-for some positive constants k3, k4, k5. From (6), the previous expression can be upper bounded
-by
-k4
-|z|
-h2
-M(ρ(2)k3|z|/|u|)
-hM(k5/|u|)
-.
-If we assume |z| ≤L := k5/(ρ(2)k3), from the monotonicity of hM we derive
-
-1
-ueM
-u
-z
-
-f(u)
- ≤k4
-|z|hM
- k5
-|u|
-
-.
-The right part of the last inequality is an integrable function of |u| in (0, ∞), and Leibnitz’s
-rule for parametric integrals allows us to conclude the ﬁrst part of the proof. Let σ ∈R with
-|σ −d| < απ
-2 . The map Lσ
-Mf is a holomorphic function in
-{z ∈R : |arg(z) −σ| < δπ
-2 , |z| small}.
-Since we know that
-lim
-|u|→∞|u|hM
- k5
-|u|
-
-= 0,
-by Cauchy’s residue theorem we easily deduce that Lτ
-Mf(z) ≡Lσ
-Mf(z) whenever both maps
-are deﬁned. Thus we can extend Lτ
-Mf to a function, LMf, holomorphic in a sectorial region
-G(d, α + δ).
-✷
-Let M = (Mp)p∈N0 be a strongly regular sequence and S = S(0, α). It is clear that for every
-λ ∈C with Re(λ) ≥0, the function fλ(z) = zλ belongs to the space A(M)(S). From Proposi-
-tion 6.4, one can deﬁne LMfλ(z) for every z in an appropriate sectorial region G. Moreover, for
-z ∈G and an adequate choice of τ ∈R one has
-LMfλ(z) =
-Z ∞(τ)
-0
-eM
-u
-z
-
-uλ−1du.
-In particular, for z ∈R with arg(z) = τ, the change of variable u/z = t turns the preceding
-integral into
-Z ∞
-0
-eM(t)zλ−1tλ−1zdt = m(λ)zλ.
-Therefore, it is adequate to make the following deﬁnitions.

@@ -1,38 +1,0 @@
-137
-Chapter 4
-Multisummability via proximate orders
-The method of summation of formal power series by means of Borel and Laplace operators was
-introduced by É. Borel in the `simplest' case of level 1, and the extension of the method to any
-level k is quite straightforward but technical. In 1981 multisummability notion was created in
-a somewhat dierent and more general form by J. Écalle [27], using what he called acceleration
-operators. In 1992, W. Balser [5] reformulated this method for the Gevrey case by means of the
-iterated Laplace integrals. This iteration of a nite number of k−summability procedures, which
-has been proved to be stronger than any of them, is based on the fact that a convenient Borel
-transform of the series is itself summable. Six dierent approaches to multisummability can be
-found in the book of M. Loday [64].
-The technique of multisummability (in Balser's sense) has been successfully applied to the
-study of formal power series solutions at a singular point of linear and nonlinear (systems of)
-meromorphic ordinary dierential equations in the complex domain (see, to cite but a few, the
-works [6, 7, 9, 19, 73, 85]), of partial dierential equations (for example, [8, 10, 36, 69, 76]), as
-well as of singular perturbation problems (see [11, 23, 59], among others).
-Nevertheless, it is known that nonGevrey formal power series solutions may appear for dif-
-ferent kinds of equations. For example, V. Thilliez has proven some results on solutions within
-these general classes for algebraic equations in [97]. Also, G. K. Immink in [40, 41] has obtained
-some results on summability for solutions of dierence equations whose coecients grow at an
-intermediate rate between Gevrey classes, called of 1+ level, that is governed by a strongly regu-
-lar sequence. More recently, S. Malek [70] has studied some singularly perturbed small step size
-dierence-dierential nonlinear equations whose formal solutions with respect to the perturba-
-tion parameter can be decomposed as sums of two formal series, one with Gevrey order 1, the
-other of 1+ level, a phenomenon already observed for dierence equations [20].
-All these results invite one to try to generate summability tools so they are able to deal with
-formal power series whose coecients' growth is controlled by a general strongly regular sequence,
-so including Gevrey, 1+ level and other interesting examples. These generalized summability
-methods have been developed by A. Lastra, S. Malek, J. Sanz in [60, 88, 89] and will be briey
-presented in the rst section.
-The aim of this chapter is to put forward the corresponding multisummability theory, in
-Balser's sense, in this context by suitably combining the methods created from dierent sequences
-M1, M2, . . . , Mn instead of dierent Gevrey levels k1, k2, . . . , kn. In the second section, we will
-analyze the main diculties of this general approach, such as the comparability of dierent
-sequences, the properties of the product and quotient sequences and the extension of the classical
-tauberian theorems. The denition of a meaningful multisummability notion depends on the
-existence of these tauberian results that will be valid if the growth indices ω(Mj) of the sequences

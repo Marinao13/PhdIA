@@ -1,63 +1,0 @@
-110
-CHAPTER 3.
-INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
-3.1.2
-The asymptotic Borel map
-In this context, it is natural to consider the following map.
-Denition 3.1.6. Given a sectorial region G and f ∈˜
-AM(G), we dene the asymptotic Borel
-map as the map sending a function f ∈˜
-AM(G) into its M−asymptotic expansion ˆf and we write
-˜B(f) := ˆf.
-One may accordingly dene classes of formal power series
-C[[z]]M,A =
-n
-ˆf =
-∞
-X
-n=0
-anzn ∈C[[z]] : | a |M,A := sup
-p∈N0
-|ap|
-ApMp
-< ∞
-o
-.
-(C[[z]]M,A, | |M,A) is a Banach space and we put C[[z]]M := ∪A>0C[[z]]M,A.
-Remark 3.1.7. Given f ∈˜
-AM(G) it is straightforward that ˜B(f) ∈C[[z]]M, so
-˜B : ˜
-AM(G) −→C[[z]]M.
-If G = S is a sector, using Proposition 3.1.5.(i) we see that the asymptotic Borel map is also
-well dened on AM(S) and ˜
-Au
-M(S).
-If M is (lc), ˜B is a homomorphism of algebras; if M is (dc), ˜B is a homomorphism of dierential
-algebras. Finally, note that if M ≈L, then C[[z]]M = C[[z]]L.
-A fundamental role in the discussion about the injectivity and surjectivity of the asymptotic
-Borel map gathered in this chapter will be played by the at functions.
-Denition 3.1.8. A function f in any of the previous classes is said to be at if ˜B(f) is the
-null power series, in other words, f ∼M ˆ0.
-One may express atness in ˜
-AM(G) by means of the associated functions dened in Sec-
-tion 1.1.3.
-Proposition 3.1.9 ([97], Proposition 4). Given a sequence M, a sectorial region G and f ∈
-H(G), the following are equivalent:
-(i) f ∈˜
-AM(G) and f is at,
-(ii) For every bounded proper subsector T of G there exist c1, c2 > 0 with
-|f(z)| ≤c1e−ωM(1/(c2|z|)) = c1hM(c2|z|),
-z ∈T.
-In the Gevrey case of order α, thanks to the estimates in Example 1.1.22, we recover the
-classical result that characterizes atness in terms of exponential decrease bounds of order 1/α,
-that is, in terms of e−|z|−1/α.
-Remark 3.1.10. In the results gathered in the next sections we will only deal with weight
-sequences, that is, (lc) such that limp→∞mp = ∞. The requirement of (lc) condition is justied
-in Remarks 3.1.4 and 3.1.7.
-Moreover, A. Gorny and H. Cartan proved that this is not a
-restriction in the ultradierentiable setting (see [53, p. 104]).
-For a (lc) sequence M, since m is not decreasing, if limp→∞mp ̸= ∞, then limp→∞mp < ∞
-and also limp→∞(Mp)1/p < ∞(see Lemma 1.1.7). Then there exists A > 0 such that the function
-hM(t) = 0 for all t ∈[0, A]. Hence by Proposition 3.1.9, if f ∈˜
-AM(G) and f is at, we have
-JAVIER JIMÉNEZ GARRIDO

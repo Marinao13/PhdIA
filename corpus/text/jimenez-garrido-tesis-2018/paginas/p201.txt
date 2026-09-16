@@ -1,41 +1,0 @@
-201
-Conclusions and future work
-This thesis had the aim of exploring certain properties of ultraholomorphic classes of functions
-and their application to asymptotic expansions and multisummability theory, analyzing which
-results from the Gevrey case can be extended to this general framework. A rst objective suc-
-cessfully accomplished in Chapter 2 is the description of the relations between several properties
-of the weight sequences and the notions of proximate order, regular and O-regular variation.
-From that chapter, Theorem 2.2.19 deserves a special mention because it characterizes the shape
-of the sequences for which the summability theory developed in [60, 88, 89] is available.
-The third chapter is devoted to the study of the injectivity and surjectivity of the asymptotic
-Borel map. The main outcome of this study, completed for injectivity for general weight sequences
-and nearly nished for surjectivity and strongly regular sequences, is the existence of two indices
-ω(M) and γ(M), one for each problem and generally dierent (see Example 2.2.26), measuring the
-limit opening of the sectors for which the Borel map is injective or, respectively, surjective. Since
-for all the examples in the applications the value of these indices coincides, this division has been
-hard to detect. Finally, in Chapters 4 and 5 the signicance of these results regarding asymptotics
-is stressed. In this direction, Tauberian Theorem 4.2.14 claries when the multisummability tool
-makes sense in this context.
-In that situation, an explicit and detailed construction of the
-acceleration kernels has been provided, allowing us to recover the multisum of a formal power
-series. Finally, it has been shown that, as it happens in the Gevrey case, one may extend the
-M−asymptotic expansion at the origin in a direction of a holomorphic function to the region
-where it is bounded.
-This dissertation represents the rst step towards a better insight into the conditions fre-
-quently assumed for weight functions and weight sequences through the notion of O-regular
-variation, expressing qualitative properties in terms of some quantitative values. These present
-ndings and techniques might help to solve other issues in the ultraholomorphic and ultradier-
-entiable settings. Both settings are closely related, as it has highlighted the study of the Borel
-map, enhancing our understanding of their connection. An additional implication that emerges
-from this work is the potential application to certain equations, particularly dierence equations,
-of the multisummability method, so providing a unied treatment of the problem.
-This analysis of ultraholomorphic classes of functions has been primarily concerned with
-those dened by means of a weight sequence, of Roumieu type, and in the one-variable situation.
-However, some of the outcomes might be also valid in ultraholomorphic classes dened by means
-of a weight function or even a weight matrix, as it has been recently considered by A. Rainer
-and G. Schindl. Also, the Beurling type classes are suitable for the study of similar problems,
-or one could consider classes of functions of several complex variables dened in polysectors
-(cartesian products of sectors) or more general regions. At the same time, the present study
-has only partially employed the information available from the regular and O-regular variation
-theory, so some of the conclusions in the second chapter might be sharpened. Eventually, it is
-worth mentioning that, although M−summability methods have been applied in [60, 61], their

@@ -1,108 +1,0 @@
-3.2. INJECTIVITY OF THE ASYMPTOTIC BOREL MAP. IMPOSSIBILITY OF BIJECTIVITY
-119
-g(z) := f(z)−z is holomorphic in Sγ and, since f is bounded in Sγ and z is not, g cannot vanish
-identically. Furthermore, g(z) ∼M ˆ0 uniformly in S(0, γ, 1), so there exist C, A > 0 such that for
-every z ∈S(0, γ, 1) one has
-|g(z)| ≤CApMp|z|p,
-p ∈N0.
-Hence, the holomorphic function ψ : {z ∈C : Re(z) > 0} →C, dened by ψ(u) = g(1/uγ), is
-not identically 0 and
-|ψ(u)| ≤CApMp
-|u|γp
-,
-p ∈N0, Re(u) > 1.
-Now, we can apply Theorem 3.2.1 in H(1) and we deduce that P∞
-p=0 m−1/γ
-p
-< ∞. By Theo-
-rem 3.2.2, we conclude that ˜B : ˜
-Au
-M(Sγ) −→C[[z]]M is not injective.
-(iii) Let us show that SM ∩IM = ∅. Finally, if ˜B : AM(Sγ) −→C[[z]]M is surjective there
-exists f ∈AM(Sγ) such that f(p)(0) = δ1,p (see (3.1)) for every p ∈N0, where δ1,p is Kronecker's
-delta. By denition of the class, there exist C, A > 0 (without loss of generality, we may assume
-that C ≥1 and CAM1 ≥1) such that
-|f(p)(z)| ≤CApp!Mp,
-z ∈Sγ, p ∈N0.
-(3.10)
-We consider the Laplace transform of the function f(z) −z,
-g(z) :=
-Z ∞(ϕ)
-0
-e−zt(f(t) −t) dt,
-z ∈Sγ+1,
-(3.11)
-where the integration is over the half-line parametrized by r ∈(0, ∞) 7→reiϕ, whose argument
-is a real number
-ϕ ∈
-
-−πγ
-2 , πγ
-2
-
-such that
-arg(z) + ϕ ∈
-
-−π
-2 , π
-2
-
-.
-(3.12)
-This last condition guarantees the exponential decrease at innity of the factor e−zt which,
-together with the linear growth of f(t) −t, ascertains that the function g is well dened and
-holomorphic in Sγ+1. We proceed now to estimate |g(z)|. Firstly, parametrizing we have that
-|g(z)| ≤
-
-Z ∞
-0
-e−reiϕzf(reiϕ)eiϕ dr −
-Z ∞
-0
-e−reiϕzreiϕeiϕ dr
-
-≤
-Z ∞
-0
-e−r Re(eiϕz)|f(reiϕ)| dr +
-
-Z ∞
-0
-e−reiϕzr dr
- .
-In the rst integral we use (3.10) for p = 0 and compute the remaining integral, and in the
-second one we integrate by parts, and get that
-|g(z)| ≤
-C
-Re(eiϕz) +
-
-1
-eiϕz
-Z ∞
-0
-e−reiϕz dr
- ≤
-C
-Re(eiϕz) +
-1
-|z| Re(eiϕz).
-(3.13)
-for every z ∈Sγ+1. A dierent estimation is obtained by integration by parts in (3.11), taking
-into account that f(0) = 0:
-g(z) = 1
-z
-Z ∞(ϕ)
-0
-e−zt(f′(t) −1) dt,
-z ∈Sγ+1.
-(3.14)
-Now we parametrize and split the integral as before, and use (3.10) for p = 1 to obtain that
-|g(z)| ≤
-CAM1
-|z| Re(eiϕz) +
-1
-|z| Re(eiϕz) ≤
-2CAM1
-|z| Re(eiϕz).
-(3.15)
-Universidad de Valladolid

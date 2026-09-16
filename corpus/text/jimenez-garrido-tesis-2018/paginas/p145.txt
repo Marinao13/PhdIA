@@ -1,44 +1,0 @@
-4.1.
-M−SUMMABILITY
-145
-(i) ˆf is M−summable in direction d.
-(ii) For every kernel e of M−summability, ˆf is e−summable in direction d.
-(iii) For some kernel e of M−summability, ˆf is e−summable in direction d.
-In case any of the previous holds, we deduce from the Watson's Lemma that we have (after
-analytic continuation)
-SM,d ˆf = Te( ˆT −
-e ˆf)
-(4.8)
-for any kernel e of M−summability.
-Remark 4.1.21. In case M = M1/k, the summability methods described are just the classical
-k−summability and e−summability (in a direction) for kernels e of order k > 0, as dened by
-W. Balser.
-Finally, we will present some basic properties of M−summable series. As a consequence of
-Watson's Lemma and the basic properties of asymptotics, we have that:
-Lemma 4.1.22. Let M be a weight sequence, the following holds:
-(i) Let ˆf be convergent. Then for every d, the series ˆf is M−summable in direction d and
-SM,d ˆf(z) = S ˆf(z) for every z where both sides are dened, where S maps each convergent
-power series to its natural sum.
-(ii) If ˆf is M−summable in direction d for every d ∈(α, β) with α < β, then
-SM,d1 ˆf(z) = SM,d2 ˆf(z),
-d1, d2 ∈(α, β)
-where both functions are dened.
-(iii) Let ˆf be M−summable in direction d, there exists ε > 0 such that ˆf is M−summable in
-all directions ˜d with | ˜d −d| < ε.
-(iv) For ˜d = d+2π, the M−summability of ˆf in direction d is equivalent to the M−summability
-of ˆf in direction ˜d. Moreover, we have that
-SM, ˜d ˆf(z) = SM,d ˆf(ze−2πi),
-where both functions are dened.
-Remark 4.1.23. In particular (i) in the last Lemma says that our summability method is
-regular, that is, if the ordinary sum exists, then the sum in (4.8) also exists and with the same
-value.
-From Lemma 4.1.22.(iv), we know that we can identify directions d that dier by integer
-multiples of 2π. By Lemma 4.1.22.(iii), we know that the set of directions for which the formal
-power series is not M−summable is closed, specially interesting is the case in which this set is
-nite (mod 2π).
-Denition 4.1.24. Let C{z}M,d be the set of formal power series ˆf which are M−summable in di-
-rection d. Let C{z}M be the set of M−summable formal power series ˆf which are M−summable in
-every direction except for a nite set of directions (mod 2π), denoted by sing( ˆf) = {d1, . . . , dm}.
-Please note that C{z} ⊆C{z}M,d ⊆C[[z]]M. We have the following properties of these sets.
-Only the proof of (i) is indicated due to its importance in the proof of the tauberian results.
-Universidad de Valladolid

@@ -1,57 +1,0 @@
-11
-B. L. J. Braaksma). Por ejemplo, V. Thilliez ha probado ciertos resultados en estas clases más
-generales para soluciones formales de ecuaciones algebraicas en [97]. Así mismo, G. K. Immink
-en [40, 41] ha obtenido algunos resultados de sumabilidad para soluciones formales de ecuaciones
-en diferencias cuyos coecientes crecen al ritmo marcado por la sucesión (p! log(p + e)−p)p∈N0,
-pertenecientes al llamado nivel 1+. Más recientemente, S. Malek [70] ha estudiado ciertas ecua-
-ciones diferenciales-en diferencias no lineales singularmente perturbadas de paso pequeño cuyas
-soluciones formales con respecto al parámetro de perturbación pueden descomponerse como la
-suma de dos series formales, una Gevrey de orden 1 y la otra de nivel 1+, un fenómeno que ya
-se había observado para ecuaciones en diferencias [20].
-Todos estos ejemplos muestran que es interesante proporcionar una herramienta para un
-tratamiento general de la sumabilidad que extienda las potentes teorías de k−sumabilidad y
-multisumabildad, y que nos permita trabajar con desarrollos asintóticos donde las estimaciones
-en (1) estén dadas por una constante Cp de la forma Cp = CApMp para ciertos A, C > 0
-y para una sucesión M = (Mp)p∈N0 de números reales positivos apropiada.
-Resulta que los
-coecientes de la serie formal cuyas sumas parciales aparecen en
-(1), para esta elección de
-Cp, están controlados por M del mismo modo. La correspondiente clase de series de potencias
-formales se denotará por C[[z]]M.
-Esta tarea, el tratamiento común de la sumabilidad, requiere de dos tipos de resultados o
-técnicas:
-(i) El conocimiento de la inyectividad y la sobreyectividad de la aplicación de Borel en este
-contexto general. Obsérvese que una versión análoga del Lema de Watson debería obtenerse
-para tener una denición adecuada de sumabilidad.
-(ii) La construcción de núcleos integrales que nos permitan generalizar las transformadas de
-Laplace y Borel (analíticas y formales), mediante las que poder dar una expresión explícita
-de la suma de una serie M−sumable en una dirección.
-Además, diferentes niveles co-
-rrespondientes a sucesiones distintas deberían poder combinarse, del mismo modo que los
-distintos métodos de k−sumabilidad producen la multisumabilidad. Esto nos conduce a
-ser capaces de trabajar con núcleos de convolución y aceleración, como los desarrollados
-por W. Balser en [7].
-Como se explica a continuación, algunas partes del planteamiento previo habían sido resueltas
-cuando me incorporé al grupo de investigación en el que he realizado mi doctorado, otras se
-desarrollarán en esta memoria y el resto es trabajo en curso que será comentado hasta cierto
-punto en las conclusiones.
-Para abordar el primer problema, debemos enfatizar que pueden considerarse tres clases
-ultraholomorfas de funciones en un sector S de la supercie de Riemann del logaritmo y que están
-íntimamente relacionadas: la clase ˜
-Au
-M(S) de funciones holomorfas con desarrollo uniforme en S,
-vericando (1) para la elección previa de Cp; la clase ˜
-AM(S) formada por las funciones holomorfas
-con desarrollo no uniforme en S, lo que quiere decir que (1) se verica para Cp(T) = CT Ap
-T Mp
-en todo subsector propio y acotado T de S (en lugar de uniformemente en S), donde CT , AT > 0
-dependen del subsector; y, nalmente, la clase AM(S) de funciones con derivadas acotadas, para
-las cuales existe A = A(f) > 0 tal que
-sup
-z∈S, p∈N0
-|f(p)(z)|
-App!Mp
-< ∞.
-Anterior al estudio de las clases ultraholomorfas es el de las ultradiferenciables, que presentamos
-seguidamente. Se trata de un hecho notorio que una función f : [a, b] →C es real analítica si y
-Universidad de Valladolid

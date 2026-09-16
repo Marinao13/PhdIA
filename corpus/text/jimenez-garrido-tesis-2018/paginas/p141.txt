@@ -1,60 +1,0 @@
-4.1.
-M−SUMMABILITY
-141
-Proposition 4.1.5 ([65], Th. 3.3). The function
-EV (z) =
-∞
-X
-n=0
-zn
-mV (n),
-z ∈C,
-is entire and there exist constants C1, K1 > 0 such that for every z ∈C one has
-|EV (z)| ≤C1 exp(K1V (|z|)).
-Consequently, by the admissibility condition, for every z ∈C and suitably large constants
-˜C, ˜K > 0, we have that
-|EV (z)| ≤˜C exp( ˜KωM(|z|))
-and so condition (v) in Denition 4.1.2 is satised.
-Finally, we take into account the
-following.
-Proposition 4.1.6 ([65], (3.25)). Let ρ(t) be a proximate order with ρ > 1/2, γ ≥2/ρ
-and V ∈MF(γ, ρ(t)). Then, for every ε > 0 such that ε < π/2(2−1/ρ) we have, uniformly
-as |z| →∞, that (in Landau's notation)
-EV (z) = O
- 1
-|z|
-
-,
-π
-2ρ + ε ≤| arg z| ≤π.
-(4.5)
-In this case ρ = 1/ω(M) and this information easily implies that also condition (vi) in
-Denition 4.1.2 is fullled, so eV is a kernel of M−summability.
-(iii) In Balser's theory for Gevrey sequences M1/k = (p!1/k)p∈N0 (see [7, Sect. 5.5]), the classical
-example of kernels is given by ek(z) = kzk exp(−zk), the moment function is Γ(1 + λ/k)
-and the Borel kernel E is a Mittag-Leer function.
-Next, we recall the following key result by H. Komatsu that characterizes the growth of a
-entire function in terms of its Taylor coecients and it was useful in the proof of Proposition 4.1.8
-and will be employed afterwards.
-Proposition 4.1.7 ([52],
-Prop. 4.5). Let ωM(t) be the function associated with a weight se-
-quence M. Given an entire function F(z) = P∞
-n=0 anzn, z ∈C, the following statements are
-equivalent:
-(i) There exist C, K > 0 such that |F(z)| ≤CeωM(K|z|), z ∈C.
-(ii) There exist c, k > 0 such that for every n ∈N0, |an| ≤ckn/Mn.
-The following result is key for the development of a satisfactory summability theory because
-it ensures that the classes of functions and formal power series dened from M and me coincide.
-In the proof, the estimates, for the kernels e and E appearing in (4.1) and (4.2), respectively,
-are crucial
-Proposition 4.1.8 ([88], Prop. 5.7). Let e be a kernel function for M−summability, and me =
-(me(p))p∈N0 the sequence of moments associated with e. Then M ≈me.
-Remark 4.1.9.
-(i) As mentioned in Remark 4.1.4, in the Gevrey case of order α > 0, Mα =
-(p!α)p∈N0, it is usual to choose the kernel
-e1/α(z) = 1
-αz1/α exp(−z1/α),
-z ∈Sα.
-Then we obtain that meα(λ) = Γ(1 + αλ) for Re(λ) ≥0. Of course, the sequences Mα and
-meα = (mα(p))p∈N0 are equivalent.
-Universidad de Valladolid

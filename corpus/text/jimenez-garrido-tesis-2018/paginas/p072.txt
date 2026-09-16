@@ -1,60 +1,0 @@
-72
-CHAPTER 2.
-LOG-CONVEX SEQUENCES, O-REGULAR VARIATION AND PROXIMATE ORDERS
-(as in Remark 1.1.26, if the previous set is empty, we put λ(a) = ∞). Then, one has
-λ(a) = lim sup
-p→∞
-log(p)
-log(ap).
-Proposition 2.1.26. If there exists γ ∈R and a nondecreasing sequence ℓsuch that ℓ≃
-((p + 1)−γmp)p∈N0 then µ(m) ≥β(m) ≥γ and we have that
-µ(m) = sup{µ > γ;
-∞
-X
-ℓ=0
-1
-((ℓ+ 1)−γmℓ)1/(µ−γ) < ∞}.
-In particular, if bM is (lc), then γ = −1 and
-(i) if M satises (nq) (see Denition 1.1.5), then µ(m) ≥0,
-(ii) if µ(m) > 0, then M satises (nq).
-Proof. By Proposition 2.1.25, the inverse of the exponent of convergence of the nondecreasing
-sequence ℓ= (ℓp−1)p∈N is given by
-1
-λ(ℓ) = lim inf
-p→∞
-log(ℓp−1)
-log(p)
-= µ(ℓ) = −γ + µ(m)
-applying Proposition 2.1.11 and Lemma 2.1.12 for the last equality, because ℓ≃g−γm. Then,
-using again that ℓ≃g−γm, we see that
-µ(m) = sup{λ > 0;
-∞
-X
-p=0
-1/(ℓp)1/λ < ∞} + γ = sup{µ > γ;
-∞
-X
-p=0
-1/(ℓp)1/(µ−γ) < ∞}
-= sup{µ > γ;
-∞
-X
-p=0
-1/((p + 1)−γmp)1/(µ−γ) < ∞}.
-□
-There is not a straightforward extension of this characterization, similar to (vi) and (x) in
-Proposition 2.1.22, for the upper order ρ(m) (see also Remark 2.1.31).
-2.1.4
-O-regular variation of the associated function
-Departing from a weight sequence M, this subsection is devoted to the study of the properties
-of orders and Matuszewska indices of the associated function ωM and the counting function.
-As it happens for the sequences, these values characterize several classical properties of these
-functions. However, only the necessary statements for our aim will be shown (see Remark 2.1.33).
-The connection between the indices of M and ωM (see Theorem 2.1.30, which we have partially
-stated in [43, Th. 3.2]) is the central point of this subsection.
-We start by recalling the following denitions and facts, mainly taken from the book of A.
-A. Goldberg and I. V. Ostrovskii [32].
-Denition 2.1.27. Given a weight sequence M, i.e., (lc) and such that m tends to innity, we
-consider the counting function for the sequence of quotients m, νm : (0, ∞) →N0 given by
-νm(t) := #{j ∈N0 : mj ≤t} = max{j ∈N : mj−1 ≤t}.
-JAVIER JIMÉNEZ GARRIDO

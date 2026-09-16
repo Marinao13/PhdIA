@@ -1,9 +1,0 @@
-16
-1. Basic Properties of Solutions
-7. Consider a system (1.1) that is meromorphic in G, and let z0 be a
-pole of A(z). If it so happens that a fundamental solution exists which
-only has a removable singularity at z0, we say that z0 is an apparent
-singularity of (1.1). Check that then every fundamental solution X(z)
-must be holomorphic at z0, but det X(z0) = 0.
-8. For every dimension ν ≥1, ﬁnd a system (1.1) that is meromorphic
-in some region G, with inﬁnitely many apparent singularities in G.

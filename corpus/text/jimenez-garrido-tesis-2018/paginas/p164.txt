@@ -1,107 +1,0 @@
-164
-CHAPTER 4.
-MULTISUMMABILITY VIA PROXIMATE ORDERS
-In the same way, applying (4.20) and (4.29), we get that
-J2(z) :=
-Z ∞
-s0
-e1
- 
-sei(θ+φ)
-z
-! I(s)ds
-s ≤d1b1
-Z ∞
-s0
-exp(−ωM1(sk1/|z|) + ωM1(k3k4s))ds
-s .
-By Lemma 1.1.24 for ωM1 and since |z| < k1/(k3k4A1) for every z ∈U0, we deduce that
-J2(z) ≤d1b1
-Z ∞
-s0
-exp(−2ωM1(sk1/(|z|A1)) + ωM1(k3k4s))ds
-s ≤d1b1
-Z ∞
-s0
-exp(−ωM1(k3k4s))ds
-s ,
-Using the denition of ωM1(t), as in (4.24), we get that
-J2(z) ≤M1,1
-k3k4s0
-.
-(4.31)
-From (4.30) and (4.31), we see that (4.16) holds.
-Hence, by the Leibniz's rule we deduce that the double integral
-Z ∞(θ+φ)
-0
-Z ∞(θ)
-0
-e1
-v
-z
-
-e2
-u
-v
-
-f(u)du
-u
-dv
-v
-(4.32)
-denes a holomorphic function in U0. One can easily show, as in the proof of Proposition 4.1.12,
-that the value of such function does not depend on the directions φ and θ, so it denes a
-holomorphic function in a sectorial region G(d, γ + ω1 + ω2) and we observe that
-Te1 ◦Te2(f)(z) =
-Z ∞(θ+φ)
-0
-e1(v/z)(Te2f)(v)dv
-v =
-Z ∞(θ+φ)
-0
-Z ∞(θ)
-0
-e1
-v
-z
-
-e2
-u
-v
-
-f(u)du
-u
-dv
-v ,
-where θ and φ (depending on z) are chosen as in the beginning of the proof. Finally, since the
-double integral in (4.32) converges for any z ∈G(d, γ +ω1 +ω2), applying Fubini's Theorem and
-making the change of variables v = wu, we see that
-Te1 ◦Te2(f)(z) =
-Z ∞(θ)
-0
-f(u)
- Z ∞(φ)
-0
-e1(wu/z)e2(1/w)dw
-w
-!
-du
-u .
-□
-Remark 4.3.20. In the proof of the last proposition, we have shown that for any f ∈OM1·M2(S)
-we have Te2(f) ∈OM1(S(d, γ + ω(M2))) (see (4.27)+(4.29)), which extends the classical Gevrey
-result.
-Finally, we construct the convolution kernel of two strong kernels and we prove that it is also
-a strong kernel of M1 · M2−summability.
-Proposition 4.3.21. Let Mj, j = 1, 2, be normalized weight sequences admitting a nonzero
-proximate order. Assume ω(M1)+ω(M2) < 2 and consider strong kernels ej of Mj−summability,
-its moment function mej and Tej, T −
-ej the corresponding Laplace or Borel operators.
-1. We dene the convolution of e1 and e2, denoted e1 ∗e2, by
-e1 ∗e2(z) := Te1(e2(1/u))(1/z).
-Then, e1 ∗e2 is a strong kernel of M1 ·M2−summability whose moment function is m(λ) =
-me1(λ)me2(λ). Moreover if E1 and E are the kernels associated by Denition 4.3.10.(v)
-with e1 and e1 ∗e2, respectively, we have that
-E(z) = T −
-e2E1(z).
-JAVIER JIMÉNEZ GARRIDO

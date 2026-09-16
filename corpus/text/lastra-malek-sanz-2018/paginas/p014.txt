@@ -1,117 +1,0 @@
-14
-Before stating the main result in this section, we need some information about the asymptotic
-behaviour of the one-variable solution provided by Theorem 4.3 when it takes its values in a
-Banach space of the type AM,A(S, B).
-Let n ≥1, A > 0, M = (Mp)p∈N0 be a strongly regular sequence, S a polysector in Rn and
-0 < δ < γ(M). Suppose that for every p ∈N0 we are given a function fp ∈AM,A(S, B) in such
-a way that f = (fp)p∈N0 ∈ΛM,A (N0, AM,A(S, B)). Let R0 be as in the proof of Theorem 4.1.
-By Theorem 4.3, we know that the function H⋆:= TM,A(f) : Sδ →AM,A(S, B), given by
-H⋆(w) =
-Z R0
-0
-eM(u/w)
- ∞
-X
-p=0
-fp
-m(p)
-up
-p!
-du
-u ,
-belongs to AM,c(δ)A(Sδ, AM,A(S, B)), for suitable c(δ) > 1, and it admits P
-p≥0 fpzp/p! as
-uniform M-asymptotic expansion in Sδ. Hence, the function H : Sδ×S →B given by H(w, z) =
-H⋆(w)(z), belongs, by Theorem 5.6.(ii), to AM,A(Sδ × S, B) and, for every α ∈Nn
-0, we have
-(19)
-D(0,α)H(w, z) = Dα(H⋆(w))(z) =
-Z R0
-0
-eM(u/w)
- ∞
-X
-p=0
-Dαfp(z)
-m(p)
-up
-p!
-du
-u .
-The proof of the next Lemma, extremely lengthy and awkward when following the technique
-in [28], is now easy due to the new solution in integral form for Theorem 4.3.
-Lemma 5.7. Let S = Q
-j∈N Sj. If for every m, p ∈N0 and j ∈N, we have
-(20)
-lim
-zj→0,zj∈Sj Dmejfp(z) = 0 uniformly on Sj′,
-then, for every m ∈N0 and j ∈N one has
-lim
-zj→0,zj∈Sj D(0,mej)H(w, z) = 0 uniformly on Sδ × Sj′.
-Proof By (19) we have
-D(0,mej)H(w, z) =
-Z R0
-0
-eM(u/w)
- ∞
-X
-p=0
-Dmejfp(z)
-m(p)
-up
-p!
-du
-u .
-Given ε > 0, there exists p0 ∈N0 such that, for every p ≥p0, every z ∈S and every u ∈[0, R0],
-one has
-
-∞
-X
-p=p0
-Dmejfp(z)
-m(p)
-up
-p!
- < ε.
-From (20), there exists M > 0 such that whenever z = (z1, ..., zn) ∈S and zj ∈Sj ∩D(0, M)
-we have
-|Dmejfp(z)| ≤εm(p)p!
-p0Rp
-0
-,
-p = 0, . . . , p0 −1.
-Hence, for every z ∈S with zj ∈Sj ∩D(0, M) and every w ∈Sδ we have
-D(0,mej)H(w, z)
- ≤
-Z R0
-0
-|eM(u/w)|
-
-p0−1
-X
-p=0
-Dmejfp(z)
-m(p)
-up
-p!
- +
-
-∞
-X
-p=p0
-Dmejfp(z)
-m(p)
-up
-p!
-
-du
-u
-≤2ε
-Z R0
-0
-|eM(u/w)|du
-u = 2ε
-Z ∞
-0
-1
-|w||GM(w/u)|du.

@@ -4,6 +4,8 @@ __pycache__/
 *.pyc
 .DS_Store
 
-# derivados del corpus: se reconstruyen con doc.py indexar / ingest
+# datos locales del corpus, no codigo: PDFs y texto extraido. bib.yaml y glosario.yaml SI se versionan.
+corpus/raw/
+corpus/text/
 indice/
-corpus/text/*/_marker_tmp/
+.venv-marker1/

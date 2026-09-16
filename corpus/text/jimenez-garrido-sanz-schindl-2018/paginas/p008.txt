@@ -1,134 +1,0 @@
-This leads to
-α⌊λp⌋−αp =
-⌊λp⌋−1
-X
-k=p
-βk
-k + 1 + β⌊λp⌋−βp.
-Condition (i) can be written as limp→∞βp = ω, so it is suﬃcient to prove that
-lim
-p→∞
-⌊λp⌋−1
-X
-k=p
-βk
-k + 1 = ω log(λ).
-If we take ε > 0, we ﬁx δ > 0 such that δ log(λ) < ε/6. There exists pδ ∈N such that
-|βp −ω| < δ for p ≥pδ. We remember that the p−th partial sum Hp = Pp
-k=1 1/k of the
-harmonic series may be given as
-Hp = log(p) + γ + εp,
-γ = Euler’s constant,
-lim
-p→∞εp = 0.
-(8)
-Consequently, for p ≥pδ we have
-⌊λp⌋−1
-X
-k=p
-βk
-k + 1 ≤(ω + δ)(H⌊λp⌋−Hp) = (ω + δ)
-
-log
-⌊λp⌋
-λp
-
-+ log(λ) + ε⌊λp⌋−εp
-
-.
-Using that limp→∞⌊λp⌋/(λp) = 1 and that limp→∞εp = 0, we take p0 ≥max(pδ, (λ −1)−1)
-such that for every p ≥p0 one has
-ω log
-⌊λp⌋
-λp
- < ε/12,
-δ log
-⌊λp⌋
-λp
- < ε/12,
-|ωεp| < ε/6,
-|δεp| < ε/6.
-Then for p ≥p0 we see that ⌊λp⌋≥p, and so
-⌊λp⌋−1
-X
-k=p
-βk
-k + 1 < ω log(λ) + ε.
-Analogously, for p ≥p0 we may also get that
-ω log(λ) −ε <
-⌊λp⌋−1
-X
-k=p
-βk
-k + 1,
-and we are done.
-For λ ∈(0, 1), the proof is similar and we omit it.
-(ii) ⇒(i) Let ω be the index of regular variation of m. By Theorem 3.2 one may write,
-after easy adaptations,
-mp = (p + 1)ωCp exp
- p
-X
-k=1
-δk
-k
-!
-,
-p ∈N0,
-where (Cp)p∈N0 and (δp)p∈N are sequences of positive numbers converging to C ∈(0, ∞) and
-zero, respectively. Then
-Mp = m0m1 · · · mp−1 = p!ω
- p−1
-Y
-k=0
-Ck
-!
-exp
-
-
-p−1
-X
-j=1
-j
-X
-k=1
-δk
-k
-
-
-= p!ω
- p−1
-Y
-k=0
-Ck
-!
-exp
-
-
-p−1
-X
-j=1
-(p −j)δj
-j
-
-
-= p!ω
- p−1
-Y
-k=0
-Ck
-!
-exp
-
-p
-p−1
-X
-j=1
-δj
-j −
-p−1
-X
-j=1
-δj
-
-.
-8

@@ -1,74 +1,0 @@
-7
-Proof. (1) ⇒(2) As f ∈e
-Au
-{L}(S), there exist A, B > 0 such that eCn(f) ≤ABnLn
-for every n ∈N0. On the other hand, it is clear that eCn(f) ≥|cn|, and the hypothesis
-allows us to conclude the other estimate.
-(2) ⇒(3) By assumption, there exist A, B > 0 such that Ln ≤ABn eCn(f) for
-every n ∈N0. If for some M = (Mn)n∈N0 ∈RN0
->0 we have f ∈e
-Au
-{M}(S) ⊆e
-Au
-{L}(S),
-there exist C, D > 0 such that eCn(f) ≤CDnMn for every n ∈N0. The two deduced
-inequalities show that Ln ≤AC(BD)nMn for every n ∈N0, what easily implies that
-e
-Au
-{L}(S) ⊆e
-Au
-{M}(S), and we are done.
-4.1
-Basic functions
-Recall the notations Gs := (j!s)j∈N0 and G
-s := (jjs)j∈N0, s ∈R, and that G
-s ≈Gs,
-see (2). We are going to construct characteristic functions in the uniform asymptotic
-classes associated with G
-s, where s depends on the opening of the sector.
-The two-parametric Mittag-Leffler function is defined for all complex parameters
-A, B with Re(A) > 0 by
-EA,B(z) :=
-∞
-X
-j=0
-zj
-Γ(Aj + B),
-z ∈C,
-where Γ denotes the Gamma function. For the construction of characteristic functions
-in sectors Sα for α ∈(0, 1] we will take A = 2 −α and B = 4 −α and we set
-eEα(z) := E2−α,4−α(−z)=
-∞
-X
-j=0
-(−1)jzj
-Γ((2 −α)(j + 1) + 2),
-z ∈C.
-We recall the following statement.
-Theorem 4.3. ([10, Thm. 5, Thm. 20]) Let α ∈(0, 2), then
-∃C ≥1 ∀z ∈Sα ∀n ∈N0 :
-
-eEα(z) −
-n−1
-X
-j=0
-(−z)j
-Γ((j + 1)(2 −α) + 2)
-
-≤C
-en
-n(2−α)n |z|n.
-Consequently, eEα ∈e
-Au
-{G
-α−2}(Sα) and, moreover, eEα is a characteristic function in the
-class e
-Au
-{G
-α−2}(Sα).
-Next we consider the Rodr´ıguez-Salinas function (see [10])
-KRS(z) := (1 + z) log(1 + z) −z
-z2
-,
-which is clearly holomorphic in S2.
-This function satisfies the following theorem

@@ -1,66 +1,0 @@
-46
-CHAPTER 1.
-PRELIMINARIES
-Theorem 1.2.28 ([13], Th. 2.2.2). Let f : [a, ∞) →(0, ∞), with a ≥0, be a function. Then
-α(f) = inf{α ∈R; x−αf(x) almost decreasing},
-β(f) = sup{β ∈R; x−βf(x) almost increasing}.
-Finally, the third alternative denition is a consequence of the Representation Theorem for
-ORV.
-Theorem 1.2.29 ([1], Th.
-3). Let f : [a, ∞) →(0, ∞), with a ≥0, be a measurable function.
-If f ∈ORV , then
-α(f) = inf
-ξ {lim sup
-x→∞ξ(x)},
-β(f) = sup
-ξ
-{lim inf
-x→∞ξ(x)}.
-where the sup and inf are taken over all measurable and bounded functions ξ for which there
-exists d measurable and bounded such that (1.12) holds.
-Other denitions of α and β are available if one assumes that f is O-regularly varying and
-locally integrable on [a, ∞) (see [1]).
-These indices can be compared to the classical upper and lower order of a function.
-Denition 1.2.30. For a function f : [a, ∞) →(0, ∞), with a ≥0, its upper order ρ(f) (often
-shorted to order) and lower order µ(f) are dened by
-µ(f) := lim inf
-x→∞
-log f(x)
-log x ,
-ρ(f) := lim sup
-x→∞
-log f(x)
-log x .
-It is possible to dene a class of functions, that contains ORV, attending to the niteness of
-these orders. In the recent work of M. Cadena, M. Kratz and E. Omey [21], a generalization of
-the main theorems of regular variation and O-regular variation has been shown for this class.
-Similarly to Remark 1.2.6, O-regular variation has some stability property.
-Remark 1.2.31. If f, g : [a, ∞) →(0, ∞), with a ≥0, are measurable functions with
-0 < lim inf
-x→∞
-f(x)
-g(x) ≤lim sup
-x→∞
-f(x)
-g(x) < ∞,
-(1.13)
-it is plain to check that β(f) = β(g), µ(f) = µ(g), ρ(f) = ρ(g) and α(f) = α(g). Consequently,
-f ∈ORV if and only if g ∈ORV . In particular, if f ∈RV then g ∈ORV and β(g) = µ(g) =
-ρ(g) = α(g).
-Proposition 1.2.32 ([13], Prop.
-2.2.5). Let f : [a, ∞) →(0, ∞), with a ≥0, be a function.
-The orders and Matuszewska indices of f are related by
-β(f) ≤µ(f) ≤ρ(f) ≤α(f).
-As an easy consequence of the Representation Theorem 1.2.4, if f ∈Rρ, then β(f) = µ(f) =
-ρ(f) = α(f) = ρ. However, the converse is not true as it shows the next example.
-Example 1.2.33 ([13], Prop. 2.2.8). The function f : [1, ∞) →(0, ∞) given by
-f(x) =
-
-f(e2j) exp((log(x) −2j)1/2)
-if
-x ∈(e2j, e2j+1], j = 0, 1, 2, . . . ,
-1
-if
-x ∈[1, e].
-satises the following properties:
-JAVIER JIMÉNEZ GARRIDO

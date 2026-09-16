@@ -129,6 +129,15 @@ Los PDFs ya existen: la fase 1 se entrega en dos dias. Las fases 4f y 4g esperan
 haya una conjetura que las necesite: construirlas antes es el "no optimizar la
 arquitectura antes de que `ask` funcione" del BRIEF 7.
 
+## Tarea obligatoria antes de publicar el repo
+
+Los commits `fb81fa2` (19 PDFs) y `4315e8c` (texto extraido) llevan datos locales
+que ya no se versionan (`corpus/raw/`, `corpus/text/`). Antes de hacer publico el
+repositorio hay que reescribir la historia para sacarlos (`git filter-repo` sobre
+esas rutas), forzar el push y avisar a cualquier clon. No se hace ahora: la
+historia sellada es la prueba fechada del trabajo y solo se toca una vez, con
+copia (`git bundle`) previa. Decision de Mariano, 2026-09-16.
+
 ## Lo que NO cambia
 
 `doc.py sesion / sellar / preguntar / ataque / cierre`, la puerta por fases, el

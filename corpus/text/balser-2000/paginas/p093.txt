@@ -1,5 +1,0 @@
-76
-4. Asymptotic Power Series
-2. Show the following converse of the previous exercise: Let G be a
-sectorial region of opening more than (2 + s)π, for some s > 0, and
-assume f(z) ∼=s ˆf(z) in G. Show that then ˆf ∈C{z}.

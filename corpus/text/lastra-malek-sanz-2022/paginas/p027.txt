@@ -1,137 +1,0 @@
-27
-ξ and w in the trace of the corresponding path deﬁned by the path integrals in the deﬁnition
-of u2. From the properties of the kernel functions in Deﬁnition 3.4, one has that
-E1(tλ(ξ))E2(ξz)e2(ξw)
-ξw
- ≤C11|E1(tλ(ξ))|
-hm2
-
-C12
-|ξ|ε
-
-hm2
-
-C13
-|ξ||z|
-
-|ξ|ε
-,
-for some C11, C12, C13 > 0.
-Taking into account (6) we have
-J1 :=
-
-I
-γ2k+1
-φ(w)
-Z ∞(θ)
-ξ0
-E1(tλ(ξ))E2(ξz)e2(ξw)
-ξw
-dξdw
-
-≤C11
-Z
-s∈I2k+1
-φ(εeis)
-
-Z ∞
-|ξ0|
-hm2
-ρ(2)C12
-|ξ|ε
-
-|E1(tλ(|ξ|eiθ))|
-hm2
-
-ρ(2)C12
-|ξ|ε
-
-hm2
-
-C13
-|ξ||z|
-
-|ξ|ε
-d|ξ|ds.
-We assume z satisﬁes |z| ≤C13ε/(ρ(2)C12). This entails
-hm2
-ρ(2)C12
-|ξ|ε
-
-≤hm2
- C13
-|ξ||z|
-
-.
-By the careful choice of the direction θ above and because of Proposition 4.11 applied to E1, we
-deduce there exists δ > 0 such that the function (t, |ξ|) 7→|E1(tλ(|ξ|eiθ))| admits a maximum
-at a point, say (t1, |ξ1|), as (t, |ξ|) runs over (S(d + 2nπ/ν, δ) ∩{t : |t| ≥1}) × [|ξ0|, ∞). Then,
-for every such t and |ξ| ≥|ξ0|, one easily obtains constants C14, C15 > 0 such that
-|E1(tλ(|ξ|eiθ))| ≤|E1(tλ(|ξ1|eiθ))| ≤
-C14
-hm1
-
-C15
-|t|
-.
-Moreover,
-Z ∞
-|ξ0|
-hm2
-ρ(2)C12
-|ξ|ε
- 1
-|ξ|εd|ξ| < ∞,
-so
-J1 ≤
-C16
-hm1
-
-C15
-|t|
-
-Z
-s∈I2k+1
-φ(εeis)
- ds.
-Taking into account that
-sup
-|w|=ε
-|φ(w)| < ∞,
-one concludes that u2 ∈Om1( ˆS(d + 2nπ/ν) × D(0, r)) for some r > 0 and for n = 0, . . . , ν −1.
-We now give estimates on u1(t, z). The inner integral in the deﬁnition of each term in the
-sum of u1 can be upper bounded as before. We arrive at
-J2 :=
-
-I
-γR
-2k
-φ(w)
-Z ∞(θ)
-ξ0
-E1(tλ(ξ))E2(ξz)e2(ξw)
-ξw
-dξdw
-
-≤C21
-Z R
-ε
-
-|φ(seiθ+)| + |φ(seiθ−)|
-
-ds
-1
-hm1
-
-C22
-|t|
- + C23
-Z θ+
-θ−
-|φ(Reiθ)|dθ
-1
-hm1
-
-C22
-|t|
-,

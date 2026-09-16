@@ -1,56 +1,0 @@
-7
-Deﬁnition 2.10. Given a sector S, we say f ∈O(S) admits ˆf as its uniform M−asymptotic
-expansion in S of type A > 0 if there exists C > 0 such that for every n ∈N, one has
-f(z) −
-n−1
-X
-p=0
-apzp ≤CAnMn|z|n,
-z ∈S.
-As a consequence of Taylor’s formula and Cauchy’s integral formula for the derivatives, we
-have the following result (see [2, 13]).
-Proposition 2.11. Let S be a sector and G a sectorial region.
-(i) If f ∈AM,A(S), then f admits ˆf = P
-p∈N0
-1
-p!f (p)(0)zp as its uniform M−asymptotic
-expansion in S of type A.
-(ii) f ∈˜
-AM(G) if, and only if, for every T ≪G there exists AT > 0 such that f|T ∈AM,AT (T).
-Hence, the map ˜B : ˜
-AM(G) −→ΛM is also well deﬁned.
-Remark 2.12. Consider a pair of equivalent sequences M and M′. It is obvious that ΛM = ΛM′;
-given a sector S, the spaces AM(S) and AM′(S) coincide, and also ˜
-AM(G) and ˜
-AM′(G) agree for
-a sectorial region G.
-3
-M−summability
-We are ﬁrstly interested in characterizing general ultraholomorphic quasianalytic classes. Due
-to a classical result of B. I. Korenbljum [19], the third author has obtained the following one [39].
-Theorem 3.1. For a strongly regular sequence M with associated function M(r), put
-(7)
-ω(M) :=
-1
-ρ[M] ∈(0, ∞).
-Then, πω(M) is the optimal opening for M−quasianalyticity, in the sense that the class AM(S)
-is (respectively, is not) quasianalytic whenever the opening of S exceeds (resp. is less than) this
-quantity.
-Remark 3.2. If the strongly regular sequences M = (Mn)n∈N0 and M′ = (M′
-n)n∈N0 are such
-that Mn ≤M′
-n for every n, then AM(S) ⊂AM′(S) for any sector S, and so ω(M) ≤ω(M′).
-Moreover, if M and M′ are equivalent then, by Remark 2.12, we see that ω(M) = ω(M′).
-As an easy consequence, we deduce that if the opening of a sectorial region G is greater than
-πω(M), then ˜B : ˜
-AM(G) −→ΛM is injective. So, we are ready for the introduction of a new
-concept of summability of formal power series in a direction.
-Deﬁnition 3.3. Let d ∈R. We say ˆf = P
-n≥0
-fn
-n! zn is M-summable in direction d if there exist
-a sectorial region G = G(d, γ), with γ > ω(M), and a function f ∈˜
-AM(G) such that f ∼M ˆf.
-In this case, by virtue of Proposition 2.11(ii) we have (fn)n∈N0 ∈ΛM. According to Theo-
-rem 3.1, f is unique with the property stated, and will be denoted
-f = SM,d ˆf, the M-sum of ˆf in direction d.

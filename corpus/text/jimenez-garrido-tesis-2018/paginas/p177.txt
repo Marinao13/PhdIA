@@ -1,148 +1,0 @@
-4.3. MULTISUMMABILITY
-177
-Analogously, if arg(u) ∈[(π/2)(2 + τ2), (π/2)(2 + τ)) we choose θu := arg(u) −εu with
-εu ∈(−(π/2)(2 + τ2) + arg(u), min(−(π/2)(2 −τ2) + arg(u), (π/2)τ1)),
-and we also obtain (4.67) for this choice of θu. By (4.64), since |u| ≥M2/ε1 we have that
-|E◁(u)| =
-
-Z ∞(θu)
-0
-e1
-z
-u
-
-E2(z)dz
-z
- ≤
-Z M2
-0
-e1
-reiθu
-u
-
-E2(reiθu)
-
-dr
-r
-+
-Z |u|ε1
-M2
-e1
-reiθu
-u
-
-E2(reiθu)
-
-dr
-r +
-Z ∞
-|u|ε1
-e1
-reiθu
-u
-
-E2(reiθu)
-
-dr
-r .
-If r ≤|u|ε1, we have that |reiθu/u| ≤ε1, by (4.67) we can apply (4.65) and we obtain
-|E◁(u)| ≤C1
-|u|α1
- Z M2
-0
-rα1
-E2(reiθu)
- dr
-r +
-Z |u|ε1
-M2
-rα1
-E2(reiθu)
- dr
-r
-!
-+
-Z ∞
-|u|ε1
-e1
-reiθu
-u
-
-E2(reiθu)
-
-dr
-r .
-By condition (iii) for e1, and (v) for E2 we know that there exist constants D1, H2 such
-that |e1(w)| ≤D1 for every w ∈Sτ1 and |E2(w)| ≤H2 for every w ∈D(0, M2 + 1). We
-deduce that
-|E◁(u)| ≤C1H2Mα1
-2
-α1|u|α1
-+ C1
-|u|α1
-Z |u|ε1
-M2
-rα1
-E2(reiθu)
- dr
-r + D1
-Z ∞
-|u|ε1
-E2(reiθu)
- dr
-r .
-If r ≥M2, by (4.67) we can apply (4.66) and we have
-|E◁(u)| ≤C1H2Mα1
-2
-α1|u|α1
-+ C1K2
-|u|α1
-Z |u|ε1
-M2
-rα1−β2 dr
-r +
-D1K2
-β2|u|β2εβ2
-1
-.
-According to Remark 4.3.15, we may assume that α1 > β2, then
-|E◁(u)| ≤C1H2Mα1
-2
-α1|u|α1
-+ C1K2εα1−β2
-1
-(α1 −β2)|u|β2 +
-D1K2
-β2|u|β2εβ2
-1
-.
-Consequently, condition (vi.b) is satised with β = min(α1, β2).
-2. Uniqueness follows from Remark 4.3.8.
-3. We take f ∈OM2(S(d, α)) ⊆OM2/M1(S(d, α)).
-Since e1 ◁e2 is a kernel of M2/M1−
-summability, by Proposition 4.1.12 we know that Ae1,e2(f) is holomorphic in a sectorial
-region G(d, α + ω2 −ω1). We x z ∈G(d, α + ω2 −ω1), there exists φ with |d −φ| < πα/2,
-such that if arg(u) = φ, then u/z ∈Sω2−ω1. We write η = arg(z/u) = arg(z) −φ and
-we consider a path δω1(η) chosen as in Proposition 4.3.24, what is possible because e2 is
-holomorphic in Sω2 and the path δω1(η) stays inside Sω2. We have that
-Ae1,e2(f)(z) =
-Z ∞(φ)
-0
-f(u)
- 
-−1
-2πi
-Z
-δω1(η)
-E1
- z
-wu
-
-e2(1/w)dw
-w
-!
-du
-u .
-We conclude, using Proposition 4.3.24, that this last expression equals T −
-e1 ◦Te2(f)(z).
-Universidad de Valladolid

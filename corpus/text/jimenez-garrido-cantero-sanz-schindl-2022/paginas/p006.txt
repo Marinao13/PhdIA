@@ -1,60 +1,0 @@
-6
-(1) σ1 ≤σ2 implies Pσ1 ≤Pσ2.
-(2) λPσ1(z) + µPσ2(z) = Pλσ1+µσ2(z), λ, µ ∈R.
-(3) Pt7→σ(Ct)(z) = Pσ(Cz), C > 0.
-Another important auxiliary function appears in the study of extension results in Braun-
-Meise-Taylor ultradiﬀerentiable classes, deﬁned in terms of weight functions (see, for example, [19,
-3] and the references therein).
-Let σ : [0, ∞) →[0, ∞) be a nondecreasing and nonquasianalytic function. Then, the function
-κσ is deﬁned by
-κσ(y) =
-Z ∞
-1
-σ(ys)
-s2
-ds,
-y ≥0,
-and satisﬁes
-σ(y) ≤κσ(y),
-y ≥0.
-(10)
-If σ is also continuous, then κσ is concave, cf. the proof of (3) ⇒(4) in Prop. 1.3 in [19].
-In particular, consider a weight sequence M such that P∞
-p=0 1/mp < ∞(this is condition
-(M3)′ in [14]); in other words, the sequence
-b
-M := (Mp/p!)p∈N0 satisﬁes (nq). According to [14,
-Lemma 4.1], this property amounts to νm and/or ωM being nonquasianalytic. So, it makes sense
-to consider the concave function κωM associated with ωM, and κνm associated with the counting
-function νm. The equality
-κωM(y) = ωM(y) + κνm(y),
-y ≥0,
-(11)
-can be found on p. 58 in the proof of [14, Prop. 4.4].
-2.3
-Asymptotic expansions, ultraholomorphic classes and the asymptotic
-Borel map
-R stands for the Riemann surface of the logarithm. C[[z]] is the space of formal power series in
-z with complex coeﬃcients.
-For γ > 0, we consider unbounded sectors bisected by direction 0,
-Sγ := {z ∈R : |arg(z)| < γ π
-2 }
-or, in general, unbounded sectors with bisecting direction d ∈R and opening γ π,
-S(d, γ) := {z ∈R : |arg(z) −d| < γ π
-2 }.
-A sector T is said to be a proper subsector of a sector S if T ⊂S (where the closure of T is
-taken in R, and so the vertex of the sector is not under consideration).
-In this paragraph S is an unbounded sector and M a sequence. We start by recalling the
-concept of uniform asymptotic expansion.
-We say a holomorphic function f : S →C admits bf = P
-n≥0 anzn ∈C[[z]] as its uniform
-M-asymptotic expansion in S (of type 1/A for some A > 0) if there exists C > 0 such that for
-every p ∈N0, one has
-f(z) −
-p−1
-X
-n=0
-anzn
- ≤CApMp|z|p,
-z ∈S.
-(12)

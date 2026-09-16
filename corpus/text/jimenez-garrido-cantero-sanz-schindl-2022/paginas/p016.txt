@@ -1,67 +1,0 @@
-16
-This estimate can be taken into both (31) and (32), and from (30) we easily get that for every
-p ∈N0,
-f(z) −
-p−1
-X
-n=0
-anzn
- ≤3K3K4
-K1K2
-| bf|M,A
-2K4B2A
-K2B1
-p
-Mp|z|p,
-z ∈Sγ,
-and so f admits bf as its uniform {M}-asymptotic expansion in Sγ.
-Moreover, recalling the
-deﬁnition (13) of the norm in these spaces with uniform asymptotics and ﬁxed type, if we put
-c := 2K4B2/(K2B1) > 0, we see that f ∈e
-Au
-M,cA(Sγ) and
-∥f∥M,cA,
-∼u ≤3K3K4
-K1K2
-| bf|M,A,
-what proves the continuity of the linear map TM,A.
-(iii) ⇒(iv) Immediate for any weight sequence M.
-(iv) ⇒(v) It follows from (16), again valid for any weight sequence.
-(v) ⇒(vi) This statement is a consequence of Theorem 3.2.
-✷
-Remark 3.13. The facts in Theorem 3.12.(iii) and Proposition 2.3.(ii) together guarantee that
-for every δ ∈(0, γ) there exists c′ > 0 such that for every A > 0 there exists a linear and
-continuous extension operator from C[[z]]M,A into A bM,c′A(Sδ). In fact, V. Thilliez stated his
-main result in this regard [31, Th. 3.2.1] in terms of the existence of such extension operators
-for every δ < γ(M) and M a strongly regular sequence.
-The following three corollaries become now clear.
-Corollary 3.14. Let bM be a regular sequence, and γ > 0. The following are equivalent:
-(i) γ(M) > γ,
-(ii) There exists γ1 > γ such that the space e
-Au
-{M}(Sγ1) contains optimal {M}-ﬂat functions.
-(iii) There exists γ1 > γ such that the Borel map eB : e
-Au
-{M}(Sγ1) →C[[z]]{M} is surjective., i.e.,
-γ1 ∈eSu
-{M}.
-Proof. (ii) ⇒(iii) and (iii) ⇒(i) are respectively contained in Theorem 3.12 and Theorem 3.2,
-under weaker hypotheses. (i) ⇒(ii) is immediately deduced from Proposition 3.10.
-✷
-As a consequence of (3) and Theorem 3.12 we get the following result.
-Corollary 3.15. Let bM be a regular sequence. The following are equivalent:
-(i) M satisﬁes (snq).
-(ii) There exists γ > 0 such that the space e
-Au
-{M}(Sγ) contains optimal {M}-ﬂat functions.
-(iii) There exists γ > 0 such that the Borel map eB : e
-Au
-{M}(Sγ) →C[[z]]{M} is surjective. In
-other words, eSu
-{M} ̸= ∅.
-Note that, according to Proposition 2.3, in the previous items (ii) and (iii) one could change
-e
-Au
-{M}(Sγ) and eSu
-{M} into A{ bM}(Sγ) and S{ bM}, respectively.
-Corollary 3.16. Let bM be a regular sequence, and γ > 0. The following are equivalent:

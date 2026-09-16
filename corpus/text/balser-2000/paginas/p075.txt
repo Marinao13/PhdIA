@@ -1,53 +1,0 @@
-58
-3. Highest-Level Formal Solutions
-The HLFFS ˆF(z) obtained by this algorithm is “known” in the sense that
-its ﬁrst N terms are computed exactly, while ﬁnitely many other terms
-may be computed up to any desired degree of accuracy. Also, observe that
-the above algorithm computes an HLFFS for which the numbers λk in the
-deﬁnition vanish whenever k is not a multiple of q, so that the data pairs
-of the HLFFS are closed with respect to continuation. We shall show that
-the power series for ˆF(z) in general has radius of convergence equal to
-zero, but is k-summable in Ramis’ sense, for k = 1/s. To do so, we shall in
-the following chapters provide the necessary instruments from the general
-theory of asymptotic power series. In Chapter 8 we then will return to the
-investigation of HLFFS.
-Exercises:
-1. For ν = 1, show that inﬁnity always is an almost regular-singular
-point of (3.1).
-2. Compute an HLFFS for (3.1), with A(z) = zA0 + A1 and
-(a) A0 =
-
-λ1
-0
-0
-λ2
-
-,
-A1 =
-
-a
-b
-c
-d
-
-,
-λ1 ̸= λ2.
-(b) A0 =
-
-λ
-0
-1
-λ
-
-,
-A1 =
-
-a
-b
-c
-d
-
-, b ̸= 0.
-3. Assume that we are given a system (3.1) with A0 having all distinct
-eigenvalues. Verify that the matrix ˆT(z) in the formal fundamental
-solution obtained in Exercise 4 on p. 45 is an HLFFS.

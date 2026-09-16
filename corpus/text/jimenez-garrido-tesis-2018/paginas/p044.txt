@@ -1,65 +1,0 @@
-44
-CHAPTER 1.
-PRELIMINARIES
-This conjugate proximate order can be also extended, up to equivalence, to an analytic
-function.
-Theorem 1.2.19 ([65], Th. 2.6). Let ρ(t) be a nonzero proximate order, γ > 0 and V ∈
-MF(γ, ρ(t)).
-Let t = U(s), dened for all s > 0, be the function inverse to s = V (t), for
-every t ∈(0, ∞), and let ρ∗(s) be the proximate order conjugate to ρ(t). Then ln U(s)/ ln s is
-a proximate order equivalent to ρ∗(s), and the function U(s) admits an analytic continuation
-to a function U(W) in a domain T ⊆Sργ symetric relative to the real axis and such that for
-β < γ there exists Rβ > 0 such that the domain T contains Sρβ ∩{|z| > Rβ}. Furthermore, the
-function U veries, in its domain, the properties (I)-(VI) in Theorem 1.2.16 of the functions of
-the class MF(ργ, ρ∗(s)).
-In Section 2.2, the possibility of associating with a weight sequence a nonzero proximate
-order, consequently also a Maergoiz function, is characterized. These functions are used in the
-study of the injectivity of the Borel map in Section 3.2 are an essential part of the asymptotic
-problems considered in Chapter 4. For the classical problem that motivates the introduction of
-the notion of proximate order, that is, the study of the growth of entire functions, the reader is
-referred to [63, Sect. I.12], [32, Section 2.2] and [13, Sect. 7.4], in the last one the solution is
-stated through regular variation (see also Theorem 3.2.12).
-1.2.3
-O-regularly varying functions
-For some of our purposes, the theory of regular variation is too restrictive and one may ask
-what remains valid if we replace lim by lim sup and lim inf in (1.9).
-This extension of the
-class of regularly varying functions, was dened by J. Karamata [51], V. G. Avakumovi¢ [3]
-and considered by W. Matuszewska [74] and W. Feller [28]. Although we refer to the book of
-N. H. Bingham, C. M. Goldie, and J. L. Teugels [13] for the proofs, the rst complete study was
-done by S. Aljan£i¢ and I. D. Arandjelovi¢ [1] in 1977. In this subsection, it is shown that this
-weaker notion preserves several desirable properties.
-Denition 1.2.20. A measurable function f : [a, ∞) →(0, ∞), with a ≥0, is O-regularly
-varying if
-0 < flow(λ) := lim inf
-x→∞
-f(λx)
-f(x) ≤fup(λ) := lim sup
-x→∞
-f(λx)
-f(x) < ∞
-(1.11)
-for every λ ≥1, and we write f ∈ORV .
-Remark 1.2.21. We observe that flow(λ) = 1/fup(1/λ) for every λ ≥1.
-Consequently, if
-f ∈ORV , then (1.11) holds for every λ ∈(0, ∞) and we deduce that RV ⊆ORV . Moreover,
-f ∈ORV if and only if
-fup(λ) = lim sup
-x→∞
-f(λx)
-f(x) < ∞
-for every λ ∈(0, ∞).
-In this general context, the index ρ of regular variation is split into two values, the Ma-
-tuszewska indices, dened for any positive function.
-Denition 1.2.22. For a function f : [a, ∞) →(0, ∞), with a ≥0, its upper Matuszewska index
-α(f) is dened by
-α(f) := inf
-(
-α ∈R; ∃Cα > 0 s.t. ∀Λ > 1, lim sup
-x→∞
-sup
-λ∈[1,Λ]
-f(λx)
-λαf(x) ≤Cα
-)
-JAVIER JIMÉNEZ GARRIDO

@@ -1,54 +1,0 @@
-142
-CHAPTER 4.
-MULTISUMMABILITY VIA PROXIMATE ORDERS
-(ii) Indeed, for any kernel e for M−summability, up to multiplication by a constant scaling
-factor, one may always suppose that me(0) = 1. One may also prove that the sequence
-of moments me = (me(p))p∈N0 is also (lc), which is a consequence of Hölder's inequal-
-ity. Then the strong regularity is deduced from the equivalence between M and me (see
-Proposition 1.1.20).
-Bearing this fact in mind, in Denition 4.1.2 one could depart not from a weight sequence
-M, but from a kernel e, initially dened and positive in direction d = 0, whose moment
-function me(λ) is supposed to be well-dened for λ ≥0, and such that the sequence me
-is strongly regular. With this approach, ω(M) will be replaced by ω(me) and the function
-ωM(t) by ωme(t) in the denition of the kernels.
-(iii) In a more general framework (see O. Blasco [15]), departing from a continuous and piecewise
-continuously dierentiable nondecreasing function φ : [0, ∞) →[0, ∞) with log(t) = o(φ(t))
-as t →∞, we can construct two sequences:
-(i) the moment sequence Mp(φ) =
-Z ∞
-0
-tpe−φ(t)dt, so e(t) = te−φ(t) for all p ∈N0.
-(ii) the Legendre sequence: Lp(φ) = supt>0 tpe−φ(t) for all p ∈N0 (compare with the
-log-convex minorant in Proposition 1.1.23).
-We have that both sequences are (lc) and we have that
-Lp+1
-p + 1 ≤Mp ≤
-√L1
-p
-p
-L2p+1,
-p ∈N.
-Hence, if the lower Matuszewska index of φ is positive, β(φ) > 0, we deduce that it exists
-H ≥1 such that φ(t) ≤φ(Ht) + H and, as in the proof of Lemma 1.1.24, we see that L
-has (mg) and we conclude that M ≈L.
-4.1.2
-Generalized Laplace and Borel transforms
-In this subsection, it will be shown how Laplace- and Borel-like transforms are dened from the
-M−summability kernels, summarizing their main properties. The rst denition resembles that
-of functions of exponential growth of order 1/k, playing a fundamental role when dealing with
-Laplace and Borel transforms in k−summability for Gevrey classes. For convenience, we will say
-a holomorphic function f in a sector S is continuous at the origin if limz→0, z∈T f(z) exists for
-every T ≪S.
-Denition 4.1.10. Let M be a weight sequence, and consider an unbounded sector S in R.
-The set OM(S) consists of the holomorphic functions f in S, continuous at the origin and having
-M−growth in S, i.e. such that for every unbounded proper subsector T of S, we write T ≺≺S,
-there exist r, c, k > 0 such that for every z ∈T with |z| ≥r one has
-|f(z)| ≤
-c
-hM(k/|z|) = ceωM(|z|/k).
-(4.6)
-Remark 4.1.11. Since continuity at 0 has been asked for, f ∈OM(S) implies that for every
-T ≺≺S there exist c, k > 0 such that for every z ∈T with |z| < r one has (4.6).
-We are ready for the introduction of the e−Laplace transform. Given a sector S = S(d, α),
-a kernel e for M−summability and f ∈OM(S), for any direction τ in S we dene the operator
-JAVIER JIMÉNEZ GARRIDO

@@ -1,66 +1,0 @@
-6
-If we observe that the condition (snq) for M is precisely (γ1) for c
-m, the sequence of quotients
-for c
-M, and that γ(c
-M) = γ(M)+1 (this is clear from (2.3)), we deduce from the second statement
-in (2.4) that M satisfies (snq) if, and only if, γ(M) > 0.
-Let M and L be sequences, and m = (mp)p and ℓ= (ℓp)p their respective sequences of
-quotients. We write m ≃ℓwhenever there exists c > 0 such that c−1ℓp ≤mp ≤cℓp, p ∈N0. It
-is clear that m ≃ℓimplies M ≈L.
-We recall the following result for later use.
-Lemma 2.7 ([10], Remark 3.15). For an arbitrary sequence M such that γ(M) > 1, there exists
-a weight sequence L such that m ≃bℓ, and so bL ≈M and γ(bL) = γ(M).
-For α > 0 we set Γα := (Γ(1 + αp))p∈N0, where Γ is Euler’s Gamma function; its sequence
-of quotients will be denoted by gα. It is well known that Γα ≈(p!α)p∈N0, and a straightforward
-verification shows that for any sequence M and for every α > 0 one has
-γ((p!αMp)p∈N0) = γ((Γ(1 + αp)Mp)p∈N0) = γ(M) + α,
-(2.5)
-γ((Mp/p!α)p∈N0) = γ(Mp/(Γ(1 + αp))p∈N0) = γ(M) −α.
-(2.6)
-2.4
-Asymptotic expansions, ultraholomorphic classes and the asymptotic
-Borel map
-In what follows R stands for the Riemann surface of the logarithm, and C[[z]] is the space of
-formal power series in z with complex coefficients.
-For γ > 0, we consider unbounded sectors bisected by direction 0,
-Sγ := {z ∈R : |arg(z)| < γ π
-2 }
-or, in general, unbounded sectors with bisecting direction d ∈R and opening γ π,
-S(d, γ) := {z ∈R : |arg(z) −d| < γ π
-2 }.
-A sector T is said to be a proper subsector of a sector S if T ⊂S (where the closure of T is
-taken in R, and so the vertex of the sector is not under consideration).
-In this paragraph S is an unbounded sector and M a sequence. We start by recalling the
-concept of uniform asymptotic expansion.
-We say a holomorphic function f : S →C admits bf = P
-n≥0 anzn ∈C[[z]] as its uniform
-M-asymptotic expansion in S (of type 1/h for some h > 0) if there exists C > 0 such that for
-every p ∈N0, one has
-f(z) −
-p−1
-X
-n=0
-anzn
- ≤ChpMp|z|p,
-z ∈S.
-(2.7)
-In this case we write f ∼u
-M,h bf in S, and e
-Au
-M,h(S) denotes the space of functions admitting
-uniform M-asymptotic expansion of type 1/h in S, endowed with the norm
-∥f∥M,h,
-∼u :=
-sup
-z∈S,p∈N0
-|f(z) −Pp−1
-k=0 akzk|
-hpMp|z|p
-,
-(2.8)
-which makes it a Banach space.
-e
-Au
-{M}(S) stands for the (LB) space of functions admitting a
-uniform {M}-asymptotic expansion in S, obtained as the union of the previous classes when

@@ -1,81 +1,0 @@
-8
-Theorem 4.4. ([10, Thm. 3]) There exists a constant C (we can take C = 4) such that
-∀z ∈S2 ∀n ∈N0 :
-
-KRS(z) −
-n−1
-X
-j=0
-(−z)j
-(j + 1)(j + 2)
-
-≤C|z|n.
-Consequently, for the constant sequence 1 := (1)j∈N0 we have that KRS ∈e
-Au
-{1}(S2) and,
-moreover, KRS is a characteristic function in the class e
-Au
-{1}(S2).
-Finally, let α > 2 and take α′ > α. For all z ∈Sα we define
-fα,α′(z) :=
-Z ∞(−ϕ)
-0
-KRS(zvα′−2)e−vdv,
-(6)
-where we choose ϕ ∈(−(α−2)
-(α′−2)
-π
-2 , (α−2)
-(α′−2)
-π
-2 ) with | arg(z) −(α′ −2)ϕ| < π.
-Theorem 4.5. ([10, Thm. 4, Thm. 8]) Let α > 2, α′ > α and fα,α′ be the function
-from (6). Then
-∃C, A ≥1 ∀z ∈Sα ∀n ∈N0 :
-
-fα,α′(z) −
-n−1
-X
-j=0
-(−z)j
-(j + 1)(j + 2)Γ((α′ −2)j + 1)
-
-≤CAnΓ((α′ −2)n + 1)|z|n.
-Consequently, fα,α′ ∈e
-Au
-{G
-α′−2}(Sα) and, moreover, fα,α′ is a characteristic function in
-the class e
-Au
-{G
-α′−2}(Sα).
-4.2
-Characteristic transform
-The TM transform originally appeared in the work of Rodr´ıguez Salinas [10] and was
-used by the authors in the previous work [2] to construct characteristic functions with
-precise control of the derivatives at 0 in ultraholomorphic classes defined by uniform
-bounds on the derivatives.
-In this context, the same functional transform TM modifies the coefficients of the
-asymptotic expansion of a function f ∈e
-Au
-{L}(S) to obtain a new function in the class
-e
-Au
-{LM}(S), under suitable hypotheses. This transformation allows us to construct char-
-acteristic functions in classes more general than the Gevrey classes considered previously.
-Definition 4.6. Let M be an (lc) sequence, L ∈RN0
->0, S a sector and f ∈e
-Au
-{L}(S).
-Then we define the TM−transform of f by
-TM(f)(z) :=
-∞
-X
-j=0
-1
-2j
-Mj
-mj
-j
-f(mjz),
-z ∈S.

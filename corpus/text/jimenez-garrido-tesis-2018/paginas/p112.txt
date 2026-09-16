@@ -1,75 +1,0 @@
-112
-CHAPTER 3.
-INJECTIVITY AND SURJECTIVITY OF THE ASYMPTOTIC BOREL MAP
-(M.1) L2
-p ≤Lp−1Lp for every p ∈N,
-(M.2) There exists A > 0 such that
-Lp+k ≤Ap+kLpLk,
-k, p ∈N0,
-(M.3) There exists B > 0 such that
-∞
-X
-k=p
-Lk
-Lk+1
-≤Bp Lp
-Lp+1
-,
-p ∈N.
-Note that L satises (M.3) if and only if ℓhas (γ1) of H. -J. Petzsche (see Remark 2.1.23). Let
-us clarify the relation between these two approaches: If M is (lc), then bM satises (M.1), if M
-has (mg), then bM satises (M.2) and if M is (snq), then bM satises (M.3). On the other hand, if
-M satises (M.2) or (M.3), then the sequence
-b
-M := (Mp/p!)p∈N0 has (mg) or (snq), respectively.
-However, if M is (M.1),
-b
-M is not necessarily (lc). If this is the case, we say that M is strongly
-logarithmically convex, for short (slc).
-In this same context, instead of considering the class of formal power series C[[z]]M, some authors
-considered the classes of sequences
-ΛM,A =
-n
-µ = (µn)n∈N0 ∈CN0 : |µ|M,A := sup
-n∈N0
-|µn|
-Ann!Mn
-< ∞
-o
-.
-(ΛM,A, | |M,A) is again a Banach space, and we put ΛM := ∪A>0ΛM,A.
-There is a bijection
-between them sending a formal power series ˆf = P∞
-n=0 anzn into the sequence of derivatives at
-the origin, (app!)p∈N0 (see Proposition 3.1.5.(ii)). This map is an isomorphism of Banach algebras
-if M is (lc). Due to the fact that the product considered in these algebras is the classical for
-formal power series, we have found reasonable the choice of the notation C[[z]]M.
-Even if the relation between the sequences M, bM and
-b
-M is known, we need to impose certain
-conditions in order to establish the connection between the associated functions ωM(t), ω bM(t)
-and ω
-b
-M(t). This is one of the major concerns when mixing the results from the two dierent
-approaches.
-3.2
-Injectivity of the asymptotic Borel map. Impossibility of bi-
-jectivity
-In 1912, G.N. Watson [105] determined the injectivity interval ˜Iu
-Mα for the Gevrey sequence
-Mα = (p!α)p∈N0 by proving that if a function f has global exponential decrease bounds of order
-1/α on a sector Sα, the function f is too at and must be 0. The modern proof, contained in
-most of the books, is a smart but easy consequence of Phragmén-Lindelöf principle. Extensions
-of these results were obtained by S. Mandelbrojt and B. Rodríguez-Salinas (see Theorems 3.2.1
-and 3.2.3).
-In this section, these classical results which deal with the classes AM and ˜
-Au
-M will be presented
-and we will reformulate them in terms of the growth index ω(M) thanks to its relation with
-the exponent of convergence of m.
-Finally, the problem for the class
-˜
-AM will be solved by
-constructing, via proximate orders, at functions in sectors of optimal opening. As a consequence,
-we will obtain the rst surjectivity result stating that the Borel map is never bijective.
-JAVIER JIMÉNEZ GARRIDO
