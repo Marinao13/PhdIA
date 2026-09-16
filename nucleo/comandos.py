@@ -1138,7 +1138,7 @@ def _referencias_fuera_del_corpus(frags_usados):
         textos = [f["texto"]]
         if f.get("tipo") in ("teorema", "proposicion", "lema", "corolario", "definicion"):
             # la atribucion ("proved by Thilliez \cite{...}") suele ir en el parrafo anterior
-            textos += I.vecinos_anteriores(f["id"], 2)
+            textos += I.vecinos_anteriores(f["id"], 4)
         for clave in Q.claves_cite("\n".join(textos)):
             texto = refs.get(clave)
             if not texto or (f["doc"], clave) in vistas:
