@@ -76,3 +76,36 @@ def test_id_desde_fichero():
 def test_texto_plano_quita_matematicas_y_comandos():
     plano = Q._texto_plano(r"Let $M=(M_p)$ be \emph{strongly} regular \cite{T03}.")
     assert "M_p" not in plano and "emph" not in plano and "strongly" in plano
+
+
+def test_numero_en_pdf_lee_el_rotulo_impreso():
+    pagina = ("2. Strongly regular sequences\nProposition 2.3 (Watson). If M is strongly regular then "
+              "the Borel map is surjective on every sector of small opening.\nProof. Obvious.")
+    unidad = r"If $M$ is strongly regular then the Borel map is surjective on every sector of small opening."
+    assert Q.numero_en_pdf(unidad, "proposicion", pagina) == "2.3"
+    assert Q.numero_en_pdf(unidad, "teorema", pagina) is None
+    assert Q.numero_en_pdf("Something else entirely different here", "proposicion", pagina) is None
+
+
+def test_referencias_tex_y_claves_cite(tmp_path):
+    d = tmp_path / "tex"
+    d.mkdir()
+    (d / "main.bbl").write_text(
+        "\\begin{thebibliography}{9}\n"
+        "\\bibitem{Thi03} V.~Thilliez, \\newblock Division by flat ultradifferentiable functions and "
+        "sectorial extensions, \\newblock {\\em Results Math.} {\\bf 44} (2003), 169--188.\n"
+        "\\bibitem{Bal00} W. Balser, Formal power series and linear systems of meromorphic ODEs, Springer, 2000.\n"
+        "\\end{thebibliography}\n", encoding="utf-8")
+    refs = Q.referencias_tex(str(d))
+    assert set(refs) == {"Thi03", "Bal00"}
+    assert "Results Math." in refs["Thi03"] and "\\" not in refs["Bal00"]
+    assert Q.claves_cite(r"see \cite{Thi03} and \cite[Thm. 2]{Bal00, Thi03}") == ["Thi03", "Bal00"]
+
+
+def test_referencia_en_corpus_casa_por_titulo_arxiv_o_doi():
+    bib = {"thilliez-2003": dict(titulo="Division by Flat Ultradifferentiable Functions and Sectorial Extensions",
+                                  arxiv="math/0602366", doi="10.1007/bf03322923")}
+    assert Q.referencia_en_corpus("V. Thilliez, Division by flat ultradifferentiable functions and sectorial "
+                                  "extensions, Results Math 44", bib) == "thilliez-2003"
+    assert Q.referencia_en_corpus("some paper, arXiv:math/0602366", bib) == "thilliez-2003"
+    assert Q.referencia_en_corpus("W. Balser, Formal power series, Springer 2000", bib) is None

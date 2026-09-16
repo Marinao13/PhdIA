@@ -41,7 +41,11 @@ def test_tokenizar_saca_los_comandos_latex_como_palabras():
     assert "gamma" in I._tokenizar(r"la condicion $(\gamma_1)$ de Thilliez")
 
 
-def test_cita():
-    assert I.cita(dict(doc="thilliez-2003", pagina=7, seccion="3", label="thm:main")) == \
-        "[thilliez-2003:p7, sec 3, thm:main]"
-    assert I.cita(dict(doc="proyecto", pagina=None, seccion=None, label=None)) == "[proyecto]"
+def test_cita_para_humanos():
+    # pagina + tipo con numero impreso; sin numero, la etiqueta LaTeX marcada; nunca "sec N.N"
+    assert I.cita(dict(doc="thilliez-2003", pagina=7, tipo="teorema", numero="3.2", label="thm:main")) == \
+        "[thilliez-2003:p7, Teorema 3.2]"
+    assert I.cita(dict(doc="jgs-2016", pagina=21, tipo="proposicion", numero=None, label="pro.gamma")) == \
+        "[jgs-2016:p21, proposicion, etiqueta LaTeX: pro.gamma]"
+    assert I.cita(dict(doc="balser-2000", pagina=143, tipo="pagina", seccion="2.1")) == "[balser-2000:p143]"
+    assert I.cita(dict(doc="proyecto", pagina=None, seccion=None, label=None, tipo="parrafo")) == "[proyecto]"

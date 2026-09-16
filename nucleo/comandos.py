@@ -1083,7 +1083,12 @@ def cmd_ingest(args):
 
 
 def _docs_mencionados(pregunta):
-    """Ids de bib.yaml cuyo primer apellido y ano (revista, arXiv o el del id) aparecen en la pregunta."""
+    """
+    Ids de bib.yaml que la pregunta nombra. Casa el primer apellido; si la pregunta
+    lleva un ano, exige ademas que coincida (revista, arXiv o el del id). Un apellido
+    solo activa todos sus documentos: la fuente primaria tiene que estar entre los
+    fragmentos aunque no sepamos cual de los papers del autor se quiere.
+    """
     from . import corpus as Q
     import unicodedata as ud
     q = ud.normalize("NFKD", pregunta.lower()).encode("ascii", "ignore").decode()
@@ -1094,10 +1099,14 @@ def _docs_mencionados(pregunta):
             continue
         apellidos = [ud.normalize("NFKD", a.split(",")[0].lower()).encode("ascii", "ignore").decode()
                      for a in e.get("autores", [])] or [id_.split("-")[0]]
-        anos_doc = {str(e.get("ano") or ""), str(e.get("ano_arxiv") or ""), id_.rsplit("-", 1)[-1]}
-        if apellidos and apellidos[0] and apellidos[0] in q and (anos & anos_doc):
-            out.append(id_)
-    return out
+        if not (apellidos and apellidos[0] and re.search(r"\b" + re.escape(apellidos[0]) + r"\b", q)):
+            continue
+        anos_doc = {str(e.get("ano") or ""), str(e.get("ano_arxiv") or ""), str(e.get("ano_online") or ""),
+                    re.sub(r"\D", "", id_.rsplit("-", 1)[-1])[:4]}
+        if anos and not (anos & anos_doc):
+            continue
+        out.append(id_)
+    return out[:3]
 
 
 def _cabeceras_bib(frags):
@@ -1118,8 +1127,46 @@ def _cabeceras_bib(frags):
     return "\n".join(lineas)
 
 
+def _referencias_fuera_del_corpus(frags_usados):
+    """Referencias que citan los fragmentos usados (\\cite resueltos con el .bbl) y no estan en bib.yaml."""
+    from . import corpus as Q
+    bib = Q.leer_bib()
+    vistas, fuera, dentro = set(), [], []
+    for f in frags_usados:
+        refs = Q.leer_referencias(f["doc"])
+        for clave in Q.claves_cite(f["texto"]):
+            texto = refs.get(clave)
+            if not texto or (f["doc"], clave) in vistas:
+                continue
+            vistas.add((f["doc"], clave))
+            id_ = Q.referencia_en_corpus(texto, bib)
+            (dentro if id_ else fuera).append(dict(doc=f["doc"], clave=clave, texto=texto, en_corpus=id_))
+    return fuera, dentro
+
+
+def _fusionar(*listas):
+    vistos, out = set(), []
+    for lista in listas:
+        for f in lista:
+            if f["id"] not in vistos:
+                vistos.add(f["id"])
+                out.append(f)
+    return out
+
+
+def _contexto_ask(pregunta, frags, segunda=None):
+    from . import indice as I
+    bloque = "\n\n".join(f"{I.cita(f)}" + (" (traido por referencia)" if f.get("via_ref") else "")
+                         + (" (segunda busqueda)" if f.get("segunda") else "") + f"\n{f['texto']}" for f in frags)
+    cab = f"PREGUNTA: {pregunta}\n\nDOCUMENTOS:\n{_cabeceras_bib(frags)}\n\n"
+    if segunda:
+        cab += ("SEGUNDA BUSQUEDA HECHA: " + segunda + "\nSi lo pedido sigue sin aparecer, ahora si puedes "
+                "escribir: 'No esta en el corpus (segunda busqueda en <documentos> con: <palabras>)'.\n\n")
+    return cab + "FRAGMENTOS:\n\n" + bloque
+
+
 def cmd_ask(args):
-    """Sintesis con modelo sobre fragmentos de `buscar`. Sujeta a las fases."""
+    """Sintesis con modelo sobre fragmentos de `buscar`. Sujeta a las fases. Dos pasadas como maximo."""
     from . import indice as I
     pregunta = " ".join(args.pregunta).strip()
     if not pregunta:
@@ -1130,47 +1177,91 @@ def cmd_ask(args):
         M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
         print("(el corpus sigue disponible sin modelo:  python doc.py buscar \"...\")")
         return
+
     # evidencia: papers. El proyecto y las notas propias solo con --con-propios, y marcados.
     fuente = args.fuente or (None if args.con_propios else "paper")
-    frags = I.buscar(pregunta, k=args.k, fuente=fuente, doc=args.doc, por_doc=args.por_doc)
-    nombrados = [] if args.doc else _docs_mencionados(pregunta)
-    if len(nombrados) == 1:
-        # la pregunta va sobre ese paper: la mitad del cupo, solo de el, sin tope por documento
-        propios = I.buscar(pregunta, k=max(4, args.k // 2), doc=nombrados[0], por_doc=0)
-        vistos = {f["id"] for f in frags}
-        frags = [f for f in propios if f["id"] not in vistos] + frags
-        frags = frags[:args.k + 2]
+    nombrados = [args.doc] if args.doc else _docs_mencionados(pregunta)
+    generales = I.buscar(pregunta, k=args.k, fuente=fuente, doc=args.doc, por_doc=args.por_doc)
+    # cada documento nombrado tiene cupo propio y sin tope: la fuente primaria entra siempre
+    propios = []
+    for d in nombrados:
+        propios += I.buscar(pregunta, k=max(6, args.k // max(1, len(nombrados))), doc=d, por_doc=0)
+    frags = _fusionar(propios, generales)
     if not frags:
         print("nada en el indice para esa pregunta (o indice vacio: python doc.py indexar)")
         return
-    frags += I.seguir_refs(frags)          # las \ref{} del .tex traen su definicion o lema
-    bloque = "\n\n".join(f"{I.cita(f)}" + (" (traido por referencia)" if f.get("via_ref") else "")
-                          + f"\n{f['texto']}" for f in frags)
-    contenido = f"PREGUNTA: {pregunta}\n\nDOCUMENTOS:\n{_cabeceras_bib(frags)}\n\nFRAGMENTOS:\n\n{bloque}"
+    frags = _fusionar(frags, I.seguir_refs(frags))     # las \ref{} del .tex traen su definicion o lema
+
+    def llamar(contenido):
+        return M.llamar("ask", P.ASK, [{"role": "user", "content": contenido}],
+                        max_tokens=C.MAX_TOKENS_ASK, forzar=args.forzar)
+
+    def usados_de(respuesta):
+        m = re.search(r"^USADOS:\s*(.*)$", respuesta, re.M | re.S)
+        citas = {c.strip() for c in re.split(r";\s*", m.group(1).split("\n")[0])} if m else set()
+        return [f for f in frags if I.cita(f) in citas]
+
     try:
-        respuesta = M.llamar("ask", P.ASK, [{"role": "user", "content": contenido}],
-                             max_tokens=C.MAX_TOKENS_ASK, forzar=args.forzar)
+        respuesta = llamar(_contexto_ask(pregunta, frags))
     except M.MotorApagado as e:
         M.aviso("MOTOR APAGADO: " + str(e))
         return
-    print()
-    M.imprimir(respuesta)
+    pasadas = [dict(respuesta=respuesta, fragmentos=[f["id"] for f in frags])]
 
-    # registro: pregunta, respuesta y TODOS los fragmentos recuperados, marcando los usados
-    m = re.search(r"^USADOS:\s*(.*)$", respuesta, re.M)
-    usadas = {c.strip() for c in m.group(1).split(";")} if m else set()
+    # segunda pasada: si el modelo pide BUSCAR, o si la fuente primaria nombrada no se uso
+    m = re.search(r"^BUSCAR:\s*(.+)$", respuesta, re.M)
+    claves = m.group(1).strip() if m else None
+    usados = usados_de(respuesta)
+    primaria_ausente = bool(nombrados) and not any(f["doc"] in nombrados for f in usados)
+    segunda = None
+    if claves or primaria_ausente:
+        consulta = claves or pregunta
+        extra = []
+        for d in (nombrados or [None]):
+            extra += I.buscar(consulta, k=10, fuente=fuente if d is None else None, doc=d, por_doc=0)
+        nuevos = [f for f in extra if f["id"] not in {g["id"] for g in frags}]
+        for f in nuevos:
+            f["segunda"] = True
+        frags = _fusionar(frags, nuevos, I.seguir_refs(nuevos))
+        donde = ", ".join(nombrados) if nombrados else "todo el corpus"
+        segunda = f"restringida a {donde}, con las palabras: {consulta}" + \
+            (" (la fuente primaria nombrada no aparecia entre los fragmentos usados)" if primaria_ausente and not claves else "")
+        try:
+            respuesta = llamar(_contexto_ask(pregunta, frags, segunda))
+        except M.MotorApagado as e:
+            M.aviso("MOTOR APAGADO: " + str(e))
+            return
+        pasadas.append(dict(respuesta=respuesta, fragmentos=[f["id"] for f in frags], busqueda=segunda))
+        usados = usados_de(respuesta)
+
+    # una BUSCAR sin segunda pasada posible no se ensena como conclusion
+    respuesta_mostrar = re.sub(r"^BUSCAR:.*$", "", respuesta, flags=re.M).rstrip()
+    print()
+    M.imprimir(respuesta_mostrar)
+
+    # referencias que citan los fragmentos usados y no estan en el corpus: candidatas a bib.yaml
+    fuera, dentro = _referencias_fuera_del_corpus(usados)
+    if fuera:
+        print("\nREFERENCIAS CITADAS EN LOS FRAGMENTOS USADOS QUE NO ESTAN EN EL CORPUS (candidatas a bib.yaml):")
+        for r_ in fuera:
+            print(f"  - [{r_['doc']} -> {r_['clave']}] {r_['texto'][:170]}")
+    if primaria_ausente and not any(f["doc"] in nombrados for f in usados):
+        M.aviso(f"AVISO: la respuesta no usa ningun fragmento de {', '.join(nombrados)}, que es lo que la pregunta nombra.")
+
     for f in frags:
-        f["usado"] = I.cita(f) in usadas
+        f["usado"] = f in usados
     os.makedirs(C.DIR_CONSULTAS, exist_ok=True)
     marca = datetime.datetime.now().strftime("%Y-%m-%d-%H%M%S")
     ruta = os.path.join(C.DIR_CONSULTAS, f"{marca}.json")
     C.escribir(ruta, json.dumps(dict(
-        ts=marca, fase=fase, pregunta=pregunta, k=args.k, fuente=args.fuente, doc=args.doc,
-        respuesta=respuesta, modelo=C.MODELO,
-        fragmentos=[{k_: f.get(k_) for k_ in ("id", "doc", "pagina", "seccion", "tipo", "label",
-                                              "bm25", "coseno", "rrf", "usado", "via_ref", "texto")} for f in frags],
+        ts=marca, fase=fase, pregunta=pregunta, k=args.k, fuente=fuente, doc=args.doc,
+        nombrados=nombrados, pasadas=pasadas, respuesta=respuesta, modelo=C.modelo_para("ask"),
+        referencias_fuera=fuera, referencias_dentro=dentro,
+        fragmentos=[{k_: f.get(k_) for k_ in ("id", "doc", "pagina", "tipo", "numero", "label", "seccion",
+                                              "bm25", "coseno", "rrf", "usado", "via_ref", "segunda", "texto")}
+                    for f in frags],
     ), ensure_ascii=False, indent=1))
-    print(f"\n[{sum(f['usado'] for f in frags)}/{len(frags)} fragmentos usados; "
+    print(f"\n[{len(usados)}/{len(frags)} fragmentos usados; {len(pasadas)} pasada(s); "
           f"consulta guardada en {os.path.relpath(ruta, C.RAIZ)}]")
 
 
