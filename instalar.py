@@ -33,7 +33,7 @@ def instalar(paquete):
 
 
 paso(1, "dependencias")
-for p in ("mpmath", "anthropic", "rich"):
+for p in ("mpmath", "anthropic", "openai", "rich", "pymupdf", "rank_bm25", "tiktoken", "pyyaml", "requests", "numpy"):
     print(f"  {p:<10} {instalar(p)}")
 
 paso(2, "quitar la marca de internet (solo Windows)")
@@ -56,10 +56,10 @@ paso(3, "clave de la API")
 env = os.path.join(RAIZ, ".env")
 if not os.path.exists(env):
     shutil.copy(os.path.join(RAIZ, ".env.ejemplo"), env)
-    print("  creado .env. ABRELO y pega tu clave donde dice pega-aqui-tu-clave.")
-    print("  La clave se crea en https://platform.claude.com (API Keys). No la compartas ni la subas a git.")
+    print("  creado .env. ABRELO y pega UNA clave: ANTHROPIC_API_KEY u OPENAI_API_KEY.")
+    print("  Se crean en platform.claude.com o platform.openai.com (API Keys). No la compartas ni la subas a git.")
 else:
-    tiene = any(l.startswith("ANTHROPIC_API_KEY=") and "pega-aqui" not in l
+    tiene = any(l.startswith(("ANTHROPIC_API_KEY=", "OPENAI_API_KEY=")) and "pega-aqui" not in l
                 for l in open(env, encoding="utf-8-sig"))
     print("  .env con clave" if tiene else "  .env existe pero FALTA la clave dentro")
 

@@ -952,14 +952,24 @@ def _coste_del_mes(ll):
 
 
 def cmd_metricas(args):
-    # por dia: inicio / sello1 / ataque / sello3
-    dias = defaultdict(lambda: dict(inicio=None, sello1=None, ataque=None, sello3=None))
+    # por ciclo: cada "inicio sesion" abre uno (con la fecha del inicio, que es la del
+    # fichero de sesion) y los sellos se cuelgan de el aunque crucen la medianoche
+    dias = {}
+    actual = None
     for ts, msg in E.commits_todos():
-        d = dias[ts.date().isoformat()]
-        for clave, pref in (("inicio", "inicio sesion"), ("sello1", "sellado :: fase 1"),
-                            ("ataque", "ataque"), ("sello3", "sellado :: fase 3")):
-            if msg.startswith(pref) and d[clave] is None:
-                d[clave] = ts
+        if msg.startswith("inicio sesion"):
+            actual = dias.setdefault(ts.date().isoformat(),
+                                     dict(inicio=None, sello1=None, ataque=None, sello3=None))
+            actual["inicio"] = actual["inicio"] or ts
+            continue
+        if actual is None:
+            continue
+        for clave, pref in (("sello1", "sellado :: fase 1"), ("ataque", "ataque"),
+                            ("sello3", "sellado :: fase 3")):
+            if msg.startswith(pref) and actual[clave] is None:
+                actual[clave] = ts
+        if msg.startswith("cierre"):
+            actual = None
 
     filas = []
     for ruta in sorted(glob.glob(os.path.join(C.DIR_SESIONES, "2*.md"))):
