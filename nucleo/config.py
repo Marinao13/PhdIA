@@ -45,16 +45,17 @@ MAX_TOKENS_ASK = 1800
 # (< 272K tokens), 2026-09-16. None = sin precio: metricas muestra tokens, no dinero.
 PRECIOS = {
     "gpt-6-astra":            dict(entrada=10.0, cacheada=1.0,  salida=50.0, verificado="2026-09-16"),
+    "gpt-5.6-terra":          dict(entrada=2.0,  cacheada=0.20, salida=12.0, verificado="2026-09-16"),
     "text-embedding-3-small": dict(entrada=0.02, cacheada=0.01, salida=0.0,  verificado="2026-09-16"),
     "claude-sonnet-5":        dict(entrada=None, cacheada=None, salida=None, verificado=None),
 }
-EUR_POR_USD = float(os.environ.get("DOC_EUR_POR_USD", "0.92"))   # SIN VERIFICAR: fijalo tu
+EUR_POR_USD = float(os.environ.get("DOC_EUR_POR_USD", "0.87"))   # 1 USD = 0.867 EUR el 2026-09-15 (Mariano)
 PRESUPUESTO_MES = 20.0   # EUR; decision de Mariano, 2026-09-16
 
 # Modelo por comando. Astra solo donde hace falta (referee, preguntar); el resto con el
 # modelo barato cuando Mariano lo nombre (hoy es el mismo). Esfuerzo de razonamiento de
 # la API de OpenAI: los tokens de razonamiento se pagan como salida.
-MODELO_BARATO = os.environ.get("DOC_MODELO_BARATO") or MODELO
+MODELO_BARATO = os.environ.get("DOC_MODELO_BARATO") or ("gpt-5.6-terra" if PROVEEDOR == "openai" else MODELO)
 MODELO_POR_COMANDO = {"referee": MODELO, "preguntar": MODELO}
 ESFUERZO_POR_COMANDO = {"ask": "low", "nota-quiz": "low", "buscar": None, "indexar": None}
 ESFUERZO_DEFECTO = "medium"

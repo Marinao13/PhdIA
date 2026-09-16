@@ -116,11 +116,13 @@ def meta_crossref(doi):
     m = _get(f"https://api.crossref.org/works/{doi}").json()["message"]
     autores = [", ".join(x for x in (a.get("family", ""), a.get("given", "")) if x)
                for a in m.get("author", [])]
-    fecha = (m.get("issued") or m.get("published-print") or m.get("published-online") or {})
+    # ano del volumen impreso si existe (es el que se cita); si no, el de publicacion online
+    fecha = (m.get("published-print") or m.get("issued") or m.get("published-online") or {})
     ano = (fecha.get("date-parts") or [[None]])[0][0]
+    en_linea = ((m.get("published-online") or {}).get("date-parts") or [[None]])[0][0]
     return dict(titulo=" ".join((m.get("title") or [""])[0].split()), autores=autores,
                 venue=(m.get("container-title") or [""])[0] or None, ano=ano, doi=doi,
-                volumen=m.get("volume"), paginas_revista=m.get("page"))
+                volumen=m.get("volume"), paginas_revista=m.get("page"), ano_online=en_linea)
 
 
 # ======================================================================
@@ -462,7 +464,7 @@ def _metadatos(paginas, sin_red, avisos):
         try:
             m = meta_crossref(doi)
             if ent.get("titulo") or titulo_en_texto(m["titulo"], cabeza):
-                for k in ("venue", "ano", "doi", "volumen", "paginas_revista"):
+                for k in ("venue", "ano", "doi", "volumen", "paginas_revista", "ano_online"):
                     if m.get(k) is not None:
                         ent[k] = m[k]
                 ent.setdefault("titulo", m["titulo"])
@@ -641,6 +643,96 @@ def remapear(id_, verbose=True):
     return unidades
 
 
+def meta_handle(url):
+    """Titulo y autores de una pagina de repositorio (DSpace/UVaDOC) por sus metas citation_*/DC."""
+    html = _get(url).text
+    metas = re.findall(r'<meta\s+(?:name|property)="([^"]+)"\s+content="([^"]*)"', html, re.I)
+    d, autores = {}, []
+    for k, val in metas:
+        k = k.lower()
+        if k in ("citation_author", "dc.creator", "dc.contributor.author"):
+            autores.append(val)
+        else:
+            d.setdefault(k, val)
+    titulo = d.get("citation_title") or d.get("dc.title") or d.get("og:title")
+    if not titulo:
+        raise ValueError("la pagina no expone citation_title ni DC.title")
+    fecha = d.get("citation_date") or d.get("dc.date.issued") or d.get("citation_publication_date")
+    return dict(titulo=" ".join(titulo.split()), autores=autores,
+                ano=int(fecha[:4]) if fecha and fecha[:4].isdigit() else None,
+                venue=d.get("citation_publisher") or d.get("dc.publisher"), handle=url)
+
+
+def identificar(id_, identificador, verbose=True):
+    """Asigna un DOI o un handle a un id ya ingerido. Pasa a verificado SOLO si el titulo
+    que devuelve la red aparece en la portada del PDF; si no, se guarda como aportado_sin_verificar."""
+    bib = leer_bib()
+    if id_ not in bib:
+        raise KeyError(f"{id_} no esta en bib.yaml")
+    paginas = [C.leer(p) for p in sorted(glob.glob(os.path.join(C.DIR_TEXT, id_, "paginas", "p*.txt")))][:3]
+    cabeza = "\n".join(paginas)
+    ent = bib[id_]
+    if identificador.lower().startswith("http"):
+        m = meta_handle(identificador)
+        clave = "handle"
+    else:
+        doi = re.sub(r"^(https?://(dx\.)?doi\.org/|doi:)", "", identificador.strip(), flags=re.I)
+        m = meta_crossref(doi)
+        clave = "doi"
+    coincide = titulo_en_texto(m["titulo"], cabeza)
+    ent[clave] = m.get(clave) or identificador
+    if coincide:
+        for k in ("titulo", "autores", "venue", "ano", "volumen", "paginas_revista"):
+            if m.get(k):
+                ent[k] = m[k]
+        ent["estado"] = "verificado"
+        ent.pop("titulo_pdf_sin_verificar", None)
+    else:
+        ent["estado"] = "pendiente_verificar"
+        ent.setdefault("avisos", []).append(
+            f"{clave} {identificador}: el titulo devuelto ({m['titulo'][:60]}...) no aparece en la portada")
+    bib[id_] = ent
+    escribir_bib(bib)
+    if verbose:
+        print(f"{id_:<42} {ent['estado']:<20} {m['titulo'][:60]}")
+    return ent
+
+
+def renombrar(viejo, nuevo, verbose=True):
+    """Cambia el id de un documento: bib.yaml, corpus/text/<id>, corpus/raw/<id>.pdf y el log de renombrados."""
+    bib = leer_bib()
+    if viejo not in bib:
+        raise KeyError(f"{viejo} no esta en bib.yaml")
+    if nuevo in bib:
+        raise KeyError(f"{nuevo} ya existe en bib.yaml")
+    ent = bib.pop(viejo)
+    d_viejo, d_nuevo = os.path.join(C.DIR_TEXT, viejo), os.path.join(C.DIR_TEXT, nuevo)
+    if os.path.isdir(d_viejo):
+        os.rename(d_viejo, d_nuevo)
+    pdf_viejo = os.path.join(C.DIR_CORPUS, ent.get("fichero", f"raw/{viejo}.pdf"))
+    pdf_nuevo = os.path.join(C.DIR_RAW, f"{nuevo}.pdf")
+    if os.path.exists(pdf_viejo) and pdf_viejo != pdf_nuevo:
+        os.rename(pdf_viejo, pdf_nuevo)
+    ent["fichero"] = f"raw/{nuevo}.pdf"
+    bib[nuevo] = ent
+    escribir_bib(bib)
+    log = os.path.join(C.DIR_META, "renombrados.yaml")
+    C.anadir(log, f"{viejo}: {nuevo}   # {hoy()}\n")
+    if verbose:
+        print(f"{viejo}  ->  {nuevo}")
+    return nuevo
+
+
+def id_segun_regla(id_, ent):
+    """Regla de Mariano: el id lleva el ano de publicacion en revista; si no, el de la primera
+    version de arXiv. Devuelve el id propuesto (sin desambiguar)."""
+    ano = ent.get("ano") or ent.get("ano_arxiv")
+    if not ano:
+        return id_
+    base = re.sub(r"-\d{4}(-\d+)?$", "", id_)
+    return f"{base}-{ano}"
+
+
 def refrescar_metadatos(id_, verbose=True):
     """Vuelve a resolver los metadatos de un id ya ingerido, sin reextraer nada."""
     bib = leer_bib()
@@ -657,9 +749,15 @@ def refrescar_metadatos(id_, verbose=True):
     if not paginas:
         raise FileNotFoundError(f"sin paginas extraidas para {id_}")
     avisos = []
-    ent, _ = _metadatos(paginas, False, avisos)
     viejo = bib[id_]
-    for k in ("fichero", "capa", "paginas", "unidades", "ingerido", "fuente", "etiquetas", "reextraer"):
+    if viejo.get("estado") == "verificado" and (viejo.get("doi") or viejo.get("handle"))             and not _detectar_ids(paginas)[0] and not _detectar_ids(paginas)[1]:
+        # identificador asignado a mano (--identificar): se conserva y se reverifica con el
+        bib[id_] = viejo
+        escribir_bib(bib)
+        return identificar(id_, viejo.get("doi") or viejo.get("handle"), verbose=verbose)
+    ent, _ = _metadatos(paginas, False, avisos)
+    for k in ("fichero", "capa", "paginas", "unidades", "ingerido", "fuente", "etiquetas", "reextraer",
+              "handle"):
         if k in viejo:
             ent[k] = viejo[k]
     if avisos:

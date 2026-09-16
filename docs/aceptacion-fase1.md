@@ -1,6 +1,6 @@
 # Aceptacion de la Fase 1: seis preguntas a `ask` (2026-09-16)
 
-Modelo: gpt-6-astra, esfuerzo bajo, k=8, tope 2 por documento. Cada respuesta va con los
+Modelo: gpt-5.6-terra (el de produccion para ask), esfuerzo bajo, k=8, tope 2 por documento, cupo extra al paper nombrado. Cada respuesta va con los
 fragmentos que el modelo declaro usar. **La comprobacion contra el PDF es de Mariano**:
 marca cada fila como correcta / incompleta / incorrecta en la tabla del final.
 
@@ -10,114 +10,120 @@ nunca una sintesis sin cita.
 
 ## (0) que condiciones sobre la sucesion M usa el teorema de extension de Thilliez
 
-## EL CORPUS DICE
+EL CORPUS DICE
 
-El teorema de extensión de **Thilliez (2003, Th. 3.2.1)** supone que $M$ es **fuertemente regular** y proporciona operadores de extensión lineales y continuos para $0<\delta<\gamma(M)$. [jimenez-garrido-cantero-sanz-schindl-2022:p16, sec 3.2]
+El teorema de extensión principal de Thilliez se formula para una sucesión $\M$ fuertemente regular. [jimenez-garrido-cantero-sanz-schindl-2023:p16, sec 3.2]
 
-Ser fuertemente regular significa:
-- ser logarítmicamente convexa;
-- ser fuertemente no casianalítica;
-- tener crecimiento moderado: existe $A>0$ tal que $M_{p+q}\le A^{p+q}M_pM_q$ para todos $p,q\in\mathbb N_0$. [jimenez-garrido-tesis-2018:p13]
+En los fragmentos, «fuertemente regular» significa que $\M$ es logarítmicamente convexa, fuertemente no cuasianalítica y satisface crecimiento moderado. [jimenez-garrido-tesis-2018:p13]
 
-El corpus solo cubre los nombres de las dos primeras condiciones, no sus fórmulas ni su normalización exacta.
+El crecimiento moderado se expresa: existe $A>0$ tal que $M_{p+q}\le A^{p+q}M_pM_q$ para todo $p,q\in\mathbb N_0$. [jimenez-garrido-tesis-2018:p13]
 
-## CONOCIMIENTO GENERAL
+Además, el operador de extensión existe para toda apertura $\delta<\gamma(\M)$: para cada $A>0$ hay un operador lineal y continuo de $\mathbb C[[z]]_{\M,A}$ en $\mathcal A_{\widehat{\M},c'A}(S_\delta)$. [jimenez-garrido-cantero-sanz-schindl-2023:p16, sec 3.2]
 
-USADOS: [jimenez-garrido-cantero-sanz-schindl-2022:p16, sec 3.2]; [jimenez-garrido-tesis-2018:p13]
+USADOS: [jimenez-garrido-cantero-sanz-schindl-2023:p16, sec 3.2]; [jimenez-garrido-tesis-2018:p13]
 
-*Recuperados 10, usados 2. Consulta completa en `registro/consultas/2026-09-16-161647.json`.*
+*Recuperados 10, usados 2. Consulta completa en `registro/consultas/2026-09-16-163351.json`.*
 
 ## (a) Segun Thilliez 2010, que hipotesis sobre M exige el resultado de estabilidad para ecuaciones algebraicas y en que clase quedan las soluciones?
 
-## EL CORPUS DICE
+EL CORPUS DICE
 
-- **Hipótesis sobre $M$:** el enunciado exige que sea **fuertemente regular**. La introducción menciona crecimiento moderado y no cuasianaliticidad fuerte, pero las definiciones precisas no están en los fragmentos. [thilliez-2010:p7, sec 3.2, main2] [thilliez-2010:p1, sec 1]
-- **Datos:** polinomio mónico $\varphi(z,w)=w^d+a_1(z)w^{d-1}+\cdots+a_d(z)$, con $a_j\in\mathcal A_M(S_{\gamma,r})$, y solución $h\in\mathcal A^\infty(S_{\gamma,r})$. [thilliez-2010:p7, sec 3.2, main2]
-- **Conclusión:** $h\in\mathcal A_M(S_{\gamma',r'})$ para todo $0<\gamma'<\gamma$ y $0<r'<r$: se conserva la sucesión $M$, reduciendo el sector y el radio. [thilliez-2010:p7, sec 3.2, main2]
+Para el resultado ultraholomorfo, $M$ debe ser fuertemente regular. [thilliez-2010:p7, sec 3.2, main2]
 
-## CONOCIMIENTO GENERAL
+Si $a_j\in\mathcal{A}_M(S_{\gamma,r})$ y $h\in\mathcal{A}^\infty(S_{\gamma,r})$ satisface $\varphi(z,h(z))=0$, entonces $h\in\mathcal{A}_M(S_{\gamma',r'})$ para todo $\gamma'<\gamma$ y $r'<r$. [thilliez-2010:p7, sec 3.2, main2]
+
+El texto introductorio identifica, en particular, las hipótesis de crecimiento moderado y no-cuasianaliticidad fuerte. [thilliez-2010:p1, sec 1]
+
+CONOCIMIENTO GENERAL
+
+No hace falta.
 
 USADOS: [thilliez-2010:p7, sec 3.2, main2]; [thilliez-2010:p1, sec 1]
 
-*Recuperados 11, usados 2. Consulta completa en `registro/consultas/2026-09-16-161659.json`.*
+*Recuperados 11, usados 2. Consulta completa en `registro/consultas/2026-09-16-163407.json`.*
 
 ## (b) Que relacion demuestran Jimenez-Garrido y Sanz (2016) entre gamma(M) y omega(M), y bajo que condicion?
 
 EL CORPUS DICE
 
-- Para toda sucesión $M$ **fuertemente regular**, demuestran $\gamma(M)\leq\omega(M)$. [jimenez-garrido-sanz-2021:p21, sec 4, pro.gamma.menor.omega]
-- Si preguntas por la **igualdad**, la tesis indica que admitir un **orden aproximado no nulo** implica $\gamma(M)=\omega(M)$; la regularidad fuerte por sí sola no basta. [jimenez-garrido-tesis-2018:p16]
+Para toda sucesión fuertemente regular $\mathbb M$, Jiménez-Garrido y Sanz demuestran que
+$\gamma(\mathbb M)\leq \omega(\mathbb M)$. [jimenez-garrido-sanz-2016:p21, sec 4, pro.gamma.menor.omega]
 
-La atribución de esta igualdad al artículo de 2016 **No esta en el corpus** proporcionado.
+La condición es, por tanto, que $\mathbb M$ sea fuertemente regular. [jimenez-garrido-sanz-2016:p21, sec 4, pro.gamma.menor.omega]
 
 CONOCIMIENTO GENERAL
 
-—
+No hace falta.
 
-USADOS: [jimenez-garrido-sanz-2021:p21, sec 4, pro.gamma.menor.omega]; [jimenez-garrido-tesis-2018:p16]
+USADOS: [jimenez-garrido-sanz-2016:p21, sec 4, pro.gamma.menor.omega]
 
-*Recuperados 11, usados 2. Consulta completa en `registro/consultas/2026-09-16-161709.json`.*
+*Recuperados 10, usados 1. Consulta completa en `registro/consultas/2026-09-16-163413.json`.*
 
 ## (c) Como se define la M-sumabilidad en una direccion en Lastra-Malek-Sanz 2015 y que papel juega el orden aproximado asociado a M?
 
-## EL CORPUS DICE
+EL CORPUS DICE
 
-**Definición.** La serie $\hat f=\sum_{n\ge0}(f_n/n!)z^n$ es $\mathcal M$-sumable en dirección $d$ si existen una región sectorial $G=G(d,\gamma)$, con $\gamma>\omega(\mathcal M)$, y una función $f\in\tilde{\mathcal A}_{\mathcal M}(G)$ tal que $f\sim_{\mathcal M}\hat f$. [lastra-malek-sanz-2022:p7, sec 3, defisumable]
+No esta en el corpus la definición completa de $\M$-sumabilidad en una dirección. El artículo construye la teoría mediante núcleos de $\M$-sumabilidad y transformadas de Laplace y Borel, formales y analíticas. [lastra-malek-sanz-2015:p1]
 
-**Papel del orden aproximado.** No aparece como hipótesis explícita en esa definición; interviene en la construcción de los núcleos de sumabilidad. Concretamente, si $\mathcal M$ es fuertemente regular, $\omega(\mathcal M)<2$ y $d(r)=\log M(r)/\log r$ es un orden aproximado, entonces para cada $V\in\mathfrak B(2\omega(\mathcal M),d(r))$,
-$e_V(z)=\frac{z}{\omega(\mathcal M)}\exp(-V(z))$
-es un núcleo de $\mathcal M$-sumabilidad en $S_{\omega(\mathcal M)}$. [lastra-malek-sanz-2022:p7, sec 3, defisumable] [lastra-malek-sanz-2022:p19, sec 4, teorconstrkernels]
+Para $\M$ fuertemente regular con $\omega(\M)<2$, un núcleo es un par $(e,E)$ con $e$ holomorfa en $S_{\omega(\M)}$, con integrabilidad local de $z^{-1}e(z)$ en el origen, y con estimación $|e(z)|\le c e^{-M(|z|/k)}$ en todo subsector $S_{\omega(\M)-\varepsilon}$; su función momento es $m_e(\lambda)=\int_0^\infty t^{\lambda-1}e(t)\,dt$, y $E(z)=\sum_{n\ge0}z^n/m_e(n)$. [lastra-malek-sanz-2015:p8, sec 3, defikernelMsumm]
 
-Estos núcleos permiten introducir transformadas de tipo Borel y Laplace, formales y analíticas; mediante las transformadas correspondientes se reconstruye la $\mathcal M$-suma de una serie sumable en una dirección. [lastra-malek-sanz-2022:p1] [jimenez-garrido-tesis-2018:p14]
+El papel del orden aproximado asociado es garantizar la construcción de tales núcleos: si $d(r)=\log(M(r))/\log r$ es un orden aproximado y $\omega(\M)<2$, entonces, para $V\in\mathfrak B(2\omega(\M),d(r))$, la función $e_V(z)=\omega(\M)^{-1}z\exp(-V(z))$ es un núcleo de $\M$-sumabilidad. [lastra-malek-sanz-2015:p19, sec 4, teorconstrkernels]
 
-## CONOCIMIENTO GENERAL
+Si $\omega(\M)\ge2$, se reduce a $\M^{(1/s)}=(M_n^{1/s})_n$, escogiendo $s$ con $\omega(\M)/s<2$; si $d$ es orden aproximado, también lo es $d^{(1/s)}$, y un núcleo $\tilde e$ para $\M^{(1/s)}$ produce $e(z)=\tilde e(z^{1/s})/s$ para $\M$. [lastra-malek-sanz-2015:p20, sec 4]
 
-USADOS: [lastra-malek-sanz-2022:p7, sec 3, defisumable]; [lastra-malek-sanz-2022:p19, sec 4, teorconstrkernels]; [lastra-malek-sanz-2022:p1]; [jimenez-garrido-tesis-2018:p14]
+Una condición suficiente citada para que $d(r)$ sea orden aproximado es la existencia de $\lim_{p\to\infty}p\log(m_{p+1}/m_p)$; entonces dicho valor es $\omega(\M)$ y $\omega(\M)=\lim_{p\to\infty}\log(m_p)/\log p$. [lastra-malek-sanz-2015:p20, sec 4, equacondordenaprox]
 
-*Recuperados 12, usados 4. Consulta completa en `registro/consultas/2026-09-16-161723.json`.*
+La tesis citada indica que, más generalmente, basta que $\M$ admita un orden aproximado, en el sentido de que $d_M$ esté suficientemente próximo a uno; para esas sucesiones, el método de $\M$-sumabilidad está disponible. [jimenez-garrido-tesis-2018:p14]
+
+CONOCIMIENTO GENERAL
+
+La “dirección” en una teoría de sumabilidad suele ser la dirección del rayo a lo largo del cual se aplica la transformada integral de Laplace al transformado de Borel. Para dar la definición exacta aquí faltarían los fragmentos que definan la transformada analítica de Borel, la transformada de Laplace direccional y la condición precisa sobre el transformado de Borel.
+
+USADOS: [lastra-malek-sanz-2015:p1]; [lastra-malek-sanz-2015:p8, sec 3, defikernelMsumm]; [lastra-malek-sanz-2015:p19, sec 4, teorconstrkernels]; [lastra-malek-sanz-2015:p20, sec 4]; [lastra-malek-sanz-2015:p20, sec 4, equacondordenaprox]; [jimenez-garrido-tesis-2018:p14]
+
+*Recuperados 11, usados 6. Consulta completa en `registro/consultas/2026-09-16-163502.json`.*
 
 ## (d) En Jimenez-Garrido-Sanz-Schindl 2019, que indice separa las aberturas de sector con aplicacion de Borel inyectiva, y cual las de sobreyectiva?
 
-## EL CORPUS DICE
+EL CORPUS DICE
 
-No esta en el corpus la respuesta del artículo de 2019.
+No esta en el corpus. La introducción de la tesis identifica $\gamma(M)$ y $\omega(M)$ como los dos índices entre los que había que decidir cuál separa las aberturas de sobreyectividad y no sobreyectividad, pero no da la conclusión de Jiménez-Garrido–Sanz–Schindl (2019). [jimenez-garrido-tesis-2018:p14]
 
-- **Inyectividad:** la tesis sitúa un caso pendiente en la abertura $\pi\omega(M)$ para $\widetilde{\mathcal A}_M(S)$ cuando $M$ no admite un orden aproximado; no proporciona aquí el criterio completo. [jimenez-garrido-tesis-2018:p14]
-- **Sobreyectividad:** plantea determinar cuál de los índices $\gamma(M)$ y $\omega(M)$ separa las aberturas de sobreyectividad de las de no sobreyectividad, sin resolverlo en este fragmento. [jimenez-garrido-tesis-2018:p14]
+CONOCIMIENTO GENERAL
 
-Pégame el resumen o los enunciados correspondientes del artículo de 2019.
+No puedo determinar con seguridad cuál corresponde a inyectividad y cuál a sobreyectividad sin el fragmento de 2019.
 
 USADOS: [jimenez-garrido-tesis-2018:p14]
 
-*Recuperados 8, usados 2. Consulta completa en `registro/consultas/2026-09-16-161732.json`.*
+*Recuperados 8, usados 1. Consulta completa en `registro/consultas/2026-09-16-163513.json`.*
 
 ## (e) Que prueba el corpus sobre la sumabilidad de soluciones de ecuaciones algebraicas con raices multiples, via poligono de Newton, en clases ultraholomorfas?
 
-## EL CORPUS DICE
+EL CORPUS DICE
 
-**No esta en el corpus** un resultado sobre sumabilidad de soluciones de ecuaciones algebraicas con raíces múltiples mediante polígono de Newton.
+No esta en el corpus: los fragmentos no tratan ecuaciones algebraicas, raíces múltiples ni el polígono de Newton.
 
-El corpus solo cubre estos aspectos relacionados:
+El artículo de Lastra–Malek–Sanz propone una noción de sumabilidad en clases ultraholomorfas de Carleman generales, partiendo de una sucesión fuertemente regular, mediante órdenes próximos analíticos, núcleos y transformadas de Laplace y Borel; incluye una aplicación a ecuaciones diferenciales parciales de momentos. [lastra-malek-sanz-2015:p1]
 
-- Una **mención a resultados de estabilidad de Thilliez**: para ecuaciones algebraicas con coeficientes en una clase ultraholomorfa definida por una sucesión fuertemente regular, las soluciones permanecen en la clase correspondiente. El fragmento no reproduce el enunciado ni sus hipótesis, ni precisa el tratamiento de raíces múltiples. [jimenez-garrido-sanz-2021:p1, sec 1]
-- Una teoría de sumabilidad en clases de Carleman ultraholomorfas sectoriales mediante núcleos y transformadas de tipo Borel y Laplace. La aplicación anunciada concierne a ciertas ecuaciones en derivadas parciales de momentos, no a ecuaciones algebraicas con raíces múltiples. [lastra-malek-sanz-2022:p1]
-- Perspectivas de aplicación de la multisumabilidad a ecuaciones en diferencias, incluyendo el nivel $1^+$ y dificultades que requieren aceleración. [jimenez-garrido-tesis-2018:p199]
+La tesis indica una aplicación potencial de la multisumabilidad al estudio de ciertas ecuaciones, particularmente ecuaciones en diferencias, y menciona el nivel $1+$ asociado a la sucesión $M_{1,-1}$; no formula un resultado sobre ecuaciones algebraicas ni sobre raíces múltiples. [jimenez-garrido-tesis-2018:p199]
 
-## CONOCIMIENTO GENERAL
+El trabajo de 2024 se ocupa de propiedades de estabilidad de clases ultraholomorfas Roumieu definidas por matrices peso, incluyendo composición e inversión, pero el fragmento no conecta esas propiedades con sumabilidad de ecuaciones algebraicas. [jimenez-garrido-cantero-sanz-schindl-2024:p2, sec 1]
 
-La estabilidad de una clase bajo resolución de ecuaciones y la sumabilidad de una solución formal son afirmaciones distintas: la primera no constituye por sí sola una prueba de la segunda.
+CONOCIMIENTO GENERAL
 
-USADOS: [jimenez-garrido-sanz-2021:p1, sec 1]; [lastra-malek-sanz-2022:p1]; [jimenez-garrido-tesis-2018:p199]
+El polígono de Newton es una técnica clásica para clasificar órdenes dominantes y ramificaciones en ecuaciones algebraicas o diferenciales singulares. Pero no puede atribuirse aquí ningún teorema de sumabilidad en clases ultraholomorfas sin un fragmento que lo contenga.
 
-*Recuperados 8, usados 3. Consulta completa en `registro/consultas/2026-09-16-161744.json`.*
+USADOS: [lastra-malek-sanz-2015:p1]; [jimenez-garrido-tesis-2018:p199]; [jimenez-garrido-cantero-sanz-schindl-2024:p2, sec 1]
+
+*Recuperados 8, usados 3. Consulta completa en `registro/consultas/2026-09-16-163542.json`.*
 
 ## Tabla de veredictos
 
 | # | Pregunta | Fragmentos usados | Veredicto de Mariano |
 |---|---|---|---|
-| 0 | que condiciones sobre la sucesion M usa el teorema de extens... | [jimenez-garrido-cantero-sanz-schindl-2022:p16]; [jimenez-garrido-tesis-2018:p13] | |
+| 0 | que condiciones sobre la sucesion M usa el teorema de extens... | [jimenez-garrido-cantero-sanz-schindl-2023:p16]; [jimenez-garrido-tesis-2018:p13] | |
 | a | Segun Thilliez 2010, que hipotesis sobre M exige el resultad... | [thilliez-2010:p1]; [thilliez-2010:p7] | |
-| b | Que relacion demuestran Jimenez-Garrido y Sanz (2016) entre ... | [jimenez-garrido-sanz-2021:p21]; [jimenez-garrido-tesis-2018:p16] | |
-| c | Como se define la M-sumabilidad en una direccion en Lastra-M... | [lastra-malek-sanz-2022:p19]; [jimenez-garrido-tesis-2018:p14]; [lastra-malek-sanz-2022:p1]; [lastra-malek-sanz-2022:p7] | |
-| d | En Jimenez-Garrido-Sanz-Schindl 2019, que indice separa las ... | [jimenez-garrido-tesis-2018:p14]; [jimenez-garrido-tesis-2018:p14] | |
-| e | Que prueba el corpus sobre la sumabilidad de soluciones de e... | [jimenez-garrido-tesis-2018:p199]; [jimenez-garrido-sanz-2021:p1]; [lastra-malek-sanz-2022:p1] | |
+| b | Que relacion demuestran Jimenez-Garrido y Sanz (2016) entre ... | [jimenez-garrido-sanz-2016:p21] | |
+| c | Como se define la M-sumabilidad en una direccion en Lastra-M... | [lastra-malek-sanz-2015:p19]; [lastra-malek-sanz-2015:p8]; [lastra-malek-sanz-2015:p20]; [jimenez-garrido-tesis-2018:p14]; [lastra-malek-sanz-2015:p1]; [lastra-malek-sanz-2015:p20] | |
+| d | En Jimenez-Garrido-Sanz-Schindl 2019, que indice separa las ... | [jimenez-garrido-tesis-2018:p14] | |
+| e | Que prueba el corpus sobre la sumabilidad de soluciones de e... | [jimenez-garrido-tesis-2018:p199]; [lastra-malek-sanz-2015:p1]; [jimenez-garrido-cantero-sanz-schindl-2024:p2] | |

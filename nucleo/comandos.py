@@ -1031,6 +1031,19 @@ def cmd_metricas(args):
 def cmd_ingest(args):
     from . import corpus as Q
     kw = dict(capa=args.capa, sin_red=args.sin_red, rehacer=args.rehacer, fuente=args.fuente)
+    if args.identificar:
+        if len(args.pdf) != 2:
+            print("uso: python doc.py ingest --identificar ID DOI|URL")
+            return
+        Q.identificar(args.pdf[0], args.pdf[1])
+        return
+    if args.renombrar:
+        if len(args.pdf) != 2:
+            print("uso: python doc.py ingest --renombrar VIEJO NUEVO")
+            return
+        Q.renombrar(args.pdf[0], args.pdf[1])
+        print("recuerda:  python doc.py indexar")
+        return
     if args.remapear:
         ids = args.pdf or [k for k, e in Q.leer_bib().items() if e.get("capa") == "tex"]
         for id_ in ids:

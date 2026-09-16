@@ -1,5 +1,7 @@
 # Sistema de doctorado
 
+> Chuleta de todos los comandos en una pagina: [docs/USO.md](docs/USO.md).
+
 Quince horas semanales. Un unico punto de acceso a la IA, `doc.py`, que sabe en
 que fase estas porque lo lee de git, se niega a responder cuando el motor tiene
 que estar apagado, y registra cada llamada. Nada se autodeclara.

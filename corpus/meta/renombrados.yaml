@@ -1,0 +1,13 @@
+# viejo: nuevo   # fecha. Regla: ano del volumen de revista; si no, primera version de arXiv.
+# Las citas anteriores en registro/consultas usan el id viejo.
+jimenez-garrido-cantero-sanz-schindl-2022: jimenez-garrido-cantero-sanz-schindl-2023   # 2026-09-16
+jimenez-garrido-cantero-sanz-schindl-2023: jimenez-garrido-cantero-sanz-schindl-2024   # 2026-09-16
+jimenez-garrido-cantero-sanz-schindl-2025: jimenez-garrido-cantero-sanz-schindl-2026-stieltjes   # 2026-09-16
+jimenez-garrido-cantero-sanz-schindl-2025-2: jimenez-garrido-cantero-sanz-schindl-2026-surjectivity   # 2026-09-16
+jimenez-garrido-cantero-sanz-schindl-2026: jimenez-garrido-cantero-sanz-schindl-2026-stability   # 2026-09-16
+jimenez-garrido-lastra-sanz-2022: jimenez-garrido-lastra-sanz-2024   # 2026-09-16
+jimenez-garrido-sanz-2021: jimenez-garrido-sanz-2016   # 2026-09-16
+jimenez-garrido-sanz-schindl-2018: jimenez-garrido-sanz-schindl-2017   # 2026-09-16
+jimenez-garrido-sanz-schindl-2021: jimenez-garrido-sanz-schindl-2022   # 2026-09-16
+lastra-malek-sanz-2018: lastra-malek-sanz-2012   # 2026-09-16
+lastra-malek-sanz-2022: lastra-malek-sanz-2015   # 2026-09-16
