@@ -87,15 +87,17 @@ USADOS: [lastra-malek-sanz-2015:p1]; [lastra-malek-sanz-2015:p8, sec 3, defikern
 
 EL CORPUS DICE
 
-No esta en el corpus. La introducción de la tesis identifica $\gamma(M)$ y $\omega(M)$ como los dos índices entre los que había que decidir cuál separa las aberturas de sobreyectividad y no sobreyectividad, pero no da la conclusión de Jiménez-Garrido–Sanz–Schindl (2019). [jimenez-garrido-tesis-2018:p14]
+La inyectividad queda separada por el índice de orden $\omega(\mathbb{M})$: para una región sectorial $G_\gamma$, la aplicación de Borel es inyectiva si y solo si $\gamma>\omega(\mathbb{M})$. [jimenez-garrido-sanz-schindl-2019-injectivity:p15, sec 3, coroGenerWatsonLemmaSectorialRegions]
+
+No esta en el corpus una caracterización de sobreyectividad de 2019 en términos de un índice y con el caso frontera. El fragmento posterior indica, para sucesiones regulares y sectores no acotados, sobreyectividad si $\gamma<\gamma(\mathbb{M})$, no sobreyectividad si $\gamma>\gamma(\mathbb{M})$, y caso $\gamma=\gamma(\mathbb{M})$ incierto en general. [jimenez-garrido-cantero-sanz-schindl-2023:p1, sec 1]
 
 CONOCIMIENTO GENERAL
 
-No puedo determinar con seguridad cuál corresponde a inyectividad y cuál a sobreyectividad sin el fragmento de 2019.
+La comparación es: inyectividad — $\omega(\mathbb{M})$; sobreyectividad — $\gamma(\mathbb{M})$.
 
-USADOS: [jimenez-garrido-tesis-2018:p14]
+USADOS: [jimenez-garrido-sanz-schindl-2019-injectivity:p15, sec 3, coroGenerWatsonLemmaSectorialRegions]; [jimenez-garrido-cantero-sanz-schindl-2023:p1, sec 1]
 
-*Recuperados 8, usados 1. Consulta completa en `registro/consultas/2026-09-16-163513.json`.*
+*Recuperados 8, usados 2. Consulta completa en `registro/consultas/2026-09-16-170558.json`. Regenerada tras ingerir los dos JGSS 2019.*
 
 ## (e) Que prueba el corpus sobre la sumabilidad de soluciones de ecuaciones algebraicas con raices multiples, via poligono de Newton, en clases ultraholomorfas?
 
@@ -125,5 +127,5 @@ USADOS: [lastra-malek-sanz-2015:p1]; [jimenez-garrido-tesis-2018:p199]; [jimenez
 | a | Segun Thilliez 2010, que hipotesis sobre M exige el resultad... | [thilliez-2010:p1]; [thilliez-2010:p7] | |
 | b | Que relacion demuestran Jimenez-Garrido y Sanz (2016) entre ... | [jimenez-garrido-sanz-2016:p21] | |
 | c | Como se define la M-sumabilidad en una direccion en Lastra-M... | [lastra-malek-sanz-2015:p19]; [lastra-malek-sanz-2015:p8]; [lastra-malek-sanz-2015:p20]; [jimenez-garrido-tesis-2018:p14]; [lastra-malek-sanz-2015:p1]; [lastra-malek-sanz-2015:p20] | |
-| d | En Jimenez-Garrido-Sanz-Schindl 2019, que indice separa las ... | [jimenez-garrido-tesis-2018:p14] | |
+| d | En Jimenez-Garrido-Sanz-Schindl 2019, que indice separa las ... | [jimenez-garrido-sanz-schindl-2019-injectivity:p15]; [jimenez-garrido-cantero-sanz-schindl-2023:p1] | |
 | e | Que prueba el corpus sobre la sumabilidad de soluciones de e... | [jimenez-garrido-tesis-2018:p199]; [lastra-malek-sanz-2015:p1]; [jimenez-garrido-cantero-sanz-schindl-2024:p2] | |

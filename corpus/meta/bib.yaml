@@ -3,37 +3,25 @@
 # `pendiente_verificar`. No completar nada de memoria. `etiquetas` las pone Mariano.
 
 balser-2000:
-  ano: 2000
   capa: pymupdf
-  doi: 10.1007/b97608
-  estado: verificado
+  estado: pendiente_verificar
   etiquetas: []
   fichero: raw/balser-2000.pdf
   ingerido: '2026-09-16'
   paginas: 314
   reextraer: marker
-  titulo: Formal Power Series and Linear Systems of Meromorphic Ordinary Differential Equations
+  titulo_pdf_sin_verificar: Formal Power Series and / Linear Systems of / Meromorphic Ordinary
   unidades: 309
-  venue: Universitext
 braun-meise-taylor-1990:
-  ano: 1990
-  autores:
-  - Braun, R. W.
-  - Meise, R.
-  - Taylor, B. A.
   capa: marker
-  doi: 10.1007/BF03322459
-  estado: verificado
+  estado: pendiente_verificar
   etiquetas: []
   fichero: raw/braun-meise-taylor-1990.pdf
   fuente: paper
   ingerido: '2026-09-16'
   paginas: 32
-  paginas_revista: 206-237
-  titulo: Ultradifferentiable functions and Fourier analysis
+  titulo_pdf_sin_verificar: Results in Mathematics / 17 (1990) / 0378-6218/90/040206-32$1.50+0.20/0
   unidades: 407
-  venue: Results in Mathematics
-  volumen: '17'
 carrillo-mozo-2018:
   ano: 2018
   autores:
@@ -52,10 +40,9 @@ carrillo-mozo-2018:
   unidades: 250
   venue: Journal of Mathematical Analysis and Applications
   volumen: '457'
-jimenez-garrido-cantero-sanz-schindl-2023:
+jimenez-garrido-cantero-sanz-schindl-2022:
   ano: 2023
   ano_arxiv: 2022
-  ano_online: 2023
   arxiv: '2205.07605'
   autores:
   - Jiménez-Garrido, Javier
@@ -66,17 +53,16 @@ jimenez-garrido-cantero-sanz-schindl-2023:
   doi: 10.1007/s00025-023-01859-w
   estado: verificado
   etiquetas: []
-  fichero: raw/jimenez-garrido-cantero-sanz-schindl-2023.pdf
+  fichero: raw/jimenez-garrido-cantero-sanz-schindl-2022.pdf
   ingerido: '2026-09-16'
   paginas: 29
   titulo: Optimal flat functions in Carleman-Roumieu ultraholomorphic classes in sectors
   unidades: 200
   venue: Results in Mathematics
   volumen: '78'
-jimenez-garrido-cantero-sanz-schindl-2024:
+jimenez-garrido-cantero-sanz-schindl-2023:
   ano: 2024
   ano_arxiv: 2023
-  ano_online: 2024
   arxiv: '2307.14762'
   autores:
   - Jiménez-Garrido, Javier
@@ -89,33 +75,16 @@ jimenez-garrido-cantero-sanz-schindl-2024:
   doi: 10.1007/s13398-024-01581-4
   estado: verificado
   etiquetas: []
-  fichero: raw/jimenez-garrido-cantero-sanz-schindl-2024.pdf
+  fichero: raw/jimenez-garrido-cantero-sanz-schindl-2023.pdf
   ingerido: '2026-09-16'
   paginas: 36
   titulo: Stability properties of ultraholomorphic classes of Roumieu-type defined by weight matrices
   unidades: 219
   venue: Revista de la Real Academia de Ciencias Exactas, Físicas y Naturales. Serie A. Matemáticas
   volumen: '118'
-jimenez-garrido-cantero-sanz-schindl-2026-stability:
-  ano_arxiv: 2026
-  arxiv: '2604.20758'
-  autores:
-  - Jiménez-Garrido, Javier
-  - Miguel-Cantero, Ignacio
-  - Sanz, Javier
-  - Schindl, Gerhard
-  capa: tex
-  estado: verificado
-  etiquetas: []
-  fichero: raw/jimenez-garrido-cantero-sanz-schindl-2026-stability.pdf
-  ingerido: '2026-09-16'
-  paginas: 20
-  titulo: Stability under product and composition for uniform Carleman asymptotic expansions
-  unidades: 107
-jimenez-garrido-cantero-sanz-schindl-2026-stieltjes:
+jimenez-garrido-cantero-sanz-schindl-2025:
   ano: 2026
   ano_arxiv: 2025
-  ano_online: 2026
   arxiv: '2511.06878'
   autores:
   - Jiménez-Garrido, Javier
@@ -126,7 +95,7 @@ jimenez-garrido-cantero-sanz-schindl-2026-stieltjes:
   doi: 10.1007/s00025-026-02700-w
   estado: verificado
   etiquetas: []
-  fichero: raw/jimenez-garrido-cantero-sanz-schindl-2026-stieltjes.pdf
+  fichero: raw/jimenez-garrido-cantero-sanz-schindl-2025.pdf
   ingerido: '2026-09-16'
   paginas: 30
   titulo: The Stieltjes moment problem in Gelfand-Shilov spaces defined by weight sequences in the absence
@@ -134,10 +103,9 @@ jimenez-garrido-cantero-sanz-schindl-2026-stieltjes:
   unidades: 148
   venue: Results in Mathematics
   volumen: '81'
-jimenez-garrido-cantero-sanz-schindl-2026-surjectivity:
+jimenez-garrido-cantero-sanz-schindl-2025-2:
   ano: 2026
   ano_arxiv: 2025
-  ano_online: 2026
   arxiv: '2505.09444'
   autores:
   - Jiménez-Garrido, Javier
@@ -148,7 +116,7 @@ jimenez-garrido-cantero-sanz-schindl-2026-surjectivity:
   doi: 10.1186/s13660-026-03485-w
   estado: verificado
   etiquetas: []
-  fichero: raw/jimenez-garrido-cantero-sanz-schindl-2026-surjectivity.pdf
+  fichero: raw/jimenez-garrido-cantero-sanz-schindl-2025-2.pdf
   ingerido: '2026-09-16'
   paginas: 25
   titulo: Surjectivity of the asymptotic Borel map in Carleman ultraholomorphic classes defined by sequences
@@ -156,10 +124,25 @@ jimenez-garrido-cantero-sanz-schindl-2026-surjectivity:
   unidades: 143
   venue: Journal of Inequalities and Applications
   volumen: '2026'
-jimenez-garrido-lastra-sanz-2024:
-  ano: 2024
+jimenez-garrido-cantero-sanz-schindl-2026:
+  ano_arxiv: 2026
+  arxiv: '2604.20758'
+  autores:
+  - Jiménez-Garrido, Javier
+  - Miguel-Cantero, Ignacio
+  - Sanz, Javier
+  - Schindl, Gerhard
+  capa: tex
+  estado: verificado
+  etiquetas: []
+  fichero: raw/jimenez-garrido-cantero-sanz-schindl-2026.pdf
+  ingerido: '2026-09-16'
+  paginas: 20
+  titulo: Stability under product and composition for uniform Carleman asymptotic expansions
+  unidades: 107
+jimenez-garrido-lastra-sanz-2022:
+  ano: 2023
   ano_arxiv: 2022
-  ano_online: 2023
   arxiv: '2204.01316'
   autores:
   - Jiménez-Garrido, Javier
@@ -171,7 +154,7 @@ jimenez-garrido-lastra-sanz-2024:
   doi: 10.1007/s00365-023-09663-z
   estado: verificado
   etiquetas: []
-  fichero: raw/jimenez-garrido-lastra-sanz-2024.pdf
+  fichero: raw/jimenez-garrido-lastra-sanz-2022.pdf
   ingerido: '2026-09-16'
   paginas: 21
   paginas_revista: 285-307
@@ -179,7 +162,7 @@ jimenez-garrido-lastra-sanz-2024:
   unidades: 106
   venue: Constructive Approximation
   volumen: '60'
-jimenez-garrido-sanz-2016:
+jimenez-garrido-sanz-2021:
   ano: 2016
   ano_arxiv: 2015
   arxiv: '1510.05844'
@@ -192,7 +175,7 @@ jimenez-garrido-sanz-2016:
   doi: 10.1016/j.jmaa.2016.02.010
   estado: verificado
   etiquetas: []
-  fichero: raw/jimenez-garrido-sanz-2016.pdf
+  fichero: raw/jimenez-garrido-sanz-2021.pdf
   ingerido: '2026-09-16'
   paginas: 24
   paginas_revista: 920-945
@@ -200,7 +183,7 @@ jimenez-garrido-sanz-2016:
   unidades: 190
   venue: Journal of Mathematical Analysis and Applications
   volumen: '438'
-jimenez-garrido-sanz-schindl-2017:
+jimenez-garrido-sanz-schindl-2018:
   ano: 2017
   ano_arxiv: 2016
   arxiv: '1607.08027'
@@ -212,7 +195,7 @@ jimenez-garrido-sanz-schindl-2017:
   doi: 10.1016/j.jmaa.2016.11.069
   estado: verificado
   etiquetas: []
-  fichero: raw/jimenez-garrido-sanz-schindl-2017.pdf
+  fichero: raw/jimenez-garrido-sanz-schindl-2018.pdf
   ingerido: '2026-09-16'
   paginas: 26
   paginas_revista: 1572-1599
@@ -220,10 +203,56 @@ jimenez-garrido-sanz-schindl-2017:
   unidades: 148
   venue: Journal of Mathematical Analysis and Applications
   volumen: '448'
-jimenez-garrido-sanz-schindl-2022:
-  ano: 2022
+jimenez-garrido-sanz-schindl-2019-injectivity:
+  ano: 2019
+  ano_arxiv: 2018
+  arxiv: '1805.01153'
+  autores:
+  - Jiménez-Garrido, Javier
+  - Sanz, Javier
+  - Schindl, Gerhard
+  avisos:
+  - 'tex de arXiv: puede diferir de la version publicada'
+  capa: tex
+  doi: 10.1016/j.jmaa.2018.09.011
+  estado: verificado
+  etiquetas: []
+  fichero: raw/jimenez-garrido-sanz-schindl-2019-injectivity.pdf
+  fuente: paper
+  ingerido: '2026-09-16'
+  paginas: 34
+  paginas_revista: 136-168
+  titulo: Injectivity and surjectivity of the asymptotic Borel map in Carleman ultraholomorphic classes
+  unidades: 205
+  venue: Journal of Mathematical Analysis and Applications
+  volumen: '469'
+jimenez-garrido-sanz-schindl-2019-sectorial:
+  ano: 2019
+  ano_arxiv: 2017
+  ano_online: 2019
+  arxiv: '1710.10081'
+  autores:
+  - Jiménez-Garrido, Javier
+  - Sanz, Javier
+  - Schindl, Gerhard
+  avisos:
+  - 'tex de arXiv: puede diferir de la version publicada'
+  capa: tex
+  doi: 10.1007/s00025-018-0951-1
+  estado: verificado
+  etiquetas: []
+  fichero: raw/jimenez-garrido-sanz-schindl-2019-sectorial.pdf
+  fuente: paper
+  ingerido: '2026-09-16'
+  paginas: 36
+  titulo: Sectorial extensions, via Laplace transforms, in ultraholomorphic classes defined by weight
+    functions
+  unidades: 226
+  venue: Results in Mathematics
+  volumen: '74'
+jimenez-garrido-sanz-schindl-2021:
+  ano: 2021
   ano_arxiv: 2021
-  ano_online: 2021
   arxiv: '2105.11842'
   autores:
   - Jiménez-Garrido, Javier
@@ -233,7 +262,7 @@ jimenez-garrido-sanz-schindl-2022:
   doi: 10.1007/s00025-021-01566-4
   estado: verificado
   etiquetas: []
-  fichero: raw/jimenez-garrido-sanz-schindl-2022.pdf
+  fichero: raw/jimenez-garrido-sanz-schindl-2021.pdf
   ingerido: '2026-09-16'
   paginas: 26
   titulo: Equality of ultradifferentiable classes by means of indices of mixed O-regular variation
@@ -241,20 +270,17 @@ jimenez-garrido-sanz-schindl-2022:
   venue: Results in Mathematics
   volumen: '77'
 jimenez-garrido-tesis-2018:
-  autores:
-  - Jimenez Garrido, Jesús Javier
-  capa: pymupdf
-  estado: verificado
+  capa: marker
+  estado: pendiente_verificar
   etiquetas: []
   fichero: raw/jimenez-garrido-tesis-2018.pdf
-  handle: http://uvadoc.uva.es/handle/10324/29501
+  fuente: paper
   ingerido: '2026-09-16'
   paginas: 216
-  reextraer: marker
-  titulo: 'Applications of regular variation and proximate orders to ultraholomorphic classes: asymptotic
-    expansions and multisummability'
-  unidades: 209
-lastra-malek-sanz-2012:
+  titulo_pdf_sin_verificar: 'PROGRAMA DE DOCTORADO EN MATEMÁTICAS / TESIS DOCTORAL: / Applications of
+    regular variation and proximate'
+  unidades: 2776
+lastra-malek-sanz-2018:
   ano: 2012
   ano_arxiv: 2012
   arxiv: '1205.3971'
@@ -268,7 +294,7 @@ lastra-malek-sanz-2012:
   doi: 10.1016/j.jmaa.2012.07.013
   estado: verificado
   etiquetas: []
-  fichero: raw/lastra-malek-sanz-2012.pdf
+  fichero: raw/lastra-malek-sanz-2018.pdf
   ingerido: '2026-09-16'
   paginas: 23
   paginas_revista: 724-740
@@ -277,7 +303,7 @@ lastra-malek-sanz-2012:
   unidades: 130
   venue: Journal of Mathematical Analysis and Applications
   volumen: '396'
-lastra-malek-sanz-2015:
+lastra-malek-sanz-2022:
   ano: 2015
   ano_arxiv: 2014
   arxiv: '1402.1669'
@@ -291,7 +317,7 @@ lastra-malek-sanz-2015:
   doi: 10.1016/j.jmaa.2015.05.046
   estado: verificado
   etiquetas: []
-  fichero: raw/lastra-malek-sanz-2015.pdf
+  fichero: raw/lastra-malek-sanz-2022.pdf
   ingerido: '2026-09-16'
   paginas: 32
   paginas_revista: 1175-1206
@@ -311,7 +337,6 @@ proyecto:
   unidades: 9
 rainer-schindl-2014:
   ano: 2014
-  ano_online: 2014
   autores:
   - Rainer, Armin
   - Schindl, Gerhard
@@ -329,8 +354,7 @@ rainer-schindl-2014:
   venue: Studia Mathematica
   volumen: '224'
 rainer-schindl-2016:
-  ano: 2016
-  ano_online: 2015
+  ano: 2015
   autores:
   - Rainer, Armin
   - Schindl, Gerhard
@@ -369,9 +393,8 @@ thilliez-2003:
   venue: Results in Mathematics
   volumen: '44'
 thilliez-2010:
-  ano: 2010
+  ano: 2009
   ano_arxiv: 2008
-  ano_online: 2009
   arxiv: '0809.2057'
   autores:
   - Thilliez, Vincent
