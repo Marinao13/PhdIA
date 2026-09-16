@@ -1100,6 +1100,138 @@ def cmd_buscar(args):
 
 
 # ======================================================================
+# notas de lectura por paper (BRIEF 4.3)
+# ======================================================================
+
+def _ruta_nota(id_):
+    return os.path.join(C.DIR_LECTURAS, f"{id_}.md")
+
+
+def _seccion_md(texto, titulo):
+    """Contenido bajo '## titulo' hasta el siguiente '## '."""
+    m = re.search(rf"^## {re.escape(titulo)}\s*$(.*?)(?=^## |\Z)", texto, re.M | re.S)
+    return m.group(1).strip() if m else ""
+
+
+def _nota_new(id_):
+    from . import corpus as Q
+    bib = Q.leer_bib()
+    if id_ not in bib:
+        print(f"{id_} no esta en corpus/meta/bib.yaml. Primero:  python doc.py ingest corpus/raw/{id_}.pdf")
+        return
+    ruta = _ruta_nota(id_)
+    if os.path.exists(ruta):
+        print("ya existe", os.path.relpath(ruta, C.RAIZ))
+        _abrir(ruta)
+        return
+    e = bib[id_]
+    # solo metadatos verificados; lo demas queda como "sin verificar"
+    ok = e.get("estado") == "verificado"
+    titulo = e.get("titulo") if ok else (e.get("titulo_pdf_sin_verificar") or "sin verificar")
+    autores = "; ".join(e.get("autores", [])) if ok else "sin verificar"
+    partes = (e.get("venue"), e.get("volumen"), f"({e['ano']})" if e.get("ano") else None,
+              e.get("paginas_revista"))
+    cita = " ".join(str(x) for x in partes if x) if ok else "sin verificar"
+    if e.get("doi"):
+        cita += f"  doi:{e['doi']}"
+    if e.get("arxiv"):
+        cita += f"  arXiv:{e['arxiv']}"
+    texto = (C.leer(os.path.join(C.DIR_LECTURAS, "PLANTILLA.md"))
+             .replace("TITULO", titulo).replace("AUTORES", autores).replace("CITA", cita.strip())
+             .replace("ESTADO", e.get("estado", "?")).replace("AAAA-MM-DD", HOY).replace("ID", id_))
+    C.escribir(ruta, texto)
+    print("creada", os.path.relpath(ruta, C.RAIZ))
+    if not ok:
+        M.aviso("metadatos sin verificar: completa el DOI/handle en bib.yaml antes de citar este paper")
+    _abrir(ruta)
+
+
+def _fragmentos_doc(id_, consulta, k):
+    from . import indice as I
+    frags = I.buscar(consulta, k=k, doc=id_, por_doc=0)
+    if not frags:
+        print(f"{id_} no esta en el indice. Ejecuta:  python doc.py indexar")
+    return frags
+
+
+def _nota_quiz(id_, k):
+    from . import indice as I
+    fase, _ = E.fase_actual()
+    if fase not in E.MOTOR_PERMITIDO:
+        M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
+        return
+    frags = _fragmentos_doc(id_, "main theorem hypotheses definitions lemma proof conditions on M", k)
+    if not frags:
+        return
+    bloque = "\n\n".join(f"{I.cita(f)}\n{f['texto']}" for f in frags)
+    try:
+        r = M.llamar("nota-quiz", P.NOTA_QUIZ, [{"role": "user", "content": bloque}],
+                     max_tokens=C.MAX_TOKENS_JSON)
+    except M.MotorApagado as e:
+        M.aviso(str(e))
+        return
+    ruta = os.path.join(C.DIR_LECTURAS, f"{id_}-quiz-{HOY}.md")
+    C.escribir(ruta, f"# Quiz {id_} ({HOY})\n\nSin respuestas. Contesta por escrito antes de abrir el paper.\n\n{r}\n")
+    print()
+    M.imprimir(r)
+    print(f"\n-> {os.path.relpath(ruta, C.RAIZ)}")
+
+
+def _nota_check(id_, k):
+    from . import indice as I
+    fase, _ = E.fase_actual()
+    if fase not in E.MOTOR_PERMITIDO:
+        M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
+        return
+    ruta = _ruta_nota(id_)
+    if not os.path.exists(ruta):
+        print(f"no hay nota. Primero:  python doc.py nota new {id_}")
+        return
+    expl = _seccion_md(C.leer(ruta), "Mi explicacion")
+    if len(expl) < 200 or expl.startswith("Tu reconstruccion"):
+        print("la seccion '## Mi explicacion' de la nota esta vacia o es la plantilla. Escribela primero.")
+        return
+    frags = _fragmentos_doc(id_, expl[:2000], k)
+    if not frags:
+        return
+    bloque = "\n\n".join(f"{I.cita(f)}\n{f['texto']}" for f in frags)
+    contenido = f"SU EXPLICACION:\n{expl}\n\nFRAGMENTOS DEL PAPER:\n\n{bloque}"
+    try:
+        r = M.llamar("nota-check", P.NOTA_CHECK, [{"role": "user", "content": contenido}],
+                     max_tokens=C.MAX_TOKENS_JSON)
+    except M.MotorApagado as e:
+        M.aviso(str(e))
+        return
+    salida = os.path.join(C.DIR_LECTURAS, f"{id_}-check-{HOY}.md")
+    C.escribir(salida, f"# Check {id_} ({HOY})\n\n{r}\n")
+    print()
+    M.imprimir(r)
+    n_obj = len(re.findall(r"^\s*\d+[.)]", r, re.M))
+    _verificacion(f"explicacion propia de {id_} (lecturas/{id_}.md)", "check contra el texto",
+                  f"{n_obj} objeciones -> lecturas/{os.path.basename(salida)}")
+    print(f"\n-> {os.path.relpath(salida, C.RAIZ)}  |  fila en registro/verificaciones.md")
+
+
+def _verificacion(afirmacion, metodo, resultado):
+    """Fila en registro/verificaciones.md: fecha | afirmacion | metodo | resultado."""
+    if not os.path.exists(C.F_VERIFICACIONES):
+        C.escribir(C.F_VERIFICACIONES,
+                   "# Verificaciones\n\nToda afirmacion que se de por verificada, con fecha, metodo y "
+                   "resultado. Metodos: cita, computo, prueba propia, referee, check.\n\n"
+                   "| Fecha | Afirmacion | Metodo | Resultado |\n|---|---|---|---|\n")
+    C.anadir(C.F_VERIFICACIONES, f"| {HOY} | {afirmacion} | {metodo} | {resultado} |\n")
+
+
+def cmd_nota(args):
+    if args.accion == "new":
+        _nota_new(args.id)
+    elif args.accion == "quiz":
+        _nota_quiz(args.id, args.k)
+    elif args.accion == "check":
+        _nota_check(args.id, args.k)
+
+
+# ======================================================================
 # anki
 # ======================================================================
 

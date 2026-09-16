@@ -21,6 +21,9 @@ Unico punto de entrada del sistema. Toda llamada a la IA pasa por aqui.
   python doc.py indexar                fragmenta y embebe lo ingerido (incremental)
   python doc.py buscar "..."           fragmentos con [id:pagina], sin modelo, en cualquier fase
   python doc.py ask "..."              sintesis con citas [id:pagina] sobre esos fragmentos; motor ON
+  python doc.py nota new ID            nota de lectura por paper (la escribes tu)
+  python doc.py nota quiz ID           preguntas de examen sobre el paper, sin respuestas
+  python doc.py nota check ID          agujeros en tu explicacion, citando el texto
   python doc.py ahora                  que te toca ahora, y el comando exacto
 """
 import sys, argparse
@@ -108,6 +111,12 @@ def main():
     s.add_argument("--por-doc", dest="por_doc", type=int, default=2)
     s.add_argument("--forzar", action="store_true", help="saltar la puerta (queda registrado)")
     s.set_defaults(fn=K.cmd_ask)
+
+    s = sub.add_parser("nota", help="nota de lectura por paper: new | quiz | check")
+    s.add_argument("accion", choices=["new", "quiz", "check"])
+    s.add_argument("id", help="id de bib.yaml, p. ej. thilliez-2003")
+    s.add_argument("-k", type=int, default=12, help="fragmentos del paper que ve el modelo")
+    s.set_defaults(fn=K.cmd_nota)
 
     sub.add_parser("metricas", help="los numeros").set_defaults(fn=K.cmd_metricas)
     sub.add_parser("anki", help="exporta tarjetas").set_defaults(fn=K.cmd_anki)

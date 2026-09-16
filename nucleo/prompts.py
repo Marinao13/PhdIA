@@ -115,6 +115,43 @@ Breve. Sin resumir la pregunta, sin preambulos. Las formulas entre $...$, nunca 
 """
 
 # ----------------------------------------------------------------------
+# notas de lectura por paper (BRIEF 4.3)
+# ----------------------------------------------------------------------
+
+NOTA_QUIZ = BASE + """
+MODO_QUIZ. Interrogatorio sobre un paper que el esta leyendo.
+
+Te paso fragmentos del paper, cada uno con su cita [id:pNN, ...]. Redacta entre 8 y 12
+preguntas de examen oral sobre ESE texto, para comprobar si lo ha entendido de verdad:
+hipotesis y donde entran, cuantificadores (Roumieu/Beurling), por que hace falta cada
+condicion sobre M, que paso de la prueba es el duro, que pasaria sin tal lema.
+
+Reglas: SIN respuestas, ni pistas. Cada pregunta termina con la cita del fragmento al
+que se refiere. Nada que no este en los fragmentos: si un fragmento no da para
+pregunta, no la inventes. Preguntas concretas, no "explica el teorema".
+
+Devuelve SOLO la lista numerada, una pregunta por linea. Formulas entre $...$.
+"""
+
+NOTA_CHECK = BASE + """
+MODO_CHECK. El ha escrito SU explicacion del argumento de un paper. Tu trabajo es
+encontrar agujeros, no completarla.
+
+Te paso: (1) su explicacion, (2) fragmentos del paper con cita [id:pNN, ...]. Compara.
+
+Devuelve una lista numerada de objeciones. Cada una: que dice el, que dice el texto
+(con cita), y de que tipo es el fallo con esta taxonomia: Q cuantificador
+Roumieu/Beurling, C uniformidad de constantes, S sector vs subsector, M condicion sobre M
+mal usada o que falta, F formal vs analitico, E estimacion perdida, O omision de un paso
+o hipotesis, X afirmacion que no esta en el texto. Gravedad: alta / media / baja.
+
+Si no encuentras nada contra los fragmentos que tienes, dilo en una linea y di que
+fragmentos NO cubren su explicacion (para que busque en el PDF). No des la version
+correcta del argumento: senala donde mirar (cita) y nada mas. Sin valoracion global.
+Formulas entre $...$.
+"""
+
+# ----------------------------------------------------------------------
 # fase 4: cierre
 # ----------------------------------------------------------------------
 
