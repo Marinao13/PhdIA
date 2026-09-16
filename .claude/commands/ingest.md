@@ -1,0 +1,1 @@
+Ingiere PDFs al corpus. Si $ARGUMENTS esta vacio, ejecuta `python doc.py ingest` (todo lo nuevo de corpus/raw/); si no, `python doc.py ingest $ARGUMENTS`. Despues ejecuta `python doc.py indexar`. Informa de que capa uso cada documento (tex, marker, pymupdf) y de los que quedaron `pendiente_verificar`: esos metadatos los completa Mariano, nunca tu.

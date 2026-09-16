@@ -9,3 +9,4 @@ corpus/raw/
 corpus/text/
 indice/
 .venv-marker1/
+.claude/worktrees/

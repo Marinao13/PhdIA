@@ -1,0 +1,1 @@
+Laboratorio numerico. Ejecuta `python doc.py lab "$ARGUMENTS"`: la IA escribe el script contra lab/pesos.py y mpmath juzga. Muestra la ruta del script generado y recuerda ejecutarlo y leerlo antes de creerse nada. No implementes gamma(M) de memoria.

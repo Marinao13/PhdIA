@@ -1,0 +1,1 @@
+Consulta el corpus con citas por pagina. Ejecuta `python doc.py ask "$ARGUMENTS"` y muestra la salida tal cual. Si el motor esta apagado (fase 1 o 3), NO uses --forzar: ofrece `python doc.py buscar "$ARGUMENTS"`, que no usa modelo. No anadas nada que no venga citado en la respuesta.

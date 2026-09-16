@@ -1,0 +1,1 @@
+Referee hostil: encuentra el error. Ejecuta `python doc.py referee $ARGUMENTS` (acepta `--seccion "Fase 3"`, `--contexto`, `--proveedor anthropic`) y muestra las objeciones tal cual, sin anadir valoracion global ni proponer como arreglarlas. Recuerda que la fila queda en registro/verificaciones.md.

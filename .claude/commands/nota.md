@@ -1,0 +1,1 @@
+Nota de lectura por paper. Uso: `/nota new ID`, `/nota quiz ID` o `/nota check ID`. Ejecuta `python doc.py nota $ARGUMENTS` y muestra la salida. La nota (lecturas/ID.md) la escribe Mariano: no la rellenes ni la resumas.
