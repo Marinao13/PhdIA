@@ -1232,6 +1232,104 @@ def cmd_nota(args):
 
 
 # ======================================================================
+# referee y redactor (BRIEF 4.5)
+# ======================================================================
+
+def _texto_o_seccion(ruta, seccion):
+    texto = C.leer(ruta)
+    if not texto.strip():
+        return None
+    if seccion:
+        parte = _seccion_md(texto, seccion)
+        if not parte:
+            # tolerante: '## Fase 3 - Ataque (...)' encaja con --seccion "Fase 3"
+            m = re.search(rf"^## [^\n]*{re.escape(seccion)}[^\n]*$(.*?)(?=^## |\Z)", texto, re.M | re.S)
+            parte = m.group(1).strip() if m else ""
+        return parte or None
+    return texto
+
+
+def _llamar_con_proveedor(comando, system, messages, proveedor, max_tokens):
+    """motor.llamar con otro proveedor solo durante esta llamada: el juez no es el redactor."""
+    if not proveedor or proveedor == C.PROVEEDOR:
+        return M.llamar(comando, system, messages, max_tokens=max_tokens)
+    clave = {"anthropic": "ANTHROPIC_API_KEY", "openai": "OPENAI_API_KEY"}[proveedor]
+    if not os.environ.get(clave):
+        raise RuntimeError(f"falta {clave} en .env para --proveedor {proveedor}")
+    guardado = (C.PROVEEDOR, C.MODELO, M._cliente)
+    try:
+        C.PROVEEDOR = proveedor
+        C.MODELO = C._MODELOS[proveedor]
+        M._cliente = None
+        return M.llamar(comando, system, messages, max_tokens=max_tokens)
+    finally:
+        C.PROVEEDOR, C.MODELO, M._cliente = guardado
+
+
+def cmd_referee(args):
+    fase, _ = E.fase_actual()
+    if fase not in E.MOTOR_PERMITIDO:
+        M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
+        return
+    if not os.path.exists(args.archivo):
+        print("no existe", args.archivo)
+        return
+    texto = _texto_o_seccion(args.archivo, args.seccion)
+    if not texto:
+        print("nada que juzgar" + (f" en la seccion '{args.seccion}'" if args.seccion else ""))
+        return
+    contenido = "TEXTO A JUZGAR:\n\n" + texto
+    if args.contexto:
+        from . import indice as I
+        frags = I.buscar(texto[:2000], k=6, fuente="paper")
+        if frags:
+            contenido += "\n\nFRAGMENTOS DEL CORPUS (solo para contrastar citas):\n\n" + \
+                "\n\n".join(f"{I.cita(f)}\n{f['texto']}" for f in frags)
+    # contexto nuevo: sin historial, un solo mensaje
+    try:
+        r = _llamar_con_proveedor("referee", P.REFEREE, [{"role": "user", "content": contenido}],
+                                  args.proveedor, C.MAX_TOKENS_JSON)
+    except (M.MotorApagado, RuntimeError) as e:
+        M.aviso(str(e))
+        return
+    print()
+    M.imprimir(r)
+    rel = os.path.relpath(args.archivo, C.RAIZ).replace("\\", "/")
+    os.makedirs(os.path.join(C.DIR_REGISTRO, "referee"), exist_ok=True)
+    marca = datetime.datetime.now().strftime("%Y-%m-%d-%H%M%S")
+    salida = os.path.join(C.DIR_REGISTRO, "referee", f"{marca}.md")
+    juez = args.proveedor or C.PROVEEDOR
+    C.escribir(salida, f"# Referee {marca}\n\nArchivo: {rel}" + (f"  seccion: {args.seccion}" if args.seccion else "")
+               + f"\nJuez: {juez}\n\n## Texto juzgado\n\n{texto}\n\n## Objeciones\n\n{r}\n")
+    n_obj = len(re.findall(r"^\s*\d+[.)]", r, re.M))
+    bloquea = len(re.findall(r"BLOQUEA", r))
+    _verificacion(f"{rel}" + (f" [{args.seccion}]" if args.seccion else ""), f"referee ({juez})",
+                  f"{n_obj} objeciones, {bloquea} bloquean -> registro/referee/{os.path.basename(salida)}")
+    print(f"\n-> {os.path.relpath(salida, C.RAIZ)}  |  fila en registro/verificaciones.md")
+
+
+def cmd_redactar(args):
+    fase, _ = E.fase_actual()
+    if fase not in E.MOTOR_PERMITIDO:
+        M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
+        return
+    texto = _texto_o_seccion(args.archivo, args.seccion) if os.path.exists(args.archivo) else None
+    if not texto:
+        print("nada que redactar")
+        return
+    try:
+        r = M.llamar("redactar", P.REDACTOR, [{"role": "user", "content": texto}], max_tokens=C.MAX_TOKENS_JSON)
+    except M.MotorApagado as e:
+        M.aviso(str(e))
+        return
+    print()
+    M.imprimir(r)
+    salida = os.path.splitext(args.archivo)[0] + f"-redactado-{HOY}.md"
+    C.escribir(salida, r)
+    print(f"\n-> {os.path.relpath(salida, C.RAIZ)}   (borrador: las marcas [VERIFICAR] son tuyas de resolver)")
+
+
+# ======================================================================
 # anki
 # ======================================================================
 

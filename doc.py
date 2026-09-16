@@ -24,6 +24,8 @@ Unico punto de entrada del sistema. Toda llamada a la IA pasa por aqui.
   python doc.py nota new ID            nota de lectura por paper (la escribes tu)
   python doc.py nota quiz ID           preguntas de examen sobre el paper, sin respuestas
   python doc.py nota check ID          agujeros en tu explicacion, citando el texto
+  python doc.py referee ARCHIVO        objeciones numeradas con gravedad; sin valoracion global
+  python doc.py redactar ARCHIVO       pule forma sin inventar; marca [VERIFICAR]
   python doc.py ahora                  que te toca ahora, y el comando exacto
 """
 import sys, argparse
@@ -117,6 +119,18 @@ def main():
     s.add_argument("id", help="id de bib.yaml, p. ej. thilliez-2003")
     s.add_argument("-k", type=int, default=12, help="fragmentos del paper que ve el modelo")
     s.set_defaults(fn=K.cmd_nota)
+
+    s = sub.add_parser("referee", help="referee hostil: encuentra el error. Contexto limpio")
+    s.add_argument("archivo")
+    s.add_argument("--seccion", help="solo esa seccion ## del markdown, p. ej. \"Fase 3\"")
+    s.add_argument("--proveedor", choices=["anthropic", "openai"], help="juzgar con el otro modelo")
+    s.add_argument("--contexto", action="store_true", help="pegar fragmentos del corpus para contrastar citas")
+    s.set_defaults(fn=K.cmd_referee)
+
+    s = sub.add_parser("redactar", help="pulir forma sin inventar: marca [VERIFICAR]")
+    s.add_argument("archivo")
+    s.add_argument("--seccion")
+    s.set_defaults(fn=K.cmd_redactar)
 
     sub.add_parser("metricas", help="los numeros").set_defaults(fn=K.cmd_metricas)
     sub.add_parser("anki", help="exporta tarjetas").set_defaults(fn=K.cmd_anki)
