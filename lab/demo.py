@@ -84,7 +84,16 @@ def demo(N=150, graficos=True):
         print("  ERROR: no deberia haber convergido")
     except ValueError as e:
         print("  ", e)
-    print("\nLa parte de Borel del caso 1 (polo en -1, direccion pi) es de borel.py, fase 4f.")
+    try:
+        from . import borel as Bo
+    except ImportError:
+        import borel as Bo
+    from mpmath import mpf
+    print("\n1 (Borel). " + Bo.informe(S.euler(40).c, k=1, nombre="Euler"))
+    z = mpf("0.3")
+    b = Bo.borel(S.euler(40).c)
+    print(f"   suma de Borel en direccion 0, z=0.3: {Bo.laplace(b, 1, 0, z).real}"
+          f"   |   funcion de Euler int e^-s/(1+zs) ds: {Bo.euler_funcion(z).real}")
 
 
 if __name__ == "__main__":
