@@ -131,8 +131,17 @@ class Serie:
         return Serie(self.c[:N + 1], self.nombre)
 
     def coeficientes_mp(self):
-        """Los coeficientes como mpf, para growth.py."""
-        return [mpf(x.numerator) / mpf(x.denominator) if isinstance(x, Fraction) else mpf(x) for x in self.c]
+        """Los coeficientes como mpf (o mpc si son complejos), para growth.py y borel.py."""
+        from mpmath import mpc
+        out = []
+        for x in self.c:
+            if isinstance(x, Fraction):
+                out.append(mpf(x.numerator) / mpf(x.denominator))
+            elif isinstance(x, (mpc, complex)):
+                out.append(mpc(x))
+            else:
+                out.append(mpf(x))
+        return out
 
 
 # ======================================================================
@@ -195,10 +204,13 @@ def desde_borel(polos, k=1, N=200):
         polos = [(zeta_j, r_j), ...]   (complejos o reales; mpf/mpc)
     f_n = Gamma(1 + n/k) * sum_j r_j / zeta_j^(n+1).
     """
+    from mpmath import mpc, fabs
     c = []
     for n in range(N + 1):
-        b = 0
+        b = mpc(0)
         for zj, rj in polos:
-            b = b + mpf(rj) / (zj ** (n + 1)) if not isinstance(zj, complex) else b + rj / (zj ** (n + 1))
-        c.append(b * gamma(1 + mpf(n) / k))
+            b = b + mpc(rj) / (mpc(zj) ** (n + 1))
+        b = b * gamma(1 + mpf(n) / k)
+        # polos conjugados dan una serie real: quitar la parte imaginaria residual
+        c.append(b.real if fabs(b.imag) <= mpf("1e-30") * (1 + fabs(b.real)) else b)
     return Serie(c, f"Borel^-1(k={k}, polos={len(polos)})")
