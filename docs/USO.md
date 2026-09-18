@@ -57,7 +57,7 @@ python doc.py redactar ARCHIVO          pule forma sin inventar; marca [VERIFICA
 ```
 python doc.py lagunas                   viernes, 45 min: el lote de huecos de grado/master
 python doc.py lab "especificacion"      la IA escribe el script contra lab/pesos.py; mpmath juzga
-python doc.py lab demo                  los casos con verdad conocida del laboratorio, con graficos en lab/salidas/
+python doc.py lab demo                  los 4 casos del BRIEF (Euler+Borel, Catalan, raiz simple, raiz multiple) con graficos en lab/salidas/
 python doc.py anki                      exporta tarjetas (las [VERIFICAR CON PAPER] se quedan)
 python doc.py metricas                  fases, violaciones, y coste del mes por comando en EUR
 python doc.py reunion [--destilar|--preparar]   notas de reunion, directores.md, pre-read

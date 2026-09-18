@@ -76,14 +76,27 @@ def demo(N=150, graficos=True):
             if ruta:
                 print(f"  grafico -> {os.path.relpath(ruta, os.getcwd())}")
         print()
-    print("4. raiz multiple y^2 = z(1 + z f): Hensel la rechaza (poligono de Newton, fase 4g):")
+    print("4. raiz multiple y^2 = z(1 + z f), f = Euler: Hensel la rechaza; el poligono de Newton la ramifica")
     N4 = 20
     z, cero, uno = _z(N4), _const(0, N4), _const(1, N4)
+    P4 = [-(z * (uno + z * S.euler(N4))), cero, uno]
     try:
-        A.hensel([-(z * (uno + z * S.euler(N4))), cero, uno], 0, N4)
+        A.hensel(P4, 0, N4)
         print("  ERROR: no deberia haber convergido")
     except ValueError as e:
-        print("  ", e)
+        print("   Hensel:", e)
+    try:
+        from . import newton as Nw
+    except ImportError:
+        import newton as Nw
+    traza = []
+    rs = Nw.ramas(P4, N=N4, traza=traza)
+    for l in traza:
+        print("   " + l)
+    for r_ in rs:
+        cs = ", ".join(str(c) for c in r_["y_t"].c[:6])
+        resid = all(c == 0 for c in Nw.comprobar(P4, r_, N4).c)
+        print(f"   rama c={r_['c']}: z = t^{r_['r']},  y(t) = [{cs}, ...]   anula P: {resid}")
     try:
         from . import borel as Bo
     except ImportError:
