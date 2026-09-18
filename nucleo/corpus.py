@@ -171,7 +171,18 @@ def mapear_pagina(texto, paginas_norm, desde=1):
             for i in orden:
                 if frag in paginas_norm[i]:
                     return i + 1
-    return None
+    # segundo criterio: bolsa de palabras. Las matematicas en linea ("Let $\\M$ be") rompen
+    # el fragmento exacto pero no el vocabulario del enunciado.
+    bolsa = [w for w in palabras[:25] if len(w) > 2]
+    if len(bolsa) < 5:
+        return None
+    mejor, mejor_i = 0.0, None
+    for i in orden[:6]:                       # solo cerca de la ultima pagina asignada
+        pw = set(paginas_norm[i].split())
+        frac = sum(w in pw for w in bolsa) / len(bolsa)
+        if frac > mejor:
+            mejor, mejor_i = frac, i
+    return mejor_i + 1 if mejor >= 0.6 else None
 
 
 # ======================================================================
@@ -335,6 +346,77 @@ def _tipos_del_paper(preambulo):
     return tipos
 
 
+def _formato_item(estilo, k):
+    """Rotulo impreso del item k (1-based) de una enumerate con opcion `estilo` (paquete enumerate)."""
+    def roman(n):
+        out, tabla = "", ((1000, "m"), (900, "cm"), (500, "d"), (400, "cd"), (100, "c"), (90, "xc"),
+                          (50, "l"), (40, "xl"), (10, "x"), (9, "ix"), (5, "v"), (4, "iv"), (1, "i"))
+        for val, s in tabla:
+            while n >= val:
+                out += s
+                n -= val
+        return out
+    m = re.match(r"^(\W*)(A|a|I|i|1)(\W*)$", estilo.strip())
+    if not m:
+        return None
+    pre, tipo, post = m.groups()
+    cuerpo = {"A": chr(64 + k) if k <= 26 else str(k), "a": chr(96 + k) if k <= 26 else str(k),
+              "I": roman(k).upper(), "i": roman(k), "1": str(k)}[tipo]
+    return f"{pre}{cuerpo}{post}"
+
+
+def etiquetas_impresas(cuerpo):
+    """{label: rotulo impreso} para items de enumerate y ecuaciones con \\tag."""
+    mapa = {}
+    # enumerate con opcion: cada \item ... \label{X} dentro del bloque, en orden
+    for m in re.finditer(r"\\begin\{enumerate\}\[([^\]]*)\](.*?)\\end\{enumerate\}", cuerpo, re.S):
+        estilo, bloque = m.group(1), m.group(2)
+        if "\\begin{enumerate}" in bloque:      # anidadas: no me arriesgo
+            continue
+        for k, item in enumerate(re.split(r"\\item\b", bloque)[1:], 1):
+            rot = _formato_item(estilo, k)
+            for lab in re.findall(r"\\label\{([^}]+)\}", item):
+                if rot:
+                    mapa[lab] = rot
+    # ecuaciones con \tag
+    for m in re.finditer(r"\\label\{([^}]+)\}[^\n]{0,80}?\\tag\*?\{([^}]+)\}|\\tag\*?\{([^}]+)\}[^\n]{0,80}?\\label\{([^}]+)\}", cuerpo):
+        if m.group(1):
+            mapa[m.group(1)] = f"({m.group(2)})"
+        else:
+            mapa[m.group(4)] = f"({m.group(3)})"
+    return mapa
+
+
+def resolver_refs(unidades, mapa):
+    """Sustituye \\ref{X}, (\\ref{X}) y \\eqref{X} por lo impreso cuando X esta en el mapa.
+    Lo que no se resuelve se queda como \\ref{X}: el prompt lo trata como etiqueta LaTeX."""
+    for u in unidades:
+        t = u["texto"]
+        def sust(m):
+            lab = m.group(2)
+            if lab not in mapa:
+                return m.group(0)
+            rot = mapa[lab]
+            if m.group(1) == "eqref" or (m.group(0).startswith("(") and m.group(0).endswith(")")):
+                return rot if rot.startswith("(") else f"({rot})"
+            return rot.strip("()") if not rot.startswith("(") else rot
+        t = re.sub(r"\(\\(eqref|ref)\{([^}]+)\}\)", lambda m: (lambda rot: rot if rot.startswith("(") else f"({rot})")(mapa[m.group(2)]) if m.group(2) in mapa else m.group(0), t)
+        t = re.sub(r"\\(eqref)\{([^}]+)\}", lambda m: (lambda rot: rot if rot.startswith("(") else f"({rot})")(mapa[m.group(2)]) if m.group(2) in mapa else m.group(0), t)
+        def ref(m):
+            lab = m.group(2)
+            if lab not in mapa:
+                return m.group(0)
+            rot = mapa[lab].strip("()")
+            antes = t[:m.start()].rstrip("~ ")
+            palabra = antes.split()[-1] if antes.split() else ""
+            if " " in rot and palabra.lower().rstrip("s") == rot.split()[0].lower():
+                return rot.split(" ", 1)[1]          # "Proposition~\ref{x}" -> "Proposition~2.11"
+            return rot
+        t = re.sub(r"\\(ref|autoref|cref)\{([^}]+)\}", ref, t)
+        u["texto"] = t
+    return unidades
+
+
 def unidades_tex(tex, paginas):
     """Recorre el cuerpo en orden: secciones, entornos de teorema y parrafos."""
     tex = _sin_comentarios(tex)
@@ -394,7 +476,11 @@ def unidades_tex(tex, paginas):
         u["numero"] = None
         if u["tipo"] in NOMBRE_IMPRESO and u["pagina"] and not u["pagina_estimada"]:
             u["numero"] = numero_en_pdf(u["texto"], u["tipo"], paginas[u["pagina"] - 1])
-    return unidades
+    mapa = etiquetas_impresas(cuerpo)
+    for u in unidades:
+        if u.get("label") and u.get("numero") and u["tipo"] in NOMBRE_IMPRESO:
+            mapa.setdefault(u["label"], f"{NOMBRE_IMPRESO[u['tipo']]} {u['numero']}")
+    return resolver_refs(unidades, mapa)
 
 
 # ======================================================================
@@ -516,6 +602,8 @@ def _metadatos(paginas, sin_red, avisos):
             time.sleep(PAUSA_ARXIV)
             if titulo_en_texto(m["titulo"], cabeza):
                 ent.update(titulo=m["titulo"], autores=m["autores"], arxiv=m["arxiv"])
+                mv = re.search(r"v(\d+)$", arxiv)
+                ent["arxiv_version"] = f"v{mv.group(1)}" if mv else "v?"
                 if m.get("fecha"):
                     ent["ano_arxiv"] = int(m["fecha"][:4])
                 doi = doi or m.get("doi")
@@ -742,7 +830,12 @@ def remapear(id_, verbose=True):
         for u in unidades:
             f.write(json.dumps(u, ensure_ascii=False) + "\n")
     _guardar_referencias(dir_id)
+    bib = leer_bib()                 # releer: no pisar cambios ajenos
     bib[id_]["unidades"] = len(unidades)
+    if capa == "tex" and not bib[id_].get("arxiv_version"):
+        sello, _ = _detectar_ids(paginas)
+        mv = re.search(r"v(\d+)$", sello or "")
+        bib[id_]["arxiv_version"] = f"v{mv.group(1)}" if mv else "v?"
     escribir_bib(bib)
     if verbose:
         est = sum(1 for u in unidades if u.get("pagina_estimada"))

@@ -56,6 +56,7 @@ jimenez-garrido-cantero-sanz-schindl-2023:
   ano: 2023
   ano_arxiv: 2022
   arxiv: '2205.07605'
+  arxiv_version: v2
   autores:
   - Jiménez-Garrido, Javier
   - Miguel-Cantero, Ignacio
@@ -77,6 +78,7 @@ jimenez-garrido-cantero-sanz-schindl-2024:
   ano_arxiv: 2022
   ano_online: 2023
   arxiv: '2205.07605'
+  arxiv_version: v1
   autores:
   - Jiménez-Garrido, Javier
   - Miguel-Cantero, Ignacio
@@ -96,6 +98,7 @@ jimenez-garrido-cantero-sanz-schindl-2024:
 jimenez-garrido-cantero-sanz-schindl-2026-stability:
   ano_arxiv: 2026
   arxiv: '2604.20758'
+  arxiv_version: v1
   autores:
   - Jiménez-Garrido, Javier
   - Miguel-Cantero, Ignacio
@@ -113,6 +116,7 @@ jimenez-garrido-cantero-sanz-schindl-2026-stieltjes:
   ano: 2026
   ano_arxiv: 2025
   arxiv: '2511.06878'
+  arxiv_version: v1
   autores:
   - Jiménez-Garrido, Javier
   - Miguel-Cantero, Ignacio
@@ -134,6 +138,7 @@ jimenez-garrido-cantero-sanz-schindl-2026-surjectivity:
   ano: 2026
   ano_arxiv: 2025
   arxiv: '2505.09444'
+  arxiv_version: v1
   autores:
   - Jiménez-Garrido, Javier
   - Miguel-Cantero, Ignacio
@@ -155,6 +160,7 @@ jimenez-garrido-lastra-sanz-2024:
   ano: 2023
   ano_arxiv: 2022
   arxiv: '2204.01316'
+  arxiv_version: v1
   autores:
   - Jiménez-Garrido, Javier
   - Lastra, Alberto
@@ -177,6 +183,7 @@ jimenez-garrido-sanz-2016:
   ano: 2016
   ano_arxiv: 2015
   arxiv: '1510.05844'
+  arxiv_version: v1
   autores:
   - Jiménez-Garrido, Javier
   - Sanz, Javier
@@ -198,6 +205,7 @@ jimenez-garrido-sanz-schindl-2017:
   ano: 2017
   ano_arxiv: 2016
   arxiv: '1607.08027'
+  arxiv_version: v2
   autores:
   - Jiménez-Garrido, Javier
   - Sanz, Javier
@@ -218,6 +226,7 @@ jimenez-garrido-sanz-schindl-2019-injectivity:
   ano: 2019
   ano_arxiv: 2018
   arxiv: '1805.01153'
+  arxiv_version: v1
   autores:
   - Jiménez-Garrido, Javier
   - Sanz, Javier
@@ -240,6 +249,7 @@ jimenez-garrido-sanz-schindl-2019-sectorial:
   ano_arxiv: 2017
   ano_online: 2019
   arxiv: '1710.10081'
+  arxiv_version: v2
   autores:
   - Jiménez-Garrido, Javier
   - Sanz, Javier
@@ -261,6 +271,7 @@ jimenez-garrido-sanz-schindl-2022:
   ano: 2021
   ano_arxiv: 2021
   arxiv: '2105.11842'
+  arxiv_version: v2
   autores:
   - Jiménez-Garrido, Javier
   - Sanz, Javier
@@ -294,6 +305,7 @@ lastra-malek-sanz-2012:
   ano: 2012
   ano_arxiv: 2012
   arxiv: '1205.3971'
+  arxiv_version: v1
   autores:
   - Lastra, Alberto
   - Malek, Stéphane
@@ -317,6 +329,7 @@ lastra-malek-sanz-2015:
   ano: 2015
   ano_arxiv: 2014
   arxiv: '1402.1669'
+  arxiv_version: v1
   autores:
   - Lastra, Alberto
   - Malek, Stephane
@@ -387,6 +400,7 @@ thilliez-2003:
   ano: 2003
   ano_arxiv: 2006
   arxiv: math/0602366
+  arxiv_version: v1
   autores:
   - Thilliez, Vincent
   avisos:
@@ -409,6 +423,7 @@ thilliez-2010:
   ano_arxiv: 2008
   ano_online: 2009
   arxiv: '0809.2057'
+  arxiv_version: v1
   autores:
   - Thilliez, Vincent
   capa: tex

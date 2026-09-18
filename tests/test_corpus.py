@@ -102,6 +102,20 @@ def test_referencias_tex_y_claves_cite(tmp_path):
     assert Q.claves_cite(r"see \cite{Thi03} and \cite[Thm. 2]{Bal00, Thi03}") == ["Thi03", "Bal00"]
 
 
+def test_items_de_enumerate_y_tags_se_resuelven_a_lo_impreso():
+    assert (Q._formato_item("(A)", 3), Q._formato_item("(i)", 4), Q._formato_item("i)", 2),
+            Q._formato_item("(1)", 7), Q._formato_item("({a}.1)", 1)) == ("(C)", "(iv)", "ii)", "(7)", None)
+    cuerpo = ("\\begin{enumerate}[(A)]\n \\item uno \\label{OA1:1}\n \\item dos, \\label{OA2:1}\n"
+              " \\item tres \\label{OA3:1}\n\\end{enumerate}\n"
+              "\\begin{equation}\\label{eq:x}\\tag{2.5} a=b \\end{equation}")
+    mapa = Q.etiquetas_impresas(cuerpo)
+    assert mapa == {"OA1:1": "(A)", "OA2:1": "(B)", "OA3:1": "(C)", "eq:x": "(2.5)"}
+    mapa["pro.x"] = "Proposition 2.11"
+    u = Q.resolver_refs([dict(texto="condition~(\\ref{OA3:1}) by \\eqref{eq:x}; Proposition~\\ref{pro.x}; "
+                                    "see \\ref{pro.x}; also \\ref{nada}")], mapa)[0]["texto"]
+    assert u == "condition~(C) by (2.5); Proposition~2.11; see Proposition 2.11; also \\ref{nada}"
+
+
 def test_referencia_en_corpus_casa_por_titulo_arxiv_o_doi():
     bib = {"thilliez-2003": dict(titulo="Division by Flat Ultradifferentiable Functions and Sectorial Extensions",
                                   arxiv="math/0602366", doi="10.1007/bf03322923")}

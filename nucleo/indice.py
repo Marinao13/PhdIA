@@ -421,13 +421,29 @@ def cita(f):
     tipo = f.get("tipo")
     if tipo in NOMBRE_ES and tipo not in ("demostracion", "resumen"):
         if f.get("numero"):
-            return f"[{base}, {NOMBRE_ES[tipo]} {f['numero']}]"
-        if f.get("label"):
-            return f"[{base}, {tipo}, etiqueta LaTeX: {f['label']}]"
-        return f"[{base}, {tipo}]"
-    if tipo == "demostracion":
-        return f"[{base}, demostracion" + (f", etiqueta LaTeX: {f['label']}" if f.get("label") else "") + "]"
-    return f"[{base}]"
+            cuerpo = f"{base}, {NOMBRE_ES[tipo]} {f['numero']}"
+        elif f.get("label"):
+            cuerpo = f"{base}, {tipo}, etiqueta LaTeX: {f['label']}"
+        else:
+            cuerpo = f"{base}, {tipo}"
+    elif tipo == "demostracion":
+        cuerpo = f"{base}, demostracion" + (f", etiqueta LaTeX: {f['label']}" if f.get("label") else "")
+    else:
+        cuerpo = base
+    # el texto de capa tex es el de arXiv; la pagina, la del PDF de revista: se dice la version
+    return f"[{cuerpo}{_marca_version(f['doc'])}]"
+
+
+_META_DOC = {}
+
+
+def _marca_version(doc):
+    if doc not in _META_DOC:
+        from .corpus import leer_bib
+        e = leer_bib().get(doc, {})
+        _META_DOC[doc] = (f" | texto: arXiv {e.get('arxiv_version') or 'v?'}"
+                          if e.get("capa") == "tex" else "")
+    return _META_DOC[doc]
 
 
 def imprimir(resultados, ancho=420):

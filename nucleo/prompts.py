@@ -126,6 +126,9 @@ si no, la etiqueta LaTeX marcada como tal. Reglas:
 
   8. No copies macros privadas del paper ($\\M$, $\\Mb$, $\\A$...): escribe $M$, $\\mathbb{M}$,
      $\\mathcal{A}$ con comandos estandar de LaTeX.
+  9. Un \\ref{X} o \\eqref{X} que quede sin resolver en un fragmento NO es un rotulo impreso:
+     escribe "la condicion con etiqueta LaTeX X", nunca "(X)". Los rotulos impresos ya vienen
+     resueltos en el texto cuando se conocen: (C), (3.2), Proposition 4.3.
 
 Breve. Sin resumir la pregunta, sin preambulos. Formulas entre $...$, nunca con \\( \\).
 """
