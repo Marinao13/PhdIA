@@ -1051,7 +1051,11 @@ def cmd_ingest(args):
               factorial=args.factorial)
     if args.arxiv:
         if len(args.pdf) > 1:
-            print("uso: python doc.py ingest --arxiv ID [nombre.pdf] [--id ID] [--etiquetas a,b]")
+            print("uso: python doc.py ingest --arxiv ID [nombre.pdf | ruta/existente.pdf] [--id ID] [--etiquetas a,b]")
+            return
+        if args.pdf and os.path.exists(args.pdf[0]):
+            # PDF ya presente (p. ej. el de revista, sin sello): paginas de ese PDF, texto del e-print
+            Q.ingerir(args.pdf[0], id_=args.id, arxiv=args.arxiv, **kw)
             return
         try:
             pdf = Q.descargar_pdf(args.arxiv, args.pdf[0] if args.pdf else None)
@@ -1059,7 +1063,7 @@ def cmd_ingest(args):
             print(e)
             return
         print(f"descargado {os.path.relpath(pdf)}")
-        Q.ingerir(pdf, id_=args.id, **kw)
+        Q.ingerir(pdf, id_=args.id, arxiv=args.arxiv, **kw)
         return
     if args.identificar:
         if len(args.pdf) != 2:

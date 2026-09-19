@@ -93,8 +93,10 @@ def meta_arxiv(aid):
             d.setdefault(k, v)
     if not d.get("citation_title"):
         raise ValueError(f"arXiv {aid}: la pagina abs no trae citation_title")
+    versiones = [int(v) for v in re.findall(r"\[v(\d+)\]", r.text)]      # historial de envios
     return dict(titulo=" ".join(d["citation_title"].split()), autores=autores,
-                fecha=d.get("citation_date"), doi=d.get("citation_doi") or None, arxiv=aid)
+                fecha=d.get("citation_date"), doi=d.get("citation_doi") or None, arxiv=aid,
+                version=f"v{max(versiones)}" if versiones else None)
 
 
 def buscar_crossref_por_titulo(titulo, autores=()):
@@ -619,9 +621,13 @@ def _detectar_ids(paginas):
     return (a.group(1) if a else None), (d.group(1).rstrip(".") if d else None)
 
 
-def _metadatos(paginas, sin_red, avisos):
-    """Devuelve (entrada_bib, arxiv_verificado). Solo red o PDF; nada de memoria."""
-    arxiv, doi = _detectar_ids(paginas)
+def _metadatos(paginas, sin_red, avisos, arxiv=None):
+    """
+    Devuelve (entrada_bib, arxiv_verificado). Solo red o PDF; nada de memoria.
+    arxiv: id dado a mano (PDF de revista sin sello); se verifica igual contra la portada.
+    """
+    arxiv_pdf, doi = _detectar_ids(paginas)
+    arxiv = arxiv or arxiv_pdf
     cabeza = "\n".join(paginas[:2])
     ent = {}
     verificado_arxiv = None
@@ -634,7 +640,8 @@ def _metadatos(paginas, sin_red, avisos):
             if titulo_en_texto(m["titulo"], cabeza):
                 ent.update(titulo=m["titulo"], autores=m["autores"], arxiv=m["arxiv"])
                 mv = re.search(r"v(\d+)$", arxiv)
-                ent["arxiv_version"] = f"v{mv.group(1)}" if mv else "v?"
+                # sello del PDF si lo hay; si no (PDF de revista), la ultima version, que es la del e-print
+                ent["arxiv_version"] = f"v{mv.group(1)}" if mv else (m.get("version") or "v?")
                 if m.get("fecha"):
                     ent["ano_arxiv"] = int(m["fecha"][:4])
                 doi = doi or m.get("doi")
@@ -706,11 +713,12 @@ def _metadatos(paginas, sin_red, avisos):
 
 
 def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True, fuente="paper",
-            etiquetas=None, factorial=None):
+            etiquetas=None, factorial=None, arxiv=None):
     """
     Ingiere un PDF. Devuelve la entrada de bib.yaml.
     etiquetas: lista que se anade a las existentes. factorial: 'dentro' | 'fuera' | 'pendiente'
-    (convencion del documento para la sucesion peso; ver docs/USO.md).
+    (convencion del documento para la sucesion peso; ver docs/USO.md). arxiv: id del e-print
+    cuando el PDF es el de revista y no lleva sello.
     """
     pdf = os.path.abspath(pdf)
     if not os.path.exists(pdf):
@@ -740,12 +748,13 @@ def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True
     if fuente == "proyecto" or previo.get("fuente") == "proyecto":
         ent, arxiv_ok = dict(estado="documento_propio", titulo="Proyecto de tesis"), None
         fuente = "proyecto"
-    elif previo.get("estado") == "verificado" and (previo.get("doi") or previo.get("handle"))             and _detectar_ids(paginas) == (None, None):
+    elif previo.get("estado") == "verificado" and (previo.get("doi") or previo.get("handle")) \
+            and _detectar_ids(paginas) == (None, None) and not arxiv:
         # identificador asignado a mano: se conserva tal cual (se reverifica con --identificar)
         ent, arxiv_ok = {k: v for k, v in previo.items()
                          if k not in ("capa", "paginas", "unidades", "ingerido", "avisos", "reextraer")}, None
     else:
-        ent, arxiv_ok = _metadatos(paginas, sin_red, avisos)
+        ent, arxiv_ok = _metadatos(paginas, sin_red, avisos, arxiv=arxiv)
 
     # eleccion de capa
     unidades, capa_usada = [], None

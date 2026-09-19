@@ -22,7 +22,7 @@ def corpus_falso(tmp_path, monkeypatch):
     pdf.write_bytes(b"%PDF-1.4 falso")
     # sin red, sin PyMuPDF, sin Marker: paginas y metadatos simulados
     monkeypatch.setattr(Q, "extraer_paginas", lambda p: ["Un titulo cualquiera\nAutor\n" + "texto " * 200] * 3)
-    monkeypatch.setattr(Q, "_metadatos", lambda paginas, sin_red, avisos:
+    monkeypatch.setattr(Q, "_metadatos", lambda paginas, sin_red, avisos, arxiv=None:
                         ({"titulo": "Un titulo cualquiera", "autores": ["Autor, A."], "estado": "verificado"}, None))
     monkeypatch.setattr(Q, "marker_disponible", lambda: (False, "sin marker"))
     return str(pdf)

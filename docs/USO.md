@@ -24,6 +24,8 @@ python doc.py ingest                    ingiere lo nuevo de corpus/raw/: tex de 
 python doc.py ingest X.pdf --fuente proyecto    documento propio, sin metadatos de red
 python doc.py ingest --arxiv ID [nombre.pdf] --id ID --etiquetas citado --factorial fuera
                                         baja el PDF de arXiv a corpus/raw/ y lo ingiere (tex incluido)
+python doc.py ingest --arxiv ID corpus/raw/revista.pdf --id ID
+                                        PDF de revista ya en raw (sin sello): sus paginas + el tex de arXiv
 python doc.py ingest --solo-meta [ids]  refresca metadatos (arXiv, Crossref) sin reextraer
 python doc.py ingest --remapear [ids]   rehace unidades y paginas desde el tex guardado, sin red
 python doc.py indexar                   fragmenta y embebe lo nuevo (incremental, centimos)
