@@ -112,7 +112,7 @@ jimenez-garrido-cantero-sanz-schindl-2026-stability:
   capa: tex
   estado: verificado
   etiquetas: []
-  factorial: pendiente
+  factorial: fuera
   fichero: raw/jimenez-garrido-cantero-sanz-schindl-2026-stability.pdf
   ingerido: '2026-09-16'
   paginas: 20
@@ -224,7 +224,7 @@ jimenez-garrido-sanz-schindl-2017:
   doi: 10.1016/j.jmaa.2016.11.069
   estado: verificado
   etiquetas: []
-  factorial: pendiente
+  factorial: fuera
   fichero: raw/jimenez-garrido-sanz-schindl-2017.pdf
   ingerido: '2026-09-16'
   paginas: 26

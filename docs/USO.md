@@ -38,9 +38,11 @@ python doc.py ask "..."                 sintesis con cita tras cada afirmacion. 
 titulo esta en el PDF; si no, `pendiente_verificar`. Tu pones `etiquetas` y los DOI que
 falten. `factorial` dice donde va p! en la clase del documento: `fuera` si
 |f^(p)| <= C A^p p! M_p (Thilliez, Lastra-Malek-Sanz, Sanz, Rainer-Schindl, tesis, proyecto),
-`dentro` si |f^(p)| <= C A^p M_p (JGSS 2019 sectorial, 2022, JGCSS 2023-2026), `no_aplica`
-sin sucesion peso (Balser, BMT, Carrillo-Mozo), `pendiente` sin comprobar (los que definen la
-clase solo por expansion asintotica: JGSS 2017, JGCSS 2026 stability). `ask` lo pone en la
+`dentro` si |f^(p)| <= C A^p M_p (JGSS 2019 sectorial, 2022, JGCSS 2023, 2024, 2026 stieltjes
+y surjectivity), `no_aplica` sin sucesion peso (Balser, BMT, Carrillo-Mozo), `pendiente` sin
+comprobar. Regla de Mariano para los que definen la clase solo por expansion asintotica:
+analitica <=> M = 1 es `fuera`, analitica <=> M_p = p! es `dentro` (JGSS 2017 y JGCSS 2026
+stability quedaron `fuera`). `ask` lo pone en la
 cabecera DOCUMENTOS y en la linea "Notacion: la de [doc], factorial dentro/fuera"; no iguala
 M_p entre documentos con convencion distinta. `etiquetas` y `factorial` sobreviven a
 `--rehacer`. Toda cita de capa tex lleva `| texto: arXiv vN` (el texto es el de arXiv; la
@@ -70,6 +72,15 @@ python doc.py redactar ARCHIVO          pule forma sin inventar; marca [VERIFICA
 python doc.py lagunas                   viernes, 45 min: el lote de huecos de grado/master
 python doc.py lab "especificacion"      la IA escribe el script contra lab/pesos.py; mpmath juzga
 python doc.py lab demo                  los 4 casos del BRIEF (Euler+Borel, Catalan, raiz simple, raiz multiple) con graficos en lab/salidas/
+```
+
+`lab/pesos.py` lleva la convencion del factorial como parametro: `SucesionPeso(logM, factorial="fuera"|"dentro")`,
+`gevrey(alpha, factorial=...)`, y `M.en("fuera")` convierte (`M_dentro[p] = p! M_fuera[p]`). Todo indice
+(`indice_omega`, y `gamma(M)` cuando lo escribas) se calcula siempre sobre la version fuera, la de Thilliez;
+la misma clase Gevrey escrita en las dos convenciones da el mismo omega (test). Mira `factorial` en
+`bib.yaml` antes de meter la M de un paper.
+
+```
 python doc.py anki                      exporta tarjetas (las [VERIFICAR CON PAPER] se quedan)
 python doc.py metricas                  fases, violaciones, y coste del mes por comando en EUR
 python doc.py reunion [--destilar|--preparar]   notas de reunion, directores.md, pre-read

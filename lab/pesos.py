@@ -15,6 +15,20 @@ normalizaciones equivalentes pero distintas en las constantes. Las de aqui
 estan escritas en la forma que usa Thilliez (Results Math 44, 2003), pero
 ANTES de usar una constante en un argumento escrito, abre el paper y verifica
 la normalizacion. Ver ia/reglas.md.
+
+CONVENCION DEL FACTORIAL (parametro `factorial`)
+------------------------------------------------
+  fuera:  la clase es |f^{(p)}| <= C A^p p! M_p   (Thilliez, Lastra-Malek-Sanz, Sanz).
+          Analitica <=> M = 1. Es la convencion de este modulo y de todo indice.
+  dentro: la clase es |f^{(p)}| <= C A^p M_p       (JGSS 2019 sectorial, JGCSS 2023-2026).
+          Analitica <=> M_p = p!.
+Conversion: M_dentro[p] = p! * M_fuera[p]. Todo indice calculado sobre M (omega(M), y
+gamma(M) cuando Mariano lo escriba) se calcula SIEMPRE sobre la version fuera, sea cual
+sea la convencion con que se construyo el objeto: `en("fuera")` lo hace. Las condiciones
+(lc), (mg), (dc) se evaluan sobre la sucesion tal cual se dio, porque tiene sentido
+preguntarlas de M y de p!M por separado; (gamma_1) esta en la forma de Thilliez y se
+evalua sobre la version fuera. La convencion de cada paper esta en `factorial` de
+corpus/meta/bib.yaml.
 """
 
 from mpmath import mp, mpf, log, e, inf, loggamma
@@ -26,29 +40,69 @@ mp.dps = 40
 # Objeto principal
 # ----------------------------------------------------------------------
 
-class SucesionPeso:
-    """Sucesion peso M = (M_p), p = 0..N, normalizada con M_0 = 1."""
+CONVENCIONES = ("fuera", "dentro")
 
-    def __init__(self, logM, nombre="M"):
+
+class SucesionPeso:
+    """
+    Sucesion peso M = (M_p), p = 0..N, normalizada con M_0 = 1.
+    factorial: "fuera" (clase con p! M_p; por defecto) o "dentro" (clase con M_p). Ver cabecera.
+    """
+
+    def __init__(self, logM, nombre="M", factorial="fuera"):
+        if factorial not in CONVENCIONES:
+            raise ValueError(f"factorial debe ser uno de {CONVENCIONES}")
         self.logM = [mpf(x) for x in logM]
         self.nombre = nombre
+        self.factorial = factorial
         self.N = len(logM) - 1
         if abs(self.logM[0]) > mpf("1e-30"):
             raise ValueError("normaliza con M_0 = 1 (logM[0] = 0)")
 
     @classmethod
-    def desde_log(cls, log_f, N=400, nombre="M"):
+    def desde_log(cls, log_f, N=400, nombre="M", factorial="fuera"):
         """log_f(p) devuelve log(M_p). La via recomendada."""
-        return cls([log_f(p) for p in range(N + 1)], nombre)
+        return cls([log_f(p) for p in range(N + 1)], nombre, factorial)
 
     @classmethod
-    def desde_cocientes(cls, log_m, N=400, nombre="M"):
+    def desde_cocientes(cls, log_m, N=400, nombre="M", factorial="fuera"):
         """log_m(p) devuelve log(m_p) con m_p = M_{p+1}/M_p."""
         acc, out = mpf(0), [mpf(0)]
         for p in range(N):
             acc += mpf(log_m(p))
             out.append(acc)
-        return cls(out, nombre)
+        return cls(out, nombre, factorial)
+
+    # --- convencion del factorial ------------------------------------------
+
+    def en(self, factorial):
+        """
+        La misma clase escrita en la otra convencion: M_dentro[p] = p! * M_fuera[p].
+        Devuelve self si ya esta en esa convencion.
+        """
+        if factorial not in CONVENCIONES:
+            raise ValueError(f"factorial debe ser uno de {CONVENCIONES}")
+        if factorial == self.factorial:
+            return self
+        signo = 1 if factorial == "dentro" else -1
+        logM = [self.logM[p] + signo * loggamma(p + 1) for p in range(self.N + 1)]
+        return SucesionPeso(logM, f"{self.nombre} [{factorial}]", factorial)
+
+    # --- indices (siempre sobre la convencion fuera) -----------------------
+
+    def indice_omega(self, fraccion=mpf("0.5")):
+        """
+        Estimacion de omega(M) = liminf_{p} log(m_p) / log(p), valida para M fuertemente
+        regular en la convencion fuera [sanz-2014:p9, Teorema 3.2 | texto: arXiv v1];
+        LMS 2015 la usa como definicion (su ecuacion (7)) [lastra-malek-sanz-2015:p20,
+        Corolario 4.14 | texto: arXiv v1]. Se calcula sobre la version fuera, sea cual sea
+        la convencion del objeto. Devuelve el minimo del cociente en la cola
+        p >= fraccion * N (un liminf truncado: si baja al subir N, sospecha).
+        Ejemplo: Gevrey alpha (fuera) tiene m_p = (p+1)^alpha y omega = alpha.
+        """
+        F = self.en("fuera")
+        desde = max(2, int(fraccion * F.N))
+        return min(F.log_m(p) / log(mpf(p)) for p in range(desde, F.N))
 
     # --- accesores -----------------------------------------------------
 
@@ -106,6 +160,8 @@ class SucesionPeso:
         'fiable' avisa si los ultimos terminos aun pesan: en ese caso sube N.
         Si A crece sin freno al subir N, (gamma_1) falla.
         """
+        if self.factorial != "fuera":              # la forma de Thilliez es para la M fuera
+            return self.en("fuera").constante_gamma1(margen)
         tope = self.N - margen
         if tope < 10:
             raise ValueError("N demasiado pequeno para estimar la cola")
@@ -143,10 +199,15 @@ class SucesionPeso:
 # Sin etiquetas: el panel calcula que cumple cada una. No te fies de lo que
 # creas recordar sobre estos ejemplos, ejecutalo.
 
-def gevrey(alpha, N=400):
-    """M_p = (p!)^alpha."""
+def gevrey(alpha, N=400, factorial="fuera"):
+    """
+    Clase Gevrey de orden alpha: M_p = (p!)^alpha en la convencion fuera, (p!)^(alpha+1)
+    en la convencion dentro. Es la MISMA clase de funciones; solo cambia como se escribe.
+    """
+    exp = mpf(alpha) + (1 if factorial == "dentro" else 0)
     return SucesionPeso.desde_log(
-        lambda p: mpf(alpha) * loggamma(p + 1), N, f"Gevrey({float(alpha):.3g})")
+        lambda p: exp * loggamma(p + 1), N,
+        f"Gevrey({float(alpha):.3g})" + ("" if factorial == "fuera" else " [dentro]"), factorial)
 
 
 def gevrey_log(alpha, beta, N=400):
@@ -189,14 +250,14 @@ def panel(*sucesiones, N_test=(150, 300)):
     mucho de la columna izquierda a la derecha, la condicion FALLA y lo que
     ves es divergencia lenta, no una constante.
     """
-    fila = "{:<22} {:>4} {:>12} {:>12} {:>12}"
-    print(fila.format("sucesion", "N", "A_mg", "A_dc", "A_gamma1"))
-    print("-" * 66)
+    fila = "{:<22} {:>4} {:>12} {:>12} {:>12} {:>9}"
+    print(fila.format("sucesion", "N", "A_mg", "A_dc", "A_gamma1", "omega(M)"))
+    print("-" * 76)
     for S in sucesiones:
         for N in N_test:
             if N > S.N:
                 continue
-            T = SucesionPeso(S.logM[:N + 1], S.nombre)
+            T = SucesionPeso(S.logM[:N + 1], S.nombre, S.factorial)
             lc, _ = T.es_log_convexa()
             amg, _ = T.constante_mg()
             adc, _ = T.constante_dc()
@@ -207,7 +268,7 @@ def panel(*sucesiones, N_test=(150, 300)):
                 sg = "n/d"
             nom = (T.nombre + ("" if lc else " [NO lc]"))[:22]
             print(fila.format(nom, N, f"{float(amg):.4g}",
-                              f"{float(adc):.4g}", sg))
+                              f"{float(adc):.4g}", sg, f"{float(T.indice_omega()):.3f}"))
         print()
 
 
@@ -277,6 +338,7 @@ def casi_creciente(valores, tol=mpf("1e-25")):
 # NO lo implementes de memoria ni preguntandoselo a un LLM. Abre
 # Thilliez 2003 y Jimenez-Garrido & Sanz, copia la definicion exacta, y
 # usa casi_creciente() como primitiva. Anota en corpus/orden.md la pagina.
+# Como indice_omega, calculalo sobre self.en("fuera"): gamma(M) es de la M de Thilliez.
 
 
 if __name__ == "__main__":

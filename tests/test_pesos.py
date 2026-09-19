@@ -47,3 +47,33 @@ def test_refutar_no_prueba_nada_cuando_sobrevive():
 def test_casi_creciente():
     assert P.casi_creciente([1, 2, 3, 4]) == 1
     assert P.casi_creciente([4, 1, 1, 1]) == 4
+
+
+def test_misma_clase_gevrey_en_las_dos_convenciones_da_el_mismo_omega():
+    # Gevrey-1: M_p = p! (fuera) o (p!)^2 (dentro). omega(M) = 1 en ambas: se calcula sobre la fuera.
+    fuera = P.gevrey(1, N=300)
+    dentro = P.gevrey(1, N=300, factorial="dentro")
+    assert fuera.factorial == "fuera" and dentro.factorial == "dentro"
+    assert abs(fuera.indice_omega() - 1) < mpf("0.01")
+    assert abs(dentro.indice_omega() - fuera.indice_omega()) < mpf("1e-20")
+    # la conversion es exacta en logaritmos: M_dentro[p] = p! M_fuera[p]
+    assert all(abs(a - b) < mpf("1e-25") for a, b in zip(dentro.en("fuera").logM, fuera.logM))
+    assert all(abs(a - b) < mpf("1e-25") for a, b in zip(fuera.en("dentro").logM, dentro.logM))
+    assert fuera.en("fuera") is fuera
+
+
+def test_omega_de_gevrey_alpha_es_alpha_y_gamma1_usa_la_convencion_fuera():
+    assert abs(P.gevrey(mpf(1) / 2, N=300).indice_omega() - mpf(1) / 2) < mpf("0.01")
+    assert P.gevrey(0, N=300).indice_omega() == 0
+    # (gamma_1) en forma de Thilliez: la misma A para la clase escrita en las dos convenciones
+    A_f, _, _ = P.gevrey(1, N=200).constante_gamma1()
+    A_d, _, _ = P.gevrey(1, N=200, factorial="dentro").constante_gamma1()
+    assert abs(A_f - A_d) < mpf("1e-20")
+
+
+def test_convencion_invalida():
+    import pytest
+    with pytest.raises(ValueError):
+        P.SucesionPeso([0, 0, 0], "x", factorial="a veces")
+    with pytest.raises(ValueError):
+        P.gevrey(1, N=10).en("a veces")
