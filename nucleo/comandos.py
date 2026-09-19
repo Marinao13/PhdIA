@@ -1046,7 +1046,21 @@ def cmd_metricas(args):
 
 def cmd_ingest(args):
     from . import corpus as Q
-    kw = dict(capa=args.capa, sin_red=args.sin_red, rehacer=args.rehacer, fuente=args.fuente)
+    kw = dict(capa=args.capa, sin_red=args.sin_red, rehacer=args.rehacer, fuente=args.fuente,
+              etiquetas=[e.strip() for e in (args.etiquetas or "").split(",") if e.strip()],
+              factorial=args.factorial)
+    if args.arxiv:
+        if len(args.pdf) > 1:
+            print("uso: python doc.py ingest --arxiv ID [nombre.pdf] [--id ID] [--etiquetas a,b]")
+            return
+        try:
+            pdf = Q.descargar_pdf(args.arxiv, args.pdf[0] if args.pdf else None)
+        except FileExistsError as e:
+            print(e)
+            return
+        print(f"descargado {os.path.relpath(pdf)}")
+        Q.ingerir(pdf, id_=args.id, **kw)
+        return
     if args.identificar:
         if len(args.pdf) != 2:
             print("uso: python doc.py ingest --identificar ID DOI|URL")
@@ -1115,6 +1129,14 @@ def _docs_mencionados(pregunta):
     return out[:3]
 
 
+def _factorial_texto(e):
+    """Convencion del documento para p!: 'factorial fuera: |f^(p)| <= C A^p p! M_p', etc."""
+    f = e.get("factorial") or "pendiente"
+    return {"dentro": "factorial dentro: |f^(p)| <= C A^p M_p",
+            "fuera": "factorial fuera: |f^(p)| <= C A^p p! M_p",
+            "no_aplica": "sin sucesion peso (no aplica el factorial)"}.get(f, "factorial: sin comprobar en el texto")
+
+
 def _cabeceras_bib(frags):
     """Una linea por documento citado: id, titulo, autores, revista y ano verificados."""
     from . import corpus as Q
@@ -1124,7 +1146,7 @@ def _cabeceras_bib(frags):
         e = bib.get(doc, {})
         if e.get("estado") == "verificado":
             partes = [e.get("titulo"), "; ".join(e.get("autores", [])[:3]), e.get("venue"),
-                      str(e.get("ano") or e.get("ano_arxiv") or "")]
+                      str(e.get("ano") or e.get("ano_arxiv") or ""), _factorial_texto(e)]
             lineas.append(f"  {doc}: " + " | ".join(p for p in partes if p))
         elif e:
             lineas.append(f"  {doc}: metadatos {e.get('estado', 'sin verificar')}")

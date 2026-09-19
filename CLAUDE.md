@@ -24,6 +24,8 @@ el estado y el plan, en `ESTADO_SISTEMA.md` y `PLAN.md`.
 - Compromiso antes de consulta: 25 min escritos y sellados antes de encender el motor.
 - Nada del campo entra en notas sin referencia abierta: el modelo inventa enunciados de
   Thilliez con aplomo y mezcla normalizaciones de (gamma_1), (mg), (dc) entre autores.
+  El factorial va dentro o fuera de M segun el documento (`factorial` en `bib.yaml`):
+  no iguales M_p de dos papers con convencion distinta.
 - El motor esta apagado en fase 1 y fase 3. `motor.llamar()` es la unica puerta; no la
   rodees. `buscar` no usa motor y por eso vale siempre.
 

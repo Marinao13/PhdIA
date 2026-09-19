@@ -581,6 +581,37 @@ def unidades_marker(md, paginas):
 # orquestacion
 # ======================================================================
 
+def descargar_pdf(aid, nombre=None):
+    """
+    Baja arxiv.org/pdf/<id> (ultima version; la portada lleva el sello vN) a corpus/raw/<nombre>.
+    Devuelve la ruta. No pisa un PDF existente.
+    """
+    nombre = nombre or aid.replace("/", "-") + ".pdf"
+    if not nombre.lower().endswith(".pdf"):
+        nombre += ".pdf"
+    destino = os.path.join(C.DIR_RAW, os.path.basename(nombre))
+    if os.path.exists(destino):
+        raise FileExistsError(f"{destino} ya existe; borralo o usa otro nombre")
+    b = _get(f"https://arxiv.org/pdf/{aid}", timeout=180).content
+    if not b.startswith(b"%PDF"):
+        raise ValueError(f"arxiv.org/pdf/{aid} no devolvio un PDF ({b[:40]!r})")
+    os.makedirs(C.DIR_RAW, exist_ok=True)
+    with open(destino, "wb") as f:
+        f.write(b)
+    time.sleep(PAUSA_ARXIV)
+    return destino
+
+
+# campos de bib.yaml que pone Mariano a mano y que una reingesta nunca debe perder
+CAMPOS_MANUALES = ("etiquetas", "factorial", "notas")
+# `factorial`: donde va p! en la definicion de la clase del documento.
+#   dentro: |f^{(p)}| <= C A^p M_p            (M ya contiene el factorial; JGSS, Rainer-Schindl)
+#   fuera:  |f^{(p)}| <= C A^p p! M_p         (Thilliez, Lastra-Malek-Sanz, Sanz)
+#   no_aplica: el documento no define clases por una sucesion peso (Balser, BMT, Carrillo-Mozo)
+#   pendiente: sin comprobar en el texto
+FACTORIAL_VALORES = ("dentro", "fuera", "no_aplica", "pendiente")
+
+
 def _detectar_ids(paginas):
     cabeza = "\n".join(paginas[:2])
     a = RE_ARXIV.search(cabeza)
@@ -674,8 +705,13 @@ def _metadatos(paginas, sin_red, avisos):
     return ent, verificado_arxiv
 
 
-def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True, fuente="paper"):
-    """Ingiere un PDF. Devuelve la entrada de bib.yaml."""
+def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True, fuente="paper",
+            etiquetas=None, factorial=None):
+    """
+    Ingiere un PDF. Devuelve la entrada de bib.yaml.
+    etiquetas: lista que se anade a las existentes. factorial: 'dentro' | 'fuera' | 'pendiente'
+    (convencion del documento para la sucesion peso; ver docs/USO.md).
+    """
     pdf = os.path.abspath(pdf)
     if not os.path.exists(pdf):
         raise FileNotFoundError(pdf)
@@ -763,7 +799,18 @@ def ingerir(pdf, id_=None, capa=None, sin_red=False, rehacer=False, verbose=True
 
     ent.update(fichero=os.path.relpath(pdf, C.DIR_CORPUS).replace("\\", "/"), capa=capa_usada,
                paginas=len(paginas), unidades=len(unidades), ingerido=hoy(), fuente=fuente)
+    for k in CAMPOS_MANUALES:                       # lo manual sobrevive a --rehacer
+        if k in previo and k not in ent:
+            ent[k] = previo[k]
     ent.setdefault("etiquetas", [])
+    for et in (etiquetas or []):
+        if et not in ent["etiquetas"]:
+            ent["etiquetas"].append(et)
+    if factorial:
+        if factorial not in FACTORIAL_VALORES:
+            raise ValueError(f"factorial debe ser uno de {FACTORIAL_VALORES}")
+        ent["factorial"] = factorial
+    ent.setdefault("factorial", "pendiente")
     if avisos:
         ent["avisos"] = avisos
     bib = leer_bib()            # releer: una ingesta larga no debe pisar cambios ajenos
@@ -916,6 +963,14 @@ def renombrar(viejo, nuevo, verbose=True):
     ent["fichero"] = f"raw/{nuevo}.pdf"
     bib[nuevo] = ent
     escribir_bib(bib)
+    meta_f = os.path.join(d_nuevo, "meta.json")
+    if os.path.exists(meta_f):                       # el id de meta.json tambien cambia
+        try:
+            meta = json.loads(C.leer(meta_f))
+            meta["id"] = nuevo
+            C.escribir(meta_f, json.dumps(meta, ensure_ascii=False, indent=1))
+        except Exception:
+            pass
     log = os.path.join(C.DIR_META, "renombrados.yaml")
     C.anadir(log, f"{viejo}: {nuevo}   # {hoy()}\n")
     if verbose:

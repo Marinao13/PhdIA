@@ -95,6 +95,9 @@ def main():
     s.add_argument("--remapear", action="store_true", help="rehacer unidades y paginas desde el tex/marker guardado, sin red")
     s.add_argument("--identificar", action="store_true", help="ID DOI|URL: asigna identificador; verificado solo si el titulo coincide con la portada")
     s.add_argument("--renombrar", action="store_true", help="VIEJO NUEVO: cambia el id (bib, texto, pdf) y lo anota en meta/renombrados.yaml")
+    s.add_argument("--arxiv", help="ID de arXiv: baja el PDF a corpus/raw/[nombre.pdf] y lo ingiere")
+    s.add_argument("--etiquetas", help="etiquetas separadas por comas (citado, directores...)")
+    s.add_argument("--factorial", choices=["dentro", "fuera", "no_aplica", "pendiente"], help="convencion del documento para p! en la clase")
     s.set_defaults(fn=K.cmd_ingest)
 
     s = sub.add_parser("indexar", help="fragmenta y embebe el corpus (incremental)")

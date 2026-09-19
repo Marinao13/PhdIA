@@ -8,6 +8,7 @@ balser-2000:
   doi: 10.1007/b97608
   estado: verificado
   etiquetas: []
+  factorial: no_aplica
   fichero: raw/balser-2000.pdf
   fuente: paper
   ingerido: '2026-09-16'
@@ -25,6 +26,7 @@ braun-meise-taylor-1990:
   doi: 10.1007/BF03322459
   estado: verificado
   etiquetas: []
+  factorial: no_aplica
   fichero: raw/braun-meise-taylor-1990.pdf
   fuente: paper
   ingerido: '2026-09-16'
@@ -43,6 +45,7 @@ carrillo-mozo-2018:
   doi: 10.1016/j.jmaa.2017.08.028
   estado: verificado
   etiquetas: []
+  factorial: no_aplica
   fichero: raw/carrillo-mozo-2018.pdf
   fuente: paper
   ingerido: '2026-09-16'
@@ -66,6 +69,7 @@ jimenez-garrido-cantero-sanz-schindl-2023:
   doi: 10.1007/s00025-023-01859-w
   estado: verificado
   etiquetas: []
+  factorial: dentro
   fichero: raw/jimenez-garrido-cantero-sanz-schindl-2023.pdf
   ingerido: '2026-09-16'
   paginas: 29
@@ -88,6 +92,7 @@ jimenez-garrido-cantero-sanz-schindl-2024:
   doi: 10.1007/s00025-023-01859-w
   estado: verificado
   etiquetas: []
+  factorial: dentro
   fichero: raw/jimenez-garrido-cantero-sanz-schindl-2024.pdf
   ingerido: '2026-09-16'
   paginas: 36
@@ -107,6 +112,7 @@ jimenez-garrido-cantero-sanz-schindl-2026-stability:
   capa: tex
   estado: verificado
   etiquetas: []
+  factorial: pendiente
   fichero: raw/jimenez-garrido-cantero-sanz-schindl-2026-stability.pdf
   ingerido: '2026-09-16'
   paginas: 20
@@ -126,6 +132,7 @@ jimenez-garrido-cantero-sanz-schindl-2026-stieltjes:
   doi: 10.1007/s00025-026-02700-w
   estado: verificado
   etiquetas: []
+  factorial: dentro
   fichero: raw/jimenez-garrido-cantero-sanz-schindl-2026-stieltjes.pdf
   ingerido: '2026-09-16'
   paginas: 30
@@ -148,6 +155,7 @@ jimenez-garrido-cantero-sanz-schindl-2026-surjectivity:
   doi: 10.1186/s13660-026-03485-w
   estado: verificado
   etiquetas: []
+  factorial: dentro
   fichero: raw/jimenez-garrido-cantero-sanz-schindl-2026-surjectivity.pdf
   ingerido: '2026-09-16'
   paginas: 25
@@ -171,6 +179,7 @@ jimenez-garrido-lastra-sanz-2024:
   doi: 10.1007/s00365-023-09663-z
   estado: verificado
   etiquetas: []
+  factorial: fuera
   fichero: raw/jimenez-garrido-lastra-sanz-2024.pdf
   ingerido: '2026-09-16'
   paginas: 21
@@ -193,6 +202,7 @@ jimenez-garrido-sanz-2016:
   doi: 10.1016/j.jmaa.2016.02.010
   estado: verificado
   etiquetas: []
+  factorial: fuera
   fichero: raw/jimenez-garrido-sanz-2016.pdf
   ingerido: '2026-09-16'
   paginas: 24
@@ -214,6 +224,7 @@ jimenez-garrido-sanz-schindl-2017:
   doi: 10.1016/j.jmaa.2016.11.069
   estado: verificado
   etiquetas: []
+  factorial: pendiente
   fichero: raw/jimenez-garrido-sanz-schindl-2017.pdf
   ingerido: '2026-09-16'
   paginas: 26
@@ -235,6 +246,7 @@ jimenez-garrido-sanz-schindl-2019-injectivity:
   doi: 10.1016/j.jmaa.2018.09.011
   estado: verificado
   etiquetas: []
+  factorial: fuera
   fichero: raw/jimenez-garrido-sanz-schindl-2019-injectivity.pdf
   fuente: paper
   ingerido: '2026-09-16'
@@ -258,6 +270,7 @@ jimenez-garrido-sanz-schindl-2019-sectorial:
   doi: 10.1007/s00025-018-0951-1
   estado: verificado
   etiquetas: []
+  factorial: dentro
   fichero: raw/jimenez-garrido-sanz-schindl-2019-sectorial.pdf
   fuente: paper
   ingerido: '2026-09-16'
@@ -280,6 +293,7 @@ jimenez-garrido-sanz-schindl-2022:
   doi: 10.1007/s00025-021-01566-4
   estado: verificado
   etiquetas: []
+  factorial: dentro
   fichero: raw/jimenez-garrido-sanz-schindl-2022.pdf
   ingerido: '2026-09-16'
   paginas: 26
@@ -293,6 +307,7 @@ jimenez-garrido-tesis-2018:
   capa: marker
   estado: verificado
   etiquetas: []
+  factorial: fuera
   fichero: raw/jimenez-garrido-tesis-2018.pdf
   fuente: paper
   handle: http://uvadoc.uva.es/handle/10324/29501
@@ -316,6 +331,7 @@ lastra-malek-sanz-2012:
   doi: 10.1016/j.jmaa.2012.07.013
   estado: verificado
   etiquetas: []
+  factorial: fuera
   fichero: raw/lastra-malek-sanz-2012.pdf
   ingerido: '2026-09-16'
   paginas: 23
@@ -340,6 +356,7 @@ lastra-malek-sanz-2015:
   doi: 10.1016/j.jmaa.2015.05.046
   estado: verificado
   etiquetas: []
+  factorial: fuera
   fichero: raw/lastra-malek-sanz-2015.pdf
   ingerido: '2026-09-16'
   paginas: 32
@@ -348,10 +365,38 @@ lastra-malek-sanz-2015:
   unidades: 188
   venue: Journal of Mathematical Analysis and Applications
   volumen: '430'
+lastra-sanz-2010:
+  ano: 2010
+  ano_arxiv: 2010
+  ano_online: 2010
+  arxiv: '1001.4064'
+  arxiv_version: v1
+  autores:
+  - Lastra, Alberto
+  - Sanz, Javier
+  avisos:
+  - DOI 10.5802/aif.2568 encontrado en Crossref por titulo
+  - 'tex de arXiv: puede diferir de la version publicada'
+  capa: tex
+  doi: 10.5802/aif.2568
+  estado: verificado
+  etiquetas:
+  - citado
+  factorial: fuera
+  fichero: raw/lastra-sanz-2010.pdf
+  fuente: paper
+  ingerido: '2026-09-19'
+  paginas: 22
+  paginas_revista: 1629-1648
+  titulo: Quasi-analyticity in Carleman ultraholomorphic classes
+  unidades: 95
+  venue: Annales de l'Institut Fourier
+  volumen: '60'
 proyecto:
   capa: marker
   estado: documento_propio
   etiquetas: []
+  factorial: fuera
   fichero: raw/proyecto.pdf
   fuente: proyecto
   ingerido: '2026-09-16'
@@ -368,6 +413,7 @@ rainer-schindl-2014:
   doi: 10.4064/sm224-2-1
   estado: verificado
   etiquetas: []
+  factorial: fuera
   fichero: raw/rainer-schindl-2014.pdf
   fuente: paper
   ingerido: '2026-09-16'
@@ -387,6 +433,7 @@ rainer-schindl-2016:
   doi: 10.1007/s13398-014-0216-0
   estado: verificado
   etiquetas: []
+  factorial: fuera
   fichero: raw/rainer-schindl-2016.pdf
   fuente: paper
   ingerido: '2026-09-16'
@@ -396,6 +443,30 @@ rainer-schindl-2016:
   unidades: 250
   venue: Revista de la Real Academia de Ciencias Exactas, Físicas y Naturales. Serie A. Matemáticas
   volumen: '110'
+sanz-2014:
+  ano: 2014
+  ano_arxiv: 2014
+  arxiv: '1402.2627'
+  arxiv_version: v1
+  autores:
+  - Sanz, Javier
+  avisos:
+  - 'tex de arXiv: puede diferir de la version publicada'
+  capa: tex
+  doi: 10.1016/j.jmaa.2014.01.083
+  estado: verificado
+  etiquetas:
+  - citado
+  factorial: fuera
+  fichero: raw/sanz-2014.pdf
+  fuente: paper
+  ingerido: '2026-09-19'
+  paginas: 22
+  paginas_revista: 623-643
+  titulo: Flat functions in Carleman ultraholomorphic classes via proximate orders
+  unidades: 144
+  venue: Journal of Mathematical Analysis and Applications
+  volumen: '415'
 thilliez-2003:
   ano: 2003
   ano_arxiv: 2006
@@ -410,6 +481,7 @@ thilliez-2003:
   doi: 10.1007/bf03322923
   estado: verificado
   etiquetas: []
+  factorial: fuera
   fichero: raw/thilliez-2003.pdf
   ingerido: '2026-09-16'
   paginas: 18
@@ -418,6 +490,30 @@ thilliez-2003:
   unidades: 121
   venue: Results in Mathematics
   volumen: '44'
+thilliez-2008:
+  ano: 2008
+  ano_arxiv: 2005
+  arxiv: math/0509273
+  arxiv_version: v5
+  autores:
+  - Thilliez, Vincent
+  avisos:
+  - 'tex de arXiv: puede diferir de la version publicada'
+  capa: tex
+  doi: 10.1016/j.exmath.2007.04.001
+  estado: verificado
+  etiquetas:
+  - directores
+  factorial: fuera
+  fichero: raw/thilliez-2006.pdf
+  fuente: paper
+  ingerido: '2026-09-19'
+  paginas: 21
+  paginas_revista: 1-23
+  titulo: On quasianalytic local rings
+  unidades: 200
+  venue: Expositiones Mathematicae
+  volumen: '26'
 thilliez-2010:
   ano: 2010
   ano_arxiv: 2008
@@ -430,6 +526,7 @@ thilliez-2010:
   doi: 10.1007/s00605-009-0108-0
   estado: verificado
   etiquetas: []
+  factorial: fuera
   fichero: raw/thilliez-2010.pdf
   ingerido: '2026-09-16'
   paginas: 8

@@ -22,6 +22,8 @@ python doc.py cierre                    diff de tu fase 1, errores, 5 tarjetas, 
 ```
 python doc.py ingest                    ingiere lo nuevo de corpus/raw/: tex de arXiv > Marker > PyMuPDF
 python doc.py ingest X.pdf --fuente proyecto    documento propio, sin metadatos de red
+python doc.py ingest --arxiv ID [nombre.pdf] --id ID --etiquetas citado --factorial fuera
+                                        baja el PDF de arXiv a corpus/raw/ y lo ingiere (tex incluido)
 python doc.py ingest --solo-meta [ids]  refresca metadatos (arXiv, Crossref) sin reextraer
 python doc.py ingest --remapear [ids]   rehace unidades y paginas desde el tex guardado, sin red
 python doc.py indexar                   fragmenta y embebe lo nuevo (incremental, centimos)
@@ -32,7 +34,15 @@ python doc.py ask "..."                 sintesis con cita tras cada afirmacion. 
 
 `corpus/meta/bib.yaml`: metadatos. `verificado` solo si vienen de arXiv/Crossref y el
 titulo esta en el PDF; si no, `pendiente_verificar`. Tu pones `etiquetas` y los DOI que
-falten. `corpus/meta/glosario.yaml`: ES -> EN para que preguntar en espanol alcance los
+falten. `factorial` dice donde va p! en la clase del documento: `fuera` si
+|f^(p)| <= C A^p p! M_p (Thilliez, Lastra-Malek-Sanz, Sanz, Rainer-Schindl, tesis, proyecto),
+`dentro` si |f^(p)| <= C A^p M_p (JGSS 2019 sectorial, 2022, JGCSS 2023-2026), `no_aplica`
+sin sucesion peso (Balser, BMT, Carrillo-Mozo), `pendiente` sin comprobar (los que definen la
+clase solo por expansion asintotica: JGSS 2017, JGCSS 2026 stability). `ask` lo pone en la
+cabecera DOCUMENTOS y en la linea "Notacion: la de [doc], factorial dentro/fuera"; no iguala
+M_p entre documentos con convencion distinta. `etiquetas` y `factorial` sobreviven a
+`--rehacer`. Toda cita de capa tex lleva `| texto: arXiv vN` (el texto es el de arXiv; la
+pagina, la del PDF), sin excepcion. `corpus/meta/glosario.yaml`: ES -> EN para que preguntar en espanol alcance los
 papers en ingles. `corpus/raw/` y `corpus/text/` son datos locales (fuera de git).
 
 ## Leer un paper con protocolo
