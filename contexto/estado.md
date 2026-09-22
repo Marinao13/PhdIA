@@ -10,4 +10,5 @@ diario. Actualizalo al cambiar de semana o cuando algo cambie de verdad.
   enunciado de Thilliez 2010.
 - Texto de la semana: Thilliez 2003, Results Math 44 (thilliez-2003, primero sin leer de corpus/orden.md). Antes: python doc.py nota new thilliez-2003.
 - Problema de arranque: sin delimitar. Se pide en la primera reunion.
-- Primera reunion con directores: pendiente.
+- Primera reunion con directores: hecha.
+- Formación: los miércoles curso de los tutores acerca del tema durante 1 hora que cuenta para las 15 horas.
