@@ -257,7 +257,7 @@ def _sugerir_sesion(base, porque):
                 porque,
                 "ETIQUETA = libro y capitulo, p. ej. base-conway-iv. Fase 1 con el libro cerrado.")
     return ("python doc.py sesion ETIQUETA",
-            porque + " ETIQUETA es el paper: p. ej. thilliez2003.",
+            porque + " ETIQUETA es el id del paper en bib.yaml: p. ej. thilliez-2003.",
             "detras: 10 min de carga en frio y 25 de intento a ciegas, motor OFF")
 
 
@@ -361,8 +361,14 @@ def cmd_ahora(args):
             print("    " + (texto.split(":", 1)[1].strip() if ":" in texto else texto))
         if siguiente:
             print(f"    corpus {hechos}/{total}, siguiente sin leer: {siguiente}")
+            ids = _docs_mencionados(siguiente)
+            if len(ids) == 1:
+                print(f"    en bib.yaml: {ids[0]}.  Antes de la sesion: python doc.py nota new {ids[0]}"
+                      f"  (y nota quiz {ids[0]} tras leerlo)")
         elif total:
             print(f"    corpus {hechos}/{total}: nucleo terminado")
+        print("    hueco de grado/master al leer: UNA linea en registro/lagunas.md (/laguna en preguntar,")
+        print("    o la linea 'Lagunas' de la sesion) y sigues. Se resuelve aparte: viernes, python doc.py lagunas.")
 
     tarjetas, verificar = _cuenta_drill()
     lagunas, estructurales = _cuenta_lagunas()
@@ -410,6 +416,7 @@ AYUDA_REPL = """Fase 2. Tres usos y nada mas.
   Pega varias lineas de golpe y quedan guardadas como fragmento; luego escribe la
   pregunta, o Enter para que lo desarrolle paso a paso.
   /pegar      lo mismo a mano: pega y termina con una linea que sea solo un punto
+  /laguna X   anota el hueco de grado/master X en registro/lagunas.md y sigues (90 s max)
   /nuevo      olvida la conversacion (nuevo fragmento, nuevo hilo)
   /salir
 Sin plantilla la pregunta va tal cual, con las reglas de fase 2 igualmente."""
@@ -466,6 +473,16 @@ def cmd_preguntar(args):
         if linea in ("/notacion", "/lema", "/paso"):
             plantilla = {"/notacion": P.P_NOTACION, "/lema": P.P_LEMA, "/paso": P.P_PASO}[linea]
             print("plantilla cargada para la siguiente pregunta")
+            continue
+        if linea.split(" ", 1)[0] == "/laguna":
+            hueco = linea[len("/laguna"):].strip()
+            if not hueco:
+                print("uso: /laguna <una linea con el hueco de grado/master>. No se resuelve ahora.")
+                continue
+            ruta = E.sesion_hoy()
+            origen = os.path.basename(ruta)[11:-3] if ruta else "preguntar"
+            _anadir_lagunas([hueco], origen, fase)
+            print("laguna anotada en registro/lagunas.md. Sigue con el paper; el viernes, python doc.py lagunas")
             continue
         if linea == "/pegar":
             print("pega el fragmento; termina con una linea que sea solo un punto")

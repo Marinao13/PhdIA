@@ -6,16 +6,23 @@ usa motor y vale siempre. Si dudas: `python doc.py ahora`.
 ## Una sesion (3 h)
 
 ```
-python doc.py sesion base-conway-iv     abre el fichero de hoy (base-* = con libro). Motor OFF
+python doc.py sesion thilliez-2003      abre el fichero de hoy (id de bib.yaml; base-* = con libro). Motor OFF
     fase 0 (10 min) que se ya; fase 1 (25 min) enunciado solo, prediccion por escrito
 python doc.py sellar 1                  commit. Motor ON
-python doc.py preguntar                 fase 2 (60 min). REPL: /notacion /lema /paso; pega varias
+python doc.py preguntar                 fase 2 (60 min). REPL: /notacion /lema /paso /laguna; pega varias
                                         lineas de golpe y quedan como fragmento
 python doc.py ataque                    commit. Motor OFF
     fase 3 (45 min): ejercicios (base) / extension, contraejemplo, Beurling (paper)
 python doc.py sellar 3                  commit. Motor ON
 python doc.py cierre                    diff de tu fase 1, errores, 5 tarjetas, lagunas, metricas
 ```
+
+Fase base saltada (2026-09-22): las sesiones son de papers, en el orden de `corpus/orden.md`
+(`ahora` dice cual toca y su id). Un hueco de grado/master no para la sesion: una linea en
+`registro/lagunas.md` con `/laguna ...` dentro de `preguntar` o en la linea `Lagunas` de la
+sesion (la recoge `cierre`), y se estudia aparte: viernes `python doc.py lagunas`; si reaparece
+tres veces, `[ESTRUCTURAL]` y una sesion de libro `python doc.py sesion base-ETIQUETA` con la
+semana de `corpus/base.md` que la cubra.
 
 ## Corpus: PDFs con citas por pagina
 

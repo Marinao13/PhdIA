@@ -1,5 +1,11 @@
 # Fase base (semanas 1-8)
 
+> SALTADA el 2026-09-22 por decision de Mariano: se pasa directamente a los papers
+> (corpus/orden.md). Las lagunas de base que salgan al leer van a registro/lagunas.md
+> (una linea, sin parar) y se resuelven aparte: los viernes en lote, y cuando una se
+> marque [ESTRUCTURAL], con una sesion de libro `python doc.py sesion base-ETIQUETA`
+> sobre la semana de este plan que la cubra. El plan se conserva para eso.
+
 Resultado de la calibracion del diagnostico del 2026-09-14 (media 0,29/3).
 Objetivo: llegar a poder leer Thilliez 2003 y 2010 de verdad. Hasta entonces el
 corpus de orden.md espera.
