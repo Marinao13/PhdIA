@@ -60,6 +60,7 @@ python doc.py preguntar              fase 2 (60 min). REPL con tres usos:
 python doc.py ataque                 commit. Motor OFF.
     fase 3 (45 min): extension, contraejemplo, caso Beurling. Conjeturas en el fichero.
 python doc.py sellar 3               commit. Motor ON.
+python doc.py pausar / reanudar      para el reloj sin cambiar de fase; la sesion no caduca
 python doc.py cierre                 fase 4 (20 min): diff de tu fase 1 contra el paper,
                                      errores tipificados, 5 tarjetas, lagunas, conjeturas,
                                      metricas al frontmatter. Tu confirmas la puntuacion.

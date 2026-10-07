@@ -15,7 +15,12 @@ python doc.py ataque                    commit. Motor OFF
     fase 3 (45 min): ejercicios (base) / extension, contraejemplo, Beurling (paper)
 python doc.py sellar 3                  commit. Motor ON
 python doc.py cierre                    diff de tu fase 1, errores, 5 tarjetas, lagunas, metricas
+python doc.py pausar / reanudar         para y arranca el reloj sin cambiar de fase ni motor
 ```
+
+Una sesion sin cerrar caduca a las 20 h de su ultima marca; pausada, no. `min_f1` y `min_f3`
+descuentan las pausas. `estado` y `ahora` avisan si lleva mas de 72 h pausada: reanuda y
+termina, o cierra y abre otra.
 
 Fase base saltada (2026-09-22): las sesiones son de papers, en el orden de `corpus/orden.md`
 (`ahora` dice cual toca y su id). Un hueco de grado/master no para la sesion: una linea en
