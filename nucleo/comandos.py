@@ -129,11 +129,60 @@ def cmd_sellar(args):
     ok, msg = E.sellar(f"sellado :: fase {n} ::")
     print(msg if ok else msg)
     if ok and n == 1:
-        t = E.minutos(marcas["inicio"], datetime.datetime.now().astimezone())
-        M.aviso(f"\nfase 1 sellada tras {t} min. MOTOR ENCENDIDO.  python doc.py preguntar")
+        t = E.minutos_netos(marcas["inicio"], E.ahora(), marcas["pausas"])
+        M.aviso(f"\nfase 1 sellada tras {t} min (pausas descontadas). MOTOR ENCENDIDO.  python doc.py preguntar")
     if ok and n == 3:
-        t = E.minutos(marcas["ataque"], datetime.datetime.now().astimezone())
-        M.aviso(f"\nfase 3 sellada tras {t} min. MOTOR ENCENDIDO.  python doc.py cierre")
+        t = E.minutos_netos(marcas["ataque"], E.ahora(), marcas["pausas"])
+        M.aviso(f"\nfase 3 sellada tras {t} min (pausas descontadas). MOTOR ENCENDIDO.  python doc.py cierre")
+
+
+def _aviso_pausa(marcas):
+    """Linea de aviso si la sesion esta pausada; None si no."""
+    h = E.horas_pausada(marcas)
+    if h is None:
+        return None
+    desde = marcas["pausas"][-1][0].strftime("%Y-%m-%d %H:%M")
+    linea = f"SESION PAUSADA desde {desde} ({h} h). Reanuda con:  python doc.py reanudar"
+    if h > E.PAUSA_AVISO_HORAS:
+        linea += (f"\n  AVISO: mas de {E.PAUSA_AVISO_HORAS} h en pausa. Reanuda y termina el ciclo, "
+                  "o cierra la sesion (python doc.py cierre) y abre otra: una sesion que no se "
+                  "retoma pierde el intento a ciegas.")
+    return linea
+
+
+def cmd_pausar(args):
+    """Para el reloj de la sesion sin cambiar de fase. El commit lleva la fase para que se lea en el log."""
+    fase, marcas = E.fase_actual()
+    if fase == "libre":
+        print("no hay sesion abierta que pausar")
+        return
+    if marcas["pausada"]:
+        print(_aviso_pausa(marcas))
+        return
+    ok, msg = E.marcar(f"pausa :: fase {fase[1]} ::")
+    print(msg)
+    if ok:
+        print(f"sesion pausada en fase {fase[1]}. La fase y el motor no cambian; el tiempo en pausa "
+              "no cuenta en min_f1/min_f3 y la sesion no caduca.\n"
+              "Para seguir:  python doc.py reanudar")
+
+
+def cmd_reanudar(args):
+    fase, marcas = E.fase_actual()
+    if fase == "libre":
+        print("no hay sesion abierta")
+        return
+    if not marcas["pausada"]:
+        print(f"la sesion no esta pausada (fase actual: {fase})")
+        return
+    h = E.horas_pausada(marcas)
+    ok, msg = E.marcar(f"reanudacion :: fase {fase[1]} ::")
+    print(msg)
+    if ok:
+        print(f"reanudada tras {h} h de pausa, en fase {fase[1]}.")
+        hay_diagnostico = any(m.startswith("sellado :: diagnostico") for _, m in E.commits_todos())
+        comando, porque, _ = _siguiente(fase, E.sesion_hoy() is not None, hay_diagnostico, _semana_base())
+        print(f"te toca:  {comando}\n  {porque}")
 
 
 def cmd_ataque(args):
@@ -157,17 +206,23 @@ def cmd_estado(args):
     fase, m = E.fase_actual()
     nombres = dict(libre="libre (sin sesion hoy)", f1="fase 1, motor OFF",
                    f2="fase 2, motor ON", f3="fase 3, motor OFF", f4="fase 4, motor ON")
-    print(nombres[fase])
+    print(nombres[fase] + (" [PAUSADA]" if m.get("pausada") else ""))
+    aviso = _aviso_pausa(m)
+    if aviso:
+        print("  " + aviso)
     for l in C.leer(C.F_ESTADO).splitlines():
         if l.startswith("- Fase:"):
             print(" ", l[2:])
     for k in ("inicio", "sello1", "ataque", "sello3"):
         if m[k]:
-            print(f"  {k:<8} {m[k].strftime('%H:%M')}")
+            print(f"  {k:<8} {m[k].strftime('%Y-%m-%d %H:%M')}")
+    for p, rr in m.get("pausas", []):
+        print(f"  pausa    {p.strftime('%Y-%m-%d %H:%M')} -> "
+              + (rr.strftime('%Y-%m-%d %H:%M') if rr else "(en curso)"))
     if m["inicio"] and m["sello1"]:
-        print(f"  fase 1: {E.minutos(m['inicio'], m['sello1'])} min")
+        print(f"  fase 1: {E.minutos_netos(m['inicio'], m['sello1'], m['pausas'])} min netos")
     if m["ataque"] and m["sello3"]:
-        print(f"  fase 3: {E.minutos(m['ataque'], m['sello3'])} min")
+        print(f"  fase 3: {E.minutos_netos(m['ataque'], m['sello3'], m['pausas'])} min netos")
     print(f"  proveedor: {C.PROVEEDOR}   modelo: {C.MODELO}" + ("  [SIMULACION]" if C.SIMULAR else ""))
 
 
@@ -209,7 +264,7 @@ CICLO = (("1 ciego", "OFF"), ("2 IA", "ON"), ("3 ataque", "OFF"), ("4 cierre", "
 _COLUMNA = {"f1": 0, "f2": 1, "f3": 2, "f4": 3}
 
 
-def _mapa(fase, en_sesion):
+def _mapa(fase, en_sesion, pausada=False):
     """El ciclo dibujado, con corchetes donde estas."""
     if not en_sesion:
         return ["    sin sesion abierta hoy. El motor esta ENCENDIDO: puedes preguntar,",
@@ -219,7 +274,10 @@ def _mapa(fase, en_sesion):
     for i, (nombre, motor) in enumerate(CICLO):
         arriba += (f"[ {nombre} ]" if i == aqui else f"  {nombre}  ").center(16)
         abajo += (motor if i != aqui else f"AQUI, {motor}").center(16)
-    return [arriba.rstrip(), abajo.rstrip()]
+    lineas = [arriba.rstrip(), abajo.rstrip()]
+    if pausada:
+        lineas.append("    (en PAUSA: el reloj de la fase esta parado)")
+    return lineas
 
 
 def _parrafo(cuerpo, etiqueta):
@@ -261,8 +319,15 @@ def _sugerir_sesion(base, porque):
             "detras: 10 min de carga en frio y 25 de intento a ciegas, motor OFF")
 
 
-def _siguiente(fase, en_sesion, hay_diagnostico, base):
+def _siguiente(fase, en_sesion, hay_diagnostico, base, marcas=None):
     """(comando, por que, lo que viene detras) desde donde estas ahora."""
+    if marcas and marcas.get("pausada"):
+        h = E.horas_pausada(marcas)
+        return ("python doc.py reanudar",
+                f"la sesion esta PAUSADA en fase {fase[1]} desde hace {h} h. La fase y el motor no han cambiado."
+                + (f" Lleva mas de {E.PAUSA_AVISO_HORAS} h: reanuda y termina, o cierra con python doc.py cierre."
+                   if h > E.PAUSA_AVISO_HORAS else ""),
+                "detras: lo que tocaba en esa fase")
     if fase == "f1" and not en_sesion:
         return ("(sigue en la ventana del diagnostico)",
                 "el diagnostico esta a medias: se sella solo al terminar los items.",
@@ -306,10 +371,11 @@ AYUDA_CICLO = """
   UNA SESION ENTERA, DE PRINCIPIO A FIN
     python doc.py sesion ETIQUETA   fase 0 y 1, 35 min.  motor OFF
     python doc.py sellar 1          cierra el intento a ciegas -> motor ON
-    python doc.py preguntar         fase 2, 60 min.  /notacion /lema /paso /pegar
+    python doc.py preguntar         fase 2, 60 min.  /notacion /lema /paso /pegar /laguna
     python doc.py ataque            fase 3, 45 min.  motor OFF
     python doc.py sellar 3          cierra el ataque -> motor ON
     python doc.py cierre            fase 4: diff, errores, tarjetas, lagunas
+    python doc.py pausar / reanudar para el reloj sin cambiar de fase (la sesion no caduca)
 
   FUERA DE SESION
     python doc.py lagunas           viernes, 45 min, el lote de huecos
@@ -334,10 +400,10 @@ def cmd_ahora(args):
     print()
     print("  " + cabecera)
     print()
-    for l in _mapa(fase, en_sesion):
+    for l in _mapa(fase, en_sesion, marcas.get("pausada", False)):
         print(l)
 
-    comando, porque, detras = _siguiente(fase, en_sesion, hay_diagnostico, base)
+    comando, porque, detras = _siguiente(fase, en_sesion, hay_diagnostico, base, marcas)
     print("\n  TE TOCA AHORA\n")
     print("    " + comando)
     print("    " + porque)
@@ -571,8 +637,8 @@ def cmd_cierre(args):
     # metricas en el frontmatter, todas calculadas
     f2 = sum(1 for l in M.llamadas()
              if l["ts"].startswith(HOY) and l["comando"] == "preguntar")
-    texto = _pon(texto, "min_f1", E.minutos(m["inicio"], m["sello1"]))
-    texto = _pon(texto, "min_f3", E.minutos(m["ataque"], m["sello3"]))
+    texto = _pon(texto, "min_f1", E.minutos_netos(m["inicio"], m["sello1"], m["pausas"]))
+    texto = _pon(texto, "min_f3", E.minutos_netos(m["ataque"], m["sello3"], m["pausas"]))
     texto = _pon(texto, "coincidencia_estructural", coincidencia)
     texto = _pon(texto, "llamadas_f2", f2)
     texto = _pon(texto, "conjeturas", len(conj))
@@ -580,8 +646,8 @@ def cmd_cierre(args):
 
     E.sellar("cierre ::")
     print(f"\nerrores {len(errs)} | tarjetas {nt} | lagunas {nl} | conjeturas {len(conj)}")
-    print(f"fase 1: {E.minutos(m['inicio'], m['sello1'])} min | "
-          f"fase 3: {E.minutos(m['ataque'], m['sello3'])} min | llamadas f2: {f2}")
+    print(f"fase 1: {E.minutos_netos(m['inicio'], m['sello1'], m['pausas'])} min | "
+          f"fase 3: {E.minutos_netos(m['ataque'], m['sello3'], m['pausas'])} min | llamadas f2: {f2}")
 
 
 # ======================================================================
@@ -982,7 +1048,7 @@ def cmd_metricas(args):
     for ts, msg in E.commits_todos():
         if msg.startswith("inicio sesion"):
             actual = dias.setdefault(ts.date().isoformat(),
-                                     dict(inicio=None, sello1=None, ataque=None, sello3=None))
+                                     dict(inicio=None, sello1=None, ataque=None, sello3=None, pausas=[]))
             actual["inicio"] = actual["inicio"] or ts
             continue
         if actual is None:
@@ -991,6 +1057,10 @@ def cmd_metricas(args):
                             ("sello3", "sellado :: fase 3")):
             if msg.startswith(pref) and actual[clave] is None:
                 actual[clave] = ts
+        if msg.startswith("pausa") and not (actual["pausas"] and actual["pausas"][-1][1] is None):
+            actual["pausas"].append([ts, None])
+        if msg.startswith("reanud") and actual["pausas"] and actual["pausas"][-1][1] is None:
+            actual["pausas"][-1][1] = ts
         if msg.startswith("cierre"):
             actual = None
 
@@ -1003,8 +1073,8 @@ def cmd_metricas(args):
         m = re.search(r"^coincidencia_estructural:\s*(\d)", t, re.M)
         d = dias.get(dia, {})
         filas.append(dict(dia=dia,
-                          f1=E.minutos(d.get("inicio"), d.get("sello1")),
-                          f3=E.minutos(d.get("ataque"), d.get("sello3")),
+                          f1=E.minutos_netos(d.get("inicio"), d.get("sello1"), d.get("pausas", [])),
+                          f3=E.minutos_netos(d.get("ataque"), d.get("sello3"), d.get("pausas", [])),
                           coin=int(m.group(1)) if m else None))
 
     ll = M.llamadas()

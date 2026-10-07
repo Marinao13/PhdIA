@@ -52,6 +52,8 @@ def main():
     s.set_defaults(fn=K.cmd_sellar)
 
     sub.add_parser("ataque", help="empieza la fase 3").set_defaults(fn=K.cmd_ataque)
+    sub.add_parser("pausar", help="para el reloj de la sesion sin cambiar de fase").set_defaults(fn=K.cmd_pausar)
+    sub.add_parser("reanudar", help="sigue la sesion pausada").set_defaults(fn=K.cmd_reanudar)
     sub.add_parser("estado", help="fase actual").set_defaults(fn=K.cmd_estado)
 
     s = sub.add_parser("ahora", help="que te toca ahora mismo")
