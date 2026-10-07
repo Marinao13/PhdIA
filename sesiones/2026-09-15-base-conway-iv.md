@@ -28,9 +28,11 @@ Solo he leido el enunciado. Mi reconstruccion: Dada f una función analítica en
 
 ## Fase 2 - Lectura asistida (60 min, python doc.py preguntar)
 Lagunas de grado/master detectadas (una linea cada una, NO paro a resolverlas):
--
+- Definición de función analítica.
+- Demostración de la expresión integral de la derivada n-ésima de una función analítica.
+- 
 
-Notas:
+Notas: Es interesante entender bien los resultados porque aquí hay un paso al límite que no esperaba.
 
 
 ## Fase 3 - Ataque (45 min, python doc.py ataque -> MOTOR APAGADO)

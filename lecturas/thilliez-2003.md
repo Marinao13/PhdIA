@@ -34,7 +34,7 @@ Lo que dicen ellos, con pagina, no lo que te parece a ti.
 - Roumieu <-> Beurling: que cambia en los cuantificadores?
 
 ## Dudas para los directores
--
+- ¿Qué era un límite inductivo? ¿Es relevante qué lo entienda?
 
 ## Mi explicacion
 Tu reconstruccion del argumento, con tus palabras. Es lo que lee `nota check`.

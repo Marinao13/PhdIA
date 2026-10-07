@@ -40,6 +40,11 @@ con respuestas correctas y sin el mapa. Si te falta el capitulo, lee el capitulo
 - [ ] 2026-09-14 | diagnostico | - | Thilliez 2010: recuerdas el enunciado, pero no la prueba, la técnica ni el paso difícil; además, faltaba comprender parte del vocabulario del texto.
 
 - [ ] 2026-09-15 | ejemplo | f2 | Phragmen-Lindelof en sectores : no recuerdo que hipotesis de crecimiento hace falta ni por que el angulo importa
+- [ ] Denjoy–Carleman: enunciado exacto en las dos convenciones (j! dentro / fuera) y qué serie decide en cada una. Ref: Thilliez 2008 §1; Carleman 1926. Trampa: la (snq) de pesos.py es la versión fuerte de la convergencia, no la condición de Carleman.
+- [ ] Germen de función: definición exacta (coincidencia en algún entorno del punto) y por qué, para holomorfas en dominios conexos, equivale a coincidir en la componente conexa de la intersección. Ref: Thilliez 2008 §1.
+- [ ] E_n(M) es anillo local: reproducir la prueba de la Prop. 1 de Thilliez 2008 (h(0)≠0 ⇒ 1/h en la clase). Trampa: qué papel exacto juega la log-convexidad de M.
+- [ ] Superficie del logaritmo y Laplace: por qué girar la semirrecta obliga a hojas nuevas; definición precisa de sector de apertura > 2π. Ref: Balser 2000 (Laplace/Borel); Sanz 2017 survey.
+- [ ] Thilliez 2010, Obs. 1 (p4): sus métodos no cubren raíces de polinomios de Weierstrass generales. ¿Qué falla exactamente con multiplicidad? El corpus no tiene nada sobre raíces múltiples en clases ultraholomorfas (control (e), 17/09).
 
 ## Resueltas
 
