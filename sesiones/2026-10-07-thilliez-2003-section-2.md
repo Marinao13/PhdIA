@@ -14,14 +14,11 @@ conjeturas:
 Las cinco lineas de metricas de arriba las rellena `doc.py cierre`. No las toques.
 
 ## Fase 0 - Carga en frio (10 min, MOTOR APAGADO)
-Que se ya de esto, que espero encontrar.
+Conozco varias propiedades sobre las sucesiones, que es una sucesion fuertemente regular, como afecta eso a su sucesión de cocientes y a otras relacionadas, que es una clase de Denjoy-Carleman y el marco general de trabajo.
 
 
 ## Fase 1 - Intento a ciegas (25 min, MOTOR APAGADO)
-Solo he leido el enunciado. Mi reconstruccion:
-- hipotesis que creo que entran, y donde:
-- tecnica que espero:
-- donde creo que esta el paso duro:
+He leido los enunciados de la sección 2.1, lemas y pruebas 2.1.1, 2.1.2 y 2.1.3. La parte dura está para mi en probar cotas suficientemente buenas y en saber como se construyen las funciones exteriores en otros contextos. Después, mayormente es manejo de desigualdades y echar las cuentas.
 
 >>> python doc.py sellar 1 <<<
 
