@@ -41,3 +41,4 @@ regularidad fuerte. Conjeturas, una por linea, aunque sean malas:
 ## Fase 4 - Cierre (python doc.py cierre)
 Lo hace el programa: diff de la fase 1 contra el paper, errores tipificados,
 5 tarjetas, lagunas movidas, conjeturas registradas, metricas.
+
