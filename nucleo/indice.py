@@ -446,11 +446,111 @@ def _marca_version(doc):
     return _META_DOC[doc]
 
 
-def imprimir(resultados, ancho=420):
+def imprimir(resultados, ancho=420, columnas=90):
+    import textwrap
     for n, f in enumerate(resultados, 1):
         cab = f"{n}. {cita(f)}  {f.get('tipo') or ''}"
         if "coseno" in f:
             cab += f"   bm25 {f['bm25']}  cos {f['coseno']:.2f}"
         print(cab)
         t = " ".join(f["texto"].split())
-        print("   " + (t[:ancho] + ("..." if len(t) > ancho else "")) + "\n")
+        t = t[:ancho] + ("..." if len(t) > ancho else "")
+        print(textwrap.fill(t, columnas, initial_indent="   ", subsequent_indent="   ") + "\n")
+
+
+# ======================================================================
+# acceso directo para `preguntar`: localizar un pegado, traer un numero o una pagina
+# ======================================================================
+
+def _bolsa(texto):
+    """Palabras de >= 3 letras de un texto (PDF pegado o fragmento tex), sin comandos."""
+    s = unicodedata.normalize("NFKC", texto).lower()
+    s = re.sub(r"\\[a-z]+", " ", s)
+    return [t for t in re.findall(r"[a-z]+", s) if len(t) >= 3]
+
+
+def _despegar(pegada, vocab, maximo=18):
+    """
+    'letnbeastronglyregularsequence' -> ['strongly', 'regular', 'sequence']: segmentacion
+    por programacion dinamica con el vocabulario del documento (palabras de >= 3 letras);
+    las letras que no caen en ninguna palabra se descartan.
+    """
+    n = len(pegada)
+    mejor = [(0, [])] + [None] * n          # (letras cubiertas, palabras) hasta la posicion i
+    for i in range(1, n + 1):
+        cand = (mejor[i - 1][0], mejor[i - 1][1])          # letra suelta: no cubre
+        for l in range(3, min(maximo, i) + 1):
+            w = pegada[i - l:i]
+            if w in vocab and mejor[i - l] is not None:
+                c = (mejor[i - l][0] + l, mejor[i - l][1] + [w])
+                if c[0] > cand[0]:
+                    cand = c
+        mejor[i] = cand
+    return mejor[n][1]
+
+
+def localizar(doc, texto):
+    """
+    Donde esta en el indice un trozo PEGADO del PDF (texto literal, formulas deformadas):
+    dict(fragmentos=[...], cobertura=float) con el fragmento que mas palabras del pegado
+    contiene (y el siguiente si el pegado lo desborda), o None si ninguno cubre bastante.
+    Sin modelo ni API: bolsa de palabras del pegado contra cada fragmento del documento.
+    La cita del fragmento es la del sistema (pagina verificada), no se inventa nada.
+    """
+    # 1. el pegado empieza por "Lemma 2.1.3" / "Theorem 3.4": numero impreso, busqueda exacta
+    m = re.match(r"\s*(lemma|theorem|proposition|corollary|definition|remark|example)\s*(\d+(?:\.\d+)*)",
+                 unicodedata.normalize("NFKC", texto), re.I)
+    if m:
+        exactos = por_numero(doc, m.group(2))
+        if exactos:
+            return dict(fragmentos=[dict(f, localizado=True) for f in exactos[:2]], cobertura=1.0)
+    frags = sorted(_cargar(doc=doc), key=lambda f: f["id"])
+    if not frags:
+        return None
+    conj = [set(_bolsa(f["texto"])) for f in frags]
+    bolsa = _bolsa(texto)
+    vocab = set().union(*conj)
+    pegadas = {w for w in bolsa if len(w) >= 10 and w not in vocab}
+    if pegadas:                                   # copia del PDF con las palabras pegadas
+        bolsa = [w for w in bolsa if w not in pegadas] + [s for w in bolsa if w in pegadas
+                                                           for s in _despegar(w, vocab)]
+    if len(bolsa) < 6:
+        return None
+    umbral = 0.7 if len(bolsa) < 25 else 0.6
+
+    def cobertura(palabras):
+        return sum(w in palabras for w in bolsa) / len(bolsa)
+
+    propios = [cobertura(c) for c in conj]
+    i = max(range(len(frags)), key=lambda j: propios[j])
+    mejor, idx = propios[i], [i]
+    # el pegado puede cruzar dos fragmentos consecutivos (enunciado + demostracion)
+    sig = cobertura(conj[i] | conj[i + 1]) if i + 1 < len(frags) else 0.0
+    ant = cobertura(conj[i - 1] | conj[i]) if i > 0 else 0.0
+    if sig >= mejor + 0.15 and sig >= ant:
+        mejor, idx = sig, [i, i + 1]
+    elif ant >= mejor + 0.15:
+        mejor, idx = ant, [i - 1, i]
+    if mejor < umbral:
+        return None
+    return dict(fragmentos=[dict(frags[j], localizado=True) for j in idx], cobertura=round(mejor, 2))
+
+
+def por_numero(doc, numero):
+    """Fragmentos del documento con ese numero impreso (p. ej. '2.1.3'), de cualquier tipo."""
+    con = _db()
+    filas = con.execute("SELECT id, fuente, doc, pagina, seccion, tipo, label, texto, numero FROM fragmentos "
+                        "WHERE doc = ? AND numero = ? ORDER BY orden", (doc, str(numero))).fetchall()
+    con.close()
+    claves = ("id", "fuente", "doc", "pagina", "seccion", "tipo", "label", "texto", "numero")
+    return [dict(zip(claves, f)) for f in filas]
+
+
+def por_pagina(doc, pagina):
+    """Fragmentos del documento cuya pagina (la del PDF) es esa."""
+    con = _db()
+    filas = con.execute("SELECT id, fuente, doc, pagina, seccion, tipo, label, texto, numero FROM fragmentos "
+                        "WHERE doc = ? AND pagina = ? ORDER BY orden", (doc, int(pagina))).fetchall()
+    con.close()
+    claves = ("id", "fuente", "doc", "pagina", "seccion", "tipo", "label", "texto", "numero")
+    return [dict(zip(claves, f)) for f in filas]

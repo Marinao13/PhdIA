@@ -39,6 +39,14 @@ MAX_TOKENS_CHAT = 1500
 MAX_TOKENS_JSON = 4000
 MAX_TOKENS_DIAGNOSTICO = 6000
 MAX_TOKENS_ASK = 1800
+# Tope de salida por comando (Responses API: INCLUYE los tokens de razonamiento, que se
+# pagan como salida). preguntar desarrolla pasos y con 1500 llegaba cortado (3 veces hasta
+# el 2026-10-13, siempre a 1500 exactos); 4000 tokens de salida son como mucho 0,20 USD.
+MAX_TOKENS_POR_COMANDO = {"preguntar": 4000}
+
+
+def max_tokens_para(comando):
+    return MAX_TOKENS_POR_COMANDO.get(comando, MAX_TOKENS_CHAT)
 
 # Precios en USD por millon de tokens: entrada, entrada cacheada, salida. Los tokens de
 # razonamiento cuentan como salida. Fuente: cuenta de OpenAI de Mariano, tarifa estandar
@@ -57,7 +65,9 @@ PRESUPUESTO_MES = 20.0   # EUR; decision de Mariano, 2026-09-16
 # la API de OpenAI: los tokens de razonamiento se pagan como salida.
 MODELO_BARATO = os.environ.get("DOC_MODELO_BARATO") or ("gpt-5.6-terra" if PROVEEDOR == "openai" else MODELO)
 MODELO_POR_COMANDO = {"referee": MODELO, "preguntar": MODELO}
-ESFUERZO_POR_COMANDO = {"ask": "low", "nota-quiz": "low", "buscar": None, "indexar": None}
+# preguntar en "low": con "medium" el razonamiento se comia el tope de salida y tardaba
+# mas; los pasos mecanicos de fase 2 no lo necesitan (si se resiente, sube a "medium").
+ESFUERZO_POR_COMANDO = {"ask": "low", "nota-quiz": "low", "preguntar": "low", "buscar": None, "indexar": None}
 ESFUERZO_DEFECTO = "medium"
 
 

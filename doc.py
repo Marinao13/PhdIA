@@ -62,6 +62,8 @@ def main():
 
     s = sub.add_parser("preguntar", help="REPL de fase 2")
     s.add_argument("--forzar", action="store_true", help="saltar la puerta (queda registrado)")
+    s.add_argument("--sin-corpus", dest="sin_corpus", action="store_true",
+                   help="no buscar en el indice: el modelo solo ve lo que pegues")
     s.set_defaults(fn=K.cmd_preguntar)
 
     sub.add_parser("cierre", help="fase 4").set_defaults(fn=K.cmd_cierre)
