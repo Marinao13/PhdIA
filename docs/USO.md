@@ -9,8 +9,9 @@ usa motor y vale siempre. Si dudas: `python doc.py ahora`.
 python doc.py sesion thilliez-2003      abre el fichero de hoy (id de bib.yaml; base-* = con libro). Motor OFF
     fase 0 (10 min) que se ya; fase 1 (25 min) enunciado solo, prediccion por escrito
 python doc.py sellar 1                  commit. Motor ON
-python doc.py preguntar                 fase 2 (60 min). REPL: /notacion /lema /paso /laguna; pega varias
-                                        lineas de golpe y quedan como fragmento
+python doc.py preguntar                 fase 2 (60 min). REPL con el paper de la sesion en el corpus:
+                                        /ver 2.1.3, /ver p8, /doc ID, /sigue, /notacion /lema /paso,
+                                        /laguna; pega varias lineas y se localizan en el indice
 python doc.py ataque                    commit. Motor OFF
     fase 3 (45 min): ejercicios (base) / extension, contraejemplo, Beurling (paper)
 python doc.py sellar 3                  commit. Motor ON
@@ -28,6 +29,29 @@ Fase base saltada (2026-09-22): las sesiones son de papers, en el orden de `corp
 sesion (la recoge `cierre`), y se estudia aparte: viernes `python doc.py lagunas`; si reaparece
 tres veces, `[ESTRUCTURAL]` y una sesion de libro `python doc.py sesion base-ETIQUETA` con la
 semana de `corpus/base.md` que la cubra.
+
+## preguntar: como lee el paper contigo (desde 2026-10-13)
+
+`preguntar` sabe que paper estas leyendo: el id de `bib.yaml` que es prefijo de la etiqueta
+de la sesion (`thilliez-2003-section-2` -> `thilliez-2003`; `/doc ID` lo cambia,
+`--sin-corpus` lo apaga). En cada pregunta manda al modelo los fragmentos del indice mas
+afines (hasta ~2500 tokens, solo de ese paper, con su cita `[id:pNN, Lema 2.1.1 | texto:
+arXiv v1]`) y las definiciones a las que remiten por `\ref`. No hace falta pegar: `/ver
+2.1.3` trae el enunciado con ese numero impreso y `/ver p8` la pagina 8, con texto limpio
+de la capa tex. Pegar sigue valiendo para fijar EXACTAMENTE el paso que miras (version de
+revista, formulas): el pegado se localiza en el indice (palabras pegadas del PDF incluidas)
+y la respuesta lo cita por pagina; si no se localiza, lo dice y lo envia tal cual.
+
+La respuesta sale en texto plano para consola (`nucleo/consola.py`): formulas en `$...$` con
+simbolos (≤ ∞ ℝ ∫), bloques sangrados, sin `##` ni `**`, lineas de 90 columnas. La cruda
+queda en `registro/consultas/`. Cada afirmacion lleva su origen: cita del corpus, rotulo del
+fragmento pegado, o `[!]` con el NOMBRE del resultado estandar (nunca un DOI, ano o titulo
+de memoria); lo que no esta en ninguna parte va en una linea `FALTA:`; al final, `USADOS:`.
+Debajo se imprimen las citas consultadas y `[segundos | entrada (cache) | salida
+(razonamiento) | tope]`. Tope de salida de `preguntar`: 4000 tokens (incluye el razonamiento;
+esfuerzo `low`, en `nucleo/config.py`). Si aun asi se corta, lo avisa y `/sigue` continua donde
+se quedo. El historial se reenvia entero, pero los fragmentos del corpus de turnos pasados no:
+cuando la entrada crezca (lo ves en la linea de tokens), `/nuevo`.
 
 ## Corpus: PDFs con citas por pagina
 

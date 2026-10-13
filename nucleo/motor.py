@@ -1,13 +1,14 @@
 """
 El unico camino hacia la IA. Todo pasa por llamar(), que:
   1. comprueba la fase y se niega si el motor debe estar apagado,
-  2. registra cada llamada en registro/llamadas.jsonl con hora y tokens,
-  3. devuelve el texto.
+  2. registra cada llamada en registro/llamadas.jsonl con hora, tokens, segundos y
+     si la respuesta llego cortada por el tope de salida,
+  3. devuelve el texto. Los detalles de la ultima llamada quedan en ULTIMA.
 
 Con DOC_SIMULAR=1 no toca la red: devuelve respuestas fijas para probar el
 flujo sin gastar.
 """
-import json, datetime, re, sys
+import json, datetime, re, sys, time, contextlib
 from . import config as C
 from . import estado as E
 
@@ -27,7 +28,23 @@ class MotorApagado(Exception):
 # salida
 # ----------------------------------------------------------------------
 
-def imprimir(texto, md=True):
+def imprimir(texto, md=True, consola=False, ancho=90):
+    """
+    consola=True: texto plano legible (nucleo/consola.py): \\( \\) y \\[ \\] convertidos,
+    sin ## ni **, parrafos envueltos a `ancho`. Es lo que usa `preguntar`.
+    md=True (defecto): markdown por rich; no entiende LaTeX.
+    """
+    if consola:
+        from .consola import latex_a_consola
+        unicode = bool(getattr(sys.stdout, "isatty", lambda: False)())
+        if _con:
+            ancho = min(ancho, _con.width or ancho)
+        t = latex_a_consola(texto, ancho=ancho, unicode=unicode)
+        if _con:
+            _con.print(t, markup=False, highlight=False, soft_wrap=True)
+        else:
+            print(t)
+        return
     if _con and md:
         _con.print(Markdown(texto))
     else:
@@ -36,9 +53,20 @@ def imprimir(texto, md=True):
 
 def aviso(texto):
     if _con:
-        _con.print(f"[bold yellow]{texto}[/bold yellow]")
+        _con.print(texto, style="bold yellow", markup=False, highlight=False)
     else:
         print(texto)
+
+
+@contextlib.contextmanager
+def esperando(texto):
+    """Indicador de espera mientras dura una llamada (rich status); sin rich, una linea."""
+    if _con and getattr(sys.stdout, "isatty", lambda: False)():
+        with _con.status(texto, spinner="dots"):
+            yield
+    else:
+        print(texto)
+        yield
 
 
 # ----------------------------------------------------------------------
@@ -47,11 +75,15 @@ def aviso(texto):
 
 _cliente = None
 
+# detalles de la ultima llamada (tokens, segundos, cortada...), para quien los quiera mostrar
+ULTIMA = {}
+
 
 def _completar(system, messages, max_tokens, modelo=None, esfuerzo=None):
-    """Llamada cruda. Devuelve (texto, tokens_in, tokens_out)."""
+    """Llamada cruda. Devuelve (texto, tokens_in, tokens_out, tokens_cache, extra);
+    extra = dict(cortada=bool, razonamiento=int)."""
     if C.SIMULAR:
-        return _simulado(system, messages), 0, 0, 0
+        return _simulado(system, messages), 0, 0, 0, dict(cortada=False, razonamiento=0)
     modelo = modelo or C.MODELO
     if C.PROVEEDOR == "openai":
         return _completar_openai(system, messages, max_tokens, modelo, esfuerzo)
@@ -70,7 +102,8 @@ def _completar_anthropic(system, messages, max_tokens, modelo):
                                  system=system, messages=messages)
     texto = "".join(b.text for b in r.content if getattr(b, "type", "") == "text")
     cache = getattr(r.usage, "cache_read_input_tokens", 0) or 0
-    return texto, r.usage.input_tokens, r.usage.output_tokens, cache
+    extra = dict(cortada=getattr(r, "stop_reason", "") == "max_tokens", razonamiento=0)
+    return texto, r.usage.input_tokens, r.usage.output_tokens, cache, extra
 
 
 def _completar_openai(system, messages, max_tokens, modelo, esfuerzo):
@@ -82,6 +115,8 @@ def _completar_openai(system, messages, max_tokens, modelo, esfuerzo):
             sys.exit("falta el paquete openai:  python -m pip install openai")
         _cliente = OpenAI()             # lee OPENAI_API_KEY del entorno o del .env
     # Responses API: el system prompt va en instructions, el historial en input.
+    # max_output_tokens INCLUYE los tokens de razonamiento: con esfuerzo alto, parte del
+    # tope se gasta antes del primer caracter visible.
     kw = dict(model=modelo, instructions=system, input=messages, max_output_tokens=max_tokens)
     if esfuerzo:
         kw["reasoning"] = {"effort": esfuerzo}
@@ -96,10 +131,16 @@ def _completar_openai(system, messages, max_tokens, modelo, esfuerzo):
     u = getattr(r, "usage", None)
     det = getattr(u, "input_tokens_details", None)
     cache = getattr(det, "cached_tokens", 0) or 0
+    det_out = getattr(u, "output_tokens_details", None)
+    razonamiento = getattr(det_out, "reasoning_tokens", 0) or 0
+    inc = getattr(r, "incomplete_details", None)
+    cortada = (getattr(r, "status", "") == "incomplete"
+               and getattr(inc, "reason", "") == "max_output_tokens")
     return (r.output_text,
             getattr(u, "input_tokens", 0) or 0,
             getattr(u, "output_tokens", 0) or 0,
-            cache)
+            cache,
+            dict(cortada=bool(cortada), razonamiento=int(razonamiento)))
 
 
 def contexto_vivo():
@@ -122,23 +163,38 @@ def contexto_vivo():
     return bloque
 
 
-def llamar(comando, system, messages, max_tokens=C.MAX_TOKENS_CHAT, forzar=False):
-    """Puerta + log + llamada. El contexto vivo se anade al system en toda llamada."""
+def llamar(comando, system, messages, max_tokens=None, forzar=False):
+    """
+    Puerta + log + llamada. El contexto vivo se anade al system en toda llamada.
+    max_tokens: tope de salida (razonamiento incluido); por defecto el del comando en config.
+    Deja en ULTIMA los detalles (tokens, segundos, cortada) de esta llamada.
+    """
     fase, _ = E.fase_actual()
     if fase not in E.MOTOR_PERMITIDO and not forzar:
         raise MotorApagado(E.EXPLICACION.get(fase, "motor apagado"))
 
     modelo, esfuerzo = C.modelo_para(comando), C.esfuerzo_para(comando)
-    texto, tin, tout, cache = _completar(system + contexto_vivo(), messages, max_tokens,
-                                         modelo, esfuerzo)
+    max_tokens = max_tokens or C.max_tokens_para(comando)
+    t0 = time.perf_counter()
+    texto, tin, tout, cache, extra = _completar(system + contexto_vivo(), messages, max_tokens,
+                                                modelo, esfuerzo)
+    segundos = round(time.perf_counter() - t0, 1)
 
+    ULTIMA.clear()
+    ULTIMA.update(comando=comando, modelo=modelo, esfuerzo=esfuerzo, max_tokens=max_tokens,
+                  tokens_in=tin, tokens_out=tout, tokens_cache=cache, segundos=segundos,
+                  tokens_razonamiento=extra.get("razonamiento", 0), cortada=extra.get("cortada", False))
     C.anadir(C.F_LLAMADAS, json.dumps({
         "ts": datetime.datetime.now().isoformat(timespec="seconds"),
         "comando": comando, "fase": fase, "proveedor": C.PROVEEDOR, "modelo": modelo,
         "tokens_in": tin, "tokens_out": tout, "tokens_cache": cache, "esfuerzo": esfuerzo,
+        "tokens_razonamiento": ULTIMA["tokens_razonamiento"], "max_tokens": max_tokens,
+        "segundos": segundos, "cortada": ULTIMA["cortada"],
         "forzado": bool(forzar and fase not in E.MOTOR_PERMITIDO),
         "simulado": C.SIMULAR,
     }, ensure_ascii=False) + "\n")
+    if ULTIMA["cortada"] and comando != "preguntar":          # preguntar lo avisa a su manera
+        aviso(f"RESPUESTA CORTADA por el tope de salida ({max_tokens} tokens, razonamiento incluido)")
     return texto
 
 

@@ -40,8 +40,8 @@ Sin `CLAUDE.md`, sin `tests/`, sin notebooks, sin `requirements.txt`.
 ## 4. Indice y consulta
 
 - Embeddings, almacen, BM25: **no hay.** Ninguna libreria de indexacion instalada (`chromadb`, `lancedb`, `sqlite_vec`, `rank_bm25`, `sentence_transformers`: ausentes).
-- Consulta actual: `doc.py preguntar`, REPL sin recuperacion. El modelo solo ve lo que se le pega (`/pegar` o pegado de varias lineas) mas el contexto vivo.
-- Citas: la regla 1 del prompt le prohibe afirmar nada del campo sin fragmento pegado y le obliga a marcar `[SIN VERIFICAR]`. No hay citas `[id:pagina]` porque no hay corpus. Para textos clasicos (sesiones `base-*`) rige la regla 2 y no exige fragmento.
+- Consulta actual: `doc.py preguntar`, REPL con recuperacion del corpus (desde 2026-10-13): el paper de la sesion por el id de bib.yaml, fragmentos con cita por pagina en cada turno, `/ver`, `/doc`, `/sigue`; el pegado se localiza en el indice. Salida en texto plano para consola.
+- Citas: regla FUENTES de `FASE2`: cita `[id:pagina]` del corpus detras de cada afirmacion, rotulo del fragmento pegado, o `[!]` con el nombre del resultado estandar; `FALTA:` para lo que no esta; `USADOS:` al final. Para textos clasicos (sesiones `base-*`) rige la regla 2 y no exige fragmento.
 - Ejemplo real: **no reproducible.** Las conversaciones de fase 2 no se guardan; `llamadas.jsonl` registra solo hora, comando, fase, modelo y tokens. Es un hueco frente al principio 4 del BRIEF (registro).
 
 ## 5. Notas de lectura
@@ -62,7 +62,7 @@ Sin `CLAUDE.md`, sin `tests/`, sin notebooks, sin `requirements.txt`.
 
 Todos en `nucleo/prompts.py`, en espanol sin acentos, con un `BASE` comun (quien es, tema, 4 reglas: no sabes del campo / clasico si / las matematicas las escribe el / brevedad) y modos:
 
-- `FASE2` + `P_NOTACION` / `P_LEMA` / `P_PASO`: tres usos permitidos, `[!]` en todo lo que no este en el fragmento. `NOTA_BASE` se anade en sesiones de libro.
+- `FASE2` + `P_NOTACION` / `P_LEMA` / `P_PASO`: tres usos permitidos; bloques FUENTES (cita del corpus / rotulo del pegado / `[!]` + nombre del resultado; `FALTA:`; `USADOS:`) y FORMATO (texto plano, `$...$`, 40 lineas, `SIGUE:`). `NOTA_BASE` se anade en sesiones de libro.
 - `CIERRE`: devuelve JSON con diff estructural, coincidencia 0-3, errores tipificados, 5 tarjetas, lagunas y conjeturas. Compara estructuras, no valida matematicas.
 - `LAGUNA`: enunciado minimo, referencia, intuicion, trampa, 2 tarjetas, ejercicio sin solucion.
 - `DIAGNOSTICO`: resumen, 15-25 tarjetas, lagunas, orden del corpus, pre-read de una pagina.
