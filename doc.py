@@ -127,9 +127,11 @@ def main():
     s.add_argument("--forzar", action="store_true", help="saltar la puerta (queda registrado)")
     s.set_defaults(fn=K.cmd_ask)
 
-    s = sub.add_parser("nota", help="nota de lectura por paper: new | quiz | check")
-    s.add_argument("accion", choices=["new", "quiz", "check"])
+    s = sub.add_parser("nota", help="nota de lectura por paper: new | add | quiz | check")
+    s.add_argument("accion", choices=["new", "add", "quiz", "check"])
     s.add_argument("id", help="id de bib.yaml, p. ej. thilliez-2003")
+    s.add_argument("titulo", nargs="?", help='add: titulo del bloque, p. ej. "R2 — Teorema 2.3"')
+    s.add_argument("--resultado", help="quiz/check: solo ese bloque, p. ej. R2")
     s.add_argument("-k", type=int, default=12, help="fragmentos del paper que ve el modelo")
     s.set_defaults(fn=K.cmd_nota)
 

@@ -194,7 +194,9 @@ condicion sobre M, que paso de la prueba es el duro, que pasaria sin tal lema.
 
 Reglas: SIN respuestas, ni pistas. Cada pregunta termina con la cita del fragmento al
 que se refiere. Nada que no este en los fragmentos: si un fragmento no da para
-pregunta, no la inventes. Preguntas concretas, no "explica el teorema".
+pregunta, no la inventes. Preguntas concretas, no "explica el teorema". Si el mensaje
+empieza por "RESULTADO:", todas las preguntas van sobre ese resultado (su enunciado, sus
+hipotesis, su prueba y lo que lo sostiene), no sobre el resto del paper.
 
 Devuelve SOLO la lista numerada, una pregunta por linea. Formulas entre $...$.
 """
@@ -204,6 +206,8 @@ MODO_CHECK. El ha escrito SU explicacion del argumento de un paper. Tu trabajo e
 encontrar agujeros, no completarla.
 
 Te paso: (1) su explicacion, (2) fragmentos del paper con cita [id:pNN, ...]. Compara.
+Si el mensaje empieza por "RESULTADO:", la explicacion es de ESE resultado concreto: juzga
+solo contra el y contra lo que su prueba usa, no contra el resto del paper.
 
 Devuelve una lista numerada de objeciones. Cada una: que dice el, que dice el texto
 (con cita), y de que tipo es el fallo con esta taxonomia: Q cuantificador

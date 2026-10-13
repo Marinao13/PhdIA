@@ -88,10 +88,19 @@ papers en ingles. `corpus/raw/` y `corpus/text/` son datos locales (fuera de git
 ## Leer un paper con protocolo
 
 ```
-python doc.py nota new ID               lecturas/ID.md desde plantilla. La escribes tu
-python doc.py nota quiz ID              8-12 preguntas de examen con cita, sin respuestas
-python doc.py nota check ID             agujeros en tu "## Mi explicacion", citando el texto
+python doc.py nota new ID               lecturas/ID.md desde plantilla, con el Mapa vacio. La escribes tu
+python doc.py nota add ID "R2 — Teorema 2.3"   anade el bloque del resultado (siete campos) y su linea en el Mapa
+python doc.py nota quiz ID --resultado R2      8-12 preguntas de examen sobre ese resultado, con cita
+python doc.py nota check ID --resultado R2     agujeros en la "### Mi explicacion" de ese bloque
 ```
+
+`lecturas/ID.md` tiene un bloque `## Rn — titulo` por resultado, con los siete campos de
+`lecturas/PLANTILLA-resultado.md` (Enunciado, Hipotesis y por que, Lema clave, Que se rompe
+sin el, Idea de la prueba, Donde se usa, Mi explicacion; edita esa plantilla si quieres otros),
+y una sola vez las secciones de paper: Mapa, Sintesis, Transferencia, Abierto, Dudas,
+Dependencias. `quiz` y `check` con `--resultado` traen primero el fragmento del numero impreso
+del titulo ("Teorema 2.3" -> el teorema 2.3 del indice) y luego los afines. Sin `--resultado`,
+`check` elige el unico bloque con explicacion escrita; `quiz` interroga sobre todo el paper.
 
 ## Verificar lo que escribes
 
