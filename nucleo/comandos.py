@@ -1633,30 +1633,144 @@ def _fragmentos_doc(id_, consulta, k):
     return frags
 
 
-def _nota_quiz(id_, k):
+# --- bloques por resultado: '## R2 — Teorema 2.3' con los siete campos como '### ...' ---
+
+RE_BLOQUE = re.compile(r"^## (R\d+)\s*[—–-]+\s*(.+?)\s*$", re.M)
+SECCIONES_PAPER = ("## Sintesis", "## Transferencia", "## Abierto", "## Dudas", "## Dependencias")
+
+
+def _bloques_nota(texto):
+    """[(id 'R2', titulo, cuerpo)] de los bloques '## Rn — titulo' de una nota, en orden."""
+    out = []
+    for m in RE_BLOQUE.finditer(texto):
+        fin = re.search(r"^## ", texto[m.end():], re.M)
+        cuerpo = texto[m.end():m.end() + fin.start()] if fin else texto[m.end():]
+        out.append((m.group(1).upper(), m.group(2).strip(), cuerpo.strip()))
+    return out
+
+
+def _bloque_nota(texto, resultado):
+    for rid, titulo, cuerpo in _bloques_nota(texto):
+        if rid == resultado.strip().upper():
+            return rid, titulo, cuerpo
+    return None
+
+
+def _subseccion_md(cuerpo, titulo):
+    """Contenido bajo '### titulo' hasta la siguiente '### ' (dentro de un bloque)."""
+    m = re.search(rf"^### {re.escape(titulo)}\s*$(.*?)(?=^### |\Z)", cuerpo, re.M | re.S)
+    return m.group(1).strip() if m else ""
+
+
+def _numero_impreso(titulo):
+    """'Teorema 2.3' / 'Lemma 2.1.1 (division)' -> '2.3' / '2.1.1'; None si no hay numero."""
+    m = re.search(r"\b(\d+(?:\.\d+)+)\b", titulo)
+    return m.group(1) if m else None
+
+
+def _explicacion_valida(expl):
+    return len(expl) >= 200 and not expl.startswith("Tu reconstruccion")
+
+
+def _nota_add(id_, titulo):
+    """
+    Anade a lecturas/ID.md un bloque '## Rn — titulo' con los campos de PLANTILLA-resultado.md,
+    antes de las secciones de paper, y su linea en ## Mapa. Sin 'Rn' en el titulo, numera el
+    siguiente libre.
+    """
+    ruta = _ruta_nota(id_)
+    if not os.path.exists(ruta):
+        print(f"no hay nota. Primero:  python doc.py nota new {id_}")
+        return
+    if not titulo or not titulo.strip():
+        print('uso:  python doc.py nota add ID "R2 — Teorema 2.3"')
+        return
+    texto = C.leer(ruta)
+    bloques = _bloques_nota(texto)
+    m = re.match(r"\s*(R\d+)\s*[—–-]*\s*(.*)$", titulo.strip(), re.S)
+    if m:
+        rid, resto = m.group(1).upper(), m.group(2).strip()
+    else:
+        rid, resto = f"R{len(bloques) + 1}", titulo.strip()
+    if any(b[0] == rid for b in bloques):
+        print(f"{rid} ya existe en la nota; el siguiente libre es R{len(bloques) + 1}")
+        return
+    if not resto:
+        print('falta el titulo del resultado: p. ej. "R2 — Teorema 2.3"')
+        return
+    plantilla = C.leer(os.path.join(C.DIR_LECTURAS, "PLANTILLA-resultado.md"))
+    if not plantilla.strip():
+        plantilla = "## RN — TITULO\n\n### Enunciado\n\n### Mi explicacion\n"
+    bloque = plantilla.replace("RN", rid).replace("ID", id_).replace("TITULO", resto).strip() + "\n"
+    pos = None
+    for sec in SECCIONES_PAPER:                  # el bloque va antes de la primera seccion de paper
+        i = texto.find("\n" + sec)
+        if i >= 0:
+            pos = i + 1
+            break
+    if pos is None:
+        texto = texto.rstrip("\n") + "\n\n" + bloque
+    else:
+        texto = texto[:pos] + bloque + "\n" + texto[pos:]
+    mapa = re.search(r"^## Mapa\s*$", texto, re.M)
+    if mapa:                                       # y una linea en el Mapa
+        fin = re.search(r"^## ", texto[mapa.end():], re.M)
+        corte = mapa.end() + fin.start() if fin else len(texto)
+        cuerpo = texto[mapa.end():corte].rstrip("\n")
+        texto = texto[:mapa.end()] + cuerpo + f"\n- {rid} — {resto}\n\n" + texto[corte:].lstrip("\n")
+    C.escribir(ruta, texto)
+    print(f"anadido {rid} — {resto} en {os.path.relpath(ruta, C.RAIZ)}")
+    _abrir(ruta)
+
+
+def _frags_resultado(id_, rid, titulo, consulta, k):
+    """Fragmentos para un bloque: primero el del numero impreso del titulo, luego los afines."""
+    from . import indice as I
+    num = _numero_impreso(titulo)
+    exactos = I.por_numero(id_, num) if num else []
+    if num and not exactos:
+        print(f"  (el numero {num} del titulo de {rid} no esta resuelto en el indice; se busca por texto)")
+    frags = _fusionar(exactos, _fragmentos_doc(id_, consulta, k))
+    return _fusionar(frags, I.seguir_refs(frags, maximo=3))
+
+
+def _nota_quiz(id_, k, resultado=None):
     from . import indice as I
     fase, _ = E.fase_actual()
     if fase not in E.MOTOR_PERMITIDO:
         M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
         return
-    frags = _fragmentos_doc(id_, "main theorem hypotheses definitions lemma proof conditions on M", k)
+    foco, sufijo = "", ""
+    if resultado:
+        b = _bloque_nota(C.leer(_ruta_nota(id_)), resultado)
+        if not b:
+            print(f"no hay bloque {resultado} en lecturas/{id_}.md:  python doc.py nota add {id_} \"{resultado} — ...\"")
+            return
+        rid, titulo, cuerpo = b
+        enunciado = _subseccion_md(cuerpo, "Enunciado")
+        consulta = titulo + (" " + enunciado[:600] if enunciado and not enunciado.startswith("En tu notacion") else "")
+        frags = _frags_resultado(id_, rid, titulo, consulta, k)
+        foco, sufijo = f"RESULTADO: {rid} — {titulo}\n\n", f"-{rid}"
+    else:
+        frags = _fragmentos_doc(id_, "main theorem hypotheses definitions lemma proof conditions on M", k)
     if not frags:
         return
-    bloque = "\n\n".join(f"{I.cita(f)}\n{f['texto']}" for f in frags)
+    bloque = foco + "\n\n".join(f"{I.cita(f)}\n{f['texto']}" for f in frags)
     try:
         r = M.llamar("nota-quiz", P.NOTA_QUIZ, [{"role": "user", "content": bloque}],
                      max_tokens=C.MAX_TOKENS_JSON)
     except M.MotorApagado as e:
         M.aviso(str(e))
         return
-    ruta = os.path.join(C.DIR_LECTURAS, f"{id_}-quiz-{HOY}.md")
-    C.escribir(ruta, f"# Quiz {id_} ({HOY})\n\nSin respuestas. Contesta por escrito antes de abrir el paper.\n\n{r}\n")
+    ruta = os.path.join(C.DIR_LECTURAS, f"{id_}-quiz{sufijo}-{HOY}.md")
+    C.escribir(ruta, f"# Quiz {id_}{' ' + sufijo[1:] if sufijo else ''} ({HOY})\n\n"
+                     "Sin respuestas. Contesta por escrito antes de abrir el paper.\n\n" + r + "\n")
     print()
-    M.imprimir(r)
+    M.imprimir(r, consola=True)
     print(f"\n-> {os.path.relpath(ruta, C.RAIZ)}")
 
 
-def _nota_check(id_, k):
+def _nota_check(id_, k, resultado=None):
     from . import indice as I
     fase, _ = E.fase_actual()
     if fase not in E.MOTOR_PERMITIDO:
@@ -1666,27 +1780,60 @@ def _nota_check(id_, k):
     if not os.path.exists(ruta):
         print(f"no hay nota. Primero:  python doc.py nota new {id_}")
         return
-    expl = _seccion_md(C.leer(ruta), "Mi explicacion")
-    if len(expl) < 200 or expl.startswith("Tu reconstruccion"):
-        print("la seccion '## Mi explicacion' de la nota esta vacia o es la plantilla. Escribela primero.")
-        return
-    frags = _fragmentos_doc(id_, expl[:2000], k)
+    texto = C.leer(ruta)
+    bloques = _bloques_nota(texto)
+    rid, titulo = None, None
+    if resultado:
+        b = _bloque_nota(texto, resultado)
+        if not b:
+            print(f"no hay bloque {resultado} en lecturas/{id_}.md:  python doc.py nota add {id_} \"{resultado} — ...\"")
+            return
+        rid, titulo, cuerpo = b
+        expl = _subseccion_md(cuerpo, "Mi explicacion")
+        if not _explicacion_valida(expl):
+            print(f"la '### Mi explicacion' de {rid} esta vacia o es la plantilla. Escribela primero.")
+            return
+    elif bloques:
+        con = [(r_, t_, _subseccion_md(c_, "Mi explicacion")) for r_, t_, c_ in bloques]
+        con = [x for x in con if _explicacion_valida(x[2])]
+        if len(con) == 1:
+            rid, titulo, expl = con[0]
+        elif not con:
+            print("ningun bloque tiene '### Mi explicacion' escrita. Escribela y lanza:  "
+                  f"python doc.py nota check {id_} --resultado R1")
+            return
+        else:
+            print("varios bloques con explicacion; di cual:  --resultado " + " | ".join(x[0] for x in con))
+            return
+    else:                                           # nota sin bloques (formato antiguo)
+        expl = _seccion_md(texto, "Mi explicacion")
+        if not _explicacion_valida(expl):
+            print("la nota no tiene bloques ni '## Mi explicacion' escrita. Anade un resultado:  "
+                  f"python doc.py nota add {id_} \"R1 — Teorema ...\"")
+            return
+    if rid:
+        frags = _frags_resultado(id_, rid, titulo, expl[:2000], k)
+    else:
+        frags = _fragmentos_doc(id_, expl[:2000], k)
     if not frags:
         return
     bloque = "\n\n".join(f"{I.cita(f)}\n{f['texto']}" for f in frags)
-    contenido = f"SU EXPLICACION:\n{expl}\n\nFRAGMENTOS DEL PAPER:\n\n{bloque}"
+    contenido = ((f"RESULTADO: {rid} — {titulo}\n\n" if rid else "")
+                 + f"SU EXPLICACION:\n{expl}\n\nFRAGMENTOS DEL PAPER:\n\n{bloque}")
     try:
         r = M.llamar("nota-check", P.NOTA_CHECK, [{"role": "user", "content": contenido}],
                      max_tokens=C.MAX_TOKENS_JSON)
     except M.MotorApagado as e:
         M.aviso(str(e))
         return
-    salida = os.path.join(C.DIR_LECTURAS, f"{id_}-check-{HOY}.md")
-    C.escribir(salida, f"# Check {id_} ({HOY})\n\n{r}\n")
+    sufijo = f"-{rid}" if rid else ""
+    salida = os.path.join(C.DIR_LECTURAS, f"{id_}-check{sufijo}-{HOY}.md")
+    C.escribir(salida, f"# Check {id_}{' ' + rid if rid else ''} ({HOY})\n\n{r}\n")
     print()
-    M.imprimir(r)
+    M.imprimir(r, consola=True)
     n_obj = len(re.findall(r"^\s*\d+[.)]", r, re.M))
-    _verificacion(f"explicacion propia de {id_} (lecturas/{id_}.md)", "check contra el texto",
+    que = f"{id_} {rid} ({titulo})" if rid else id_
+    _verificacion(f"explicacion propia de {que} (lecturas/{id_}.md)", "check contra el texto",
                   f"{n_obj} objeciones -> lecturas/{os.path.basename(salida)}")
     print(f"\n-> {os.path.relpath(salida, C.RAIZ)}  |  fila en registro/verificaciones.md")
 
@@ -1702,12 +1849,15 @@ def _verificacion(afirmacion, metodo, resultado):
 
 
 def cmd_nota(args):
+    resultado = getattr(args, "resultado", None)
     if args.accion == "new":
         _nota_new(args.id)
+    elif args.accion == "add":
+        _nota_add(args.id, getattr(args, "titulo", None))
     elif args.accion == "quiz":
-        _nota_quiz(args.id, args.k)
+        _nota_quiz(args.id, args.k, resultado)
     elif args.accion == "check":
-        _nota_check(args.id, args.k)
+        _nota_check(args.id, args.k, resultado)
 
 
 # ======================================================================

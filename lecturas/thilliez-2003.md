@@ -9,32 +9,29 @@ estado_bib: verificado
 
 # Nota de lectura: thilliez-2003
 
-La redaccion es tuya. El sistema no rellena nada de aqui: `nota quiz` te
-interroga y `nota check` busca agujeros en lo que TU escribas en la ultima
-seccion. Cita siempre con pagina: [thilliez-2003:pNN].
+La redaccion es tuya. El sistema no rellena nada de aqui. Un bloque `## R<n>` por
+resultado (`python doc.py nota add thilliez-2003 "R2 — Teorema 2.3"`), con los siete campos de
+`lecturas/PLANTILLA-resultado.md`; `nota quiz thilliez-2003 --resultado R2` te interroga sobre ese
+resultado y `nota check thilliez-2003 --resultado R2` busca agujeros en su `### Mi explicacion`.
+Las secciones de paper van una sola vez, al final. Cita siempre con pagina: [thilliez-2003:pNN].
 
-## Enunciado principal
-El resultado central, en tu notacion, con las hipotesis completas.
+## Mapa
+<!-- un resultado por linea, en el orden del paper: "- R1 — Teorema 2.3 (p7): que da" -->
 
-## Hipotesis, y por que cada una
-Una linea por hipotesis: donde se usa, que falla si se quita.
+## Sintesis
+Que hace el paper en tres frases y cual es el resultado que importa para la tesis.
 
-## Lema clave
-El paso que sostiene la prueba. Enunciado y donde esta.
-
-## Que se rompe sin el
-Contraejemplo o razon concreta.
-
-## Que dejan abierto los autores
-Lo que dicen ellos, con pagina, no lo que te parece a ti.
-
-## Pregunta de transferencia
+## Transferencia
 - Analogo en clases ultradiferenciables?
 - Pasa a sectores / polisectores?
 - Roumieu <-> Beurling: que cambia en los cuantificadores?
 
-## Dudas para los directores
+## Abierto
+Lo que dejan abierto los autores, con pagina: lo que dicen ellos, no lo que te parece a ti.
+
+## Dudas
+Para los directores. Una por linea.
 - ¿Qué era un límite inductivo? ¿Es relevante qué lo entienda?
 
-## Mi explicacion
-Tu reconstruccion del argumento, con tus palabras. Es lo que lee `nota check`.
+## Dependencias
+Que usa este paper de otros del corpus (con id) y que papers del corpus lo usan.

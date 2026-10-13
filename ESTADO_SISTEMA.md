@@ -48,7 +48,7 @@ Sin `CLAUDE.md`, sin `tests/`, sin notebooks, sin `requirements.txt`.
 
 - Formato: un `.md` por sesion con frontmatter de metricas (`min_f1`, `min_f3`, `coincidencia_estructural`, `llamadas_f2`, `conjeturas`) que rellena `cierre`, y secciones Fase 0-4. Dos plantillas: paper y libro (base).
 - Cuantas: 1 diagnostico sellado y calibrado (media 0,29/3); 1 sesion real (`base-conway-iv`, en fase 2). Un pre-read para directores, borrador.
-- Indexadas: no. No existe la nota por paper del BRIEF (4.3); la unidad actual es el dia, no el paper.
+- Nota por paper (BRIEF 4.3): `lecturas/ID.md` con un bloque `## Rn — titulo` por resultado (siete campos de `PLANTILLA-resultado.md`) y las secciones de paper una vez (Mapa, Sintesis, Transferencia, Abierto, Dudas, Dependencias); `nota new | add | quiz --resultado | check --resultado`. Indexadas como fuente `nota`.
 
 ## 6. Computo
 
