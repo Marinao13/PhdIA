@@ -187,6 +187,10 @@ def cmd_reanudar(args):
 
 def cmd_ataque(args):
     fase, _ = E.fase_actual()
+    if fase == "f3":                                  # ya en ataque: solo recordar la guia
+        modo, guia = _modo_ataque(getattr(args, "modo", None))
+        print(f"ya estas en fase 3, ataque de {modo}:\n" + guia + "\nAl terminar:  python doc.py sellar 3")
+        return
     if fase != "f2":
         print(f"el ataque empieza desde la fase 2 (fase actual: {fase})")
         return
@@ -196,10 +200,42 @@ def cmd_ataque(args):
         E.git("commit", "-q", "--allow-empty", "-m",
               f"ataque :: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}")
         ok = True
-    que = ("EJERCICIOS del capitulo, libro abierto" if _es_base()
-           else "extension, contraejemplo, caso Beurling")
-    M.aviso(f"MOTOR APAGADO. Fase 3, 45 min: {que}.\n"
-            "Al terminar:  python doc.py sellar 3")
+    modo, guia = _modo_ataque(getattr(args, "modo", None))
+    M.aviso(f"MOTOR APAGADO. Fase 3, 45 min, ataque de {modo}.\n" + guia + "\nAl terminar:  python doc.py sellar 3")
+
+
+ATAQUE_COMPRENSION = """Elige uno o dos, con el PDF cerrado; cada uno deja algo escrito en la sesion:
+  - reconstruir una prueba de la seccion desde el enunciado; donde te atasques, apunta el hueco y sigue
+  - probar el resultado con una sucesion concreta (Gevrey M_p = p!^a): constantes, casos triviales
+    (python lab/pesos.py vale: es tu script, no el motor)
+  - quitar una hipotesis y ver que se rompe (es el campo "Que se rompe sin el" de la nota)
+  - mapa de dependencias de la seccion: que se apoya en que (## Mapa y ## Dependencias de la nota)
+  - preguntas para los directores, una por linea; en un paper de base son las conjeturas
+Lo que NO toca aun: caso Beurling y debilitar hipotesis; eso viene con el nucleo leido."""
+
+ATAQUE_EXTENSION = """Extension de lo leido: caso Beurling, contraejemplo, debilitar una hipotesis.
+Conjeturas, una por linea, aunque sean malas: cierre las registra."""
+
+ATAQUE_BASE = "EJERCICIOS del capitulo, libro abierto. Son puzzles calibrados con solucion conocida."
+
+
+def _modo_ataque(modo=None):
+    """
+    (modo, guia) de la fase 3. 'base' en sesiones de libro; si no, 'comprension' mientras el
+    nucleo de corpus/orden.md no este leido entero, y 'extension' despues. `modo` lo fuerza.
+    """
+    if modo not in (None, "comprension", "extension"):
+        modo = None
+    if _es_base():
+        return "base", ATAQUE_BASE
+    if modo is None:
+        _, hechos, total = _corpus_siguiente()
+        modo = "extension" if total and hechos >= total else "comprension"
+    if modo == "extension":
+        return "extension", ATAQUE_EXTENSION
+    _, hechos, total = _corpus_siguiente()
+    return "comprension", (f"(nucleo del corpus leido: {hechos}/{total}; --modo extension lo fuerza)\n"
+                           + ATAQUE_COMPRENSION)
 
 
 def cmd_estado(args):
@@ -337,9 +373,12 @@ def _siguiente(fase, en_sesion, hay_diagnostico, base, marcas=None):
                 "estas en el intento a ciegas, por escrito y sin ayuda. Motor APAGADO.",
                 "detras: python doc.py preguntar")
     if fase == "f3":
+        modo, _ = _modo_ataque()
+        que = {"base": "ejercicios del capitulo", "comprension": "reconstruir, ejemplo concreto, quitar una "
+               "hipotesis, mapa (python doc.py ataque --modo comprension imprime la guia)",
+               "extension": "extension, contraejemplo, caso Beurling"}[modo]
         return ("python doc.py sellar 3",
-                "45 min de ataque" + (": ejercicios del capitulo" if base else
-                                      ": extension, contraejemplo, caso Beurling") + ". Motor APAGADO.",
+                f"45 min de ataque de {modo}: {que}. Motor APAGADO.",
                 "detras: python doc.py cierre")
     if fase == "f4":
         return ("python doc.py cierre",

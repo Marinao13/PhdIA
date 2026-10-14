@@ -51,7 +51,9 @@ def main():
     s.add_argument("fase", type=int, choices=[1, 3])
     s.set_defaults(fn=K.cmd_sellar)
 
-    sub.add_parser("ataque", help="empieza la fase 3").set_defaults(fn=K.cmd_ataque)
+    s = sub.add_parser("ataque", help="empieza la fase 3: comprension hasta leer el nucleo, extension despues")
+    s.add_argument("--modo", choices=["comprension", "extension"], help="forzar el tipo de ataque")
+    s.set_defaults(fn=K.cmd_ataque)
     sub.add_parser("pausar", help="para el reloj de la sesion sin cambiar de fase").set_defaults(fn=K.cmd_pausar)
     sub.add_parser("reanudar", help="sigue la sesion pausada").set_defaults(fn=K.cmd_reanudar)
     sub.add_parser("estado", help="fase actual").set_defaults(fn=K.cmd_estado)

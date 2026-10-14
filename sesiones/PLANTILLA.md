@@ -34,7 +34,16 @@ Notas:
 
 
 ## Fase 3 - Ataque (45 min, python doc.py ataque -> MOTOR APAGADO)
-Extension: caso Beurling de lo que acabo de leer, contraejemplo, debilitar la
+Dos modos; `ataque` dice cual toca (comprension hasta leer el nucleo de corpus/orden.md).
+
+Comprension (paper de base), uno o dos, PDF cerrado:
+- reconstruir una prueba de la seccion desde el enunciado; huecos apuntados, no resueltos
+- el resultado con una sucesion concreta (Gevrey M_p = p!^a): constantes, casos triviales
+- quitar una hipotesis y ver que se rompe ("Que se rompe sin el" de la nota)
+- mapa de dependencias de la seccion (## Mapa y ## Dependencias de la nota)
+- preguntas para los directores, una por linea: son las conjeturas de hoy
+
+Extension (nucleo leido): caso Beurling de lo leido, contraejemplo, debilitar la
 regularidad fuerte. Conjeturas, una por linea, aunque sean malas:
 -
 

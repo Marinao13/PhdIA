@@ -13,7 +13,8 @@ python doc.py preguntar                 fase 2 (60 min). REPL con el paper de la
                                         /ver 2.1.3, /ver p8, /doc ID, /sigue, /notacion /lema /paso,
                                         /laguna; pega varias lineas y se localizan en el indice
 python doc.py ataque                    commit. Motor OFF
-    fase 3 (45 min): ejercicios (base) / extension, contraejemplo, Beurling (paper)
+    fase 3 (45 min): ejercicios (base) / comprension (paper, hasta leer el nucleo) /
+    extension (nucleo leido). `ataque` imprime la guia del modo; --modo la fuerza
 python doc.py sellar 3                  commit. Motor ON
 python doc.py cierre                    diff de tu fase 1, errores, 5 tarjetas, lagunas, metricas
 python doc.py pausar / reanudar         para y arranca el reloj sin cambiar de fase ni motor
