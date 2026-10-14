@@ -341,8 +341,10 @@ def buscar(pregunta, k=8, fuente=None, doc=None, solo_bm25=False, por_doc=2):
         vec, ids = _leer_vectores()
         pos = {fid: j for j, fid in enumerate(ids)}
         idx = [pos[f["id"]] for f in frags if f["id"] in pos]
+        q = embeber([consulta], comando="buscar")[0] if idx else None
+        if idx and vec.shape[1] != q.shape[0]:          # vectores de otra dimension (simulacion): solo BM25
+            idx = []
         if idx:
-            q = embeber([consulta], comando="buscar")[0]
             sims = vec[idx] @ q
             orden = np.argsort(-sims)
             filas_con_vec = [i for i, f in enumerate(frags) if f["id"] in pos]
@@ -497,24 +499,28 @@ def localizar(doc, texto):
     Sin modelo ni API: bolsa de palabras del pegado contra cada fragmento del documento.
     La cita del fragmento es la del sistema (pagina verificada), no se inventa nada.
     """
-    # 1. el pegado empieza por "Lemma 2.1.3" / "Theorem 3.4": numero impreso, busqueda exacta
-    m = re.match(r"\s*(lemma|theorem|proposition|corollary|definition|remark|example)\s*(\d+(?:\.\d+)*)",
-                 unicodedata.normalize("NFKC", texto), re.I)
-    if m:
-        exactos = por_numero(doc, m.group(2))
-        if exactos:
-            return dict(fragmentos=[dict(f, localizado=True) for f in exactos[:2]], cobertura=1.0)
     frags = sorted(_cargar(doc=doc), key=lambda f: f["id"])
     if not frags:
         return None
     conj = [set(_bolsa(f["texto"])) for f in frags]
-    bolsa = _bolsa(texto)
     vocab = set().union(*conj)
-    pegadas = {w for w in bolsa if len(w) >= 10 and w not in vocab}
+    # las palabras frecuentes en el documento (en mas de un tercio de los fragmentos) no
+    # discriminan: "strongly regular sequence" esta en casi todos
+    df = {}
+    for c in conj:
+        for w in c:
+            df[w] = df.get(w, 0) + 1
+    comunes = {w for w, n in df.items() if n > len(frags) / 3} if len(frags) >= 12 else set()
+    texto_n = unicodedata.normalize("NFKC", texto)
+    cabecera = re.match(r"\s*(lemma|theorem|proposition|corollary|definition|remark|example)\s*(\d+(?:\.\d+)*)\.?",
+                        texto_n, re.I)
+    bolsa = _bolsa(texto_n[cabecera.end():] if cabecera else texto_n)
+    pegadas = {w for w in bolsa if len(w) >= 7 and w not in vocab}
     if pegadas:                                   # copia del PDF con las palabras pegadas
         bolsa = [w for w in bolsa if w not in pegadas] + [s for w in bolsa if w in pegadas
                                                            for s in _despegar(w, vocab)]
-    if len(bolsa) < 6:
+    bolsa = [w for w in bolsa if w not in comunes]
+    if len(bolsa) < 5:
         return None
     umbral = 0.7 if len(bolsa) < 25 else 0.6
 
@@ -522,7 +528,18 @@ def localizar(doc, texto):
         return sum(w in palabras for w in bolsa) / len(bolsa)
 
     propios = [cobertura(c) for c in conj]
-    i = max(range(len(frags)), key=lambda j: propios[j])
+    candidatos = range(len(frags))
+    # el pegado empieza por "Lemma 2.1.3" / "Theorem 3.4": el numero impreso acota los candidatos
+    # (el indice tiene numeros repetidos: se exige que el texto pegado este en el elegido, solo
+    # o con su demostracion, que suele ser el fragmento siguiente)
+    if cabecera:
+        con_numero = [j for j, f in enumerate(frags) if f.get("numero") == cabecera.group(2)]
+
+        def con_siguiente(j):
+            return max(propios[j], cobertura(conj[j] | conj[j + 1]) if j + 1 < len(frags) else 0.0)
+        if con_numero and max(con_siguiente(j) for j in con_numero) >= 0.3:
+            candidatos, umbral = con_numero, 0.3
+    i = max(candidatos, key=lambda j: propios[j])
     mejor, idx = propios[i], [i]
     # el pegado puede cruzar dos fragmentos consecutivos (enunciado + demostracion)
     sig = cobertura(conj[i] | conj[i + 1]) if i + 1 < len(frags) else 0.0
@@ -537,10 +554,14 @@ def localizar(doc, texto):
 
 
 def por_numero(doc, numero):
-    """Fragmentos del documento con ese numero impreso (p. ej. '2.1.3'), de cualquier tipo."""
+    """Fragmentos del documento con ese numero impreso, de cualquier tipo. Acepta '2.1.3',
+    '2.1.3.' o 'Lemma 2.1.3': se queda con el numero."""
+    m = re.search(r"\d+(?:\.\d+)*", str(numero))
+    if not m:
+        return []
     con = _db()
     filas = con.execute("SELECT id, fuente, doc, pagina, seccion, tipo, label, texto, numero FROM fragmentos "
-                        "WHERE doc = ? AND numero = ? ORDER BY orden", (doc, str(numero))).fetchall()
+                        "WHERE doc = ? AND numero = ? ORDER BY orden", (doc, m.group(0))).fetchall()
     con.close()
     claves = ("id", "fuente", "doc", "pagina", "seccion", "tipo", "label", "texto", "numero")
     return [dict(zip(claves, f)) for f in filas]

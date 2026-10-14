@@ -51,6 +51,48 @@ def test_modo_ascii_para_tuberias():
     assert all(ord(c) < 128 for c in t if c not in "áéíóúñÁÉÍÓÚÑ")
 
 
+def test_una_barra_suelta_al_final_no_lanza():
+    # respuesta cortada por el tope justo tras una barra: degrada, no rompe
+    for t in ("Por tanto $\\frac{M_p}\\", "\\[ \\frac{a}\\", "Sea $\\sqrt \\", "\\[\n\\sqrt\\\nb\n\\]", "x $\\hat\\"):
+        assert isinstance(latex_a_consola(t), str)
+
+
+def test_cabecera_no_se_traga_lo_que_la_sigue():
+    t = latex_a_consola("## Pasos\n- uno\n- dos\n\nfin")
+    assert "Pasos\n-----" in t and "- uno\n- dos" in t and t.endswith("fin")
+    t = latex_a_consola("## Titulo\nTexto que sigue sin blanco")
+    assert "Texto que sigue sin blanco" in t
+
+
+def test_bloque_dentro_de_un_item_de_lista_se_expande():
+    t = latex_a_consola("- item uno $$x^2$$\n- item dos \\[ y \\]\n- tres")
+    assert "\x01" not in t and "x^2" in t and "- tres" in t
+
+
+def test_asteriscos_dentro_de_formulas_se_conservan():
+    t = latex_a_consola("El dual $T^*$ y el adjunto $S^*$ cumplen $T^{**}=T$.")
+    assert "$T^*$" in t and "$S^*$" in t and "T^{**}" in t
+
+
+def test_listas_anidadas_y_tablas():
+    t = latex_a_consola("1. Primero\n   - detalle a\n   - detalle b\n2. Segundo")
+    assert "1. Primero\n   - detalle a\n   - detalle b\n2. Segundo" in t
+    t = latex_a_consola("| autor | (mg) |\n|---|---|\n| Thilliez | $M_p$ |")
+    assert t == "| autor | (mg) |\n|---|---|\n| Thilliez | $M_p$ |"
+
+
+def test_raiz_con_indice():
+    assert "3√(x)" in latex_a_consola(r"\(\sqrt[3]{x}\)")
+    assert "√(a+b)" in latex_a_consola(r"\(\sqrt{a+b}\)")
+
+
+def test_texto_largo_es_rapido_y_no_rompe():
+    import time
+    t0 = time.perf_counter()
+    out = latex_a_consola("Texto $x\\le y$ y \\[\\int_0^1 f\\] " * 400)
+    assert time.perf_counter() - t0 < 2 and "∫" in out
+
+
 def test_listas_y_lineas_ya_planas_se_respetan():
     t = latex_a_consola("- primero $a_j$\n- segundo\n\nUSADOS: [x:p3]; [!] lema de Schwarz")
     assert t.startswith("- primero $a_j$\n- segundo")

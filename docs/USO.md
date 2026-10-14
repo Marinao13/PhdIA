@@ -49,8 +49,8 @@ fragmento pegado, o `[!]` con el NOMBRE del resultado estandar (nunca un DOI, an
 de memoria); lo que no esta en ninguna parte va en una linea `FALTA:`; al final, `USADOS:`.
 Debajo se imprimen las citas consultadas y `[segundos | entrada (cache) | salida
 (razonamiento) | tope]`. Tope de salida de `preguntar`: 4000 tokens (incluye el razonamiento;
-esfuerzo `low`, en `nucleo/config.py`). Si aun asi se corta, lo avisa y `/sigue` continua donde
-se quedo. El historial se reenvia entero, pero los fragmentos del corpus de turnos pasados no:
+esfuerzo `low`, en `nucleo/config.py`). Si se corta, lo avisa; si para limpio en una linea `SIGUE:`
+(tope de 40 lineas del prompt), lo dice; en los dos casos `/sigue` continua con los mismos fragmentos. El historial se reenvia entero, pero los fragmentos del corpus de turnos pasados no:
 cuando la entrada crezca (lo ves en la linea de tokens), `/nuevo`.
 
 ## Corpus: PDFs con citas por pagina

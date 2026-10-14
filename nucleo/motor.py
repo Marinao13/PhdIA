@@ -39,9 +39,13 @@ def imprimir(texto, md=True, consola=False, ancho=90):
         unicode = bool(getattr(sys.stdout, "isatty", lambda: False)())
         if _con:
             ancho = min(ancho, _con.width or ancho)
-        t = latex_a_consola(texto, ancho=ancho, unicode=unicode)
+        try:
+            t = latex_a_consola(texto, ancho=ancho, unicode=unicode)
+        except Exception as e:                      # nunca perder la respuesta por el render
+            print(f"(render de consola fallido: {type(e).__name__}; texto crudo)")
+            t = texto
         if _con:
-            _con.print(t, markup=False, highlight=False, soft_wrap=True)
+            _con.print(t, markup=False, highlight=False, soft_wrap=True, emoji=False)
         else:
             print(t)
         return
@@ -53,7 +57,7 @@ def imprimir(texto, md=True, consola=False, ancho=90):
 
 def aviso(texto):
     if _con:
-        _con.print(texto, style="bold yellow", markup=False, highlight=False)
+        _con.print(texto, style="bold yellow", markup=False, highlight=False, emoji=False)
     else:
         print(texto)
 

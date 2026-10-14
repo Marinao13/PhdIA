@@ -51,8 +51,40 @@ def test_nota_add_inserta_el_bloque_antes_de_sintesis_y_lo_apunta_en_el_mapa(lec
     assert "ya existe" in capsys.readouterr().out
 
 
+def test_nota_add_numera_el_siguiente_libre_aunque_haya_huecos(lecturas, capsys):
+    K._nota_add("thilliez-2003", "R1 — Teorema 3.2")
+    K._nota_add("thilliez-2003", "R3 — Lema 4.1")
+    K._nota_add("thilliez-2003", "Proposicion 4.1")                   # sin Rn: el hueco R2
+    bloques = K._bloques_nota((lecturas / "thilliez-2003.md").read_text(encoding="utf-8"))
+    assert [b[0] for b in bloques] == ["R1", "R3", "R2"]
+    K._nota_add("thilliez-2003", "R3 — repetido")
+    assert "el siguiente libre es R4" in capsys.readouterr().out
+
+
+def test_cmd_nota_acepta_r2_posicional_y_rechaza_otro_titulo_en_quiz(monkeypatch, capsys):
+    import types
+    llamado = {}
+    monkeypatch.setattr(K, "_nota_quiz", lambda id_, k, resultado=None: llamado.update(r=resultado))
+    K.cmd_nota(types.SimpleNamespace(accion="quiz", id="thilliez-2003", titulo="r2", resultado=None, k=12))
+    assert llamado["r"] == "R2"
+    llamado.clear()
+    K.cmd_nota(types.SimpleNamespace(accion="quiz", id="thilliez-2003", titulo="Teorema 2", resultado=None, k=12))
+    assert not llamado and "uso:" in capsys.readouterr().out
+
+
+def test_nota_new_no_corrompe_titulos_con_id_o_cita_dentro(lecturas, monkeypatch, capsys):
+    from nucleo import corpus as Q
+    monkeypatch.setattr(Q, "leer_bib", lambda: {"rigid-2001": dict(estado="verificado", titulo="RIGIDITY OF IDEALS",
+                                                                      autores=["DAVID, X"], venue="EXPLICITA", ano=2001)})
+    K._nota_new("rigid-2001")
+    t = (lecturas / "rigid-2001.md").read_text(encoding="utf-8")
+    assert "titulo: RIGIDITY OF IDEALS" in t and "autores: DAVID, X" in t and "EXPLICITA" in t
+    assert "# Nota de lectura: rigid-2001" in t
+
+
 def test_numero_impreso_y_subseccion():
     assert K._numero_impreso("Teorema 2.3") == "2.3" and K._numero_impreso("Lemma 2.1.1 (x)") == "2.1.1"
+    assert K._numero_impreso("Teorema 2") == "2" and K._numero_impreso("Teorema 2 (caso 3.1)") == "2"
     assert K._numero_impreso("Resultado principal") is None
     cuerpo = "### Enunciado\nA\n\n### Mi explicacion\nB B\n"
     assert K._subseccion_md(cuerpo, "Mi explicacion") == "B B" and K._subseccion_md(cuerpo, "Enunciado") == "A"

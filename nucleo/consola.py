@@ -12,6 +12,7 @@ los demas comandos) -> texto plano.
 Sin dependencias (re y textwrap). Con perdida: las macros privadas de un paper (\\M, \\Mb)
 quedan como letras; el registro de consultas guarda siempre la respuesta cruda. Con
 `unicode=False` todo se degrada a ASCII (tuberias con cp1252, fuentes sin glifos).
+Nunca lanza: ante una entrada rara (barra suelta, llave sin cerrar) degrada, no rompe.
 """
 import re
 import textwrap
@@ -70,25 +71,28 @@ _ASCII = {
 
 # ---------------------------------------------------------------- grupos
 def _grupo(s, i):
-    """Argumento de un comando a partir de s[i]: {...} equilibrado, \\cmd o un caracter.
-    Devuelve (contenido, indice tras el argumento)."""
+    """Argumento de un comando a partir de s[i]: {...} equilibrado, [...] opcional, \\cmd o
+    un caracter. Devuelve (contenido, indice tras el argumento). Nunca lanza."""
     while i < len(s) and s[i] == " ":
         i += 1
     if i >= len(s):
         return "", i
-    if s[i] == "{":
+    if s[i] in "{[":
+        abre, cierra = s[i], "}" if s[i] == "{" else "]"
         prof, j = 0, i
         while j < len(s):
-            if s[j] == "{":
+            if s[j] == abre:
                 prof += 1
-            elif s[j] == "}":
+            elif s[j] == cierra:
                 prof -= 1
                 if prof == 0:
                     return s[i + 1:j], j + 1
             j += 1
-        return s[i + 1:], len(s)          # llave sin cerrar: hasta el final
+        return s[i + 1:], len(s)          # sin cerrar: hasta el final
     if s[i] == "\\":
-        m = re.match(r"\\([A-Za-z]+|.)", s[i:])
+        m = re.match(r"\\([A-Za-z]+|.)", s[i:], re.S)
+        if m is None:                     # barra suelta al final (respuesta cortada)
+            return "", i + 1
         return m.group(0), i + len(m.group(0))
     return s[i], i + 1
 
@@ -131,6 +135,30 @@ def _fracciones(s):
     return "".join(out)
 
 
+def _raices(s):
+    """\\sqrt{x} -> √x o √(x); \\sqrt[n]{x} -> n√(x)."""
+    out, i = [], 0
+    while True:
+        m = re.search(r"\\sqrt(?![A-Za-z])", s[i:])
+        if not m:
+            out.append(s[i:])
+            return "".join(out)
+        out.append(s[i:i + m.start()])
+        j = i + m.end()
+        indice = ""
+        k = j
+        while k < len(s) and s[k] == " ":
+            k += 1
+        if k < len(s) and s[k] == "[":
+            indice, j = _grupo(s, k)
+            indice = _mat(indice)
+        arg, j = _grupo(s, j)
+        arg = _mat(arg)
+        cuerpo = f"√{arg}" if _atomo(arg) and not indice else f"√({arg})"
+        out.append((indice + cuerpo) if indice else cuerpo)
+        i = j
+
+
 def _con_arg(s, nombre, fmt, crudo=False):
     """\\nombre{x} -> fmt(x). Recursivo en el argumento salvo crudo (texto literal)."""
     out, i = [], 0
@@ -160,7 +188,7 @@ def _mat(s):
     """Interior de una formula -> texto."""
     s = _fracciones(s)
     s = _con_arg(s, "mathbb", lambda x: _BB.get(x.strip(), x))
-    s = _con_arg(s, "sqrt", lambda x: f"√({x})" if not _atomo(x) else f"√{x}")
+    s = _raices(s)
     for nombre in ("text", "textrm", "mathrm", "operatorname"):
         s = _con_arg(s, nombre, lambda x: x, crudo=True)       # texto literal, espacios incluidos
     for nombre in ("mathit", "mathbf", "mathcal", "mathsf", "boxed", "underbrace", "overbrace"):
@@ -181,28 +209,65 @@ def _mat(s):
 
 
 # ---------------------------------------------------------------- texto
-_MD_INLINE = [(r"\*\*(.+?)\*\*", r"\1"), (r"__(.+?)__", r"\1"), (r"(?<!\w)\*(?!\s)(.+?)\*", r"\1"),
-              (r"(?<!\w)_(?!\s)([^_$]+?)_(?!\w)", r"\1"), (r"`([^`]+)`", r"\1")]
+_MD_INLINE = [(r"\*\*(.+?)\*\*", r"\1"), (r"__(.+?)__", r"\1"), (r"(?<![\w^])\*(?!\s)([^*$\n]+?)\*(?!\w)", r"\1"),
+              (r"(?<!\w)_(?!\s)([^_$\n]+?)_(?!\w)", r"\1"), (r"`([^`]+)`", r"\1")]
 
 
 def _inline(texto):
-    """\\( \\) y $ $ -> $...$ convertido; quita negritas/cursivas/codigo."""
+    """\\( \\) y $ $ -> $...$ convertido; quita negritas/cursivas/codigo fuera de las formulas."""
     def _f(m):
         return "$" + _mat(m.group(1)).replace("\x03", "").replace("\n", " ") + "$"
     texto = re.sub(r"\\\((.+?)\\\)", _f, texto, flags=re.S)
     texto = re.sub(r"(?<!\$)\$(?!\$)([^$\n]+?)\$", _f, texto)
+    # las formulas ya convertidas no pasan por las reglas de markdown (T^* no es cursiva)
+    formulas = []
+
+    def _guardar(m):
+        formulas.append(m.group(0))
+        return f"\x04{len(formulas) - 1}\x04"
+    texto = re.sub(r"\$[^$\n]*\$", _guardar, texto)
     for pat, rep in _MD_INLINE:
         texto = re.sub(pat, rep, texto)
-    return texto
+    return re.sub(r"\x04(\d+)\x04", lambda m: formulas[int(m.group(1))], texto)
 
 
-def _envolver(parrafo, ancho, sangria=""):
+def _envolver(parrafo, ancho, sangria="", primera=None):
     """Envuelve sin partir dentro de $...$: los espacios de las formulas se protegen."""
     protegido = re.sub(r"\$[^$]*\$", lambda m: m.group(0).replace(" ", "\x00"), parrafo)
-    lineas = textwrap.wrap(protegido, width=ancho, initial_indent=sangria,
+    lineas = textwrap.wrap(protegido, width=ancho, initial_indent=sangria if primera is None else primera,
                            subsequent_indent=sangria, break_long_words=False,
                            break_on_hyphens=False)
     return "\n".join(l.replace("\x00", " ") for l in lineas)
+
+
+def _con_bloques(trozo, bloques, ancho, sangria=""):
+    """Parrafo con marcadores \\x01N\\x01 dentro: texto envuelto y bloques sangrados."""
+    partes = []
+    for k, t in enumerate(re.split(r"\n?\x01(\d+)\x01\n?", trozo)):
+        if k % 2:
+            partes.append(textwrap.indent(bloques[int(t)], sangria + "    "))
+        elif t.strip():
+            partes.append(_envolver(" ".join(t.split()), ancho, sangria))
+    return "\n".join(partes)
+
+
+def _lista(parrafo, bloques, ancho):
+    """Lista con sangria colgante por item; conserva la anidacion por la sangria original."""
+    items = re.split(r"\n(?=\s*(?:[-*+]|\d+[.)])\s)", parrafo)
+    salida = []
+    for it in items:
+        nivel = len(it) - len(it.lstrip(" "))
+        cuerpo = it.strip()
+        m = re.match(r"([-*+]|\d+[.)])\s+", cuerpo)
+        marca = m.group(0) if m else ""
+        resto = cuerpo[len(marca):]
+        sangria = " " * nivel
+        colgante = sangria + " " * len(marca)
+        if "\x01" in resto:                 # item con una formula en bloque dentro
+            salida.append(sangria + marca + _con_bloques(resto, bloques, ancho, colgante).lstrip())
+        else:
+            salida.append(_envolver(" ".join(resto.split()), ancho, colgante, primera=sangria + marca))
+    return "\n".join(salida)
 
 
 def latex_a_consola(texto, ancho=90, unicode=True):
@@ -234,32 +299,31 @@ def latex_a_consola(texto, ancho=90, unicode=True):
     texto = re.sub(r"\\\[(.+?)\\\]|\$\$(.+?)\$\$", _guardar, texto, flags=re.S)
     texto = _inline(texto)
     salida = []
-    for parrafo in re.split(r"\n\s*\n", texto.strip()):
-        parrafo = parrafo.strip()
+    pendientes = [p for p in re.split(r"\n\s*\n", texto.strip())]
+    while pendientes:
+        parrafo = pendientes.pop(0).strip()
         if not parrafo:
             continue
         m = re.fullmatch(r"\x01(\d+)\x01", parrafo)
         if m:                                              # formula en bloque
             salida.append(textwrap.indent(bloques[int(m.group(1))], "    "))
             continue
-        m = re.match(r"(#{1,6})\s*(.+)", parrafo)
-        if m:                                              # cabecera -> subrayado
+        cab, _, resto = parrafo.partition("\n")
+        m = re.match(r"(#{1,6})\s*(.+)", cab)
+        if m:                                              # cabecera -> subrayado; el resto sigue aparte
             titulo = m.group(2).strip()
             salida.append(titulo + "\n" + ("=" if len(m.group(1)) == 1 else "-") * min(len(titulo), ancho))
+            if resto.strip():
+                pendientes.insert(0, resto)
             continue
-        if re.match(r"\s*([-*+]|\d+[.)])\s", parrafo):   # lista: sangria colgante por item
-            items = re.split(r"\n(?=\s*(?:[-*+]|\d+[.)])\s)", parrafo)
-            salida.append("\n".join(_envolver(" ".join(i.split()), ancho, "  ")[2:] for i in items))
+        lineas = parrafo.splitlines()
+        if all(l.strip().startswith("|") for l in lineas):   # tabla markdown: tal cual
+            salida.append("\n".join(l.strip() for l in lineas))
             continue
-        # parrafo normal: puede llevar bloques pegados sin linea en blanco
-        trozos = re.split(r"\n?\x01(\d+)\x01\n?", parrafo)
-        partes = []
-        for k, trozo in enumerate(trozos):
-            if k % 2:
-                partes.append(textwrap.indent(bloques[int(trozo)], "    "))
-            elif trozo.strip():
-                partes.append(_envolver(" ".join(trozo.split()), ancho))
-        salida.append("\n".join(partes))
+        if re.match(r"\s*([-*+]|\d+[.)])\s", parrafo):   # lista
+            salida.append(_lista(parrafo, bloques, ancho))
+            continue
+        salida.append(_con_bloques(parrafo, bloques, ancho))
     res = "\n\n".join(salida)
     if not unicode:
         for u, a in _ASCII.items():

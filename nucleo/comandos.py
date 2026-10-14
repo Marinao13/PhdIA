@@ -534,11 +534,14 @@ def _fragmento_de_pegado(lineas):
     fragmento y se devuelve el comando.
     """
     comando = None
+    lineas = list(lineas)
     if lineas:
         m = re.match(r"(/pegar|/paso|/lema|/notacion)\b\s*(.*)", lineas[0].strip(), re.S)
         if m:
             comando = m.group(1)
-            lineas = ([m.group(2)] if m.group(2) else []) + list(lineas[1:])
+            lineas = ([m.group(2)] if m.group(2) else []) + lineas[1:]
+    if lineas and lineas[-1].strip() == ".":          # el terminador de /pegar, pegado con el texto
+        lineas = lineas[:-1]
     return "\n".join(lineas).strip(), comando
 
 
@@ -565,10 +568,14 @@ def _recuperar(doc, pregunta, fragmento, localizados, tope=TOPE_TOKENS_CORPUS):
     frags = list(localizados)
     if doc:
         por_pegado = not pregunta or pregunta.startswith("Desarrolla este fragmento")
-        consulta = (fragmento if por_pegado and fragmento else pregunta) or ""
+        if por_pegado:
+            # Enter tras un pegado o un /ver: la consulta es ese texto, por BM25 (sin embeddings)
+            consulta = fragmento or " ".join(f["texto"] for f in localizados)[:2000]
+        else:
+            consulta = pregunta
         if consulta.strip():
             try:
-                nuevos = I.buscar(consulta, k=4, doc=doc, por_doc=0, solo_bm25=por_pegado and bool(fragmento))
+                nuevos = I.buscar(consulta, k=4, doc=doc, por_doc=0, solo_bm25=por_pegado)
             except Exception as e:
                 M.aviso(f"corpus: {type(e).__name__}: {str(e)[:80]}")
                 nuevos = []
@@ -589,7 +596,8 @@ def _bloque_corpus(frags):
     if not frags:
         return ""
     return ("FRAGMENTOS DEL CORPUS (cita delante de cada uno; texto de la capa tex, pagina del PDF):\n\n"
-            + "\n\n".join(I.cita(f) + (" (contiene lo que pegaste)" if f.get("localizado") else "")
+            + "\n\n".join(I.cita(f) + (" (traido con /ver)" if f.get("via_ver") else
+                                       " (contiene lo que pegaste)" if f.get("localizado") else "")
                           + (" (traido por referencia)" if f.get("via_ref") else "") + f"\n{f['texto']}"
                           for f in frags))
 
@@ -624,7 +632,7 @@ def cmd_preguntar(args):
     elif not sin_corpus:
         print("\nsin paper del corpus asociado a esta sesion: el modelo solo vera lo que pegues (/doc ID para fijar uno)")
     turnos, plantilla, fragmento, localizados = [], "", "", []
-    ultima_cortada = False
+    ultima_cortada = ultima_sigue = False
     while True:
         try:
             lineas = _leer_lineas("\n> ")
@@ -636,11 +644,14 @@ def cmd_preguntar(args):
             fragmento, cmd = _fragmento_de_pegado(lineas)
             if cmd in _CMD_PLANTILLA:
                 plantilla = getattr(P, _CMD_PLANTILLA[cmd])
-            localizados = _localizar_pegado(doc, fragmento)
+            localizados = [f for f in localizados if f.get("via_ver")] + _localizar_pegado(doc, fragmento)
             print(f"fragmento de {len(lineas)} lineas guardado. Ahora la pregunta "
                   "(Enter = que lo desarrolle paso a paso)")
             continue
         linea = lineas[0].strip()
+        if linea == "." and (fragmento or localizados):     # el punto de /pegar tecleado aparte
+            print("fragmento ya guardado; ahora la pregunta (Enter = que lo desarrolle paso a paso)")
+            continue
         if not linea:
             if not fragmento and not localizados:
                 continue
@@ -652,7 +663,7 @@ def cmd_preguntar(args):
             continue
         if linea == "/nuevo":
             turnos, plantilla, fragmento, localizados = [], "", "", []
-            ultima_cortada = False
+            ultima_cortada = ultima_sigue = False
             print("hilo nuevo")
             continue
         sigue = linea == "/sigue"
@@ -690,10 +701,11 @@ def cmd_preguntar(args):
             if not frags:
                 print(f"nada con '{que}' en {doc}. Prueba: python doc.py buscar \"...\" --doc {doc}")
                 continue
-            localizados = [dict(f, localizado=True) for f in frags[:3]]
-            for f in localizados:
+            vistos = [dict(f, via_ver=True) for f in frags[:3]]
+            localizados = _fusionar(localizados, vistos)        # se suma a lo pegado, no lo pisa
+            for f in vistos:
                 print("  " + I.cita(f))
-            M.imprimir("\n\n".join(f["texto"] for f in localizados), consola=True)
+            M.imprimir("\n\n".join(f["texto"] for f in vistos), consola=True)
             print("ahora la pregunta (Enter = que lo desarrolle paso a paso)")
             continue
         elif linea == "/pegar":
@@ -705,23 +717,23 @@ def cmd_preguntar(args):
                     break
                 buf.append(l)
             fragmento, _ = _fragmento_de_pegado(buf)
-            localizados = _localizar_pegado(doc, fragmento)
+            localizados = [f for f in localizados if f.get("via_ver")] + _localizar_pegado(doc, fragmento)
             print(f"fragmento guardado ({len(fragmento)} caracteres)")
             continue
         elif sigue:
-            if not ultima_cortada:
-                print("la ultima respuesta no quedo cortada")
+            if not (ultima_cortada or ultima_sigue):
+                print("la ultima respuesta no quedo cortada ni termino en SIGUE:")
                 continue
-            linea = "Continua exactamente donde te cortaste (desde la linea SIGUE:), sin repetir lo anterior."
+            linea = ("Continua exactamente desde la linea SIGUE:, sin repetir lo anterior." if ultima_sigue
+                     else "Continua exactamente donde te cortaste, sin repetir lo anterior.")
 
-        if sigue:                                   # la continuacion reutiliza los fragmentos del turno cortado
-            previos = [t for t in turnos if t["role"] == "user" and t.get("bloque")]
-            frags_turno, bloque = [], (previos[-1]["bloque"] if previos else "")
+        if sigue and len(turnos) >= 2:              # la continuacion reutiliza los fragmentos del turno cortado
+            frags_turno, bloque = turnos[-2].get("frags", []), turnos[-2].get("bloque", "")
         else:
             frags_turno = _recuperar(doc, linea, fragmento, localizados)
             bloque = _bloque_corpus(frags_turno)
         contenido = plantilla + (f"FRAGMENTO PEGADO (texto del PDF):\n{fragmento}\n\n" if fragmento else "") + linea
-        turnos.append(dict(role="user", content=contenido, bloque=bloque))
+        turnos.append(dict(role="user", content=contenido, bloque=bloque, frags=frags_turno))
         espera = (f"{C.modelo_para('preguntar')} (esfuerzo {C.esfuerzo_para('preguntar')}), turno "
                   f"{len(turnos) // 2 + 1}, {len(frags_turno)} fragmentos del corpus...")
         try:
@@ -732,18 +744,22 @@ def cmd_preguntar(args):
             turnos.pop()
             break
         turnos.append(dict(role="assistant", content=respuesta))
-        print()
-        M.imprimir(respuesta, consola=True)
         u = dict(M.ULTIMA)
         citas = [I.cita(f) for f in frags_turno]
+        ultima_cortada = bool(u.get("cortada"))
+        ultima_sigue = bool(re.search(r"^SIGUE:", respuesta, re.M))
+        # el registro va ANTES de imprimir: una respuesta pagada no se pierde por un fallo de render
+        _registrar_conversacion(fase, linea, respuesta, plantilla, fragmento, citas, len(turnos) // 2, u)
+        print()
+        M.imprimir(respuesta, consola=True)
         if citas:
             print("\ncorpus consultado: " + "; ".join(citas))
         print(f"[{u.get('segundos')} s | entrada {u.get('tokens_in')} (cache {u.get('tokens_cache')}) | "
               f"salida {u.get('tokens_out')} (razonamiento {u.get('tokens_razonamiento')}) | tope {u.get('max_tokens')}]")
-        ultima_cortada = bool(u.get("cortada"))
         if ultima_cortada:
             M.aviso("RESPUESTA CORTADA por el tope de salida. Escribe /sigue para que continue donde se quedo.")
-        _registrar_conversacion(fase, linea, respuesta, plantilla, fragmento, citas, len(turnos) // 2, u)
+        elif ultima_sigue:
+            print("la respuesta para en SIGUE: (tope de 40 lineas). Escribe /sigue para que continue con los mismos fragmentos.")
         plantilla, fragmento, localizados = "", "", []
 
 
@@ -1615,9 +1631,11 @@ def _nota_new(id_):
         cita += f"  doi:{e['doi']}"
     if e.get("arxiv"):
         cita += f"  arXiv:{e['arxiv']}"
-    texto = (C.leer(os.path.join(C.DIR_LECTURAS, "PLANTILLA.md"))
-             .replace("TITULO", titulo).replace("AUTORES", autores).replace("CITA", cita.strip())
-             .replace("ESTADO", e.get("estado", "?")).replace("AAAA-MM-DD", HOY).replace("ID", id_))
+    valores = {"TITULO": titulo, "AUTORES": autores, "CITA": cita.strip(), "ESTADO": e.get("estado", "?"),
+               "AAAA-MM-DD": HOY, "ID": id_}
+    # una sola pasada sobre la plantilla: un titulo con 'IDEALS' o 'EXPLICITA' no se corrompe
+    texto = re.sub(r"\b(TITULO|AUTORES|CITA|ESTADO|AAAA-MM-DD|ID)\b", lambda m: valores[m.group(1)],
+                   C.leer(os.path.join(C.DIR_LECTURAS, "PLANTILLA.md")))
     C.escribir(ruta, texto)
     print("creada", os.path.relpath(ruta, C.RAIZ))
     if not ok:
@@ -1663,8 +1681,13 @@ def _subseccion_md(cuerpo, titulo):
 
 
 def _numero_impreso(titulo):
-    """'Teorema 2.3' / 'Lemma 2.1.1 (division)' -> '2.3' / '2.1.1'; None si no hay numero."""
-    m = re.search(r"\b(\d+(?:\.\d+)+)\b", titulo)
+    """'Teorema 2.3' / 'Lemma 2.1.1 (division)' / 'Teorema 2' -> '2.3' / '2.1.1' / '2'; None si no hay.
+    Primero el numero que sigue a la palabra de tipo; si no, el primero con punto; si no, un entero."""
+    m = re.search(r"(?i)\b(?:teorema|theorem|lema|lemma|proposicion|proposition|corolario|corollary|"
+                  r"definicion|definition|observacion|remark|ejemplo|example)\s+(\d+(?:\.\d+)*)\b", titulo)
+    if m:
+        return m.group(1)
+    m = re.search(r"\b(\d+(?:\.\d+)+)\b", titulo) or re.search(r"\b(\d+)\b", titulo)
     return m.group(1) if m else None
 
 
@@ -1687,13 +1710,15 @@ def _nota_add(id_, titulo):
         return
     texto = C.leer(ruta)
     bloques = _bloques_nota(texto)
+    usados = {int(b[0][1:]) for b in bloques}
+    libre = next(n for n in range(1, len(usados) + 2) if n not in usados)
     m = re.match(r"\s*(R\d+)\s*[—–-]*\s*(.*)$", titulo.strip(), re.S)
     if m:
         rid, resto = m.group(1).upper(), m.group(2).strip()
     else:
-        rid, resto = f"R{len(bloques) + 1}", titulo.strip()
+        rid, resto = f"R{libre}", titulo.strip()
     if any(b[0] == rid for b in bloques):
-        print(f"{rid} ya existe en la nota; el siguiente libre es R{len(bloques) + 1}")
+        print(f"{rid} ya existe en la nota; el siguiente libre es R{libre}")
         return
     if not resto:
         print('falta el titulo del resultado: p. ej. "R2 — Teorema 2.3"')
@@ -1742,6 +1767,9 @@ def _nota_quiz(id_, k, resultado=None):
         return
     foco, sufijo = "", ""
     if resultado:
+        if not os.path.exists(_ruta_nota(id_)):
+            print(f"no hay nota. Primero:  python doc.py nota new {id_}")
+            return
         b = _bloque_nota(C.leer(_ruta_nota(id_)), resultado)
         if not b:
             print(f"no hay bloque {resultado} en lecturas/{id_}.md:  python doc.py nota add {id_} \"{resultado} — ...\"")
@@ -1850,6 +1878,13 @@ def _verificacion(afirmacion, metodo, resultado):
 
 def cmd_nota(args):
     resultado = getattr(args, "resultado", None)
+    titulo = getattr(args, "titulo", None)
+    if args.accion in ("quiz", "check") and titulo:
+        if not resultado and re.fullmatch(r"[Rr]\d+", titulo.strip()):
+            resultado = titulo.strip().upper()          # 'nota quiz ID R2' vale como --resultado R2
+        else:
+            print(f"uso:  python doc.py nota {args.accion} {args.id} --resultado R2")
+            return
     if args.accion == "new":
         _nota_new(args.id)
     elif args.accion == "add":

@@ -41,6 +41,23 @@ def test_fragmento_de_pegado_quita_el_comando_tecleado_antes_de_pegar():
     assert frag == "linea 1\nlinea 2" and cmd == "/paso"
     frag, cmd = K._fragmento_de_pegado(["linea 1", "linea 2"])
     assert frag == "linea 1\nlinea 2" and cmd is None
+    frag, cmd = K._fragmento_de_pegado(["/pegar", "linea 1", "linea 2", "."])     # el punto de /pegar
+    assert frag == "linea 1\nlinea 2" and cmd == "/pegar"
+
+
+def test_mensajes_ignoran_las_claves_extra_de_los_turnos():
+    turnos = [dict(role="user", content="p1", bloque="B1", frags=[{"id": "x"}]), dict(role="assistant", content="r1")]
+    assert K._mensajes(turnos) == [{"role": "user", "content": "p1\n\nB1"}, {"role": "assistant", "content": "r1"}]
+
+
+def test_recuperar_tras_ver_y_enter_usa_el_texto_visto_sin_embeddings(monkeypatch):
+    llamadas = []
+    monkeypatch.setattr(I, "buscar", lambda consulta, **k: llamadas.append((consulta, k.get("solo_bm25"))) or [])
+    monkeypatch.setattr(I, "seguir_refs", lambda frags, maximo=4: [])
+    visto = dict(FRAGS[1], via_ver=True)
+    K._recuperar("t", "Desarrolla este fragmento paso a paso, con todos los pasos intermedios (regla FUENTES).", "", [visto])
+    assert llamadas and llamadas[0][0].startswith("Lemma. Let N be") and llamadas[0][1] is True
+    assert "(traido con /ver)" in K._bloque_corpus([visto])
 
 
 FRAGS = [
