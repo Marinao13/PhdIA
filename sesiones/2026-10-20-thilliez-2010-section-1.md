@@ -14,14 +14,11 @@ conjeturas:
 Las cinco lineas de metricas de arriba las rellena `doc.py cierre`. No las toques.
 
 ## Fase 0 - Carga en frio (10 min, MOTOR APAGADO)
-Que se ya de esto, que espero encontrar.
+He leído el paper de thilliez 2003, ya sé como construir funciones planas o que existen y cuando la aplicación de Borel es sobreyectiva. Aquí espero encontrar métodos o condiciones para resolver ecuaciones de tipo algebraico o diferenciales o similar. Es decir, dar soluciones a ecuaciones mediante funciones ultraholomorfas o cuasianalíticas de manera que la solución resulte también ultraholomorfa o cuasianalítica. El objetivo es leer la sección 1 donde imagino se harán los resultados técnicos necesarios para la sección 2 donde se darán los resultados.
 
 
 ## Fase 1 - Intento a ciegas (25 min, MOTOR APAGADO)
-Solo he leido el enunciado. Mi reconstruccion:
-- hipotesis que creo que entran, y donde:
-- tecnica que espero:
-- donde creo que esta el paso duro:
+De la primera parte, la relativa a las propiedades de las sucesiones, no veo nada especialmente raro, desconocido o complicado. Lo único que me mosquea y me parece un pelín difícil es probar que: dada la condición de derivabilidad se tiene que para todo mu>0 existe C dependiendo de mu constante positiva, tal que t^-muh_M(t) <= c(mu)h_M(t) para todo t>0. Me falta un poco de contexto sobre los desarrollos asintóticos. Tampoco entiendo que significa que algo sea "henselian" o un anillo de valuación discreta. No tengo claro tampoco lo que esel teorema de Puiseux. El teorema 2, el primero de los que incluyen demostración, no tengo muy claro por donde va a tirar, estoy en blanco aquí. En cuanto al lema 1 diría que no tiene mucho misterio más allá de escribir lo que significa cada cosa.
 
 >>> python doc.py sellar 1 <<<
 
