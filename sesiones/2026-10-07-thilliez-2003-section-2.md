@@ -31,9 +31,12 @@ Notas:
 
 
 ## Fase 3 - Ataque (45 min, python doc.py ataque -> MOTOR APAGADO)
-Extension: caso Beurling de lo que acabo de leer, contraejemplo, debilitar la
-regularidad fuerte. Conjeturas, una por linea, aunque sean malas:
--
+Modo: comprensión.
+
+Reconstrucción del Lema 2.1.2 con el PDF cerrado:
+Dado que gamma(M)>1, podemos tomar gamma tal que gamma(M)>gamma>1. Así, como gamma(M) es el supremo de los números para los que se cumple P_gamma, entonces existe a mayor que 0 tal que (m'_0/a)^j j!^gamma es más pequeño o igual que M_j para todo j natural. Teniendo en cuenta que a_1^j |t|^j j!^gamma = (j!/(a_1|t|)^(-j/gamma))^gamma con a_1 = m'_0/a, y que, e^x = sum_k=0^infinito x^k/k! es mayor que un término x^j/j!, entonces a_1^j|t|^j j!^gamma es mayor o igual que e^(-gamma a_1^(-1/gamma)|t|^(-1/gamma)). Así, si multiplicamos la desigualdad sobre la sucesión M y el factorial por |t|^j y tomamos ínfimos en j, tenemos que h_M(|t|) >= exp(-gamma a_1^(-1/gamma) |t|^(-1/gamma)). Por tanto, tomando logaritmos, Log h_N(|t|) >= -b_4|t|^(-1/gamma) con b_4 = gamma a_1^(-1/gamma) y lo mismo pasa si dividimos por 1+t^2 que se mantiene siempre mayor que 1. Estudiando la integral entre menos infinito e infinito del segundo sumando, tenemos que, entre 0 y 1 vale 1-1/gamma; entre 1 e infinito vale 1/gamma+1 y entre menos infinito y 0 es por simetría, finita al igual que entre 0 e infinito. Por tanto, es una integral finita en todo R y se tiene lo que buscábamos. 
+
+Conjeturas / preguntas para los directores, una por línea:
 
 >>> python doc.py sellar 3 <<<
 
