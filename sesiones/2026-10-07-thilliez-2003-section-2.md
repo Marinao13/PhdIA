@@ -2,11 +2,11 @@
 fecha: 2026-10-07
 paper: thilliez-2003-section-2
 objetivo:
-min_f1:
-min_f3:
-coincidencia_estructural:
-llamadas_f2:
-conjeturas:
+min_f1: 195.1
+min_f3: 29.7
+coincidencia_estructural: 2
+llamadas_f2: 0
+conjeturas: 0
 ---
 
 # Sesion 2026-10-07  thilliez-2003-section-2

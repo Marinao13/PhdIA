@@ -10,3 +10,10 @@ Las generan cierre, lagunas y diagnostico. No fabriques tarjetas a mano.
 ¿Cómo define tu fuente la transformada de Borel formal? :: Pendiente del fragmento correspondiente. La tarjeta definitiva debe incluir la acción sobre cada monomio, los parámetros y la normalización exacta. [VERIFICAR CON PAPER]
 ¿Qué significa que una serie sea k-sumable en una dirección según tu fuente? :: Pendiente de pegar la definición. Deben quedar especificados k, la dirección, los dominios y todas las condiciones exigidas, sin importar convenciones de otro texto. [VERIFICAR CON PAPER]
 ¿Qué definiciones necesitas fijar para leer el enunciado que recuerdas de Thilliez 2010? :: Pendiente de pegar el enunciado y las definiciones a las que remite. Solo entonces puede identificarse y desglosarse su vocabulario técnico sin inventarlo. [VERIFICAR CON PAPER]
+
+<!-- 2026-10-20 thilliez-2003-section-2 -->
+¿Qué debes escribir antes de pasar de una cota de $h_M$ a una de $h_N$? :: La definición de $N$ y la relación explícita entre $h_N$ y $h_M$.
+¿Qué orden lógico debes conservar al usar una desigualdad válida para todo $j$ y la definición de $h_M$? :: Primero se prueba para cada $j$ y después se toma el ínfimo en $j$.
+¿Qué tres datos deben figurar al introducir una integral de convergencia? :: El integrando completo, los intervalos de partición y las cotas usadas en cada uno.
+¿Qué hay que comprobar al dividir una estimación por $1+t^2$? :: El sentido de la desigualdad y la expresión exacta cuya integrabilidad se quiere deducir.
+¿Qué debe conectar la cota exponencial obtenida con la conclusión del lema? :: Una desigualdad explícita que convierta esa cota en una mayoración del integrando objetivo.
