@@ -35,6 +35,11 @@ try:
 except Exception:
     pass
 
+if ".venv-marker" in sys.prefix.lower():
+    # ese entorno es solo para Marker (lo usa `ingest` por debajo); doc.py va con el Python del sistema
+    print("AVISO: estas en el venv de Marker (.venv-marker1), que no tiene los paquetes de doc.py.\n"
+          "       Escribe `deactivate` y vuelve a lanzar el comando con el Python normal.\n")
+
 from nucleo import comandos as K
 
 
