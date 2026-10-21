@@ -89,6 +89,13 @@ def test_un_comando_seguido_de_mathcal_o_frac_no_se_pega():
     assert "∈ √2" in latex_a_consola(r"$x\in\sqrt{2}$")
 
 
+def test_mathfrak_bmod_y_bar():
+    # salida real de la sesion del 2026-10-21: "mathfrak m", "bmod", "bar(P)"
+    t = latex_a_consola(r"ideal maximal $\mathfrak m$, $\bar{P}\in(A/\mathfrak{m})[T]$ y $a\bmod\mathfrak m=\alpha$")
+    assert "$m$" in t and "mathfrak" not in t and "bmod" not in t
+    assert "bar(P) ∈ (A/m)[T]" in t and "a mod m = α" in t
+
+
 def test_raiz_con_indice():
     assert "3√(x)" in latex_a_consola(r"\(\sqrt[3]{x}\)")
     assert "√(a+b)" in latex_a_consola(r"\(\sqrt{a+b}\)")
