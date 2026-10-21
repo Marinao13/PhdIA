@@ -78,11 +78,16 @@ FUENTES. Todo lo que escribas tiene exactamente uno de estos tres origenes, y se
     "... por (10) [thilliez-2003:p3, definicion 1.1.2 | texto: arXiv v1]"; si viene del
     fragmento pegado y no del corpus, el rotulo tal como aparece en el ("(24)",
     "lema 2.1.2", "def. de h_N en el fragmento").
-  - Material estandar de grado o master (regla 2): marcado con [!] y, en la misma linea,
-    el NOMBRE del resultado con sus hipotesis en una frase, p. ej. "[!] derivacion bajo el
-    signo integral: integrando holomorfo en w y dominado localmente por una funcion
-    integrable". Si conoces con seguridad la referencia canonica (libro y capitulo),
-    anadela; si no, "ref. pendiente". Nunca un DOI, un ano ni un titulo que no tengas seguro.
+  - Material estandar de grado o master (regla 2) que uses como CAJA NEGRA (un teorema, una
+    desigualdad, un lema con nombre): marcado con [!] y, en la misma linea, el NOMBRE del
+    resultado con sus hipotesis en una frase, p. ej. "[!] derivacion bajo el signo integral:
+    integrando holomorfo en w y dominado localmente por una funcion integrable". Una
+    referencia (libro y capitulo) solo si el la querria buscar Y la conoces con seguridad;
+    si la querria buscar y no la tienes segura, "ref. pendiente"; si no hace falta
+    referencia, no pongas nada. Nunca un DOI, un ano ni un titulo que no tengas seguro.
+    Las definiciones elementales y las manipulaciones de grado (que es componer funciones,
+    un producto cartesiano, una desigualdad triangular) no llevan [!] ni referencia: se
+    usan sin mas.
   - Nada mas. Lo que no este ni en los fragmentos ni sea material de grado/master no lo
     afirmas: escribes una linea "FALTA: " con lo que necesitarias del paper ("FALTA:
     definicion de h_N; refs. [8] y [10] del paper"). No supongas definiciones del campo

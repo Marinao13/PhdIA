@@ -41,7 +41,8 @@ _SIMB = {
     "log": "log", "ln": "ln", "exp": "exp", "inf": "inf", "sup": "sup", "lim": "lim",
     "limsup": "limsup", "liminf": "liminf", "min": "min", "max": "max", "sin": "sin",
     "cos": "cos", "tan": "tan", "arg": "arg", "deg": "deg", "det": "det", "dim": "dim",
-    "ker": "ker", "Re": "Re", "Im": "Im", "sgn": "sgn",
+    "ker": "ker", "Re": "Re", "Im": "Im", "sgn": "sgn", "bmod": "mod", "pmod": "mod", "mod": "mod",
+    "gcd": "gcd", "deg": "deg", "ord": "ord", "supp": "supp", "dist": "dist", "diam": "diam",
     # espaciado y tamanos
     "quad": "\x02", "qquad": "\x02\x02", "left": "", "right": "", "big": "", "Big": "",
     "bigg": "", "Bigg": "", "bigl": "", "bigr": "", "Bigl": "", "Bigr": "",
@@ -192,7 +193,8 @@ def _mat(s):
     s = _raices(s)
     for nombre in ("text", "textrm", "mathrm", "operatorname"):
         s = _con_arg(s, nombre, lambda x: x, crudo=True)       # texto literal, espacios incluidos
-    for nombre in ("mathit", "mathbf", "mathcal", "mathsf", "boxed", "underbrace", "overbrace"):
+    for nombre in ("mathit", "mathbf", "mathcal", "mathsf", "mathfrak", "mathscr", "mathtt", "textbf",
+                   "textit", "emph", "boxed", "underbrace", "overbrace"):
         s = _con_arg(s, nombre, lambda x: x)
     for nombre, fmt in (("hat", "hat({})"), ("bar", "bar({})"), ("overline", "bar({})"),
                         ("tilde", "tilde({})"), ("vec", "vec({})"), ("dot", "dot({})")):
@@ -201,7 +203,7 @@ def _mat(s):
     s = s.replace("\\\\", "\x03\n").replace("&", " ").replace("\\|", "‖")   # \x03 = fila nueva
     s = re.sub(r"\\[,;:!]|\\ ", " ", s)
     s = re.sub(r"\\([A-Za-z]+)", _simbolo, s)
-    s = s.replace("\x05", "")                             # separadores de las sustituciones
+    s = re.sub(r"(?<=\w)\x05(?=\w)", " ", s).replace("\x05", "")   # a\bmod\mathfrak m -> a mod m
     s = re.sub(r"\\([{}%$#&_])", r"\1", s)
     s = re.sub(r"([_^])\{(\w)\}", r"\1\2", s)              # x^{2} -> x^2, a_{j} -> a_j
     s = re.sub(r"[ \t]+", " ", s)
