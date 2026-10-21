@@ -130,7 +130,8 @@ def _fracciones(s):
         out.append(s[i:i + m.start()])
         num, j = _grupo(s, i + m.end())
         den, j = _grupo(s, j)
-        out.append(_paren(_mat(num)) + "/" + _paren(_mat(den), denominador=True))
+        # \x05 separa lo sustituido del comando anterior: \in\frac{a}{b} no debe leerse \ina/b
+        out.append("\x05" + _paren(_mat(num)) + "/" + _paren(_mat(den), denominador=True))
         i = j
     return "".join(out)
 
@@ -155,7 +156,7 @@ def _raices(s):
         arg, j = _grupo(s, j)
         arg = _mat(arg)
         cuerpo = f"√{arg}" if _atomo(arg) and not indice else f"√({arg})"
-        out.append((indice + cuerpo) if indice else cuerpo)
+        out.append("\x05" + ((indice + cuerpo) if indice else cuerpo))
         i = j
 
 
@@ -169,7 +170,7 @@ def _con_arg(s, nombre, fmt, crudo=False):
             return "".join(out)
         out.append(s[i:i + m.start()])
         arg, j = _grupo(s, i + m.end())
-        out.append(fmt(arg if crudo else _mat(arg)))
+        out.append("\x05" + fmt(arg if crudo else _mat(arg)))     # \in\mathcal{E} -> ∈ E, no \inE
         i = j
 
 
@@ -200,6 +201,7 @@ def _mat(s):
     s = s.replace("\\\\", "\x03\n").replace("&", " ").replace("\\|", "‖")   # \x03 = fila nueva
     s = re.sub(r"\\[,;:!]|\\ ", " ", s)
     s = re.sub(r"\\([A-Za-z]+)", _simbolo, s)
+    s = s.replace("\x05", "")                             # separadores de las sustituciones
     s = re.sub(r"\\([{}%$#&_])", r"\1", s)
     s = re.sub(r"([_^])\{(\w)\}", r"\1\2", s)              # x^{2} -> x^2, a_{j} -> a_j
     s = re.sub(r"[ \t]+", " ", s)

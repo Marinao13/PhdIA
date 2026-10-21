@@ -81,6 +81,14 @@ def test_listas_anidadas_y_tablas():
     assert t == "| autor | (mg) |\n|---|---|\n| Thilliez | $M_p$ |"
 
 
+def test_un_comando_seguido_de_mathcal_o_frac_no_se_pega():
+    # \in\mathcal{E}_p(M) se leia como el comando \inE: salida real de la sesion del 2026-10-20
+    t = latex_a_consola(r"$f\in\mathcal{E}_p(M)$ y $g_1,\dots,g_p\in\mathcal{E}_n(M)$, con $x\in\frac{a}{b}$ y $y\in\mathbb{R}$")
+    assert "$f ∈ E_p(M)$" in t and "g_p ∈ E_n(M)" in t and "x ∈ a/b" in t and "y ∈ ℝ" in t
+    assert "inE" not in t and "ina/b" not in t and "\x05" not in t
+    assert "∈ √2" in latex_a_consola(r"$x\in\sqrt{2}$")
+
+
 def test_raiz_con_indice():
     assert "3√(x)" in latex_a_consola(r"\(\sqrt[3]{x}\)")
     assert "√(a+b)" in latex_a_consola(r"\(\sqrt{a+b}\)")
