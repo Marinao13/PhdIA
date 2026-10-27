@@ -792,7 +792,7 @@ def cmd_preguntar(args):
         print()
         M.imprimir(respuesta, consola=True)
         if citas:
-            print("\ncorpus consultado: " + "; ".join(citas))
+            print("\ncorpus consultado: " + "; ".join(dict.fromkeys(citas)))     # sin repetir la misma cita
         print(f"[{u.get('segundos')} s | entrada {u.get('tokens_in')} (cache {u.get('tokens_cache')}) | "
               f"salida {u.get('tokens_out')} (razonamiento {u.get('tokens_razonamiento')}) | tope {u.get('max_tokens')}]")
         if ultima_cortada:

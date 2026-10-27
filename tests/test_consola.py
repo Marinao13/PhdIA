@@ -96,6 +96,19 @@ def test_mathfrak_bmod_y_bar():
     assert "bar(P) ∈ (A/m)[T]" in t and "a mod m = α" in t
 
 
+def test_formula_partida_en_dos_lineas_y_widehat():
+    # salida real del 2026-10-27: el modelo parte $...$ con un salto de linea y usa \widehat
+    t = latex_a_consola("Con la definicion\n$M_j^\\lambda=\\exp(\\lambda j^2/4)$, resulta:\n\n"
+                        "$\\frac{M_{j+1}^\\lambda}{M_j^\\lambda}\n=\\exp\\bigl(\\frac{\\lambda}{4}((j+1)^2-j^2)\\bigr)$.\n\n"
+                        "Serie de Taylor $\\widehat f(x)$ y $B_j(x) = \\widehat{y_j}(x^m)$.")
+    assert "\\frac" not in t and "\\lambda" not in t and "\\bigl" not in t
+    assert "$(M_{j+1}^λ)/(M_j^λ) = exp(λ/4((j+1)^2-j^2))$" in t
+    assert "hat(f)(x)" in t and "hat(y_j)(x^m)" in t and "widehat" not in t
+    # una linea en blanco si corta: un $ suelto no se empareja con el parrafo siguiente
+    t = latex_a_consola("precio en $ de la entrada\n\nla serie $a_n$ converge")
+    assert "$a_n$" in t
+
+
 def test_raiz_con_indice():
     assert "3√(x)" in latex_a_consola(r"\(\sqrt[3]{x}\)")
     assert "√(a+b)" in latex_a_consola(r"\(\sqrt{a+b}\)")
