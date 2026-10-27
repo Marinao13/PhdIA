@@ -88,6 +88,32 @@ que el modelo retoque sus instrucciones, o cambiar prompts por impresion.
   --destilar`), `estado.md` cuando cambie algo. Los prompts estan en git: el historial es
   el registro de cambios.
 
+## 7. Usarlo desde otro sitio: portatil en la uni y movil
+
+Lo que hace falta en otra maquina: Python con los paquetes, el repo, `.env` (nunca en git)
+y los datos locales fuera de git, `corpus/text` e `indice/` (unos 40 MB; los PDFs de
+`corpus/raw` solo para ingerir y leer). Las fases, pausas y reloj viven en el log de git:
+viajan con push y pull. Marker y la GPU solo se usan al ingerir: se quedan en la torre.
+
+Portatil (caso resuelto):
+- `sellar`, `pausar`, `reanudar` y `cierre` hacen `git pull --ff-only` antes y `git push`
+  despues cuando hay red; sin red avisan. Hoy los sellados no empujan solos, y con dos
+  maquinas eso es lo que rompe las fases (dos historiales).
+- Regla: una maquina abierta cada vez; antes de cambiar, `pausar` (commitea todo) y push.
+- `python doc.py exportar` empaqueta `corpus/text` e `indice/` en un zip; `importar` lo
+  desempaqueta (USB u OneDrive como transporte, no como carpeta de trabajo). Se repite
+  tras cada `ingest` en la torre. `.env` se copia a mano una vez.
+
+Movil (lo honesto: ni fase 2 con formulas ni el REPL; si `ahora`, `estado`, `ask`,
+`buscar`, una laguna, Anki):
+1. SSH a la torre con Tailscale (torre encendida): todo identico. Una hora de Mariano,
+   cero codigo. Primero esto.
+2. Mini web servida desde la torre por Tailscale (`ask`, `buscar`, `laguna`, `estado`) con
+   KaTeX, que en el movil se ve mejor que la consola. Un par de dias. Solo si 1 se queda
+   corto.
+3. Nube (VPS o Codespace con repo, datos y `.env`): la torre solo para ingerir. Mas caro y
+   mas piezas; para cuando portatil y SSH no basten.
+
 ## Plan en cuatro bloques
 
 Cada bloque es un commit cerrado que deja el sistema usable.
@@ -116,6 +142,12 @@ Cada bloque es un commit cerrado que deja el sistema usable.
 10. Libros por Marker; cada `[!]` se busca en los libros tras la respuesta, sin modelo.
 11. Cursos como `fuente: curso`; ejercicios como unidades; `lagunas` y tarjetas desde ahi.
 12. Cache por proceso de BM25 y vectores; `ask --etiqueta`.
+
+### Bloque E. Llevarselo (cuando empiece a estudiar fuera)
+13. Pull y push automaticos en `sellar`, `pausar`, `reanudar` y `cierre`, con aviso sin red.
+14. `exportar` / `importar` de `corpus/text` e `indice/`.
+15. SSH + Tailscale a la torre desde el movil (instalacion de Mariano, sin codigo); mini web
+    con KaTeX solo si hace falta.
 
 ### Lo que necesita de Mariano
 - Para A: conformidad con los ocho campos del bloque `R<n>` (o sus nombres).
