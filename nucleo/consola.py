@@ -196,8 +196,8 @@ def _mat(s):
     for nombre in ("mathit", "mathbf", "mathcal", "mathsf", "mathfrak", "mathscr", "mathtt", "textbf",
                    "textit", "emph", "boxed", "underbrace", "overbrace"):
         s = _con_arg(s, nombre, lambda x: x)
-    for nombre, fmt in (("hat", "hat({})"), ("bar", "bar({})"), ("overline", "bar({})"),
-                        ("tilde", "tilde({})"), ("vec", "vec({})"), ("dot", "dot({})")):
+    for nombre, fmt in (("widehat", "hat({})"), ("hat", "hat({})"), ("bar", "bar({})"), ("overline", "bar({})"),
+                        ("widetilde", "tilde({})"), ("tilde", "tilde({})"), ("vec", "vec({})"), ("dot", "dot({})")):
         s = _con_arg(s, nombre, lambda x, f=fmt: f.format(x))
     s = re.sub(r"\\begin\{[a-z*]+\}|\\end\{[a-z*]+\}", "", s)
     s = s.replace("\\\\", "\x03\n").replace("&", " ").replace("\\|", "‖")   # \x03 = fila nueva
@@ -222,7 +222,8 @@ def _inline(texto):
     def _f(m):
         return "$" + _mat(m.group(1)).replace("\x03", "").replace("\n", " ") + "$"
     texto = re.sub(r"\\\((.+?)\\\)", _f, texto, flags=re.S)
-    texto = re.sub(r"(?<!\$)\$(?!\$)([^$\n]+?)\$", _f, texto)
+    # una formula $...$ puede partirse en dos lineas (el modelo lo hace); no cruza una linea en blanco
+    texto = re.sub(r"(?<!\$)\$(?!\$)((?:[^$\n]|\n(?!\s*\n))+?)\$", _f, texto)
     # las formulas ya convertidas no pasan por las reglas de markdown (T^* no es cursiva)
     formulas = []
 
