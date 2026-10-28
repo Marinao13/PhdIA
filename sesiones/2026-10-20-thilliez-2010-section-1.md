@@ -25,7 +25,10 @@ De la primera parte, la relativa a las propiedades de las sucesiones, no veo nad
 
 ## Fase 2 - Lectura asistida (60 min, python doc.py preguntar)
 Lagunas de grado/master detectadas (una linea cada una, NO paro a resolverlas):
--
+- Usar la fórmula de Cauchy
+- Fórmula integral de Cauchy
+- Desigualdades entre módulo y parte real e imaginaria
+- En general recordar teoremas básicos (usarlos, una vez visto bien)
 
 Notas:
 
