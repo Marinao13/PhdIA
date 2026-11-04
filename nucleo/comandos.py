@@ -1,5 +1,5 @@
 """Los comandos de doc.py. Cada uno es una funcion cmd_*(args)."""
-import os, re, sys, glob, json, time, datetime, statistics as st
+import os, re, sys, glob, json, time, types, datetime, statistics as st
 from collections import Counter, defaultdict
 
 from . import config as C
@@ -38,6 +38,16 @@ def _anadir_tarjetas(tarjetas, origen):
               if t.get("p") and t.get("r")]
     C.anadir(C.F_PENDIENTES, f"\n<!-- {HOY} {origen} -->\n" + "\n".join(lineas) + "\n")
     return len(lineas)
+
+
+def _anadir_queja(texto, origen, turno):
+    """Una linea en registro/quejas.md: fecha | sesion | turno | queja. Se revisan en lote (MEJORAS 6)."""
+    ruta = os.path.join(C.DIR_REGISTRO, "quejas.md")
+    if not os.path.exists(ruta):
+        C.escribir(ruta, "# Quejas sobre las respuestas\n\nUna linea por queja, desde `preguntar` con `/queja texto`. "
+                         "El turno localiza la respuesta en registro/consultas/FECHA-preguntar.jsonl. "
+                         "Se revisan en lote cada mes o cada diez: cambio de regla con test y pasada de control.\n\n")
+    C.anadir(ruta, f"- {HOY} | {origen} | turno {turno} | {texto.strip()}\n")
 
 
 def _anadir_lagunas(lagunas, origen, fase="-"):
@@ -185,23 +195,111 @@ def cmd_reanudar(args):
         print(f"te toca:  {comando}\n  {porque}")
 
 
+def _citas_de_hoy():
+    """Citas del corpus que salieron en los turnos de preguntar de hoy (registro/consultas)."""
+    citas = []
+    ruta = os.path.join(C.DIR_CONSULTAS, f"{HOY}-preguntar.jsonl")
+    if os.path.exists(ruta):
+        for l in C.leer(ruta).splitlines():
+            try:
+                citas += json.loads(l).get("citas") or []
+            except (ValueError, AttributeError):
+                pass
+    return citas
+
+
+def _elegir_resultado(doc, forzado=None):
+    """
+    (etiqueta, titulo) del resultado que se ataca hoy: lo elige el sistema, no Mariano.
+    Candidatos: los bloques R de la nota del paper; si no hay, los enunciados numerados del
+    indice. Gana el mas citado en los turnos de preguntar de hoy; si ninguno, uno al azar con
+    semilla = fecha (reproducible). `forzado` ('R2' o '2.3') manda.
+    """
+    from . import indice as I
+    from .corpus import NOMBRE_ES
+    cands = []
+    if doc and os.path.exists(_ruta_nota(doc)):
+        cands = [(rid, titulo) for rid, titulo, _ in _bloques_nota(C.leer(_ruta_nota(doc)))]
+    if not cands and doc:
+        vistos = set()
+        for f in sorted(I._cargar(doc=doc), key=lambda f: f["id"]):
+            if f.get("numero") and f.get("tipo") in ("teorema", "lema", "proposicion", "corolario") \
+                    and f["numero"] not in vistos:
+                vistos.add(f["numero"])
+                cands.append((f["numero"], f"{NOMBRE_ES.get(f['tipo'], f['tipo'])} {f['numero']}"))
+    if forzado:
+        f = forzado.strip()
+        for rid, titulo in cands:
+            if rid.upper() == f.upper() or (_numero_impreso(titulo) or "") == f:
+                return rid, titulo
+        return f, f                                   # lo que diga Mariano, aunque no este en la lista
+    if not cands:
+        return None
+    citas = _citas_de_hoy()
+
+    def menciones(titulo):
+        num = _numero_impreso(titulo)
+        return sum(1 for c in citas if re.search(r"\b" + re.escape(num) + r"\b", c)) if num else 0
+    mejor = max(cands, key=lambda x: menciones(x[1]))
+    if menciones(mejor[1]) > 0:
+        return mejor
+    import random
+    return random.Random(HOY).choice(cands)
+
+
+def _anotar_ataque(ruta_sesion, eleccion, modo):
+    """Escribe 'Ataque: R2 — titulo (...)' bajo la cabecera de la fase 3 de la sesion, una sola vez.
+    Devuelve la linea escrita, o la que ya habia."""
+    texto = C.leer(ruta_sesion)
+    m = re.search(r"^Ataque: .*$", texto, re.M)
+    if m:
+        return m.group(0)
+    linea = f"Ataque: {eleccion[0]} — {eleccion[1]} (modo {modo}; lo eligio el sistema, --resultado para cambiarlo)"
+    m = re.search(r"^## Fase 3[^\n]*\n", texto, re.M)
+    if m:
+        texto = texto[:m.end()] + linea + "\n" + texto[m.end():]
+    else:
+        texto = texto.rstrip("\n") + "\n\n## Fase 3 - Ataque\n" + linea + "\n"
+    C.escribir(ruta_sesion, texto)
+    return linea
+
+
+def _ataque_elegido(args, modo):
+    """Elige (o lee) el resultado del ataque de hoy y lo deja en la sesion. None si no hay sesion/paper."""
+    ruta = E.sesion_hoy()
+    if not ruta:
+        return None
+    doc = _doc_de_sesion()
+    eleccion = _elegir_resultado(doc, getattr(args, "resultado", None))
+    if eleccion is None:
+        return None
+    if getattr(args, "resultado", None):              # forzado: sustituye la linea que hubiera
+        texto = re.sub(r"^Ataque: .*$", "", C.leer(ruta), count=1, flags=re.M)
+        C.escribir(ruta, texto)
+    return _anotar_ataque(ruta, eleccion, modo)
+
+
 def cmd_ataque(args):
     fase, _ = E.fase_actual()
-    if fase == "f3":                                  # ya en ataque: solo recordar la guia
+    if fase == "f3":                                  # ya en ataque: recordar la guia y el resultado
         modo, guia = _modo_ataque(getattr(args, "modo", None))
-        print(f"ya estas en fase 3, ataque de {modo}:\n" + guia + "\nAl terminar:  python doc.py sellar 3")
+        linea = _ataque_elegido(args, modo)
+        print(f"ya estas en fase 3, ataque de {modo}:" + (f"\n{linea}" if linea else "")
+              + "\n" + guia + "\nAl terminar:  python doc.py sellar 3")
         return
     if fase != "f2":
         print(f"el ataque empieza desde la fase 2 (fase actual: {fase})")
         return
+    modo, guia = _modo_ataque(getattr(args, "modo", None))
+    linea = _ataque_elegido(args, modo)               # antes del sello: el commit de ataque la lleva
     ok, msg = E.sellar("ataque ::")
     if not ok and "nada que sellar" in msg:
         # no hay cambios pero queremos el marcador igualmente
         E.git("commit", "-q", "--allow-empty", "-m",
               f"ataque :: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}")
         ok = True
-    modo, guia = _modo_ataque(getattr(args, "modo", None))
-    M.aviso(f"MOTOR APAGADO. Fase 3, 45 min, ataque de {modo}.\n" + guia + "\nAl terminar:  python doc.py sellar 3")
+    M.aviso(f"MOTOR APAGADO. Fase 3, 45 min, ataque de {modo}." + (f"\n{linea}" if linea else "")
+            + "\n" + guia + "\nAl terminar:  python doc.py sellar 3")
 
 
 ATAQUE_COMPRENSION = """Elige uno o dos, con el PDF cerrado; cada uno deja algo escrito en la sesion:
@@ -348,6 +446,111 @@ def _cuenta_lagunas():
             len(re.findall(r"^- \[.*ESTRUCTURAL", lag, re.M)))
 
 
+# repeticion espaciada de reconstrucciones: dias hasta volver a intentar un R segun el ultimo nivel
+INTERVALO_RECONSTRUCCION = {0: 3, 1: 3, 2: 14, 3: 30}
+
+
+def _reconstrucciones_pendientes(hoy=None):
+    """[(doc, rid, titulo, fecha_ultimo, nivel, dias)] de los bloques R cuyo ultimo intento ya
+    vence (INTERVALO_RECONSTRUCCION), de todas las notas de lecturas/. Sin modelo."""
+    hoy = hoy or datetime.date.today()
+    out = []
+    for ruta in sorted(glob.glob(os.path.join(C.DIR_LECTURAS, "*.md"))):
+        nombre = os.path.basename(ruta)
+        if nombre.startswith("PLANTILLA") or "-quiz-" in nombre or "-check-" in nombre:
+            continue
+        doc = nombre[:-3]
+        for rid, titulo, cuerpo in _bloques_nota(C.leer(ruta)):
+            ints = _intentos(cuerpo)
+            if not ints:
+                continue
+            fecha, nivel = ints[-1][0], ints[-1][1]
+            try:
+                dias = (hoy - datetime.date.fromisoformat(fecha)).days
+            except ValueError:
+                continue
+            if nivel < 3 and dias >= INTERVALO_RECONSTRUCCION.get(nivel, 14) or nivel >= 3 and dias >= 30:
+                out.append((doc, rid, titulo, fecha, nivel, dias))
+    return out
+
+
+# ======================================================================
+# control de prompts, exportar / importar (MEJORAS 6 y 7)
+# ======================================================================
+
+def cmd_control(args):
+    """Pasa las preguntas de docs/control/preguntas.txt por `ask` y guarda las respuestas con fecha."""
+    import io as _io, contextlib
+    ruta_p = os.path.join(C.RAIZ, "docs", "control", "preguntas.txt")
+    preguntas = [l.strip() for l in C.leer(ruta_p).splitlines() if l.strip() and not l.startswith("#")]
+    if not preguntas:
+        print("no hay preguntas en docs/control/preguntas.txt")
+        return
+    solo = getattr(args, "solo", None)
+    fase, _ = E.fase_actual()
+    if fase not in E.MOTOR_PERMITIDO:
+        M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
+        return
+    salida = [f"# Control de ask ({HOY})\n", "Mismas preguntas que la ultima vez: compara a mano con el fichero anterior.\n"]
+    for n, p in enumerate(preguntas, 1):
+        if solo and n != solo:
+            continue
+        print(f"[{n}/{len(preguntas)}] {p[:70]}...")
+        buf = _io.StringIO()
+        ns = types.SimpleNamespace(pregunta=p.split(), k=8, fuente=None, doc=None, bm25=False, por_doc=2,
+                                   con_propios=False, forzar=False)
+        with contextlib.redirect_stdout(buf):
+            try:
+                cmd_ask(ns)
+            except Exception as e:
+                print(f"ERROR {type(e).__name__}: {e}")
+        salida.append(f"\n## {n}. {p}\n\n{buf.getvalue().strip()}\n")
+    destino = os.path.join(C.RAIZ, "docs", "control", f"{HOY}.md")
+    C.escribir(destino, "\n".join(salida))
+    print(f"-> {os.path.relpath(destino, C.RAIZ)}")
+
+
+DATOS_LOCALES = ("corpus/text", "indice")
+
+
+def cmd_exportar(args):
+    """Zip con corpus/text e indice/ (lo que no va en git) para llevarlo a otra maquina."""
+    import zipfile
+    destino = getattr(args, "destino", None) or os.path.join(C.RAIZ, "exportado")
+    if not destino.lower().endswith(".zip"):
+        os.makedirs(destino, exist_ok=True)
+        destino = os.path.join(destino, f"doctorado-datos-{HOY}.zip")
+    n = 0
+    with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as z:
+        for rel in DATOS_LOCALES:
+            base = os.path.join(C.RAIZ, rel)
+            for raiz, _, ficheros in os.walk(base):
+                for f in ficheros:
+                    ruta = os.path.join(raiz, f)
+                    z.write(ruta, os.path.relpath(ruta, C.RAIZ))
+                    n += 1
+    print(f"{n} ficheros -> {destino} ({os.path.getsize(destino) // 1024} KB). En la otra maquina: "
+          "python doc.py importar <zip>. El .env se copia a mano y nunca va en git.")
+
+
+def cmd_importar(args):
+    """Desempaqueta un zip de exportar en este repo: pisa corpus/text e indice/."""
+    import zipfile, shutil
+    if not os.path.exists(args.zip):
+        print("no existe", args.zip)
+        return
+    with zipfile.ZipFile(args.zip) as z:
+        nombres = z.namelist()
+        if any(n.startswith("/") or ".." in n.split("/") for n in nombres):
+            print("zip con rutas raras; no se importa")
+            return
+        for rel in DATOS_LOCALES:
+            if any(n.startswith(rel + "/") for n in nombres):
+                shutil.rmtree(os.path.join(C.RAIZ, rel), ignore_errors=True)
+        z.extractall(C.RAIZ)
+    print(f"{len(nombres)} ficheros importados en {C.RAIZ}. Luego:  python doc.py buscar \"...\" para comprobar el indice")
+
+
 # Las cuatro fases de una sesion, con el motor de cada una.
 CICLO = (("1 ciego", "OFF"), ("2 IA", "ON"), ("3 ataque", "OFF"), ("4 cierre", "ON"))
 _COLUMNA = {"f1": 0, "f2": 1, "f3": 2, "f4": 3}
@@ -470,11 +673,16 @@ AYUDA_CICLO = """
     python doc.py pausar / reanudar para el reloj sin cambiar de fase (la sesion no caduca)
 
   FUERA DE SESION
+    python doc.py nota add ID "R2 — Teorema 2.3"   bloque del resultado en lecturas/ID.md; nota estado ID
+    python doc.py leido ID          marca el paper en corpus/orden.md ([x] con --frio)
     python doc.py lagunas           viernes, 45 min, el lote de huecos
     python doc.py lab "..."         la IA escribe el script, mpmath juzga
     python doc.py reunion           notas de la reunion de hoy
     python doc.py anki              exporta las tarjetas nuevas
     python doc.py metricas          los numeros, sin autodeclaracion
+    python doc.py exportar          zip de corpus/text e indice/ para otra maquina (importar <zip> alli)
+    python doc.py control           pasada fija de preguntas a ask tras cambiar prompts (30 centimos)
+    python -m web                   la mini web en http://127.0.0.1:8765 (docs/WEB.md)
 
   (esta chuleta se calla con:  python doc.py ahora --breve)"""
 
@@ -547,6 +755,9 @@ def cmd_ahora(args):
         print("    drill      nada sin exportar. El repaso lo lleva Anki, no esto.")
     print(f"    lagunas    {lagunas}"
           + (f", {estructurales} ESTRUCTURALES: esas piden libro, no chat" if estructurales else ""))
+    for doc, rid, titulo, fecha, nivel, dias in _reconstrucciones_pendientes():
+        print(f"    reconstruir {rid} de {doc} ({titulo}): nivel {nivel} hace {dias} d. "
+              "Sesion corta con el enunciado abierto; cierre anota el intento")
     if not _reuniones():
         reunion = _linea_estado("Primera reunion con directores")
         if reunion and ":" in reunion:
@@ -588,6 +799,7 @@ AYUDA_REPL = """Fase 2. Tres usos y nada mas.
   /doc ID     fija el paper del corpus contra el que se busca (por defecto, el de la sesion)
   /sigue      que continue una respuesta cortada por el tope de salida
   /laguna X   anota el hueco de grado/master X en registro/lagunas.md y sigues (90 s max)
+  /queja X    anota que ha fallado en la ultima respuesta (registro/quejas.md); se revisan en lote
   /nuevo      olvida la conversacion (nuevo fragmento, nuevo hilo)
   /salir
 Sin plantilla la pregunta va tal cual, con las reglas de fase 2 igualmente."""
@@ -775,6 +987,15 @@ def cmd_preguntar(args):
                 print("plantilla cargada para la siguiente pregunta")
                 continue
             linea = m.group(2).strip()
+        elif linea.split(" ", 1)[0] == "/queja":
+            queja = linea[len("/queja"):].strip()
+            if not queja:
+                print("uso: /queja <que ha fallado en la ultima respuesta>. Se revisan en lote.")
+                continue
+            ruta = E.sesion_hoy()
+            _anadir_queja(queja, os.path.basename(ruta)[11:-3] if ruta else "preguntar", len(turnos) // 2)
+            print("queja anotada en registro/quejas.md (con la fecha y el turno, para localizar la respuesta en registro/consultas)")
+            continue
         elif linea.split(" ", 1)[0] == "/laguna":
             hueco = linea[len("/laguna"):].strip()
             if not hueco:
@@ -930,6 +1151,16 @@ def cmd_cierre(args):
     texto = _pon(texto, "llamadas_f2", f2)
     texto = _pon(texto, "conjeturas", len(conj))
     C.escribir(ruta, texto)
+
+    # el intento de reconstruccion, en el bloque R de la nota que se ataco (si lo hay)
+    m_at = re.search(r"^Ataque: (\S+)", texto, re.M)
+    doc_sesion = _doc_de_sesion(etiqueta)
+    if m_at and doc_sesion:
+        donde = _registrar_intento(doc_sesion, m_at.group(1), HOY, coincidencia,
+                                   E.minutos_netos(m["ataque"], m["sello3"], m["pausas"]), etiqueta)
+        print("intento anotado en " + donde if donde else
+              f"(el ataque fue a {m_at.group(1)}, que no es un bloque de lecturas/{doc_sesion}.md: "
+              f"python doc.py nota add {doc_sesion} \"{m_at.group(1)} — ...\" y anota el intento a mano)")
 
     E.sellar("cierre ::")
     print(f"\nerrores {len(errs)} | tarjetas {nt} | lagunas {nl} | conjeturas {len(conj)}")
@@ -1793,7 +2024,96 @@ def _numero_impreso(titulo):
 
 
 def _explicacion_valida(expl):
-    return len(expl) >= 200 and not expl.startswith("Tu reconstruccion")
+    """Texto propio, no la plantilla: la plantilla empieza por '(' o por 'Tu reconstruccion'."""
+    cuerpo = re.sub(r"^Intentos:.*$", "", expl, flags=re.M | re.S).strip()
+    return len(cuerpo) >= 200 and not cuerpo.startswith(("(", "Tu reconstruccion"))
+
+
+CAMPOS_R = ("Enunciado", "Hipotesis, y por que cada una", "Lema clave", "Que se rompe sin el",
+            "Desarrollo (fase 2, con el paper)", "Reconstruccion (fase 3, a ciegas)",
+            "Derivaciones y reformulaciones", "Donde se usa")
+
+
+def _subseccion_flexible(cuerpo, nombre):
+    """'### Reconstruccion (fase 3, a ciegas)' tambien casa con 'Reconstruccion' a secas;
+    'Reconstruccion' admite el nombre antiguo 'Mi explicacion'."""
+    m = re.search(rf"^### {re.escape(nombre)}\b[^\n]*$(.*?)(?=^### |\Z)", cuerpo, re.M | re.S)
+    if not m and nombre == "Reconstruccion":
+        m = re.search(r"^### Mi explicacion\b[^\n]*$(.*?)(?=^### |\Z)", cuerpo, re.M | re.S)
+    return m.group(1).strip() if m else ""
+
+
+def _intentos(cuerpo):
+    """[(fecha, nivel, minutos, sesion)] de las lineas '- fecha | nivel N | ...' bajo 'Intentos:'."""
+    rec = _subseccion_flexible(cuerpo, "Reconstruccion")
+    m = re.search(r"^Intentos:\s*$(.*)", rec, re.M | re.S)
+    out = []
+    if m:
+        for l in re.findall(r"^- (\d{4}-\d{2}-\d{2}) \| nivel (\d) \| ([\d.]+) min \| (.*)$", m.group(1), re.M):
+            out.append((l[0], int(l[1]), float(l[2]), l[3].strip()))
+    return out
+
+
+def _registrar_intento(doc, rid, fecha, nivel, minutos, sesion):
+    """Anade '- fecha | nivel N | M min | sesion X' bajo 'Intentos:' de ### Reconstruccion del bloque.
+    Devuelve 'lecturas/ID.md R2' o None si el bloque no existe."""
+    ruta = _ruta_nota(doc)
+    if not os.path.exists(ruta):
+        return None
+    texto = C.leer(ruta)
+    b = _bloque_nota(texto, rid)
+    if not b:
+        return None
+    rid, titulo, cuerpo = b
+    linea = f"- {fecha} | nivel {nivel} | {minutos if minutos is not None else 0} min | sesion {sesion}"
+    m_bloque = re.search(rf"^## {rid}\b[^\n]*$", texto, re.M)
+    fin = re.search(r"^## ", texto[m_bloque.end():], re.M)
+    ini, fin = m_bloque.end(), (m_bloque.end() + fin.start() if fin else len(texto))
+    bloque = texto[ini:fin]
+    m_rec = re.search(r"^### (Reconstruccion|Mi explicacion)\b[^\n]*$", bloque, re.M)
+    if m_rec:
+        resto = re.search(r"^### ", bloque[m_rec.end():], re.M)
+        r_fin = m_rec.end() + resto.start() if resto else len(bloque)
+        seccion = bloque[m_rec.end():r_fin]
+        if re.search(r"^Intentos:", seccion, re.M):
+            seccion = seccion.rstrip("\n") + "\n" + linea + "\n\n"
+        else:
+            seccion = seccion.rstrip("\n") + "\n\nIntentos:\n" + linea + "\n\n"
+        bloque = bloque[:m_rec.end()] + seccion + bloque[r_fin:]
+    else:
+        bloque = bloque.rstrip("\n") + "\n\n### Reconstruccion (fase 3, a ciegas)\n\nIntentos:\n" + linea + "\n\n"
+    C.escribir(ruta, texto[:ini] + bloque + texto[fin:])
+    return f"lecturas/{doc}.md {rid}"
+
+
+def _nota_estado(id_):
+    """Por bloque: campos escritos, intentos y ultimo check. Sin modelo."""
+    ruta = _ruta_nota(id_)
+    if not os.path.exists(ruta):
+        print(f"no hay nota. Primero:  python doc.py nota new {id_}")
+        return
+    texto = C.leer(ruta)
+    bloques = _bloques_nota(texto)
+    print(f"lecturas/{id_}.md: {len(bloques)} bloques")
+    plantilla = C.leer(os.path.join(C.DIR_LECTURAS, "PLANTILLA.md")).replace("ID", id_)
+    for sec in ("Mapa", "Sintesis", "Transferencia", "Abierto", "Dudas", "Dependencias"):
+        cuerpo = _seccion_md(texto, sec)
+        escrita = bool(cuerpo.strip()) and cuerpo.strip() != _seccion_md(plantilla, sec).strip()
+        print(f"  {sec:<14} {'escrita' if escrita else 'plantilla'}")
+    for rid, titulo, cuerpo in bloques:
+        escritos = [c.split(" (")[0] for c in CAMPOS_R
+                    if _explicacion_valida(_subseccion_flexible(cuerpo, c.split(" (")[0]))
+                    or len(re.sub(r"^\(.*?\)\s*", "", _subseccion_flexible(cuerpo, c.split(" (")[0]), flags=re.S)) > 40]
+        ints = _intentos(cuerpo)
+        checks = sorted(glob.glob(os.path.join(C.DIR_LECTURAS, f"{id_}-check-{rid}-*.md")))
+        print(f"\n  {rid} — {titulo}")
+        print(f"    campos escritos: {len(escritos)}/{len(CAMPOS_R)}" + (": " + ", ".join(escritos) if escritos else ""))
+        if ints:
+            u = ints[-1]
+            print(f"    intentos: {len(ints)}; ultimo {u[0]} nivel {u[1]} ({u[2]} min)")
+        else:
+            print("    intentos: ninguno")
+        print("    ultimo check: " + (os.path.basename(checks[-1]) if checks else "ninguno"))
 
 
 def _nota_add(id_, titulo):
@@ -1899,7 +2219,7 @@ def _nota_quiz(id_, k, resultado=None):
     print(f"\n-> {os.path.relpath(ruta, C.RAIZ)}")
 
 
-def _nota_check(id_, k, resultado=None):
+def _nota_check(id_, k, resultado=None, desarrollo=False):
     from . import indice as I
     fase, _ = E.fase_actual()
     if fase not in E.MOTOR_PERMITIDO:
@@ -1911,6 +2231,7 @@ def _nota_check(id_, k, resultado=None):
         return
     texto = C.leer(ruta)
     bloques = _bloques_nota(texto)
+    campo = "Desarrollo" if desarrollo else "Reconstruccion"
     rid, titulo = None, None
     if resultado:
         b = _bloque_nota(texto, resultado)
@@ -1918,17 +2239,17 @@ def _nota_check(id_, k, resultado=None):
             print(f"no hay bloque {resultado} en lecturas/{id_}.md:  python doc.py nota add {id_} \"{resultado} — ...\"")
             return
         rid, titulo, cuerpo = b
-        expl = _subseccion_md(cuerpo, "Mi explicacion")
+        expl = _subseccion_flexible(cuerpo, campo)
         if not _explicacion_valida(expl):
-            print(f"la '### Mi explicacion' de {rid} esta vacia o es la plantilla. Escribela primero.")
+            print(f"la '### {campo}' de {rid} esta vacia o es la plantilla. Escribela primero.")
             return
     elif bloques:
-        con = [(r_, t_, _subseccion_md(c_, "Mi explicacion")) for r_, t_, c_ in bloques]
+        con = [(r_, t_, _subseccion_flexible(c_, campo)) for r_, t_, c_ in bloques]
         con = [x for x in con if _explicacion_valida(x[2])]
         if len(con) == 1:
             rid, titulo, expl = con[0]
         elif not con:
-            print("ningun bloque tiene '### Mi explicacion' escrita. Escribela y lanza:  "
+            print(f"ningun bloque tiene '### {campo}' escrita. Escribela y lanza:  "
                   f"python doc.py nota check {id_} --resultado R1")
             return
         else:
@@ -1946,6 +2267,7 @@ def _nota_check(id_, k, resultado=None):
         frags = _fragmentos_doc(id_, expl[:2000], k)
     if not frags:
         return
+    expl = re.sub(r"^Intentos:.*", "", expl, flags=re.M | re.S).strip()      # el registro de intentos no se juzga
     bloque = "\n\n".join(f"{I.cita(f)}\n{f['texto']}" for f in frags)
     contenido = ((f"RESULTADO: {rid} — {titulo}\n\n" if rid else "")
                  + f"SU EXPLICACION:\n{expl}\n\nFRAGMENTOS DEL PAPER:\n\n{bloque}")
@@ -1993,7 +2315,9 @@ def cmd_nota(args):
     elif args.accion == "quiz":
         _nota_quiz(args.id, args.k, resultado)
     elif args.accion == "check":
-        _nota_check(args.id, args.k, resultado)
+        _nota_check(args.id, args.k, resultado, getattr(args, "desarrollo", False))
+    elif args.accion == "estado":
+        _nota_estado(args.id)
 
 
 # ======================================================================

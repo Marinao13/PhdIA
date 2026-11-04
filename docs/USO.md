@@ -1,5 +1,7 @@
 # Uso en una pagina
 
+(El "como" de cada tarea, paso a paso: `docs/GUIA.md`.)
+
 Todo pasa por `doc.py`. El motor (la IA) se apaga solo en las fases 1 y 3; `buscar` no
 usa motor y vale siempre. Si dudas: `python doc.py ahora`.
 
@@ -11,18 +13,21 @@ python doc.py sesion thilliez-2003      abre el fichero de hoy (id de bib.yaml; 
 python doc.py sellar 1                  commit. Motor ON
 python doc.py preguntar                 fase 2 (60 min). REPL con el paper de la sesion en el corpus:
                                         /ver 2.1.3, /ver p8, /doc ID, /sigue, /notacion /lema /paso,
-                                        /laguna; pega varias lineas y se localizan en el indice
-python doc.py ataque                    commit. Motor OFF
+                                        /laguna, /queja; pega varias lineas y se localizan en el indice
+python doc.py ataque                    commit. Motor OFF. Elige el resultado (el mas preguntado hoy, o azar)
+                                        y lo escribe en la sesion; --resultado R2 lo cambia
     fase 3 (45 min): ejercicios (base) / comprension (paper, hasta leer el nucleo) /
     extension (nucleo leido). `ataque` imprime la guia del modo; --modo la fuerza
 python doc.py sellar 3                  commit. Motor ON
-python doc.py cierre                    diff de tu fase 1, errores, 5 tarjetas, lagunas, metricas
+python doc.py cierre                    diff de tu fase 1, errores, 5 tarjetas, lagunas, metricas,
+                                        y el intento (nivel, minutos) en el bloque R de la nota
 python doc.py pausar / reanudar         para y arranca el reloj sin cambiar de fase ni motor
 ```
 
 Una sesion sin cerrar caduca a las 20 h de su ultima marca; pausada, no. `min_f1` y `min_f3`
 descuentan las pausas. `estado` y `ahora` avisan si lleva mas de 72 h pausada: reanuda y
-termina, o cierra y abre otra.
+termina, o cierra y abre otra. Los sellados hacen `git pull --ff-only` antes y `git push`
+despues cuando hay red (avisan si no; `DOC_SIN_RED=1` lo apaga): la fase viaja entre maquinas.
 
 Fase base saltada (2026-09-22): las sesiones son de papers, en el orden de `corpus/orden.md`
 (`ahora` dice cual toca y su id, y lista aparte los papers con sesiones que aun no has marcado en
@@ -93,12 +98,14 @@ papers en ingles. `corpus/raw/` y `corpus/text/` son datos locales (fuera de git
 python doc.py nota new ID               lecturas/ID.md desde plantilla, con el Mapa vacio. La escribes tu
 python doc.py nota add ID "R2 — Teorema 2.3"   anade el bloque del resultado (siete campos) y su linea en el Mapa
 python doc.py nota quiz ID --resultado R2      8-12 preguntas de examen sobre ese resultado, con cita
-python doc.py nota check ID --resultado R2     agujeros en la "### Mi explicacion" de ese bloque
+python doc.py nota check ID --resultado R2     agujeros en la "### Reconstruccion" de ese bloque (--desarrollo: el Desarrollo)
+python doc.py nota estado ID            por bloque: campos escritos, intentos de reconstruccion, ultimo check
 ```
 
 `lecturas/ID.md` tiene un bloque `## Rn — titulo` por resultado, con los siete campos de
 `lecturas/PLANTILLA-resultado.md` (Enunciado, Hipotesis y por que, Lema clave, Que se rompe
-sin el, Idea de la prueba, Donde se usa, Mi explicacion; edita esa plantilla si quieres otros),
+sin el, Desarrollo (fase 2, con el paper), Reconstruccion (fase 3, a ciegas, con `Intentos:`),
+Derivaciones y reformulaciones, Donde se usa; edita esa plantilla si quieres otros),
 y una sola vez las secciones de paper: Mapa, Sintesis, Transferencia, Abierto, Dudas,
 Dependencias. `quiz` y `check` con `--resultado` traen primero el fragmento del numero impreso
 del titulo ("Teorema 2.3" -> el teorema 2.3 del indice) y luego los afines. Sin `--resultado`,
@@ -118,6 +125,9 @@ python doc.py redactar ARCHIVO          pule forma sin inventar; marca [VERIFICA
 ```
 python doc.py lagunas                   viernes, 45 min: el lote de huecos de grado/master
 python doc.py leido ID [--frio]         marca el paper en corpus/orden.md ([~] leido; [x] reconstruido en frio)
+python doc.py control                   pasada fija de preguntas por ask (docs/control/), tras cambiar prompts
+python doc.py exportar / importar ZIP   corpus/text e indice/ a otra maquina (el .env, a mano)
+python -m web                           la mini web (docs/WEB.md): panel, buscar, ask, preguntar, notas, guia
 python doc.py lab "especificacion"      la IA escribe el script contra lab/pesos.py; mpmath juzga
 python doc.py lab demo                  los 4 casos del BRIEF (Euler+Borel, Catalan, raiz simple, raiz multiple) con graficos en lab/salidas/
 ```
@@ -141,6 +151,7 @@ python doc.py reunion [--destilar|--preparar]   notas de reunion, directores.md,
 | `sesiones/`, `lecturas/` | tu trabajo: sesiones por dia, notas por paper |
 | `registro/consultas/` | cada `ask` y cada turno de `preguntar`, con fragmentos usados y no usados |
 | `registro/verificaciones.md`, `registro/referee/` | lo que se dio por verificado, con metodo |
+| `registro/quejas.md` | tus `/queja` de preguntar, con fecha y turno; se revisan en lote |
 | `registro/llamadas.jsonl` | toda llamada a la API: comando, fase, modelo, tokens (tambien cacheados) |
 | `contexto/estado.md`, `contexto/directores.md` | lo que la IA sabe de ti; lo mantienes tu |
 | `nucleo/config.py` | precios en USD, tipo de cambio, modelo y esfuerzo por comando, presupuesto |

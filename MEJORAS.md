@@ -118,20 +118,20 @@ Movil (lo honesto: ni fase 2 con formulas ni el REPL; si `ahora`, `estado`, `ask
 
 Cada bloque es un commit cerrado que deja el sistema usable.
 
-### Bloque A. Notas y sesiones al metodo real (ya; sin coste)
+### Bloque A. Notas y sesiones al metodo real — HECHO 2026-11-04
 1. Plantilla de sesion con las fases reales (fase 2 como diario).
 2. Bloque `R<n>` con los ocho campos; `nota check --resultado` sobre Reconstruccion,
    `--desarrollo` sobre Desarrollo.
 3. `nota estado ID`.
 4. `cierre` anade la linea del intento al `R` atacado y guarda la coincidencia por resultado.
 
-### Bloque B. Fase 3 que mide (ya, junto con A)
+### Bloque B. Fase 3 que mide — HECHO 2026-11-04
 5. `ataque` elige el resultado (mas preguntado en fase 2, o azar con semilla); `--resultado
    R2` lo fuerza; queda escrito en la sesion.
 6. Repeticion espaciada en `ahora`: "reconstruir R2 de thilliez-2003" a 3 dias / 2 semanas
    / 1 mes segun nivel, como sesion corta.
 
-### Bloque C. Quejas y prompts (ya; pequeno)
+### Bloque C. Quejas y prompts — HECHO 2026-11-04 (`/queja`, `control`); la revision mensual es un habito, no codigo
 7. `/queja texto` en `preguntar` -> `registro/quejas.md`.
 8. Revision mensual con pasada de control fija.
 
@@ -143,7 +143,7 @@ Cada bloque es un commit cerrado que deja el sistema usable.
 11. Cursos como `fuente: curso`; ejercicios como unidades; `lagunas` y tarjetas desde ahi.
 12. Cache por proceso de BM25 y vectores; `ask --etiqueta`.
 
-### Bloque E. Llevarselo (cuando empiece a estudiar fuera)
+### Bloque E. Llevarselo — 13 y 14 HECHOS 2026-11-04; 15: web v1 hecha (docs/WEB.md), Tailscale/Cloudflare los instala Mariano
 13. Pull y push automaticos en `sellar`, `pausar`, `reanudar` y `cierre`, con aviso sin red.
 14. `exportar` / `importar` de `corpus/text` e `indice/`.
 15. SSH + Tailscale a la torre desde el movil (instalacion de Mariano, sin codigo); mini web

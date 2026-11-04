@@ -58,6 +58,7 @@ def main():
 
     s = sub.add_parser("ataque", help="empieza la fase 3: comprension hasta leer el nucleo, extension despues")
     s.add_argument("--modo", choices=["comprension", "extension"], help="forzar el tipo de ataque")
+    s.add_argument("--resultado", help="forzar el resultado atacado: R2, o su numero impreso 2.3")
     s.set_defaults(fn=K.cmd_ataque)
     sub.add_parser("pausar", help="para el reloj de la sesion sin cambiar de fase").set_defaults(fn=K.cmd_pausar)
     sub.add_parser("reanudar", help="sigue la sesion pausada").set_defaults(fn=K.cmd_reanudar)
@@ -139,13 +140,26 @@ def main():
     s.add_argument("--forzar", action="store_true", help="saltar la puerta (queda registrado)")
     s.set_defaults(fn=K.cmd_ask)
 
-    s = sub.add_parser("nota", help="nota de lectura por paper: new | add | quiz | check")
-    s.add_argument("accion", choices=["new", "add", "quiz", "check"])
+    s = sub.add_parser("nota", help="nota de lectura por paper: new | add | quiz | check | estado")
+    s.add_argument("accion", choices=["new", "add", "quiz", "check", "estado"])
     s.add_argument("id", help="id de bib.yaml, p. ej. thilliez-2003")
     s.add_argument("titulo", nargs="?", help='add: titulo del bloque, p. ej. "R2 — Teorema 2.3"')
     s.add_argument("--resultado", help="quiz/check: solo ese bloque, p. ej. R2")
+    s.add_argument("--desarrollo", action="store_true", help="check: revisar ### Desarrollo en vez de ### Reconstruccion")
     s.add_argument("-k", type=int, default=12, help="fragmentos del paper que ve el modelo")
     s.set_defaults(fn=K.cmd_nota)
+
+    s = sub.add_parser("control", help="pasada fija de preguntas de control por ask (docs/control/); unos 30 centimos")
+    s.add_argument("--solo", type=int, help="solo la pregunta N")
+    s.set_defaults(fn=K.cmd_control)
+
+    s = sub.add_parser("exportar", help="zip con corpus/text e indice/ para llevarlos a otra maquina")
+    s.add_argument("--destino", help="carpeta o ruta del zip (defecto: exportado/)")
+    s.set_defaults(fn=K.cmd_exportar)
+
+    s = sub.add_parser("importar", help="desempaqueta un zip de exportar en este repo (pisa corpus/text e indice/)")
+    s.add_argument("zip")
+    s.set_defaults(fn=K.cmd_importar)
 
     s = sub.add_parser("referee", help="referee hostil: encuentra el error. Contexto limpio")
     s.add_argument("archivo")

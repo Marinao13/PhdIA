@@ -1,7 +1,7 @@
 # CLAUDE.md — reglas para trabajar en este repo
 
 Sistema de apoyo al doctorado de Mariano (IMUVa; clases ultraholomorfas, sucesiones
-peso, sumabilidad). El BRIEF completo esta en `docs/BRIEF.md`; el uso, en `docs/USO.md`;
+peso, sumabilidad). El BRIEF completo esta en `docs/BRIEF.md`; el uso, en `docs/USO.md`; el como de cada tarea, en `docs/GUIA.md`;
 el estado y el plan, en `ESTADO_SISTEMA.md` y `PLAN.md`.
 
 ## Principios innegociables (BRIEF, seccion 2)

@@ -1,22 +1,27 @@
 ## RN — TITULO
 
 ### Enunciado
-En tu notacion, con las hipotesis completas y la pagina: [ID:pNN].
+(en tu notacion, con las hipotesis completas y la pagina: [ID:pNN])
 
 ### Hipotesis, y por que cada una
-Una linea por hipotesis: donde se usa, que falla si se quita.
+(una linea por hipotesis: donde se usa, que falla si se quita)
 
 ### Lema clave
-El paso que sostiene la prueba. Enunciado y donde esta.
+(el paso que sostiene la prueba: enunciado y donde esta)
 
 ### Que se rompe sin el
-Contraejemplo o razon concreta.
+(contraejemplo o razon concreta)
 
-### Idea de la prueba
-La estructura en tres a cinco pasos, sin detalles: que se construye, que se acota, donde entra cada hipotesis.
+### Desarrollo (fase 2, con el paper)
+(la demostracion con todo el detalle que quieras; pagina donde sigues al autor; donde el motor te desatasco)
+
+### Reconstruccion (fase 3, a ciegas)
+(con todo cerrado menos el enunciado; es lo que lee `nota check --resultado RN`)
+
+Intentos:
+
+### Derivaciones y reformulaciones
+(expresiones deducidas, otras formas del enunciado, con la pagina de lo que reformulas)
 
 ### Donde se usa
-En este paper (que otros R dependen de el) y fuera (papers del corpus que lo citan), con id y pagina.
-
-### Mi explicacion
-Tu reconstruccion del argumento, con tus palabras. Es lo que lee `nota check --resultado RN`.
+(en este paper: que otros R dependen de el; fuera: papers del corpus que lo citan, con id y pagina)

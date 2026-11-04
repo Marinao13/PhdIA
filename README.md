@@ -62,6 +62,8 @@ python doc.py ataque                 commit. Motor OFF.
     hasta leer el nucleo; extension (Beurling, contraejemplo) despues. --modo lo fuerza.
 python doc.py sellar 3               commit. Motor ON.
 python doc.py pausar / reanudar      para el reloj sin cambiar de fase; la sesion no caduca
+python doc.py nota add ID "R2 — ..." bloque por resultado en lecturas/ID.md; nota estado ID
+python -m web                        la mini web (docs/WEB.md); el como de cada cosa: docs/GUIA.md
 python doc.py cierre                 fase 4 (20 min): diff de tu fase 1 contra el paper,
                                      errores tipificados, 5 tarjetas, lagunas, conjeturas,
                                      metricas al frontmatter. Tu confirmas la puntuacion.

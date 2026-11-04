@@ -27,12 +27,52 @@ MARCAS_CICLO = ("inicio sesion", "inicio diagnostico", "sellado ::", "ataque", "
                 "pausa", "reanudacion")
 
 
-def git(*args, check=False):
-    r = subprocess.run(["git", *args], cwd=C.RAIZ, capture_output=True,
-                       text=True, encoding="utf-8", errors="replace")
+def git(*args, check=False, timeout=None):
+    try:
+        r = subprocess.run(["git", *args], cwd=C.RAIZ, capture_output=True,
+                           text=True, encoding="utf-8", errors="replace", timeout=timeout)
+    except subprocess.TimeoutExpired:
+        r = subprocess.CompletedProcess(["git", *args], 124, "", "tiempo agotado")
     if check and r.returncode != 0:
         raise RuntimeError((r.stdout + r.stderr).strip())
     return r
+
+
+# --- dos maquinas: el log de git es la fase, asi que viaja con pull y push ---------------
+SIN_RED = os.environ.get("DOC_SIN_RED", "") not in ("", "0", "false")
+
+
+def _remoto():
+    """Rama remota de seguimiento ('origin/master'), o None si no hay."""
+    r = git("rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}")
+    return r.stdout.strip() if r.returncode == 0 and r.stdout.strip() else None
+
+
+def sincronizar_antes():
+    """
+    Antes de sellar: trae el remoto y avanza en linea recta si otra maquina sello algo.
+    Devuelve un aviso (cadena vacia si todo fue bien o no hay remoto). Nunca bloquea.
+    """
+    if SIN_RED or not _remoto():
+        return ""
+    r = git("fetch", "-q", timeout=15)
+    if r.returncode != 0:
+        return "sin red: no se pudo traer el remoto. Haz git pull antes de cambiar de maquina."
+    r = git("merge", "--ff-only", "-q", "@{u}")
+    if r.returncode != 0:
+        return ("el remoto y esta maquina divergen (sellados en las dos sin sincronizar): "
+                "resuelve con git pull antes de seguir; este sellado se hace igualmente.")
+    return ""
+
+
+def empujar_despues():
+    """Tras sellar: push al remoto. Devuelve un aviso (vacio si fue bien o no hay remoto)."""
+    if SIN_RED or not _remoto():
+        return ""
+    r = git("push", "-q", timeout=20)
+    if r.returncode != 0:
+        return "sin push: la otra maquina no vera este sellado hasta que hagas git push."
+    return ""
 
 
 def hay_repo():
@@ -68,11 +108,13 @@ def sellar(etiqueta):
     """git add -A + commit fechado. Devuelve (ok, mensaje)."""
     if not hay_repo():
         return False, "no hay repositorio git. Ejecuta: python instalar.py"
+    aviso_pull = sincronizar_antes()
     git("add", "-A")
     marca = ahora().strftime("%Y-%m-%d %H:%M")
     r = git("commit", "-q", "-m", f"{etiqueta} {marca}")
     if r.returncode == 0:
-        return True, f"{etiqueta} {marca}"
+        avisos = [a for a in (aviso_pull, empujar_despues()) if a]
+        return True, f"{etiqueta} {marca}" + ("".join("\n  AVISO: " + a for a in avisos))
     if "nothing to commit" in (r.stdout + r.stderr):
         return False, "nada que sellar: no has escrito nada desde el ultimo commit"
     return False, (r.stdout + r.stderr).strip()
@@ -86,7 +128,8 @@ def marcar(etiqueta):
     marca = ahora().strftime("%Y-%m-%d %H:%M")
     r = git("commit", "-q", "--allow-empty", "-m", f"{etiqueta} {marca}")
     if r.returncode == 0:
-        return True, f"{etiqueta} {marca}"
+        aviso_push = empujar_despues()
+        return True, f"{etiqueta} {marca}" + (f"\n  AVISO: {aviso_push}" if aviso_push else "")
     return False, (r.stdout + r.stderr).strip()
 
 

@@ -43,8 +43,10 @@ def test_nota_add_inserta_el_bloque_antes_de_sintesis_y_lo_apunta_en_el_mapa(lec
     mapa = K._seccion_md(t, "Mapa")
     assert "- R1 — Teorema 3.2" in mapa and "- R2 — Lema 2.1.1 (division)" in mapa
     for campo in ("Enunciado", "Hipotesis, y por que cada una", "Lema clave", "Que se rompe sin el",
-                  "Idea de la prueba", "Donde se usa", "Mi explicacion"):
+                  "Desarrollo (fase 2, con el paper)", "Reconstruccion (fase 3, a ciegas)",
+                  "Derivaciones y reformulaciones", "Donde se usa"):
         assert f"### {campo}" in bloques[0][2]
+    assert "Intentos:" in bloques[0][2] and "nota check --resultado R1" in bloques[0][2]
     assert "[thilliez-2003:pNN]" in bloques[0][2]
     assert "¿Qué era un límite inductivo?" in K._seccion_md(t, "Dudas")   # nada se pierde
     K._nota_add("thilliez-2003", "R1 — otra vez")
@@ -93,8 +95,7 @@ def test_numero_impreso_y_subseccion():
 def _con_explicacion(lecturas, rid, texto):
     p = lecturas / "thilliez-2003.md"
     t = p.read_text(encoding="utf-8")
-    t = t.replace(f"Tu reconstruccion del argumento, con tus palabras. Es lo que lee `nota check --resultado {rid}`.",
-                  texto)
+    t = t.replace(f"(con todo cerrado menos el enunciado; es lo que lee `nota check --resultado {rid}`)", texto)
     p.write_text(t, encoding="utf-8")
 
 

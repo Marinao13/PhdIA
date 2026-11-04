@@ -1,0 +1,10 @@
+# Preguntas de control de `ask` (python doc.py control). Una por linea; # comenta.
+# Son las de la hoja de aceptacion de la Fase 1 (docs/aceptacion-fase1.md): cada pasada
+# guarda las respuestas en docs/control/AAAA-MM-DD.md para compararlas a mano con la anterior
+# tras un cambio de prompt. Cuesta unos 30 centimos.
+que condiciones sobre la sucesion M usa el teorema de extension de Thilliez
+Segun Thilliez 2010, que hipotesis sobre M exige el resultado de estabilidad para ecuaciones algebraicas y en que clase quedan las soluciones?
+Que relacion demuestran Jimenez-Garrido y Sanz (2016) entre gamma(M) y omega(M), y bajo que condicion?
+Como se define la M-sumabilidad en una direccion en Lastra-Malek-Sanz 2015 y que papel juega el orden aproximado asociado a M?
+En Jimenez-Garrido-Sanz-Schindl 2019, que indice separa las aberturas de sector con aplicacion de Borel inyectiva, y cual las de sobreyectiva?
+Que prueba el corpus sobre la sumabilidad de soluciones de ecuaciones algebraicas con raices multiples, via poligono de Newton, en clases ultraholomorfas?
