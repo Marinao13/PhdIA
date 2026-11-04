@@ -16,14 +16,11 @@ Esta sesion es el DIARIO del dia. El detalle por resultado (desarrollo, reconstr
 derivaciones) va al bloque `## R<n>` de lecturas/ID.md (`python doc.py nota add ID "R2 — ..."`).
 
 ## Fase 0 - Carga en frio (10 min, MOTOR APAGADO)
-Que voy a leer hoy (seccion, resultados), que se ya de esto, que espero encontrar.
+Vamos a leer la segunda sección de thilliez 2010 habiendo ya leído thilliez 2003 y la primera sección de thilliez 2010. En esta sección se aborda el caso ultraholomorfo análogo a las clases ultradiferenciables que hemos venido tratando asique espero un resultado similar al que vimos en la sección 1 junto con lo que falla y sus sutilezas de porqué.
 
 
 ## Fase 1 - Intento a ciegas (25 min, MOTOR APAGADO)
-Leo enunciados y texto, NO las demostraciones. Para el resultado principal, mi prediccion:
-- hipotesis que creo que entran, y donde:
-- tecnica que espero:
-- donde creo que esta el paso duro:
+Veo que mayormente son resultados técnicos que involucran tanto a la sucesión y sus propiedades (se menciona que (4) es indispensable pero yo creo que podría relajarse de cierta manera) como a la función h_M que define. Me da la sensación de que carga el peso de la prueba sobre la proposición previa y estimo que alguna propiedad de M nos limitará la pertenencia a clases estrictamente inferiores.
 
 >>> python doc.py sellar 1 <<<
 
