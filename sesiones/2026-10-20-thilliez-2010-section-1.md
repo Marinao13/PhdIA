@@ -43,6 +43,8 @@ Comprension (paper de base), uno o dos, PDF cerrado:
 - mapa de dependencias de la seccion (## Mapa y ## Dependencias de la nota)
 - preguntas para los directores, una por linea: son las conjeturas de hoy
 
+Vamos a probar que se verifica (7). Para ello probamos primero que se cumple si /mu es natural. Por definición de h_M(t) = inf_{j>=0} t^j M_j <= inf_{j>=1} t^j M_j = inf_{j>=0} t^{j+1}M_{j+1}. Que la sucesión verifique la condición (3) significa que existe A (que podemos suponer mayor que 1 sin pérdida de generalidad) tal que M_{j+1} <= A^{j+1}M_j para todo j natural. Así, en la desigualdad sobre h tenemos h_M(t) <= t A inf_{j>=0} (At)^j M_j = tA h_M(At) y, recurrentemente, h_M(t) <= t^n A^{n(n+1)/2} h_M(A^n t) probando la igualdad para todo n natural. Ahora si tomamos /mu real, sabemos que existe n natural tal que n <= /mu <= n+1. Si observamos que t^{/mu} >= t^{n} si t > 1 y t^{/mu} >= t^{n+1} si t < 1, entonces podemos usar la desigualdad para n y n+1 para concluir que basta tomar C_1(/mu) = A^{(/mu+1)(/mu+2)/2} y C_2(/mu) = A^{/mu+1}
+
 Extension (nucleo leido): caso Beurling de lo leido, contraejemplo, debilitar la
 regularidad fuerte. Conjeturas, una por linea, aunque sean malas:
 -
