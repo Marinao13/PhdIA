@@ -17,3 +17,10 @@ Las generan cierre, lagunas y diagnostico. No fabriques tarjetas a mano.
 ¿Qué tres datos deben figurar al introducir una integral de convergencia? :: El integrando completo, los intervalos de partición y las cotas usadas en cada uno.
 ¿Qué hay que comprobar al dividir una estimación por $1+t^2$? :: El sentido de la desigualdad y la expresión exacta cuya integrabilidad se quiere deducir.
 ¿Qué debe conectar la cota exponencial obtenida con la conclusión del lema? :: Una desigualdad explícita que convierta esa cota en una mayoración del integrando objetivo.
+
+<!-- 2026-11-04 thilliez-2010-section-1 -->
+¿Qué debe quedar fijado antes de una prueba por casos para una cota global en $t$? :: Los cuantificadores: dado $\mu>0$, hallar $C(\mu)>0$ tal que la cota valga para todo $t>0$.
+¿Cómo se cierra una prueba dividida entre $0<t<1$ y $t\ge1$ con dos constantes? :: Se toma una constante única, por ejemplo $C(\mu)=\max\{C_1(\mu),C_2(\mu)\}$, y se comprueba cada caso.
+¿Qué dato falta si una recurrencia termina en $h_M(A^nt)$ pero la tesis contiene $h_M(t)$? :: Una comparación explícita entre $h_M(A^nt)$ y el término de la tesis, con sus hipótesis y constantes.
+¿Qué debe anotarse al pasar de un parámetro entero $n$ a uno real $\mu$? :: La elección exacta de $n$ en función de $\mu$, los casos en $t$ y la dirección de cada desigualdad.
+¿Qué conviene separar en las notas de una sección técnica con nociones algebraicas y estimaciones? :: Definiciones pendientes, enunciados que las usan y la cadena independiente de lemas/estimaciones sobre $h_M$.

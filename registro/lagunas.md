@@ -31,6 +31,11 @@ con respuestas correctas y sin el mapa. Si te falta el capitulo, lee el capitulo
 
 ## Pendientes
 
+- [ ] 2026-11-04 | thilliez-2010-section-1 | f2 | Usar la fórmula de Cauchy
+- [ ] 2026-11-04 | thilliez-2010-section-1 | f2 | Fórmula integral de Cauchy
+- [ ] 2026-11-04 | thilliez-2010-section-1 | f2 | Desigualdades entre módulo y parte real e imaginaria
+- [ ] 2026-11-04 | thilliez-2010-section-1 | f2 | En general recordar teoremas básicos (usarlos, una vez visto bien)
+
 - [ ] 2026-09-14 | diagnostico | - | Estimaciones de Cauchy: no recuerdas el enunciado, las hipótesis ni qué magnitudes permiten controlar.
 - [ ] 2026-09-14 | diagnostico | - | Phragmén-Lindelöf en un sector: no reconoces el resultado; faltan sus hipótesis de frontera y crecimiento y su conclusión.
 - [ ] 2026-09-14 | diagnostico | - | Teorema de Borel: no recuerdas el enunciado ni si lo estudiaste; falta identificar qué versión exige el diagnóstico.

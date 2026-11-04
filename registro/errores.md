@@ -48,3 +48,13 @@ Posicion a repasar: Fase 3, frase sobre dividir por $1+t^2$
 Creia: La convergencia por tramos identifica por sí sola la estimación final.
 Es: Se pierde el vínculo entre los exponentes calculados en los tramos y la integral concreta que concluye el lema.
 Posicion a repasar: Fase 3, último párrafo
+
+### 2026-11-04  [E]  El objetivo inicial es una cota de la forma $t^{-\mu}h_M(t)\le C(\mu)h_M(t)$.
+Creia: Que la recurrencia $h_M(t)\le t^nA^{n(n+1)/2}h_M(A^nt)$ permitía concluir directamente (7).
+Es: La estimación obtenida conserva el término reescalado $h_M(A^nt)$ y no se escribe el paso que lo elimina o lo compara con el término objetivo.
+Posicion a repasar: Fase 3, tras la iteración
+
+### 2026-11-04  [C]  El enunciado buscado requiere una constante $C(\mu)$ válida para todo $t>0$.
+Creia: Que bastaba terminar con dos expresiones $C_1(\mu)$ y $C_2(\mu)$.
+Es: No se especifica una constante única ni se verifica explícitamente su validez simultánea en los dos regímenes de $t$.
+Posicion a repasar: Fase 3, última frase
