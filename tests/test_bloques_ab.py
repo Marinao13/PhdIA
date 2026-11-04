@@ -106,33 +106,58 @@ class _Git:
         return types.SimpleNamespace(returncode=rc, stdout=out, stderr="")
 
 
-def test_sellar_sincroniza_antes_y_empuja_despues(monkeypatch):
-    g = _Git()
+def _git_falso(monkeypatch, fallos=(), sin_red=False):
+    g = _Git(fallos)
     monkeypatch.setattr(E, "git", g)
     monkeypatch.setattr(E, "hay_repo", lambda: True)
-    monkeypatch.setattr(E, "SIN_RED", False)
+    monkeypatch.setattr(E, "SIN_RED", sin_red)
+    monkeypatch.setattr(E, "_SINCRONIZADO", None)          # la sincronizacion se cachea por proceso
+    return g
+
+
+def test_sellar_sincroniza_antes_y_empuja_despues(monkeypatch):
+    g = _git_falso(monkeypatch)
     ok, msg = E.sellar("sellado :: fase 1 ::")
     assert ok and "AVISO" not in msg
     ordenes = [a[0] for a in g.llamadas]
     assert ordenes.index("fetch") < ordenes.index("merge") < ordenes.index("add") < ordenes.index("commit") < ordenes.index("push")
+    # segunda llamada en el mismo proceso: no vuelve a hacer fetch
+    n = len(g.llamadas)
+    E.sellar("otro ::")
+    assert "fetch" not in [a[0] for a in g.llamadas[n:]]
 
 
-def test_sellar_avisa_sin_red_y_si_diverge_pero_sella(monkeypatch):
-    g = _Git(fallos={"fetch", "push"})
+def test_sellar_avisa_sin_red_divergencia_y_arbol_sucio_pero_sella(monkeypatch):
+    g = _git_falso(monkeypatch, fallos={"fetch", "push"})
+    ok, msg = E.sellar("pausa :: fase 2 ::", vacio_ok=True)
+    assert ok and "sin red" in msg and "sin push" in msg
+    g = _git_falso(monkeypatch, fallos={"merge", "merge-base"})      # HEAD no es ancestro: divergen
+    ok, msg = E.sellar("x ::")
+    assert ok and "divergen" in msg
+    g = _git_falso(monkeypatch, fallos={"merge"})                    # HEAD es ancestro: arbol sucio
+    ok, msg = E.sellar("x ::")
+    assert ok and "sellados nuevos" in msg and "esta maquina divergen" not in msg
+    g = _git_falso(monkeypatch, sin_red=True)
+    E.sellar("y ::")
+    assert [a[0] for a in g.llamadas] == ["add", "commit"]
+
+
+def test_marcar_conserva_el_aviso_del_pull_cuando_no_hay_cambios(monkeypatch):
+    class _GitVacio(_Git):
+        def __call__(self, *args, check=False, timeout=None):
+            r = super().__call__(*args, check=check, timeout=timeout)
+            if args[0] == "commit" and "--allow-empty" not in args:
+                return types.SimpleNamespace(returncode=1, stdout="nothing to commit", stderr="")
+            return r
+    g = _GitVacio(fallos={"fetch"})
     monkeypatch.setattr(E, "git", g)
     monkeypatch.setattr(E, "hay_repo", lambda: True)
     monkeypatch.setattr(E, "SIN_RED", False)
-    ok, msg = E.sellar("pausa :: fase 2 ::")
-    assert ok and "sin red" in msg and "sin push" in msg
-    g = _Git(fallos={"merge"})
-    monkeypatch.setattr(E, "git", g)
-    ok, msg = E.sellar("x ::")
-    assert ok and "divergen" in msg
-    monkeypatch.setattr(E, "SIN_RED", True)
-    g = _Git()
-    monkeypatch.setattr(E, "git", g)
-    E.sellar("y ::")
-    assert [a[0] for a in g.llamadas] == ["add", "commit"]
+    monkeypatch.setattr(E, "_SINCRONIZADO", None)
+    ok, msg = E.marcar("pausa :: fase 2 ::")
+    assert ok and "sin red" in msg and any("--allow-empty" in a for a in g.llamadas) and "push" in [a[0] for a in g.llamadas]
+    ok, msg = E.sellar("sellado :: fase 1 ::")                  # sin vacio_ok: nada que sellar, con el aviso
+    assert not ok and "nada que sellar" in msg and "sin red" in msg
 
 
 def test_exportar_e_importar_mueven_text_e_indice(tmp_path, monkeypatch, capsys):

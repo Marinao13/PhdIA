@@ -27,12 +27,32 @@ MARCAS_CICLO = ("inicio sesion", "inicio diagnostico", "sellado ::", "ataque", "
                 "pausa", "reanudacion")
 
 
+_ENV_GIT = dict(os.environ, GIT_TERMINAL_PROMPT="0", GCM_INTERACTIVE="never")
+
+
 def git(*args, check=False, timeout=None):
-    try:
-        r = subprocess.run(["git", *args], cwd=C.RAIZ, capture_output=True,
-                           text=True, encoding="utf-8", errors="replace", timeout=timeout)
-    except subprocess.TimeoutExpired:
-        r = subprocess.CompletedProcess(["git", *args], 124, "", "tiempo agotado")
+    """git en la raiz del repo. Con timeout, mata a git y a sus ayudantes (git-remote-http) si
+    se pasa: en Windows, matar solo al padre deja la tuberia abierta y communicate() espera."""
+    cmd = ["git", *args]
+    if timeout is None:
+        r = subprocess.run(cmd, cwd=C.RAIZ, capture_output=True, text=True, encoding="utf-8",
+                           errors="replace", stdin=subprocess.DEVNULL, env=_ENV_GIT)
+    else:
+        p = subprocess.Popen(cmd, cwd=C.RAIZ, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                             stdin=subprocess.DEVNULL, text=True, encoding="utf-8", errors="replace", env=_ENV_GIT)
+        try:
+            out, err = p.communicate(timeout=timeout)
+            r = subprocess.CompletedProcess(cmd, p.returncode, out, err)
+        except subprocess.TimeoutExpired:
+            if os.name == "nt":
+                subprocess.run(["taskkill", "/F", "/T", "/PID", str(p.pid)], capture_output=True)
+            else:
+                p.kill()
+            try:
+                p.communicate(timeout=5)
+            except Exception:
+                pass
+            r = subprocess.CompletedProcess(cmd, 124, "", "tiempo agotado")
     if check and r.returncode != 0:
         raise RuntimeError((r.stdout + r.stderr).strip())
     return r
@@ -40,6 +60,7 @@ def git(*args, check=False, timeout=None):
 
 # --- dos maquinas: el log de git es la fase, asi que viaja con pull y push ---------------
 SIN_RED = os.environ.get("DOC_SIN_RED", "") not in ("", "0", "false")
+_SINCRONIZADO = None      # aviso de la primera sincronizacion del proceso; las siguientes no repiten el fetch
 
 
 def _remoto():
@@ -50,19 +71,33 @@ def _remoto():
 
 def sincronizar_antes():
     """
-    Antes de sellar: trae el remoto y avanza en linea recta si otra maquina sello algo.
-    Devuelve un aviso (cadena vacia si todo fue bien o no hay remoto). Nunca bloquea.
+    Antes de leer la fase o sellar: trae el remoto y avanza en linea recta si otra maquina
+    sello algo. Una vez por proceso. Devuelve un aviso (vacio si todo fue bien o no hay
+    remoto). Nunca bloquea mas de unos segundos.
     """
+    global _SINCRONIZADO
+    if _SINCRONIZADO is not None:
+        return _SINCRONIZADO
     if SIN_RED or not _remoto():
+        _SINCRONIZADO = ""
         return ""
     r = git("fetch", "-q", timeout=15)
     if r.returncode != 0:
-        return "sin red: no se pudo traer el remoto. Haz git pull antes de cambiar de maquina."
+        _SINCRONIZADO = "sin red: no se pudo traer el remoto. Haz git pull antes de cambiar de maquina."
+        return _SINCRONIZADO
     r = git("merge", "--ff-only", "-q", "@{u}")
-    if r.returncode != 0:
-        return ("el remoto y esta maquina divergen (sellados en las dos sin sincronizar): "
-                "resuelve con git pull antes de seguir; este sellado se hace igualmente.")
-    return ""
+    if r.returncode == 0:
+        _SINCRONIZADO = ""
+    elif git("merge-base", "--is-ancestor", "HEAD", "@{u}").returncode == 0:
+        # el remoto va por delante en linea recta, pero toca ficheros que aqui estan sin sellar
+        ficheros = [l.strip() for l in (r.stdout + r.stderr).splitlines() if l.startswith("\t")]
+        _SINCRONIZADO = ("el remoto tiene sellados nuevos que cambian ficheros que aqui tienes sin sellar"
+                         + (": " + ", ".join(ficheros[:4]) if ficheros else "")
+                         + ". Este sellado creara divergencia: sella y luego git pull (o git stash, git pull, git stash pop).")
+    else:
+        _SINCRONIZADO = ("el remoto y esta maquina divergen (sellados en las dos sin sincronizar): "
+                         "resuelve con git pull antes de seguir; este sellado se hace igualmente.")
+    return _SINCRONIZADO
 
 
 def empujar_despues():
@@ -104,33 +139,32 @@ def ahora():
     return datetime.datetime.now().astimezone()
 
 
-def sellar(etiqueta):
-    """git add -A + commit fechado. Devuelve (ok, mensaje)."""
+def sellar(etiqueta, vacio_ok=False):
+    """
+    Sincroniza, git add -A, commit fechado y push. Devuelve (ok, mensaje); el mensaje lleva
+    los AVISOS de red (sin red, sin push, divergencia) para que todo comando los imprima.
+    vacio_ok: deja la marca aunque no haya cambios (commit vacio): ataque, pausa, reanudacion.
+    """
     if not hay_repo():
         return False, "no hay repositorio git. Ejecuta: python instalar.py"
-    aviso_pull = sincronizar_antes()
+    avisos = [sincronizar_antes()]
     git("add", "-A")
     marca = ahora().strftime("%Y-%m-%d %H:%M")
     r = git("commit", "-q", "-m", f"{etiqueta} {marca}")
-    if r.returncode == 0:
-        avisos = [a for a in (aviso_pull, empujar_despues()) if a]
-        return True, f"{etiqueta} {marca}" + ("".join("\n  AVISO: " + a for a in avisos))
-    if "nothing to commit" in (r.stdout + r.stderr):
-        return False, "nada que sellar: no has escrito nada desde el ultimo commit"
-    return False, (r.stdout + r.stderr).strip()
+    if r.returncode != 0 and "nothing to commit" in (r.stdout + r.stderr):
+        if not vacio_ok:
+            return False, "nada que sellar: no has escrito nada desde el ultimo commit" \
+                + "".join("\n  AVISO: " + a for a in avisos if a)
+        r = git("commit", "-q", "--allow-empty", "-m", f"{etiqueta} {marca}")
+    if r.returncode != 0:
+        return False, (r.stdout + r.stderr).strip() or "git commit fallo sin mensaje"
+    avisos.append(empujar_despues())
+    return True, f"{etiqueta} {marca}" + "".join("\n  AVISO: " + a for a in avisos if a)
 
 
 def marcar(etiqueta):
     """Como sellar, pero deja la marca aunque no haya cambios (commit vacio). (ok, mensaje)."""
-    ok, msg = sellar(etiqueta)
-    if ok or "nada que sellar" not in msg:
-        return ok, msg
-    marca = ahora().strftime("%Y-%m-%d %H:%M")
-    r = git("commit", "-q", "--allow-empty", "-m", f"{etiqueta} {marca}")
-    if r.returncode == 0:
-        aviso_push = empujar_despues()
-        return True, f"{etiqueta} {marca}" + (f"\n  AVISO: {aviso_push}" if aviso_push else "")
-    return False, (r.stdout + r.stderr).strip()
+    return sellar(etiqueta, vacio_ok=True)
 
 
 def _marcas_vacias():
