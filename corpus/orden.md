@@ -12,7 +12,7 @@ Estado: `[ ]` sin leer  `[~]` leido con protocolo  `[x]` reconstruido en frio
 
 ## Nucleo, en este orden
 
-- [ ] Thilliez, Results Math 44 (2003) 169-188 -- sucesiones fuertemente regulares
+- [~] Thilliez, Results Math 44 (2003) 169-188 -- sucesiones fuertemente regulares
 - [ ] Thilliez, Monatsh. Math. 160 (2010) 4, 443-453 -- EL teorema que quieres extender
 - [ ] Balser, libro -- series formales y sumabilidad
 - [ ] Lastra, Malek, Sanz, JMAA 430 (2015) 1175-1206
