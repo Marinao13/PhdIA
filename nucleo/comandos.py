@@ -113,6 +113,7 @@ def _leer_lineas(prompt, pendiente=_hay_entrada_pendiente):
 
 def cmd_sesion(args):
     etiqueta = "-".join(args.etiqueta)
+    E.sincronizar_antes()                      # otra maquina pudo sellar: la fase se lee tras traerlo
     if E.sesion_hoy():
         print("ya hay sesion hoy:", os.path.relpath(E.sesion_hoy(), C.RAIZ))
         return
@@ -128,6 +129,7 @@ def cmd_sesion(args):
 
 
 def cmd_sellar(args):
+    E.sincronizar_antes()
     fase, marcas = E.fase_actual()
     n = args.fase
     if n == 1 and fase != "f1":
@@ -162,6 +164,7 @@ def _aviso_pausa(marcas):
 
 def cmd_pausar(args):
     """Para el reloj de la sesion sin cambiar de fase. El commit lleva la fase para que se lea en el log."""
+    E.sincronizar_antes()
     fase, marcas = E.fase_actual()
     if fase == "libre":
         print("no hay sesion abierta que pausar")
@@ -178,6 +181,7 @@ def cmd_pausar(args):
 
 
 def cmd_reanudar(args):
+    E.sincronizar_antes()
     fase, marcas = E.fase_actual()
     if fase == "libre":
         print("no hay sesion abierta")
@@ -196,9 +200,10 @@ def cmd_reanudar(args):
 
 
 def _citas_de_hoy():
-    """Citas del corpus que salieron en los turnos de preguntar de hoy (registro/consultas)."""
+    """Citas del corpus de los turnos de preguntar de la sesion en curso (la fecha del inicio,
+    que es la del fichero de registro/consultas aunque la sesion cruce la medianoche)."""
     citas = []
-    ruta = os.path.join(C.DIR_CONSULTAS, f"{HOY}-preguntar.jsonl")
+    ruta = os.path.join(C.DIR_CONSULTAS, f"{E.fecha_sesion()}-preguntar.jsonl")
     if os.path.exists(ruta):
         for l in C.leer(ruta).splitlines():
             try:
@@ -224,27 +229,60 @@ def _elegir_resultado(doc, forzado=None):
         vistos = set()
         for f in sorted(I._cargar(doc=doc), key=lambda f: f["id"]):
             if f.get("numero") and f.get("tipo") in ("teorema", "lema", "proposicion", "corolario") \
-                    and f["numero"] not in vistos:
-                vistos.add(f["numero"])
-                cands.append((f["numero"], f"{NOMBRE_ES.get(f['tipo'], f['tipo'])} {f['numero']}"))
+                    and (f["tipo"], f["numero"]) not in vistos:
+                vistos.add((f["tipo"], f["numero"]))
+                titulo = f"{NOMBRE_ES.get(f['tipo'], f['tipo'])} {f['numero']}"
+                cands.append((titulo, titulo))        # sin nota: la etiqueta es el titulo ("Teorema 3")
     if forzado:
         f = forzado.strip()
         for rid, titulo in cands:
-            if rid.upper() == f.upper() or (_numero_impreso(titulo) or "") == f:
+            if rid.upper() == f.upper() or titulo.lower() == f.lower() \
+                    or (re.fullmatch(r"[\d.]+", f) and (_numero_impreso(titulo) or "") == f):
                 return rid, titulo
         return f, f                                   # lo que diga Mariano, aunque no este en la lista
     if not cands:
         return None
-    citas = _citas_de_hoy()
+    citas = [_tipo_numero(c) for c in _citas_de_hoy() if c.startswith(f"[{doc}:")]
 
     def menciones(titulo):
-        num = _numero_impreso(titulo)
-        return sum(1 for c in citas if re.search(r"\b" + re.escape(num) + r"\b", c)) if num else 0
+        tn = _tipo_numero(titulo)
+        return sum(1 for c in citas if c and tn and c[1] == tn[1] and (c[0] == tn[0] or not tn[0])) if tn else 0
     mejor = max(cands, key=lambda x: menciones(x[1]))
     if menciones(mejor[1]) > 0:
         return mejor
     import random
-    return random.Random(HOY).choice(cands)
+    return random.Random(E.fecha_sesion()).choice(cands)
+
+
+_TIPO_NORMAL = {"teorema": "teorema", "theorem": "teorema", "lema": "lema", "lemma": "lema",
+                "proposicion": "proposicion", "proposition": "proposicion", "corolario": "corolario",
+                "corollary": "corolario", "definicion": "definicion", "definition": "definicion"}
+
+
+def _tipo_numero(texto):
+    """('teorema', '2.3') de 'R2 — Teorema 2.3', '[doc:p4, Teorema 2.3 | ...]' o 'Lemma 2.1.1 (x)'; None sin numero."""
+    import unicodedata as ud
+    plano = ud.normalize("NFKD", texto).encode("ascii", "ignore").decode().lower()
+    m = re.search(r"\b(teorema|theorem|lema|lemma|proposicion|proposition|corolario|corollary|definicion|definition)\s+(\d+(?:\.\d+)*)\b", plano)
+    if m:
+        return _TIPO_NORMAL[m.group(1)], m.group(2)
+    num = _numero_impreso(texto)
+    return ("", num) if num else None
+
+
+def _resolver_ataque(doc, eleccion):
+    """(rid, titulo) a partir de lo que `ataque` escribio en la sesion: 'R2 — Teorema 2.3' o 'Teorema 3'.
+    Si no es un bloque R, busca el bloque de la nota con el mismo tipo y numero; rid None si no hay."""
+    m = re.match(r"(R\d+)\s*[—–-]+\s*(.*)$", eleccion)
+    if m:
+        return m.group(1).upper(), m.group(2).strip()
+    tn = _tipo_numero(eleccion)
+    if tn and os.path.exists(_ruta_nota(doc)):
+        for rid, titulo, _ in _bloques_nota(C.leer(_ruta_nota(doc))):
+            t2 = _tipo_numero(titulo)
+            if t2 and t2[1] == tn[1] and (t2[0] == tn[0] or not tn[0] or not t2[0]):
+                return rid, titulo
+    return None, eleccion
 
 
 def _anotar_ataque(ruta_sesion, eleccion, modo):
@@ -254,7 +292,8 @@ def _anotar_ataque(ruta_sesion, eleccion, modo):
     m = re.search(r"^Ataque: .*$", texto, re.M)
     if m:
         return m.group(0)
-    linea = f"Ataque: {eleccion[0]} — {eleccion[1]} (modo {modo}; lo eligio el sistema, --resultado para cambiarlo)"
+    que = eleccion[1] if eleccion[0] == eleccion[1] else f"{eleccion[0]} — {eleccion[1]}"
+    linea = f"Ataque: {que} (modo {modo}; lo eligio el sistema, --resultado para cambiarlo)"
     m = re.search(r"^## Fase 3[^\n]*\n", texto, re.M)
     if m:
         texto = texto[:m.end()] + linea + "\n" + texto[m.end():]
@@ -273,13 +312,18 @@ def _ataque_elegido(args, modo):
     eleccion = _elegir_resultado(doc, getattr(args, "resultado", None))
     if eleccion is None:
         return None
-    if getattr(args, "resultado", None):              # forzado: sustituye la linea que hubiera
-        texto = re.sub(r"^Ataque: .*$", "", C.leer(ruta), count=1, flags=re.M)
-        C.escribir(ruta, texto)
+    if getattr(args, "resultado", None):              # forzado: sustituye la linea que hubiera, en su sitio
+        texto = C.leer(ruta)
+        que = eleccion[1] if eleccion[0] == eleccion[1] else f"{eleccion[0]} — {eleccion[1]}"
+        nueva = f"Ataque: {que} (modo {modo}; lo pediste con --resultado)"
+        if re.search(r"^Ataque: .*$", texto, re.M):
+            C.escribir(ruta, re.sub(r"^Ataque: .*$", lambda _m: nueva, texto, count=1, flags=re.M))
+            return nueva
     return _anotar_ataque(ruta, eleccion, modo)
 
 
 def cmd_ataque(args):
+    E.sincronizar_antes()
     fase, _ = E.fase_actual()
     if fase == "f3":                                  # ya en ataque: recordar la guia y el resultado
         modo, guia = _modo_ataque(getattr(args, "modo", None))
@@ -292,12 +336,11 @@ def cmd_ataque(args):
         return
     modo, guia = _modo_ataque(getattr(args, "modo", None))
     linea = _ataque_elegido(args, modo)               # antes del sello: el commit de ataque la lleva
-    ok, msg = E.sellar("ataque ::")
-    if not ok and "nada que sellar" in msg:
-        # no hay cambios pero queremos el marcador igualmente
-        E.git("commit", "-q", "--allow-empty", "-m",
-              f"ataque :: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}")
-        ok = True
+    ok, msg = E.marcar("ataque ::")                   # marca aunque no haya cambios; con push
+    print(msg)
+    if not ok:
+        M.aviso("el ataque NO quedo marcado en git; la fase sigue siendo la 2. Arregla git y repite.")
+        return
     M.aviso(f"MOTOR APAGADO. Fase 3, 45 min, ataque de {modo}." + (f"\n{linea}" if linea else "")
             + "\n" + guia + "\nAl terminar:  python doc.py sellar 3")
 
@@ -482,7 +525,7 @@ def cmd_control(args):
     """Pasa las preguntas de docs/control/preguntas.txt por `ask` y guarda las respuestas con fecha."""
     import io as _io, contextlib
     ruta_p = os.path.join(C.RAIZ, "docs", "control", "preguntas.txt")
-    preguntas = [l.strip() for l in C.leer(ruta_p).splitlines() if l.strip() and not l.startswith("#")]
+    preguntas = [l.strip() for l in C.leer(ruta_p).splitlines() if l.strip() and not l.strip().startswith("#")]
     if not preguntas:
         print("no hay preguntas en docs/control/preguntas.txt")
         return
@@ -499,13 +542,20 @@ def cmd_control(args):
         buf = _io.StringIO()
         ns = types.SimpleNamespace(pregunta=p.split(), k=8, fuente=None, doc=None, bm25=False, por_doc=2,
                                    con_propios=False, forzar=False)
-        with contextlib.redirect_stdout(buf):
-            try:
-                cmd_ask(ns)
-            except Exception as e:
-                print(f"ERROR {type(e).__name__}: {e}")
+        con_antes = M._con
+        try:
+            if con_antes is not None:                 # consola sin color ni ancho de terminal: markdown limpio
+                from rich.console import Console
+                M._con = Console(file=buf, force_terminal=False, color_system=None, width=100, no_color=True)
+            with contextlib.redirect_stdout(buf):
+                try:
+                    cmd_ask(ns)
+                except Exception as e:
+                    print(f"ERROR {type(e).__name__}: {e}")
+        finally:
+            M._con = con_antes
         salida.append(f"\n## {n}. {p}\n\n{buf.getvalue().strip()}\n")
-    destino = os.path.join(C.RAIZ, "docs", "control", f"{HOY}.md")
+    destino = os.path.join(C.RAIZ, "docs", "control", f"{HOY}" + (f"-solo-{solo}" if solo else "") + ".md")
     C.escribir(destino, "\n".join(salida))
     print(f"-> {os.path.relpath(destino, C.RAIZ)}")
 
@@ -539,15 +589,26 @@ def cmd_importar(args):
     if not os.path.exists(args.zip):
         print("no existe", args.zip)
         return
+    temporal = os.path.join(C.RAIZ, ".importando")
+    shutil.rmtree(temporal, ignore_errors=True)
     with zipfile.ZipFile(args.zip) as z:
         nombres = z.namelist()
-        if any(n.startswith("/") or ".." in n.split("/") for n in nombres):
-            print("zip con rutas raras; no se importa")
+        if not nombres or any(n.startswith("/") or ".." in n.replace("\\", "/").split("/") for n in nombres):
+            print("zip vacio o con rutas raras; no se importa")
             return
-        for rel in DATOS_LOCALES:
-            if any(n.startswith(rel + "/") for n in nombres):
-                shutil.rmtree(os.path.join(C.RAIZ, rel), ignore_errors=True)
-        z.extractall(C.RAIZ)
+        malo = z.testzip()
+        if malo:
+            print(f"zip corrupto en {malo}; no se toca nada (vuelve a copiarlo)")
+            return
+        z.extractall(temporal)                        # primero aparte: si algo falla, lo tuyo sigue intacto
+    for rel in DATOS_LOCALES:
+        nuevo = os.path.join(temporal, *rel.split("/"))
+        if os.path.isdir(nuevo):
+            destino = os.path.join(C.RAIZ, *rel.split("/"))
+            shutil.rmtree(destino, ignore_errors=True)
+            os.makedirs(os.path.dirname(destino), exist_ok=True)
+            shutil.move(nuevo, destino)
+    shutil.rmtree(temporal, ignore_errors=True)
     print(f"{len(nombres)} ficheros importados en {C.RAIZ}. Luego:  python doc.py buscar \"...\" para comprobar el indice")
 
 
@@ -1090,6 +1151,7 @@ def cmd_preguntar(args):
 # ======================================================================
 
 def cmd_cierre(args):
+    E.sincronizar_antes()
     fase, m = E.fase_actual()
     ruta = E.sesion_hoy()
     if not ruta:
@@ -1116,7 +1178,7 @@ def cmd_cierre(args):
     print(f"\ncoincidencia propuesta: {prop}  (0 nada / 1 enunciado / 2 con lagunas / 3 limpio)")
     try:
         c = input("tu valoracion [Enter = aceptar]: ").strip()
-        coincidencia = int(c) if c in "0123" and c else prop
+        coincidencia = int(c) if c in ("0", "1", "2", "3") else prop
     except (EOFError, ValueError):
         coincidencia = prop
 
@@ -1153,16 +1215,23 @@ def cmd_cierre(args):
     C.escribir(ruta, texto)
 
     # el intento de reconstruccion, en el bloque R de la nota que se ataco (si lo hay)
-    m_at = re.search(r"^Ataque: (\S+)", texto, re.M)
+    m_at = re.search(r"^Ataque: (.+?)\s*\(", texto, re.M)
     doc_sesion = _doc_de_sesion(etiqueta)
     if m_at and doc_sesion:
-        donde = _registrar_intento(doc_sesion, m_at.group(1), HOY, coincidencia,
-                                   E.minutos_netos(m["ataque"], m["sello3"], m["pausas"]), etiqueta)
-        print("intento anotado en " + donde if donde else
-              f"(el ataque fue a {m_at.group(1)}, que no es un bloque de lecturas/{doc_sesion}.md: "
-              f"python doc.py nota add {doc_sesion} \"{m_at.group(1)} — ...\" y anota el intento a mano)")
+        rid_at, titulo_at = _resolver_ataque(doc_sesion, m_at.group(1).strip())
+        donde = _registrar_intento(doc_sesion, rid_at, HOY, coincidencia,
+                                   E.minutos_netos(m["ataque"], m["sello3"], m["pausas"]), etiqueta) if rid_at else None
+        if donde:
+            print("intento anotado en " + donde)
+        elif os.path.exists(_ruta_nota(doc_sesion)):
+            print(f"(el ataque fue a {titulo_at}, que no es un bloque de lecturas/{doc_sesion}.md: "
+                  f"python doc.py nota add {doc_sesion} \"R? — {titulo_at}\" y anota el intento a mano)")
+        else:
+            print(f"(sin nota para {doc_sesion}: python doc.py nota new {doc_sesion} y nota add {doc_sesion} "
+                  f"\"R1 — {titulo_at}\"; luego anota el intento a mano)")
 
-    E.sellar("cierre ::")
+    ok_s, msg_s = E.sellar("cierre ::")
+    print(msg_s if ok_s else "AVISO: el cierre NO quedo sellado en git: " + msg_s)
     print(f"\nerrores {len(errs)} | tarjetas {nt} | lagunas {nl} | conjeturas {len(conj)}")
     print(f"fase 1: {E.minutos_netos(m['inicio'], m['sello1'], m['pausas'])} min | "
           f"fase 3: {E.minutos_netos(m['ataque'], m['sello3'], m['pausas'])} min | llamadas f2: {f2}")
@@ -1312,8 +1381,8 @@ def cmd_diagnostico(args):
           "  0 nada / 1 recuerdo el enunciado / 2 lo reconstruyo con lagunas / 3 limpio\n"
           "Escribe 's' para saltar un item.\n")
     input("Enter para empezar...")
-    E.git("commit", "-q", "--allow-empty", "-m",
-          f"inicio diagnostico :: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    ok, msg = E.marcar("inicio diagnostico ::")
+    print(msg)
 
     resultados = []
     for k, it in enumerate(items, 1):
@@ -2023,10 +2092,36 @@ def _numero_impreso(titulo):
     return m.group(1) if m else None
 
 
+def _pistas_plantilla():
+    """Las lineas '(...)' de PLANTILLA-resultado.md, con RN/ID neutralizados: son la plantilla, no texto propio."""
+    pistas = set()
+    for l in C.leer(os.path.join(C.DIR_LECTURAS, "PLANTILLA-resultado.md")).splitlines():
+        l = l.strip()
+        if l.startswith("(") and l.endswith(")"):
+            pistas.add(re.sub(r"\bR\d+\b|\bRN\b", "RN", re.sub(r"\[[^\]]*:pNN\]", "[ID:pNN]", l)))
+    return pistas
+
+
+RE_INTENTO = re.compile(r"^- (\d{4}-\d{2}-\d{2}) \| nivel (\d+) \| ([\d.]+) min \| (.*)$", re.M)
+
+
+def _texto_propio(sub):
+    """Lo que escribio Mariano en una subseccion: sin la pista '(...)' de la plantilla y sin el
+    registro 'Intentos:' con sus lineas (que escribe el sistema)."""
+    s = re.sub(r"^Intentos:\s*$", "", sub, flags=re.M)
+    s = RE_INTENTO.sub("", s).strip()
+    m = re.match(r"\([^)]*\)", s, re.S)
+    if m:
+        pista = re.sub(r"\bR\d+\b", "RN", re.sub(r"\[[^\]]*:pNN\]", "[ID:pNN]", " ".join(m.group(0).split())))
+        if pista in _pistas_plantilla() or any(" ".join(p.split())[:40] == pista[:40] for p in _pistas_plantilla()):
+            s = s[m.end():].strip()
+    return s
+
+
 def _explicacion_valida(expl):
-    """Texto propio, no la plantilla: la plantilla empieza por '(' o por 'Tu reconstruccion'."""
-    cuerpo = re.sub(r"^Intentos:.*$", "", expl, flags=re.M | re.S).strip()
-    return len(cuerpo) >= 200 and not cuerpo.startswith(("(", "Tu reconstruccion"))
+    """Texto propio de verdad (ni la pista de la plantilla ni el registro de intentos), y con cuerpo."""
+    cuerpo = _texto_propio(expl)
+    return len(cuerpo) >= 200 and not cuerpo.startswith("Tu reconstruccion")
 
 
 CAMPOS_R = ("Enunciado", "Hipotesis, y por que cada una", "Lema clave", "Que se rompe sin el",
@@ -2049,8 +2144,8 @@ def _intentos(cuerpo):
     m = re.search(r"^Intentos:\s*$(.*)", rec, re.M | re.S)
     out = []
     if m:
-        for l in re.findall(r"^- (\d{4}-\d{2}-\d{2}) \| nivel (\d) \| ([\d.]+) min \| (.*)$", m.group(1), re.M):
-            out.append((l[0], int(l[1]), float(l[2]), l[3].strip()))
+        for l in RE_INTENTO.findall(m.group(1)):
+            out.append((l[0], max(0, min(3, int(l[1]))), float(l[2]), l[3].strip()))
     return out
 
 
@@ -2065,12 +2160,16 @@ def _registrar_intento(doc, rid, fecha, nivel, minutos, sesion):
     if not b:
         return None
     rid, titulo, cuerpo = b
+    nivel = max(0, min(3, int(nivel)))
     linea = f"- {fecha} | nivel {nivel} | {minutos if minutos is not None else 0} min | sesion {sesion}"
+    if any(i[0] == fecha and i[3] == f"sesion {sesion}" for i in _intentos(cuerpo)):
+        return f"lecturas/{doc}.md {rid} (ya anotado)"            # un cierre repetido no duplica
     m_bloque = re.search(rf"^## {rid}\b[^\n]*$", texto, re.M)
     fin = re.search(r"^## ", texto[m_bloque.end():], re.M)
     ini, fin = m_bloque.end(), (m_bloque.end() + fin.start() if fin else len(texto))
     bloque = texto[ini:fin]
-    m_rec = re.search(r"^### (Reconstruccion|Mi explicacion)\b[^\n]*$", bloque, re.M)
+    m_rec = (re.search(r"^### Reconstruccion\b[^\n]*$", bloque, re.M)          # misma prioridad que _intentos
+             or re.search(r"^### Mi explicacion\b[^\n]*$", bloque, re.M))
     if m_rec:
         resto = re.search(r"^### ", bloque[m_rec.end():], re.M)
         r_fin = m_rec.end() + resto.start() if resto else len(bloque)
@@ -2102,8 +2201,7 @@ def _nota_estado(id_):
         print(f"  {sec:<14} {'escrita' if escrita else 'plantilla'}")
     for rid, titulo, cuerpo in bloques:
         escritos = [c.split(" (")[0] for c in CAMPOS_R
-                    if _explicacion_valida(_subseccion_flexible(cuerpo, c.split(" (")[0]))
-                    or len(re.sub(r"^\(.*?\)\s*", "", _subseccion_flexible(cuerpo, c.split(" (")[0]), flags=re.S)) > 40]
+                    if len(_texto_propio(_subseccion_flexible(cuerpo, c.split(" (")[0]))) > 40]
         ints = _intentos(cuerpo)
         checks = sorted(glob.glob(os.path.join(C.DIR_LECTURAS, f"{id_}-check-{rid}-*.md")))
         print(f"\n  {rid} — {titulo}")
@@ -2197,7 +2295,8 @@ def _nota_quiz(id_, k, resultado=None):
             return
         rid, titulo, cuerpo = b
         enunciado = _subseccion_md(cuerpo, "Enunciado")
-        consulta = titulo + (" " + enunciado[:600] if enunciado and not enunciado.startswith("En tu notacion") else "")
+        propio = _texto_propio(enunciado)
+        consulta = titulo + (" " + propio[:600] if propio else "")
         frags = _frags_resultado(id_, rid, titulo, consulta, k)
         foco, sufijo = f"RESULTADO: {rid} — {titulo}\n\n", f"-{rid}"
     else:
