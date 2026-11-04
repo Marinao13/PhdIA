@@ -25,7 +25,8 @@ descuentan las pausas. `estado` y `ahora` avisan si lleva mas de 72 h pausada: r
 termina, o cierra y abre otra.
 
 Fase base saltada (2026-09-22): las sesiones son de papers, en el orden de `corpus/orden.md`
-(`ahora` dice cual toca y su id). Un hueco de grado/master no para la sesion: una linea en
+(`ahora` dice cual toca y su id, y lista aparte los papers con sesiones que aun no has marcado en
+`orden.md`: las casillas las cambias tu, con `python doc.py leido ID`). Un hueco de grado/master no para la sesion: una linea en
 `registro/lagunas.md` con `/laguna ...` dentro de `preguntar` o en la linea `Lagunas` de la
 sesion (la recoge `cierre`), y se estudia aparte: viernes `python doc.py lagunas`; si reaparece
 tres veces, `[ESTRUCTURAL]` y una sesion de libro `python doc.py sesion base-ETIQUETA` con la
@@ -116,6 +117,7 @@ python doc.py redactar ARCHIVO          pule forma sin inventar; marca [VERIFICA
 
 ```
 python doc.py lagunas                   viernes, 45 min: el lote de huecos de grado/master
+python doc.py leido ID [--frio]         marca el paper en corpus/orden.md ([~] leido; [x] reconstruido en frio)
 python doc.py lab "especificacion"      la IA escribe el script contra lab/pesos.py; mpmath juzga
 python doc.py lab demo                  los 4 casos del BRIEF (Euler+Borel, Catalan, raiz simple, raiz multiple) con graficos en lab/salidas/
 ```

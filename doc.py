@@ -63,6 +63,11 @@ def main():
     sub.add_parser("reanudar", help="sigue la sesion pausada").set_defaults(fn=K.cmd_reanudar)
     sub.add_parser("estado", help="fase actual").set_defaults(fn=K.cmd_estado)
 
+    s = sub.add_parser("leido", help="marca un paper como leido en corpus/orden.md: [~], o [x] con --frio")
+    s.add_argument("id", help="id de bib.yaml, p. ej. thilliez-2003")
+    s.add_argument("--frio", action="store_true", help="reconstruido en frio: [x]")
+    s.set_defaults(fn=K.cmd_leido)
+
     s = sub.add_parser("ahora", help="que te toca ahora mismo")
     s.add_argument("--breve", action="store_true", help="sin la chuleta de comandos")
     s.set_defaults(fn=K.cmd_ahora)

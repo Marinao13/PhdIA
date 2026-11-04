@@ -280,6 +280,59 @@ def _corpus_siguiente():
     return (sin[0] if sin else None), len(items) - len(sin), len(items)
 
 
+def _lineas_orden():
+    """[(estado, titulo, id de bib.yaml o None)] del nucleo de corpus/orden.md, en orden.
+    El id se resuelve por apellido y ano; si casan varios (dos JGSS 2019), None."""
+    m = re.search(r"^## Nucleo.*?$(.*?)(?=^## |\Z)", C.leer(C.F_ORDEN), re.M | re.S)
+    if not m:
+        return []
+    out = []
+    for e, t in re.findall(r"^- \[(.)\]\s*(.+)$", m.group(1), re.M):
+        ids = _docs_mencionados(t)
+        out.append((e, t, ids[0] if len(ids) == 1 else None))
+    return out
+
+
+def _sesiones_por_doc():
+    """{id: [(fecha, etiqueta, cerrada)]} de las sesiones de papers (ni base ni diagnostico),
+    por el prefijo de la etiqueta; cerrada = `cierre` escribio coincidencia_estructural."""
+    out = {}
+    for ruta in sorted(glob.glob(os.path.join(C.DIR_SESIONES, "2*.md"))):
+        nombre = os.path.basename(ruta)
+        if "diagnostico" in nombre or "EJEMPLO" in nombre:
+            continue
+        etiqueta = nombre[11:-3]
+        doc = _doc_de_sesion(etiqueta)
+        if not doc:
+            continue
+        cerrada = bool(re.search(r"^coincidencia_estructural:\s*\d", C.leer(ruta), re.M))
+        out.setdefault(doc, []).append((nombre[:10], etiqueta, cerrada))
+    return out
+
+
+def _marcar_leido(id_, frio=False):
+    """Casilla del paper en corpus/orden.md: [~] leido con protocolo, [x] reconstruido en frio.
+    Devuelve la linea nueva, o None si el id no esta en el nucleo (o no casa solo)."""
+    texto = C.leer(C.F_ORDEN)
+    for e, t, d in _lineas_orden():
+        if d == id_:
+            vieja, nueva = f"- [{e}] {t}", f"- [{'x' if frio else '~'}] {t}"
+            if vieja in texto:
+                C.escribir(C.F_ORDEN, texto.replace(vieja, nueva, 1))
+                return nueva
+    return None
+
+
+def cmd_leido(args):
+    """python doc.py leido ID [--frio]: marca el paper en corpus/orden.md; `ahora` deja de proponerlo."""
+    nueva = _marcar_leido(args.id, getattr(args, "frio", False))
+    if nueva:
+        print("corpus/orden.md:", nueva)
+    else:
+        print(f"{args.id} no esta en el nucleo de corpus/orden.md, o su linea casa con varios ids: "
+              "cambia la casilla a mano ([~] leido con protocolo, [x] reconstruido en frio)")
+
+
 def _cuenta_drill():
     """(tarjetas, cuantas esperan el paper delante)."""
     lineas = [l for l in C.leer(C.F_PENDIENTES).splitlines()
@@ -464,8 +517,17 @@ def cmd_ahora(args):
         siguiente, hechos, total = _corpus_siguiente()
         if texto:
             print("    " + (texto.split(":", 1)[1].strip() if ":" in texto else texto))
+        marcados = {d for e, _, d in _lineas_orden() if e != " " and d}
+        for d, v in _sesiones_por_doc().items():          # lo que dicen las sesiones, no las casillas
+            if d in marcados:
+                continue
+            cerradas = sum(1 for _, _, c in v if c)
+            ruta_n = _ruta_nota(d)
+            bloques = len(_bloques_nota(C.leer(ruta_n))) if os.path.exists(ruta_n) else 0
+            print(f"    en curso segun tus sesiones: {d} ({len(v)} sesiones, {cerradas} cerradas, ultima "
+                  f"{v[-1][0]} {v[-1][1]}; nota: {bloques} bloques R). Si lo das por leido: python doc.py leido {d}")
         if siguiente:
-            print(f"    corpus {hechos}/{total}, siguiente sin leer: {siguiente}")
+            print(f"    corpus {hechos}/{total}, siguiente sin leer segun orden.md: {siguiente}")
             ids = _docs_mencionados(siguiente)
             if len(ids) == 1:
                 print(f"    en bib.yaml: {ids[0]}.  Antes de la sesion: python doc.py nota new {ids[0]}"
