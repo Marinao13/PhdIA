@@ -12,7 +12,7 @@ estado_bib: ESTADO
 La redaccion es tuya. El sistema no rellena nada de aqui. Un bloque `## R<n>` por
 resultado (`python doc.py nota add ID "R2 — Teorema 2.3"`), con los ocho campos de
 `lecturas/PLANTILLA-resultado.md`; `nota quiz ID --resultado R2` te interroga sobre ese
-resultado y `nota check ID --resultado R2` busca agujeros en su `### Mi explicacion`.
+resultado y `nota check ID --resultado R2` busca agujeros en su `### Reconstruccion`.
 Las secciones de paper van una sola vez, al final. Cita siempre con pagina: [ID:pNN].
 
 ## Mapa
