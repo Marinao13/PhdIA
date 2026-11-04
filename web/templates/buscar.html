@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block titulo %}Buscar{% endblock %}
+{% block cuerpo %}
+<h1>Buscar en el corpus</h1>
+<p class="meta">Recuperacion pura (BM25 + embeddings), sin modelo: vale en cualquier fase. Igual que <code>python doc.py buscar</code>.</p>
+
+<form method="get" action="/buscar" class="formulario">
+  <label>Pregunta
+    <input type="text" name="q" value="{{ q }}" required autofocus placeholder="que condiciones sobre M usa el teorema de extension">
+  </label>
+  <div class="fila">
+    <label>Documento
+      <select name="doc">
+        <option value="">todos</option>
+        {% for d in docs %}<option value="{{ d }}" {{ 'selected' if d == doc else '' }}>{{ d }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>k <input type="number" name="k" value="{{ k }}" min="1" max="30" class="corto"></label>
+    <label class="casilla"><input type="checkbox" name="bm25" value="1" {{ 'checked' if bm25 else '' }}> solo BM25</label>
+  </div>
+  <button type="submit">Buscar</button>
+</form>
+
+{% if aviso %}<p class="aviso">{{ aviso }}</p>{% endif %}
+{% if vacio %}<p class="aviso">nada en el indice para esa pregunta (o indice vacio: <code>python doc.py indexar</code>)</p>{% endif %}
+
+{% if items %}
+<p class="meta">{{ items|length }} fragmentos. El texto es el de la capa tex (arXiv); la pagina, la del PDF.</p>
+<ol class="resultados">
+{% for f in items %}
+  <li class="resultado">
+    <div class="cita"><span class="mono">{{ f.cita }}</span> <span class="tipo">{{ f.tipo }}</span>
+      <span class="puntos">bm25 {{ f.bm25 }}{% if f.coseno is not none %} · cos {{ '%.2f' % f.coseno }}{% endif %}</span></div>
+    <div class="frag">{{ f.texto }}</div>
+    <details class="crudo"><summary>texto crudo</summary><pre>{{ f.crudo }}</pre></details>
+    <p class="meta"><a href="/preguntar?doc={{ f.doc }}">preguntar sobre {{ f.doc }}</a></p>
+  </li>
+{% endfor %}
+</ol>
+{% endif %}
+{% endblock %}

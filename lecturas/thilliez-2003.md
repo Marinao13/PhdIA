@@ -10,9 +10,9 @@ estado_bib: verificado
 # Nota de lectura: thilliez-2003
 
 La redaccion es tuya. El sistema no rellena nada de aqui. Un bloque `## R<n>` por
-resultado (`python doc.py nota add thilliez-2003 "R2 — Teorema 2.3"`), con los siete campos de
+resultado (`python doc.py nota add thilliez-2003 "R2 — Teorema 2.3"`), con los ocho campos de
 `lecturas/PLANTILLA-resultado.md`; `nota quiz thilliez-2003 --resultado R2` te interroga sobre ese
-resultado y `nota check thilliez-2003 --resultado R2` busca agujeros en su `### Mi explicacion`.
+resultado y `nota check thilliez-2003 --resultado R2` busca agujeros en su `### Reconstruccion`.
 Las secciones de paper van una sola vez, al final. Cita siempre con pagina: [thilliez-2003:pNN].
 
 ## Mapa

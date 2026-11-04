@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>{% block titulo %}doctorado{% endblock %} · doctorado</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="/static/estilo.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="/static/app.js"></script>
+</head>
+<body>
+<header class="cabecera">
+  <a class="marca" href="/">doctorado</a>
+  <nav class="nav">
+    {% for href, nombre in nav %}<a href="{{ href }}" class="{{ 'activo' if (ruta == href or (href != '/' and ruta.startswith(href))) else '' }}">{{ nombre }}</a>{% endfor %}
+  </nav>
+  <span class="fase {{ 'on' if estado.motor else 'off' }}" title="la fase se lee del git log">{{ estado.nombre }} · motor {{ 'ON' if estado.motor else 'OFF' }}{% if estado.pausada %} · PAUSADA{% endif %}{% if estado.simulado %} · SIMULACION{% endif %}</span>
+</header>
+<main>
+{% for a in avisos %}<p class="aviso">{{ a }}</p>{% endfor %}
+{% block cuerpo %}{% endblock %}
+</main>
+<footer class="pie">consola: <code>python doc.py ahora</code> · misma fase, mismo registro · sin autenticacion propia (Cloudflare Access delante, docs/WEB.md)</footer>
+</body>
+</html>

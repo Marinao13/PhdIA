@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block titulo %}{{ titulo }}{% endblock %}
+{% block cuerpo %}
+<h1>{{ titulo }}</h1>
+<p class="meta"><code>{{ directorio }}/</code>: ficheros tuyos, solo lectura aqui (se escriben en VS Code).</p>
+{% if not items %}<p class="aviso">no hay ficheros (sin contar las plantillas)</p>{% endif %}
+<ul class="lista">
+{% for it in items %}
+  <li>
+    <a href="{{ base }}/{{ it.id }}">{{ it.id }}</a>
+    <span class="meta">
+      {% if tipo == 'nota' %}{{ it.bloques }} bloque{{ 's' if it.bloques != 1 }} R{% if it.front.titulo %} · {{ it.front.titulo }}{% endif %}{% endif %}
+      {% if tipo == 'sesion' %}{% if it.front.paper %}{{ it.front.paper }}{% endif %}{% if it.front.coincidencia_estructural is not none and it.front.coincidencia_estructural != '' %} · cerrada (coincidencia {{ it.front.coincidencia_estructural }}){% endif %}{% endif %}
+      · {{ it.lineas }} lineas · {{ it.modificado }}
+    </span>
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}

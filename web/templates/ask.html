@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block titulo %}Ask{% endblock %}
+{% block cuerpo %}
+<h1>Ask</h1>
+<p class="meta">Sintesis con el modelo sobre los fragmentos de <code>buscar</code>, con cita tras cada afirmacion. Igual que <code>python doc.py ask</code>: respeta las fases y queda en <code>registro/consultas/</code>.</p>
+
+{% if apagado %}
+<p class="aviso">MOTOR APAGADO{% if estado.explicacion %}: {{ estado.explicacion }}{% endif %}. El corpus sigue disponible sin modelo: <a href="/buscar{% if pregunta %}?q={{ pregunta|urlencode }}{% endif %}">buscar</a>.</p>
+{% endif %}
+
+<form method="post" action="/ask" class="formulario">
+  <label>Pregunta
+    <textarea name="pregunta" rows="3" required>{{ pregunta }}</textarea>
+  </label>
+  <div class="fila">
+    <label>Documento
+      <select name="doc">
+        <option value="">todos los papers</option>
+        {% for d in docs %}<option value="{{ d }}" {{ 'selected' if d == doc else '' }}>{{ d }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>k <input type="number" name="k" value="{{ k }}" min="1" max="30" class="corto"></label>
+    <label class="casilla"><input type="checkbox" name="con_propios" value="1" {{ 'checked' if con_propios else '' }}> con propios (proyecto y notas)</label>
+  </div>
+  <button type="submit" {{ 'disabled' if apagado else '' }}>Preguntar al corpus</button>
+  <p class="meta">Cada envio es una llamada pagada: no recargues la pagina de la respuesta.</p>
+</form>
+
+{% if respuesta_html %}
+<section class="tarjeta respuesta">
+  <h2>Respuesta</h2>
+  <div class="md">{{ respuesta_html|safe }}</div>
+  {% if ultima %}<p class="meta">[{{ ultima.segundos }} s | entrada {{ ultima.tokens_in }} (cache {{ ultima.tokens_cache }}) | salida {{ ultima.tokens_out }} | tope {{ ultima.max_tokens }} | {{ ultima.modelo }}]{% if ultima.cortada %} RESPUESTA CORTADA por el tope de salida{% endif %}</p>{% endif %}
+</section>
+{% endif %}
+{% if resto %}
+<section class="tarjeta">
+  <h2>Detalle</h2>
+  <pre class="consola">{{ resto }}</pre>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block titulo %}Lagunas{% endblock %}
+{% block cuerpo %}
+<h1>Lagunas <span class="meta">{{ pendientes }} pendientes{% if estructurales %}, {{ estructurales }} ESTRUCTURALES{% endif %}</span></h1>
+
+<form method="post" action="/lagunas" class="formulario laguna">
+  <label>Una linea y sigues (fecha, sesion y fase las pone el sistema)
+    <input type="text" name="texto" required autofocus placeholder="tema : que exactamente no recuerdas">
+  </label>
+  <button type="submit">anotar</button>
+</form>
+
+<section class="md">
+  <p class="meta"><code>{{ ruta }}</code></p>
+  {{ html|safe }}
+</section>
+{% endblock %}
