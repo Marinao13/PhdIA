@@ -96,13 +96,13 @@ papers en ingles. `corpus/raw/` y `corpus/text/` son datos locales (fuera de git
 
 ```
 python doc.py nota new ID               lecturas/ID.md desde plantilla, con el Mapa vacio. La escribes tu
-python doc.py nota add ID "R2 — Teorema 2.3"   anade el bloque del resultado (siete campos) y su linea en el Mapa
+python doc.py nota add ID "R2 — Teorema 2.3"   anade el bloque del resultado (ocho campos) y su linea en el Mapa
 python doc.py nota quiz ID --resultado R2      8-12 preguntas de examen sobre ese resultado, con cita
 python doc.py nota check ID --resultado R2     agujeros en la "### Reconstruccion" de ese bloque (--desarrollo: el Desarrollo)
 python doc.py nota estado ID            por bloque: campos escritos, intentos de reconstruccion, ultimo check
 ```
 
-`lecturas/ID.md` tiene un bloque `## Rn — titulo` por resultado, con los siete campos de
+`lecturas/ID.md` tiene un bloque `## Rn — titulo` por resultado, con los ocho campos de
 `lecturas/PLANTILLA-resultado.md` (Enunciado, Hipotesis y por que, Lema clave, Que se rompe
 sin el, Desarrollo (fase 2, con el paper), Reconstruccion (fase 3, a ciegas, con `Intentos:`),
 Derivaciones y reformulaciones, Donde se usa; edita esa plantilla si quieres otros),
