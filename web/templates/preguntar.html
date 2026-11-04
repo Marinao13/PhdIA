@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block titulo %}Preguntar{% endblock %}
+{% block cuerpo %}
+<h1>Preguntar <span class="meta">fase 2 · hilo {{ hilo.id }}</span></h1>
+<p class="meta">Tres usos y nada mas: notacion, lema estandar, paso comprimido. El mismo turno que el REPL de <code>python doc.py preguntar</code>; cada respuesta queda en <code>registro/consultas/</code>. El hilo vive en la memoria del servidor: si se reinicia, se pierde.</p>
+
+{% if not estado.motor %}
+<p class="aviso">MOTOR APAGADO{% if estado.explicacion %}: {{ estado.explicacion }}{% endif %}. Puedes leer el hilo y <a href="/buscar">buscar</a> sin modelo.</p>
+{% endif %}
+
+{% if hilo.doc %}
+<p class="meta">paper del hilo: <strong>{{ hilo.doc }}</strong> ({{ n_frags }} fragmentos en el indice). Cada pregunta lleva los fragmentos mas afines, con su cita por pagina.</p>
+{% else %}
+<p class="meta">sin paper del corpus asociado: el modelo solo vera lo que pegues. Elige uno abajo.</p>
+{% endif %}
+
+<section class="hilo">
+{% for t in vista %}
+  <article class="turno">
+    <div class="pregunta">
+      <span class="num">{{ t.n }}</span>
+      {% if t.plantilla %}<span class="etiqueta">/{{ t.plantilla }}</span>{% endif %}
+      <p>{{ t.pregunta }}</p>
+      {% if t.fragmento %}<details><summary>fragmento pegado ({{ t.fragmento|length }} caracteres)</summary><pre>{{ t.fragmento }}</pre></details>{% endif %}
+      {% if t.donde %}<p class="meta">{{ t.donde }}</p>{% endif %}
+    </div>
+    <div class="respuesta md">{{ t.respuesta_html|safe }}</div>
+    {% if t.citas %}<p class="meta">corpus consultado: {% for c in t.citas %}<span class="mono">{{ c }}</span>{{ '; ' if not loop.last }}{% endfor %}</p>{% endif %}
+    <p class="meta tokens">[{{ t.u.segundos }} s | entrada {{ t.u.tokens_in }} (cache {{ t.u.tokens_cache }}) | salida {{ t.u.tokens_out }} (razonamiento {{ t.u.tokens_razonamiento }}) | tope {{ t.u.max_tokens }}] {{ t.n_frags }} fragmentos · {{ t.ts }}</p>
+    {% if t.cortada %}<p class="aviso">RESPUESTA CORTADA por el tope de salida. Pulsa "sigue" para que continue donde se quedo.</p>
+    {% elif t.sigue %}<p class="aviso">la respuesta para en SIGUE: (tope de 40 lineas). Pulsa "sigue" para que continue con los mismos fragmentos.</p>{% endif %}
+  </article>
+{% endfor %}
+</section>
+
+<form method="post" action="/preguntar" class="formulario" id="turno">
+  <input type="hidden" name="hilo" value="{{ hilo.id }}">
+  <div class="fila">
+    <label>Paper del corpus
+      <select name="doc">
+        <option value="">(sin corpus)</option>
+        {% for d in docs %}<option value="{{ d }}" {{ 'selected' if d == hilo.doc else '' }}>{{ d }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Plantilla
+      <select name="plantilla">
+        {% for v, nombre in plantillas %}<option value="{{ v }}">{{ nombre }}</option>{% endfor %}
+      </select>
+    </label>
+  </div>
+  <label>Fragmento pegado (opcional: texto del PDF; se localiza en el indice y se cita por pagina)
+    <textarea name="fragmento" rows="4" placeholder="pega aqui varias lineas del PDF"></textarea>
+  </label>
+  <label>Pregunta (vacia con fragmento = que lo desarrolle paso a paso)
+    <textarea name="pregunta" rows="3"></textarea>
+  </label>
+  <div class="botones">
+    <button type="submit" name="accion" value="preguntar" {{ 'disabled' if not estado.motor else '' }}>Enviar</button>
+    {% if puede_seguir %}<button type="submit" name="accion" value="sigue" class="secundario" {{ 'disabled' if not estado.motor else '' }}>sigue</button>{% endif %}
+    <button type="submit" name="accion" value="nuevo" class="secundario" formnovalidate>nuevo hilo</button>
+  </div>
+  {% if tokens_entrada %}<p class="meta">entrada del ultimo turno: {{ tokens_entrada }} tokens. El historial se reenvia entero; cuando crezca, nuevo hilo.</p>{% endif %}
+</form>
+
+<form method="post" action="/preguntar/laguna" class="formulario laguna">
+  <input type="hidden" name="hilo" value="{{ hilo.id }}">
+  <label>Laguna (una linea; se anota en registro/lagunas.md y sigues; 90 s como mucho)
+    <input type="text" name="laguna" placeholder="Phragmen-Lindelof en un sector: no recuerdo el papel de la apertura">
+  </label>
+  <button type="submit" class="secundario">anotar laguna</button>
+</form>
+{% endblock %}

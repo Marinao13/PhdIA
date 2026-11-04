@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block titulo %}Guia{% endblock %}
+{% block cuerpo %}
+<div class="con-indice">
+  <aside class="indice">
+    <details class="indice-movil" open>
+      <summary>Indice</summary>
+      {% for p in partes %}
+      <p class="meta">{{ p.nombre }}</p>
+      <ul>
+        {% for nivel, titulo, sid in p.indice %}<li class="n{{ nivel }}"><a href="#{{ sid }}">{{ titulo }}</a></li>{% endfor %}
+      </ul>
+      {% endfor %}
+    </details>
+  </aside>
+  <div class="texto">
+    {% if not partes %}<p class="aviso">no esta docs/USO.md</p>{% endif %}
+    {% for p in partes %}
+    <section class="md guia" id="doc-{{ loop.index }}">
+      <p class="meta">docs/{{ p.nombre }}</p>
+      {{ p.html|safe }}
+    </section>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

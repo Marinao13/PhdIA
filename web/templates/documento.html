@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block titulo %}{{ id }}{% endblock %}
+{% block cuerpo %}
+<p class="meta"><a href="{{ base }}">{{ 'notas' if tipo == 'nota' else 'sesiones' }}</a> › <code>{{ ruta }}</code> · solo lectura</p>
+{% if doc.front %}
+<dl class="front">
+{% for k, v in doc.front.items() %}<dt>{{ k }}</dt><dd>{{ v if v is not none else '' }}</dd>{% endfor %}
+</dl>
+{% endif %}
+{% if doc.bloques|selectattr('rid')|list %}
+<p class="meta botones-texto"><a href="#" data-plegar="abrir">abrir todos los R</a> · <a href="#" data-plegar="cerrar">cerrar todos</a></p>
+{% endif %}
+{% for b in doc.bloques %}
+  {% if b.rid %}
+  <details class="bloque" id="{{ b.rid }}" open>
+    <summary><strong>{{ b.rid }}</strong> — {{ b.resto }}</summary>
+    <div class="md">{{ b.html|safe }}</div>
+  </details>
+  {% elif b.titulo %}
+  <section class="seccion">
+    <h2>{{ b.titulo }}</h2>
+    <div class="md">{{ b.html|safe }}</div>
+  </section>
+  {% else %}
+  <div class="md">{{ b.html|safe }}</div>
+  {% endif %}
+{% endfor %}
+{% endblock %}

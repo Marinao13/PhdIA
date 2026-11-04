@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block titulo %}Panel{% endblock %}
+{% block cuerpo %}
+<h1>Panel</h1>
+
+<section class="tarjeta">
+  <h2>Estado</h2>
+  <pre class="consola">{{ estado_texto }}</pre>
+</section>
+
+{% if crudo %}
+<section class="tarjeta">
+  <h2>Ahora</h2>
+  <pre class="consola">{{ crudo }}</pre>
+</section>
+{% else %}
+<section class="tarjeta">
+  <h2>Ahora</h2>
+  <pre class="consola">{{ cabecera }}</pre>
+</section>
+
+<section class="tarjeta destacada">
+  <h2>Te toca ahora</h2>
+  {% if comando %}<p class="comando"><code>{{ comando }}</code></p>{% endif %}
+  <pre class="consola">{{ toca }}</pre>
+</section>
+
+<section class="tarjeta">
+  <h2>Material</h2>
+  <pre class="consola">{{ material }}</pre>
+</section>
+
+<section class="tarjeta">
+  <h2>Pendiente</h2>
+  <pre class="consola">{{ pendiente }}</pre>
+</section>
+{% endif %}
+
+<section class="tarjeta">
+  <h2>Desde aqui</h2>
+  <ul class="enlaces">
+    <li><a href="/buscar">Buscar</a> en el corpus, sin modelo: vale en toda fase.</li>
+    <li><a href="/ask">Ask</a>: sintesis con citas [id:pagina]. Motor ON (fase 2, 4 o libre).</li>
+    <li><a href="/preguntar">Preguntar</a>: la fase 2 con el paper de la sesion, hilo por pestaña.</li>
+    <li><a href="/notas">Notas</a> y <a href="/sesiones">sesiones</a>: solo lectura; se editan en VS Code.</li>
+    <li><a href="/lagunas">Lagunas</a>: una linea y sigues.</li>
+    <li><a href="/guia">Guia</a>: docs/USO.md (y docs/GUIA.md si existe) con indice.</li>
+  </ul>
+  <p class="meta">sellar, pausar, reanudar, ataque y cierre siguen en la consola: hacen commits y abren ficheros.</p>
+</section>
+{% endblock %}
