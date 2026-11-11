@@ -77,9 +77,11 @@ que es mas corto que escribirlo de cero. Nada sin revisar entra en el indice ni 
    recuerda en PENDIENTE.
 7. El LaTeX: junto al `.md` queda `transcripciones/NOMBRE.tex`, exportado de el, por si con
    un par de cambios te sirve para un documento: `article` con `amsmath`, `amssymb`, `amsthm`
-   y `babel` en espanol; titulos, listas y formulas tal cual (la que va sola en su linea, en
-   `\[ \]`); las marcas `[ILEGIBLE]` y `[?]` en rojo con `\duda{}`; un comentario
-   `% ---------- pagina N ----------` donde empieza cada pagina. Reglas:
+   y `babel` en espanol; titulos, listas (las numeradas conservan su numero) y formulas tal
+   cual (la que va sola en su linea, en `\[ \]`); las marcas `[ILEGIBLE]` y `[?]` en rojo con
+   `\duda{}`; un comentario `% ---------- pagina N ----------` donde empieza cada pagina. Un
+   simbolo Unicode suelto pasa a su comando (`≤` a `\le`); el que no tenga comando conocido se
+   declara en el preambulo y sale en rojo como `[U+XXXX]` para que lo sustituyas. Reglas:
    - La fuente es el `.md`. Corrige ahi (web o VS Code); el `.tex` se rehace solo al marcar
      `--revisado`, o cuando quieras con `python doc.py transcribir --tex NOMBRE`. En la web,
      "descargar .tex" da siempre el del texto de ese momento.
@@ -87,7 +89,9 @@ que es mas corto que escribirlo de cero. Nada sin revisar entra en el indice ni 
      lo rehace desde el `.md` y pierde tus cambios. Lo que cambies en el `.tex` no vuelve al
      `.md` ni al indice.
    - No esta compilado: en la torre no hay `pdflatex`. Se comprueba que llaves y entornos
-     casan y que el texto va escapado; si algo no compila en tu LaTeX, dimelo con el error.
+     casan y que el texto va escapado, y un revisor hizo de compilador leyendo el LaTeX
+     generado (salieron seis fallos, corregidos). Aun asi, hasta que no lo compiles tu no esta
+     probado de verdad: si algo no compila en tu LaTeX, dimelo con el error.
 
 Reglas y limites:
 

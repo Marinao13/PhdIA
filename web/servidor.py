@@ -351,6 +351,8 @@ AVISOS_TRANSCRIBIR = {
                "(OCR local, no es el motor)",
     "guardada": "cambios guardados",
     "sincambios": "no habia cambios que guardar",
+    "nuevas": "han entrado paginas nuevas desde que abriste esta: no la he marcado. Lo que tenias corregido esta "
+              "guardado; revisa las nuevas y marca otra vez",
     "revisada": "marcada como revisada. Entra en el indice con: python doc.py indexar",
     "nopagina": "esa pagina no existe en la transcripcion",
 }
@@ -519,6 +521,11 @@ async def transcripcion_guardar_cambios(request: Request, nombre: str):
         if _huella_texto(valor) != form.get(f"h_{n}"):
             guardadas += 1 if T.guardar_pagina(nombre, n, valor) else 0
     if form.get("accion") == "revisado":
+        # el formulario puede ser de antes de que entrara otra pagina (la pasada seguia): no se da
+        # por revisado lo que esa pagina no llego a ensenar
+        en_disco = {n for n, _ in T.paginas(T.leer(nombre)["cuerpo"])[1]}
+        if not en_disco <= vistas:
+            return RedirectResponse(f"/transcripciones/{nombre}?aviso=nuevas", status_code=303)
         T.marcar_revisado(nombre)
         return RedirectResponse(f"/transcripciones/{nombre}?aviso=revisada", status_code=303)
     ancla = str(form.get("ancla", ""))

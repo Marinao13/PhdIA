@@ -281,7 +281,8 @@ def indexar(rehacer=False, verbose=True):
         frags = fragmentar(unidades)
         resumen[doc] = len(frags)
         for k, fr in enumerate(frags):
-            if _tokens(fr["texto"]) < 20 and not fr.get("corto_ok"):     # pagina escaneada sin OCR, ruido
+            # pagina escaneada sin OCR, ruido. Una pagina manuscrita corta si entra, si tiene alguna palabra
+            if _tokens(fr["texto"]) < 20 and not (fr.get("corto_ok") and _tokenizar(fr["texto"])):
                 continue
             h = _hash(fr["texto"])
             fid = f"{doc}#{k:04d}"
@@ -378,8 +379,11 @@ def buscar(pregunta, k=8, fuente=None, doc=None, solo_bm25=False, por_doc=2):
         return []
     from rank_bm25 import BM25Okapi
     consulta = expandir(pregunta)
-    bm25 = BM25Okapi([_tokenizar(f["texto"]) for f in frags])
-    s_bm = bm25.get_scores(_tokenizar(consulta))
+    palabras = [_tokenizar(f["texto"]) for f in frags]
+    if any(palabras):
+        s_bm = BM25Okapi(palabras).get_scores(_tokenizar(consulta))
+    else:                                              # solo formulas de una letra: BM25 dividiria por cero
+        s_bm = np.zeros(len(frags))
     orden_bm = np.argsort(-s_bm)
 
     rrf = {}

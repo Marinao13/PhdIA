@@ -114,7 +114,7 @@ def test_las_marcas_salen_en_rojo_tambien_dentro_de_una_formula():
     tex, _ = L.cuerpo_latex(CUERPO)
     assert "\\emph{log-convexa} \\duda{[?]}" in tex and "y aqui \\duda{[ILEGIBLE]}." in tex
     assert "$M_{p+q} \\text{\\duda{[ILEGIBLE]}} A^{p+q}M_pM_q$" in tex
-    assert "\\fbox{FIGURA: sector de abertura pi/2}" in tex
+    assert "\\fbox{\\parbox{\\dimexpr\\linewidth-2\\fboxsep-2\\fboxrule\\relax}{FIGURA: sector de abertura pi/2}}" in tex
     tex2, _ = L.cuerpo_latex("Final.\n\n[PAGINA CORTADA por el tope de salida: revisa el final contra el original]\n")
     assert "\\duda{[PAGINA CORTADA por el tope de salida: revisa el final contra el original]}" in tex2
 

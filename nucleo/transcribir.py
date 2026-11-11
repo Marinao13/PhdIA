@@ -21,7 +21,7 @@ revisado o con --tex, salvo que lo hayas editado a mano (entonces no se pisa sin
 Regla: una transcripcion automatica falla donde mas duele (un subindice, un cuantificador).
 Nada `sin_revisar` entra en el indice ni se cita; solo lo que Mariano marca `revisado`.
 """
-import os, re, glob, shutil, datetime, threading
+import os, re, glob, shutil, datetime, threading, time
 
 from . import config as C
 
@@ -257,6 +257,11 @@ def paginas(cuerpo):
     return trozos[0], [(int(trozos[i]), trozos[i + 1].strip("\n")) for i in range(1, len(trozos) - 1, 2)]
 
 
+def _numeros(cuerpo):
+    """'1,2,5': los numeros de las marcas de pagina del cuerpo, en su orden."""
+    return ",".join(m.group(1) for m in RE_PAGINA.finditer(cuerpo))
+
+
 def guardar_pagina(nombre, n, texto):
     """Sustituye el texto de la pagina n (la correccion a mano desde la web). True si existia.
     Solo cambia ese tramo del fichero: la cabecera, el prefacio y las demas paginas quedan byte
@@ -413,6 +418,18 @@ def coste_eur(coste):
 # transcribir
 # ----------------------------------------------------------------------
 
+RESERVA_CADUCA = 6 * 3600        # segundos: una pasada de Marker sobre un PDF grande puede tardar
+
+
+def _reserva_caducada(ruta):
+    """Un .md de 0 bytes que nadie ha tocado en horas: la reserva de un proceso que murio antes de
+    escribir la primera pagina. Se puede reutilizar el nombre."""
+    try:
+        return os.path.getsize(ruta) == 0 and time.time() - os.path.getmtime(ruta) > RESERVA_CADUCA
+    except OSError:
+        return False
+
+
 def _guardar_original(ruta, d_orig, nombre, ext):
     """Copia el original a originales/nombre.ext. Devuelve (ruta o None si no se pudo, copiado_ahora).
     Borra antes los originales huerfanos con ese nombre (los de una transcripcion borrada), pero
@@ -464,35 +481,46 @@ def transcribir(ruta, tipo="paper", titulo=None, paginas=None, motor="modelo", c
             open(destino, "x").close()
             break
         except FileExistsError:
+            if _reserva_caducada(destino):
+                try:
+                    os.remove(destino)
+                    continue
+                except OSError:
+                    pass
             k += 1
     escritas = []
+    original, copiado = None, False
+
+    def cabecera_nueva(etiqueta_motor):
+        return _cabecera(dict(origen=os.path.basename(ruta), tipo=tipo, titulo=titulo, fecha=hoy,
+                              paginas="", motor=etiqueta_motor, estado="sin_revisar"))
 
     def vuelca(hojas, etiqueta_motor):
         """Lleva al disco las paginas de `hojas` que aun no estan. La primera crea el fichero; las
         siguientes se ANADEN a lo que haya en disco, sin reescribirlo: lo que se corrija mientras la
-        pasada sigue (en la web o en VS Code) no se pisa. Si entretanto se marco revisada, vuelve a
-        sin_revisar: ha entrado una pagina que nadie ha mirado."""
+        pasada sigue (en la web o en VS Code) no se pisa, aunque le falte la cabecera. Si entretanto
+        se marco revisada, vuelve a sin_revisar: ha entrado una pagina que nadie ha mirado."""
         with _CERROJO:
             for n, texto in hojas:
                 if n in escritas:
                     continue
-                cab, cuerpo = _trocear(C.leer(destino)) if os.path.exists(destino) else ("", "")
-                if not partir("---\n" + cab + "\n---\n")[0].get("estado"):
-                    # recien reservado (o lo han borrado a media pasada): se crea con lo hecho hasta aqui
+                crudo = C.leer(destino) if os.path.exists(destino) else ""
+                if not crudo.strip():
+                    # recien reservado, o borrado a media pasada: entero, con lo hecho hasta aqui
                     hechas = [(m, x) for m, x in hojas if m in escritas or m == n]
-                    cab = _cabecera(dict(origen=os.path.basename(ruta), tipo=tipo, titulo=titulo, fecha=hoy,
-                                         paginas="", motor=etiqueta_motor, estado="sin_revisar"))
+                    cab = cabecera_nueva(etiqueta_motor)
                     cuerpo = (f"# {titulo}\n\n"
                               f"{AVISO} Revisala con el original al lado (web: /transcripciones/{nombre}), "
                               f"corrige aqui, y marca: python doc.py transcribir --revisado {nombre}\n\n")
                     cuerpo += "\n\n".join(MARCA_PAGINA.format(n=m) + "\n\n" + x for m, x in hechas) + "\n"
-                    numeros = [m for m, _ in hechas]
                 else:
-                    ya = [int(x) for x in re.findall(r"\d+", partir("---\n" + cab + "\n---\n")[0].get("paginas", ""))]
+                    cab, cuerpo = _trocear(crudo)
+                    if not cab:                        # le han quitado la cabecera: se repone; el texto no se toca
+                        cab = cabecera_nueva(etiqueta_motor)
                     cuerpo = cuerpo.rstrip("\n") + "\n\n" + MARCA_PAGINA.format(n=n) + "\n\n" + texto + "\n"
                     cab = _quitar(_poner(cab, "estado", "sin_revisar"), "revisado_el")
-                    numeros = ya + [n]
-                _escribir(destino, _poner(cab, "paginas", ",".join(str(m) for m in numeros)), cuerpo)
+                # la verdad esta en las marcas del cuerpo (aqui `paginas` es el rango pedido, no la funcion)
+                _escribir(destino, _poner(cab, "paginas", _numeros(cuerpo)), cuerpo)
                 escritas.append(n)
 
     def limpia():                                      # no salio ninguna pagina: ni reserva ni original sueltos
@@ -505,8 +533,8 @@ def transcribir(ruta, tipo="paper", titulo=None, paginas=None, motor="modelo", c
 
     # El original, a su sitio antes de empezar (para revisar al lado aunque la pasada se corte), y el
     # .md, tras CADA pagina: lo pagado esta en disco aunque maten el proceso.
-    original, copiado = _guardar_original(ruta, d_orig, nombre, ext)
     try:
+        original, copiado = _guardar_original(ruta, d_orig, nombre, ext)
         if motor == "marker":
             hojas, coste = _con_marker(ruta, cuales, progreso)
             etiqueta_motor = "marker (local)"
@@ -522,10 +550,20 @@ def transcribir(ruta, tipo="paper", titulo=None, paginas=None, motor="modelo", c
         if not escritas:
             limpia()
         raise
-    with _CERROJO:                                     # el modelo que de verdad respondio, sin tocar lo demas
-        cab, cuerpo = _trocear(C.leer(destino))
-        if _poner(cab, "motor", etiqueta_motor) != cab:
-            _escribir(destino, _poner(cab, "motor", etiqueta_motor), cuerpo)
+    with _CERROJO:
+        crudo = C.leer(destino) if os.path.exists(destino) else ""
+        if not crudo.strip():                          # lo borraron y ya no entro otra pagina: se rehace con lo hecho
+            escritas.clear()
+            vuelca(hojas, etiqueta_motor)
+        else:                                          # el modelo que de verdad respondio, sin tocar lo demas
+            cab, cuerpo = _trocear(crudo)
+            cab2 = _poner(cab or cabecera_nueva(etiqueta_motor), "motor", etiqueta_motor)
+            cab2 = _poner(cab2, "paginas", _numeros(cuerpo))
+            if not partir("---\n" + cab2 + "\n---\n")[0].get("estado"):
+                cab2 = _poner(cab2, "estado", "sin_revisar")
+            if cab2 != cab:
+                _escribir(destino, cab2, cuerpo)
+        cuerpo = _trocear(C.leer(destino))[1]
     hechas = [n for n, _ in hojas]
     pendientes = [n for n in cuales if n not in hechas]
     sin_original = original is None
