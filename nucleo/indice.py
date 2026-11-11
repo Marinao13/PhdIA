@@ -79,6 +79,8 @@ def fragmentar(unidades):
         texto = "\n\n".join(u["texto"] for u in grupo)
         base = dict(pagina=grupo[0].get("pagina"), seccion=grupo[0].get("seccion"),
                     tipo="parrafos" if len(grupo) > 1 else grupo[0].get("tipo"), label=None, numero=None)
+        if any(u.get("corte_pagina") for u in grupo):  # una pagina manuscrita corta es contenido, no ruido
+            base["corto_ok"] = True
         for t in (_partir_largo(texto) if _tokens(texto) > MAX_TOK else [texto]):
             out.append(dict(base, texto=t))
         grupo.clear()
@@ -107,9 +109,12 @@ def fragmentar(unidades):
     return out
 
 
-def _norma_plantilla(linea):
-    """Una linea con lo que `nota add` y `nota new` sustituyen (RN, [ID:pNN]) puesto como en la plantilla."""
+def _norma_plantilla(linea, id_=None):
+    """Una linea con lo que `nota add` y `nota new` sustituyen (RN, ID, [ID:pNN]) puesto como en la
+    plantilla. id_: el id del paper de esa nota, que `nota new` escribe donde la plantilla dice ID."""
     linea = re.sub(r"\[[^\]]*:pNN\]", "[ID:pNN]", " ".join(linea.split()))
+    if id_:
+        linea = linea.replace(id_, "ID")
     return re.sub(r"\bR\d+\b|\bRN\b", "RN", linea)
 
 
@@ -126,9 +131,10 @@ def _lineas_plantilla():
     return out
 
 
-def _unidades_markdown(texto, plantilla=frozenset()):
+def _unidades_markdown(texto, plantilla=frozenset(), id_=None):
     """Un markdown (proyecto, nota) como unidades: titulos y parrafos. `plantilla`: lineas de
-    andamiaje (de _lineas_plantilla) que se quitan; con ella se quitan tambien los comentarios HTML."""
+    andamiaje (de _lineas_plantilla) que se quitan; con ella se quitan tambien los comentarios HTML.
+    id_: el id del paper de la nota (lo que `nota new` puso donde la plantilla dice ID)."""
     out, seccion = [], None
     if plantilla:
         texto = re.sub(r"<!--.*?-->", "", texto, flags=re.S)
@@ -145,7 +151,7 @@ def _unidades_markdown(texto, plantilla=frozenset()):
             out.append(dict(pagina=None, seccion=seccion, tipo="titulo", label=None, texto=seccion))
             p = p.strip()
         if plantilla:                                  # fuera las lineas que son la plantilla tal cual
-            p = "\n".join(l for l in p.splitlines() if _norma_plantilla(l) not in plantilla).strip()
+            p = "\n".join(l for l in p.splitlines() if _norma_plantilla(l, id_) not in plantilla).strip()
         if not p:
             continue
         out.append(dict(pagina=None, seccion=seccion, tipo="parrafo", label=None, texto=p))
@@ -172,8 +178,8 @@ def fuentes():
         [p for p in glob.glob(os.path.join(C.DIR_SESIONES, "2*.md")) if "EJEMPLO" not in p]
     plantilla = _lineas_plantilla()
     for ruta in sorted(notas):
-        doc = "nota:" + os.path.splitext(os.path.basename(ruta))[0]
-        out.append(("nota", doc, _unidades_markdown(C.leer(ruta), plantilla)))
+        id_ = os.path.splitext(os.path.basename(ruta))[0]
+        out.append(("nota", "nota:" + id_, _unidades_markdown(C.leer(ruta), plantilla, id_)))
     # transcripciones de lo manuscrito: SOLO las revisadas por Mariano. Las de un curso son
     # fuente `curso` (fiables, corregidas; no literatura); el resto, `nota`.
     from . import transcribir as T
@@ -275,7 +281,7 @@ def indexar(rehacer=False, verbose=True):
         frags = fragmentar(unidades)
         resumen[doc] = len(frags)
         for k, fr in enumerate(frags):
-            if _tokens(fr["texto"]) < 20:       # pagina escaneada sin OCR, ruido
+            if _tokens(fr["texto"]) < 20 and not fr.get("corto_ok"):     # pagina escaneada sin OCR, ruido
                 continue
             h = _hash(fr["texto"])
             fid = f"{doc}#{k:04d}"

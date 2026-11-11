@@ -505,7 +505,8 @@ def _huella_texto(texto):
 async def transcripcion_guardar_cambios(request: Request, nombre: str):
     """Guarda de una vez todas las paginas cuyo texto ha cambiado en el navegador. Las que no se
     han tocado no se reescriben: asi no se pierde la correccion a medias de otra pagina ni se pisa
-    lo que se haya editado entretanto en VS Code."""
+    lo que se haya editado entretanto en VS Code. Con accion=revisado (el boton "La he revisado"),
+    despues de guardar marca la transcripcion: lo corregido sin guardar no se queda fuera."""
     _transcripcion(nombre)
     form = await request.form()
     vistas, guardadas = set(), 0
@@ -517,6 +518,9 @@ async def transcripcion_guardar_cambios(request: Request, nombre: str):
         vistas.add(n)
         if _huella_texto(valor) != form.get(f"h_{n}"):
             guardadas += 1 if T.guardar_pagina(nombre, n, valor) else 0
+    if form.get("accion") == "revisado":
+        T.marcar_revisado(nombre)
+        return RedirectResponse(f"/transcripciones/{nombre}?aviso=revisada", status_code=303)
     ancla = str(form.get("ancla", ""))
     return RedirectResponse(f"/transcripciones/{nombre}?aviso={'guardada' if guardadas else 'sincambios'}"
                             + (f"#p{ancla}" if ancla.isdigit() else ""), status_code=303)

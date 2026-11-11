@@ -203,7 +203,7 @@ def _bloques(tokens):
 PREAMBULO = r"""\documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish,es-nodecimaldot]{babel}  % sin es-nodecimaldot, babel cambia 2.1 por 2,1 en las formulas
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{xcolor}
 % las marcas de la transcripcion ([ILEGIBLE], [?]) salen en rojo: cuando no quede ninguna, sobra

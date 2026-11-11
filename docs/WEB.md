@@ -191,6 +191,8 @@ markdown + KaTeX en vez de pasar por `nucleo/consola.py`.
   proceso: si reinicias el servidor a media pasada se pierde el aviso de progreso, pero las
   paginas ya transcritas quedan en su `.md` (se escribe tras cada pagina); las que falten,
   vuelve a subirlas con ese rango. Los restos de la subida se borran en la siguiente.
+  Mientras dura, la transcripcion ya sale en la lista y se puede corregir: cada pagina nueva
+  se anade al fichero sin reescribirlo.
   La web no lanza `indexar`: tras marcar revisada, `python doc.py indexar` en la consola.
 - El hilo de `/preguntar` vive en la memoria del proceso (uno por pestaña, 40 como mucho): si
   reinicias el servidor, se pierde el hilo (no el registro: cada turno ya esta en

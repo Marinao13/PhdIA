@@ -260,7 +260,9 @@ def test_guardar_cambios_guarda_todas_las_paginas_corregidas_y_solo_esas(cliente
     _subir(cliente, paginas="1-2", nombre="tres.pdf")
     nombre = T.listar()[0]["nombre"]
     html = cliente.get(f"/transcripciones/{nombre}").text
-    assert 'name="texto_1"' in html and 'name="texto_2"' in html and html.count("<form") == 2
+    # un solo formulario: el boton "La he revisado" tambien lo envia (form="paginas"), para no perder lo sin guardar
+    assert 'name="texto_1"' in html and 'name="texto_2"' in html and html.count("<form") == 1
+    assert 'form="paginas" name="accion" value="revisado"' in html and '<form id="paginas"' in html
     hojas = dict(T.paginas(T.leer(nombre)["cuerpo"])[1])
     h = {n: S._huella_texto(t) for n, t in hojas.items()}
     # entretanto, la pagina 2 se corrige en VS Code

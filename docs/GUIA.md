@@ -68,7 +68,8 @@ que es mas corto que escribirlo de cero. Nada sin revisar entra en el indice ni 
    seguro). Lo que NO lleva marca y hay que mirar igual: subindices (`M_p` frente a
    `M_{p+1}`), cuantificadores, `<` frente a `\le`, exponentes y signos. El modelo copia: no
    corrige ni completa, y un error tuyo en el papel sale tal cual.
-5. Marca: `python doc.py transcribir --revisado NOMBRE` (o el boton de la web) y despues
+5. Marca: `python doc.py transcribir --revisado NOMBRE` (o el boton de la web, que guarda antes
+   lo que tengas corregido sin guardar) y despues
    `python doc.py indexar`. Un curso revisado entra como `fuente: curso`
    (`buscar --fuente curso`); las notas de paper y las dudas, como `fuente: nota`. `ask` no
    las usa salvo que se lo pidas (`--fuente curso` o `--con-propios`): no son literatura.
@@ -107,6 +108,9 @@ Reglas y limites:
   guarda lo hecho y dice que paginas faltan y el comando para seguir. El fichero se escribe
   tras cada pagina: aunque cierres la ventana o se reinicie la torre, lo ya transcrito esta en
   `transcripciones/`.
+- Puedes ir corrigiendo las paginas que ya han salido mientras la pasada sigue: cada pagina
+  nueva se anade al fichero, no lo reescribe. Si la marcas revisada antes de que acabe, vuelve
+  a sin revisar en cuanto entra la pagina siguiente (nadie la ha mirado).
 - Las notas de un paper transcritas no se copian solas a `lecturas/ID.md`: lo que quieras en
   el bloque `R<n>` (Desarrollo, Derivaciones) lo pegas tu desde la transcripcion revisada.
 - Con el modelo, las paginas viajan a la API del proveedor, como cualquier `preguntar`.

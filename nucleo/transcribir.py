@@ -21,9 +21,13 @@ revisado o con --tex, salvo que lo hayas editado a mano (entonces no se pisa sin
 Regla: una transcripcion automatica falla donde mas duele (un subindice, un cuantificador).
 Nada `sin_revisar` entra en el indice ni se cita; solo lo que Mariano marca `revisado`.
 """
-import os, re, glob, shutil, datetime
+import os, re, glob, shutil, datetime, threading
 
 from . import config as C
+
+# Un cerrojo para todo lo que lee-modifica-escribe un .md: el hilo de la web que va anadiendo
+# paginas y la peticion que guarda una correccion no se pisan.
+_CERROJO = threading.RLock()
 
 TIPOS = ("curso", "paper", "duda")
 MARCA_PAGINA = "<!-- pagina {n} -->"
@@ -167,6 +171,11 @@ def _poner(cab, clave, valor):
     return nuevo if n else cab.rstrip("\n") + "\n" + linea
 
 
+def _quitar(cab, clave):
+    """La cabecera cruda sin la linea `clave: ...`."""
+    return re.sub(rf"^{re.escape(clave)}[ \t]*:.*\n?", "", cab, count=1, flags=re.M)
+
+
 def _escribir(ruta, cab, cuerpo):
     C.escribir(ruta, "---\n" + cab.strip("\n") + "\n---\n" + cuerpo)
 
@@ -207,12 +216,13 @@ def leer(nombre):
 def marcar_revisado(nombre):
     """estado: revisado en la cabecera (sin tocar el resto) y fuera el aviso. La ruta, o None.
     El .tex se rehace con el texto revisado si no lo has editado a mano."""
-    t = leer(nombre)
-    if not t:
-        return None
-    cab, cuerpo = _trocear(C.leer(t["ruta"]))
-    cab = _poner(_poner(cab, "estado", "revisado"), "revisado_el", datetime.date.today().isoformat())
-    _escribir(t["ruta"], cab, RE_AVISO.sub("", cuerpo, count=1))     # solo las lineas del aviso
+    with _CERROJO:
+        t = leer(nombre)
+        if not t:
+            return None
+        cab, cuerpo = _trocear(C.leer(t["ruta"]))
+        cab = _poner(_poner(cab, "estado", "revisado"), "revisado_el", datetime.date.today().isoformat())
+        _escribir(t["ruta"], cab, RE_AVISO.sub("", cuerpo, count=1))     # solo las lineas del aviso
     exportar_tex(t["nombre"])
     return t["ruta"]
 
@@ -251,21 +261,22 @@ def guardar_pagina(nombre, n, texto):
     """Sustituye el texto de la pagina n (la correccion a mano desde la web). True si existia.
     Solo cambia ese tramo del fichero: la cabecera, el prefacio y las demas paginas quedan byte
     a byte. Con una marca duplicada a mano, se corrige la primera."""
-    t = leer(nombre)
-    if not t:
-        return False
-    cab, cuerpo = _trocear(C.leer(t["ruta"]))
-    marcas = list(RE_PAGINA.finditer(cuerpo))
-    i = next((k for k, m in enumerate(marcas) if int(m.group(1)) == n), None)
-    if i is None:
-        return False
-    texto = (texto or "").replace("\r\n", "\n").replace("\r", "\n")
-    texto = RE_PAGINA.sub("", texto).strip("\n")       # una marca pegada no parte el fichero
-    ultima = i + 1 == len(marcas)
-    fin = len(cuerpo) if ultima else marcas[i + 1].start()
-    cuerpo = cuerpo[:marcas[i].end()] + "\n\n" + texto + ("\n" if ultima else "\n\n") + cuerpo[fin:]
-    _escribir(t["ruta"], cab, cuerpo)
-    return True
+    with _CERROJO:
+        t = leer(nombre)
+        if not t:
+            return False
+        cab, cuerpo = _trocear(C.leer(t["ruta"]))
+        marcas = list(RE_PAGINA.finditer(cuerpo))
+        i = next((k for k, m in enumerate(marcas) if int(m.group(1)) == n), None)
+        if i is None:
+            return False
+        texto = (texto or "").replace("\r\n", "\n").replace("\r", "\n")
+        texto = RE_PAGINA.sub("", texto).strip("\n")       # una marca pegada no parte el fichero
+        ultima = i + 1 == len(marcas)
+        fin = len(cuerpo) if ultima else marcas[i + 1].start()
+        cuerpo = cuerpo[:marcas[i].end()] + "\n\n" + texto + ("\n" if ultima else "\n\n") + cuerpo[fin:]
+        _escribir(t["ruta"], cab, cuerpo)
+        return True
 
 
 def sin_revisar():
@@ -445,22 +456,52 @@ def transcribir(ruta, tipo="paper", titulo=None, paginas=None, motor="modelo", c
     d, d_orig = _dir()
     os.makedirs(d_orig, exist_ok=True)
     hoy = datetime.date.today().isoformat()
-    nombre = f"{hoy}-{_slug(titulo)}"
-    k = 2
-    while os.path.exists(os.path.join(d, nombre + ".md")):
-        nombre = f"{hoy}-{_slug(titulo)}-{k}"
-        k += 1
-    destino = os.path.join(d, nombre + ".md")
+    base, k = f"{hoy}-{_slug(titulo)}", 1
+    while True:                                        # el nombre se RESERVA al elegirlo (un .md vacio, que
+        nombre = base if k == 1 else f"{base}-{k}"     # listar y leer ignoran): dos pasadas a la vez con el
+        destino = os.path.join(d, nombre + ".md")      # mismo titulo no comparten fichero ni original
+        try:
+            open(destino, "x").close()
+            break
+        except FileExistsError:
+            k += 1
+    escritas = []
 
-    def escribe(hojas, etiqueta_motor):
-        meta = dict(origen=os.path.basename(ruta), tipo=tipo, titulo=titulo, fecha=hoy,
-                    paginas=",".join(str(n) for n, _ in hojas), motor=etiqueta_motor, estado="sin_revisar")
-        cuerpo = (f"# {titulo}\n\n"
-                  f"{AVISO} Revisala con el original al lado (web: "
-                  f"/transcripciones/{nombre}), corrige aqui, y marca: python doc.py transcribir --revisado {nombre}\n\n")
-        cuerpo += "\n\n".join(MARCA_PAGINA.format(n=n) + "\n\n" + texto for n, texto in hojas) + "\n"
-        _escribir(destino, _cabecera(meta), cuerpo)
-        return cuerpo
+    def vuelca(hojas, etiqueta_motor):
+        """Lleva al disco las paginas de `hojas` que aun no estan. La primera crea el fichero; las
+        siguientes se ANADEN a lo que haya en disco, sin reescribirlo: lo que se corrija mientras la
+        pasada sigue (en la web o en VS Code) no se pisa. Si entretanto se marco revisada, vuelve a
+        sin_revisar: ha entrado una pagina que nadie ha mirado."""
+        with _CERROJO:
+            for n, texto in hojas:
+                if n in escritas:
+                    continue
+                cab, cuerpo = _trocear(C.leer(destino)) if os.path.exists(destino) else ("", "")
+                if not partir("---\n" + cab + "\n---\n")[0].get("estado"):
+                    # recien reservado (o lo han borrado a media pasada): se crea con lo hecho hasta aqui
+                    hechas = [(m, x) for m, x in hojas if m in escritas or m == n]
+                    cab = _cabecera(dict(origen=os.path.basename(ruta), tipo=tipo, titulo=titulo, fecha=hoy,
+                                         paginas="", motor=etiqueta_motor, estado="sin_revisar"))
+                    cuerpo = (f"# {titulo}\n\n"
+                              f"{AVISO} Revisala con el original al lado (web: /transcripciones/{nombre}), "
+                              f"corrige aqui, y marca: python doc.py transcribir --revisado {nombre}\n\n")
+                    cuerpo += "\n\n".join(MARCA_PAGINA.format(n=m) + "\n\n" + x for m, x in hechas) + "\n"
+                    numeros = [m for m, _ in hechas]
+                else:
+                    ya = [int(x) for x in re.findall(r"\d+", partir("---\n" + cab + "\n---\n")[0].get("paginas", ""))]
+                    cuerpo = cuerpo.rstrip("\n") + "\n\n" + MARCA_PAGINA.format(n=n) + "\n\n" + texto + "\n"
+                    cab = _quitar(_poner(cab, "estado", "sin_revisar"), "revisado_el")
+                    numeros = ya + [n]
+                _escribir(destino, _poner(cab, "paginas", ",".join(str(m) for m in numeros)), cuerpo)
+                escritas.append(n)
+
+    def limpia():                                      # no salio ninguna pagina: ni reserva ni original sueltos
+        for sobra in ([destino] if os.path.exists(destino) and os.path.getsize(destino) == 0 else []) + \
+                ([original] if copiado else []):
+            try:
+                os.remove(sobra)
+            except OSError:
+                pass
 
     # El original, a su sitio antes de empezar (para revisar al lado aunque la pasada se corte), y el
     # .md, tras CADA pagina: lo pagado esta en disco aunque maten el proceso.
@@ -472,16 +513,19 @@ def transcribir(ruta, tipo="paper", titulo=None, paginas=None, motor="modelo", c
         else:
             previsto = C.MODELO if calidad == "alta" else C.modelo_para("transcribir")
             hojas, coste = _con_modelo(ruta, cuales, calidad, forzar, progreso,
-                                       al_avanzar=lambda hs: escribe(hs, f"modelo ({previsto})"))
+                                       al_avanzar=lambda hs: vuelca(hs, f"modelo ({previsto})"))
             etiqueta_motor = f"modelo ({coste.get('modelo') or previsto})"
+        vuelca(hojas, etiqueta_motor)
+        if not escritas:
+            raise RuntimeError("el motor no devolvio ninguna pagina")
     except BaseException:
-        if copiado and not os.path.exists(destino):    # no salio ninguna pagina: no dejar el original suelto
-            try:
-                os.remove(original)
-            except OSError:
-                pass
+        if not escritas:
+            limpia()
         raise
-    cuerpo = escribe(hojas, etiqueta_motor)
+    with _CERROJO:                                     # el modelo que de verdad respondio, sin tocar lo demas
+        cab, cuerpo = _trocear(C.leer(destino))
+        if _poner(cab, "motor", etiqueta_motor) != cab:
+            _escribir(destino, _poner(cab, "motor", etiqueta_motor), cuerpo)
     hechas = [n for n, _ in hojas]
     pendientes = [n for n in cuales if n not in hechas]
     sin_original = original is None

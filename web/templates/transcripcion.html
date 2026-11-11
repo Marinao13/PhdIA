@@ -18,15 +18,14 @@
   (aqui, pagina a pagina, o el fichero en VS Code). Mira primero lo resaltado:
   quedan {{ ilegibles }} <code>[ILEGIBLE]</code> y {{ dudosos }} <code>[?]</code>. Un subindice o un cuantificador
   mal copiado no lleva marca: eso solo lo ves tu.</p>
-  <form method="post" action="/transcripciones/{{ t.nombre }}/revisado">
-    <button type="submit">La he revisado contra el original</button>
-  </form>
+  <button type="submit" form="paginas" name="accion" value="revisado">La he revisado contra el original</button>
+  <span class="meta">guarda antes lo que tengas corregido sin guardar</span>
 </div>
 {% elif ilegibles or dudosos %}
 <p class="aviso">revisada, pero quedan {{ ilegibles }} <code>[ILEGIBLE]</code> y {{ dudosos }} <code>[?]</code> dentro</p>
 {% endif %}
 
-<form method="post" action="/transcripciones/{{ t.nombre }}/paginas">
+<form id="paginas" method="post" action="/transcripciones/{{ t.nombre }}/paginas">
 {% for h in hojas %}
 <section class="hoja" id="p{{ h.n }}">
   <h2>pagina {{ h.n }}</h2>
