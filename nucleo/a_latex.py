@@ -31,8 +31,10 @@ RE_MARCA = re.compile(r"\[ILEGIBLE\]|\[\?\]|\[PAGINA CORTADA[^\]]*\]|\[FIGURA:[^
 RE_PAGINA = re.compile(r"^<!-- pagina (\d+) -->[ \t]*$", re.M)
 RE_AVISO = re.compile(r"^> Transcripcion automatica SIN REVISAR\.[^\n]*\n(?:>[^\n]*\n)*\n?", re.M)
 
-# marcadores privados: formula, marca, pagina, formula en display
+# marcadores privados: formula, marca, pagina, formula en display, formula forzada en linea
 _F, _M, _P, _D = "\ue000{}\ue001", "\ue002{}\ue003", "\ue004{}\ue005", "\ue006{}\ue007"
+_L = "\ue008{}\ue009"
+_RE_L = re.compile("\ue008(\\d+)\ue009")
 _RE_F = re.compile("\ue000(\\d+)\ue001")
 _RE_M = re.compile("\ue002(\\d+)\ue003")
 _RE_P = re.compile("\ue004(\\d+)\ue005")
@@ -69,10 +71,16 @@ _GRIEGAS.update(dict(zip("ΓΔΘΛΞΠΣΦΨΩ", ["Gamma", "Delta", "Theta", "La
                                          "Omega"])))
 _GRIEGAS.update({"ϕ": "phi", "ϵ": "epsilon", "ϑ": "vartheta", "ϱ": "varrho", "ς": "varsigma", "ϖ": "varpi"})
 _SIMBOLOS.update({k: "\\" + v for k, v in _GRIEGAS.items()})
-# super y subindices Unicode: x² -> x^{2}
-_SIMBOLOS.update({c: "^{%d}" % i for i, c in enumerate("⁰¹²³⁴⁵⁶⁷⁸⁹")})
-_SIMBOLOS.update({c: "_{%d}" % i for i, c in enumerate("₀₁₂₃₄₅₆₇₈₉")})
-_SIMBOLOS.update({"⁺": "^{+}", "⁻": "^{-}", "ⁿ": "^{n}", "₊": "_{+}", "₋": "_{-}"})
+# super y subindices Unicode, por rachas: x²³ -> x^{23} (uno a uno daria "double superscript")
+_SUPER = dict(zip("⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁿ", "0123456789+-n"))
+_SUB = dict(zip("₀₁₂₃₄₅₆₇₈₉₊₋", "0123456789+-"))
+_RE_SUPER = re.compile("[" + "".join(_SUPER) + "]+")
+_RE_SUB = re.compile("[" + "".join(_SUB) + "]+")
+# dentro de una formula (fuera de \text{}): los acentos de texto no valen en modo matematico
+_ACENTOS = {"á": r"\acute{a}", "é": r"\acute{e}", "í": r"\acute{\imath}", "ó": r"\acute{o}", "ú": r"\acute{u}",
+            "Á": r"\acute{A}", "É": r"\acute{E}", "Í": r"\acute{I}", "Ó": r"\acute{O}", "Ú": r"\acute{U}",
+            "ñ": r"\tilde{n}", "Ñ": r"\tilde{N}", "ü": r"\ddot{u}", "Ü": r"\ddot{U}"}
+_RE_ACENTO = re.compile("[" + "".join(_ACENTOS) + "]")
 # lo que vale igual en texto y en formula
 _COMUNES = {"′": "'", "″": "''", "−": "-", "\u00a0": "~", "\u2009": r"\,", "\u202f": r"\,", "\u200b": ""}
 _TIPOGRAFIA = {"–": "--", "—": "---", "“": "``", "”": "''", "‘": "`", "’": "'"}
@@ -93,6 +101,8 @@ def _comillas(s):
 def _texto(s, comillas=True):
     """Texto corriente: especiales escapados, simbolos Unicode a su comando entre $ $."""
     s = _RE_ESPECIAL.sub(lambda m: _ESPECIALES[m.group()], s).replace("…", r"\dots{}")
+    s = _RE_SUPER.sub(lambda m: "$^{" + "".join(_SUPER[c] for c in m.group()) + "}$", s)
+    s = _RE_SUB.sub(lambda m: "$_{" + "".join(_SUB[c] for c in m.group()) + "}$", s)
     s = _RE_SIMBOLO.sub(lambda m: "$" + _SIMBOLOS[m.group()] + "$", s)
     s = _RE_COMUN.sub(lambda m: _COMUNES[m.group()], s)
     s = _RE_TIPO.sub(lambda m: _TIPOGRAFIA[m.group()], s)
@@ -108,8 +118,10 @@ def _marca(m, en_formula=False):
     return r"\duda{" + _texto(m) + "}"
 
 
-def _formula(f, display=False):
-    """Una formula tal como esta escrita, con sus delimitadores puestos para LaTeX."""
+def _formula(f, display=False, en_linea=False):
+    """Una formula tal como esta escrita, con sus delimitadores puestos para LaTeX.
+    en_linea=True: el sitio no admite display (una celda de tabla, un titulo); aunque venga con
+    $$...$$ o \\[...\\], sale entre $ $ con \\displaystyle."""
     if f.startswith("$$"):
         cuerpo, display = f[2:-2], True
     elif f.startswith("\\["):
@@ -120,19 +132,32 @@ def _formula(f, display=False):
         cuerpo = f[1:-1]
     # un simbolo Unicode dentro de la formula: su comando; si la formula lleva \text{...}, con
     # \ensuremath, que vale tanto dentro como fuera del \text
-    if _RE_EN_TEXTO.search(cuerpo):
-        cuerpo = _RE_SIMBOLO.sub(lambda m: r"\ensuremath{" + _SIMBOLOS[m.group()] + "}", cuerpo)
-    else:
-        cuerpo = _RE_SIMBOLO.sub(lambda m: _SIMBOLOS[m.group()] + " ", cuerpo)
+    con_texto = bool(_RE_EN_TEXTO.search(cuerpo))
+    mates = (lambda s: r"\ensuremath{" + s + "}") if con_texto else (lambda s: s)
+    cuerpo = _RE_SUPER.sub(lambda m: mates("^{" + "".join(_SUPER[c] for c in m.group()) + "}"), cuerpo)
+    cuerpo = _RE_SUB.sub(lambda m: mates("_{" + "".join(_SUB[c] for c in m.group()) + "}"), cuerpo)
+    cuerpo = _RE_SIMBOLO.sub(lambda m: mates(_SIMBOLOS[m.group()]) + ("" if con_texto else " "), cuerpo)
+    cuerpo = cuerpo.replace("°", mates(r"^{\circ}"))
+    if not con_texto:                                  # dentro de \text{} los acentos estan bien como estan
+        cuerpo = _RE_ACENTO.sub(lambda m: _ACENTOS[m.group()], cuerpo)
     cuerpo = _RE_COMUN.sub(lambda m: _COMUNES[m.group()], cuerpo)
     cuerpo = RE_MARCA.sub(lambda m: r"\text{" + _marca(m.group(0), en_formula=True) + "}", cuerpo)
-    if not display:
-        return "$" + cuerpo.strip() + "$"
     cuerpo = cuerpo.strip()
+    varias = ("\\\\" in cuerpo or "&" in cuerpo) and "\\begin{" not in cuerpo
+    if en_linea or not display:
+        if not display:
+            return "$" + cuerpo + "$"
+        cuerpo = re.sub(r"\\tag\*?\{([^{}]*)\}", lambda m: r"\quad\text{(" + m.group(1) + ")}", cuerpo)
+        if varias:
+            cuerpo = "\\begin{aligned}\n" + _sin_opcional(cuerpo) + "\n\\end{aligned}"
+        return "$\\displaystyle " + cuerpo + "$"
     if re.match(r"\\begin\{(align|equation|gather|multline|eqnarray|flalign|alignat)\*?\}", cuerpo):
         return cuerpo                                  # ya es un entorno de display
-    if ("\\\\" in cuerpo or "&" in cuerpo) and "\\begin{" not in cuerpo:
-        cuerpo = "\\begin{aligned}\n" + cuerpo + "\n\\end{aligned}"
+    if varias and "\\tag" in cuerpo:                   # aligned no admite \tag; gather* y align*, uno por fila
+        entorno = "align*" if "&" in cuerpo else "gather*"
+        return "\\begin{%s}\n%s\n\\end{%s}" % (entorno, cuerpo, entorno)
+    if varias:
+        cuerpo = "\\begin{aligned}\n" + _sin_opcional(cuerpo) + "\n\\end{aligned}"
     return "\\[\n" + cuerpo + "\n\\]"
 
 
@@ -146,7 +171,12 @@ def _en_linea(hijos, display=True):
             m = _RE_SOLO_F.fullmatch(h.content)
             sola = (display and not anidado and m and (i == 0 or hijos[i - 1].type == "softbreak")
                     and (i == n - 1 or hijos[i + 1].type == "softbreak"))
-            out.append(_D.format(m.group(1)) if sola else _texto(h.content))
+            if sola:
+                out.append(_D.format(m.group(1)))
+            elif display:
+                out.append(_texto(h.content))
+            else:                                      # titulo o celda: las formulas, forzadas en linea
+                out.append(_RE_F.sub(lambda f: _L.format(f.group(1)), _texto(h.content)))
         elif t == "softbreak":
             out.append("\n")
         elif t == "hardbreak":
@@ -174,13 +204,14 @@ def _en_linea(hijos, display=True):
             pass                                       # lo tachado, como texto normal
         else:
             out.append(_texto(getattr(h, "content", "") or ""))
-    # un [ justo tras un salto forzado se tomaria por el argumento opcional de \\
-    return re.sub(r"\\\\\n\[", lambda m: "\\\\\n{}[", "".join(out))
+    # un [ o un * justo tras un salto forzado se tomarian por el argumento opcional o la estrella de \\
+    return re.sub(r"\\\\\n([\[*])", lambda m: "\\\\\n{}" + m.group(1), "".join(out))
 
 
 def _sin_opcional(texto):
-    """Un texto que empieza por [ tras \\item o al empezar una fila: LaTeX lo leeria como argumento opcional."""
-    return "{}" + texto if texto.lstrip().startswith("[") else texto
+    """Un texto que empieza por [ o por * tras \\item, tras \\\\ o al abrir aligned: LaTeX lo leeria como
+    argumento opcional o como la forma con estrella."""
+    return "{}" + texto if texto.lstrip().startswith(("[", "*")) else texto
 
 
 _TITULOS = {1: r"\section*{", 2: r"\section*{", 3: r"\subsection*{", 4: r"\subsubsection*{"}
@@ -268,6 +299,8 @@ PREAMBULO = r"""\documentclass[11pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage[spanish,es-noshorthands,es-nodecimaldot]{babel}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,mathrsfs,bm}  % \coloneqq y dcases, \mathscr, \bm: la web (KaTeX) los pinta sin mas
+\providecommand{\degree}{^{\circ}}
 \usepackage{xcolor}
 % las marcas de la transcripcion ([ILEGIBLE], [?]) salen en rojo: cuando no quede ninguna, sobra
 \newcommand{\duda}[1]{\textcolor{red}{\textbf{#1}}}
@@ -314,6 +347,7 @@ def cuerpo_latex(cuerpo):
             continue
         parte = _RE_M.sub(lambda m: _marca(marcas[int(m.group(1))]), parte)
         parte = _RE_D.sub(lambda m: "\n" + _formula(formulas[int(m.group(1))], display=True) + "\n", parte)
+        parte = _RE_L.sub(lambda m: _formula(formulas[int(m.group(1))], en_linea=True), parte)
         parte = _RE_F.sub(lambda m: _formula(formulas[int(m.group(1))]), parte)
         partes[i] = _RE_P.sub(lambda m: "% ---------- pagina " + m.group(1) + " ----------", parte)
     tex = re.sub(r"\n{3,}", "\n\n", "".join(partes)).strip() + "\n"
