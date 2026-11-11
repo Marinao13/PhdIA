@@ -24,11 +24,13 @@ web usa la clave de `.env` igual que la consola; la clave nunca sale al navegado
 lleva nada de `.env`, y el servidor no tiene endpoint que la devuelva).
 
 Paquetes: `fastapi`, `uvicorn`, `jinja2`, `python-multipart` y `markdown-it-py` (este ya
-viene con `rich`). Se instalan con `pip install fastapi uvicorn jinja2 python-multipart` en
+viene con `rich`); para transcribir fotos, `pillow`. Se instalan con
+`pip install fastapi uvicorn jinja2 python-multipart pillow` en
 el Python del sistema, no en `.venv-marker1`. KaTeX se carga por CDN (jsdelivr): sin red en el
 navegador las paginas funcionan, pero las formulas se ven en LaTeX crudo.
 
-Tests: `python -m pytest tests/test_web.py -q` (sin red, motor simulado, nada escribe en el repo).
+Tests: `python -m pytest tests/test_web.py tests/test_web_transcripciones.py -q` (sin red,
+motor simulado, nada escribe en el repo).
 
 ## Paginas
 
@@ -40,6 +42,7 @@ Tests: `python -m pytest tests/test_web.py -q` (sin red, motor simulado, nada es
 | `/preguntar` | Fase 2: hilo por pestaña, paper de la sesion (o el que elijas), fragmento pegado localizado en el indice, plantillas `/notacion` `/lema` `/paso`, `sigue`, nuevo hilo, laguna | si |
 | `/notas`, `/notas/ID` | `lecturas/*.md` renderizadas; los bloques `## Rn` se pliegan | no |
 | `/sesiones`, `/sesiones/NOMBRE` | `sesiones/*.md` renderizadas, solo lectura | no |
+| `/transcripciones`, `/transcripciones/NOMBRE` | Subir un PDF o una foto manuscrita y transcribirla (en segundo plano; la lista se refresca sola); original y texto lado a lado con `[ILEGIBLE]` y `[?]` resaltados; corregir cada pagina ("Guardar cambios" guarda todas las tocadas); marcar revisada; descargar el `.tex` del texto de ese momento | si (con Marker, no) |
 | `/lagunas` | `registro/lagunas.md` y un campo de una linea que la anota (`_anadir_lagunas`) | no |
 | `/guia` | `docs/USO.md` (y `docs/GUIA.md` si existe) con indice lateral | no |
 
@@ -142,12 +145,23 @@ expondria la web a toda la red local sin ninguna proteccion.
   el tunel con Access delante.
 - Un POST desde otro origen (un formulario en otra web que apunte al tuyo) se rechaza por las
   cabeceras `Origin` / `Sec-Fetch-Site`; la pagina lleva una CSP que solo permite scripts
-  propios y de jsdelivr (KaTeX), y no se puede meter en un iframe.
+  propios y de jsdelivr (KaTeX), y no se puede meter en un iframe. Las paginas se sirven con
+  `Referrer-Policy: same-origin`. Hasta el 2026-11-11 era `no-referrer`, y con ella los
+  navegadores mandan `Origin: null` en los formularios: TODOS los POST (`/ask`, `/preguntar`,
+  `/lagunas`) daban 403 desde un navegador real. Los tests no lo veian porque no mandan `Origin`;
+  ahora hay un test con las cabeceras de un navegador y esta comprobado a mano en uno.
 - Las paginas solo ejecutan funciones que ya existen en `nucleo/`; no hay ninguna ruta que
-  ejecute comandos arbitrarios ni que lea ficheros fuera de `lecturas/`, `sesiones/`, `docs/`
-  y `registro/lagunas.md`. Las plantillas (`PLANTILLA*.md`) no se sirven.
-- Las fases se respetan porque todo pasa por `nucleo.motor.llamar`: en fase 1 y 3, `/ask` y
-  `/preguntar` enseñan el aviso y no llaman. La web no tiene `--forzar`.
+  ejecute comandos arbitrarios ni que lea ficheros fuera de `lecturas/`, `sesiones/`, `docs/`,
+  `transcripciones/` y `registro/lagunas.md`. Las plantillas (`PLANTILLA*.md`) no se sirven.
+- `/transcripciones` es la unica ruta que recibe ficheros: solo PDF e imagenes, 40 MB como
+  mucho, con el nombre limpiado, guardados en `transcripciones/originales/` (fuera de git). Lo
+  subido lo abren PyMuPDF y Pillow para sacar la imagen de cada pagina y, si eliges Marker,
+  tambien `marker_single` sobre una copia temporal; no se ejecuta como codigo.
+  Tambien es la unica que escribe ficheros tuyos: la transcripcion, sus correcciones pagina a
+  pagina y la marca de revisada.
+- Las fases se respetan porque todo pasa por `nucleo.motor.llamar`: en fase 1 y 3, `/ask`,
+  `/preguntar` y la transcripcion con el modelo enseñan el aviso y no llaman. La web no tiene
+  `--forzar`.
 - `/ask` y cada turno de `/preguntar` son llamadas pagadas: no recargues la pagina de una
   respuesta de `/ask` (el navegador reenviaria el formulario). `/preguntar` redirige tras cada
   turno, asi que recargar no repite nada.
@@ -170,8 +184,14 @@ markdown + KaTeX en vez de pasar por `nucleo/consola.py`.
 
 ## Limites de la v1
 
-- No edita nada tuyo: notas y sesiones son solo lectura; se escriben en VS Code. Tampoco abre
-  sesion, sella, ataca ni cierra: eso hace commits y es de la consola.
+- No edita nada tuyo: notas y sesiones son solo lectura; se escriben en VS Code. La excepcion
+  son las transcripciones, que se corrigen pagina a pagina desde la web. Tampoco abre sesion,
+  sella, ataca ni cierra: eso hace commits y es de la consola.
+- Una transcripcion a la vez, sin boton de cancelar, y su estado vive en la memoria del
+  proceso: si reinicias el servidor a media pasada se pierde el aviso de progreso, pero las
+  paginas ya transcritas quedan en su `.md` (se escribe tras cada pagina); las que falten,
+  vuelve a subirlas con ese rango. Los restos de la subida se borran en la siguiente.
+  La web no lanza `indexar`: tras marcar revisada, `python doc.py indexar` en la consola.
 - El hilo de `/preguntar` vive en la memoria del proceso (uno por pestaña, 40 como mucho): si
   reinicias el servidor, se pierde el hilo (no el registro: cada turno ya esta en
   `registro/consultas/`). No hay `/ver 2.1.3` ni `/ver p8`: usa `/buscar` con el documento

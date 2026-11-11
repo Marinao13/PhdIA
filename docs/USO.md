@@ -127,7 +127,12 @@ python doc.py lagunas                   viernes, 45 min: el lote de huecos de gr
 python doc.py leido ID [--frio]         marca el paper en corpus/orden.md ([~] leido; [x] reconstruido en frio)
 python doc.py control                   pasada fija de preguntas por ask (docs/control/), tras cambiar prompts
 python doc.py exportar / importar ZIP   corpus/text e indice/ a otra maquina (el .env, a mano)
-python -m web                           la mini web (docs/WEB.md): panel, buscar, ask, preguntar, notas, guia
+python -m web                           la mini web (docs/WEB.md): panel, buscar, ask, preguntar, notas, transcripciones, guia
+python doc.py transcribir FICHERO       lo manuscrito (PDF o foto) a markdown con LaTeX; queda sin_revisar (docs/GUIA.md)
+        [--tipo curso|paper|duda] [--titulo T] [--paginas 1-3,5] [--motor modelo|marker] [--calidad alta]
+python doc.py transcribir --lista       que hay transcrito y que sigue sin revisar
+python doc.py transcribir --revisado NOMBRE   la has comparado con el original: entra en el indice (tras indexar)
+python doc.py transcribir --tex NOMBRE  rehace transcripciones/NOMBRE.tex desde el .md de ahora (--pisar si lo editaste a mano)
 python doc.py lab "especificacion"      la IA escribe el script contra lab/pesos.py; mpmath juzga
 python doc.py lab demo                  los 4 casos del BRIEF (Euler+Borel, Catalan, raiz simple, raiz multiple) con graficos en lab/salidas/
 ```
@@ -152,9 +157,10 @@ python doc.py reunion [--destilar|--preparar]   notas de reunion, directores.md,
 | `registro/consultas/` | cada `ask` y cada turno de `preguntar`, con fragmentos usados y no usados |
 | `registro/verificaciones.md`, `registro/referee/` | lo que se dio por verificado, con metodo |
 | `registro/quejas.md` | tus `/queja` de preguntar, con fecha y turno; se revisan en lote |
+| `transcripciones/` | lo manuscrito pasado a limpio; `estado: sin_revisar` hasta que lo marcas. Cada `.md` lleva al lado su `.tex` exportado (la fuente es el `.md`). Los originales, en `transcripciones/originales/` (fuera de git) |
 | `registro/llamadas.jsonl` | toda llamada a la API: comando, fase, modelo, tokens (tambien cacheados) |
 | `contexto/estado.md`, `contexto/directores.md` | lo que la IA sabe de ti; lo mantienes tu |
 | `nucleo/config.py` | precios en USD, tipo de cambio, modelo y esfuerzo por comando, presupuesto |
 
-Coste: `metricas` lo muestra por comando; el tope es 20 EUR/mes. Copia de seguridad:
-`git push` a mano; los sellados no empujan solos.
+Coste: `metricas` lo muestra por comando; el tope es 20 EUR/mes. Copia de seguridad: los
+sellados hacen push cuando hay red (`DOC_SIN_RED=1` lo apaga); entre sellados, `git push` a mano.

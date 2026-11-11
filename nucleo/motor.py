@@ -8,7 +8,8 @@ El unico camino hacia la IA. Todo pasa por llamar(), que:
 Con DOC_SIMULAR=1 no toca la red: devuelve respuestas fijas para probar el
 flujo sin gastar.
 """
-import json, datetime, re, sys, time, contextlib
+import json, datetime, re, sys, time, contextlib, threading
+from collections.abc import MutableMapping
 from . import config as C
 from . import estado as E
 
@@ -79,8 +80,40 @@ def esperando(texto):
 
 _cliente = None
 
-# detalles de la ultima llamada (tokens, segundos, cortada...), para quien los quiera mostrar
-ULTIMA = {}
+class _PorHilo(MutableMapping):
+    """Un dict por hilo. La web transcribe en un hilo mientras atiende /ask o /preguntar en
+    otros: cada uno lee los detalles de SU ultima llamada, no los de la del vecino."""
+
+    def __init__(self):
+        self._local = threading.local()
+
+    def _d(self):
+        d = getattr(self._local, "d", None)
+        if d is None:
+            d = self._local.d = {}
+        return d
+
+    def __getitem__(self, k):
+        return self._d()[k]
+
+    def __setitem__(self, k, v):
+        self._d()[k] = v
+
+    def __delitem__(self, k):
+        del self._d()[k]
+
+    def __iter__(self):
+        return iter(self._d())
+
+    def __len__(self):
+        return len(self._d())
+
+    def __repr__(self):
+        return repr(self._d())
+
+
+# detalles de la ultima llamada de este hilo (tokens, segundos, cortada...), para quien los quiera mostrar
+ULTIMA = _PorHilo()
 
 
 def _completar(system, messages, max_tokens, modelo=None, esfuerzo=None):
@@ -147,6 +180,22 @@ def _completar_openai(system, messages, max_tokens, modelo, esfuerzo):
             dict(cortada=bool(cortada), razonamiento=int(razonamiento)))
 
 
+def mensaje_con_imagenes(texto, imagenes_png):
+    """
+    Mensaje de usuario con texto e imagenes PNG (bytes), en el formato del proveedor activo.
+    Es lo que usa `transcribir`: la pagina manuscrita viaja como imagen.
+    """
+    import base64
+    b64 = [base64.b64encode(b).decode("ascii") for b in imagenes_png]
+    if C.PROVEEDOR == "openai":
+        partes = [{"type": "input_text", "text": texto}]
+        partes += [{"type": "input_image", "image_url": "data:image/png;base64," + d} for d in b64]
+    else:
+        partes = [{"type": "text", "text": texto}]
+        partes += [{"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": d}} for d in b64]
+    return {"role": "user", "content": partes}
+
+
 def contexto_vivo():
     """contexto/estado.md + contexto/directores.md, para pegar al system prompt."""
     estado = C.leer(C.F_ESTADO).strip()
@@ -167,37 +216,40 @@ def contexto_vivo():
     return bloque
 
 
-def llamar(comando, system, messages, max_tokens=None, forzar=False):
+def llamar(comando, system, messages, max_tokens=None, forzar=False, modelo=None, contexto=True):
     """
-    Puerta + log + llamada. El contexto vivo se anade al system en toda llamada.
-    max_tokens: tope de salida (razonamiento incluido); por defecto el del comando en config.
+    Puerta + log + llamada. El contexto vivo se anade al system en toda llamada (contexto=False
+    lo omite: transcribir no lo necesita). max_tokens: tope de salida (razonamiento incluido);
+    por defecto el del comando en config. modelo: fuerza uno distinto del del comando.
     Deja en ULTIMA los detalles (tokens, segundos, cortada) de esta llamada.
     """
     fase, _ = E.fase_actual()
     if fase not in E.MOTOR_PERMITIDO and not forzar:
         raise MotorApagado(E.EXPLICACION.get(fase, "motor apagado"))
 
-    modelo, esfuerzo = C.modelo_para(comando), C.esfuerzo_para(comando)
+    modelo, esfuerzo = modelo or C.modelo_para(comando), C.esfuerzo_para(comando)
     max_tokens = max_tokens or C.max_tokens_para(comando)
     t0 = time.perf_counter()
-    texto, tin, tout, cache, extra = _completar(system + contexto_vivo(), messages, max_tokens,
-                                                modelo, esfuerzo)
+    texto, tin, tout, cache, extra = _completar(system + (contexto_vivo() if contexto else ""), messages,
+                                                max_tokens, modelo, esfuerzo)
     segundos = round(time.perf_counter() - t0, 1)
 
+    u = dict(comando=comando, modelo=modelo, esfuerzo=esfuerzo, max_tokens=max_tokens,
+             tokens_in=tin, tokens_out=tout, tokens_cache=cache, segundos=segundos,
+             tokens_razonamiento=extra.get("razonamiento", 0), cortada=extra.get("cortada", False))
     ULTIMA.clear()
-    ULTIMA.update(comando=comando, modelo=modelo, esfuerzo=esfuerzo, max_tokens=max_tokens,
-                  tokens_in=tin, tokens_out=tout, tokens_cache=cache, segundos=segundos,
-                  tokens_razonamiento=extra.get("razonamiento", 0), cortada=extra.get("cortada", False))
+    ULTIMA.update(u)
     C.anadir(C.F_LLAMADAS, json.dumps({
         "ts": datetime.datetime.now().isoformat(timespec="seconds"),
         "comando": comando, "fase": fase, "proveedor": C.PROVEEDOR, "modelo": modelo,
         "tokens_in": tin, "tokens_out": tout, "tokens_cache": cache, "esfuerzo": esfuerzo,
-        "tokens_razonamiento": ULTIMA["tokens_razonamiento"], "max_tokens": max_tokens,
-        "segundos": segundos, "cortada": ULTIMA["cortada"],
+        "tokens_razonamiento": u["tokens_razonamiento"], "max_tokens": max_tokens,
+        "segundos": segundos, "cortada": u["cortada"],
         "forzado": bool(forzar and fase not in E.MOTOR_PERMITIDO),
         "simulado": C.SIMULAR,
     }, ensure_ascii=False) + "\n")
-    if ULTIMA["cortada"] and comando != "preguntar":          # preguntar lo avisa a su manera
+    # preguntar y transcribir avisan del corte a su manera (transcribir lo marca en la pagina)
+    if u["cortada"] and comando not in ("preguntar", "transcribir"):
         aviso(f"RESPUESTA CORTADA por el tope de salida ({max_tokens} tokens, razonamiento incluido)")
     return texto
 
@@ -238,6 +290,11 @@ def parse_json(texto):
 
 def _simulado(system, messages):
     ultimo = messages[-1]["content"] if messages else ""
+    if isinstance(ultimo, list):                       # mensaje con imagenes: solo el texto
+        ultimo = " ".join(p.get("text", "") for p in ultimo if isinstance(p, dict))
+    if "MODO_TRANSCRIBIR" in system:
+        return ("## Apuntes (simulado)\n\nSea $M=(M_p)_{p\\ge 0}$ una sucesion peso [?].\n\n"
+                "$\\sum_{q\\ge p} \\frac{M_q}{(q+1)M_{q+1}} \\le A\\,\\frac{M_p}{M_{p+1}}$\n\n[ILEGIBLE]")
     if "MODO_CIERRE" in system:
         return json.dumps({
             "diff_estructural": "Simulacion: acertaste la tecnica general, fallaste el factor (q+1).",

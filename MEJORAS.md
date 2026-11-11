@@ -63,7 +63,8 @@ cerrado menos el enunciado. Van surgiendo expresiones deducidas y reformulacione
   `lecturas/` y `sesiones/` se indexa como `fuente: nota`.
 - `nota estado ID`: por bloque, campos escritos, intentos (fecha, nivel), objeciones del
   ultimo check.
-- No: escanear notas a mano; la OCR de matematicas manuscritas no da para citar.
+- Escanear notas a mano: en octubre dije que no (la OCR de matematicas manuscritas no da para
+  citar tal cual). Desde el 2026-11-11 si, con revision obligatoria antes de indexar: punto 8.
 
 ## 5. Apuntes de cursos con ejercicios corregidos
 
@@ -114,7 +115,38 @@ Movil (lo honesto: ni fase 2 con formulas ni el REPL; si `ahora`, `estado`, `ask
 3. Nube (VPS o Codespace con repo, datos y `.env`): la torre solo para ingerir. Mas caro y
    mas piezas; para cuando portatil y SSH no basten.
 
-## Plan en cuatro bloques
+## 8. Pasar a limpio lo escrito a mano — HECHO 2026-11-11
+
+Origen: Mariano encontro Underleaf y pidio algo asi para los apuntes del curso (suyos), las
+notas que toma al leer papers y las dudas. Decision suya: integrarlo en este sistema, con
+revision ("quiza tardo menos revisando simplemente en lugar de escribirlo todo de cero").
+
+- Underleaf, mirado el 2026-11-11: una web y una extension de navegador con planes por
+  creditos (uno gratuito corto y dos de pago), sin API publica a la que llamar desde aqui. No
+  se integra; se puede usar a mano y pegar.
+- `python doc.py transcribir FICHERO` (PDF o foto): markdown con `$...$`, una seccion por
+  pagina, `estado: sin_revisar`. Dos motores intercambiables: el modelo con vision por
+  `motor.llamar` (puerta de fases, coste en `llamadas.jsonl`) y Marker en local.
+- La regla que lo hace usable: nada `sin_revisar` se indexa ni se cita. Mariano compara con
+  el original (web: lado a lado, marcas `[ILEGIBLE]` y `[?]` resaltadas, correccion pagina a
+  pagina) y marca `--revisado`. Curso revisado: `fuente: curso`; paper y duda: `fuente: nota`.
+- Por que no vale sin revisar, visto en la prueba: con simbolos ilegibles en la pagina el
+  modelo puso `\leq`, `\geq` y `\exists` "porque tenian que ir ahi", sin marca. El prompt
+  reforzado ("la tinta, no lo que deberia haber") los deja en `[ILEGIBLE]` (7 de 7 en la misma
+  pagina), pero el fallo de fondo no desaparece: el modelo sabe matematicas y tiende a
+  escribir lo correcto, no lo escrito.
+- Proyectos abiertos de imagen a LaTeX (pix2tex/LaTeX-OCR, PP-FormulaNet, modelos tipo
+  GLM-OCR) y Marker/surya, que ya esta instalado: ninguno probado aqui con letra real. Con
+  Marker, en una pagina sintetica limpia: indices, letras o simbolos cambiados en tres o
+  cuatro de las cinco lineas con formulas (dos pasadas), sin marcas de duda.
+- `.tex` (peticion del mismo dia: "por si con un par de cambios sirve"): cada transcripcion
+  lleva al lado un `.tex` exportado del `.md` (`nucleo/a_latex.py`); se rehace al revisar o con
+  `--tex NOMBRE`, y no se pisa si Mariano lo ha editado a mano (huella en la primera linea).
+  Sin compilar aqui: la torre no tiene `pdflatex`.
+- Lo que no hace: no copia nada a `lecturas/ID.md` (eso es de Mariano); no transcribe en fase
+  1 ni 3 con el modelo; no lanza `indexar`.
+
+## Plan por bloques
 
 Cada bloque es un commit cerrado que deja el sistema usable.
 
@@ -149,14 +181,24 @@ Cada bloque es un commit cerrado que deja el sistema usable.
 15. SSH + Tailscale a la torre desde el movil (instalacion de Mariano, sin codigo); mini web
     con KaTeX solo si hace falta.
 
+### Bloque F. Transcribir lo manuscrito — HECHO 2026-11-11
+16. `transcribir` con dos motores, estado `sin_revisar` / `revisado`, indice solo de lo
+    revisado (`fuente: curso` o `nota`), `ahora` recuerda lo pendiente.
+17. Web: subir desde el movil, original y texto lado a lado, corregir pagina a pagina.
+18. Pendiente de datos reales: comparar los dos motores con tres paginas de Mariano.
+
 ### Lo que necesita de Mariano
 - Para A: conformidad con los ocho campos del bloque `R<n>` (o sus nombres).
 - Para D: que libros y cursos, en PDF o `.tex`, cuando los tenga.
+- Para F: tres paginas reales (una de curso, una de notas de paper, una duda) pasadas por los
+  dos motores, y decir cual pide menos correccion. Si con su letra el modelo barato falla
+  mucho, probar `--calidad alta` en esas mismas paginas antes de descartarlo.
 
 ### Coste
 A, B y C: trabajo del agente sin gasto de API; media hora de Mariano leyendo plantillas.
 D: el tiempo de Marker con los libros (sin coste) y centimos de embeddings; la pasada de
-control de C, 30 centimos cada vez.
+control de C, 30 centimos cada vez. F: con el modelo, 1 centimo por pagina en la prueba y 7
+como tope (28 con `--calidad alta`); con Marker, nada.
 
 ## Fallos visuales de `preguntar` vistos en las sesiones del 21 al 27 (corregidos el 2026-10-27)
 - `$f inE_p(M)$`: un comando pegado a `\mathcal{...}` (corregido el 21).

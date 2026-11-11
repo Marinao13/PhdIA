@@ -8,6 +8,7 @@ HTML. KaTeX (auto-render, en static/app.js) las pinta en el navegador.
 import re, html, unicodedata
 
 from markdown_it import MarkdownIt
+from markdown_it.token import Token
 
 _md = MarkdownIt("commonmark", {"html": False, "linkify": False, "typographer": False})
 _md.enable(["table", "strikethrough"])
@@ -34,7 +35,9 @@ def _proteger(texto):
 
 
 def _reponer(html_, formulas, escapar=True):
-    return _RE_MARCA.sub(lambda m: (html.escape(formulas[int(m.group(1))], quote=False) if escapar
+    # con comillas escapadas: una formula puede caer en un atributo (el alt de una imagen), y en
+    # un nodo de texto el navegador las devuelve tal cual a KaTeX
+    return _RE_MARCA.sub(lambda m: (html.escape(formulas[int(m.group(1))], quote=True) if escapar
                                     else formulas[int(m.group(1))]), html_)
 
 
@@ -45,6 +48,64 @@ def markdown(texto):
     """HTML de un markdown con formulas. Los comentarios HTML (los de las plantillas) no se ven."""
     t, formulas = _proteger(RE_COMENTARIO.sub("", texto or ""))
     return _reponer(_md.render(t), formulas)
+
+
+RE_DUDA = re.compile(r"\[ILEGIBLE\]|\[\?\]|\[PAGINA CORTADA[^\]]*\]")
+
+
+_MARCA_DUDA = "\ue002{}\ue003"
+_RE_TROZO = re.compile("\ue000(\\d+)\ue001|\ue002(\\d+)\ue003")
+_RE_MARCA_DUDA = re.compile("\ue002(\\d+)\ue003")
+
+
+def _token(tipo, contenido):
+    t = Token(tipo, "", 0)
+    t.content = contenido
+    return t
+
+
+def transcripcion(texto):
+    """Una pagina transcrita: markdown con las marcas [ILEGIBLE] y [?] resaltadas. Dentro de una
+    formula no se parte el texto (KaTeX dejaria de pintarla): se enmarca la formula entera.
+
+    Las marcas se sacan ANTES de pasar por markdown (como las formulas) y se resaltan en los
+    nodos de texto del arbol, no sobre el HTML: asi `f[?](x)` no se vuelve un enlace, una linea
+    `[ILEGIBLE]: ...` no se toma por una definicion de enlace, y una marca o una formula que
+    caigan en un atributo (el alt de una imagen) quedan como texto escapado, sin etiquetas."""
+    t, formulas = _proteger(RE_COMENTARIO.sub("", texto or ""))
+    marcas = []
+
+    def guardar(m):
+        marcas.append(m.group(0))
+        return _MARCA_DUDA.format(len(marcas) - 1)
+    tokens = _md.parse(RE_DUDA.sub(guardar, t))
+    for tok in tokens:
+        if tok.type != "inline" or not tok.children:
+            continue
+        hijos = []
+        for h in tok.children:
+            if h.type != "text" or not _RE_TROZO.search(h.content):
+                hijos.append(h)
+                continue
+            pos = 0
+            for m in _RE_TROZO.finditer(h.content):
+                if m.start() > pos:
+                    hijos.append(_token("text", h.content[pos:m.start()]))
+                if m.group(1) is None:                 # una marca suelta
+                    hijos.append(_token("html_inline", '<mark class="duda">'
+                                        + html.escape(marcas[int(m.group(2))]) + "</mark>"))
+                elif RE_DUDA.search(formulas[int(m.group(1))]):      # una formula con marca dentro
+                    hijos.append(_token("html_inline", '<span class="formula-duda" title="formula con una '
+                                        'marca dentro">' + html.escape(formulas[int(m.group(1))]) + "</span>"))
+                else:
+                    hijos.append(_token("text", m.group(0)))         # formula normal: la repone _reponer
+                pos = m.end()
+            if pos < len(h.content):
+                hijos.append(_token("text", h.content[pos:]))
+        tok.children = hijos
+    h = _md.renderer.render(tokens, _md.options, {})
+    h = _RE_MARCA_DUDA.sub(lambda m: html.escape(marcas[int(m.group(1))]), h)     # en atributos y codigo
+    return _reponer(h, formulas)
 
 
 def respuesta(texto):

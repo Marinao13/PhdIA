@@ -30,6 +30,7 @@ def test_modo_base_en_sesiones_de_libro(monkeypatch):
 
 def test_ataque_en_fase_3_solo_reimprime_la_guia_sin_commit(monkeypatch, capsys):
     monkeypatch.setattr(E, "fase_actual", lambda: ("f3", {}))
+    monkeypatch.setattr(E, "sesion_hoy", lambda: None)      # sin esto escribia "Ataque:" en la sesion real abierta
     monkeypatch.setattr(K, "_es_base", lambda etiqueta=None: False)
     monkeypatch.setattr(K, "_corpus_siguiente", lambda: ("x", 0, 8))
     monkeypatch.setattr(E, "sellar", lambda etiqueta: (_ for _ in ()).throw(AssertionError("no debe sellar")))

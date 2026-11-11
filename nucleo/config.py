@@ -42,7 +42,7 @@ MAX_TOKENS_ASK = 1800
 # Tope de salida por comando (Responses API: INCLUYE los tokens de razonamiento, que se
 # pagan como salida). preguntar desarrolla pasos y con 1500 llegaba cortado (3 veces hasta
 # el 2026-10-13, siempre a 1500 exactos); 4000 tokens de salida son como mucho 0,20 USD.
-MAX_TOKENS_POR_COMANDO = {"preguntar": 4000}
+MAX_TOKENS_POR_COMANDO = {"preguntar": 4000, "transcribir": 6000}     # transcribir: una pagina densa por llamada
 
 
 def max_tokens_para(comando):
@@ -67,7 +67,8 @@ MODELO_BARATO = os.environ.get("DOC_MODELO_BARATO") or ("gpt-5.6-terra" if PROVE
 MODELO_POR_COMANDO = {"referee": MODELO, "preguntar": MODELO}
 # preguntar en "low": con "medium" el razonamiento se comia el tope de salida y tardaba
 # mas; los pasos mecanicos de fase 2 no lo necesitan (si se resiente, sube a "medium").
-ESFUERZO_POR_COMANDO = {"ask": "low", "nota-quiz": "low", "preguntar": "low", "buscar": None, "indexar": None}
+ESFUERZO_POR_COMANDO = {"ask": "low", "nota-quiz": "low", "preguntar": "low", "transcribir": "low",
+                        "buscar": None, "indexar": None}
 ESFUERZO_DEFECTO = "medium"
 
 

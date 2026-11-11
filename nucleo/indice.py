@@ -97,6 +97,7 @@ def fragmentar(unidades):
                                 numero=u.get("numero") if i == 0 else None, texto=t))
             continue
         if grupo and (u.get("seccion") != grupo[0].get("seccion")
+                      or (u.get("corte_pagina") and u.get("pagina") != grupo[0].get("pagina"))
                       or _tokens("\n\n".join(g["texto"] for g in grupo) + u["texto"]) > MAX_TOK):
             cerrar()
         grupo.append(u)
@@ -106,18 +107,48 @@ def fragmentar(unidades):
     return out
 
 
-def _unidades_markdown(texto):
-    """Un markdown (proyecto, nota) como unidades: titulos y parrafos."""
+def _norma_plantilla(linea):
+    """Una linea con lo que `nota add` y `nota new` sustituyen (RN, [ID:pNN]) puesto como en la plantilla."""
+    linea = re.sub(r"\[[^\]]*:pNN\]", "[ID:pNN]", " ".join(linea.split()))
+    return re.sub(r"\bR\d+\b|\bRN\b", "RN", linea)
+
+
+def _lineas_plantilla():
+    """Las lineas de las plantillas de notas y sesiones, normalizadas. Lo que en una nota sigue
+    tal cual esta en la plantilla es andamiaje sin rellenar, no texto de Mariano: no se indexa."""
+    out = set()
+    for ruta in glob.glob(os.path.join(C.DIR_LECTURAS, "PLANTILLA*.md")) + \
+            glob.glob(os.path.join(C.DIR_SESIONES, "PLANTILLA*.md")):
+        for l in C.leer(ruta).splitlines():
+            l = _norma_plantilla(l)
+            if l and not l.startswith("#"):
+                out.add(l)
+    return out
+
+
+def _unidades_markdown(texto, plantilla=frozenset()):
+    """Un markdown (proyecto, nota) como unidades: titulos y parrafos. `plantilla`: lineas de
+    andamiaje (de _lineas_plantilla) que se quitan; con ella se quitan tambien los comentarios HTML."""
     out, seccion = [], None
+    if plantilla:
+        texto = re.sub(r"<!--.*?-->", "", texto, flags=re.S)
     for p in re.split(r"\n\s*\n", texto):
         p = p.strip()
         if not p or p.startswith("---"):
             continue
         if p.startswith("#"):
-            seccion = p.lstrip("# ").strip()
+            # "## Fase 1\nMi reconstruccion..." sin linea en blanco (asi son las plantillas): el
+            # titulo es la primera linea. Hasta el 2026-11-11 el parrafo entero se tomaba por
+            # titulo y `fragmentar` lo descartaba: ese texto no llegaba al indice.
+            cabeza, _, p = p.partition("\n")
+            seccion = cabeza.lstrip("# ").strip()
             out.append(dict(pagina=None, seccion=seccion, tipo="titulo", label=None, texto=seccion))
-        else:
-            out.append(dict(pagina=None, seccion=seccion, tipo="parrafo", label=None, texto=p))
+            p = p.strip()
+        if plantilla:                                  # fuera las lineas que son la plantilla tal cual
+            p = "\n".join(l for l in p.splitlines() if _norma_plantilla(l) not in plantilla).strip()
+        if not p:
+            continue
+        out.append(dict(pagina=None, seccion=seccion, tipo="parrafo", label=None, texto=p))
     return out
 
 
@@ -136,11 +167,21 @@ def fuentes():
             out.append((bib.get(doc, {}).get("fuente", "paper"), doc, unidades))
     if os.path.exists(C.F_PROYECTO):
         out.append(("proyecto", "proyecto", _unidades_markdown(C.leer(C.F_PROYECTO))))
-    notas = glob.glob(os.path.join(C.DIR_LECTURAS, "*.md")) + \
+    notas = [p for p in glob.glob(os.path.join(C.DIR_LECTURAS, "*.md"))
+             if not os.path.basename(p).startswith("PLANTILLA")] + \
         [p for p in glob.glob(os.path.join(C.DIR_SESIONES, "2*.md")) if "EJEMPLO" not in p]
+    plantilla = _lineas_plantilla()
     for ruta in sorted(notas):
         doc = "nota:" + os.path.splitext(os.path.basename(ruta))[0]
-        out.append(("nota", doc, _unidades_markdown(C.leer(ruta))))
+        out.append(("nota", doc, _unidades_markdown(C.leer(ruta), plantilla)))
+    # transcripciones de lo manuscrito: SOLO las revisadas por Mariano. Las de un curso son
+    # fuente `curso` (fiables, corregidas; no literatura); el resto, `nota`.
+    from . import transcribir as T
+    for t in T.listar():
+        if t.get("estado") == "revisado":
+            us = T.unidades(t["cuerpo"])
+            if us:
+                out.append(("curso" if t.get("tipo") == "curso" else "nota", "transcripcion:" + t["nombre"], us))
     return out
 
 
@@ -223,7 +264,8 @@ def indexar(rehacer=False, verbose=True):
             if os.path.exists(f):
                 os.remove(f)
     existentes = {r[0]: r[1] for r in con.execute("SELECT id, hash FROM fragmentos")}
-    meta_existente = {r[0]: r[1:] for r in con.execute("SELECT id, pagina, seccion, tipo, label, numero FROM fragmentos")}
+    meta_existente = {r[0]: r[1:] for r in con.execute(
+        "SELECT id, pagina, seccion, tipo, label, numero, fuente FROM fragmentos")}
     actualizados = 0
     vec, ids = _leer_vectores()
     tiene_vec = set(ids)
@@ -239,10 +281,11 @@ def indexar(rehacer=False, verbose=True):
             fid = f"{doc}#{k:04d}"
             vistos.add(fid)
             if existentes.get(fid) == h and fid in tiene_vec:
-                nuevo_meta = (fr.get("pagina"), fr.get("seccion"), fr.get("tipo"), fr.get("label"), fr.get("numero"))
-                if meta_existente.get(fid) != nuevo_meta:      # mismo texto, otra pagina: sin re-embeber
-                    con.execute("UPDATE fragmentos SET pagina=?, seccion=?, tipo=?, label=?, numero=? WHERE id=?",
-                                (*nuevo_meta, fid))
+                nuevo_meta = (fr.get("pagina"), fr.get("seccion"), fr.get("tipo"), fr.get("label"),
+                              fr.get("numero"), fuente)
+                if meta_existente.get(fid) != nuevo_meta:      # mismo texto, otra pagina o fuente: sin re-embeber
+                    con.execute("UPDATE fragmentos SET pagina=?, seccion=?, tipo=?, label=?, numero=?, fuente=? "
+                                "WHERE id=?", (*nuevo_meta, fid))
                     actualizados += 1
                 continue
             con.execute("INSERT OR REPLACE INTO fragmentos (id, fuente, doc, pagina, seccion, tipo, label, "

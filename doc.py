@@ -26,6 +26,7 @@ Unico punto de entrada del sistema. Toda llamada a la IA pasa por aqui.
   python doc.py nota check ID          agujeros en tu explicacion, citando el texto
   python doc.py referee ARCHIVO        objeciones numeradas con gravedad; sin valoracion global
   python doc.py redactar ARCHIVO       pule forma sin inventar; marca [VERIFICAR]
+  python doc.py transcribir FICHERO    pasa a limpio lo manuscrito (PDF/foto); sin_revisar hasta que lo marques
   python doc.py ahora                  que te toca ahora, y el comando exacto
 """
 import sys, argparse
@@ -124,7 +125,7 @@ def main():
     s = sub.add_parser("buscar", help="recuperacion pura, sin modelo, en todas las fases")
     s.add_argument("pregunta", nargs="*")
     s.add_argument("-k", type=int, default=8)
-    s.add_argument("--fuente", choices=["paper", "proyecto", "nota"])
+    s.add_argument("--fuente", choices=["paper", "proyecto", "nota", "curso"])
     s.add_argument("--doc", help="limitar a un id de bib.yaml")
     s.add_argument("--bm25", action="store_true", help="sin embeddings")
     s.add_argument("--por-doc", dest="por_doc", type=int, default=2, help="maximo por documento (0 = sin tope)")
@@ -133,7 +134,7 @@ def main():
     s = sub.add_parser("ask", help="sintesis con modelo sobre el corpus, con citas; respeta las fases")
     s.add_argument("pregunta", nargs="*")
     s.add_argument("-k", type=int, default=8)
-    s.add_argument("--fuente", choices=["paper", "proyecto", "nota"])
+    s.add_argument("--fuente", choices=["paper", "proyecto", "nota", "curso"])
     s.add_argument("--doc", help="limitar a un id de bib.yaml")
     s.add_argument("--por-doc", dest="por_doc", type=int, default=2)
     s.add_argument("--con-propios", dest="con_propios", action="store_true", help="incluir proyecto y notas propias como evidencia")
@@ -172,6 +173,21 @@ def main():
     s.add_argument("archivo")
     s.add_argument("--seccion")
     s.set_defaults(fn=K.cmd_redactar)
+
+    s = sub.add_parser("transcribir", help="pasa a limpio lo manuscrito (PDF o foto) a markdown con LaTeX; queda sin_revisar")
+    s.add_argument("fichero", nargs="?", help="PDF o imagen (png, jpg, webp...)")
+    s.add_argument("--tipo", choices=["curso", "paper", "duda"], default="paper",
+                   help="curso = apuntes de un curso (fuente curso al revisar); paper y duda = fuente nota")
+    s.add_argument("--titulo", help="titulo y nombre del fichero (defecto: el nombre del original)")
+    s.add_argument("--paginas", help="p. ej. 1-3,5 (defecto: todas)")
+    s.add_argument("--motor", choices=["modelo", "marker"], default="modelo",
+                   help="modelo = vision por el motor (respeta fases, cuesta); marker = OCR local, gratis")
+    s.add_argument("--calidad", choices=["normal", "alta"], default="normal", help="alta = el modelo caro")
+    s.add_argument("--lista", action="store_true", help="lista las transcripciones y su estado")
+    s.add_argument("--revisado", metavar="NOMBRE", help="marca una transcripcion como revisada: entra en el indice")
+    s.add_argument("--tex", metavar="NOMBRE", help="exporta el .md de ahora a transcripciones/NOMBRE.tex")
+    s.add_argument("--pisar", action="store_true", help="con --tex: rehacer el .tex aunque lo hayas editado a mano")
+    s.set_defaults(fn=K.cmd_transcribir)
 
     sub.add_parser("metricas", help="los numeros").set_defaults(fn=K.cmd_metricas)
     sub.add_parser("anki", help="exporta tarjetas").set_defaults(fn=K.cmd_anki)

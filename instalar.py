@@ -33,7 +33,8 @@ def instalar(paquete):
 
 
 paso(1, "dependencias")
-for p in ("mpmath", "anthropic", "openai", "rich", "pymupdf", "rank_bm25", "tiktoken", "pyyaml", "requests", "numpy"):
+for p in ("mpmath", "anthropic", "openai", "rich", "pymupdf", "rank_bm25", "tiktoken", "pyyaml", "requests", "numpy",
+          "pillow"):
     print(f"  {p:<10} {instalar(p)}")
 
 paso(2, "quitar la marca de internet (solo Windows)")

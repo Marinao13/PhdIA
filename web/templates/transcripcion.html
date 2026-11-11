@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block titulo %}{{ t.titulo or t.nombre }}{% endblock %}
+{% block cuerpo %}
+<p class="meta"><a href="/transcripciones">transcripciones</a> › <code>transcripciones/{{ t.nombre }}.md</code>
+  · <a href="/transcripciones/{{ t.nombre }}/tex">descargar .tex</a> (LaTeX del texto de ahora)</p>
+<h1>{{ t.titulo or t.nombre }}</h1>
+<dl class="front">
+  <dt>origen</dt><dd>{{ t.origen }}</dd>
+  <dt>tipo</dt><dd>{{ t.tipo }}</dd>
+  <dt>paginas</dt><dd>{{ t.paginas }}</dd>
+  <dt>motor</dt><dd>{{ t.motor }}</dd>
+  <dt>estado</dt><dd>{{ t.estado }}{% if t.revisado_el %} ({{ t.revisado_el }}){% endif %}</dd>
+</dl>
+
+{% if t.estado != 'revisado' %}
+<div class="aviso">
+  <p><strong>Sin revisar</strong>: no entra en el indice ni se cita. Compara cada pagina con el original y corrige
+  (aqui, pagina a pagina, o el fichero en VS Code). Mira primero lo resaltado:
+  quedan {{ ilegibles }} <code>[ILEGIBLE]</code> y {{ dudosos }} <code>[?]</code>. Un subindice o un cuantificador
+  mal copiado no lleva marca: eso solo lo ves tu.</p>
+  <form method="post" action="/transcripciones/{{ t.nombre }}/revisado">
+    <button type="submit">La he revisado contra el original</button>
+  </form>
+</div>
+{% elif ilegibles or dudosos %}
+<p class="aviso">revisada, pero quedan {{ ilegibles }} <code>[ILEGIBLE]</code> y {{ dudosos }} <code>[?]</code> dentro</p>
+{% endif %}
+
+<form method="post" action="/transcripciones/{{ t.nombre }}/paginas">
+{% for h in hojas %}
+<section class="hoja" id="p{{ h.n }}">
+  <h2>pagina {{ h.n }}</h2>
+  <div class="lado">
+    <div class="original">
+      {% if t.original %}
+      <a href="/transcripciones/{{ t.nombre }}/pagina/{{ h.n }}"><img loading="lazy" src="/transcripciones/{{ t.nombre }}/pagina/{{ h.n }}" alt="original, pagina {{ h.n }}"></a>
+      {% else %}
+      <p class="meta">el original no esta en esta maquina: <code>transcripciones/originales/</code> no viaja con git</p>
+      {% endif %}
+    </div>
+    <div class="limpio">
+      <div class="md">{{ h.html|safe }}</div>
+      <details class="editar">
+        <summary>corregir esta pagina</summary>
+        <div class="formulario">
+          <input type="hidden" name="h_{{ h.n }}" value="{{ h.huella }}">
+          <textarea name="texto_{{ h.n }}" rows="{{ h.filas }}" spellcheck="false">{{ h.crudo }}</textarea>
+          <div class="botones"><button type="submit" name="ancla" value="{{ h.n }}">Guardar cambios</button></div>
+          <p class="meta">guarda todas las paginas que hayas corregido, no solo esta</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+{% endfor %}
+</form>
+{% if not hojas %}<p class="aviso">el fichero no tiene marcas de pagina (<code>&lt;!-- pagina N --&gt;</code>): editalo en VS Code</p>{% endif %}
+{% endblock %}

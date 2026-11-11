@@ -45,3 +45,8 @@ el estado y el plan, en `ESTADO_SISTEMA.md` y `PLAN.md`.
 - Trabaja en un worktree (`.claude/worktrees/`) y fusiona a `master` solo commits
   cerrados; Mariano puede tener una sesion abierta con ficheros sin commitear.
 - No optimices la arquitectura antes de que `ask` funcione con citas (BRIEF, 7).
+- `transcripciones/` es de Mariano, como `lecturas/`: el sistema transcribe y el revisa contra
+  el original. Nada `sin_revisar` se indexa ni se cita; no marques `revisado` por el.
+- Los tests no escriben en el arbol real: `tests/conftest.py` lo comprueba al final de la
+  pasada y falla si alguno toca `sesiones/`, `lecturas/`, `registro/`, `contexto/`... Un test
+  nuevo que llame a un comando aisla antes `E.sesion_hoy`, `C.RAIZ` y las rutas de `config`.

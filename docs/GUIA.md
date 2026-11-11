@@ -44,6 +44,73 @@ en la web (`python -m web`, pestana Guia).
   `--frio` para `[x]`). `ahora` deja de proponerlo y lista aparte los que tienen sesiones sin
   marcar.
 
+## Pasar a limpio lo escrito a mano (transcribir)
+
+Para lo que escribes en papel o en la tableta: apuntes de un curso, notas al leer un paper,
+una duda. El sistema lo transcribe a markdown con LaTeX y tu lo revisas contra el original,
+que es mas corto que escribirlo de cero. Nada sin revisar entra en el indice ni se cita.
+
+1. Ten el fichero: PDF (escaneado o exportado de la tableta) o foto (`png`, `jpg`, `webp`).
+   Las fotos HEIC del iPhone, exportalas antes como JPG o PDF. Una foto tumbada del movil se
+   endereza sola. WebP y el enderezado usan Pillow (`instalar.py` lo pone; a mano,
+   `python -m pip install pillow`).
+2. Transcribe. En la consola:
+   `python doc.py transcribir apuntes.pdf --tipo curso --titulo "Curso X, tema 1" --paginas 1-5`
+   (`--tipo curso | paper | duda`; sin `--paginas`, todas). Desde el movil: web, pestana
+   Transcripciones, subir el fichero; trabaja en segundo plano y la pagina se refresca sola.
+3. Sale `transcripciones/AAAA-MM-DD-titulo.md` con `estado: sin_revisar` y una seccion por
+   pagina. El original se copia a `transcripciones/originales/` (fuera de git: no viaja a la
+   otra maquina).
+4. Revisa con el original al lado: web, `/transcripciones/NOMBRE` (original a la izquierda,
+   texto a la derecha, "corregir esta pagina" debajo de cada una; "Guardar cambios" guarda de
+   una vez todas las paginas que hayas tocado), o el `.md` en VS Code. Lo
+   resaltado son las marcas del modelo: `[ILEGIBLE]` (no pudo leerlo) y `[?]` (no esta
+   seguro). Lo que NO lleva marca y hay que mirar igual: subindices (`M_p` frente a
+   `M_{p+1}`), cuantificadores, `<` frente a `\le`, exponentes y signos. El modelo copia: no
+   corrige ni completa, y un error tuyo en el papel sale tal cual.
+5. Marca: `python doc.py transcribir --revisado NOMBRE` (o el boton de la web) y despues
+   `python doc.py indexar`. Un curso revisado entra como `fuente: curso`
+   (`buscar --fuente curso`); las notas de paper y las dudas, como `fuente: nota`. `ask` no
+   las usa salvo que se lo pidas (`--fuente curso` o `--con-propios`): no son literatura.
+6. `python doc.py transcribir --lista` dice que hay y que sigue sin revisar; `ahora` lo
+   recuerda en PENDIENTE.
+7. El LaTeX: junto al `.md` queda `transcripciones/NOMBRE.tex`, exportado de el, por si con
+   un par de cambios te sirve para un documento: `article` con `amsmath`, `amssymb`, `amsthm`
+   y `babel` en espanol; titulos, listas y formulas tal cual (la que va sola en su linea, en
+   `\[ \]`); las marcas `[ILEGIBLE]` y `[?]` en rojo con `\duda{}`; un comentario
+   `% ---------- pagina N ----------` donde empieza cada pagina. Reglas:
+   - La fuente es el `.md`. Corrige ahi (web o VS Code); el `.tex` se rehace solo al marcar
+     `--revisado`, o cuando quieras con `python doc.py transcribir --tex NOMBRE`. En la web,
+     "descargar .tex" da siempre el del texto de ese momento.
+   - Si editas el `.tex` a mano, deja de rehacerse (no se pisa lo tuyo): `--tex NOMBRE --pisar`
+     lo rehace desde el `.md` y pierde tus cambios. Lo que cambies en el `.tex` no vuelve al
+     `.md` ni al indice.
+   - No esta compilado: en la torre no hay `pdflatex`. Se comprueba que llaves y entornos
+     casan y que el texto va escapado; si algo no compila en tu LaTeX, dimelo con el error.
+
+Reglas y limites:
+
+- Con el modelo (por defecto) es una llamada al motor: en fase 1 y 3 se niega. Escribe a mano
+  y transcribe despues de sellar. `--motor marker` es OCR local (Marker, solo en la torre): no
+  es el motor, nada sale de tu maquina y es gratis.
+- Cual usar: el modelo. Prueba del 2026-11-11 con una pagina sintetica (fuente que imita
+  letra, cinco formulas; NO es tu letra): el modelo copio las cinco bien; Marker cambio
+  indices, letras o simbolos en tres o cuatro de las cinco lineas con formulas (dos pasadas) y
+  no marca dudas. Con simbolos
+  ilegibles en la pagina, el modelo los marca `[ILEGIBLE]`; antes de reforzar el prompt los
+  rellenaba por contexto sin avisar, que es justo lo que hay que vigilar al revisar.
+- Coste con el modelo: en esa prueba, 9 a 14 s y 1 centimo por pagina; el tope por pagina es
+  de unos 7 centimos, y unos 28 con `--calidad alta` (el modelo caro: solo para paginas que
+  salgan mal). `metricas` lo cuenta en el comando `transcribir`. Un cuaderno de 60 paginas
+  puede llegar a 4 EUR de los 20 del mes: por temas, no de golpe.
+- Si se para a media pasada (red, cuota, Ctrl+C, o cambias de fase mientras transcribe) se
+  guarda lo hecho y dice que paginas faltan y el comando para seguir. El fichero se escribe
+  tras cada pagina: aunque cierres la ventana o se reinicie la torre, lo ya transcrito esta en
+  `transcripciones/`.
+- Las notas de un paper transcritas no se copian solas a `lecturas/ID.md`: lo que quieras en
+  el bloque `R<n>` (Desarrollo, Derivaciones) lo pegas tu desde la transcripcion revisada.
+- Con el modelo, las paginas viajan a la API del proveedor, como cualquier `preguntar`.
+
 ## Reconstruir en frio (repeticion espaciada)
 
 `ahora` propone "reconstruir R2 de ID" cuando vence el intervalo del ultimo intento (nivel 0 o

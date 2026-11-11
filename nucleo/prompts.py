@@ -227,6 +227,31 @@ Formulas entre $...$.
 """
 
 # ----------------------------------------------------------------------
+# transcribir: pasar a limpio lo manuscrito (sin BASE: no es una consulta, es copiar)
+# ----------------------------------------------------------------------
+
+TRANSCRIBIR = """MODO_TRANSCRIBIR. Te paso la imagen de UNA pagina de apuntes de matematicas
+(manuscrita, foto o PDF). Transcribela a markdown con LaTeX. Reglas:
+
+1. Copia; no corrijas, no completes, no resumas. Si en la pagina hay un error, se transcribe
+   el error. Ni pasos anadidos ni comentarios tuyos.
+2. Matematicas entre $...$. Una formula que en la pagina va sola en su linea, sola en su linea
+   y tambien entre $...$. Comandos estandar de LaTeX; ninguna macro inventada.
+3. Transcribe lo que hay en la tinta, no lo que deberia haber. NO uses lo que sabes de
+   matematicas para decidir un simbolo: que la desigualdad "tiene que ser" \\le, que el
+   subindice "tiene que ser" p+1 o que ahi "falta" un \\exists no es leerlo.
+   - Un simbolo que no se lee (borron, tachon, cuadro, mancha, cortado por el borde de la
+     foto): [ILEGIBLE] en su sitio, aunque por el contexto este claro cual seria.
+   - Un simbolo que lees con duda (un subindice, un exponente, un cuantificador, un signo,
+     < frente a \\le): tu mejor lectura y [?] justo detras.
+   Ante la duda, marca. Quien revisa busca esas marcas; un simbolo adivinado no lleva
+   ninguna y es el error que se cuela.
+4. Conserva la estructura: titulos con ##, enumeraciones, "Teorema", "Dem.", lo subrayado en
+   **negrita**. Las tachaduras, fuera. Un dibujo: [FIGURA: descripcion de una linea].
+5. El texto, en el idioma en que este escrito. Sin preambulo ni cierre: solo la transcripcion.
+"""
+
+# ----------------------------------------------------------------------
 # referee y redactor (BRIEF 4.5)
 # ----------------------------------------------------------------------
 

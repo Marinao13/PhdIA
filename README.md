@@ -86,6 +86,10 @@ python doc.py lab "especificacion"   la IA escribe el script contra lab/pesos.py
 python doc.py metricas               duracion de fase 1 y 3 (de git), coincidencia
                                      estructural, violaciones, tokens, errores por tipo,
                                      conjeturas, lagunas.
+python doc.py transcribir FICHERO    lo manuscrito (PDF o foto) a markdown con LaTeX; queda
+                                     sin_revisar hasta que lo comparas con el original y lo
+                                     marcas (docs/GUIA.md). No entra en el indice antes.
+                                     Deja al lado un .tex exportado del .md (--tex lo rehace).
 python doc.py anki                   exporta las tarjetas nuevas.
 python doc.py estado                 en que fase estas.
 ```
@@ -175,6 +179,7 @@ nucleo/                config, estado (git), motor (API + puerta + log), prompts
 sesiones/              una por sesion, metricas en la cabecera (las rellena cierre)
 contexto/              estado.md y directores.md: se inyectan en toda llamada
 reuniones/             notas crudas de cada reunion y pre-reads
+transcripciones/       lo manuscrito pasado a limpio (transcribir); originales/ fuera de git
 corpus/base.md         plan de la fase base (saltada el 2026-09-22; reserva para lagunas ESTRUCTURALES)
 corpus/diagnostico.md  items de la primera toma de contacto. Editable
 corpus/orden.md        los 8 papers nucleo + tabla de normalizaciones

@@ -25,15 +25,16 @@
 {% if vacio %}<p class="aviso">nada en el indice para esa pregunta (o indice vacio: <code>python doc.py indexar</code>)</p>{% endif %}
 
 {% if items %}
-<p class="meta">{{ items|length }} fragmentos. El texto es el de la capa tex (arXiv); la pagina, la del PDF.</p>
+<p class="meta">{{ items|length }} fragmentos. En los papers, el texto es el de la capa tex (arXiv) y la pagina la del PDF. Lo marcado <span class="estado-t revisado">tuyo</span> son tus notas, sesiones y transcripciones revisadas: no es literatura.</p>
 <ol class="resultados">
 {% for f in items %}
   <li class="resultado">
     <div class="cita"><span class="mono">{{ f.cita }}</span> <span class="tipo">{{ f.tipo }}</span>
+      {% if f.fuente != 'paper' %}<span class="estado-t revisado">tuyo: {{ f.fuente }}</span>{% endif %}
       <span class="puntos">bm25 {{ f.bm25 }}{% if f.coseno is not none %} · cos {{ '%.2f' % f.coseno }}{% endif %}</span></div>
     <div class="frag">{{ f.texto }}</div>
     <details class="crudo"><summary>texto crudo</summary><pre>{{ f.crudo }}</pre></details>
-    <p class="meta"><a href="/preguntar?doc={{ f.doc }}">preguntar sobre {{ f.doc }}</a></p>
+    {% if f.fuente == 'paper' %}<p class="meta"><a href="/preguntar?doc={{ f.doc }}">preguntar sobre {{ f.doc }}</a></p>{% endif %}
   </li>
 {% endfor %}
 </ol>

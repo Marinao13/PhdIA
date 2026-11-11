@@ -8,15 +8,15 @@ Sin autenticacion propia: delante va Cloudflare Access. Escucha solo en localhos
 Cada pagina llama a funciones que ya existen en nucleo/; el motor pasa por nucleo.motor.llamar
 y por tanto respeta las fases (apagado en fase 1 y 3).
 """
-import os, sys, re, glob, types, argparse, datetime
+import os, sys, re, glob, types, argparse, datetime, shutil, threading, uuid
 from urllib.parse import urlparse
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if RAIZ not in sys.path:
     sys.path.insert(0, RAIZ)
 
-from fastapi import FastAPI, Request, Form, HTTPException
-from fastapi.responses import HTMLResponse, RedirectResponse, PlainTextResponse
+from fastapi import FastAPI, Request, Form, HTTPException, UploadFile, File
+from fastapi.responses import HTMLResponse, RedirectResponse, PlainTextResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -26,6 +26,7 @@ from nucleo import estado as E
 from nucleo import motor as M
 from nucleo import indice as I
 from nucleo import corpus as Q
+from nucleo import transcribir as T
 from web import captura, render, hilos
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -40,7 +41,8 @@ CSP = ("default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; "
        "img-src 'self' data:; form-action 'self'; frame-ancestors 'none'; base-uri 'self'")
 
 NAV = [("/", "Panel"), ("/buscar", "Buscar"), ("/ask", "Ask"), ("/preguntar", "Preguntar"),
-       ("/notas", "Notas"), ("/sesiones", "Sesiones"), ("/lagunas", "Lagunas"), ("/guia", "Guia")]
+       ("/notas", "Notas"), ("/sesiones", "Sesiones"), ("/transcripciones", "Transcripciones"),
+       ("/lagunas", "Lagunas"), ("/guia", "Guia")]
 NOMBRES_FASE = dict(libre="libre", f1="fase 1", f2="fase 2", f3="fase 3", f4="fase 4")
 
 
@@ -53,12 +55,16 @@ async def _cabeceras(request, call_next):
         host = request.headers.get("host", "")
         if sitio and sitio not in ("same-origin", "none"):
             return PlainTextResponse("peticion de otro origen", status_code=403)
-        if origen and urlparse(origen).netloc.lower() != host.lower():
+        # Sec-Fetch-Site lo pone el navegador y una pagina ajena no puede falsearlo: con same-origin
+        # basta. Sin el, el Origin tiene que ser el nuestro ("null" no lo es).
+        if sitio != "same-origin" and origen and urlparse(origen).netloc.lower() != host.lower():
             return PlainTextResponse("peticion de otro origen", status_code=403)
     r = await call_next(request)
     r.headers["X-Content-Type-Options"] = "nosniff"
     r.headers["X-Frame-Options"] = "DENY"
-    r.headers["Referrer-Policy"] = "no-referrer"
+    # same-origin y no no-referrer: con no-referrer el navegador manda `Origin: null` en los POST
+    # de formulario y la comprobacion de arriba los rechazaba todos (visto el 2026-11-11).
+    r.headers["Referrer-Policy"] = "same-origin"
     r.headers["Content-Security-Policy"] = CSP
     if not request.url.path.startswith("/static/"):
         r.headers["Cache-Control"] = "no-store"
@@ -196,7 +202,8 @@ def buscar(request: Request, q: str = "", doc: str = "", k: int = 8, bm25: str =
         except Exception:
             cita = f"[{f.get('doc')}:p{f.get('pagina')}]"
         items.append(dict(cita=cita, tipo=f.get("tipo") or "", bm25=f.get("bm25"), coseno=f.get("coseno"),
-                          doc=f.get("doc"), texto=render.latex_para_web(f.get("texto", "")), crudo=f.get("texto", "")))
+                          doc=f.get("doc"), fuente=f.get("fuente") or "paper",
+                          texto=render.latex_para_web(f.get("texto", "")), crudo=f.get("texto", "")))
     return _pagina(request, "buscar.html", q=q, doc=doc or "", k=k, bm25=bool(bm25), items=items,
                    aviso=aviso, vacio=vacio, docs=_ids_bib())
 
@@ -322,6 +329,204 @@ def lagunas(request: Request, ok: str = ""):
 def lagunas_anadir(request: Request, texto: str = Form("")):
     ok = "1" if _anotar_laguna(texto, "web") else "0"
     return RedirectResponse(f"/lagunas?ok={ok}", status_code=303)
+
+
+# ----------------------------------------------------------------------
+# transcripciones: lo manuscrito pasado a limpio (nucleo/transcribir.py, docs/GUIA.md)
+# ----------------------------------------------------------------------
+
+MAX_SUBIDA = 40 * 1024 * 1024
+# Una transcripcion tarda mas de lo que aguanta una peticion (el tunel corta a los 100 s): va en
+# un hilo, de una en una, y la pagina de la lista se refresca sola mientras dura.
+_TRABAJO = {}
+_HILO = None
+_CERROJO = threading.Lock()
+AVISOS_TRANSCRIBIR = {
+    "formato": "formato no admitido: sube un PDF o una imagen (png, jpg, webp). Las fotos HEIC del iPhone, "
+               "exportalas como JPG o PDF",
+    "grande": "el fichero pasa de 40 MB: partelo o subelo por consola (python doc.py transcribir)",
+    "ocupado": "ya hay una transcripcion en curso: espera a que acabe",
+    "paginas": "rango de paginas no valido o fuera del fichero (ejemplo: 1-3,5)",
+    "apagado": "MOTOR APAGADO en esta fase: el modelo no transcribe en fase 1 ni 3. Sella antes, o usa Marker "
+               "(OCR local, no es el motor)",
+    "guardada": "cambios guardados",
+    "sincambios": "no habia cambios que guardar",
+    "revisada": "marcada como revisada. Entra en el indice con: python doc.py indexar",
+    "nopagina": "esa pagina no existe en la transcripcion",
+}
+
+
+def _transcripcion(nombre):
+    if not RE_ID.match(nombre or "") or ".." in nombre:
+        raise HTTPException(404)
+    t = T.leer(nombre)
+    if not t:
+        raise HTTPException(404)
+    return t
+
+
+def _transcribir_en_hilo(ruta, kw):
+    try:
+        r = T.transcribir(ruta, progreso=lambda s: _TRABAJO.update(mensaje=s), **kw)
+        _TRABAJO.update(estado="hecho", nombre=r["nombre"], pendientes=r["pendientes"], fallo=r["fallo"],
+                        mensaje=f"{len(r['paginas'])} paginas, {r['ilegibles']} [ILEGIBLE], {r['dudosos']} [?]")
+    except M.MotorApagado as e:
+        _TRABAJO.update(estado="error", mensaje="MOTOR APAGADO: " + str(e))
+    except BaseException as e:                         # tambien un sys.exit del motor (falta un paquete)
+        _TRABAJO.update(estado="error", mensaje=f"{type(e).__name__}: {e}")
+    finally:
+        shutil.rmtree(os.path.dirname(ruta), ignore_errors=True)
+
+
+@app.get("/transcripciones", response_class=HTMLResponse)
+def transcripciones(request: Request, aviso: str = ""):
+    items = []
+    for t in reversed(T.listar()):
+        il, du = T.dudas(t["cuerpo"])
+        items.append(dict(nombre=t["nombre"], titulo=t.get("titulo", ""), tipo=t.get("tipo", "?"),
+                          estado=t.get("estado", "?"), paginas=t.get("paginas", ""), motor=t.get("motor", ""),
+                          ilegibles=il, dudosos=du))
+    return _pagina(request, "transcripciones.html", items=items, tipos=T.TIPOS,
+                   trabajo=dict(_TRABAJO) if _TRABAJO else None,
+                   avisos=[AVISOS_TRANSCRIBIR[aviso]] if aviso in AVISOS_TRANSCRIBIR else [])
+
+
+@app.post("/transcripciones")
+def transcripciones_subir(request: Request, fichero: UploadFile = File(...), tipo: str = Form("paper"),
+                          titulo: str = Form(""), paginas: str = Form(""), motor: str = Form("modelo"),
+                          calidad: str = Form("normal")):
+    global _HILO
+
+    def vuelve(aviso):
+        return RedirectResponse(f"/transcripciones?aviso={aviso}", status_code=303)
+
+    # \w es Unicode: "Análisis armónico.pdf" conserva sus letras; fuera separadores y lo demas
+    nombre = re.sub(r"[^\w. -]", "_", os.path.basename((fichero.filename or "").replace("\\", "/"))).strip(" .") or "subida"
+    if os.path.splitext(nombre)[1].lower() not in T.EXTENSIONES:
+        return vuelve("formato")
+    tipo = tipo if tipo in T.TIPOS else "paper"
+    motor = motor if motor in ("modelo", "marker") else "modelo"
+    calidad = calidad if calidad in ("normal", "alta") else "normal"
+    if motor == "modelo" and E.fase_actual()[0] not in E.MOTOR_PERMITIDO:
+        return vuelve("apagado")
+    with _CERROJO:
+        if _TRABAJO.get("estado") == "en curso":
+            return vuelve("ocupado")
+        subidas = os.path.join(T._dir()[1], "_subidas")
+        shutil.rmtree(subidas, ignore_errors=True)     # restos de un servidor que murio a media pasada
+        carpeta = os.path.join(subidas, uuid.uuid4().hex)
+        ruta, total, aviso = os.path.join(carpeta, nombre), 0, None
+        try:
+            os.makedirs(carpeta, exist_ok=True)
+            with open(ruta, "wb") as f:
+                while total <= MAX_SUBIDA:
+                    trozo = fichero.file.read(1 << 20)
+                    if not trozo:
+                        break
+                    total += len(trozo)
+                    f.write(trozo)
+            if total > MAX_SUBIDA:
+                aviso = "grande"
+            else:
+                hojas = T.n_paginas(ruta)              # un fichero que no se abre: formato
+                try:
+                    if not T.rango(paginas.strip() or None, hojas):
+                        aviso = "paginas"
+                except ValueError:
+                    aviso = "paginas"
+        except Exception:
+            aviso = "formato"
+        if aviso:
+            shutil.rmtree(carpeta, ignore_errors=True)
+            return vuelve(aviso)
+        _TRABAJO.clear()
+        _TRABAJO.update(estado="en curso", origen=nombre, mensaje="empezando...", motor=motor)
+        kw = dict(tipo=tipo, titulo=" ".join(titulo.split()) or None, paginas=paginas.strip() or None,
+                  motor=motor, calidad=calidad)
+        _HILO = threading.Thread(target=_transcribir_en_hilo, args=(ruta, kw), daemon=True)
+        _HILO.start()
+    return RedirectResponse("/transcripciones", status_code=303)
+
+
+@app.get("/transcripciones/{nombre}", response_class=HTMLResponse)
+def transcripcion(request: Request, nombre: str, aviso: str = ""):
+    t = _transcripcion(nombre)
+    _, hojas = T.paginas(t["cuerpo"])
+    il, du = T.dudas(t["cuerpo"])
+    return _pagina(request, "transcripcion.html", t=t, ilegibles=il, dudosos=du,
+                   hojas=[dict(n=n, crudo=texto, html=render.transcripcion(texto), huella=_huella_texto(texto),
+                               filas=min(40, max(8, texto.count("\n") + 3))) for n, texto in hojas],
+                   avisos=[AVISOS_TRANSCRIBIR[aviso]] if aviso in AVISOS_TRANSCRIBIR else [])
+
+
+@app.get("/transcripciones/{nombre}/pagina/{n}")
+def transcripcion_original(nombre: str, n: int):
+    """La pagina n del original (PDF o foto) como PNG, para revisar lado a lado."""
+    t = _transcripcion(nombre)
+    if not t.get("original"):
+        raise HTTPException(404)
+    try:
+        if not 1 <= n <= T.n_paginas(t["original"]):
+            raise HTTPException(404)
+        png = T.pagina_png(t["original"], n, max_lado=1800)
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(404)
+    return Response(png, media_type="image/png")
+
+
+@app.post("/transcripciones/{nombre}/pagina/{n}")
+def transcripcion_guardar(nombre: str, n: int, texto: str = Form("")):
+    _transcripcion(nombre)
+    ok = T.guardar_pagina(nombre, n, texto)
+    return RedirectResponse(f"/transcripciones/{nombre}?aviso={'guardada' if ok else 'nopagina'}#p{n}",
+                            status_code=303)
+
+
+@app.get("/transcripciones/{nombre}/tex")
+def transcripcion_tex(nombre: str):
+    """El .tex del texto tal como esta ahora, para descargar. Se genera al vuelo: no escribe nada."""
+    from nucleo import a_latex as L
+    t = _transcripcion(nombre)
+    tex = L.documento(t["cuerpo"], nombre=t["nombre"], estado=t.get("estado", "sin_revisar"))
+    return Response(tex.encode("utf-8"), media_type="application/x-tex; charset=utf-8",
+                    headers={"Content-Disposition": f'attachment; filename="{t["nombre"]}.tex"'})
+
+
+def _huella_texto(texto):
+    """Huella del texto de una pagina tal como lo devuelve un textarea (saltos normalizados)."""
+    import hashlib
+    limpio = (texto or "").replace("\r\n", "\n").replace("\r", "\n").strip("\n")
+    return hashlib.sha1(limpio.encode("utf-8")).hexdigest()[:16]
+
+
+@app.post("/transcripciones/{nombre}/paginas")
+async def transcripcion_guardar_cambios(request: Request, nombre: str):
+    """Guarda de una vez todas las paginas cuyo texto ha cambiado en el navegador. Las que no se
+    han tocado no se reescriben: asi no se pierde la correccion a medias de otra pagina ni se pisa
+    lo que se haya editado entretanto en VS Code."""
+    _transcripcion(nombre)
+    form = await request.form()
+    vistas, guardadas = set(), 0
+    for clave, valor in form.multi_items():
+        m = re.fullmatch(r"texto_(\d{1,6})", clave)
+        if not m or not isinstance(valor, str) or int(m.group(1)) in vistas:
+            continue
+        n = int(m.group(1))
+        vistas.add(n)
+        if _huella_texto(valor) != form.get(f"h_{n}"):
+            guardadas += 1 if T.guardar_pagina(nombre, n, valor) else 0
+    ancla = str(form.get("ancla", ""))
+    return RedirectResponse(f"/transcripciones/{nombre}?aviso={'guardada' if guardadas else 'sincambios'}"
+                            + (f"#p{ancla}" if ancla.isdigit() else ""), status_code=303)
+
+
+@app.post("/transcripciones/{nombre}/revisado")
+def transcripcion_revisada(nombre: str):
+    _transcripcion(nombre)
+    T.marcar_revisado(nombre)
+    return RedirectResponse(f"/transcripciones/{nombre}?aviso=revisada", status_code=303)
 
 
 # ----------------------------------------------------------------------

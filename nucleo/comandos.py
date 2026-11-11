@@ -518,6 +518,107 @@ def _reconstrucciones_pendientes(hoy=None):
 
 
 # ======================================================================
+# transcribir: pasar a limpio lo manuscrito (MEJORAS 8)
+# ======================================================================
+
+def _decir_tex(ruta, que, nombre, sangria=""):
+    """Una linea sobre el .tex que acompana a la transcripcion."""
+    if not ruta:
+        return
+    rel = os.path.relpath(ruta, C.RAIZ)
+    if que == "escrito":
+        print(f"{sangria}LaTeX: {rel}  (exportado del .md de ahora; la fuente sigue siendo el .md)")
+    elif que == "tuyo":
+        print(f"{sangria}LaTeX: {rel} tiene cambios tuyos y no se toca. Para rehacerlo desde el .md: "
+              f"python doc.py transcribir --tex {nombre} --pisar")
+    elif que == "fallo":
+        print(f"{sangria}LaTeX: no se pudo generar {rel} (la transcripcion esta bien). "
+              f"Prueba: python doc.py transcribir --tex {nombre}")
+
+
+def cmd_transcribir(args):
+    from . import transcribir as T
+    if getattr(args, "lista", False):
+        ts = T.listar()
+        if not ts:
+            print("no hay transcripciones. Empieza con:  python doc.py transcribir foto.jpg --tipo duda")
+        for t in ts:
+            il, du = T.dudas(t["cuerpo"])
+            print(f"  {t['nombre']:<48} {t.get('tipo', '?'):<6} {t.get('estado', '?'):<12} "
+                  f"pag {t.get('paginas', '?')}  [ILEGIBLE] {il}  [?] {du}")
+        return
+    if getattr(args, "revisado", None):
+        ruta = T.marcar_revisado(args.revisado)
+        if not ruta:
+            print(f"no existe transcripciones/{args.revisado}.md  (python doc.py transcribir --lista)")
+            return
+        t = T.leer(args.revisado)
+        il, du = T.dudas(t["cuerpo"])
+        print(f"{os.path.relpath(ruta, C.RAIZ)}: revisado." + (f" OJO: quedan {il} [ILEGIBLE] y {du} [?] dentro." if il or du else ""))
+        _decir_tex(*T.exportar_tex(t["nombre"]), t["nombre"])
+        print("entra en el indice con:  python doc.py indexar   "
+              + ("(fuente curso: buscar --fuente curso)" if t.get("tipo") == "curso" else "(fuente nota)"))
+        return
+    if getattr(args, "tex", None):
+        ruta, que = T.exportar_tex(args.tex, pisar=getattr(args, "pisar", False))
+        if not ruta:
+            print(f"no existe transcripciones/{args.tex}.md  (python doc.py transcribir --lista)")
+            return
+        _decir_tex(ruta, que, os.path.basename(ruta)[:-4])
+        if que == "escrito":
+            _abrir(ruta)
+        return
+    if not getattr(args, "fichero", None):
+        print("uso:  python doc.py transcribir FICHERO [--tipo curso|paper|duda] [--titulo T] [--paginas 1-3,5] "
+              "[--motor modelo|marker] [--calidad alta]\n      python doc.py transcribir --lista | --revisado NOMBRE"
+              " | --tex NOMBRE [--pisar]")
+        return
+    motor = getattr(args, "motor", "modelo")
+    if motor == "modelo":
+        fase, _ = E.fase_actual()
+        if fase not in E.MOTOR_PERMITIDO:
+            M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
+            print("(en fase 1 o 3 se escribe a mano y se transcribe despues de sellar; "
+                  "o usa el OCR local, que no es el motor:  --motor marker)")
+            return
+    try:
+        r = T.transcribir(args.fichero, tipo=args.tipo, titulo=args.titulo, paginas=args.paginas,
+                          motor=motor, calidad=getattr(args, "calidad", "normal"),
+                          progreso=lambda s: print("  " + s))
+    except M.MotorApagado as e:
+        M.aviso("MOTOR APAGADO: " + str(e))
+        return
+    except FileNotFoundError as e:
+        print(f"no existe el fichero: {e}")
+        return
+    except (ValueError, RuntimeError) as e:
+        print(f"no se pudo transcribir: {e}")
+        return
+    print(f"\n-> {os.path.relpath(r['ruta'], C.RAIZ)}  ({len(r['paginas'])} paginas, {r['motor']})")
+    c = r.get("coste")
+    if c:
+        eur = T.coste_eur(c)
+        print(f"   {round(c['segundos'], 1)} s | entrada {c['tokens_in']} | salida {c['tokens_out']}"
+              + (f" | ~{eur} EUR" if eur is not None else "")
+              + (f" | {c['cortadas']} pagina(s) CORTADA(S)" if c["cortadas"] else ""))
+    if r.get("pendientes"):
+        faltan = ",".join(str(n) for n in r["pendientes"])
+        M.aviso("se paro antes de acabar: " + (r.get("fallo") or "paginas sin salida"))
+        print(f"   Faltan las paginas {faltan}. Para seguir (sale en otro fichero, con el mismo titulo y un -2):")
+        print(f"   python doc.py transcribir \"{args.fichero}\" --paginas {faltan} --tipo {args.tipo}"
+              + (f" --titulo \"{args.titulo}\"" if args.titulo else "")
+              + (f" --motor {motor}" if motor != "modelo" else "")
+              + (" --calidad alta" if getattr(args, "calidad", "normal") == "alta" else ""))
+    if r.get("sin_original"):
+        M.aviso("no se pudo copiar el original a transcripciones/originales/: guardalo tu para revisar al lado")
+    print(f"   marcas para revisar: {r['ilegibles']} [ILEGIBLE], {r['dudosos']} [?]")
+    _decir_tex(r.get("tex"), r.get("tex_estado"), r["nombre"], sangria="   ")
+    print("   SIN REVISAR: no entra en el indice ni se cita. Revisa con el original al lado "
+          f"(web: /transcripciones/{r['nombre']}) y marca:\n   python doc.py transcribir --revisado {r['nombre']}")
+    _abrir(r["ruta"])
+
+
+# ======================================================================
 # control de prompts, exportar / importar (MEJORAS 6 y 7)
 # ======================================================================
 
@@ -816,6 +917,14 @@ def cmd_ahora(args):
         print("    drill      nada sin exportar. El repaso lo lleva Anki, no esto.")
     print(f"    lagunas    {lagunas}"
           + (f", {estructurales} ESTRUCTURALES: esas piden libro, no chat" if estructurales else ""))
+    try:
+        from . import transcribir as T
+        sin = T.sin_revisar()
+    except Exception:
+        sin = []
+    if sin:
+        print(f"    transcripciones  {len(sin)} sin revisar (no entran en el indice): "
+              "python doc.py transcribir --lista")
     for doc, rid, titulo, fecha, nivel, dias in _reconstrucciones_pendientes():
         print(f"    reconstruir {rid} de {doc} ({titulo}): nivel {nivel} hace {dias} d. "
               "Sesion corta con el enunciado abierto; cierre anota el intento")
