@@ -60,6 +60,7 @@ _SIMBOLOS = {
     "⊕": r"\oplus", "⊗": r"\otimes", "√": r"\surd", "∣": r"\mid", "∥": r"\parallel", "‖": r"\|", "⊥": r"\perp",
     "⌊": r"\lfloor", "⌋": r"\rfloor", "⌈": r"\lceil", "⌉": r"\rceil", "⟨": r"\langle", "⟩": r"\rangle",
     "ℓ": r"\ell", "ℏ": r"\hbar", "ℜ": r"\Re", "ℑ": r"\Im", "ℵ": r"\aleph", "∎": r"\blacksquare", "□": r"\square",
+    "✓": r"\checkmark", "✔": r"\checkmark", "✗": r"\times", "✘": r"\times",
     "…": r"\dots", "⋯": r"\cdots", "⋮": r"\vdots", "⋱": r"\ddots",
     "ℕ": r"\mathbb{N}", "ℤ": r"\mathbb{Z}", "ℚ": r"\mathbb{Q}", "ℝ": r"\mathbb{R}", "ℂ": r"\mathbb{C}",
 }
@@ -82,7 +83,8 @@ _ACENTOS = {"á": r"\acute{a}", "é": r"\acute{e}", "í": r"\acute{\imath}", "ó
             "ñ": r"\tilde{n}", "Ñ": r"\tilde{N}", "ü": r"\ddot{u}", "Ü": r"\ddot{U}"}
 _RE_ACENTO = re.compile("[" + "".join(_ACENTOS) + "]")
 # lo que vale igual en texto y en formula
-_COMUNES = {"′": "'", "″": "''", "−": "-", "\u00a0": "~", "\u2009": r"\,", "\u202f": r"\,", "\u200b": ""}
+_COMUNES = {"′": "'", "″": "''", "−": "-", "\u00a0": "~", "\u2009": r"\,", "\u202f": r"\,", "\u200b": "",
+            "\u2011": "-", "\u2010": "-"}
 _TIPOGRAFIA = {"–": "--", "—": "---", "“": "``", "”": "''", "‘": "`", "’": "'"}
 _RE_ESPECIAL = re.compile(r"[\\{}&%#_^~$]")
 _RE_SIMBOLO = re.compile("[" + re.escape("".join(_SIMBOLOS)) + "]")
@@ -114,7 +116,7 @@ def _marca(m, en_formula=False):
     if m.startswith("[FIGURA:"):
         if en_formula:
             return r"\fbox{" + _texto(m[1:-1]) + "}"
-        return r"\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{" + _texto(m[1:-1]) + "}}"
+        return r"\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{" + _texto(m[1:-1]) + "}}"
     return r"\duda{" + _texto(m) + "}"
 
 
@@ -141,6 +143,7 @@ def _formula(f, display=False, en_linea=False):
     if not con_texto:                                  # dentro de \text{} los acentos estan bien como estan
         cuerpo = _RE_ACENTO.sub(lambda m: _ACENTOS[m.group()], cuerpo)
     cuerpo = _RE_COMUN.sub(lambda m: _COMUNES[m.group()], cuerpo)
+    cuerpo = _RE_TIPO.sub(lambda m: _TIPOGRAFIA[m.group()], cuerpo)       # una raya dentro de \text{(Denjoy–Carleman)}
     cuerpo = RE_MARCA.sub(lambda m: r"\text{" + _marca(m.group(0), en_formula=True) + "}", cuerpo)
     cuerpo = cuerpo.strip()
     varias = ("\\\\" in cuerpo or "&" in cuerpo) and "\\begin{" not in cuerpo
@@ -161,7 +164,7 @@ def _formula(f, display=False, en_linea=False):
     return "\\[\n" + cuerpo + "\n\\]"
 
 
-def _en_linea(hijos, display=True):
+def _en_linea(hijos, display=True, tras_item=False):
     """display=False en titulos y celdas de tabla: ahi una formula sola no puede ir en display.
     Tampoco dentro de una negrita o cursiva: dejaria una linea en blanco dentro de \\textbf{}."""
     out, n, enlace, anidado = [], len(hijos), None, 0
@@ -169,7 +172,10 @@ def _en_linea(hijos, display=True):
         t = h.type
         if t == "text":
             m = _RE_SOLO_F.fullmatch(h.content)
-            sola = (display and not anidado and m and (i == 0 or hijos[i - 1].type == "softbreak")
+            # la formula que abre un apartado de lista se queda en linea: en display, la vineta
+            # quedaria sola en su renglon y la formula centrada debajo
+            sola = (display and not anidado and m and not (tras_item and i == 0)
+                    and (i == 0 or hijos[i - 1].type == "softbreak")
                     and (i == n - 1 or hijos[i + 1].type == "softbreak"))
             if sola:
                 out.append(_D.format(m.group(1)))
@@ -229,7 +235,7 @@ def _bloques(tokens):
             en_titulo = False
             out.append("}\n\n")
         elif t == "inline":
-            texto = _en_linea(tok.children or [], display=not en_titulo and celdas is None)
+            texto = _en_linea(tok.children or [], display=not en_titulo and celdas is None, tras_item=tras_item)
             if celdas is not None:
                 celdas.append(texto.replace("\n", " "))
             else:
@@ -346,10 +352,14 @@ def cuerpo_latex(cuerpo):
             partes[i] = repone_bruto(parte)
             continue
         parte = _RE_M.sub(lambda m: _marca(marcas[int(m.group(1))]), parte)
-        parte = _RE_D.sub(lambda m: "\n" + _formula(formulas[int(m.group(1))], display=True) + "\n", parte)
+        parte = _RE_D.sub(lambda m: _formula(formulas[int(m.group(1))], display=True), parte)
         parte = _RE_L.sub(lambda m: _formula(formulas[int(m.group(1))], en_linea=True), parte)
         parte = _RE_F.sub(lambda m: _formula(formulas[int(m.group(1))]), parte)
-        partes[i] = _RE_P.sub(lambda m: "% ---------- pagina " + m.group(1) + " ----------", parte)
+        parte = _RE_P.sub(lambda m: "% ---------- pagina " + m.group(1) + " ----------", parte)
+        # la marca de pagina va entre lineas en blanco; si la frase de antes no ha terminado y lo que
+        # sigue es texto corrido, el comentario se queda dentro del parrafo
+        partes[i] = re.sub(r"(?<=[^\s.:;?!\]}])\n\n(% -{10} pagina \d+ -{10})\n\n(?=[a-z$(])",
+                           lambda m: "\n" + m.group(1) + "\n", parte)
     tex = re.sub(r"\n{3,}", "\n\n", "".join(partes)).strip() + "\n"
     return tex, _titulo(titulo)
 

@@ -147,9 +147,9 @@ def test_el_comando_para_seguir_conserva_titulo_y_calidad(repo, monkeypatch, cap
 
     monkeypatch.setattr(M, "_completar", falla_a_la_segunda)
     K.cmd_transcribir(types.SimpleNamespace(fichero=_pdf(repo / "a.pdf"), tipo="curso", titulo="Tema 3: Carleman",
-                                            paginas=None, motor="modelo", calidad="alta", lista=False, revisado=None))
+                                            paginas=None, motor="modelo", calidad="normal", lista=False, revisado=None))
     salida = capsys.readouterr().out
-    assert '--paginas 2,3 --tipo curso --titulo "Tema 3: Carleman" --calidad alta' in salida
+    assert '--paginas 2,3 --tipo curso --titulo "Tema 3: Carleman" --calidad normal' in salida      # alta es el defecto
 
 
 def test_un_png_de_16_bits_no_llega_en_blanco(repo):

@@ -192,13 +192,16 @@ Cada bloque es un commit cerrado que deja el sistema usable.
 - Para D: que libros y cursos, en PDF o `.tex`, cuando los tenga.
 - Para F: tres paginas reales (una de curso, una de notas de paper, una duda) pasadas por los
   dos motores, y decir cual pide menos correccion. Si con su letra el modelo barato falla
-  mucho, probar `--calidad alta` en esas mismas paginas antes de descartarlo.
+  mucho, probar `--calidad alta` en esas mismas paginas antes de descartarlo. HECHO el
+  2026-11-12 con tres hojas suyas: el barato no sirve para las formulas, Marker no lee su
+  letra, el bueno si; `--calidad alta` pasa a ser el defecto (docs/GUIA.md).
 
 ### Coste
 A, B y C: trabajo del agente sin gasto de API; media hora de Mariano leyendo plantillas.
 D: el tiempo de Marker con los libros (sin coste) y centimos de embeddings; la pasada de
 control de C, 30 centimos cada vez. F: con el modelo, 1 centimo por pagina en la prueba y 7
-como tope (28 con `--calidad alta`); con Marker, nada.
+como tope (28 con `--calidad alta`); con Marker, nada. Medido con letra real: 9 centimos por
+hoja doble con la calidad alta, 3 con la normal.
 
 ## Fallos visuales de `preguntar` vistos en las sesiones del 21 al 27 (corregidos el 2026-10-27)
 - `$f inE_p(M)$`: un comando pegado a `\mathcal{...}` (corregido el 21).

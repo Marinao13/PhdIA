@@ -2,15 +2,18 @@
 Pasar a limpio lo escrito a mano (o una foto, o un PDF): transcripcion a markdown con LaTeX.
 
     python doc.py transcribir FICHERO [--tipo curso|paper|duda] [--titulo T] [--paginas 1-3,5]
-                                      [--motor modelo|marker] [--calidad normal|alta]
+                                      [--motor modelo|marker] [--calidad alta|normal]
     python doc.py transcribir --lista
     python doc.py transcribir --revisado NOMBRE
     python doc.py transcribir --tex NOMBRE [--pisar]
 
 Dos motores:
     modelo   el modelo con vision, por motor.llamar: puerta de fases, coste registrado. Defecto.
+             --calidad alta (defecto) usa el modelo bueno (config.MODELO); normal, el barato.
+             Probado con letra real el 2026-11-12: el bueno lee bien las formulas y marca sus
+             dudas; el barato cambia simbolos y subindices sin avisar.
     marker   OCR local (Marker/surya en .venv-marker1, GPU): gratis y sin red. Con letra
-             manuscrita puede fallar mas; para comparar.
+             manuscrita no sirve (texto sin sentido en la misma prueba); vale para texto impreso.
 
 Salida: transcripciones/AAAA-MM-DD-nombre.md con cabecera (origen, tipo, paginas, motor,
 estado: sin_revisar) y una seccion por pagina (<!-- pagina N -->). El original se copia a
@@ -447,7 +450,7 @@ def _guardar_original(ruta, d_orig, nombre, ext):
         return None, False
 
 
-def transcribir(ruta, tipo="paper", titulo=None, paginas=None, motor="modelo", calidad="normal",
+def transcribir(ruta, tipo="paper", titulo=None, paginas=None, motor="modelo", calidad="alta",
                 forzar=False, progreso=None):
     """
     Transcribe un PDF o imagen. Devuelve dict(ruta, nombre, paginas, pendientes, coste, fallo,

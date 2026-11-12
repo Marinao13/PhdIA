@@ -570,7 +570,7 @@ def cmd_transcribir(args):
         return
     if not getattr(args, "fichero", None):
         print("uso:  python doc.py transcribir FICHERO [--tipo curso|paper|duda] [--titulo T] [--paginas 1-3,5] "
-              "[--motor modelo|marker] [--calidad alta]\n      python doc.py transcribir --lista | --revisado NOMBRE"
+              "[--motor modelo|marker] [--calidad normal]\n      python doc.py transcribir --lista | --revisado NOMBRE"
               " | --tex NOMBRE [--pisar]")
         return
     motor = getattr(args, "motor", "modelo")
@@ -583,7 +583,7 @@ def cmd_transcribir(args):
             return
     try:
         r = T.transcribir(args.fichero, tipo=args.tipo, titulo=args.titulo, paginas=args.paginas,
-                          motor=motor, calidad=getattr(args, "calidad", "normal"),
+                          motor=motor, calidad=getattr(args, "calidad", "alta"),
                           progreso=lambda s: print("  " + s))
     except M.MotorApagado as e:
         M.aviso("MOTOR APAGADO: " + str(e))
@@ -608,7 +608,7 @@ def cmd_transcribir(args):
         print(f"   python doc.py transcribir \"{args.fichero}\" --paginas {faltan} --tipo {args.tipo}"
               + (f" --titulo \"{args.titulo}\"" if args.titulo else "")
               + (f" --motor {motor}" if motor != "modelo" else "")
-              + (" --calidad alta" if getattr(args, "calidad", "normal") == "alta" else ""))
+              + (" --calidad normal" if getattr(args, "calidad", "alta") == "normal" else ""))
     if r.get("sin_original"):
         M.aviso("no se pudo copiar el original a transcripciones/originales/: guardalo tu para revisar al lado")
     print(f"   marcas para revisar: {r['ilegibles']} [ILEGIBLE], {r['dudosos']} [?]")

@@ -396,7 +396,7 @@ def transcripciones(request: Request, aviso: str = ""):
 @app.post("/transcripciones")
 def transcripciones_subir(request: Request, fichero: UploadFile = File(...), tipo: str = Form("paper"),
                           titulo: str = Form(""), paginas: str = Form(""), motor: str = Form("modelo"),
-                          calidad: str = Form("normal")):
+                          calidad: str = Form("alta")):
     global _HILO
 
     def vuelve(aviso):
@@ -408,7 +408,7 @@ def transcripciones_subir(request: Request, fichero: UploadFile = File(...), tip
         return vuelve("formato")
     tipo = tipo if tipo in T.TIPOS else "paper"
     motor = motor if motor in ("modelo", "marker") else "modelo"
-    calidad = calidad if calidad in ("normal", "alta") else "normal"
+    calidad = calidad if calidad in ("normal", "alta") else "alta"
     if motor == "modelo" and E.fase_actual()[0] not in E.MOTOR_PERMITIDO:
         return vuelve("apagado")
     with _CERROJO:

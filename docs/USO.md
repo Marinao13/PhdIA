@@ -129,7 +129,8 @@ python doc.py control                   pasada fija de preguntas por ask (docs/c
 python doc.py exportar / importar ZIP   corpus/text e indice/ a otra maquina (el .env, a mano)
 python -m web                           la mini web (docs/WEB.md): panel, buscar, ask, preguntar, notas, transcripciones, guia
 python doc.py transcribir FICHERO       lo manuscrito (PDF o foto) a markdown con LaTeX; queda sin_revisar (docs/GUIA.md)
-        [--tipo curso|paper|duda] [--titulo T] [--paginas 1-3,5] [--motor modelo|marker] [--calidad alta]
+        [--tipo curso|paper|duda] [--titulo T] [--paginas 1-3,5] [--motor modelo|marker] [--calidad normal]
+        (calidad alta por defecto: con letra manuscrita el modelo barato falla en las formulas; ~9 cent por hoja doble)
 python doc.py transcribir --lista       que hay transcrito y que sigue sin revisar
 python doc.py transcribir --revisado NOMBRE   la has comparado con el original: entra en el indice (tras indexar)
 python doc.py transcribir --tex NOMBRE  rehace transcripciones/NOMBRE.tex desde el .md de ahora (--pisar si lo editaste a mano)

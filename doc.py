@@ -182,7 +182,8 @@ def main():
     s.add_argument("--paginas", help="p. ej. 1-3,5 (defecto: todas)")
     s.add_argument("--motor", choices=["modelo", "marker"], default="modelo",
                    help="modelo = vision por el motor (respeta fases, cuesta); marker = OCR local, gratis")
-    s.add_argument("--calidad", choices=["normal", "alta"], default="normal", help="alta = el modelo caro")
+    s.add_argument("--calidad", choices=["normal", "alta"], default="alta",
+                   help="alta (defecto) = el modelo bueno; normal = el barato, que con letra manuscrita falla en las formulas")
     s.add_argument("--lista", action="store_true", help="lista las transcripciones y su estado")
     s.add_argument("--revisado", metavar="NOMBRE", help="marca una transcripcion como revisada: entra en el indice")
     s.add_argument("--tex", metavar="NOMBRE", help="exporta el .md de ahora a transcripciones/NOMBRE.tex")

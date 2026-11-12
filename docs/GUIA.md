@@ -96,18 +96,23 @@ que es mas corto que escribirlo de cero. Nada sin revisar entra en el indice ni 
 Reglas y limites:
 
 - Con el modelo (por defecto) es una llamada al motor: en fase 1 y 3 se niega. Escribe a mano
-  y transcribe despues de sellar. `--motor marker` es OCR local (Marker, solo en la torre): no
-  es el motor, nada sale de tu maquina y es gratis.
-- Cual usar: el modelo. Prueba del 2026-11-11 con una pagina sintetica (fuente que imita
-  letra, cinco formulas; NO es tu letra): el modelo copio las cinco bien; Marker cambio
-  indices, letras o simbolos en tres o cuatro de las cinco lineas con formulas (dos pasadas) y
-  no marca dudas. Con simbolos
-  ilegibles en la pagina, el modelo los marca `[ILEGIBLE]`; antes de reforzar el prompt los
-  rellenaba por contexto sin avisar, que es justo lo que hay que vigilar al revisar.
-- Coste con el modelo: en esa prueba, 9 a 14 s y 1 centimo por pagina; el tope por pagina es
-  de unos 7 centimos, y unos 28 con `--calidad alta` (el modelo caro: solo para paginas que
-  salgan mal). `metricas` lo cuenta en el comando `transcribir`. Un cuaderno de 60 paginas
-  puede llegar a 4 EUR de los 20 del mes: por temas, no de golpe.
+  y transcribe despues de sellar.
+- Probado con tu letra el 2026-11-12 (tres hojas dobles de CamScanner, apuntes del curso, con
+  tachones, notas en azul y el reverso transparentandose):
+  - `--calidad alta`, que es el defecto: lee bien las formulas (`\delta A_1 \ge A`, el `n!` del
+    teorema, `\mathcal{E}_{\{M^{lc}\}}`, "Gorny-Cartan", la nota en azul) y marca sus dudas
+    donde las tiene. Quedan deslices sueltos sin marca (un subindice perdido, una palabra):
+    por eso se revisa. 18 s y unos 9 centimos por hoja doble.
+  - `--calidad normal` (el modelo barato, 3 centimos por hoja): cambia `\delta` por 8, pierde
+    subindices y el `n!`, y no avisa. Con letra manuscrita no sirve; partir la hoja en dos
+    mejora algo y no basta.
+  - `--motor marker` (OCR local, gratis): texto sin sentido. Vale para texto impreso, no
+    para tu letra.
+- Coste: un cuaderno de 60 paginas son 30 hojas dobles, unos 3 EUR de los 20 del mes. Por
+  temas, no de golpe. `metricas` lo cuenta en el comando `transcribir`.
+- Escanea a doble pagina sin miedo: el modelo lee primero la izquierda y despues la derecha, y
+  no copia lo que se transparenta del reverso. Lo que quede cortado por el borde sale como
+  `[ILEGIBLE]`.
 - Si se para a media pasada (red, cuota, Ctrl+C, o cambias de fase mientras transcribe) se
   guarda lo hecho y dice que paginas faltan y el comando para seguir. El fichero se escribe
   tras cada pagina: aunque cierres la ventana o se reinicie la torre, lo ya transcrito esta en

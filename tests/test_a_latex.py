@@ -86,7 +86,7 @@ def test_las_formulas_pasan_tal_cual_y_la_que_va_sola_es_display():
     assert "\\[\n\\sum_{q\\ge p} \\dfrac{M_q}{(q+1)M_{q+1}} \\le A\\,\\dfrac{M_p}{M_{p+1}}\n\\]" in tex
     # dentro de un parrafo, una formula sola en su linea tambien
     tex2, _ = L.cuerpo_latex("Entonces\n$a_p \\le b_p$\npara todo $p$.\n")
-    assert "Entonces\n\n\\[\na_p \\le b_p\n\\]\n\npara todo $p$." in tex2
+    assert "Entonces\n\\[\na_p \\le b_p\n\\]\npara todo $p$." in tex2          # en el mismo parrafo: sin lineas en blanco
     # $$...$$ y varias lineas alineadas
     tex3, _ = L.cuerpo_latex("$$a &= b \\\\ c &= d$$\n\n\\[x = y\\]\n\ny \\(z\\) en linea.\n")
     assert "\\begin{aligned}\na &= b \\\\ c &= d\n\\end{aligned}" in tex3 and "\\[\nx = y\n\\]" in tex3 and "$z$" in tex3

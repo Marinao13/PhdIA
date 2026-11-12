@@ -248,7 +248,13 @@ TRANSCRIBIR = """MODO_TRANSCRIBIR. Te paso la imagen de UNA pagina de apuntes de
    ninguna y es el error que se cuela.
 4. Conserva la estructura: titulos con ##, enumeraciones, "Teorema", "Dem.", lo subrayado en
    **negrita**. Las tachaduras, fuera. Un dibujo: [FIGURA: descripcion de una linea].
-5. El texto, en el idioma en que este escrito. Sin preambulo ni cierre: solo la transcripcion.
+   Cada apartado de una enumeracion ((1), (i), (a)...) y cada paso de una cadena de igualdades
+   o implicaciones que en la pagina va en su linea, en su propio parrafo: linea en blanco
+   entre ellos.
+5. Si la imagen trae dos paginas de cuaderno lado a lado, primero la izquierda entera y despues
+   la derecha entera. Lo que se transparenta del reverso de la hoja (texto tenue, al reves) no
+   se transcribe. Una nota al margen o en otro color, en su propio parrafo, donde apunta.
+6. El texto, en el idioma en que este escrito. Sin preambulo ni cierre: solo la transcripcion.
 """
 
 # ----------------------------------------------------------------------
