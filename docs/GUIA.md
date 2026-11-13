@@ -93,6 +93,22 @@ que es mas corto que escribirlo de cero. Nada sin revisar entra en el indice ni 
      generado (salieron seis fallos, corregidos). Aun asi, hasta que no lo compiles tu no esta
      probado de verdad: si algo no compila en tu LaTeX, dimelo con el error.
 
+Las figuras: cada dibujo (una grafica, unos ejes, un esquema) se recorta del original y entra
+como imagen, con la descripcion del modelo debajo como pie. Los recortes quedan en
+`transcripciones/figuras/` y los usan el `.md`, la web y el `.tex` (`\includegraphics`). No se
+redibujan: es tu dibujo tal cual, no una version del modelo.
+
+- En una transcripcion nueva salen solas.
+- En una ya hecha, que solo tiene `[FIGURA: descripcion]`:
+  `python doc.py transcribir --figuras NOMBRE`. Pregunta al modelo donde esta cada dibujo (una
+  llamada por pagina con figuras, unos 3 centimos), los recorta y cambia solo esas lineas; lo
+  que hayas corregido no se toca. Necesita el original en `transcripciones/originales/`.
+- Mira cada recorte al revisar. Si la caja corta el dibujo o coge texto de mas: deshaz esa
+  figura a `[FIGURA: descripcion | x0,y0,x1,y1]` con la caja buena (tantos por ciento del ancho
+  y del alto de la hoja) y lanza `--figuras` otra vez, o sustituye el `.jpg` por tu recorte.
+- Probado el 2026-11-13 con tu curso (17 hojas, 9 figuras): las 9 localizadas y bien
+  recortadas, alguna con un poco de texto vecino en el borde; 29 s y 23 centimos.
+
 Reglas y limites:
 
 - Con el modelo (por defecto) es una llamada al motor: en fase 1 y 3 se niega. Escribe a mano

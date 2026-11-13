@@ -450,6 +450,19 @@ def transcripciones_subir(request: Request, fichero: UploadFile = File(...), tip
     return RedirectResponse("/transcripciones", status_code=303)
 
 
+@app.get("/transcripciones/figuras/{fichero}")
+def transcripcion_figura(fichero: str):
+    """Una figura recortada (transcripciones/figuras/): la pinta la pagina de la transcripcion."""
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,200}\.(?:jpg|png)", fichero or "") or ".." in fichero:
+        raise HTTPException(404)
+    base = os.path.realpath(T._dir_figuras())
+    ruta = os.path.realpath(os.path.join(base, fichero))
+    if not ruta.startswith(base + os.sep) or not os.path.isfile(ruta):
+        raise HTTPException(404)
+    with open(ruta, "rb") as f:
+        return Response(f.read(), media_type="image/png" if fichero.endswith(".png") else "image/jpeg")
+
+
 @app.get("/transcripciones/{nombre}", response_class=HTMLResponse)
 def transcripcion(request: Request, nombre: str, aviso: str = ""):
     t = _transcripcion(nombre)

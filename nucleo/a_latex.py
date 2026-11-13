@@ -34,6 +34,8 @@ RE_AVISO = re.compile(r"^> Transcripcion automatica SIN REVISAR\.[^\n]*\n(?:>[^\
 # marcadores privados: formula, marca, pagina, formula en display, formula forzada en linea
 _F, _M, _P, _D = "\ue000{}\ue001", "\ue002{}\ue003", "\ue004{}\ue005", "\ue006{}\ue007"
 _L = "\ue008{}\ue009"
+_G = "\ue00a{}\ue00b"                                  # una figura recortada: ancho|ruta
+_RE_G = re.compile("\ue00a([0-9.]+)\\|([^\ue00b]+)\ue00b\\n?")
 _RE_L = re.compile("\ue008(\\d+)\ue009")
 _RE_F = re.compile("\ue000(\\d+)\ue001")
 _RE_M = re.compile("\ue002(\\d+)\ue003")
@@ -114,6 +116,7 @@ def _texto(s, comillas=True):
 def _marca(m, en_formula=False):
     """[ILEGIBLE], [?] y [PAGINA CORTADA ...] en rojo; [FIGURA: ...] en un recuadro que parte linea."""
     if m.startswith("[FIGURA:"):
+        m = re.sub(r"\s*\|\s*[\d.]+\s*,\s*[\d.]+\s*,\s*[\d.]+\s*,\s*[\d.]+\s*\]$", "]", m)
         if en_formula:
             return r"\fbox{" + _texto(m[1:-1]) + "}"
         return r"\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{" + _texto(m[1:-1]) + "}}"
@@ -205,7 +208,15 @@ def _en_linea(hijos, display=True, tras_item=False):
                 out.append(r" (\texttt{" + _texto(enlace, comillas=False) + "})")
             enlace = None
         elif t == "image":
-            out.append("[imagen: " + _texto(h.content or "") + "]")
+            src = h.attrGet("src") or ""
+            if src.startswith("figuras/") and re.fullmatch(r"[\w./-]+", src):
+                try:
+                    ancho = min(0.95, max(0.1, float(h.attrGet("title") or 0.6)))
+                except ValueError:
+                    ancho = 0.6
+                out.append(_G.format("%.2f|%s" % (ancho, src)))
+            else:
+                out.append("[imagen: " + _texto(h.content or "") + "]")
         elif t in ("s_open", "s_close"):
             pass                                       # lo tachado, como texto normal
         else:
@@ -307,6 +318,7 @@ PREAMBULO = r"""\documentclass[11pt,a4paper]{article}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{mathtools,mathrsfs,bm}  % \coloneqq y dcases, \mathscr, \bm: la web (KaTeX) los pinta sin mas
 \providecommand{\degree}{^{\circ}}
+\usepackage{graphicx}                % las figuras recortadas del original (transcripciones/figuras/)
 \usepackage{xcolor}
 % las marcas de la transcripcion ([ILEGIBLE], [?]) salen en rojo: cuando no quede ninguna, sobra
 \newcommand{\duda}[1]{\textcolor{red}{\textbf{#1}}}
@@ -352,6 +364,11 @@ def cuerpo_latex(cuerpo):
             partes[i] = repone_bruto(parte)
             continue
         parte = _RE_M.sub(lambda m: _marca(marcas[int(m.group(1))]), parte)
+        # la figura y su pie (la linea que la sigue en el mismo parrafo), centrados
+        parte = re.sub("\ue00a([0-9.]+)\\|([^\ue00b]+)\ue00b(?:\n([^\n]+))?",
+                       lambda m: ("\\begin{center}\n\\includegraphics[width=%s\\linewidth]{%s}" % (m.group(1), m.group(2))
+                                  + ("\\\\[0.5ex]\n{\\small " + m.group(3) + "}" if m.group(3) else "")
+                                  + "\n\\end{center}"), parte)
         parte = _RE_D.sub(lambda m: _formula(formulas[int(m.group(1))], display=True), parte)
         parte = _RE_L.sub(lambda m: _formula(formulas[int(m.group(1))], en_linea=True), parte)
         parte = _RE_F.sub(lambda m: _formula(formulas[int(m.group(1))]), parte)

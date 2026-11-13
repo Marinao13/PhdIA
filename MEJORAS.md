@@ -143,6 +143,11 @@ revision ("quiza tardo menos revisando simplemente en lugar de escribirlo todo d
   lleva al lado un `.tex` exportado del `.md` (`nucleo/a_latex.py`); se rehace al revisar o con
   `--tex NOMBRE`, y no se pisa si Mariano lo ha editado a mano (huella en la primera linea).
   Sin compilar aqui: la torre no tiene `pdflatex`.
+- Figuras (peticion del 2026-11-13): cada dibujo se recorta del original por la caja que da el
+  modelo y entra como imagen en el `.md`, la web y el `.tex`; `--figuras NOMBRE` lo hace en una
+  transcripcion ya hecha. No se redibuja con TikZ: seria una version del modelo, no el dibujo.
+- Formato del `.tex` (peticion del 2026-11-13): pendiente de que Mariano pase su TFG/TFM en
+  `.tex`, para copiar preambulo, entornos de teorema y macros.
 - Lo que no hace: no copia nada a `lecturas/ID.md` (eso es de Mariano); no transcribe en fase
   1 ni 3 con el modelo; no lanza `indexar`.
 

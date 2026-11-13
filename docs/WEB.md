@@ -42,7 +42,7 @@ motor simulado, nada escribe en el repo).
 | `/preguntar` | Fase 2: hilo por pestaña, paper de la sesion (o el que elijas), fragmento pegado localizado en el indice, plantillas `/notacion` `/lema` `/paso`, `sigue`, nuevo hilo, laguna | si |
 | `/notas`, `/notas/ID` | `lecturas/*.md` renderizadas; los bloques `## Rn` se pliegan | no |
 | `/sesiones`, `/sesiones/NOMBRE` | `sesiones/*.md` renderizadas, solo lectura | no |
-| `/transcripciones`, `/transcripciones/NOMBRE` | Subir un PDF o una foto manuscrita y transcribirla (en segundo plano; la lista se refresca sola); original y texto lado a lado con `[ILEGIBLE]` y `[?]` resaltados; corregir cada pagina ("Guardar cambios" guarda todas las tocadas); marcar revisada; descargar el `.tex` del texto de ese momento | si (con Marker, no) |
+| `/transcripciones`, `/transcripciones/NOMBRE` | Subir un PDF o una foto manuscrita y transcribirla (en segundo plano; la lista se refresca sola); original y texto lado a lado con `[ILEGIBLE]` y `[?]` resaltados; corregir cada pagina ("Guardar cambios" guarda todas las tocadas); marcar revisada; descargar el `.tex` del texto de ese momento; las figuras recortadas se ven en su sitio | si (con Marker, no) |
 | `/lagunas` | `registro/lagunas.md` y un campo de una linea que la anota (`_anadir_lagunas`) | no |
 | `/guia` | `docs/USO.md` (y `docs/GUIA.md` si existe) con indice lateral | no |
 

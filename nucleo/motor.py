@@ -292,6 +292,9 @@ def _simulado(system, messages):
     ultimo = messages[-1]["content"] if messages else ""
     if isinstance(ultimo, list):                       # mensaje con imagenes: solo el texto
         ultimo = " ".join(p.get("text", "") for p in ultimo if isinstance(p, dict))
+    if "MODO_FIGURAS" in system:
+        n = len(re.findall(r"^\d+\. ", ultimo, re.M)) or 1
+        return "\n".join(f"{k + 1}: 10,10,60,45" for k in range(n))
     if "MODO_TRANSCRIBIR" in system:
         return ("## Apuntes (simulado)\n\nSea $M=(M_p)_{p\\ge 0}$ una sucesion peso [?].\n\n"
                 "$\\sum_{q\\ge p} \\frac{M_q}{(q+1)M_{q+1}} \\le A\\,\\frac{M_p}{M_{p+1}}$\n\n[ILEGIBLE]")

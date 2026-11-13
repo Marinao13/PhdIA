@@ -247,7 +247,11 @@ TRANSCRIBIR = """MODO_TRANSCRIBIR. Te paso la imagen de UNA pagina de apuntes de
    Ante la duda, marca. Quien revisa busca esas marcas; un simbolo adivinado no lleva
    ninguna y es el error que se cuela.
 4. Conserva la estructura: titulos con ##, enumeraciones, "Teorema", "Dem.", lo subrayado en
-   **negrita**. Las tachaduras, fuera. Un dibujo: [FIGURA: descripcion de una linea].
+   **negrita**. Las tachaduras, fuera. Un dibujo (una grafica, un esquema, unos ejes): en su
+   sitio, en su propia linea, [FIGURA: descripcion de una linea | x0,y0,x1,y1], donde los cuatro
+   numeros son la caja que contiene el dibujo entero (con sus ejes y etiquetas, sin el texto de
+   alrededor) en tantos por ciento del ancho y del alto de la imagen: x0,y0 la esquina superior
+   izquierda, x1,y1 la inferior derecha, cada uno entre 0 y 100. El dibujo se recorta por ahi.
    Cada apartado de una enumeracion ((1), (i), (a)...) y cada paso de una cadena de igualdades
    o implicaciones que en la pagina va en su linea, en su propio parrafo: linea en blanco
    entre ellos.
@@ -255,6 +259,15 @@ TRANSCRIBIR = """MODO_TRANSCRIBIR. Te paso la imagen de UNA pagina de apuntes de
    la derecha entera. Lo que se transparenta del reverso de la hoja (texto tenue, al reves) no
    se transcribe. Una nota al margen o en otro color, en su propio parrafo, donde apunta.
 6. El texto, en el idioma en que este escrito. Sin preambulo ni cierre: solo la transcripcion.
+"""
+
+FIGURAS = """MODO_FIGURAS. Te paso la imagen de una pagina de apuntes manuscritos y la lista de los
+dibujos que hay en ella, en el orden en que aparecen. Para cada dibujo, da la caja que lo
+contiene entero (con sus ejes y etiquetas, sin el texto de alrededor), en tantos por ciento del
+ancho y del alto de la imagen: x0,y0 es la esquina superior izquierda y x1,y1 la inferior
+derecha, cada numero entre 0 y 100. Responde solo con una linea por dibujo, asi:
+1: x0,y0,x1,y1
+Si un dibujo no lo encuentras en la imagen, pon en su linea:  1: ?
 """
 
 # ----------------------------------------------------------------------

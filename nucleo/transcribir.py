@@ -6,6 +6,7 @@ Pasar a limpio lo escrito a mano (o una foto, o un PDF): transcripcion a markdow
     python doc.py transcribir --lista
     python doc.py transcribir --revisado NOMBRE
     python doc.py transcribir --tex NOMBRE [--pisar]
+    python doc.py transcribir --figuras NOMBRE
 
 Dos motores:
     modelo   el modelo con vision, por motor.llamar: puerta de fases, coste registrado. Defecto.
@@ -249,6 +250,136 @@ def exportar_tex(nombre, pisar=False):
         return ruta, "fallo"
 
 
+# ----------------------------------------------------------------------
+# figuras: el dibujo se recorta del original; no se redibuja (seria inventar)
+# ----------------------------------------------------------------------
+
+# [FIGURA: descripcion | x0,y0,x1,y1]; la descripcion puede llevar formulas con corchetes ($[0,1)$)
+RE_FIGURA = re.compile(r"\[FIGURA:((?:\$[^$\n]*\$|[^\]$\n])*)\]")
+RE_CAJA = re.compile(r"\|\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\s*$")
+RE_IMAGEN = re.compile(r"!\[figura\]\(figuras/[^)\s]+(?: \"[^\"]*\")?\)")
+MARGEN_FIGURA = 1.5          # tantos por ciento de la pagina que se anaden alrededor de la caja
+
+
+def _dir_figuras():
+    return os.path.join(_dir()[0], "figuras")
+
+
+def _caja(dentro):
+    """(descripcion, caja o None) de lo que va dentro de [FIGURA: ...]. Caja en % y con sentido."""
+    m = RE_CAJA.search(dentro)
+    if not m:
+        return dentro.strip(), None
+    x0, y0, x1, y1 = (float(v) for v in m.groups())
+    desc = dentro[:m.start()].strip()
+    if not (0 <= x0 < x1 <= 100 and 0 <= y0 < y1 <= 100) or (x1 - x0) * (y1 - y0) > 9000:
+        return desc, None
+    return desc, (x0, y0, x1, y1)
+
+
+def _recortar(ruta_original, n, caja, destino):
+    """Recorta la caja (en %) de la pagina n del original y la guarda como JPEG. Devuelve el
+    ancho que le toca en el documento, como fraccion del ancho del texto."""
+    from PIL import Image
+    import io
+    im = Image.open(io.BytesIO(pagina_png(ruta_original, n, max_lado=3000))).convert("RGB")
+    W, H = im.size
+    x0, y0, x1, y1 = caja
+    x0, y0 = max(0.0, x0 - MARGEN_FIGURA), max(0.0, y0 - MARGEN_FIGURA)
+    x1, y1 = min(100.0, x1 + MARGEN_FIGURA), min(100.0, y1 + MARGEN_FIGURA)
+    trozo = im.crop((int(W * x0 / 100), int(H * y0 / 100), int(W * x1 / 100), int(H * y1 / 100)))
+    trozo.thumbnail((1400, 1400))
+    os.makedirs(os.path.dirname(destino), exist_ok=True)
+    trozo.save(destino, format="JPEG", quality=88)
+    ancho = (x1 - x0) / 100 * (2 if W > 1.25 * H else 1)      # hoja doble: la pagina es media imagen
+    return round(min(0.9, max(0.2, ancho)), 2)
+
+
+def incrustar_figuras(nombre, ruta_original, n, texto):
+    """Cada [FIGURA: desc | x0,y0,x1,y1] del texto de la pagina n, sustituida por la imagen recortada
+    del original (transcripciones/figuras/NOMBRE-pN-K.jpg) con la descripcion debajo. Las marcas sin
+    caja, o cuya caja no se puede recortar, se quedan como estan. Nunca lanza."""
+    k = len(RE_IMAGEN.findall(texto))                  # las que ya hay en esta pagina
+
+    def una(m):
+        nonlocal k
+        desc, caja = _caja(m.group(1))
+        if not caja or not ruta_original or not os.path.exists(ruta_original):
+            return m.group(0)
+        fichero = f"{nombre}-p{n}-{k + 1}.jpg"
+        try:
+            ancho = _recortar(ruta_original, n, caja, os.path.join(_dir_figuras(), fichero))
+        except Exception:
+            return m.group(0)
+        k += 1
+        return f'![figura](figuras/{fichero} "{ancho}")\n*Figura: {desc}*'
+    try:
+        return RE_FIGURA.sub(una, texto)
+    except Exception:
+        return texto
+
+
+def figuras(nombre, progreso=None):
+    """Para una transcripcion YA hecha: localiza y recorta sus figuras. Las marcas con caja se
+    recortan sin mas; para las que no la traen se pregunta al modelo donde estan (una llamada por
+    pagina con figuras, por motor.llamar: respeta las fases). Solo cambia las lineas de las marcas.
+    Devuelve dict(hechas, pendientes, paginas, coste) o None si no existe la transcripcion.
+    Lanza RuntimeError si no esta el original; motor.MotorApagado si la fase no deja."""
+    from . import motor as M
+    from . import prompts as P
+    t = leer(nombre)
+    if not t:
+        return None
+    if not t.get("original"):
+        raise RuntimeError("no esta el original en transcripciones/originales/ (no viaja con git): "
+                           "las figuras se recortan de el")
+    hechas, pendientes, tocadas = 0, 0, []
+    coste = dict(tokens_in=0, tokens_out=0, tokens_cache=0, segundos=0.0, modelo=None)
+    for n, texto in paginas(t["cuerpo"])[1]:
+        marcas = list(RE_FIGURA.finditer(texto))
+        if not marcas:
+            continue
+        sin_caja = [m for m in marcas if not _caja(m.group(1))[1]]
+        cajas = {}
+        if sin_caja:
+            if progreso:
+                progreso(f"pagina {n}: {len(sin_caja)} figura(s) por localizar...")
+            lista = "\n".join(f"{i + 1}. {_caja(m.group(1))[0]}" for i, m in enumerate(sin_caja))
+            png = pagina_png(t["original"], n)
+            r = M.llamar("transcribir", P.FIGURAS, [M.mensaje_con_imagenes("Dibujos de esta pagina:\n" + lista, [png])],
+                         modelo=C.MODELO, contexto=False, max_tokens=2500)
+            u = dict(M.ULTIMA)
+            for k in ("tokens_in", "tokens_out", "tokens_cache"):
+                coste[k] += u.get(k) or 0
+            coste["segundos"] += u.get("segundos") or 0
+            coste["modelo"] = u.get("modelo")
+            for m in re.finditer(r"^\s*(\d+)\s*:\s*([\d.]+\s*,\s*[\d.]+\s*,\s*[\d.]+\s*,\s*[\d.]+)\s*$", r, re.M):
+                cajas[int(m.group(1))] = m.group(2)
+        orden = {id(m): i + 1 for i, m in enumerate(sin_caja)}
+
+        def con_caja(m):
+            desc, caja = _caja(m.group(1))
+            if caja or orden.get(id(m)) not in cajas:
+                return m.group(0)
+            return f"[FIGURA: {desc} | {cajas[orden[id(m)]]}]"
+        # las marcas sin caja reciben la que dio el modelo; despues se recortan todas las que la tengan
+        trozos, pos = [], 0
+        for m in marcas:
+            trozos.append(texto[pos:m.start()])
+            trozos.append(con_caja(m))
+            pos = m.end()
+        nuevo = incrustar_figuras(t["nombre"], t["original"], n, "".join(trozos) + texto[pos:])
+        antes = len(RE_IMAGEN.findall(texto))
+        ahora = len(RE_IMAGEN.findall(nuevo))
+        hechas += ahora - antes
+        pendientes += len(RE_FIGURA.findall(nuevo))
+        if nuevo != texto and guardar_pagina(t["nombre"], n, nuevo):
+            tocadas.append(n)
+    if tocadas:
+        exportar_tex(t["nombre"])
+    return dict(hechas=hechas, pendientes=pendientes, paginas=tocadas, coste=coste)
+
+
 def dudas(cuerpo):
     """(ilegibles, dudosos): cuantas marcas [ILEGIBLE] y [?] quedan."""
     return len(re.findall(r"\[ILEGIBLE\]", cuerpo)), len(re.findall(r"\[\?\]", cuerpo))
@@ -300,6 +431,7 @@ def unidades(cuerpo):
     for pagina, texto in pares:
         for p in re.split(r"\n\s*\n", texto):
             p = p.strip()
+            p = RE_IMAGEN.sub("", p).strip()            # la imagen no es texto: queda su pie
             if not p or p.startswith(AVISO) or p.startswith("<!--"):
                 continue
             if p.startswith("#"):                      # "## Teorema 2\nSea M..." sin linea en blanco:
@@ -507,10 +639,11 @@ def transcribir(ruta, tipo="paper", titulo=None, paginas=None, motor="modelo", c
             for n, texto in hojas:
                 if n in escritas:
                     continue
+                texto = incrustar_figuras(nombre, ruta, n, texto)      # los dibujos, recortados del original
                 crudo = C.leer(destino) if os.path.exists(destino) else ""
                 if not crudo.strip():
                     # recien reservado, o borrado a media pasada: entero, con lo hecho hasta aqui
-                    hechas = [(m, x) for m, x in hojas if m in escritas or m == n]
+                    hechas = [(m, incrustar_figuras(nombre, ruta, m, x)) for m, x in hojas if m in escritas or m == n]
                     cab = cabecera_nueva(etiqueta_motor)
                     cuerpo = (f"# {titulo}\n\n"
                               f"{AVISO} Revisala con el original al lado (web: /transcripciones/{nombre}), "

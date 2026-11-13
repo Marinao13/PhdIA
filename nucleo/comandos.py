@@ -559,6 +559,32 @@ def cmd_transcribir(args):
         print("entra en el indice con:  python doc.py indexar   "
               + ("(fuente curso: buscar --fuente curso)" if t.get("tipo") == "curso" else "(fuente nota)"))
         return
+    if getattr(args, "figuras", None):
+        fase, _ = E.fase_actual()
+        if fase not in E.MOTOR_PERMITIDO:
+            M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
+            return
+        try:
+            r = T.figuras(args.figuras, progreso=lambda s: print("  " + s))
+        except M.MotorApagado as e:
+            M.aviso("MOTOR APAGADO: " + str(e))
+            return
+        except RuntimeError as e:
+            print(f"no se pudo: {e}")
+            return
+        if r is None:
+            print(f"no existe transcripciones/{args.figuras}.md  (python doc.py transcribir --lista)")
+            return
+        eur = T.coste_eur(r["coste"])
+        print(f"{r['hechas']} figura(s) recortadas en transcripciones/figuras/"
+              + (f" (paginas {','.join(str(n) for n in r['paginas'])})" if r["paginas"] else "")
+              + (f"; {r['pendientes']} sin localizar, siguen como [FIGURA: ...]" if r["pendientes"] else "")
+              + (f"; ~{eur} EUR" if eur else ""))
+        if r["hechas"]:
+            print("mira cada recorte al revisar: si la caja corta el dibujo, corrige los numeros de la marca "
+                  "o recortalo tu y sustituye el fichero")
+            _decir_tex(*T.exportar_tex(args.figuras), args.figuras)
+        return
     if getattr(args, "tex", None):
         ruta, que = T.exportar_tex(args.tex, pisar=getattr(args, "pisar", False))
         if not ruta:
