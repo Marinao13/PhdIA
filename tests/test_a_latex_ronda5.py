@@ -22,7 +22,7 @@ def test_en_una_celda_o_en_un_titulo_ninguna_formula_va_en_display():
     assert "(lc) & $\\displaystyle M_p^2 \\le M_{p-1}M_{p+1}$ \\\\" in tabla
     assert "(mg) & $\\displaystyle M_{p+q} \\le A^{p+q}M_pM_q$ \\\\" in tabla
     assert "(dc) & $M_{p+1} \\le A^p M_p$ \\\\" in tabla
-    assert "\\section*{Clases $\\displaystyle \\mathcal{E}_M$ y mas}" in tex
+    assert "\\section{Clases $\\displaystyle \\mathcal{E}_M$ y mas}" in tex
     assert "\\[\na \\le b\n\\]" in tex and not re.search("[\ue000-\ue0ff]", tex)
     # varias lineas y un \tag dentro de una celda: aligned entre $ $, y la etiqueta como texto
     tex2, _ = L.cuerpo_latex("| a |\n|---|\n| $$x &= 1 \\\\ y &= 2 \\tag{3}$$ |\n")

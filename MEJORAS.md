@@ -152,6 +152,10 @@ revision ("quiza tardo menos revisando simplemente en lugar de escribirlo todo d
   se marcan en el `.md` con `<!-- teorema --> ... <!-- fin -->` (el modelo al transcribir, o
   `--estructura NOMBRE` en lo ya hecho). `transcripciones/preambulo.tex` sustituye al de serie.
   Falta: sus macros y paquetes, que requieren los `.tex`.
+- Portada, indice y metadatos (peticion del 2026-11-13, tras compilar el primer `.tex`):
+  portada con titulo, tipo, fechas de clase, autor y estado de revision; indice; cada clase
+  con su fecha como seccion (`<!-- clase -->`); los comentarios y reflexiones en su propio
+  bloque (`<!-- comentario -->`), tambien dentro de una demostracion.
 - Lo que no hace: no copia nada a `lecturas/ID.md` (eso es de Mariano); no transcribe en fase
   1 ni 3 con el modelo; no lanza `indexar`.
 

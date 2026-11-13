@@ -88,10 +88,9 @@ que es mas corto que escribirlo de cero. Nada sin revisar entra en el indice ni 
    - Si editas el `.tex` a mano, deja de rehacerse (no se pisa lo tuyo): `--tex NOMBRE --pisar`
      lo rehace desde el `.md` y pierde tus cambios. Lo que cambies en el `.tex` no vuelve al
      `.md` ni al indice.
-   - No esta compilado: en la torre no hay `pdflatex`. Se comprueba que llaves y entornos
-     casan y que el texto va escapado, y un revisor hizo de compilador leyendo el LaTeX
-     generado (salieron seis fallos, corregidos). Aun asi, hasta que no lo compiles tu no esta
-     probado de verdad: si algo no compila en tu LaTeX, dimelo con el error.
+   - Compilado por ti el 2026-11-13 con pdfTeX: tu curso, 25 paginas, con las figuras y sin
+     simbolos por resolver. En la torre no hay `pdflatex`, asi que lo anadido despues (portada,
+     indice, comentarios) no lo he compilado yo: si algo falla, dimelo con el error.
 
 El formato del `.tex` es el de tu TFM (visto en su PDF): 12 pt, enunciados con la etiqueta en
 negrita y numeracion corrida y comun (Teorema 1, Observacion 2...), cuerpo en redonda,
@@ -108,8 +107,28 @@ sale como `\begin{teorema}[Pringsheim]`.
   parrafos forman cada enunciado y cada demostracion (una llamada de texto por pagina, unos
   2 centimos) y solo anade esas lineas: no cambia ni una palabra. Probado con tu curso el
   2026-11-13: 57 bloques en 17 hojas, 63 s y 27 centimos.
+- Portada e indice: el `.tex` empieza con una portada (titulo, "Apuntes de clase", las fechas
+  de la primera y la ultima clase, tu nombre, y una linea que dice cuando se transcribio y si
+  esta revisado) y el indice. Lo que la portada no puede saber lo pones en la cabecera del
+  `.md`, una linea cada cosa: `profesor: Javier Sanz`, `asignatura: ...`, `autor: ...` (si no,
+  el autor es el de `nucleo/config.py`).
+- Las clases: la linea con la fecha de cada clase ("30 sep clases de Javi") va entre
+  `<!-- clase -->` y `<!-- fin -->` y pasa a ser una seccion numerada; los titulos que escribes
+  en los apuntes quedan como subsecciones debajo. Asi el indice es: clase por clase, y dentro
+  sus temas.
+- Los comentarios: lo que no es desarrollo sino comentario (algo dicho de palabra por el
+  profesor, una nota al margen, una reflexion tuya, un "no lo demostramos", un "comprobar
+  cuentas", un problema abierto) va entre `<!-- comentario -->` y `<!-- fin -->` y sale
+  aparte: sangrado, en cursiva y con una barra a la izquierda. Puede ir dentro de una
+  demostracion sin cortarla. Si el modelo marca como comentario algo que no lo es, o al reves,
+  quita o pon esas dos lineas.
+- En tu curso, que ya tenia marcados enunciados y demostraciones, vuelve a lanzar
+  `python doc.py transcribir --estructura NOMBRE`: pregunta solo por comentarios y clases y no
+  toca lo que ya estaba. Probado sobre una copia: 5 clases y 18 comentarios, 48 s y 30
+  centimos. `--estructura NOMBRE --rehacer` quita todas las marcas y empieza de cero.
 - Otro preambulo: si dejas un `transcripciones/preambulo.tex` (desde `\documentclass` hasta
-  antes de `\begin{document}`), se usa el tuyo. Tiene que definir esos entornos y `\duda`.
+  antes de `\begin{document}`), se usa el tuyo. Tiene que definir esos entornos, `comentario`
+  y `\duda`.
 - Lo que no se: como son tus macros y tus paquetes, porque solo tengo los PDF. Con los `.tex`
   del TFM podria copiar el preambulo tal cual.
 

@@ -246,8 +246,10 @@ def exportar_tex(nombre, pisar=False):
         if os.path.exists(ruta) and not pisar and not L.intacto(C.leer(ruta)):
             return ruta, "tuyo"
         propio = os.path.join(_dir()[0], "preambulo.tex")      # tu preambulo, si lo dejas ahi
+        meta = dict(tipo=t.get("tipo"), fecha=t.get("fecha"), autor=t.get("autor") or C.AUTOR,
+                    profesor=t.get("profesor"), asignatura=t.get("asignatura"))
         C.escribir(ruta, L.documento(t["cuerpo"], nombre=t["nombre"], estado=t.get("estado", "sin_revisar"),
-                                     preambulo=C.leer(propio) if os.path.exists(propio) else None))
+                                     preambulo=C.leer(propio) if os.path.exists(propio) else None, meta=meta))
         return ruta, "escrito"
     except Exception:
         return ruta, "fallo"
@@ -388,34 +390,64 @@ def figuras(nombre, progreso=None):
 # ----------------------------------------------------------------------
 
 TIPOS_BLOQUE = ("teorema", "lema", "proposicion", "corolario", "definicion", "observacion", "ejemplo",
-                "notacion", "nota", "demostracion")
+                "notacion", "nota", "demostracion", "comentario", "clase")
+VERSION_ESTRUCTURA = "2"         # 2: con comentarios y clases. Se apunta en la cabecera (estructura: 2)
 RE_BLOQUE = re.compile(r"^<!-- (?:%s|fin) -->[ \t]*$" % "|".join(TIPOS_BLOQUE), re.M)
 
 
-def estructura(nombre, progreso=None):
-    """Para una transcripcion YA hecha: marca en el .md donde empieza y acaba cada enunciado y cada
-    demostracion (lineas <!-- teorema --> ... <!-- fin -->), preguntando al modelo por parrafos
-    numerados (una llamada de texto por pagina; respeta las fases). No cambia ni una palabra del
-    texto: solo anade esas lineas. Las paginas que ya traen marcas se dejan.
+def _ocupados(parrafos):
+    """Para cada parrafo, el tipo del bloque (no comentario) en el que ya esta, o None."""
+    out, abierto = [], None
+    for p in parrafos:
+        m = re.search(r"^<!-- (%s) -->[ \t]*$" % "|".join(TIPOS_BLOQUE), p, re.M)
+        if m and m.group(1) != "comentario":
+            abierto = m.group(1)
+        out.append(abierto if abierto or not m else m.group(1))
+        if re.search(r"^<!-- fin -->[ \t]*$", p, re.M) and not (m and m.group(1) == "comentario" and abierto):
+            abierto = None
+    return out
+
+
+def estructura(nombre, progreso=None, rehacer=False):
+    """Para una transcripcion YA hecha: marca en el .md donde empieza y acaba cada enunciado, cada
+    demostracion, cada comentario y cada cambio de clase (lineas <!-- teorema --> ... <!-- fin -->),
+    preguntando al modelo por parrafos numerados (una llamada de texto por pagina; respeta las
+    fases). No cambia ni una palabra del texto: solo anade esas lineas.
+    Las paginas que ya traen marcas se dejan, salvo que sean de antes de que hubiera comentarios y
+    clases (la cabecera no dice `estructura: 2`): en esas se pregunta solo por lo que falta.
+    rehacer=True quita todas las marcas y empieza de cero.
     Devuelve dict(bloques, paginas, coste), o None si no existe."""
     from . import motor as M
     from . import prompts as P
     t = leer(nombre)
     if not t:
         return None
+    if rehacer:
+        for n, texto in paginas(t["cuerpo"])[1]:
+            limpio = re.sub(r"\n{3,}", "\n\n", RE_BLOQUE.sub("", texto)).strip("\n")
+            if limpio != texto:
+                guardar_pagina(t["nombre"], n, limpio)
+        t = leer(nombre)
+    completar = t.get("estructura") != VERSION_ESTRUCTURA
     bloques, tocadas, abierto = 0, [], False
     coste = dict(tokens_in=0, tokens_out=0, tokens_cache=0, segundos=0.0, modelo=None)
     for n, texto in paginas(t["cuerpo"])[1]:
-        if RE_BLOQUE.search(texto):                    # ya marcada (por el modelo al transcribir, o a mano)
+        marcada = bool(RE_BLOQUE.search(texto))
+        if marcada and not completar:                  # ya marcada (por el modelo al transcribir, o a mano)
             abierto = bool(re.search(r"<!-- (?:%s) -->(?![\s\S]*<!-- fin -->)" % "|".join(TIPOS_BLOQUE), texto))
             continue
         parrafos = [p for p in re.split(r"\n\s*\n", texto) if p.strip()]
         if not parrafos:
             continue
+        ocupados = _ocupados(parrafos) if marcada else [None] * len(parrafos)
         if progreso:
-            progreso(f"pagina {n}: {len(parrafos)} parrafos...")
-        lista = "\n\n".join(f"[{i + 1}] {p.strip()[:500]}" for i, p in enumerate(parrafos))
-        aviso = ("La pagina anterior termino dentro de un bloque sin cerrar.\n\n" if abierto else "")
+            progreso(f"pagina {n}: {len(parrafos)} parrafos" + (" (solo comentarios y clases)" if marcada else "") + "...")
+        lista = "\n\n".join(f"[{i + 1}] " + (f"(ya marcado: {ocupados[i]}) " if ocupados[i] else "")
+                             + RE_BLOQUE.sub("", p).strip()[:500] for i, p in enumerate(parrafos))
+        aviso = ("La pagina anterior termino dentro de un bloque sin cerrar.\n\n" if abierto and not marcada else "")
+        if marcada:
+            aviso += ("Esta pagina ya tiene marcados sus enunciados y demostraciones. Di SOLO que parrafos son "
+                      "`comentario` y cual es `clase`.\n\n")
         r = M.llamar("transcribir", P.ESTRUCTURA, [{"role": "user", "content": aviso + lista}],
                      modelo=C.MODELO, contexto=False, max_tokens=3000)
         u = dict(M.ULTIMA)
@@ -426,31 +458,50 @@ def estructura(nombre, progreso=None):
         antes, despues, ultimo, abierto_ahora = {}, {}, 0, False
         for m in re.finditer(r"^\s*(\d+)(?:\s*-\s*(\d+))?\s*:\s*([a-z]+)(\s+sigue)?\s*$", r, re.M):
             a, b, tipo = int(m.group(1)), int(m.group(2) or m.group(1)), m.group(3)
-            if not (ultimo < a <= b <= len(parrafos)):
-                continue                               # solapado, desordenado o fuera de la pagina
+            if not (1 <= a <= b <= len(parrafos)):
+                continue
+            if tipo == "comentario":                   # puede ir dentro de otro bloque; no dos veces el mismo parrafo
+                if any(ocupados[i] == "comentario" for i in range(a - 1, b)) or a in antes or b in despues:
+                    continue
+                antes.setdefault(a, []).append("comentario")
+                despues.setdefault(b, []).append("comentario")
+                for i in range(a - 1, b):
+                    ocupados[i] = ocupados[i] or "comentario"
+                bloques += 1
+                continue
+            if marcada and tipo != "clase":
+                continue                               # en una pagina ya marcada solo se anaden comentarios y clases
+            if a <= ultimo or any(ocupados[i] for i in range(a - 1, b)):
+                continue                               # solapado, desordenado o ya en un bloque
             if tipo == "sigue":
                 if a == 1 and abierto:
-                    despues[b] = True
+                    despues.setdefault(b, []).insert(0, "fin")
                     ultimo = b
                 continue
             if tipo not in TIPOS_BLOQUE:
                 continue
-            antes[a] = tipo
+            if tipo == "clase":
+                b = a
+            antes.setdefault(a, []).insert(0, tipo)
             ultimo = b
             if m.group(4) and b == len(parrafos):
                 abierto_ahora = True                   # sigue en la pagina siguiente: sin <!-- fin -->
             else:
-                despues[b] = True
+                despues.setdefault(b, []).insert(0, tipo)
             bloques += 1
-        abierto = abierto_ahora
+        if not marcada:
+            abierto = abierto_ahora
         if not antes and not despues:
             continue
-        nuevo = "\n\n".join((f"<!-- {antes[i + 1]} -->\n" if i + 1 in antes else "") + p.strip("\n")
-                             + ("\n<!-- fin -->" if i + 1 in despues else "") for i, p in enumerate(parrafos))
+        nuevo = "\n\n".join("".join(f"<!-- {x} -->\n" for x in antes.get(i + 1, [])) + p.strip("\n")
+                             + "\n<!-- fin -->" * len(despues.get(i + 1, [])) for i, p in enumerate(parrafos))
         if guardar_pagina(t["nombre"], n, nuevo):
             tocadas.append(n)
-    if tocadas:
-        exportar_tex(t["nombre"])
+    with _CERROJO:                                     # apuntado en la cabecera: no se vuelve a preguntar
+        cab, cuerpo = _trocear(C.leer(t["ruta"]))
+        if _poner(cab, "estructura", VERSION_ESTRUCTURA) != cab:
+            _escribir(t["ruta"], _poner(cab, "estructura", VERSION_ESTRUCTURA), cuerpo)
+    exportar_tex(t["nombre"])
     return dict(bloques=bloques, paginas=tocadas, coste=coste)
 
 
@@ -703,7 +754,8 @@ def transcribir(ruta, tipo="paper", titulo=None, paginas=None, motor="modelo", c
 
     def cabecera_nueva(etiqueta_motor):
         return _cabecera(dict(origen=os.path.basename(ruta), tipo=tipo, titulo=titulo, fecha=hoy,
-                              paginas="", motor=etiqueta_motor, estado="sin_revisar"))
+                              paginas="", motor=etiqueta_motor, estado="sin_revisar",
+                              estructura=VERSION_ESTRUCTURA))
 
     def vuelca(hojas, etiqueta_motor):
         """Lleva al disco las paginas de `hojas` que aun no estan. La primera crea el fichero; las

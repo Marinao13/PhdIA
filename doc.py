@@ -189,6 +189,7 @@ def main():
     s.add_argument("--tex", metavar="NOMBRE", help="exporta el .md de ahora a transcripciones/NOMBRE.tex")
     s.add_argument("--estructura", metavar="NOMBRE",
                    help="en una transcripcion ya hecha: marca enunciados y demostraciones para los entornos del .tex")
+    s.add_argument("--rehacer", action="store_true", help="con --estructura: quita las marcas que haya y empieza de cero")
     s.add_argument("--figuras", metavar="NOMBRE",
                    help="en una transcripcion ya hecha: localiza sus [FIGURA: ...] y las recorta del original")
     s.add_argument("--pisar", action="store_true", help="con --tex: rehacer el .tex aunque lo hayas editado a mano")

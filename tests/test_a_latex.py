@@ -63,7 +63,7 @@ Si p ≥ 1 entonces α → β, con x ∈ ℝ…
 def test_documento_completo_y_casado():
     tex = L.documento(CUERPO, nombre="2026-11-11-tema-1", estado="sin_revisar", fecha="2026-11-11")
     assert tex.startswith("% huella: ") and "\\begin{document}" in tex and tex.rstrip().endswith("\\end{document}")
-    assert "\\title{Tema 1: sucesiones peso}" in tex and "\\maketitle" in tex
+    assert "\\title{Tema 1: sucesiones peso}" in tex and "\\begin{titlepage}" in tex and "\\tableofcontents" in tex
     assert "SIN REVISAR" not in tex and "estado: sin_revisar" in tex
     assert "% ---------- pagina 1 ----------" in tex and "% ---------- pagina 2 ----------" in tex
     assert "<!--" not in tex and not re.search("[\ue000-\ue0ff]", tex)
@@ -73,7 +73,7 @@ def test_documento_completo_y_casado():
 def test_titulos_negritas_y_listas():
     tex, titulo = L.cuerpo_latex(CUERPO)
     assert titulo == "Tema 1: sucesiones peso"
-    assert "\\section*{Definiciones}" in tex and "\\subsection*{Lema 2.1}" in tex
+    assert "\\section{Definiciones}" in tex and "\\subsection{Lema 2.1}" in tex      # numerados: van al indice
     assert "\\textbf{fuertemente regular}" in tex and "\\emph{log-convexa}" in tex
     assert tex.count("\\begin{itemize}") == 1 and tex.count("\\begin{enumerate}") == 1
     assert tex.index("\\begin{itemize}") < tex.index("\\begin{enumerate}") < tex.index("\\end{enumerate}") < tex.index("\\end{itemize}")
@@ -132,12 +132,12 @@ def test_codigo_citas_tablas_y_enlaces():
 
 def test_sin_titulo_no_hay_maketitle_y_un_titulo_de_pagina_es_seccion():
     tex = L.documento("<!-- pagina 3 -->\n\n# Tema 2\n\nTexto.\n", nombre="x")
-    assert "\\maketitle" not in tex and "\\title" not in tex and "\\section*{Tema 2}" in tex
+    assert "\\begin{titlepage}" not in tex and "\\title{" not in tex and "\\section{Tema 2}" in tex
     assert "% ---------- pagina 3 ----------" in tex and _casado(tex)
 
 
 def test_la_huella_delata_una_edicion_a_mano():
     tex = L.documento(CUERPO, nombre="x", fecha="2026-11-11")
     assert L.intacto(tex) and tex == L.documento(CUERPO, nombre="x", fecha="2026-11-11")
-    assert not L.intacto(tex.replace("\\section*{Definiciones}", "\\section{Definiciones}"))
+    assert not L.intacto(tex.replace("\\section{Definiciones}", "\\section*{Definiciones}"))
     assert not L.intacto("\\documentclass{article}\n") and not L.intacto("")

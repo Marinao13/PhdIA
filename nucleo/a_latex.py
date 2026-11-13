@@ -231,19 +231,33 @@ def _sin_opcional(texto):
     return "{}" + texto if texto.lstrip().startswith(("[", "*")) else texto
 
 
-_TITULOS = {1: r"\section*{", 2: r"\section*{", 3: r"\subsection*{", 4: r"\subsubsection*{"}
+_TITULOS = {1: r"\section{", 2: r"\section{", 3: r"\subsection{", 4: r"\subsubsection{"}
+# con clases marcadas, la clase es la seccion y los titulos manuscritos bajan un nivel
+_TITULOS_BAJO_CLASE = {1: r"\subsection{", 2: r"\subsection{", 3: r"\subsubsection{"}
+
+
+def _limpia_titulo(s):
+    """El titulo de una seccion: sin la negrita que lo envuelve entero ni los dos puntos del final."""
+    s = s.strip()
+    m = re.fullmatch(r"\\textbf\{((?:[^{}]|\{[^{}]*\})*)\}\s*[:.]?", s)
+    if m:
+        s = m.group(1)
+    return s.rstrip(" :")
 _CONTADORES = ("enumi", "enumii", "enumiii", "enumiv")
 
 
-def _bloques(tokens):
+def _bloques(tokens, bajo_clase=False):
     out, fila, celdas, columnas, en_titulo, numeradas, tras_item = [], None, None, 0, False, 0, False
+    niveles, i_titulo = (_TITULOS_BAJO_CLASE if bajo_clase else _TITULOS), 0
     for i, tok in enumerate(tokens):
         t = tok.type
         if t == "heading_open":
             en_titulo = True
-            out.append(_TITULOS.get(int(tok.tag[1]), r"\paragraph{"))
+            out.append(niveles.get(int(tok.tag[1]), r"\paragraph{"))
+            i_titulo = len(out)
         elif t == "heading_close":
             en_titulo = False
+            out[i_titulo:] = [_limpia_titulo("".join(out[i_titulo:]))]
             out.append("}\n\n")
         elif t == "inline":
             texto = _en_linea(tok.children or [], display=not en_titulo and celdas is None, tras_item=tras_item)
@@ -332,13 +346,42 @@ PREAMBULO = r"""\documentclass[12pt,a4paper]{article}
 \newtheorem{nota}[teorema]{Nota}
 \renewcommand{\qedsymbol}{$\blacksquare$}
 \newenvironment{demostracion}[1][]{\begin{proof}[{\normalfont\bfseries Demostración#1:}]}{\end{proof}}
+% comentarios de clase y reflexiones propias (lo dicho de palabra, notas al margen): aparte del
+% desarrollo, sangrados, en cursiva y con una barra a la izquierda
+\newenvironment{comentario}{\par\smallskip\noindent\hspace{1em}\vrule width 1.5pt\hspace{0.8em}%
+  \begin{minipage}{\dimexpr\linewidth-3em\relax}\small\itshape}{\end{minipage}\par\smallskip}
 \usepackage{mathtools,mathrsfs,bm}  % \coloneqq y dcases, \mathscr, \bm: la web (KaTeX) los pinta sin mas
 \providecommand{\degree}{^{\circ}}
 \usepackage{graphicx}                % las figuras recortadas del original (transcripciones/figuras/)
 \usepackage{xcolor}
 % las marcas de la transcripcion ([ILEGIBLE], [?]) salen en rojo: cuando no quede ninguna, sobra
 \newcommand{\duda}[1]{\textcolor{red}{\textbf{#1}}}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}  % el indice, con enlaces azules como en el TFM
 """
+
+SUBTITULOS = {"curso": "Apuntes de clase", "paper": "Notas de lectura", "duda": "Dudas"}
+
+
+def _portada(titulo, meta, cuerpo):
+    """Portada e indice. meta: lo que diga la cabecera del .md (tipo, autor, profesor, asignatura, fecha)."""
+    meta = meta or {}
+    lineas = ["\\begin{titlepage}", "\\centering", "\\vspace*{3cm}", "{\\Huge\\bfseries " + titulo + "\\par}"]
+    if meta.get("asignatura"):
+        lineas += ["\\vspace{0.8cm}", "{\\Large " + _texto(meta["asignatura"]) + "\\par}"]
+    lineas += ["\\vspace{1cm}", "{\\Large " + SUBTITULOS.get(meta.get("tipo"), "Apuntes") + "\\par}"]
+    if meta.get("profesor"):
+        lineas += ["\\vspace{0.4cm}", "{\\large Profesor: " + _texto(meta["profesor"]) + "\\par}"]
+    fechas = [m.group(0) for m in (RE_FECHA.match(c) for c in clases(cuerpo)) if m]
+    if fechas:
+        lineas += ["\\vspace{0.4cm}", "{\\large " + ("Clases del " + _texto(fechas[0]) + " al " + _texto(fechas[-1])
+                                                    if len(fechas) > 1 else "Clase del " + _texto(fechas[0])) + "\\par}"]
+    if meta.get("autor"):
+        lineas += ["\\vspace{2.5cm}", "{\\Large " + _texto(meta["autor"]) + "\\par}"]
+    pie = "Transcrito de los apuntes manuscritos" + (" el " + _texto(meta["fecha"]) if meta.get("fecha") else "")
+    pie += ". " + ("Revisado contra el original." if meta.get("estado") == "revisado"
+                   else "Sin revisar contra el original: puede tener errores de transcripcion.")
+    lineas += ["\\vfill", "{\\small " + pie + "\\par}", "\\end{titlepage}", "\\tableofcontents", "\\clearpage", ""]
+    return "\n".join(lineas) + "\n"
 
 
 # ----------------------------------------------------------------------
@@ -347,8 +390,27 @@ PREAMBULO = r"""\documentclass[12pt,a4paper]{article}
 # ----------------------------------------------------------------------
 
 ENTORNOS = ("teorema", "lema", "proposicion", "corolario", "definicion", "observacion", "ejemplo",
-            "notacion", "nota", "demostracion")
-RE_ABRE = re.compile(r"^<!-- (%s) -->[ \t]*$" % "|".join(ENTORNOS), re.M)
+            "notacion", "nota", "demostracion", "comentario")
+# `clase` no es un entorno: la linea con la fecha de la clase pasa a ser el titulo de una seccion
+BLOQUES = ENTORNOS + ("clase",)
+RE_ABRE = re.compile(r"^<!-- (%s) -->[ \t]*$" % "|".join(BLOQUES), re.M)
+RE_FECHA = re.compile(r"\d{1,2}\s*(?:de\s+)?[A-Za-zÁÉÍÓÚáéíóú]{3,10}\.?(?:\s+(?:de\s+)?\d{4})?|\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?")
+
+
+def clases(cuerpo):
+    """Los titulos de las clases (la linea que sigue a cada <!-- clase -->), sin negritas ni dos puntos."""
+    out = []
+    lineas = (cuerpo or "").split("\n")
+    for i, l in enumerate(lineas):
+        if l.strip() == "<!-- clase -->":
+            sig = next((x for x in lineas[i + 1:] if x.strip()), "")
+            out.append(_titulo_clase(sig))
+    return out
+
+
+def _titulo_clase(linea):
+    linea = re.sub(r"^[ \t]*#+[ \t]*", "", linea).replace("**", "")
+    return " ".join(linea.split()).rstrip(" :.")
 RE_CIERRA = re.compile(r"^<!-- fin -->[ \t]*$", re.M)
 _A, _Z = "\ue00c{}\ue00d", "\ue00e\ue00f"
 _RE_AZ = re.compile("\ue00c([a-z]+)\\|(\\d*)\ue00d\\n*|\\n*\ue00e\ue00f")
@@ -366,7 +428,8 @@ _RE_ETIQUETA = re.compile(
 def _estructura(t, nombres):
     """Las marcas de bloque del markdown, cambiadas por marcadores privados en su propio parrafo; la
     etiqueta manuscrita del principio del bloque se quita (el entorno pone la suya) y su nombre
-    entre parentesis, si lo trae, se guarda en `nombres` para el argumento opcional."""
+    entre parentesis, si lo trae, se guarda en `nombres` para el argumento opcional. De una
+    <!-- clase --> se guarda la linea entera: sera el titulo de la seccion."""
     lineas, out, i = t.split("\n"), [], 0
     while i < len(lineas):
         m = RE_ABRE.match(lineas[i])
@@ -378,12 +441,15 @@ def _estructura(t, nombres):
         while j < len(lineas) and not lineas[j].strip():
             j += 1
         nombre = ""
-        if j < len(lineas):
-            e = _RE_ETIQUETA.match(lineas[j])
-            if e:
-                partes = [e.group("num"), e.group("de"), e.group("n1"), e.group("n2")]
-                nombre = ", ".join(p.strip() for p in partes if p and p.strip())
-                lineas[j] = lineas[j][e.end():]
+        if j < len(lineas) and not RE_ABRE.match(lineas[j]) and not RE_CIERRA.match(lineas[j]):
+            if m.group(1) == "clase":
+                nombre, lineas[j] = _titulo_clase(lineas[j]), ""
+            elif m.group(1) != "comentario":
+                e = _RE_ETIQUETA.match(lineas[j])
+                if e:
+                    partes = [e.group("num"), e.group("de"), e.group("n1"), e.group("n2")]
+                    nombre = ", ".join(p.strip() for p in partes if p and p.strip())
+                    lineas[j] = lineas[j][e.end():]
         nombres.append(nombre)
         out.append("\n\n" + _A.format(m.group(1) + "|" + str(len(nombres) - 1)) + "\n\n")
         i += 1
@@ -395,50 +461,60 @@ _RE_ANIDA = re.compile(r"\\(begin|end)\{(itemize|enumerate|quote|center|tabular|
 
 def _entornos(tex, nombres):
     """Los marcadores de bloque, cambiados por \\begin{teorema}[nombre] ... \\end{teorema}. Un bloque sin
-    cerrar se cierra donde empieza el siguiente o al final. Si dentro de un bloque no casan las listas
-    (la marca cayo dentro de una), ese bloque se deja sin entorno, con su etiqueta en negrita."""
+    cerrar se cierra donde empieza el siguiente o al final. Un comentario puede ir dentro de otro
+    bloque (una nota al margen en mitad de una demostracion) sin cerrarlo. Una clase abre seccion.
+    Si dentro de un bloque no casan las listas (la marca cayo dentro de una), ese bloque se deja
+    sin entorno, con su etiqueta en negrita."""
     trozos, pos = [], 0
     for m in _RE_AZ.finditer(tex):
         trozos.append(("texto", tex[pos:m.start()]))
         trozos.append(("abre", m.group(1), m.group(2)) if m.group(1) else ("cierra",))
         pos = m.end()
     trozos.append(("texto", tex[pos:]))
-    out, abierto, desde = [], None, 0
+    out, pila = [], []                                 # pila: [tipo, nombre, indice en out]
+    titulos = {"proposicion": "Proposición", "definicion": "Definición", "observacion": "Observación",
+               "notacion": "Notación", "demostracion": "Demostración"}
 
     def cierra():
-        nonlocal abierto
-        if abierto is None:
-            return
+        tipo, nombre, desde = pila.pop()
         dentro = "".join(out[desde + 1:])
         saldo = sum(1 if x.group(1) == "begin" else -1 for x in _RE_ANIDA.finditer(dentro))
-        tipo, nombre = abierto
         if saldo:                                      # no casa: sin entorno
-            titulo = {"proposicion": "Proposición", "definicion": "Definición", "observacion": "Observación",
-                      "notacion": "Notación", "demostracion": "Demostración"}.get(tipo, tipo.capitalize())
-            out[desde] = "\\noindent\\textbf{" + titulo + (" (" + nombre + ")" if nombre else "") + ".} "
+            out[desde] = ("\\noindent\\textbf{" + titulos.get(tipo, tipo.capitalize())
+                          + (" (" + nombre + ")" if nombre else "") + ".} ")
+            return
+        if tipo == "demostracion":
+            out[desde] = "\\begin{demostracion}" + ("[ (" + nombre + ")]" if nombre else "") + "\n"
+            out[-1] = re.sub(r"\s*(?:\$\s*)?\\(?:blacksquare|square|Box|qed)\b(?:\s*\$)?\s*$", "", out[-1])
         else:
-            if tipo == "demostracion":
-                out[desde] = "\\begin{demostracion}" + ("[ (" + nombre + ")]" if nombre else "") + "\n"
-                out[-1] = re.sub(r"\s*(?:\$\s*)?\\(?:blacksquare|square|Box|qed)\b(?:\s*\$)?\s*$", "", out[-1])
-            else:
-                out[desde] = "\\begin{" + tipo + "}" + ("[{" + nombre + "}]" if nombre else "") + "\n"
-            out[-1] = out[-1].rstrip("\n")
-            out.append("\n\\end{" + tipo + "}\n\n")
-        abierto = None
+            out[desde] = "\\begin{" + tipo + "}" + ("[{" + nombre + "}]" if nombre else "") + "\n"
+        out[-1] = out[-1].rstrip("\n")
+        out.append("\n\\end{" + tipo + "}\n\n")
 
     for tz in trozos:
         if tz[0] == "texto":
             out.append(tz[1])
         elif tz[0] == "abre":
-            cierra()
-            abierto, desde = (tz[1], _titulo(nombres[int(tz[2])]) if tz[2] else ""), len(out)
-            out.append("")
-        else:
-            if abierto is not None:
-                cierra()
+            tipo, nombre = tz[1], (_titulo(nombres[int(tz[2])]) if tz[2] else "")
+            if tipo == "clase":
+                while pila:
+                    cierra()
+                out.append("\\section{" + (nombre or "Clase") + "}\n\n")
+                continue
+            if tipo == "comentario":
+                if pila and pila[-1][0] == "comentario":
+                    cierra()
             else:
-                out.append("\n\n")
-    cierra()
+                while pila:
+                    cierra()
+            pila.append([tipo, nombre, len(out)])
+            out.append("")
+        elif pila:
+            cierra()
+        else:
+            out.append("\n\n")
+    while pila:
+        cierra()
     return "".join(out)
 
 
@@ -469,7 +545,7 @@ def cuerpo_latex(cuerpo):
         return _M.format(len(marcas) - 1)
 
     t = RE_MARCA.sub(guarda_marca, RE_MATH.sub(guarda_formula, t))
-    tex = _bloques(md.parse(t))
+    tex = _bloques(md.parse(t), bajo_clase=bool(clases(cuerpo)))
 
     # Primero las marcas y despues las formulas: una marca puede llevar formulas dentro
     # ([FIGURA: sector $S_\gamma$]) y su marcador tiene que seguir ahi cuando se repongan.
@@ -526,11 +602,13 @@ def _huella(resto):
     return hashlib.sha1(resto.encode("utf-8")).hexdigest()[:16]
 
 
-def documento(cuerpo, nombre="", estado="sin_revisar", fecha=None, preambulo=None):
-    """El .tex completo de una transcripcion. La primera linea lleva la huella del resto.
-    preambulo: el tuyo (transcripciones/preambulo.tex) en vez del de aqui; tiene que definir los
-    entornos teorema, lema, ..., demostracion y el comando \\duda."""
+def documento(cuerpo, nombre="", estado="sin_revisar", fecha=None, preambulo=None, meta=None):
+    """El .tex completo de una transcripcion: portada, indice y cuerpo. La primera linea lleva la
+    huella del resto. preambulo: el tuyo (transcripciones/preambulo.tex) en vez del de aqui; tiene
+    que definir los entornos teorema, lema, ..., demostracion, comentario y el comando \\duda.
+    meta: la cabecera del .md (tipo, autor, profesor, asignatura, fecha) para la portada."""
     tex, titulo = cuerpo_latex(cuerpo)
+    meta = dict(meta or {}, estado=estado)
     fecha = fecha or datetime.date.today().isoformat()
     resto = (f"% Exportado de transcripciones/{nombre}.md el {fecha} (estado: {estado}).\n"
              "% La fuente es el .md: lo que corrijas aqui no vuelve al .md ni al indice.\n"
@@ -539,7 +617,7 @@ def documento(cuerpo, nombre="", estado="sin_revisar", fecha=None, preambulo=Non
              + _declaraciones(titulo + tex)
              + (f"\\title{{{titulo}}}\n\\date{{}}\n" if titulo else "")
              + "\\begin{document}\n"
-             + ("\\maketitle\n\n" if titulo else "\n")
+             + (_portada(titulo, meta, cuerpo) + "\n" if titulo else "\n")
              + tex
              + "\\end{document}\n")
     return f"% huella: {_huella(resto)}\n" + resto

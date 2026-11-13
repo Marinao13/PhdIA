@@ -44,7 +44,7 @@ def test_una_frase_que_sigue_en_la_pagina_siguiente_no_se_parte():
     tex, _ = L.cuerpo_latex(md)
     assert "solo depende de\n% ---------- pagina 3 ----------\n$\\mathbb{M}$ y de" in tex
     # tras un punto, o antes de un titulo, la marca sigue separando parrafos
-    assert "h(b|z|)$.\n\n% ---------- pagina 4 ----------\n\n\\section*{Otro tema}" in tex
+    assert "h(b|z|)$.\n\n% ---------- pagina 4 ----------\n\n\\section{Otro tema}" in tex
 
 
 def test_el_prompt_pide_un_parrafo_por_apartado_y_sabe_de_hojas_dobles():

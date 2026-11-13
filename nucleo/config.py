@@ -35,6 +35,9 @@ MODELO = os.environ.get("DOC_MODELO") or _MODELOS[PROVEEDOR]
 
 SIMULAR = os.environ.get("DOC_SIMULAR", "") not in ("", "0", "false")
 
+# el autor que va en la portada de lo que se exporta a .tex (una linea `autor:` en la cabecera del .md manda)
+AUTOR = os.environ.get("DOC_AUTOR") or "Mariano San José Gómez"
+
 MAX_TOKENS_CHAT = 1500
 MAX_TOKENS_JSON = 4000
 MAX_TOKENS_DIAGNOSTICO = 6000

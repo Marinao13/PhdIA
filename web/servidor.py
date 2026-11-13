@@ -504,7 +504,9 @@ def transcripcion_tex(nombre: str):
     """El .tex del texto tal como esta ahora, para descargar. Se genera al vuelo: no escribe nada."""
     from nucleo import a_latex as L
     t = _transcripcion(nombre)
-    tex = L.documento(t["cuerpo"], nombre=t["nombre"], estado=t.get("estado", "sin_revisar"))
+    tex = L.documento(t["cuerpo"], nombre=t["nombre"], estado=t.get("estado", "sin_revisar"),
+                      meta=dict(tipo=t.get("tipo"), fecha=t.get("fecha"), autor=t.get("autor") or C.AUTOR,
+                                profesor=t.get("profesor"), asignatura=t.get("asignatura")))
     return Response(tex.encode("utf-8"), media_type="application/x-tex; charset=utf-8",
                     headers={"Content-Disposition": f'attachment; filename="{t["nombre"]}.tex"'})
 

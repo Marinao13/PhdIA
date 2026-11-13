@@ -565,7 +565,8 @@ def cmd_transcribir(args):
             M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
             return
         try:
-            r = T.estructura(args.estructura, progreso=lambda s: print("  " + s))
+            r = T.estructura(args.estructura, progreso=lambda s: print("  " + s),
+                             rehacer=getattr(args, "rehacer", False))
         except M.MotorApagado as e:
             M.aviso("MOTOR APAGADO: " + str(e))
             return
@@ -573,7 +574,7 @@ def cmd_transcribir(args):
             print(f"no existe transcripciones/{args.estructura}.md  (python doc.py transcribir --lista)")
             return
         eur = T.coste_eur(r["coste"])
-        print(f"{r['bloques']} enunciados y demostraciones marcados"
+        print(f"{r['bloques']} bloques marcados (enunciados, demostraciones, comentarios, clases)"
               + (f" (paginas {','.join(str(n) for n in r['paginas'])})" if r["paginas"] else "")
               + (f"; ~{eur} EUR" if eur else ""))
         if r["paginas"]:

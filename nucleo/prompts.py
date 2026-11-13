@@ -263,8 +263,12 @@ TRANSCRIBIR = """MODO_TRANSCRIBIR. Te paso la imagen de UNA pagina de apuntes de
    escribe <!-- teorema --> (el tipo que sea, en minusculas y sin acentos); antes de una
    demostracion, <!-- demostracion -->. Y en una linea propia justo DESPUES de donde acaba ese
    enunciado o esa demostracion, <!-- fin -->. La etiqueta manuscrita ("Teorema (Pringsheim):",
-   "Dem.") se copia igual, dentro. Lo que es comentario entre enunciados queda fuera. Si la
-   pagina se acaba sin que termine, no pongas <!-- fin -->.
+   "Dem.") se copia igual, dentro. Si la pagina se acaba sin que termine, no pongas <!-- fin -->.
+   Dos marcas mas, igual: <!-- clase --> antes de la linea que da la fecha de una clase o sesion
+   ("30 sep, clase de Javi") y <!-- fin --> detras de esa linea; y <!-- comentario --> ...
+   <!-- fin --> alrededor de lo que no es desarrollo sino comentario: algo dicho de palabra por
+   el profesor, una nota al margen o en otro color, una reflexion o un aviso propio ("no lo
+   demostramos", "ojo", "esto se usara luego"). Un comentario puede ir dentro de otro bloque.
 7. El texto, en el idioma en que este escrito. Sin preambulo ni cierre: solo la transcripcion.
 """
 
@@ -276,16 +280,25 @@ Una linea por bloque, asi:   a-b: tipo
 donde a es el parrafo en que empieza (el de su etiqueta: "Teorema", "Lema", "Dem."...), b el
 ultimo parrafo que forma parte de ese enunciado o de esa demostracion, y tipo es uno de:
 teorema, lema, proposicion, corolario, definicion, observacion, ejemplo, notacion, nota,
-demostracion.
+demostracion, comentario, clase.
 
 - Un enunciado incluye sus formulas y sus apartados; acaba donde empieza su demostracion, otro
-  enunciado o un comentario suelto. El comentario entre enunciados no va en ningun bloque.
+  enunciado o un comentario suelto.
+- clase: el parrafo (uno solo) que da la fecha de una clase o sesion ("30 sep clases de Javi",
+  "21 Oct / Clase Javi").
+- comentario: lo que no es desarrollo sino comentario: algo dicho de palabra por el profesor
+  ("Javi: voy a dar una idea"), una nota al margen, una reflexion o un aviso propio ("No lo
+  demostramos, se usa...", "ojo", "esto es para el de antes"). El texto corriente que hila el
+  desarrollo entre enunciados NO es comentario y no va en ningun bloque. Un comentario SI puede
+  ir dentro de otro bloque (una nota en mitad de una demostracion): su linea va aparte, despues
+  de la del bloque que lo contiene.
+- Los parrafos que traen "(ya marcado: tipo)" ya estan en un bloque: no los pongas otra vez.
 - Una demostracion acaba donde acaba el argumento. Si llega al final de la pagina sin terminar,
   anade " sigue" a su linea:   a-b: demostracion sigue
 - Si se te dice que la pagina anterior termino dentro de un bloque y esta pagina empieza
   continuandolo, la primera linea es:   1-b: sigue
-- Los bloques no se solapan y van en orden. Un titulo de seccion no es un bloque. Las figuras
-  y sus pies van dentro del bloque al que pertenecen.
+- Salvo los comentarios, los bloques no se solapan y van en orden. Un titulo de seccion no es un
+  bloque. Las figuras y sus pies van dentro del bloque al que pertenecen.
 - Si en la pagina no hay ningun bloque, responde: nada
 """
 

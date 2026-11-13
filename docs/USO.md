@@ -135,7 +135,8 @@ python doc.py transcribir --lista       que hay transcrito y que sigue sin revis
 python doc.py transcribir --revisado NOMBRE   la has comparado con el original: entra en el indice (tras indexar)
 python doc.py transcribir --tex NOMBRE  rehace transcripciones/NOMBRE.tex desde el .md de ahora (--pisar si lo editaste a mano)
 python doc.py transcribir --figuras NOMBRE   en una transcripcion ya hecha: localiza sus [FIGURA: ...] y las recorta del original
-python doc.py transcribir --estructura NOMBRE   en una ya hecha: marca enunciados y demostraciones para los entornos del .tex (formato del TFM)
+python doc.py transcribir --estructura NOMBRE   en una ya hecha: marca enunciados, demostraciones, comentarios y clases para el .tex
+        (formato del TFM, con portada e indice; --rehacer quita las marcas y empieza de cero; profesor: y asignatura: en la cabecera del .md)
 python doc.py lab "especificacion"      la IA escribe el script contra lab/pesos.py; mpmath juzga
 python doc.py lab demo                  los 4 casos del BRIEF (Euler+Borel, Catalan, raiz simple, raiz multiple) con graficos en lab/salidas/
 ```
