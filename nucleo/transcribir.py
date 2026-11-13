@@ -7,6 +7,7 @@ Pasar a limpio lo escrito a mano (o una foto, o un PDF): transcripcion a markdow
     python doc.py transcribir --revisado NOMBRE
     python doc.py transcribir --tex NOMBRE [--pisar]
     python doc.py transcribir --figuras NOMBRE
+    python doc.py transcribir --estructura NOMBRE
 
 Dos motores:
     modelo   el modelo con vision, por motor.llamar: puerta de fases, coste registrado. Defecto.
@@ -244,7 +245,9 @@ def exportar_tex(nombre, pisar=False):
         from . import a_latex as L
         if os.path.exists(ruta) and not pisar and not L.intacto(C.leer(ruta)):
             return ruta, "tuyo"
-        C.escribir(ruta, L.documento(t["cuerpo"], nombre=t["nombre"], estado=t.get("estado", "sin_revisar")))
+        propio = os.path.join(_dir()[0], "preambulo.tex")      # tu preambulo, si lo dejas ahi
+        C.escribir(ruta, L.documento(t["cuerpo"], nombre=t["nombre"], estado=t.get("estado", "sin_revisar"),
+                                     preambulo=C.leer(propio) if os.path.exists(propio) else None))
         return ruta, "escrito"
     except Exception:
         return ruta, "fallo"
@@ -380,6 +383,77 @@ def figuras(nombre, progreso=None):
     return dict(hechas=hechas, pendientes=pendientes, paginas=tocadas, coste=coste)
 
 
+# ----------------------------------------------------------------------
+# estructura: que parrafos son cada enunciado y cada demostracion (para los entornos del .tex)
+# ----------------------------------------------------------------------
+
+TIPOS_BLOQUE = ("teorema", "lema", "proposicion", "corolario", "definicion", "observacion", "ejemplo",
+                "notacion", "nota", "demostracion")
+RE_BLOQUE = re.compile(r"^<!-- (?:%s|fin) -->[ \t]*$" % "|".join(TIPOS_BLOQUE), re.M)
+
+
+def estructura(nombre, progreso=None):
+    """Para una transcripcion YA hecha: marca en el .md donde empieza y acaba cada enunciado y cada
+    demostracion (lineas <!-- teorema --> ... <!-- fin -->), preguntando al modelo por parrafos
+    numerados (una llamada de texto por pagina; respeta las fases). No cambia ni una palabra del
+    texto: solo anade esas lineas. Las paginas que ya traen marcas se dejan.
+    Devuelve dict(bloques, paginas, coste), o None si no existe."""
+    from . import motor as M
+    from . import prompts as P
+    t = leer(nombre)
+    if not t:
+        return None
+    bloques, tocadas, abierto = 0, [], False
+    coste = dict(tokens_in=0, tokens_out=0, tokens_cache=0, segundos=0.0, modelo=None)
+    for n, texto in paginas(t["cuerpo"])[1]:
+        if RE_BLOQUE.search(texto):                    # ya marcada (por el modelo al transcribir, o a mano)
+            abierto = bool(re.search(r"<!-- (?:%s) -->(?![\s\S]*<!-- fin -->)" % "|".join(TIPOS_BLOQUE), texto))
+            continue
+        parrafos = [p for p in re.split(r"\n\s*\n", texto) if p.strip()]
+        if not parrafos:
+            continue
+        if progreso:
+            progreso(f"pagina {n}: {len(parrafos)} parrafos...")
+        lista = "\n\n".join(f"[{i + 1}] {p.strip()[:500]}" for i, p in enumerate(parrafos))
+        aviso = ("La pagina anterior termino dentro de un bloque sin cerrar.\n\n" if abierto else "")
+        r = M.llamar("transcribir", P.ESTRUCTURA, [{"role": "user", "content": aviso + lista}],
+                     modelo=C.MODELO, contexto=False, max_tokens=3000)
+        u = dict(M.ULTIMA)
+        for k in ("tokens_in", "tokens_out", "tokens_cache"):
+            coste[k] += u.get(k) or 0
+        coste["segundos"] += u.get("segundos") or 0
+        coste["modelo"] = u.get("modelo")
+        antes, despues, ultimo, abierto_ahora = {}, {}, 0, False
+        for m in re.finditer(r"^\s*(\d+)(?:\s*-\s*(\d+))?\s*:\s*([a-z]+)(\s+sigue)?\s*$", r, re.M):
+            a, b, tipo = int(m.group(1)), int(m.group(2) or m.group(1)), m.group(3)
+            if not (ultimo < a <= b <= len(parrafos)):
+                continue                               # solapado, desordenado o fuera de la pagina
+            if tipo == "sigue":
+                if a == 1 and abierto:
+                    despues[b] = True
+                    ultimo = b
+                continue
+            if tipo not in TIPOS_BLOQUE:
+                continue
+            antes[a] = tipo
+            ultimo = b
+            if m.group(4) and b == len(parrafos):
+                abierto_ahora = True                   # sigue en la pagina siguiente: sin <!-- fin -->
+            else:
+                despues[b] = True
+            bloques += 1
+        abierto = abierto_ahora
+        if not antes and not despues:
+            continue
+        nuevo = "\n\n".join((f"<!-- {antes[i + 1]} -->\n" if i + 1 in antes else "") + p.strip("\n")
+                             + ("\n<!-- fin -->" if i + 1 in despues else "") for i, p in enumerate(parrafos))
+        if guardar_pagina(t["nombre"], n, nuevo):
+            tocadas.append(n)
+    if tocadas:
+        exportar_tex(t["nombre"])
+    return dict(bloques=bloques, paginas=tocadas, coste=coste)
+
+
 def dudas(cuerpo):
     """(ilegibles, dudosos): cuantas marcas [ILEGIBLE] y [?] quedan."""
     return len(re.findall(r"\[ILEGIBLE\]", cuerpo)), len(re.findall(r"\[\?\]", cuerpo))
@@ -431,7 +505,8 @@ def unidades(cuerpo):
     for pagina, texto in pares:
         for p in re.split(r"\n\s*\n", texto):
             p = p.strip()
-            p = RE_IMAGEN.sub("", p).strip()            # la imagen no es texto: queda su pie
+            p = RE_IMAGEN.sub("", p)                    # la imagen no es texto: queda su pie
+            p = RE_BLOQUE.sub("", p).strip()           # ni las marcas de enunciado y demostracion
             if not p or p.startswith(AVISO) or p.startswith("<!--"):
                 continue
             if p.startswith("#"):                      # "## Teorema 2\nSea M..." sin linea en blanco:

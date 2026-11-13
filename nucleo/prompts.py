@@ -258,7 +258,35 @@ TRANSCRIBIR = """MODO_TRANSCRIBIR. Te paso la imagen de UNA pagina de apuntes de
 5. Si la imagen trae dos paginas de cuaderno lado a lado, primero la izquierda entera y despues
    la derecha entera. Lo que se transparenta del reverso de la hoja (texto tenue, al reves) no
    se transcribe. Una nota al margen o en otro color, en su propio parrafo, donde apunta.
-6. El texto, en el idioma en que este escrito. Sin preambulo ni cierre: solo la transcripcion.
+6. Enunciados y demostraciones, delimitados. En una linea propia justo ANTES de donde empieza
+   un teorema, lema, proposicion, corolario, definicion, observacion, ejemplo, notacion o nota,
+   escribe <!-- teorema --> (el tipo que sea, en minusculas y sin acentos); antes de una
+   demostracion, <!-- demostracion -->. Y en una linea propia justo DESPUES de donde acaba ese
+   enunciado o esa demostracion, <!-- fin -->. La etiqueta manuscrita ("Teorema (Pringsheim):",
+   "Dem.") se copia igual, dentro. Lo que es comentario entre enunciados queda fuera. Si la
+   pagina se acaba sin que termine, no pongas <!-- fin -->.
+7. El texto, en el idioma en que este escrito. Sin preambulo ni cierre: solo la transcripcion.
+"""
+
+ESTRUCTURA = """MODO_ESTRUCTURA. Te paso los parrafos numerados de una pagina de apuntes de
+matematicas ya transcritos. Di que parrafos forman cada enunciado y cada demostracion. No
+reescribas nada: solo numeros.
+
+Una linea por bloque, asi:   a-b: tipo
+donde a es el parrafo en que empieza (el de su etiqueta: "Teorema", "Lema", "Dem."...), b el
+ultimo parrafo que forma parte de ese enunciado o de esa demostracion, y tipo es uno de:
+teorema, lema, proposicion, corolario, definicion, observacion, ejemplo, notacion, nota,
+demostracion.
+
+- Un enunciado incluye sus formulas y sus apartados; acaba donde empieza su demostracion, otro
+  enunciado o un comentario suelto. El comentario entre enunciados no va en ningun bloque.
+- Una demostracion acaba donde acaba el argumento. Si llega al final de la pagina sin terminar,
+  anade " sigue" a su linea:   a-b: demostracion sigue
+- Si se te dice que la pagina anterior termino dentro de un bloque y esta pagina empieza
+  continuandolo, la primera linea es:   1-b: sigue
+- Los bloques no se solapan y van en orden. Un titulo de seccion no es un bloque. Las figuras
+  y sus pies van dentro del bloque al que pertenecen.
+- Si en la pagina no hay ningun bloque, responde: nada
 """
 
 FIGURAS = """MODO_FIGURAS. Te paso la imagen de una pagina de apuntes manuscritos y la lista de los

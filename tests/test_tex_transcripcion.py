@@ -67,18 +67,18 @@ def test_al_revisar_se_rehace_el_tex_con_el_texto_corregido(repo):
 
 def test_un_tex_editado_a_mano_no_se_pisa(repo, capsys):
     r = T.transcribir(_pdf(repo / "a.pdf"), titulo="Tema 1")
-    mio = _lee(r["tex"]).replace("\\begin{document}", "\\newtheorem{teorema}{Teorema}\n\\begin{document}")
+    mio = _lee(r["tex"]).replace("\\begin{document}", "\\newcommand{\\mia}{cosa mia}\n\\begin{document}")
     open(r["tex"], "w", encoding="utf-8", newline="\r\n").write(mio)      # editado, y con saltos de Windows
     T.marcar_revisado(r["nombre"])
-    assert "\\newtheorem{teorema}{Teorema}" in _lee(r["tex"])
+    assert "\\newcommand{\\mia}{cosa mia}" in _lee(r["tex"])
     assert T.exportar_tex(r["nombre"]) == (r["tex"], "tuyo")
     K.cmd_transcribir(_args(tex=r["nombre"]))
     salida = capsys.readouterr().out
     assert "tiene cambios tuyos" in salida and "--pisar" in salida
-    assert "\\newtheorem{teorema}{Teorema}" in _lee(r["tex"])
+    assert "\\newcommand{\\mia}{cosa mia}" in _lee(r["tex"])
     K.cmd_transcribir(_args(tex=r["nombre"], pisar=True))
     assert "exportado del .md" in capsys.readouterr().out
-    assert "\\newtheorem" not in _lee(r["tex"]) and "estado: revisado" in _lee(r["tex"])
+    assert "cosa mia" not in _lee(r["tex"]) and "estado: revisado" in _lee(r["tex"])
 
 
 def test_solo_cambiar_los_saltos_de_linea_no_cuenta_como_edicion(repo):

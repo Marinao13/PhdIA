@@ -53,7 +53,7 @@ _SIMBOLOS = {
     "→": r"\to", "←": r"\leftarrow", "↔": r"\leftrightarrow", "↦": r"\mapsto", "↑": r"\uparrow", "↓": r"\downarrow",
     "⇒": r"\Rightarrow", "⇐": r"\Leftarrow", "⇔": r"\Leftrightarrow",
     "⟶": r"\longrightarrow", "⟵": r"\longleftarrow", "⟹": r"\Longrightarrow", "⟸": r"\Longleftarrow",
-    "⟺": r"\Longleftrightarrow", "⟼": r"\longmapsto", "↗": r"\nearrow", "↘": r"\searrow", "↪": r"\hookrightarrow",
+    "⟺": r"\Longleftrightarrow", "⟼": r"\longmapsto", "↗": r"\nearrow", "↘": r"\searrow", "↙": r"\swarrow", "↖": r"\nwarrow", "↪": r"\hookrightarrow",
     "∈": r"\in", "∉": r"\notin", "∋": r"\ni", "⊂": r"\subset", "⊆": r"\subseteq", "⊃": r"\supset", "⊇": r"\supseteq",
     "∪": r"\cup", "∩": r"\cap", "∖": r"\setminus", "∅": r"\emptyset", "∞": r"\infty",
     "∑": r"\sum", "∏": r"\prod", "∫": r"\int", "∮": r"\oint", "∂": r"\partial", "∇": r"\nabla",
@@ -311,11 +311,27 @@ def _bloques(tokens):
 
 # es-noshorthands: sin el, babel en espanol hace activa la comilla " ("c es una cedilla), ~, < y >;
 # es-nodecimaldot: sin el, cambia 2.1 por 2,1 en las formulas.
-PREAMBULO = r"""\documentclass[11pt,a4paper]{article}
+# El formato sigue el TFM de Mariano (visto en su PDF el 2026-11-13): 12 pt, A4, margenes de la
+# clase; enunciados con la etiqueta en negrita, numeracion corrida y comun a todos, cuerpo en
+# redonda; "Demostracion:" en negrita y cuadrado negro al final.
+PREAMBULO = r"""\documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish,es-noshorthands,es-nodecimaldot]{babel}
 \usepackage{amsmath,amssymb,amsthm}
+\newtheoremstyle{tfm}{\topsep}{\topsep}{\normalfont}{}{\bfseries}{.}{ }{}
+\theoremstyle{tfm}
+\newtheorem{teorema}{Teorema}
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicion}[teorema]{Proposición}
+\newtheorem{corolario}[teorema]{Corolario}
+\newtheorem{definicion}[teorema]{Definición}
+\newtheorem{observacion}[teorema]{Observación}
+\newtheorem{ejemplo}[teorema]{Ejemplo}
+\newtheorem{notacion}[teorema]{Notación}
+\newtheorem{nota}[teorema]{Nota}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newenvironment{demostracion}[1][]{\begin{proof}[{\normalfont\bfseries Demostración#1:}]}{\end{proof}}
 \usepackage{mathtools,mathrsfs,bm}  % \coloneqq y dcases, \mathscr, \bm: la web (KaTeX) los pinta sin mas
 \providecommand{\degree}{^{\circ}}
 \usepackage{graphicx}                % las figuras recortadas del original (transcripciones/figuras/)
@@ -323,6 +339,107 @@ PREAMBULO = r"""\documentclass[11pt,a4paper]{article}
 % las marcas de la transcripcion ([ILEGIBLE], [?]) salen en rojo: cuando no quede ninguna, sobra
 \newcommand{\duda}[1]{\textcolor{red}{\textbf{#1}}}
 """
+
+
+# ----------------------------------------------------------------------
+# enunciados y demostraciones: en el .md van entre una linea <!-- teorema --> (o lema, proposicion,
+# corolario, definicion, observacion, ejemplo, notacion, nota, demostracion) y una linea <!-- fin -->
+# ----------------------------------------------------------------------
+
+ENTORNOS = ("teorema", "lema", "proposicion", "corolario", "definicion", "observacion", "ejemplo",
+            "notacion", "nota", "demostracion")
+RE_ABRE = re.compile(r"^<!-- (%s) -->[ \t]*$" % "|".join(ENTORNOS), re.M)
+RE_CIERRA = re.compile(r"^<!-- fin -->[ \t]*$", re.M)
+_A, _Z = "\ue00c{}\ue00d", "\ue00e\ue00f"
+_RE_AZ = re.compile("\ue00c([a-z]+)\\|(\\d*)\ue00d\\n*|\\n*\ue00e\ue00f")
+_PALABRA = (r"Teoremas?|Lemas?|Proposici[oó]n(?:es)?|Prop\.?|Corolarios?|Definici[oó]n(?:es)?|Def\.?|"
+            r"Observaci[oó]n(?:es)?|Obs\.?|Ejemplos?|Ejs?\.?|Notaci[oó]n(?:es)?|Notas?|Demostraci[oó]n|Dem\.?|Th\.?|Tma\.?")
+# la etiqueta manuscrita con la que empieza el bloque: "**Teorema (Pringsheim):**", "Dem:", "## **Teorema de Borel**"
+_RE_ETIQUETA = re.compile(
+    r"^[ \t]*(?:#+[ \t]*)?(?P<b>\*\*)?(?:" + _PALABRA + r")(?=[\s:.*(]|$)"
+    r"(?:[ \t]+(?P<num>\d+(?:\.\d+)*))?\.?"
+    r"(?:[ \t]+de[ \t]+(?P<de>[^*:\n]+?))?"
+    r"(?:[ \t]*\((?P<n1>(?:[^()\n]|\([^()\n]*\))*)\))?[ \t]*[:.]?[ \t]*(?(b)\*\*)[ \t]*"
+    r"(?:\((?P<n2>(?:[^()$\n]|\([^()\n]*\))*)\)[ \t]*(?=[:.]))?[:.]?[ \t]*")
+
+
+def _estructura(t, nombres):
+    """Las marcas de bloque del markdown, cambiadas por marcadores privados en su propio parrafo; la
+    etiqueta manuscrita del principio del bloque se quita (el entorno pone la suya) y su nombre
+    entre parentesis, si lo trae, se guarda en `nombres` para el argumento opcional."""
+    lineas, out, i = t.split("\n"), [], 0
+    while i < len(lineas):
+        m = RE_ABRE.match(lineas[i])
+        if not m:
+            out.append("\n\n" + _Z + "\n\n" if RE_CIERRA.match(lineas[i]) else lineas[i])
+            i += 1
+            continue
+        j = i + 1
+        while j < len(lineas) and not lineas[j].strip():
+            j += 1
+        nombre = ""
+        if j < len(lineas):
+            e = _RE_ETIQUETA.match(lineas[j])
+            if e:
+                partes = [e.group("num"), e.group("de"), e.group("n1"), e.group("n2")]
+                nombre = ", ".join(p.strip() for p in partes if p and p.strip())
+                lineas[j] = lineas[j][e.end():]
+        nombres.append(nombre)
+        out.append("\n\n" + _A.format(m.group(1) + "|" + str(len(nombres) - 1)) + "\n\n")
+        i += 1
+    return "\n".join(out)
+
+
+_RE_ANIDA = re.compile(r"\\(begin|end)\{(itemize|enumerate|quote|center|tabular|verbatim)\}")
+
+
+def _entornos(tex, nombres):
+    """Los marcadores de bloque, cambiados por \\begin{teorema}[nombre] ... \\end{teorema}. Un bloque sin
+    cerrar se cierra donde empieza el siguiente o al final. Si dentro de un bloque no casan las listas
+    (la marca cayo dentro de una), ese bloque se deja sin entorno, con su etiqueta en negrita."""
+    trozos, pos = [], 0
+    for m in _RE_AZ.finditer(tex):
+        trozos.append(("texto", tex[pos:m.start()]))
+        trozos.append(("abre", m.group(1), m.group(2)) if m.group(1) else ("cierra",))
+        pos = m.end()
+    trozos.append(("texto", tex[pos:]))
+    out, abierto, desde = [], None, 0
+
+    def cierra():
+        nonlocal abierto
+        if abierto is None:
+            return
+        dentro = "".join(out[desde + 1:])
+        saldo = sum(1 if x.group(1) == "begin" else -1 for x in _RE_ANIDA.finditer(dentro))
+        tipo, nombre = abierto
+        if saldo:                                      # no casa: sin entorno
+            titulo = {"proposicion": "Proposición", "definicion": "Definición", "observacion": "Observación",
+                      "notacion": "Notación", "demostracion": "Demostración"}.get(tipo, tipo.capitalize())
+            out[desde] = "\\noindent\\textbf{" + titulo + (" (" + nombre + ")" if nombre else "") + ".} "
+        else:
+            if tipo == "demostracion":
+                out[desde] = "\\begin{demostracion}" + ("[ (" + nombre + ")]" if nombre else "") + "\n"
+                out[-1] = re.sub(r"\s*(?:\$\s*)?\\(?:blacksquare|square|Box|qed)\b(?:\s*\$)?\s*$", "", out[-1])
+            else:
+                out[desde] = "\\begin{" + tipo + "}" + ("[{" + nombre + "}]" if nombre else "") + "\n"
+            out[-1] = out[-1].rstrip("\n")
+            out.append("\n\\end{" + tipo + "}\n\n")
+        abierto = None
+
+    for tz in trozos:
+        if tz[0] == "texto":
+            out.append(tz[1])
+        elif tz[0] == "abre":
+            cierra()
+            abierto, desde = (tz[1], _titulo(nombres[int(tz[2])]) if tz[2] else ""), len(out)
+            out.append("")
+        else:
+            if abierto is not None:
+                cierra()
+            else:
+                out.append("\n\n")
+    cierra()
+    return "".join(out)
 
 
 def cuerpo_latex(cuerpo):
@@ -337,6 +454,8 @@ def cuerpo_latex(cuerpo):
     if m and not RE_PAGINA.search(t[:m.start()]):
         titulo, t = m.group(1).strip(), t[m.end():]
     t = RE_PAGINA.sub(lambda m: "\n\n" + _P.format(m.group(1)) + "\n\n", t)
+    nombres = []
+    t = _estructura(t, nombres)
     t = re.sub(r"<!--.*?-->", "", t, flags=re.S)
 
     formulas, marcas = [], []
@@ -377,7 +496,8 @@ def cuerpo_latex(cuerpo):
         # sigue es texto corrido, el comentario se queda dentro del parrafo
         partes[i] = re.sub(r"(?<=[^\s.:;?!\]}])\n\n(% -{10} pagina \d+ -{10})\n\n(?=[a-z$(])",
                            lambda m: "\n" + m.group(1) + "\n", parte)
-    tex = re.sub(r"\n{3,}", "\n\n", "".join(partes)).strip() + "\n"
+    tex = _entornos("".join(partes), nombres)
+    tex = re.sub(r"\n{3,}", "\n\n", tex).strip() + "\n"
     return tex, _titulo(titulo)
 
 
@@ -406,14 +526,16 @@ def _huella(resto):
     return hashlib.sha1(resto.encode("utf-8")).hexdigest()[:16]
 
 
-def documento(cuerpo, nombre="", estado="sin_revisar", fecha=None):
-    """El .tex completo de una transcripcion. La primera linea lleva la huella del resto."""
+def documento(cuerpo, nombre="", estado="sin_revisar", fecha=None, preambulo=None):
+    """El .tex completo de una transcripcion. La primera linea lleva la huella del resto.
+    preambulo: el tuyo (transcripciones/preambulo.tex) en vez del de aqui; tiene que definir los
+    entornos teorema, lema, ..., demostracion y el comando \\duda."""
     tex, titulo = cuerpo_latex(cuerpo)
     fecha = fecha or datetime.date.today().isoformat()
     resto = (f"% Exportado de transcripciones/{nombre}.md el {fecha} (estado: {estado}).\n"
              "% La fuente es el .md: lo que corrijas aqui no vuelve al .md ni al indice.\n"
              f"% Para rehacerlo desde el .md: python doc.py transcribir --tex {nombre}\n"
-             + PREAMBULO
+             + (preambulo.rstrip("\n") + "\n" if preambulo and preambulo.strip() else PREAMBULO)
              + _declaraciones(titulo + tex)
              + (f"\\title{{{titulo}}}\n\\date{{}}\n" if titulo else "")
              + "\\begin{document}\n"

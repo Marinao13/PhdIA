@@ -559,6 +559,28 @@ def cmd_transcribir(args):
         print("entra en el indice con:  python doc.py indexar   "
               + ("(fuente curso: buscar --fuente curso)" if t.get("tipo") == "curso" else "(fuente nota)"))
         return
+    if getattr(args, "estructura", None):
+        fase, _ = E.fase_actual()
+        if fase not in E.MOTOR_PERMITIDO:
+            M.aviso("MOTOR APAGADO: " + E.EXPLICACION.get(fase, ""))
+            return
+        try:
+            r = T.estructura(args.estructura, progreso=lambda s: print("  " + s))
+        except M.MotorApagado as e:
+            M.aviso("MOTOR APAGADO: " + str(e))
+            return
+        if r is None:
+            print(f"no existe transcripciones/{args.estructura}.md  (python doc.py transcribir --lista)")
+            return
+        eur = T.coste_eur(r["coste"])
+        print(f"{r['bloques']} enunciados y demostraciones marcados"
+              + (f" (paginas {','.join(str(n) for n in r['paginas'])})" if r["paginas"] else "")
+              + (f"; ~{eur} EUR" if eur else ""))
+        if r["paginas"]:
+            print("son lineas <!-- teorema --> ... <!-- fin --> en el .md: no cambian el texto y en la web no se ven. "
+                  "Si un bloque acaba donde no es, mueve su <!-- fin -->")
+            _decir_tex(*T.exportar_tex(args.estructura), args.estructura)
+        return
     if getattr(args, "figuras", None):
         fase, _ = E.fase_actual()
         if fase not in E.MOTOR_PERMITIDO:

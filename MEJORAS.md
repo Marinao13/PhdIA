@@ -146,8 +146,12 @@ revision ("quiza tardo menos revisando simplemente en lugar de escribirlo todo d
 - Figuras (peticion del 2026-11-13): cada dibujo se recorta del original por la caja que da el
   modelo y entra como imagen en el `.md`, la web y el `.tex`; `--figuras NOMBRE` lo hace en una
   transcripcion ya hecha. No se redibuja con TikZ: seria una version del modelo, no el dibujo.
-- Formato del `.tex` (peticion del 2026-11-13): pendiente de que Mariano pase su TFG/TFM en
-  `.tex`, para copiar preambulo, entornos de teorema y macros.
+- Formato del `.tex` (peticion del 2026-11-13): como el TFM de Mariano, a partir de sus PDF
+  (TFG, TFM y unos apuntes de Geometria de otra autora, que van en otro estilo y no se han
+  seguido). Enunciados y demostraciones en entornos de amsthm con el estilo del TFM; los bloques
+  se marcan en el `.md` con `<!-- teorema --> ... <!-- fin -->` (el modelo al transcribir, o
+  `--estructura NOMBRE` en lo ya hecho). `transcripciones/preambulo.tex` sustituye al de serie.
+  Falta: sus macros y paquetes, que requieren los `.tex`.
 - Lo que no hace: no copia nada a `lecturas/ID.md` (eso es de Mariano); no transcribe en fase
   1 ni 3 con el modelo; no lanza `indexar`.
 

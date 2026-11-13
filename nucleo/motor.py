@@ -292,6 +292,8 @@ def _simulado(system, messages):
     ultimo = messages[-1]["content"] if messages else ""
     if isinstance(ultimo, list):                       # mensaje con imagenes: solo el texto
         ultimo = " ".join(p.get("text", "") for p in ultimo if isinstance(p, dict))
+    if "MODO_ESTRUCTURA" in system:
+        return "1-2: teorema\n3: demostracion"
     if "MODO_FIGURAS" in system:
         n = len(re.findall(r"^\d+\. ", ultimo, re.M)) or 1
         return "\n".join(f"{k + 1}: 10,10,60,45" for k in range(n))

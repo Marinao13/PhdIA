@@ -93,6 +93,26 @@ que es mas corto que escribirlo de cero. Nada sin revisar entra en el indice ni 
      generado (salieron seis fallos, corregidos). Aun asi, hasta que no lo compiles tu no esta
      probado de verdad: si algo no compila en tu LaTeX, dimelo con el error.
 
+El formato del `.tex` es el de tu TFM (visto en su PDF): 12 pt, enunciados con la etiqueta en
+negrita y numeracion corrida y comun (Teorema 1, Observacion 2...), cuerpo en redonda,
+"Demostracion:" en negrita y cuadrado negro al final. Cada enunciado y cada demostracion van
+en su entorno (`teorema`, `lema`, `proposicion`, `corolario`, `definicion`, `observacion`,
+`ejemplo`, `notacion`, `nota`, `demostracion`), con su nombre: `**Teorema (Pringsheim):**`
+sale como `\begin{teorema}[Pringsheim]`.
+
+- De donde sale: en el `.md`, cada bloque va entre una linea `<!-- teorema -->` y una linea
+  `<!-- fin -->`. En la web no se ven; en el texto de "corregir esta pagina", si. Si un bloque
+  acaba donde no es, mueve su `<!-- fin -->`; si falta uno, ponlo tu.
+- En una transcripcion nueva las pone el modelo al transcribir.
+- En una ya hecha: `python doc.py transcribir --estructura NOMBRE`. Pregunta al modelo que
+  parrafos forman cada enunciado y cada demostracion (una llamada de texto por pagina, unos
+  2 centimos) y solo anade esas lineas: no cambia ni una palabra. Probado con tu curso el
+  2026-11-13: 57 bloques en 17 hojas, 63 s y 27 centimos.
+- Otro preambulo: si dejas un `transcripciones/preambulo.tex` (desde `\documentclass` hasta
+  antes de `\begin{document}`), se usa el tuyo. Tiene que definir esos entornos y `\duda`.
+- Lo que no se: como son tus macros y tus paquetes, porque solo tengo los PDF. Con los `.tex`
+  del TFM podria copiar el preambulo tal cual.
+
 Las figuras: cada dibujo (una grafica, unos ejes, un esquema) se recorta del original y entra
 como imagen, con la descripcion del modelo debajo como pie. Los recortes quedan en
 `transcripciones/figuras/` y los usan el `.md`, la web y el `.tex` (`\includegraphics`). No se
